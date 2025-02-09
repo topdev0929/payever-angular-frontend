@@ -1,0 +1,29 @@
+<form
+  *ngIf="mode === modeEnum.Edit"
+  class="form-table"
+  [formGroup]="formGroup">
+  <ng-container [ngSwitch]="guarantorRelation">
+    <ng-container *ngSwitchCase="guarantorRelationEnum.EQUIVALENT_HOUSEHOLD">
+      <guarantor-details
+        formControlName="addressForm"
+        *ngIf="formGroup.get('addressForm').enabled"></guarantor-details>
+    </ng-container>
+    <ng-container *ngSwitchCase="guarantorRelationEnum.OTHER_HOUSEHOLD">
+      <address-form
+        *ngIf="{ params: addressParams$ | async } as vm"
+        formControlName="addressForm"
+        [paymentSettings]="addressSettings"
+        [isFilledFieldsReadonly]="vm.params.forceAddressOnlyFillEmptyAllowed">
+      </address-form>
+    </ng-container>
+  </ng-container>
+
+  <customer-form formControlName="personalForm"></customer-form>
+
+  <checkout-sdk-continue-button
+    class="button-continue"
+    [text]="translations.buttonText"
+    [loading]="loading$ | async"
+    (clicked)="onContinue()">
+  </checkout-sdk-continue-button>
+</form>

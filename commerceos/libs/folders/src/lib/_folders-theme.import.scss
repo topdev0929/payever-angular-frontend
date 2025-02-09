@@ -1,0 +1,11 @@
+@use 'pe_theming' as pet;
+@use './container/folders-theme.component' as folders;
+@use './components/skeleton/skeleton-theme.component' as skeleton;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @if $color-config != null {
+    @include folders.color($color-config);
+    @include skeleton.color($color-config);
+  }
+}

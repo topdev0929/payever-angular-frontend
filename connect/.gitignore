@@ -1,0 +1,10 @@
+node_modules
+.DS_Store
+dist
+.idea
+.vscode
+.history
+i18n-serve
+src/env.json
+src/apps/standalone/app/poligon
+coverage

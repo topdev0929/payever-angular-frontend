@@ -1,0 +1,20 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $border: map.get($color-config, 'border');
+  $active-text: map.get($color-config, 'active-text');
+  $confirm: map.get($color-config, 'confirm');
+  $x-button: map.get($color-config, 'x-button');
+  $text-color: map.get($color-config, 'text-color');
+  peb-slide-toggle {
+    label {
+        color: $text-color;
+    }
+    input:checked ~ .bar {
+        background-color: $confirm;
+      }
+      .bar {
+        background-color: $x-button;
+      }
+  }
+}

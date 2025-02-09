@@ -1,0 +1,49 @@
+<form
+  *ngIf="vm$ | async as vm"
+  class="form-table"
+  [formGroup]="formGroup">
+  <address-form
+    formControlName="billingAddress"
+    [isFilledFieldsReadonly]="vm.filledFieldsReadonly"
+    [isPhoneRequired]="vm.isPhoneRequired"
+    [isCodeForPhoneRequired]="vm.isCodeForPhoneRequired">
+  </address-form>
+
+  <div
+    class="form-table form-table-checkout"
+    *ngIf="!vm.isOnlyBilling">
+    <legend
+      class="hidden-legend"
+      i18n="@@checkout_address_edit.form.deliver_to_different_address.label">
+      checkout_address_edit.form.deliver_to_different_address.label
+    </legend>
+    <div class="col-xs-12 out-of-form-background">
+      <mat-checkbox
+        i18n="@@checkout_address_edit.form.deliver_to_different_address.label"
+        (change)="setSingleAddress($event.checked)"
+        [checked]="!isSingleAddress"
+        [disabled]="vm.isOnlyBilling
+          || vm.loading
+          || vm.filledFieldsReadonly">
+        checkout_address_edit.form.deliver_to_different_address.label
+      </mat-checkbox>
+    </div>
+  </div>
+
+  <address-form
+    *ngIf="formGroup.get('shippingAddress').enabled"
+    formControlName="shippingAddress"
+    [class.hidden]="isSingleAddress || vm.isOnlyBilling"
+    [isShipping]="true"
+    [isFilledFieldsReadonly]="vm.filledFieldsReadonly">
+  </address-form>
+
+  <checkout-sdk-continue-button
+    class="button-continue"
+    type="submit"
+    [text]="vm.continueText"
+    [loading]="vm.loading"
+    [disabled]="vm.loading"
+    (clicked)="submit()">
+  </checkout-sdk-continue-button>
+</form>

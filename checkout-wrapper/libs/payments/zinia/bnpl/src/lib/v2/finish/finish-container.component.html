@@ -1,0 +1,16 @@
+<zinia-bnpl-finish-v2
+  [errorMessage]="errorMessage"
+  [embeddedMode]="embeddedMode"
+  [merchantMode]="merchantMode"
+  [showCloseButton]="showCloseButton"
+  [isDisableChangePayment]="isDisableChangePayment"
+  [nodeResult]="paymentResponse"
+  [isLoading]="!paymentResponse && !errorMessage"
+  [otpStatus]="verifyOtp$ | async"
+  (cleanUp)="cleanUp()"
+  (close)="close()"
+  (tryAgain)="tryAgain()"
+  (closeButtonClicked)="close()"
+  (changePaymentMethod)="changePayment($event)"
+  (otpCodeReady)="otpCodeReady($event)">
+</zinia-bnpl-finish-v2>

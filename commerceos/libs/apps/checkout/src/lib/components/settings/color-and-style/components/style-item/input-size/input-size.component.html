@@ -1,0 +1,28 @@
+
+<div class="mat-list-item-flex pe-input-px">
+  <peb-form-field-input
+    class="field-input"
+    label="{{ labelTranslateKey | translate }}"
+    appearance="label"
+  >
+    <input
+      #input
+      placeholder="{{ 'actions.enterValue' | translate }}"
+      [formControl]="control"
+      peInputMask
+      [mask]="maskFn"
+      [unmask]="unmaskFn"
+    />
+
+   
+    <div class="suffix">
+      <peb-select selectType="full" [formControl]="sizeUnit">
+        <peb-select-option
+          *ngFor="let option of getUnitOptions()"
+          value="{{ option }}"
+          label="{{ option }}"
+        ></peb-select-option>
+    </peb-select>
+    </div>
+  </peb-form-field-input>
+</div>

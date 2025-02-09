@@ -1,0 +1,430 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "client": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/client",
+            "polyfills": "src/polyfills.ts",
+            "index": "src/index.html",
+            "main": "src/index.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "assets": [
+              "src/assets",
+              "src/env.json",
+              {
+                "glob": "**/*",
+                "input": "assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/ng-kit/src/kit/i18/assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/ui-kit/icons-png",
+                "output": "/assets/ui-kit/icons-png"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/ui-kit/images",
+                "output": "/assets/ui-kit/images"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/builder/temp-checkout/custom-elements-shims",
+                "output": "./dist_ext/checkout/dist_ext/checkout"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/builder/temp-checkout",
+                "output": "./dist_ext/checkout"
+              }
+            ],
+            "styles": [
+              "node_modules/@pe/ui-kit/scss/pe_google_fonts.scss",
+              "src/assets/styles.scss"
+            ],
+            "scripts": [
+//              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/swiper/dist/js/swiper.min.js",
+              "src/load-icons.js"
+            ]
+          },
+          "configurations": {
+            "prod": {
+              "optimization": true,
+              "outputHashing": "bundles",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "dev": {
+              "optimization": true,
+              "outputHashing": "bundles",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ]
+            },
+            "stage": {
+              "optimization": true,
+              "outputHashing": "bundles",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.stage.ts"
+                }
+              ]
+            },
+            "test": {
+              "optimization": true,
+              "outputHashing": "bundles",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": false,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.test.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "client:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "client:build:production"
+            },
+            "test": {
+              "browserTarget": "client:build:test"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "client:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "karmaConfig": "./karma.conf.js",
+            "tsConfig": "src/tsconfig.spec.json",
+            "scripts": [
+//              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/swiper/dist/js/swiper.min.js"
+            ],
+            "styles": [
+//              "node_modules/@pe/ui-kit/scss/pe_style.scss",
+              "src/assets/styles.scss"
+            ],
+            "assets": [
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/ng-kit/src/kit/i18/assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/ui-kit/icons-png",
+                "output": "/assets/ui-kit/icons-png"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/ui-kit/images",
+                "output": "/assets/ui-kit/images"
+              }
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "src/tsconfig.app.json",
+              "src/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/server",
+            "main": "src/main.server.ts",
+            "tsConfig": "src/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": false,
+              "vendorChunk": false
+            },
+            "dev": {
+              "fileReplacements": [],
+              "sourceMap": false,
+              "optimization": false
+            }
+          }
+        }
+      }
+    },
+    "client-e2e": {
+      "root": "",
+      "sourceRoot": "e2e",
+      "projectType": "application"
+    },
+    "client_dev": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/builder-client",
+            "index": "src/app/index.dev.html",
+            "main": "src/index.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "assets": [
+              "src/assets",
+              "src/env.json",
+              {
+                "glob": "**/*",
+                "input": "assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/ng-kit/src/kit/i18/assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/ui-kit/icons-png",
+                "output": "/assets/ui-kit/icons-png"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/ui-kit/images",
+                "output": "/assets/ui-kit/images"
+              },
+              {
+                "glob": "**/*",
+                "input": "i18n-serve",
+                "output": "/assets/i18n"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/builder/temp-checkout/custom-elements-shims",
+                "output": "./dist_ext/checkout/dist_ext/checkout"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/builder/temp-checkout",
+                "output": "./dist_ext/checkout"
+              }
+            ],
+            "styles": [
+              "node_modules/@pe/ui-kit/scss/pe_google_fonts.scss",
+              "src/assets/styles.scss"
+            ],
+            "scripts": [
+//              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/swiper/dist/js/swiper.min.js",
+              "src/load-icons.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "outputHashing": "bundles",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": false,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ]
+            },
+            "test": {
+              "optimization": true,
+              "outputHashing": "bundles",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": false,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.test.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "client_dev:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "client_dev:build:production"
+            },
+            "test": {
+              "browserTarget": "client_dev:build:test"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "client_dev:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "karmaConfig": "./karma.conf.js",
+            "tsConfig": "src/tsconfig.spec.json",
+            "scripts": [
+//              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/swiper/dist/js/swiper.min.js"
+            ],
+            "styles": [
+              "node_modules/@pe/ui-kit/scss/pe_style.scss",
+              "src/assets/styles.scss"
+            ],
+            "assets": [
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/ng-kit/src/kit/i18/assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/ui-kit/icons-png",
+                "output": "/assets/ui-kit/icons-png"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/ui-kit/images",
+                "output": "/assets/ui-kit/images"
+              },
+              {
+                "glob": "**/*",
+                "input": "i18n-serve",
+                "output": "/assets/i18n"
+              }
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "src/tsconfig.app.json",
+              "src/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "client_dev-e2e": {
+      "root": "",
+      "sourceRoot": "e2e",
+      "projectType": "application"
+    }
+  },
+  "defaultProject": "client",
+  "schematics": {
+    "@schematics/angular:component": {
+      "prefix": "builder",
+      "styleext": "scss"
+    },
+    "@schematics/angular:directive": {
+      "prefix": "builder"
+    }
+  }
+}

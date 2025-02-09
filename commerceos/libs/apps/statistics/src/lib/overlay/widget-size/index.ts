@@ -1,0 +1,1 @@
+export { PeStatisticsWidgetSizeComponent } from './widget-size.component';

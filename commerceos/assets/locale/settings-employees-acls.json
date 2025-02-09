@@ -1,0 +1,139 @@
+{
+  "commerceos": {
+    "ads": {
+      "app": {
+        "name": "Ads"
+      }
+    },
+    "affiliates": {
+      "app": {
+        "name": "Affiliates"
+      }
+    },
+    "appointments": {
+      "app": {
+        "name": "Appointments"
+      }
+    },
+    "blog": {
+      "app": {
+        "name": "Blog"
+      }
+    },
+    "chat": {
+      "app": {
+        "name": "Chat"
+      }
+    },
+    "checkout": {
+      "app": {
+        "name": "Checkout"
+      }
+    },
+    "commerceos": {
+      "app": {
+        "name": "CommerceOS"
+      }
+    },
+    "connect": {
+      "app": {
+        "name": "Connect"
+      }
+    },
+    "contacts": {
+      "app": {
+        "name": "Contacts"
+      }
+    },
+    "coupons": {
+      "app": {
+        "name": "Coupons"
+      }
+    },
+    "help": {
+      "app": {
+        "name": "Help"
+      }
+    },
+    "invoice": {
+      "app": {
+        "name": "Invoice"
+      }
+    },
+    "marketing": {
+      "app": {
+        "name": "Marketing"
+      }
+    },
+    "marketplace": {
+      "app": {
+        "name": "Marketplace"
+      }
+    },
+    "message": {
+      "app": {
+        "name": "Message"
+      }
+    },
+    "pos": {
+      "app": {
+        "name": "PoS"
+      }
+    },
+    "products": {
+      "app": {
+        "name": "Products"
+      }
+    },
+    "settings": {
+      "app": {
+        "name": "Settings"
+      }
+    },
+    "shipping": {
+      "app": {
+        "name": "Shipping"
+      }
+    },
+    "shop": {
+      "app": {
+        "name": "Shop"
+      }
+    },
+    "site": {
+      "app": {
+        "name": "Site"
+      }
+    },
+    "sms": {
+      "app": {
+        "name": "SMS"
+      }
+    },
+    "social": {
+      "app": {
+        "name": "Social"
+      }
+    },
+    "statistics": {
+      "app": {
+        "name": "Statistics"
+      }
+    },
+    "studio": {
+      "app": {
+        "name": "Studio"
+      }
+    },
+    "subscriptions": {
+      "app": {
+        "name": "Subscriptions"
+      }
+    },
+    "transactions": {
+      "app": {
+        "name": "Transactions"
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+@import '../../../../../../../shared/styles/assets/imports';
+
+.pe-checkout-bootstrap .email-suggestions-wrapper {
+  background: $color-white !important;
+  border-radius: 0 !important;
+  border: 1px solid hsla(0, 0%, 7%, 0.2);
+  border-top: none;
+
+  // Looks better
+  margin-top: -1px;
+
+  .mat-option {
+    height: 60px !important;
+    background: $color-white !important;
+  }
+}

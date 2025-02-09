@@ -1,0 +1,23 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+:host {
+  &.pe-input-spinner {
+    .pe-input-spinner {
+      &-inc, &-dec {
+        min-width: 21px;
+        max-width: 21px;
+        height: 25px;
+        color: $color-secondary;
+        cursor: pointer;
+      }
+      &-inc {
+        padding: 4px 0 4px 4px;
+      }
+      &-dec {
+        padding: 4px 4px 4px 0;
+      }
+    }
+    .pe-input-controll {
+      text-align: center;
+    }
+  }
+}

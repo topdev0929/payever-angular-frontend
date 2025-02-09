@@ -1,0 +1,18 @@
+:host {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+::ng-deep {
+  pe-data-grid {
+    margin-left: 0 !important;
+    height: calc(100vh - 50px) !important;
+  }
+  .sidebar-menu__item {
+    height: initial !important;
+  }
+}

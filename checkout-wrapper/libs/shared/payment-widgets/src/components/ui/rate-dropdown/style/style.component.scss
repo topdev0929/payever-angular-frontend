@@ -1,0 +1,29 @@
+@use '@angular/cdk' as cdk;
+
+@include cdk.overlay();
+
+.pe-widget-rate-drop-down-menu + * .cdk-overlay-pane {
+  & > div.mat-menu-panel {
+    max-width: 100% !important;
+    width: 100% !important;
+    min-width: 100px !important;
+    position: absolute !important;
+    right: 0 !important;
+
+    border: 1px solid #dedede !important;
+    font-family: Roboto, sans-serif !important;
+    font-weight: 300 !important;
+    box-shadow: 0 2px 10px rgba(17, 17, 17, 0.15) !important;
+    background-color: #fff !important;
+    border-radius: 8px !important;
+    margin-top: 5.5px !important;
+    margin-bottom: 5.5px !important;
+    min-height: 48px !important;
+    max-height: 320px !important;
+
+    .mat-menu-content {
+      border-radius: 8px 0 0 8px !important;
+      background: #ffffff !important;
+    }
+  }
+}

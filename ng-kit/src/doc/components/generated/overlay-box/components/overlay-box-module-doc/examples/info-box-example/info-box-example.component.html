@@ -1,0 +1,15 @@
+<button (click)="showLoading(true)">Show loading</button>
+<button (click)="showLoading(false)">Hide loading</button>
+
+<!-- NOTE: if you want to have blur backdrop you can use [blurBackdrop]="true"
+     It set InfoBoxService.hasBlurBackdrop to true and to false after destroy -->
+
+<pe-info-box [title]="'Settings'" (onClose)="onClose()" >
+  <ng-container content>
+    Content
+  </ng-container>
+  <ng-container footer>
+    <button mat-button>Contact Payever</button>
+    <button mat-button>Leave Feedback</button>
+  </ng-container>
+</pe-info-box>

@@ -1,0 +1,44 @@
+<ng-container *ngIf="!isLoading && (isOpened$ | async)" [ngTemplateOutlet]="rateSelectDropdown"></ng-container>
+<mat-card (click)="openRatesDropdown()" class="mat-card-dark mat-card-no-shadow mat-card-small-paddings">
+  <ng-container *ngIf="!isLoading && selectedRate" [ngTemplateOutlet]="mainButtonRateSelectedView"></ng-container>
+  <ng-container *ngIf="!isLoading && !selectedRate" [ngTemplateOutlet]="mainButtonRateNotSelectedView"></ng-container>
+  <ng-container *ngIf="isLoading" [ngTemplateOutlet]="mainButtonRateLoadingView"></ng-container>
+</mat-card>
+
+<ng-template #mainButtonRateSelectedView>
+  <div class="select-rate-container">
+    <pe-rate-view [rate]="selectedRate" [previewMode]="true" [previewAsSingleLine]="previewAsSingleLine"></pe-rate-view>
+    <button mat-button
+            *ngIf="isShowArrowDropdown()"
+            type="button"
+            class="mat-button-link mat-button-space-around mat-button-fit-content choose-rate-toggle-button"
+    ><svg class="icon icon-16"><use xlink:href="#icon-arrow-left-16"></use></svg></button>
+  </div>
+</ng-template>
+
+<ng-template #mainButtonRateNotSelectedView>
+  <div class="select-rate-container">
+    <pe-rate-view [rate]="{ title: noRateSelectedText ? noRateSelectedText : ('ng_kit.rate.no_rate_selected' | translate) }" [previewMode]="true" [previewAsSingleLine]="true" [notSelected]="true"></pe-rate-view>
+    <button mat-button
+            type="button"
+            class="mat-button-link mat-button-space-around mat-button-fit-content choose-rate-toggle-button"
+    ><svg class="icon icon-16"><use xlink:href="#icon-arrow-left-16"></use></svg></button>
+  </div>
+</ng-template>
+
+<ng-template #mainButtonRateLoadingView>
+  <button mat-button
+          class="mat-button-link mat-button-space-between mat-button-block">&nbsp;</button>
+  <div class="loader_48"></div>
+</ng-template>
+
+<ng-template #rateSelectDropdown>
+  <div class="rates-dropdown" [style.max-height.px]="maxDropDownHeight">
+    <div *ngFor="let rate of rates"
+         class="rates-dropdown-option"
+         [class.selected]="selectedRate?.id === rate?.id"
+         (click)="onRateClicked(rate)">
+      <div [innerHtml]="rate.listTitle || rate.title"></div>
+    </div>
+  </div>
+</ng-template>

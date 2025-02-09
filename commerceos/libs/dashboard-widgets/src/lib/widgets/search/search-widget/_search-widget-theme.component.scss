@@ -1,0 +1,59 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $widget-background: map.get($color-config, 'widget-background');
+  $text-color: map.get($color-config, 'text-color');
+  $button: map.get($color-config, 'button');
+  $search-icon: map.get($color-config, 'search-icon');
+  $search-placeholder: map.get($color-config, 'search-placeholder');
+  $x-button: map.get($color-config, 'x-button');
+  $scrollbar-thumb-hover: map.get($color-config, 'scrollbar-thumb-hover');
+  $active-text: map.get($color-config, 'active-text');
+  $badge-button: map.get($color-config, 'badge-button');
+  $label-color: map.get($color-config, 'label-color');
+  $backdrop-filter-light-transparent: map.get($color-config, 'backdrop-filter-light-transparent');
+  
+  .pe-search-widget-container {
+    position: relative;
+    z-index: 999;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      backdrop-filter: $backdrop-filter-light-transparent;
+      border-radius: 16px;
+    }
+  }
+  .pe-search-widget {
+    background: $widget-background;
+    .search-text {
+      color: $text-color;
+    }
+    .widget-card {
+      .mat-icon {
+        color: $search-icon;
+      }
+      &-header-buttons {
+        .search-widget-button {
+          background-color: $button;
+          color: $active-text;
+          border: none;
+        }
+        .search-widget-close {
+          background-color: $badge-button;
+          color: $text-color;
+          border: none;
+        }
+      }
+      .search-text {
+        &::placeholder {
+          color: $search-placeholder;
+        }
+      }
+    }
+  }
+}

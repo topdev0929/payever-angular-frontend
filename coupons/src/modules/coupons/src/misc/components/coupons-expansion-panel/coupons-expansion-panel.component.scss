@@ -1,0 +1,57 @@
+.pe-coupons-expansion-panel {
+  &-header {
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.03em 2em;
+  }
+
+  &-indicator {
+    height: 1.125em;
+    position: relative;
+    width: 1.125em;
+    transform: rotate(0);
+
+    transition: transform 300ms cubic-bezier(.4, 0, .2, 1);
+
+    .shape {
+      background-color: #ffffff;
+      height: 0.125em;
+      width: 0.925em;
+      position: absolute;
+      top: 0.5em;
+      left: 0;
+
+      &:last-of-type {
+        transform: rotate(90deg);
+
+        transition: transform 300ms cubic-bezier(.4, 0, .2, 1);
+      }
+    }
+
+    &.open {
+      transform: rotate(180deg);
+
+      .shape {
+
+        &:last-of-type {
+          transform: rotate(0);
+        }
+      }
+    }
+  }
+
+  &-content {
+    padding: 0 1em;
+    opacity: 0;
+    overflow: hidden;
+
+    transition: opacity 450ms cubic-bezier(.4, 0, .2, 1);
+
+    &.open {
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+<div class="checkout-style-corner-select">
+  <svg class="icon icon-18">
+    <use [attr.xlink:href]="cornersIcons[selectedCorner]"></use>
+  </svg>
+  <span class="checkout-style-corner-select__label" translate>{{ labelTranslateKey }}</span>
+  <div class="checkout-style-corner-select__button">
+    <button peb-text-button color="confirm" [matMenuTriggerFor]="menuAlignment">
+      {{ 'settings.colorAndStyle.actions.changeCorner' | translate }}
+    </button>
+  </div>
+  <mat-menu #menuAlignment="matMenu" [backdropClass]="'checkout-corner-button'">
+    <peb-form-background>
+      <button *ngFor="let corner of corners" mat-menu-item (click)="setSelectedCorner(corner)">
+      <svg class="icon icon-18">
+        <use [attr.xlink:href]="cornersIcons[corner]"></use>
+      </svg>
+    </button>
+  </peb-form-background>
+  </mat-menu>
+</div>

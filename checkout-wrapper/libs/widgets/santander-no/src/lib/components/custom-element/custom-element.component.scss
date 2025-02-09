@@ -1,0 +1,16 @@
+@import '../../../../../../shared/payment-widgets/assets/root-styles.component.scss';
+
+:host {
+  display: block;
+  @include widget-root-styles;
+
+  ::ng-deep finexp-ui-selected-rate-details {
+    .value,
+    .title {
+      // From Tanja 01.01.2021:
+      // 2. (NO) Here we are missing that last request from them all numbers must be same size (new legal rule effective 1/1/21)
+      font-size: 16px !important;
+      font-weight: normal !important;
+    }
+  }
+}

@@ -1,0 +1,58 @@
+<button type="button" mat-button (click)="toggle()">Toggle</button>
+<div class="doc-container-black">
+  <pe-sidenav [opened]="isOpen" [hasBackdrop]="false" classNames="col-xs-5 mat-sidenav-padding-top mat-sidenav-dark">
+    <ng-container sidenav-content [ngSwitch]="selectedListItem">
+      <ng-template *ngSwitchCase="'main'" [ngTemplateOutlet]="mainContent"></ng-template>
+      <ng-template *ngSwitchCase="'styles'" [ngTemplateOutlet]="stylesContent"></ng-template>
+      <ng-template *ngSwitchCase="'buttons'" [ngTemplateOutlet]="buttonsContent"></ng-template>
+      <ng-template *ngSwitchCase="'navigation'" [ngTemplateOutlet]="navigationContent"></ng-template>
+      <ng-template *ngSwitchCase="'page'" [ngTemplateOutlet]="pagesContent"></ng-template>
+    </ng-container>
+    <ng-template #mainContent>
+      <pe-sidenav-header
+        header
+        [rightButtonConfig]="rightButtonConfig">
+      </pe-sidenav-header>
+      <h3 sub-header>Styles</h3>
+      <div class="mat-sidenav-paddings">
+        <mat-list class="mat-sidenav-list">
+          <mat-list-item (click)="item.onClick($event)" *ngFor="let item of list" class="mat-list-item-border">
+            {{item.title}}
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </ng-template>
+    <ng-template #stylesContent>
+      <pe-sidenav-header
+        header
+        [leftButtonConfig]="leftButtonConfig"
+        [rightButtonConfig]="rightButtonConfig">
+      </pe-sidenav-header>
+      <h1>Styles Content</h1>
+    </ng-template>
+    <ng-template #buttonsContent>
+      <pe-sidenav-header
+        header
+        [leftButtonConfig]="leftButtonConfig"
+        [rightButtonConfig]="rightButtonConfig">
+      </pe-sidenav-header>
+      <h1>Buttons Content</h1>
+    </ng-template>
+    <ng-template #navigationContent>
+      <pe-sidenav-header
+        header
+        [leftButtonConfig]="leftButtonConfig"
+        [rightButtonConfig]="rightButtonConfig">
+      </pe-sidenav-header>
+      <h1>Navigation Content</h1>
+    </ng-template>
+    <ng-template #pagesContent>
+      <pe-sidenav-header
+        header
+        [leftButtonConfig]="leftButtonConfig"
+        [rightButtonConfig]="rightButtonConfig">
+      </pe-sidenav-header>
+      <h1>Pages Content</h1>
+    </ng-template>
+  </pe-sidenav>
+</div>

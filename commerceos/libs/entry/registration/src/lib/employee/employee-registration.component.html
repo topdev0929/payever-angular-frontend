@@ -1,0 +1,17 @@
+<entry-layout [entryLogo]="industryIcon" [hideLogo]="false">
+  <ng-container *ngIf="(notification$ | async) as notification; else registration">
+    <entry-shared-employee-notification
+      [title]="notification.title"
+      [description]="notification.description"
+      [businessId]="(getDataWithBusinessId$ | async).businessId"
+    ></entry-shared-employee-notification>
+  </ng-container>
+  <ng-template #registration>
+    <entry-create-personal-form
+      *ngIf="!(notification$ | async)"
+      [employee]="true"
+      [tokenData]="getDataWithBusinessId$ | async"
+      (eventOn)="onFormEvent($event)"
+    ></entry-create-personal-form>
+  </ng-template>
+</entry-layout>

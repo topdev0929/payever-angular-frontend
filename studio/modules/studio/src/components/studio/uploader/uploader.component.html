@@ -1,0 +1,10 @@
+<div class="row-uploader" [ngClass]="theme">
+  <mat-spinner class="example-margin"  [diameter]="30">
+  </mat-spinner>
+  <div class="upload-items">
+    <p>Uploading {{itemsUpload}} items.</p>
+  </div>
+  <div class="cancel">
+    <p (click)="cancelUpload()">Cancel</p>
+  </div>
+</div>

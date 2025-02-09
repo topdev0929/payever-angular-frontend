@@ -1,0 +1,32 @@
+<form novalidate (ngSubmit)="onSubmit()" [formGroup]="form" *ngIf="form">
+
+  <div class="form-table">
+    <pe-form-fieldset
+      [isSubmitted]="isSubmitted"
+      [fields]="testFieldset"
+      [formToken]="formToken"
+      [paymentFlowId]="paymentFlowId"
+      [formGroup]="form"
+      [translationScope]="formTranslationsScope"
+      [errors]="errors$ | async"
+      [formStyle]="'default'"
+    ></pe-form-fieldset>
+  </div>
+
+  <p>VALID: {{ form.valid }}</p>
+
+  <h3>Some buttons for testing</h3>
+
+  <button type="submit" (click)="onSubmit()">Submit</button>
+  <button type="button" (click)="onPrepareFormTokenData()">Prepare token data</button>
+  <button type="button" (click)="logValues()">Log values</button>
+  <button type="button" (click)="toggleCopyPaste(false)">Disable copypaste</button>
+  <button type="button" (click)="toggleCopyPaste(true)">Enable copypaste</button>
+  <button type="button" (click)="disableAll()">Disable all fields</button>
+  <button type="button" (click)="enableAll()">Enable all fields</button>
+  <button type="button" (click)="saveToCache()">To cache</button>
+  <button type="button" (click)="addExternalErrors()">Add external errors</button>
+
+  <p>Form values:</p>
+  <pre>{{ form.value | json }}</pre>
+</form>

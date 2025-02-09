@@ -1,0 +1,6 @@
+@import '../../../../../../shared/payment-widgets/assets/root-styles.component.scss';
+
+:host {
+  display: block;
+  @include widget-root-styles;
+}

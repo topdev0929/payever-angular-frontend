@@ -1,0 +1,155 @@
+@import "../../../../styles/src/lib/styles/variables";
+$space-between-controls: 10px;
+
+:host{
+  overflow: auto;
+}
+
+.main-form {
+  padding-bottom: 30px;
+}
+
+.form {
+  padding: 12px;
+
+  &__row {
+    margin-top: $space-between-controls;
+
+    &_border {
+      padding-top: $space-between-controls * 2;
+      position: relative;
+
+      &::before {
+        content: '';
+        height: 1px;
+        width: 100%;
+        display: block;
+        top: $space-between-controls;
+        position: absolute;
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+.group {
+  &__row {
+    margin-bottom: $space-between-controls / 2;
+    
+    >.top-padding {
+        padding-top: 8px;
+    }
+  }
+}
+
+.form__row {
+  &.inline {
+    display: grid;
+    grid-template-columns: 3fr 3fr;
+    grid-column-gap: 5px;
+    align-items: flex-start;
+    
+    >.group__label {
+    color: gray;
+    padding-top: 6px;
+    }
+  }
+  
+  &.property_inline{
+    display: grid;
+    grid-template-columns: 2fr 2fr 14px;
+    grid-column-gap: 4px;
+    align-items: flex-start;
+  }
+
+}
+
+.keyframe {
+  margin-bottom: 13px;
+  border-bottom: 1px solid #5252527a;
+  padding-bottom: 10px;
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: $space-between-controls;
+    text-transform: uppercase;
+  }
+}
+
+.property {
+  margin-bottom: $space-between-controls;
+  &__title {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 12px;
+    margin-top: $space-between-controls;
+    margin-inline-end: 5px;
+  }
+}
+
+.remove-button.mat-icon {
+  width: 14px;
+  height: 14px;
+  transition: color 0.2s;
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.peb-base-button.pe-form-button:not(.confirm, .warn, .text-confirm, .text-warn) {
+  font-size: 12px;
+  height: 28px;
+}
+
+.property-xy-group {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-row-gap: 5px;
+
+  peb-number-input{
+    margin-bottom: 5px;
+  }
+}
+
+.preview {
+  font-size: 11px;
+  height: 28px;
+}
+
+.peb-fill__thumbnail{
+  width: 100%;
+}
+
+peb-number-input{
+  min-width: 71px
+}
+
+.integration-select {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 6px;
+  background-color: rgba(36, 39, 46, 0.9);
+  padding: 6px 11px;
+  font-size: 12px;
+  font-weight: 400;
+  cursor: pointer;
+  grid-column: 1;
+  height: 33px;
+  overflow: hidden;
+  line-height: 23px;
+
+  >.arrow {
+    font-size: 28px;
+    line-height: 0px;
+    color: #0371e2;
+    font-weight: bold;
+    width: 23px;
+    height: 11px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: -3px;
+  }
+}

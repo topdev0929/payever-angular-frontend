@@ -1,0 +1,76 @@
+<pe-studio-grid-ui></pe-studio-grid-ui>
+<div class="navbar-detail" [ngClass]="theme">
+  <div></div>
+  <button class="get_image" *ngIf="mediaView===mediaEnum.allMedia" (click)="getItem()">Get</button>
+  <div class="actions-detail">
+   <div (click)="downloadImage()" *ngIf="mediaView===mediaEnum.ownMedia">
+     <svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" viewBox="0 0 13 16">
+       <g fill="none" fill-rule="evenodd">
+         <g fill="#FFF">
+           <g>
+             <path d="M0 15.714L12.767 15.714 12.767 13.9 0 13.9zM3.697 0L3.697 5.617 0 5.617 6.383 12.02 12.767 5.617 9.07 5.617 9.07 0z" transform="translate(-1281 -18) translate(1281 18)"/>
+           </g>
+         </g>
+       </g>
+     </svg>
+
+   </div>
+
+    <div [matMenuTriggerFor]="itemMenu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="4" height="16" viewBox="0 0 4 16" >
+        <g fill="none" fill-rule="evenodd">
+          <g fill="#FFF">
+            <g>
+              <path d="M13.75 3.928c-1.085 0-1.965-.88-1.965-1.964S12.665 0 13.75 0c1.085 0 1.965.88 1.965 1.964 0 1.085-.88 1.964-1.965 1.964M7.857 3.928c-1.085 0-1.964-.88-1.964-1.964S6.773 0 7.857 0 9.82.88 9.82 1.964c0 1.085-.88 1.964-1.964 1.964M1.964 3.928C.88 3.928 0 3.048 0 1.964S.88 0 1.964 0C3.05 0 3.928.88 3.928 1.964c0 1.085-.88 1.964-1.964 1.964" transform="translate(-1310 -18) rotate(-90 672 -638)"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+      <mat-menu #itemMenu="matMenu" backdropClass="image__backdrop" [classList]="'image__menu ' + theme">
+        <div class="image-options">
+          <div class="header">
+            <span>Options</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+              <g fill="none" fill-rule="evenodd">
+                <g fill="#636363">
+                  <g>
+                    <path d="M9.75 0c5.385 0 9.75 4.365 9.75 9.75s-4.365 9.75-9.75 9.75S0 15.135 0 9.75 4.365 0 9.75 0zm4.303 5.447c-.325-.324-.833-.354-1.19-.088l-.103.088-3.01 3.01-3.01-3.01-.102-.088c-.358-.266-.866-.236-1.19.088-.358.357-.358.936 0 1.293l3.009 3.01-3.01 3.01-.081.094c-.273.358-.246.871.081 1.199.325.324.833.354 1.19.088l.103-.088 3.01-3.011 3.01 3.01.102.09c.358.265.866.235 1.19-.09.358-.356.358-.935 0-1.292l-3.01-3.01 3.01-3.01.082-.094c.273-.358.246-.871-.081-1.199z" transform="translate(-1330 -16) translate(1330 16)"/>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+          <div class="content">
+            <div class="content__item" (click)="openPreviewDialog()">
+              <svg>
+                <use [attr.xlink:href]="'#icon-apps-media-details'"></use>
+              </svg>
+              <span>Details</span>
+            </div>
+          </div>
+        </div>
+      </mat-menu>
+    </div>
+    <div (click)="close()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 20 20">
+        <g fill="none" fill-rule="evenodd">
+          <g fill="#636363">
+            <g>
+              <path d="M9.75 0c5.385 0 9.75 4.365 9.75 9.75s-4.365 9.75-9.75 9.75S0 15.135 0 9.75 4.365 0 9.75 0zm4.303 5.447c-.325-.324-.833-.354-1.19-.088l-.103.088-3.01 3.01-3.01-3.01-.102-.088c-.358-.266-.866-.236-1.19.088-.358.357-.358.936 0 1.293l3.009 3.01-3.01 3.01-.081.094c-.273.358-.246.871.081 1.199.325.324.833.354 1.19.088l.103-.088 3.01-3.011 3.01 3.01.102.09c.358.265.866.235 1.19-.09.358-.356.358-.935 0-1.292l-3.01-3.01 3.01-3.01.082-.094c.273-.358.246-.871-.081-1.199z" transform="translate(-1330 -16) translate(1330 16)"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid" [ngClass]="theme" *ngIf="(image$ | async) as image">
+  <img class="bg-preview" *ngIf="image?.mediaType === 'image'" [src]="image?.url" alt="" (contextmenu)="$event.preventDefault()">
+  <video class="bg-preview" *ngIf="image?.mediaType === 'video'" controls>
+    <source [src]="getMediaUrl(image)" type="video/mp4">
+    <source [src]="getMediaUrl(image)" type="video/ogg">
+    <source [src]="getMediaUrl(image)" type="video/webm">
+    <track src="" kind="subtitles" srclang="en" label="English">
+  </video>
+</div>

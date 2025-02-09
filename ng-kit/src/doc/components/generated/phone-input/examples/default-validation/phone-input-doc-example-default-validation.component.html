@@ -1,0 +1,41 @@
+<header>
+  <p>
+    Phone input here has two validators: 
+  </p>
+    
+  <ul>
+    <li>
+      <code>Validators.required</code>
+    </li>
+    <li>
+      <code>phoneInputValidator()</code> - with default country-free simple validation
+    </li>
+  </ul>
+</header>
+
+<br>
+
+<form novalidate 
+      (ngSubmit)="onSubmit()" 
+      [formGroup]="form" 
+      *ngIf="form">
+  <div class="form-table">
+    <pe-form-fieldset 
+      [isSubmitted]="isSubmitted" 
+      [fields]="fieldset" 
+      [formGroup]="form" 
+      [errors]="errors$ | async" 
+      [formStyle]="'default'">
+    </pe-form-fieldset>
+  </div>
+
+  <button mat-button color="primary" type="submit" (click)="onSubmit()">Submit</button>
+  <button mat-button type="button" (click)="form.reset()">Reset</button>
+</form>
+
+<br>
+
+<footer>
+  <p>Form values:</p>
+  <pre>{{ form.value | json }}</pre>
+</footer>

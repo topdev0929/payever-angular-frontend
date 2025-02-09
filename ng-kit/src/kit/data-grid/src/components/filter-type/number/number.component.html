@@ -1,0 +1,78 @@
+<form class="form-table" novalidate (ngSubmit)="onSubmitForm()" #filterForm="ngForm">
+  <div class="form-fieldset-container transparent round-corners">
+    <div class="form-fieldset form-fieldset-no-margin">
+      <div class="row">
+        <div class="col-xs-12" (click)="$event.stopPropagation()">
+          <div class="pe-input">
+            <mat-form-field>
+              <mat-select #condition="ngModel"
+                          name="condition"
+                          [(ngModel)]="filter.condition"
+                          [panelClass]="'mat-select-panel-dark'"
+                          (selectionChange)="onChangeCondition()"
+              >
+                <mat-option *ngFor="let option of conditions"
+                            (click)="$event.stopPropagation()"
+                            [value]="option.value"
+                >{{ option.label }}</mat-option>
+              </mat-select>
+              <mat-label>Condition</mat-label>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <ng-container *ngIf="condition.value === rangeCondition">
+          <div class="col-xs-12">
+            <div class="pe-input">
+              <mat-form-field>
+                <input matInput
+                       min="0"
+                       [placeholder]="'ng_kit.data_grid.filter.placeholders.from' | translate"
+                       [(ngModel)]="filter.value.from"
+                       (click)="$event.stopPropagation()"
+                       name="valueFrom"
+                       #valueFrom="ngModel"
+                       [type]="filterSchema.type"
+                >
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <div class="pe-input">
+              <mat-form-field>
+                <input matInput
+                       min="0"
+                       [placeholder]="'ng_kit.data_grid.filter.placeholders.to' | translate"
+                       [(ngModel)]="filter.value.to"
+                       (click)="$event.stopPropagation()"
+                       name="valueTo"
+                       #valueTo="ngModel"
+                       [type]="filterSchema.type"
+                >
+              </mat-form-field>
+            </div>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="condition.value !== rangeCondition">
+          <div class="col-xs-12">
+            <div class="pe-input">
+              <mat-form-field>
+                <input matInput
+                       min="0"
+                       [placeholder]="'ng_kit.data_grid.search_bar.placeholder' | translate"
+                       [(ngModel)]="filter.value"
+                       (click)="$event.stopPropagation()"
+                       name="value"
+                       #value="ngModel"
+                       [type]="filterSchema.type"
+                >
+              </mat-form-field>
+            </div>
+          </div>
+        </ng-container>
+
+      </div>
+    </div>
+  </div>
+</form>

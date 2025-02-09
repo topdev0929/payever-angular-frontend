@@ -1,0 +1,21 @@
+@import "../../../../../../../../shared/styles/assets/imports";
+
+.remember-me-container {
+  @include pe_flexbox();
+  @include pe_justify-content(center);
+  span {
+    font-weight: 400;
+    color: var(--checkout-page-text-secondary-color, $color-grey-2);
+  }
+  a,
+  a:hover {
+    text-decoration: underline !important;
+    color: var(--checkout-page-text-primary-color, $color-grey-2) !important;
+  }
+  a:hover {
+    opacity: 90%;
+  }
+  .tooltip-icon {
+    cursor: pointer;
+  }
+}

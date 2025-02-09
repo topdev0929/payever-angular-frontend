@@ -1,0 +1,421 @@
+@charset "UTF-8";
+
+@mixin payever_animation_duration($duration) {
+  -webkit-animation-duration: $duration;
+  -moz-animation-duration: $duration;
+  -o-animation-duration: $duration;
+  animation-duration: $duration;
+}
+
+@mixin payever_animation_delay($delay) {
+  -webkit-animation-delay: $delay;
+  -moz-animation-delay: $delay;
+  -o-animation-delay: $delay;
+  animation-delay: $delay;
+}
+
+@mixin payever_animation_name($name) {
+  -webkit-animation-name: $name;
+  -moz-animation-name: $name;
+  -o-animation-name: $name;
+  animation-name: $name;
+}
+
+@mixin payever_animation(
+  $name: null,
+  $duration: null,
+  $timing-function: null,
+  $delay: null,
+  $iteration-count: null,
+  $direction: null,
+  $fill-mode: null,
+  $play-state: null) {
+  $animation-params: $name $duration $timing-function $delay $iteration-count $direction $fill-mode $play-state;
+  -webkit-animation: $animation-params;
+  -moz-animation: $animation-params;
+  -o-animation: $animation-params;
+  animation: $animation-params;
+}
+
+@mixin payever_transition(
+  $property: all,
+  $duration: 200ms,
+  $effect: linear,
+  $delay: 0s) {
+  $transition-params: $property $duration $effect $delay;
+  -webkit-transition: $transition-params;
+  -moz-transition: $transition-params;
+  -o-transition: $transition-params;
+  transition: $transition-params;
+}
+
+@mixin payever_transition_property($property...) {
+  -webkit-transition-property: $property;
+  -moz-transition-property: $property;
+  -o-transition-property: $property;
+  transition-property: $property;
+}
+
+@mixin payever_transition_transform($time: $transition-duration, $effect: $transition-function) {
+  -webkit-transition: -webkit-transform $time $effect;
+  -moz-transition: -moz-transform $time $effect;
+  -o-transition: -o-transform $time $effect;
+  -ms-transition: -ms-transform $time $effect;
+  transition: transform $time $effect;
+}
+
+@mixin payever_transform_translate($left, $top) {
+  -webkit-transform: translate($left,$top);
+  -moz-transform: translate($left,$top);
+  -o-transform: translate($left,$top);
+  -ms-transform: translate($left,$top);
+  transform: translate($left,$top);
+}
+
+@mixin payever_transform_rotate($deg) {
+  -webkit-transform: rotate($deg);
+  -moz-transform: rotate($deg);
+  -o-transform: rotate($deg);
+  -ms-transform: rotate($deg);
+  transform: rotate($deg);
+}
+
+@mixin payever_transform_scale(
+  $x: 1, $y: 1 ) {
+  -webkit-transform: scale($x, $y);
+  -moz-transform: scale($x, $y);
+  -o-transform: scale($x, $y);
+  -ms-transform: scale($x, $y);
+  transform: scale($x, $y);
+}
+
+@mixin payever_radial_gradient(
+  $position: center,
+  $form: ellipse,
+  $color-start: gray,
+  $color-stop: transparent ) {
+  background-image: -webkit-radial-gradient($position, $form, $color-start, $color-stop);
+  background-image: -ms-radial-gradient($position, $form, $color-start, $color-stop);
+  background-image: -moz-radial-gradient($position, $form, $color-start, $color-stop);
+  background-image: -o-radial-gradient($position, $form, $color-start, $color-stop);
+  background-image: radial-gradient($form at $position, $color-start, $color-stop);
+}
+
+@mixin payever_grayscale_image {
+  filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
+  -webkit-filter: grayscale(100%);
+}
+
+@mixin payever_grayscale_image_disabled {
+  filter: none;
+  -webkit-filter: none;
+}
+
+@mixin payever_image_covers {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@mixin payever_absolute($size: 0){
+  position: absolute;
+  left: $size;
+  right: $size;
+  top: $size;
+  bottom: $size;
+}
+
+@mixin payever_vertical_align_middle {
+  &:before {
+    content: "";
+    display: inline-block;
+    margin: 0 0 0 -1px;
+    width: 1px;
+    height: 100%;
+    vertical-align: middle;
+  }
+}
+
+@mixin payever_vertical_align_bottom {
+  &:before {
+    content: "";
+    display: inline-block;
+    margin: 0 0 0 -1px;
+    width: 1px;
+    height: 100%;
+    vertical-align: bottom;
+  }
+}
+
+@mixin payever_user_select($user_select_value: none) {
+  -moz-user-select: $user_select_value;
+  -webkit-user-select: $user_select_value;
+  user-select: $user_select_value;
+}
+
+@mixin payever_zoom($scale: 1, $origin: top)  {
+  -webkit-transform: scale($scale);
+  -webkit-transform-origin: $origin;
+
+  -moz-transform: scale($scale);
+  -moz-transform-origin: $origin;
+
+  -ms-transform: scale($scale);
+  -ms-transform-origin: $origin;
+
+  -o-transform: scale($scale);
+  -o-transform-origin: $origin;
+
+  transform: scale($scale);
+  transform-origin: $origin;
+}
+
+@mixin payever_mask($color: black, $url: "") {
+  -webkit-mask: url($url) no-repeat 100% 100%;
+  -webkit-mask-size: cover;
+  mask: url($url) no-repeat 100% 100%;
+  mask-size: cover;
+  background-color: $apple-blue;
+}
+
+@mixin payever_spinner($size: 32px, $border-width: 1px) {
+  visibility: hidden;
+  position: relative;
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  &:after {
+    visibility: visible;
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -$size/2;
+    margin-left: -$size/2;
+    border-radius: 50%;
+    width: $size;
+    height: $size;
+    border: $border-width solid #e1e1e1;
+    border-top-color: #0084ff;
+    z-index: 1;
+    @include payever_animation($name: spin, $duration: 1s, $timing-function: linear, $iteration-count: infinite);
+  }
+}
+
+@mixin payever_form_middle() {
+  height: 100%;
+  margin: 0 (-$content_horisontal_margin);
+  position: relative;
+  form {
+    display: table;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    .form-row {
+      display: table-row;
+    }
+    .form-items {
+      display: table-cell;
+      vertical-align: middle;
+      padding-bottom: $line-height-computed;
+      &.bottom {
+        height: 55px;
+        text-align: right;
+        padding: 0;
+        border-top: $border-modal-footer;
+      }
+      .container {
+        max-width: 420px;
+      }
+    }
+  }
+}
+
+@mixin payever_dropdown_menu {
+  border: $border-block-title;
+  box-shadow: 0 2px 14px 4px rgba(0, 0, 0, 0.12);
+  background: $white;
+  &:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+  }
+}
+@mixin payever_dropdown_menu_dropup {
+  margin-bottom: 22px;
+  &:after {
+    border: 13px solid transparent;
+    border-top-color: $white;
+    bottom: -25px;
+    right: 21px;
+  }
+}
+
+@mixin payever_bt_social($foreground, $background, $border) {
+  background: $background;
+  color: $foreground;
+  border-color: $border;
+  &:hover {
+    background: $foreground;
+    color: $background;
+  }
+}
+
+%black-tabs {
+  $size: 24px;
+  font-size: 0;
+  li {
+    display: inline-block;
+    font-size: 13px;
+    a, span {
+      display: block;
+      height: $size;
+      line-height: $size - 2px;
+      padding: 0 20px;
+      border: 1px solid $black;
+      border-right: none;
+      color: $black;
+      cursor: pointer;
+    }
+    &:last-child {
+      a, span {
+        border-right: 1px solid $color-black-tab-active;
+        border-top-right-radius: $border_radius;
+        border-bottom-right-radius: $border_radius;
+      }
+    }
+    &:first-child {
+      a, span {
+        border-top-left-radius: $border_radius;
+        border-bottom-left-radius: $border_radius;
+      }
+    }
+    &.active {
+      a, span {
+        background: $color-black-tab-active;
+        color: $white;
+        cursor: default;
+        border: 1px solid $color-black-tab-active;
+      }
+    }
+  }
+  &.tabs-gray-color {
+    li {
+      a, span {
+        border: 1px solid $empty_color;
+        color: $empty_color;
+      }
+      &:last-child {
+        a, span {
+          border-right: 1px solid $empty_color;
+        }
+      }
+      &.active {
+        a, span {
+          background: $empty_color;
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+// Mixins from @compass
+@mixin reset-box-model {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+@mixin clearfix {
+  overflow: hidden;
+}
+@mixin pie-clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+@mixin horizontal-list-container {
+  @include reset-box-model;
+  @include clearfix;
+}
+@mixin inline-block-list-container {
+  @include horizontal-list-container;
+}
+@mixin inline-block-list-item($padding: false) {
+  @include no-bullet;
+  @include inline-block;
+  white-space: nowrap;
+  @if $padding {
+    padding: {
+      left: $padding;
+      right: $padding;
+    };
+  }
+}
+@mixin inline-block-list($padding: false) {
+  @include inline-block-list-container;
+  li {
+    @include inline-block-list-item($padding);
+  }
+}
+@mixin no-bullet {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0;
+}
+$inline-block-alignment: false;
+@mixin inline-block($alignment: $inline-block-alignment, $ie-alignment: auto) {
+  display: inline-block;
+  @if $alignment and $alignment != none {
+    vertical-align: $alignment;
+  }
+}
+@mixin filter($filters){
+  -webkit-filter: $filters;
+  filter: $filters;
+}
+$default-border-radius: 5px;
+@mixin border-radius($radius: $default-border-radius, $vertical-radius: false) {
+  $legacy-radius: if($vertical-radius, #{$radius} / #{$vertical-radius}, $radius);
+  -moz-border-radius: $legacy-radius;
+  -webkit-border-radius: $legacy-radius;
+  border-radius: $legacy-radius;
+}
+@mixin border-bottom-left-radius($radius: $default-border-radius) {
+  -moz-border-radius-bottomleft: $radius;
+  -webkit-border-bottom-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+@mixin border-bottom-right-radius($radius: $default-border-radius) {
+  -moz-border-radius-bottomright: $radius;
+  -webkit-border-bottom-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+}
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}

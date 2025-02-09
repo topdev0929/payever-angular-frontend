@@ -1,0 +1,1 @@
+export { StatisticsAppComponent } from './statistics-app.component';

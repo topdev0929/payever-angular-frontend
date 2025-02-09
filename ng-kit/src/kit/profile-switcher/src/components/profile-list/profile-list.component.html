@@ -1,0 +1,64 @@
+<div class="profile-list-layout">
+  <mat-card class="mat-card-transparent mat-card-transparent-lg" [class.opened]="opened">
+    <mat-card-content class="card-content-center-align">
+      <p class="profile-list-title">{{ title }}</p>
+      <div class="profile-list-container container-fluid">
+        <div *ngFor="let profile of list" class="business-item" [class.with-actions]="hasControls(profile)">
+          <div class="transparent-card"
+               [class.active]="activeItem === profile.uuid"
+               [class.with-actions]="hasControls(profile)"
+               [class.multiLine]="multiLineItemsTitle"
+               (click)="onProfileClick.emit(profile)"
+          >
+            <div class="logo-placeholder img-circle">
+              <h2 *ngIf="!profile.logo">{{ profile.name | abbreviation}}</h2>
+              <img *ngIf="profile.logo" class="img-circle" [src]="profile.logo">
+
+              <pe-profile-card-spinner *ngIf="profile.uuid === listItemWithLoader"></pe-profile-card-spinner>
+            </div>
+            <p *ngIf="!multiLineItemsTitle" class="text-center no-overflow">{{ profile.name }}</p>
+            <p *ngIf="multiLineItemsTitle" class="text-center multiLine-no-overflow">{{ formatName(profile.name) }}</p>
+            <div *ngIf="hasControls(profile) && activeItem === profile.uuid" class="actions-container" [class.aligned-right]="!profile.leftControl">
+              <ng-template *ngIf="profile.leftControl" [ngTemplateOutlet]="controlsSwitch" [ngTemplateOutletContext]="{ control: profile.leftControl }"></ng-template>
+              <ng-template *ngIf="profile.rightControl" [ngTemplateOutlet]="controlsSwitch" [ngTemplateOutletContext]="{ control: profile.rightControl }"></ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<ng-template #controlsSwitch let-control="control">
+  <ng-container [ngSwitch]="control.type">
+    <ng-template *ngSwitchCase="'button'" [ngTemplateOutlet]="buttonControl" [ngTemplateOutletContext]="{ control: control }"></ng-template>
+    <ng-template *ngSwitchCase="'menu'" [ngTemplateOutlet]="menuControl" [ngTemplateOutletContext]="{ control: control }"></ng-template>
+  </ng-container>
+</ng-template>
+
+<ng-template #buttonControl let-control="control">
+  <button mat-raised-button
+          class="mat-button-xs mat-button-rounded mat-muted-light"
+          (click)="handleClick(control, $event)"
+  >
+    {{ control.title }}
+  </button>
+</ng-template>
+
+<ng-template #menuControl let-control="control">
+  <button class="mat-button-xs mat-button-no-padding"
+          mat-button
+          mat-icon-button
+          [matMenuTriggerFor]="menu"
+          (click)="stopEvents($event)"
+  >
+    <svg class="icon icon-16"><use [attr.xlink:href]="'#' + control.icon"></use></svg>
+  </button>
+  <mat-menu #menu="matMenu" panelClass="pe-bootstrap" class="mat-menu-dark">
+    <ng-template matMenuContent>
+      <div mat-menu-item *ngFor="let menuItem of control.menuItems" (click)="handleClick(menuItem, $event)">
+        <span [innerHtml]="menuItem.title"></span>
+      </div>
+    </ng-template>
+  </mat-menu>
+</ng-template>

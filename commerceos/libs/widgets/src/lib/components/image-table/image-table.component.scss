@@ -1,0 +1,40 @@
+.text_item {
+  width: auto;
+  height: auto;
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.22;
+  letter-spacing: normal;
+}
+@media only screen and (max-width: 490px) {
+  .text_item {
+    font-size: 12px;
+    font-weight: normal;
+  }
+}
+.flex-col {
+  display: flex;
+  align-items: center;
+}
+
+.img {
+  width: 56px;
+  height: 56px;
+  margin-right: 8px;
+  border-radius: 100%;
+  background: linear-gradient(#a0a7aa,#808893);
+  color: #ffffff;
+}
+
+.style_div {
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  text-align: center;
+  font-family: Roboto, sans-serif;
+  font-size: 22px;
+  display: flex;
+}

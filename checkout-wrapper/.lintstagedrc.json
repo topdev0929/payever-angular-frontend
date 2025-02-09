@@ -1,0 +1,6 @@
+{
+  "*.ts": ["eslint --fix --quiet", "jest --bail --findRelatedTests --passWithNoTests"],
+  "*.json": ["prettier -w", "git add"],
+  "*.html": ["prettier -w", "git add"],
+  "*.scss": ["prettier -w", "git add"]
+}

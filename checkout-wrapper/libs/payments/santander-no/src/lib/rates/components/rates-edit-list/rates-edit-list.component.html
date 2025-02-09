@@ -1,0 +1,78 @@
+<div
+  class="text-center toggle-group-wrapper"
+  *ngIf="!ratesLoadError">
+  <mat-button-toggle-group
+    class="mat-button-toggle-group-volumetric mat-button-toggle-group-volumetric-force-white-theme"
+    [value]="selectedToggle"
+    (valueChange)="toggleChanged($event)">
+    <mat-button-toggle
+      [value]="RateToggleType.PartPayment"
+      i18n="@@santander-no.credit_rates.type_filter.part_payment">
+      santander-no.credit_rates.type_filter.part_payment
+    </mat-button-toggle>
+    <mat-button-toggle
+      [value]="RateToggleType.BuyNowPayLater"
+      i18n="@@santander-no.credit_rates.type_filter.buy_now_pay_later">
+      santander-no.credit_rates.type_filter.buy_now_pay_later
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+
+<div
+  *ngIf="!ratesLoadError
+  && transformedRates?.length === 0
+  && (isLoadingRates$ | async) !== true"
+  class="title-2"
+  i18n="@@santander-no.credit_rates.error.rates_list_empty">
+  santander-no.credit_rates.error.rates_list_empty
+</div>
+<p
+  *ngIf="ratesLoadError"
+  class="small text-danger">
+  {{ ratesLoadError }}
+</p>
+
+<form class="form-table">
+  <checkout-sdk-choose-rate
+    *ngIf="transformedRates?.length > 0 || (isLoadingRates$ | async)"
+    class="choose-rate"
+    [class.choose-rate-bnpl]="selectedToggle === RateToggleType.BuyNowPayLater"
+    [trackFlowId]="flowId"
+    [trackPaymentMethod]="paymentMethod"
+    [selectedExtraDurations]="selectedExtraDurations"
+    [rates]="transformedRates || []"
+    [previewAsSingleLine]="true"
+    [isLoading]="(isLoadingRates$ | async) && transformedRates?.length === 0"
+    [initialRateId]="makeRateId(this.selectedRate)"
+    [doSelectRate]="doSelectRate$"
+    (rateSelected)="rateSelected($event)"
+    (toggleExtraDuration)="toggleRatesInStorage($event)">
+  </checkout-sdk-choose-rate>
+
+  <checkout-sdk-santander-de-selected-rate-details
+    *ngIf="details?.length"
+    [details]="details"
+    [isManyColumnsDisabled]="true"></checkout-sdk-santander-de-selected-rate-details>
+
+  <pe-payment-text
+    *ngIf="selectedRate?.isInterestFree"
+    type="text"
+    [fixMarginTop]="true">
+    <span i18n="@@santander-no.credit_rates.desc_prefix"> santander-no.credit_rates.desc_prefix </span>
+    &nbsp;
+    <span [innerHtml]="selectedRate.description"></span>
+  </pe-payment-text>
+
+  <pe-payment-text
+    *ngIf="selectedRate?.isFixedAmount"
+    type="text"
+    [fixMarginTop]="true">
+    <span i18n="@@santander-no.credit_rates.note_pp"> santander-no.credit_rates.note_pp </span>
+  </pe-payment-text>
+
+  <pe-payment-text
+    *ngIf="!selectedRate?.isFixedAmount"
+    type="text">
+    <span i18n="@@santander-no.credit_rates.note_bnpl"> santander-no.credit_rates.note_bnpl </span>
+  </pe-payment-text>
+</form>

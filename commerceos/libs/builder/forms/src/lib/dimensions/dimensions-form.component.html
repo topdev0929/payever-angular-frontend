@@ -1,0 +1,20 @@
+<form [formGroup]="form">
+
+  <div class="dimension">
+    <peb-size-input formControlName="width" prefix="W" [precision]="2" title="Width"></peb-size-input>
+    <peb-size-input formControlName="height" prefix="H" [precision]="2" title="Height"></peb-size-input>
+
+    <peb-size-input formControlName="minWidth" prefix="MIN" [precision]="2" title="Min Width" [units]="['auto','px','%','vw']"></peb-size-input>
+    <peb-size-input formControlName="minHeight" prefix="MIN" [precision]="2" title="Max Height" [units]="['auto','px','%','vh']"></peb-size-input>
+  </div>
+
+  <peb-slide-toggle formControlName="constrainProportions">
+    {{ 'builder-app.forms.dimensions.constrain_proportions' | translate }}
+  </peb-slide-toggle>
+
+  <peb-auto-resize-form></peb-auto-resize-form>
+
+  <div class="overflow-form">
+    <peb-overflow-form></peb-overflow-form>
+  </div>
+</form>

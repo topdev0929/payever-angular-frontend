@@ -1,0 +1,237 @@
+@import '~@pe/ui-kit/scss/pe_variables.scss';
+@import '~@pe/ui-kit/scss/mixins/pe_mixins.scss';
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.blurry-box {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+// NOTE here used  ViewEncapsulation: none, because this component is container and show different components with similar features
+pe-channel-settings-box {
+
+  // All this code done to create view like in themes in shop app
+  .pe-overlay-container.fixed {
+    position: fixed;
+    bottom: 8%;
+    top: 8%;
+    right: 12%;
+    left: 12%;
+    @media (min-width: $viewport-breakpoint-ipad) and (max-width: $viewport-breakpoint-sm-3 - 1) {
+      bottom: 6%;
+      top: 6%;
+      right: 10%;
+      left: 10%;
+    }
+    @media (min-width: $viewport-breakpoint-xs-2) and (max-width: $viewport-breakpoint-ipad - 1) {
+      bottom: 1%;
+      top: 1%;
+      right: 1%;
+      left: 1%;
+    }
+    @media (max-width: $viewport-breakpoint-xs-2 - 1) {
+      bottom: 0;
+      top: 0;
+      right: 0;
+      left: 0;
+    }
+
+    .mat-card-content-scrollable {
+      height: 100% !important;
+
+      .channel-settings-touch {
+        .scrolling-content {
+          overflow-x: auto;
+          .mat-toolbar-editor {
+            width: auto;
+          }
+        }
+      }
+
+      .scroll-wrapper {
+        position: relative;
+        height: 100%;
+        overflow: hidden;
+
+        .content-wrapper {
+          position: relative;
+
+          .channel-settings {
+            min-height: 100%;
+            height: 230px;
+            padding-bottom: 55px;
+          }
+
+          .footer-button {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border-radius: 0;
+
+            @media (max-width: $viewport-breakpoint-xs-2 - 1) {
+              border-radius: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .mat-toolbar.mat-toolbar-light {
+    background-color: #1c1d1e;
+  }
+
+  .channel-settings {
+    .settings-container {
+      @include pe_flexbox;
+    }
+
+    .scrolling-content {
+      background-color: #484a4c;
+      height: 34px;
+      overflow: hidden;
+      @include pe_flexbox;
+      @include pe_align-items(center);
+
+      .mat-toolbar-area {
+        width: 100%;
+
+        .settings-container {
+          width: 100%;
+          justify-content: flex-start;
+          align-items: center;
+        }
+      }
+
+      .scroll-wrapper {
+        @include payever_user_select(none);
+        position: relative;
+        -webkit-tap-highlight-color: none !important; // it removes transparent backgrond of settings on Webkit mobile browsers on iOS
+
+        .scroll-backdrop {
+          @include full_screen();
+          z-index: 1000;
+        }
+
+        pe-color-picker {
+          .dropdown-backdrop {
+            // this hack needed cos image pickers have black absolute backdrop on mobiles. But .scroll-wrapper has trasform style
+            // and backdrop is positioned relative to .scroll-wrapper
+            background: initial;
+          }
+        }
+      }
+
+      .settings-box {
+        @include pe_flexbox;
+        @include pe_align-items(center);
+        @include pe_flex(0, 0, auto);
+        margin-left: $margin-adjust * 3;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        .name-setting {
+          margin-right: $margin-adjust * 2.5;
+        }
+
+        .sub-box {
+          @include pe_flexbox;
+        }
+
+        .settings-menu-item[aria-expanded="true"] {
+          background-color: #2b2c2d;
+        }
+      }
+
+      .alignment {
+        &-button {
+          background-color: $color-white-grey-2;
+          height: 18px;
+          min-width: $margin-adjust * 10;
+          box-sizing: padding-box;
+          padding: 0;
+        }
+      }
+
+      .settings-divider {
+        height: $pe_hgrid_gutter;
+        margin: 0 0 0 $margin-adjust * 5;
+        background: $color-white-grey-2;
+      }
+    }
+
+    .wrapper-example {
+      @include pe_flexbox;
+      @include pe_justify-content(center);
+      @include pe_align-items(center);
+      padding: $padding-small-vertical * 19 $padding-base-horizontal * 2;
+      text-align: center;
+      margin: 0 auto;
+      min-height: calc(100% - 50px);
+      position: relative;
+
+      .spinner-container {
+        min-width: 600px;
+        &-spinner {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          @include payever_transform_translate(-50%, -50%);
+        }
+      }
+
+      .example {
+        margin: auto;
+        display: inline-block;
+      }
+
+      .adaptive {
+        @include pe_flex-grow(1);
+      }
+    }
+  }
+
+  // TODO this is temp hack cos of broken peScrollHide directive in pe-overlay-container
+  .data-grid-scroll-container {
+    position: absolute !important;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.pe-bootstrap pe-overlay-container.fixed.channel-settings-box-container {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+}
+
+.pe-bootstrap pe-overlay-container.fixed.channel-settings-box-container .overlay-container {
+  overflow-y: hidden;
+}
+
+.pe-bootstrap pe-overlay-container.channel-settings-box-container > .overlay-container > .mat-card {
+  border-radius: 0;
+  width: 100%;
+}
+
+.pe-bootstrap .channel-settings-box-container .dropdown-menu.colorpicker-element {
+  display: none;
+}

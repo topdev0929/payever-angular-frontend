@@ -1,0 +1,78 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $content: map.get($color-config, 'content');
+  $text-color: map.get($color-config, 'text-color');
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $button-text: map.get($color-config, 'button-text');
+  $hover-menu-item: map.get($color-config, 'hover-menu-item');
+  $primary: map.get($color-config, 'primary');
+  $row-background: map.get($color-config, 'row-background');
+  $text-color: map.get($color-config, 'text-color');
+  $active-text: map.get($color-config, 'active-text');
+  $button-fill: map.get($color-config, 'button-fill');
+  $dropdown-panel: map.get($color-config, 'dropdown-panel');
+  $tertiary-background: map.get($color-config, 'tertiary-background');
+
+  .pe-message-appearance {
+    .sidebar-container {
+      &__content {
+        .peb-expandable-panel {
+          background-color: $content;
+
+          .expandable-panel__header {
+            background-color: $row-background;
+            color: $text-color;
+          }
+        }
+
+        .widget-bubble-settings {
+          &__nav {
+            color: $text-color;
+            background-color: $content;
+          }
+
+          &__nav-item {
+            &.active {
+              background-color: $button-fill;
+              color: $active-text;
+            }
+          }
+        }
+
+        .color-picker-container {
+          .color-picker {
+            .grid {
+              & > span {
+                color: $text-color;
+              }
+            }
+          }
+          &__done {
+            color: $button-text;
+            background-color: $primary;
+          }
+        }
+      }
+    }
+
+    .sidebar-color-settings {
+      &__nav {
+        color: $text-color;
+        background-color: $row-background;
+      }
+
+      &__nav-item {
+        &.active {
+          background-color: $button-fill;
+          color: $active-text;
+        }
+      }
+    }
+
+    .open-widget {
+      color: $text-color;
+      background-color: $row-background;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $border: map.get($color-config, 'border');
+  $active-text: map.get($color-config, 'active-text');
+  $confirm: map.get($color-config, 'confirm');
+  $text-color: map.get($color-config, 'text-color');
+
+  peb-select-option-list {
+    .option {
+      &__group {
+        &:not(:last-of-type) {
+          border-bottom-color: $border;
+        }
+      }
+      &__item {
+        span {
+          color: $text-color;
+        }
+        svg {
+          color: $confirm;
+        }
+
+        &:hover {
+          background-color: $confirm;
+          span, svg {
+            color: $active-text;
+          }
+        }
+      }
+    }
+  }
+}

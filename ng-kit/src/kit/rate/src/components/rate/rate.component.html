@@ -1,0 +1,15 @@
+<div class="rate" [class.selected]="isSelected" (click)="toggleSelected()">
+  <div class="rate-amount text-center">
+    <svg class="rate-edit icon icon-16" *ngIf="isEditable" (click)="edit($event)"><use xlink:href="#icon-edit-16"></use></svg>
+    <div class="rate-amount-item"
+         [class.rate-amount-item-single-line]="rateAmountSingleLine"
+         [class.rate-amount-item-has-edit]="isEditable"
+         [innerHTML]="rateAmount"></div>
+  </div>
+  <div class="rate-options" *ngIf="rateOptions && rateOptions.length > 0">
+    <div class="row" *ngFor="let item of rateOptions">
+      <div class="col-xs-7 text-secondary" [innerHTML]="item.label"></div>
+      <div class="col-xs-5 text-secondary text-right" [innerHTML]="item.val"></div>
+    </div>
+  </div>
+</div>

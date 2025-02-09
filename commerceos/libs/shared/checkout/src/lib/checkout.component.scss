@@ -1,0 +1,32 @@
+:host {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  z-index: 10000;
+  height: calc(100% - 10px);
+  overflow-y: auto;
+}
+
+.wrapper {
+  position: relative;
+  text-align: center;
+  z-index: 10000;
+  width: 100%;
+  max-width: 768px;
+  border-radius: 0 0 8px 8px;
+  overflow: hidden;
+  box-shadow: 0 0 4px #bbb;
+  margin: auto;
+}
+
+.hidden {
+  position: absolute;
+  height: 0;
+  width: 0;
+  left: 0;
+  display: none;
+}

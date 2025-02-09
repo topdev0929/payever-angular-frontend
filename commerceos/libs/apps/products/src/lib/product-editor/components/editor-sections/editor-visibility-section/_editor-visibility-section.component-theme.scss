@@ -1,0 +1,11 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $row-background: map.get($color-config, 'row-background');
+
+  .visibility-form {
+    .toggle-button {
+      background-color: $row-background;
+    }
+  }
+}

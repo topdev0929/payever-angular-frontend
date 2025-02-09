@@ -1,0 +1,33 @@
+@use "pe_variables" as pe_variables;
+@import "../../../../assets/variables";
+
+.cdk-overlay-backdrop.connect-modal + .cdk-global-overlay-wrapper {
+  .plugin-api-key-add-form {
+    padding: 0 12px;
+
+    .form-fieldset {
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .mat-button-block.plugin-api-key-button {
+      height: 40px;
+      font-size: 14px;
+      line-height: 1.33;
+      border-radius: 12px !important;
+      margin-top: 16px;
+      background-color: $content-background-color;
+      color: #0091df;
+      border: none;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+        height: 56px;
+        font-size: 16px;
+        font-weight: 400;
+      }
+      &-cancel {
+        margin-top: 8px;
+      }
+    }
+  }
+}

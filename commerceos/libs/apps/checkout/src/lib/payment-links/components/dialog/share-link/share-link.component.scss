@@ -1,0 +1,27 @@
+.share-link {
+  width: auto;
+  margin: 0 -12px;
+  &__button {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__link-contauner {
+    display: flex;
+    align-items: center;
+  }
+  &__copy-button {
+    width: auto;
+    flex-shrink: 0;
+    background-color: transparent;
+    margin-right: 5px;
+  }
+  .clipboard-copy-content {
+    padding: 9px 16px;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}

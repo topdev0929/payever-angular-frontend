@@ -1,0 +1,26 @@
+<form novalidate class="form-table" (ngSubmit)="onSubmit()" [formGroup]="form" *ngIf="form">
+
+  <pe-form-fieldset
+    class="doc-dark"
+    [isSubmitted]="isSubmitted"
+    [fields]="testFieldset"
+    [formGroup]="form"
+    [translationScope]="formTranslationsScope"
+    [errors]="errors$ | async"
+    [formStyle]="'dark'"
+  ></pe-form-fieldset>
+
+  <h3>Some buttons for testing</h3>
+
+  <button (click)="onSubmit()">Submit</button>
+  <button (click)="disableAll()">Disable all fields</button>
+  <button (click)="enableAll()">Enable all fields</button>
+  <button (click)="saveToCache()">To cache</button>
+
+  <h4>Data for testing image uploading</h4>
+
+  <div><pe-input [formControlRef]="stageToken" [placeholder]="'Token from stage'"></pe-input></div>
+  <div><pe-input [formControlRef]="businessUuid" [placeholder]="'Test businessUuid'"></pe-input></div>
+  <p>Storage container 'images' is used</p>
+
+</form>

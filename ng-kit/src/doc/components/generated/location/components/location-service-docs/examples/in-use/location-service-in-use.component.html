@@ -1,0 +1,33 @@
+<h5>LocationService data</h5>
+
+<pe-table [dataSource]="tableData">
+  <ng-container peTableColumnDef="key">
+    <pe-table-header-cell *peHeaderCellDef> Property Key </pe-table-header-cell>
+    <pe-table-cell *peTableCellDef="let prop">{{prop.key}}</pe-table-cell>
+  </ng-container>
+
+  <ng-container peTableColumnDef="value">
+    <pe-table-header-cell *peHeaderCellDef> Property Value </pe-table-header-cell>
+    <pe-table-cell *peTableCellDef="let prop">{{prop.value}}</pe-table-cell>
+  </ng-container>
+
+  <pe-table-header-row *peTableHeaderRowDef="displayedColumns"></pe-table-header-row>
+  <pe-table-row *peTableRowDef="let row; columns: displayedColumns;"></pe-table-row>
+</pe-table>
+
+<h5>
+  LocationService methods
+</h5>
+
+<div class="button-row">
+  <button mat-stroked-button (click)="location.reload()">reload()</button>
+  <button mat-stroked-button (click)="location.reload(true)">reload(true)</button>
+  <button mat-stroked-button (click)="location.assign(assignUrl)">assign(assignUrl)</button>
+  <button mat-stroked-button (click)="openUrl(assignUrl)">location.href = assignUrl</button>
+</div>
+
+<br>
+
+<p>
+  * where assignUrl = "{{assignUrl}}"
+</p>

@@ -1,0 +1,62 @@
+<checkout-sdk-finish-wrapper
+  [buttons]="buttons"
+  [errorMessage]="errorMessage"
+  [iframeCallbackUrl]="getIframeCallbackUrl()"
+  [isLoading]="isLoading"
+  [isChangingPaymentMethod]="isChangingPaymentMethod"
+  [embeddedMode]="embeddedMode"
+  [merchantMode]="merchantMode"
+  [isDisableChangePayment]="isDisableChangePayment"
+  i18n-processingTitle="@@payment-santander-uk.inquiry.finish.processing.title"
+  processingTitle="@@payment-santander-uk.inquiry.finish.processing.title"
+  i18n-processingText="@@payment-santander-uk.inquiry.finish.processing.text"
+  processingText="@@payment-santander-uk.inquiry.finish.processing.text"
+  (close)="onClose()">
+
+  <ng-container *ngIf="nodeResult">
+    <ng-container *ngIf="isStatusSuccess()">
+      <checkout-sdk-finish-status-success
+        title="payment-santander-uk.inquiry.finish.order_success.title"
+        i18n-title="@@payment-santander-uk.inquiry.finish.order_success.title"
+        text="payment-santander-uk.inquiry.finish.order_success.text"
+        i18n-text="@@payment-santander-uk.inquiry.finish.order_success.text"
+        [applicationNumber]="applicationNumber"
+        [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"
+        [flowId]="flow?.id"
+      ></checkout-sdk-finish-status-success>
+    </ng-container>
+
+    <ng-container *ngIf="isStatusPending()">
+      <checkout-sdk-finish-status-pending
+        title="payment-santander-uk.inquiry.finish.order_processing.title"
+        i18n-title="@@payment-santander-uk.inquiry.finish.order_processing.title"
+        text="payment-santander-uk.inquiry.finish.order_processing.text"
+        i18n-text="@@payment-santander-uk.inquiry.finish.order_processing.text"
+        [applicationNumber]="applicationNumber"
+        [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"
+        [flowId]="flow?.id"
+      ></checkout-sdk-finish-status-pending>
+    </ng-container>
+
+    <ng-container *ngIf="isStatusFail()">
+      <checkout-sdk-finish-status-fail
+        title="payment-santander-uk.inquiry.finish.order_fail.title"
+        i18n-title="@@payment-santander-uk.inquiry.finish.order_fail.title"
+        text="payment-santander-uk.inquiry.finish.order_fail.text"
+        i18n-text="@@payment-santander-uk.inquiry.finish.order_fail.text"
+        [canChangePaymentMethod]="canChangePaymentMethod()"
+        [applicationNumber]="applicationNumber"
+        [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"
+      ></checkout-sdk-finish-status-fail>
+    </ng-container>
+
+    <ng-container *ngIf="isStatusUnknown()">
+      <checkout-sdk-finish-status-unknown
+        [nodeResult]="nodeResult"
+        [applicationNumber]="applicationNumber"
+        [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"
+      ></checkout-sdk-finish-status-unknown>
+    </ng-container>
+  </ng-container>
+
+</checkout-sdk-finish-wrapper>

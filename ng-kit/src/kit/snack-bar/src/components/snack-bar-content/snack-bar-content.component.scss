@@ -1,0 +1,27 @@
+@import '~@pe/ui-kit/scss/pe_variables';
+:host {
+  background-color: $color-gray-2;
+  padding: $padding-large-vertical*2 $padding-large-horizontal*4;
+  border-radius: $border-radius-large;
+  display: inline-block;
+  justify-content: center;
+
+  @media (max-width: $screen-sm-max) {
+    padding: $padding-large-vertical*2 $padding-large-horizontal;
+  }
+
+  @media (max-width: $screen-xs-min - 1) {
+    min-width: 80%;
+  }
+}
+.snack-bar-content-close-icon {
+  cursor: pointer;
+  color: $color-solid-grey-3;
+
+  .snackbar-icon {
+    background: radial-gradient($color-white, $color-white 33%, transparent 33%);
+  }
+}
+.snack-bar-content-icon {
+  padding-left: $padding-small-horizontal;
+}

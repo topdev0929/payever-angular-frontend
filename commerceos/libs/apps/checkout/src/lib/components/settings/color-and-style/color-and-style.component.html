@@ -1,0 +1,71 @@
+<checkout-color-and-style-styles></checkout-color-and-style-styles>
+<peb-form-background>
+  <div class="styles-active-form">
+    <div class="styles-active-form__title" translate>
+      settings.colorAndStyle.actions.enable
+    </div>
+    <div class="styles-active-form__toggle">
+      <peb-button-toggle
+        [checked]="formStyle?.get('active').value"
+        (changed)="formStyle?.get('active').patchValue($event)">
+      </peb-button-toggle>
+    </div>
+  </div>
+</peb-form-background>
+
+<button
+  pe-form-button
+  color="warn"
+  class="add-button"
+  translate
+  (click)="resetStyles()">
+  settings.colorAndStyle.actions.reset
+</button>
+
+<div class="pe-info-box-container-fixed color-styles-info-box">
+  <pe-info-box
+    [fixed]="false"
+    [roundBorder]="true"
+    [notFullwidthOnMobile]="true"
+    [withHeader]="false"
+    [withFooter]="false"
+    [title]="'settings.colorAndStyle.title' | translate"
+    (onClose)="goBack()">
+    <ng-container content>
+      <div *ngFor="let panel of colorAndStyleMenu; trackBy: trackByFn; let last = last; let index = index;" >
+        <peb-expandable-panel
+        [isContentOpen]="index === 0"
+        [headerLabel]="panel.name | translate "
+        >
+          <div class="form-table" [formGroup]="formStyle">
+            <ng-container *ngIf="panel.key === 'businessHeader'">
+              <pe-header-styles [parentForm]="formStyle"></pe-header-styles>
+            </ng-container>
+            <ng-container *ngIf="panel.key === 'logo'">
+              <pe-logo-styles [parentForm]="formStyle"></pe-logo-styles>
+            </ng-container>
+            <ng-container *ngIf="panel.key === 'button'">
+              <pe-button-styles [parentForm]="formStyle"></pe-button-styles>
+            </ng-container>
+            <ng-container *ngIf="panel.key === 'buttonSecondary'">
+              <pe-button-secondary-styles [parentForm]="formStyle"></pe-button-secondary-styles>
+            </ng-container>
+            <ng-container *ngIf="panel.key === 'page'">
+              <pe-page-styles [parentForm]="formStyle"></pe-page-styles>
+            </ng-container>
+            <ng-container *ngIf="panel.key === 'input'">
+              <pe-input-style [parentForm]="formStyle"></pe-input-style>
+            </ng-container>
+          </div>
+        </peb-expandable-panel>
+      </div>
+    </ng-container>
+  </pe-info-box>
+</div>
+
+<peb-form-background class="change-device">
+  <div class="change-device-type" (click)="onChangeDevice()">
+    <span>{{ screenSelect$ | async }}</span>
+    <svg  class="arrow-open"><use xlink:href="#icon-ui-arrow-open"></use></svg>
+  </div>
+</peb-form-background>

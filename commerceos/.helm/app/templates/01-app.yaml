@@ -1,0 +1,143 @@
+{{ $chartName := .Chart.Name }}
+{{ $values := .Values }}
+{{ $appName := printf "%s-%s" $chartName $values.issue | lower | replace "_" "-" | trimSuffix "-"   }}
+{{ $nginxMainConfigName := printf "frontend-nginx-main-config" }}
+{{ $nginxConfigName:= printf "frontend-nginx-config" }}
+{{ $urlMapConfigName:= printf "micro-url-map" }}
+{{- if .Values.deployToExclusive -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $appName }}
+  namespace: {{ $values.namespace }}
+
+  labels:
+    app: {{ $appName }}
+    tier: frontend
+    type: http
+
+  annotations:
+    "werf.io/set-replicas-only-on-creation": "true"
+
+spec:
+  replicas: {{ $values.replicas.http }}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: {{ $appName }}
+  template:
+    metadata:
+      labels:
+        app: {{ $appName }}
+        tier: frontend
+        type: http
+
+      annotations:
+        seccomp.security.alpha.kubernetes.io/pod: 'runtime/default'
+        sidecar.istio.io/proxyMemoryLimit: 300Mi
+    spec:
+      priorityClassName: {{ $values.priorityClass }}
+
+      imagePullSecrets:
+        - name: {{ $values.image.pullSecretName }}
+
+      terminationGracePeriodSeconds: 60
+
+      containers:
+        - name: nginx
+          image: {{ $values.image.nginx }}
+          imagePullPolicy: IfNotPresent
+          command: [ "/bin/bash", "-c", "/payever/deploy/deploy.sh" ]
+
+          ports:
+            - containerPort: {{ $values.service.containerPort }}
+              protocol: TCP
+              name: http
+
+          lifecycle:
+            preStop:
+              exec:
+                command: ["/bin/bash","-c","sleep 15; pkill master"]
+
+          livenessProbe:
+            httpGet:
+              path: /api/status
+              port: {{ $values.service.monitoringPort }}
+            initialDelaySeconds: 60
+            periodSeconds: 30
+            timeoutSeconds: 60
+            failureThreshold: 60
+
+          readinessProbe:
+            httpGet:
+              path: /api/status
+              port: {{ $values.service.monitoringPort }}
+            initialDelaySeconds: 60
+            periodSeconds: 40
+            failureThreshold: 220
+
+          volumeMounts:
+            - name: {{ $nginxConfigName }}
+              mountPath: /etc/nginx/cmconfig
+
+            - name: {{ $nginxMainConfigName }}
+              mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
+
+          resources:
+{{ if eq .Values.deploy.env "test" }}
+{{ toYaml $values.test.resources | indent 12 }}
+{{ else if eq .Values.deploy.env "stage" }}
+{{ toYaml $values.stage.resources | indent 12 }}
+{{ else }}
+{{ toYaml $values.live.resources | indent 12 }}
+{{ end }}
+
+          envFrom:
+            - configMapRef:
+                name: {{ $chartName }}
+            - configMapRef:
+                name: {{ $urlMapConfigName }}
+            - secretRef:
+                name: {{ $chartName }}
+
+          env:
+            - name: KUBERNETES_DEPLOYED
+              value: "{{ now }}"
+            - name: MICRO_CHECKOUT_VERSION
+              value: "{{ $values.microCheckoutVersion }}"
+            - name: MICRO_COMMERCEOS_VERSION
+              value: "{{ $values.microUrlCommerceosVersion }}"
+            - name: DEPLOY_TO_EXCLUSIVE
+              value: "{{ $values.deployToExclusive }}"
+            - name: BUILDER_VERSION
+              value: "{{ $values.builderVersion }}"
+  {{- if and ($values.customCheckoutCdnUrl) (eq $values.deployToExclusive "true") }}
+            - name: CUSTOM_CHECKOUT_CDN_URL
+              value: "{{ $values.customCheckoutCdnUrl }}"
+            - name: MICRO_URL_CHECKOUT_CDN
+              value: "{{ $values.customCheckoutCdnUrl }}"
+            - name: MICRO_URL_PRIMARY_CHECKOUT
+              value: "{{ $values.customCheckoutCdnUrl }}"
+            - name: MICRO_URL_FRONTEND_CHECKOUT_WRAPPER
+              value: "{{ $values.customCheckoutCdnUrl }}"
+              {{- $customCheckoutUrlOnly := regexReplaceAll "https://" $values.customCheckoutCdnUrl "" }}
+            - name: MICRO_HOST_PRIMARY_CHECKOUT
+              value: {{ $customCheckoutUrlOnly | quote }}
+            - name: MICRO_HOST_FRONTEND_CHECKOUT_WRAPPER
+              value: {{ $customCheckoutUrlOnly | quote }}
+  {{- end }}
+
+      volumes:
+        - name: {{ $nginxConfigName }}
+          configMap:
+            name: {{ $nginxConfigName }}
+
+        - name: {{ $nginxMainConfigName }}
+          configMap:
+            name: {{ $nginxMainConfigName }}
+{{- end -}}

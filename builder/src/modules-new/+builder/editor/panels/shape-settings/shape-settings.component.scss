@@ -1,0 +1,82 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+:host {
+  display: block;
+}
+
+.mat-menu-settings {
+  overflow: hidden;
+}
+
+.mat-button-menu.mat-button-xxs {
+  min-width: $grid-unit-x * 10;
+}
+
+.link-menu-item-text {
+  margin-right: $grid-unit-x;
+}
+
+.mat-button-section {
+  font-size: $font-size-micro-1;
+  color: $color-white-grey-4;
+}
+
+.form-table {
+  padding: $grid-unit-y 0 $grid-unit-y $grid-unit-x;
+  
+  &.direction-column {
+    @include pe_flex-direction(column);
+    align-items: flex-start;
+  }
+
+  &.full-padding {
+    padding: $grid-unit-y $grid-unit-x;
+  }
+
+  &.no-padding {
+    padding: 0;
+  }
+
+  .no-padding-left {
+    padding-left: 0 !important;
+  }
+}
+
+.form-color-panel {
+  padding: 0px 15px 20px 20px;
+}
+
+.form-controls-row {
+  @include pe_flexbox();
+  @include pe_justify-content(space-between);
+  width: 100%;
+  line-height: normal;
+
+  &.corner-controls {
+    margin-top: $padding-small-vertical;
+  }
+
+  .form-fieldset-horizontal-label {
+    padding-left: $grid-unit-x / 4;
+  }
+}
+
+
+:host::ng-deep {
+  .select-fieldset {
+    padding-top: 5px;
+  }
+  .with-controls {
+    margin-right: 12px !important;
+  }
+  .mat-divider {
+    color: $color-white-grey-2;
+  }
+  .ml-space {
+    margin-left: 12px;
+  }
+  .mr-space {
+    margin-right: 12px;
+  }
+}

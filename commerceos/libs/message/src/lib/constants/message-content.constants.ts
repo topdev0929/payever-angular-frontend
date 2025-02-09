@@ -1,0 +1,1 @@
+export const EMPTY_MSG_TEMPLATE_CONTENT = '{#empty#}';

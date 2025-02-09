@@ -1,0 +1,74 @@
+@use 'pe_variables' as pe_variables;
+
+.attribute {
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 40px;
+    grid-column-gap: 8px;
+    margin-bottom: 16px;
+    align-items: center;
+  }
+
+  &__row {
+    border-radius: 12px;
+    display: grid;
+    grid-gap: 1px;
+    grid-template-columns: 1fr 1fr 1fr;
+    overflow: hidden;
+
+    & > * {
+      min-width: 0;
+    }
+
+    .form-field {
+      div {
+        overflow: hidden;
+      }
+    }
+  }
+
+  @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+    &__wrapper {
+      grid-template-columns: 1fr;
+      grid-gap: 16px;
+    }
+
+    &__row {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.remove,
+.add {
+  border-radius: 12px;
+  font-size: 14px;
+  height: 40px;
+  outline: none;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+}
+
+.remove {
+  color: #eb4653 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .mat-icon {
+    width: 16px;
+    height: 18px;
+  }
+}
+
+@media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+  .remove,
+  .add {
+    font-size: 14px;
+  }
+
+  .remove {
+   height: 56px;
+  }
+}

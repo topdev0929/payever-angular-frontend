@@ -1,0 +1,18 @@
+{
+  "ivy-finexp-widget": {
+    "pay": "Pay now",
+    "payWith": "Pay now with",
+    "plantTree": "Plant 1 tree at no extra cost together with",
+    "unknownError": "Unknown error",
+    "tooltip": {
+      "title": "Pay via online banking and plant trees for free",
+      "text": {
+        "title": "How does it work?",
+        "message": "Simply pay directly via online banking at your bank and we will plant a tree for you free of charge."
+      },
+      "logo": {
+        "poweredBy": "Powered by"
+      }
+    }
+  }
+}

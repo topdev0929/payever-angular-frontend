@@ -1,0 +1,45 @@
+<div class="ui-store-slider">
+  <div class="ui-store-slider-container">
+    <div class="ui-store-slider-editor" *ngIf="isEditorActive">
+      <div class="btn-group btn-group-activated dark editor-header" role="group">
+        <button type="button"
+                class="btn btn-primary btn-link btn-sm finish-button"
+                (click)="onFinishButtonClick()"
+                [innerHtml]="finishButtonName">
+        </button>
+      </div>
+      <div class="editor-body dark">
+        <div class="row editor-item" *ngFor="let action of actions">
+          <div class="col-xs-7" title="{{ action.title }}">
+            <span class="btn-control-title" [innerHTML]="action.title"></span></div>
+          <div class="text-right col-xs-5">
+            <div *ngIf="action.extraTitle" class="editor-label float-left"><span [innerHTML]="action.extraTitle"></span></div>
+            <input class="form-control-toggle input-xs btn-switcher"
+                   id="{{ action.name }}" type="checkbox" [checked]="action.isActive"
+                    (change)="onActionSelected(action)">
+            <label for="{{ action.name }}"></label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui-store-slider-slide" *ngFor="let slide of internalSlides; let index = index"
+         [ngClass]="{'active': (index === activeSlideIndex), 'prev': (index === prevSlideIndex), 'next': (index === nextSlideIndex), 'right': (rightSlidesIndexes.indexOf(index) != -1), 'left': (leftSlidesIndexes.indexOf(index) != -1)}">
+      <div class="ui-store-slider-img" [style.background-image]="getBackground(slide.src)"></div>
+    </div>
+
+    <div class="ui-store-slider-arrows" *ngIf="isArrowsActive">
+      <div class="arrow-left" (click)="goToPreviousSlide()">
+        <svg class="icon icon-32"><use xlink:href="#icon-arrow-left-32"></use></svg>
+      </div>
+      <div class="arrow-right" (click)="goToNextSlide()">
+        <svg class="icon icon-32"><use xlink:href="#icon-arrow-right-32"></use></svg>
+      </div>
+    </div>
+
+    <div class="ui-store-slider-buttons" *ngIf="isButtonsActive">
+      <ul>
+        <li *ngFor="let slide of internalSlides; let index = index" [ngClass]="{'active': (index == activeSlideIndex)}" (click)="goToSlide(index)"></li>
+      </ul>
+    </div>
+  </div>
+</div>

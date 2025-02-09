@@ -1,0 +1,10 @@
+@use 'pe_theming' as pet;
+@use './country-picker-theme' as country_picker;
+@use './country-picker-panel-theme' as country_picker_panel;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include country_picker.color($color-config);
+  @include country_picker_panel.color($color-config);
+}
+

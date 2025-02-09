@@ -1,0 +1,116 @@
+@use "pe_variables" as pe_variables;
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $border: map.get($color-config, 'border');
+  $active-text: map.get($color-config, 'active-text');
+  $confirm: map.get($color-config, 'confirm');
+  $confirm-hover: map.get($color-config, 'confirm-hover');
+  $text-color: map.get($color-config, 'text-color');
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $active-button: map.get($color-config, 'active-button');
+  $hover-button: map.get($color-config, 'hover-button');
+  $active-text: map.get($color-config, 'active-text');
+  $background: map.get($color-config, 'background');
+  $label-color: map.get($color-config, 'label-color');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $icon-fill-secondary: map.get($color-config, 'icon-fill-secondary');
+  $box-shadow-color: map.get($color-config, 'box-shadow-color');
+  $filter-invert-light: map.get($color-config, 'filter-invert-light');
+  $overlay-backdrop: map.get($color-config, 'overlay-backdrop');
+
+  .pe-grid-menu {
+    box-shadow: 0 5px 20px 0 $box-shadow-color;
+    border-color: $border;
+    backdrop-filter: blur(25px);
+    background-color: $secondary-background;
+    &.mobile-fullscreen {
+      background-color: $overlay-background;
+    }
+    &__headline span,
+    &__item {
+      color: $text-color;
+    }
+    &__headline {
+      fill: $label-color;
+    }
+    &__item {
+      color: $text-color;
+      &-box,
+      &.menu__icon {
+        .mat-icon svg {
+          filter: $filter-invert-light;
+          g,
+          g mask,
+          path {
+            fill: $active-text;
+          }
+
+          rect {
+            fill: $transparent-color;
+          }
+        }
+      }
+      &.active {
+        .pe-grid-menu__item-box {
+          background-color: $confirm;
+          color: $active-text;
+          .mat-icon svg {
+            filter: unset;
+            g,
+            path {
+              fill: $active-text;
+            }
+          }
+        }
+        &:hover {
+          .pe-grid-menu__item-box {
+            background-color: $confirm-hover;
+          }
+        }
+      }
+      &.disable {
+        color: $label-color;
+      }
+      &:hover:not(.disable, .active) {
+        .pe-grid-menu__item-box {
+          background-color: $active-button;
+        }
+      }
+    }
+    &.top-divider::before,
+    &.bottom-divider::after {
+      background-color: $background;
+    }
+  }
+
+  @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+    .pe-grid-menu {
+      .pe-grid-menu {
+        &__item {
+          &.active {
+            background-color: $confirm;
+
+            .pe-grid-menu__item-box {
+              background-color: $transparent-color;
+            }
+          }
+          &:hover:not(.disable, .active) {
+            background-color: $active-button;
+
+            .pe-grid-menu__item-box {
+              background-color: $transparent-color;
+              .mat-icon svg {
+                g,
+                path {
+                  fill: $active-text;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

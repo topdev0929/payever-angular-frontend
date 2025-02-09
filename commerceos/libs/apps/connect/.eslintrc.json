@@ -1,0 +1,28 @@
+{
+  "extends": "../../../.eslintrc.json",
+  "ignorePatterns": ["!**/*"],
+  "rules": {},
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        "no-underscore-dangle": ["error", { "allowAfterThis": true, "allow": [
+          "_missingCredentials",
+          "_status",
+          "_id",
+          "_",
+          "__karma__"
+        ] }],
+        "@angular-eslint/no-input-rename": ["error", { "allowedNames": [
+          "controls",
+          "name",
+          "payeverFieldsData"
+        ] }]
+      }
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "rules": {}
+    }
+  ]
+}

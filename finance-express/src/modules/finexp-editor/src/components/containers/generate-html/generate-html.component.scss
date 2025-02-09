@@ -1,0 +1,53 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+
+$regular-text-color: darken(#ffffff, 15%);
+
+.generate-box {
+  .content {
+    .generated-code {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      padding: 6px 12px;
+      border-radius: 12px;
+      background: #111111;
+      font-family: Roboto;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.33;
+      color: $regular-text-color;
+      overflow: hidden;
+
+      &__title {
+        font-size: 11px;
+        font-weight: normal;
+        line-height: normal;
+        color: #7a7a7a;
+      }
+
+      &__snippet {
+        white-space: pre-wrap;
+      }
+    }
+  }
+
+  &__button {
+    width: 100%;
+    margin: 16px 0 0;
+    padding: 12px;
+    border-radius: 12px;
+    background-color: #1c1d1e;
+    box-shadow: none;
+    outline: none;
+    border: none;
+    color: #0091df;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: center;
+  }
+}

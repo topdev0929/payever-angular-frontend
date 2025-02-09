@@ -1,0 +1,40 @@
+{
+  "name": "@pe/connect-app",
+  "version": "0.0.80",
+  "description": "Payever Connect app",
+  "repository": "https://gitlab.devpayever.com/frontend/connect",
+  "license": "LicenseRef-payever",
+  "bin": {
+    "pe-i18n-cosf-prepare-connect-app": "./bin/i18n-cosf-prepare.js"
+  },
+  "peerDependencies": {
+    "@angular/animations": "~10.2.4",
+    "@angular/cdk": "~10.2.5",
+    "@angular/common": "~10.2.4",
+    "@angular/compiler": "~10.2.4",
+    "@angular/core": "~10.2.4",
+    "@angular/forms": "~10.2.4",
+    "@angular/http": "~7.2.16",
+    "@angular/material": "~10.2.7",
+    "tslib": "^1.10.0",
+    "moment": "x",
+    "lodash-es": "x",
+    "@auth0/angular-jwt": "x",
+    "ngx-color-picker": "x",
+    "angular2-text-mask": "x",
+    "iban": "x",
+    "ngx-ellipsis": "x",
+    "text-mask-addons": "^3.8.0",
+    "ngx-webstorage": "5.0.0",
+    "ngx-clipboard": "^13.0.1",
+    "@thisissoon/angular-inviewport": "^4.2.2",
+    "@pe/media": "x",
+    "@pe/common": "x",
+    "@pe/forms": "x",
+    "@pe/auth": "x",
+    "@pe/app-switcher": "x",
+    "@pe/data-grid": "latest",
+    "@pe/filters": "latest",
+    "@pe/sidebar": "latest"
+  }
+}

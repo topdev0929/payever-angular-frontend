@@ -1,0 +1,40 @@
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+:host {
+  display: block;
+  position: fixed;
+  top: $pe_vgrid_height * 2;
+  right: $pe_hgrid_gutter;
+  z-index: $zindex-modal + 1000;
+
+  &[data-position="bottom-right"] {
+    top: auto;
+    bottom: $pe_vgrid_height * 2;
+  }
+  &[data-position="bottom-left"] {
+    top: auto;
+    right: auto;
+    bottom: $pe_vgrid_height * 2;
+    left: $pe_hgrid_gutter;
+  }
+  &[data-position="top-left"] {
+    right: auto;
+    left: $pe_hgrid_gutter;
+  }
+  &[data-position="top-center"] {
+    right: auto;
+    left: 50%;
+    @include payever_transform_translate(-50%, 0);
+    top: $pe_vgrid_height * 5;
+    max-width: none;
+  }
+  &[data-position="center-center"] {
+    right: auto;
+    left: 50%;
+    top: 50%;
+    max-width: none;
+    @include payever_transform_translate(-50%, -50%);
+  }
+}

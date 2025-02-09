@@ -1,0 +1,68 @@
+<checkout-sdk-finish-wrapper
+  [buttons]="buttons"
+  [errorMessage]="errorMessage"
+  [iframeCallbackUrl]="getIframeCallbackUrl()"
+  [isLoading]="isLoading"
+  [isChangingPaymentMethod]="isChangingPaymentMethod"
+  [isDisableChangePayment]="isDisableChangePayment"
+  [embeddedMode]="embeddedMode"
+  [asSinglePayment]="asSinglePayment"
+  (close)="onClose()">
+
+  <ng-container *ngIf="nodeResult && !isLoading">
+    <ng-container>
+
+      <ng-container *ngIf="isStatusSuccess()">
+        <checkout-sdk-finish-status-success
+          i18n-title="@@santander-no-invoice.inquiry.finish.application_success.title"
+          title="santander-no-invoice.inquiry.finish.application_success.title"
+          [total]="nodeResult.payment?.total"
+          [currency]="flow?.currency"
+          [storeName]="nodeResult.payment?.businessName || '---'"
+          [createdAt]="nodeResult.createdAt"
+          [billingAddressName]="isPosPayment() ? billingAddressName() : null"
+          [applicationNumber]="applicationNumber"
+          [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"
+          [flowId]="flow?.id"
+          [isPosPayment]="isPosPayment()"
+        ></checkout-sdk-finish-status-success>
+      </ng-container>
+
+      <ng-container *ngIf="isStatusPending()">
+        <checkout-sdk-finish-status-pending
+          i18n-title="@@santander-no-invoice.inquiry.finish.application_pending.title"
+          title="santander-no-invoice.inquiry.finish.application_pending.title"
+          [total]="payment?.total"
+          [currency]="flow?.currency"
+          [storeName]="nodeResult.payment?.businessName || '---'"
+          [createdAt]="nodeResult.createdAt"
+          [billingAddressName]="isPosPayment() ? billingAddressName() : null"
+          [applicationNumber]="applicationNumber"
+          [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"
+          [flowId]="flow?.id"
+          [isPosPayment]="isPosPayment()"
+        ></checkout-sdk-finish-status-pending>
+      </ng-container>
+
+      <ng-container *ngIf="isStatusFail()">
+        <checkout-sdk-finish-status-fail
+          i18n-title="@@santander-no-invoice.inquiry.finish.application_fail.title"
+          title="santander-no-invoice.inquiry.finish.application_fail.title"
+          [canChangePaymentMethod]="canChangePaymentMethod()"
+          [applicationNumber]="applicationNumber"
+          [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"
+        ></checkout-sdk-finish-status-fail>
+      </ng-container>
+
+      <ng-container *ngIf="isStatusUnknown()">
+        <checkout-sdk-finish-status-unknown
+          [nodeResult]="nodeResult"
+          [applicationNumber]="applicationNumber"
+          [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"
+        ></checkout-sdk-finish-status-unknown>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+
+</checkout-sdk-finish-wrapper>
+

@@ -1,0 +1,39 @@
+<ng-template #addonAppendTemplate>
+  <span class="input-group-addon" [innerHtml]="properties.addonAppend | raw" *ngIf="!properties.addonAppendBtn"></span>
+  <span class="input-group-addon" *ngIf="properties.addonAppendBtn">
+    <button class="btn btn-inline {{ addonAppendBtnClass }}" [innerHtml]="properties.addonAppend | raw" (click)="onClickAddonAppend($event)"></button>
+  </span>
+</ng-template>
+
+<ng-template #addonPrependTemplate>
+  <span class="input-group-addon"
+        [innerHtml]="properties.addonPrepend | raw" *ngIf="!properties.addonPrependBtn"
+        [ngClass]="{'input-group-prepend': isDefault}"></span>
+  <span class="input-group-addon"
+        *ngIf="properties.addonPrependBtn"
+        [ngClass]="{'input-group-prepend': isDefault}">
+    <button class="btn btn-inline {{ addonPrependBtnClass }}" [innerHtml]="properties.addonPrepend | raw" (click)="onClickAddonPrepend($event)"></button>
+  </span>
+</ng-template>
+
+<ng-template #inputTemplate>
+  <ng-content></ng-content>
+  <label class="control-label small" [innerHtml]="properties.label" *ngIf="properties.label"></label>
+  <ng-template [ngTemplateOutlet]="addonPrependTemplate" *ngIf="isDefault && properties.addonPrepend"></ng-template>
+  <span class="required input-group-addon" *ngIf="properties.required && hasAddon && properties.rowType != 'table'"></span>
+  <ng-template [ngTemplateOutlet]="addonAppendTemplate" *ngIf="isDefault && properties.addonAppend"></ng-template>
+  <div class="error small" [innerHtml]="errorText" *ngIf="errorText"></div>
+  <span class="required" *ngIf="properties.required && !hasAddon && properties.rowType != 'table'"></span>
+</ng-template>
+
+<div class="form-design form-widget {{ formWidgetClassName }} {{ decoratorClassName }}" *ngIf="isDefault">
+  <ng-template [ngTemplateOutlet]="inputTemplate"></ng-template>
+</div>
+<div class="input-group" *ngIf="!isDefault && hasAddon">
+  <ng-template [ngTemplateOutlet]="addonPrependTemplate" *ngIf="properties.addonPrepend"></ng-template>
+  <span class="input-group-main">
+    <ng-template [ngTemplateOutlet]="inputTemplate"></ng-template>
+  </span>
+  <ng-template [ngTemplateOutlet]="addonAppendTemplate" *ngIf="properties.addonAppend"></ng-template>
+</div>
+<ng-template [ngTemplateOutlet]="inputTemplate" *ngIf="!isDefault && !hasAddon"></ng-template>

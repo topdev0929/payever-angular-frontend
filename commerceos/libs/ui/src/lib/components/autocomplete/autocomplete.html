@@ -1,0 +1,31 @@
+<div class="pe-autocomplete">
+  <peb-form-field-input
+    [label]="label"
+    appearance="label"
+    [animated]="true"
+    (click)="selectionMade($event, trigger)"
+    [errorMessage]="errorMessage"
+    [isFieldInvalid]="isFieldInvalid"
+  >
+    <input
+      placeholder="{{placeholder}}"
+      #input
+      (keyup)="onKey($event)"
+      [matAutocomplete]="auto"
+      #trigger="matAutocompleteTrigger"
+      [value]="initialValue || ''"
+    />
+    <div class="dropdown-arrow">
+      <svg class="arrow-open">
+        <use xlink:href="#icon-ui-arrow-open"></use>
+      </svg>
+    </div>
+  </peb-form-field-input>
+  <mat-autocomplete class="autocomplete-panel" #auto="matAutocomplete" [displayWith]="getOptionText">
+    <mat-option *ngFor="let option of filteredOptions" [value]="option" (click)="onAddItem(option)">
+      <div class="autocomplete-option-item">
+        <span class="autocomplete-option-item__label"> {{option.label}} </span>
+      </div>
+    </mat-option>
+  </mat-autocomplete>
+</div>

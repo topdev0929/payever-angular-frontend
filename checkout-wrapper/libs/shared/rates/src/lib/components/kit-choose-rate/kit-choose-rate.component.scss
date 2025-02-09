@@ -1,0 +1,127 @@
+@import '../../../../../styles/assets/ui-kit-styles/pe_variables';
+@import '../../../../../styles/assets/ui-kit-styles/mixins/pe_mixins.scss';
+
+$rates-content-height: 256px;
+
+:host {
+  position: relative !important;
+  display: block;
+}
+
+.no-rate-selected-container {
+  @include pe_flexbox();
+  @include pe_justify_content(space-between);
+  @include pe_align_items(center);
+  height: $grid-unit-y * 3;
+  padding: 0 $grid-unit-x;
+  margin-bottom: $grid-unit-y;
+}
+
+.select-rate-container {
+  @include pe_flexbox();
+  @include pe_justify_content(space-between);
+  @include pe_align_items(center);
+  padding: $grid-unit-x * 0.5;
+}
+mat-card.mat-card-small-paddings {
+  // TODO This is not working?
+  border-radius: $border-radius-base * 2;
+  &:hover {
+    cursor: pointer;
+    .mat-button-link {
+      color: $color-white-grey-5;
+    }
+  }
+}
+
+@media (max-width: $viewport-breakpoint-xs-2 - 1) {
+  :host ::ng-deep mat-card.mat-card-small-paddings {
+    padding: 8px !important;
+  }
+}
+
+@media (max-width: $viewport-breakpoint-xs-2 - 50px - 1) {
+  :host ::ng-deep mat-card.mat-card-small-paddings {
+    padding: 9px 7px 8px !important;
+  }
+  .choose-rate-toggle-button {
+    width: 32px;
+  }
+}
+
+.rates-dropdown {
+  overflow-y: auto;
+  transform: translate3d(0, 0, 100px);
+  -webkit-overflow-scrolling: auto !important;
+  width: 100%;
+
+  border-radius: $border-radius-base * 2;
+  background-color: $color-gray-5;
+  color: $color-white-grey-4;
+  box-shadow: $box-shadow;
+
+  &-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $grid-unit-y $grid-unit-x;
+    cursor: pointer;
+    overflow: hidden;
+    background-color: $color-gray-5;
+    font-size: 14px;
+
+    .rate-icon {
+      width: 19px;
+      height: 19px;
+      border-radius: 13.9%;
+      margin-right: 8px;
+    }
+
+    &__title {
+      display: flex;
+    }
+  }
+  &-option.selected {
+    color: $color-white-pe;
+  }
+  &-option:hover {
+    color: $color-white-pe;
+    background: $color-black;
+  }
+}
+
+.rates-container {
+  height: $rates-content-height - $grid-unit-x * 2;
+  margin: $grid-unit-y 0;
+}
+
+.choose-rate-toggle-button {
+  background: $color-solid-grey-1;
+  position: absolute !important;
+  right: 0px;
+  top: 0px;
+  height: 100% !important;
+  width: $grid-unit-x * 3.5;
+  outline: 0;
+  border: 0;
+  border-radius: 0 $border-radius-base * 2 $border-radius-base * 2 0;
+  .icon {
+    @include payever_transform_rotate(270deg);
+    color: #cacaca;
+  }
+}
+
+.choose-rate-info-button {
+  position: absolute !important;
+  right: 55px;
+  top: calc(50% - 8px);
+  width: 16px;
+  height: 16px;
+  outline: 0;
+  border: 0;
+  .icon {
+    color: #aaaaaa;
+  }
+  background: none;
+  border-radius: 99px;
+}

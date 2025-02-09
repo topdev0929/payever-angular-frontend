@@ -1,0 +1,41 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+    $text-color: map.get($color-config, 'text-color');
+    $primary: map.get($color-config, 'primary');
+    $confirm: map.get($color-config, 'confirm');
+    $label-color: map.get($color-config, 'label-color');
+    $extra-bg-color: map.get($color-config, 'extra-bg-color');
+
+
+    .pe-creating-chat-form {
+        .chat-form {
+            &__header {
+                div {
+
+                    span {
+                        color: $label-color;
+
+                        &.blue {
+                            color: $confirm;
+                        }
+
+                        &.loading-btn {
+                            color: $label-color;
+                        }
+                    }
+                }
+
+                p {
+                    color: $text-color;
+                }
+            }
+
+        }
+
+        .logo-picker-wrapper .picker-button__icon path {
+            fill: $text-color;
+        }
+    }
+
+}

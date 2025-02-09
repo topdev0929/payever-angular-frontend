@@ -1,0 +1,72 @@
+<protection-form-styles> </protection-form-styles>
+<form
+  *ngIf="{
+    translations: translations$ | async
+  } as vm"
+  class="form-table"
+  #form="ngForm"
+  [formGroup]="formGroup">
+  <div
+    class="h5"
+    i18n="@@payment-santander-de-pos.inquiry.sections.protection.title">
+    payment-santander-de-pos.inquiry.sections.protection.title
+  </div>
+
+  <div
+    class="div-table div-table-no-overflow-hidden div-table-payment-option payment-option-selected"
+    [class.embed-mode]="embedMode">
+    <div class="subhead-1 pe-payment-text pe-payment-text-bigger">
+      <svg class="icon icon-24"><use xlink:href="#icon-shield-checked"></use></svg>
+      <span
+        (click)="onClickSubhead($event)"
+        [innerHTML]="vm.translations?.subhead"></span>
+    </div>
+
+    <div class="list-box pe-payment-text pe-payment-text-bigger">
+      <div class="col-xs-6 list-box__item">
+        <svg class="icon icon-12"><use xlink:href="#icon-check2-16"></use></svg>
+        <span i18n="@@payment-santander-de-pos.inquiry.sections.protection.death">
+          payment-santander-de-pos.inquiry.sections.protection.death
+        </span>
+      </div>
+      <div class="col-xs-6 list-box__item">
+        <svg class="icon icon-12"><use xlink:href="#icon-check2-16"></use></svg>
+        <span i18n="@@payment-santander-de-pos.inquiry.sections.protection.unemployment">
+          payment-santander-de-pos.inquiry.sections.protection.unemployment
+        </span>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <mat-checkbox
+        [class.mat-checkbox-error]="this.formGroup.hasError('required') && form.submitted"
+        class="col-xs-6 col-xxs-12 pe-payment-text-bigger"
+        formControlName="_yes">
+        <span [innerHTML]="vm.translations?._yes"></span>
+      </mat-checkbox>
+      <mat-checkbox
+        [class.mat-checkbox-error]="this.formGroup.hasError('required') && form.submitted"
+        class="col-xs-6 col-xxs-12 pe-payment-text-bigger"
+        formControlName="_no">
+        <span [innerHTML]="vm.translations?._no"></span>
+      </mat-checkbox>
+    </div>
+    <div class="terms-form">
+      <mat-checkbox
+        *ngIf="this.formGroup.get('dataForwardingRsv').enabled"
+        class="pe-payment-text-bigger"
+        analyticFieldName="Data Forwarding Rsv"
+        formControlName="dataForwardingRsv">
+        <span [innerHTML]="vm.translations?.dataForwardingRsv"></span>
+      </mat-checkbox>
+    </div>
+
+    <div 
+      *ngIf="insuranceData?.insuranceFootnote"
+      class="footnote-wrapper">
+      <div
+        class="pe-payment-text note-2"
+        [innerHTML]="insuranceData.insuranceFootnote"></div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,58 @@
+<div class="chapter">
+  <h2>AppContainerComponent</h2>
+  <div class="main-block">
+    <tabset>
+      <tab heading="Overview">
+        <h3>Import AppContainerModule</h3>
+        <pre><code class="typescript" [innerHTML]="'import { AppContainerModule } from \'@pe/ng-kit/modules/app-container\';'"></code></pre>
+        <p>&nbsp;</p>
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          [tsExample]="tsExample"
+          [cssExample]="cssExample"
+          >
+            <div class="row margin-bottom22">
+                <div class="col-xs-12">
+                    <div class="app-container-example-wrap">
+                        <pe-app-container
+                                [containerItems]="appItems"
+                                [appLayout]="appContainerLayout"
+                                [isSwiperMobile]="isSwiperMobile"
+                        >
+                        </pe-app-container>
+                    </div>
+                </div>
+            </div>
+        </example-viewer>
+      </tab>
+      <tab heading="API">
+        <component-api-renderer [path]="'app-container/src/app-container.component'"></component-api-renderer>
+      </tab>
+      <tab heading="Examples">
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          [tsExample]="tsExample"
+          [cssExample]="cssExample"
+          >
+            <div class="row margin-bottom22">
+                <div class="col-xs-12">
+                    <div class="app-container-example-wrap">
+                        <pe-app-container
+                                [containerItems]="appItems"
+                                [appLayout]="appContainerLayout"
+                                [isSwiperMobile]="isSwiperMobile"
+                        >
+                        </pe-app-container>
+                    </div>
+                </div>
+            </div>
+        </example-viewer>
+      </tab>
+      <tab heading="README">
+        <doc-viewer documentUrl="/assets/module-guides/app-container/app-container.html"></doc-viewer>
+      </tab>
+    </tabset>
+  </div>
+</div>

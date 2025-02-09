@@ -1,0 +1,13 @@
+<ng-container *ngIf="isReady$ | async">
+  <ng-container *ngIf="type === WidgetTypeEnum.Button">
+    <ivy-widget
+      [amount]="amount"
+      [channelSet]="channelSet"
+      [config]="config"
+      [cart]="cart"
+      [isDebugMode]="isDebugMode"
+      (clicked)="onClicked()"
+      (failed)="onFailed()">
+    </ivy-widget>
+  </ng-container>
+</ng-container>

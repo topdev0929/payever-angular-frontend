@@ -1,0 +1,58 @@
+<div class="profile">
+  <mat-card class="mat-card-transparent mat-card-transparent-sm profile-card" [class.app-card]="config?.type === profileCardType.App">
+    <mat-card-content>
+      <div class="profile-header">{{ config?.cardTitle || '' }}</div>
+      <div class="mat-card-logo-wrapper" (click)="cardButtonClicked.emit()">
+        <ng-template [ngTemplateOutlet]="cardContent"></ng-template>
+      </div>
+
+      <button *ngIf="config?.type === profileCardType.Personal"
+              mat-button
+              (click)="cardButtonClicked.emit()"
+              class="mat-button-link mat-button-sm"
+              [class.mat-button-rounded]="true"
+              [class.mat-button-space-between]="config.images.length > 1"
+              [class.mat-button-with-arrow]="config.images.length > 1"
+      >
+        {{ config.cardButtonText }}
+      </button>
+      <button *ngIf="config?.type === profileCardType.Business"
+              mat-raised-button
+              class="profile-switch-button mat-button-sm"
+              [class.mat-button-rounded]="true"
+              (click)="toggleOpen()"
+              color="muted"
+              [class.mat-button-space-between]="config.images.length > 1"
+              [class.mat-button-with-arrow]="config.images.length > 1"
+      >
+        <span class="profile-switch-button-text" [class.profile-switch-button-text-with-arrow]="config.images.length > 1">{{ config.cardButtonText }}</span>
+        <svg *ngIf="config.images.length > 1" class="icon icon-16" [class.opened]="opened"><use xlink:href="#icon-arrow-down-small-16"></use></svg>
+      </button>
+      <button *ngIf="config?.type === profileCardType.App"
+              mat-raised-button
+              class="mat-button-xs mat-button-rounded mat-muted-light app-button"
+              (click)="config.onCardButtonClick()"
+      >
+          {{ config.cardButtonText }}
+      </button>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<ng-template #cardContent>
+  <div class="logo-container img-circle">
+    <img *ngIf="config?.images[0]" class="logo img-circle" [src]="config?.images[0]">
+    <div *ngIf="!config?.images[0]" class="logo logo-placeholder img-circle">
+      <ng-container *ngIf="config?.type === profileCardType.Personal">
+        <svg class="icon icon-48">
+          <use xlink:href="#icon-user-4-128"></use>
+        </svg>
+      </ng-container>
+      <ng-container *ngIf="config?.type === profileCardType.Business || config?.type === profileCardType.App">
+        <h2>{{ config?.placeholderTitle | abbreviation }}</h2>
+      </ng-container>
+    </div>
+
+    <pe-profile-card-spinner *ngIf="showLoader"></pe-profile-card-spinner>
+  </div>
+</ng-template>

@@ -1,0 +1,32 @@
+<ng-container *ngIf="visible$ | async">
+  <pe-navbar *ngIf="showAlert"
+             [classes]="notificationAlertClasses"
+             [color]="color"
+             [controls]="notificationControls"
+             [position]="position"
+             [style]="style"
+             class="notification-header"
+  ></pe-navbar>
+  <pe-navbar *ngIf="controls"
+             [lockLeftArea]="disableButtons$ | async"
+             [classes]="classes"
+             [color]="color"
+             [controls]="controls"
+             [position]="position"
+             [style]="style"
+             class="main-header"
+  ></pe-navbar>
+
+  <pe-navbar *ngIf="isSubheaderVisible$ | async"
+             [lockLeftArea]="disableButtons$ | async"
+             [classes]="subheaderClasses"
+             [color]="color"
+             [controls]="subheaderControls$ | async"
+             [position]="position"
+             [scrollable]="true"
+             [style]="style"
+  ></pe-navbar>
+</ng-container>
+<ng-template #profileMenu>
+  <ng-content></ng-content>
+</ng-template>

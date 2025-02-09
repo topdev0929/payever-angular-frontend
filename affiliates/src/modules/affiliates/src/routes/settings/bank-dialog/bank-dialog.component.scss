@@ -1,0 +1,14 @@
+:host{
+  display: flex;
+}
+.container {
+  width: 100%;    
+}
+.overlay-widget-container .overlay-widget__content {
+  padding: 0 12px 12px;
+}
+::ng-deep {    
+  .form-background-wrapper{
+    margin-top: 0;
+  }
+}

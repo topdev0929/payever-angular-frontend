@@ -1,0 +1,17 @@
+:host {
+  display: block;
+  position: relative;
+  height: 100%;
+  color: #ffffff;
+
+  .row-action-button {
+    @media (max-width: 720px) {
+      display: none;
+    }
+  }
+
+  & > canvas {
+    display: none;
+    opacity: 0;
+  }
+}

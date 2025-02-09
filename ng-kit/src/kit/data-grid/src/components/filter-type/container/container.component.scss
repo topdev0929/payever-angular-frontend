@@ -1,0 +1,47 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+:host {
+  display: block;
+  .form-widget.form-design select.form-control {
+    padding-right: 16px;
+  }
+  &.list-filters-item {
+    margin: $grid-unit-y/2 2*$grid-unit-x;
+  }
+}
+
+label {
+  font-weight: normal;
+}
+
+.input-group {
+  .input-group-addon {
+    border: 0 none;
+    background: none;
+    line-height: $pe_vgrid_height*2;
+    padding-bottom: $pe_vgrid_height;
+  }
+}
+
+// TODO: need to remove it completely when filter forms will be in FormModule implementation
+.filter-container {
+  color: $color-white;
+  ::ng-deep .form-design {
+    background-color: white;
+    padding: 10px;
+    border-radius: 4px;
+  }
+}
+
+.mat-button-link {
+  color: $color-white;
+
+  &:last-child {
+    padding-right: 0;
+  }
+
+  &[disabled], &[disabled]:hover, &[disabled]:focus {
+    color: $color-solid-grey-3
+  }
+}

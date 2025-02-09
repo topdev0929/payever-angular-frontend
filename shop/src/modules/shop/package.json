@@ -1,0 +1,17 @@
+{
+  "name": "@pe/builder-shop",
+  "version": "5.10.60",
+  "description": "Builder: shop",
+  "repository": "https://gitlab.devpayever.com/frontend/builder-editor",
+  "license": "UNLICENSED",
+  "bin": {
+    "pe-i18n-cosf-prepare-shop-app": "./bin/i18n-cosf-prepare.js"
+  },
+  "peerDependencies": {
+    "@angular/common": "^9.1.4",
+    "@angular/core": "^9.1.4",
+    "tslib": "^1.10.0",
+    "@angular/material": "latest",
+    "@angular/cdk": "latest"
+  }
+}

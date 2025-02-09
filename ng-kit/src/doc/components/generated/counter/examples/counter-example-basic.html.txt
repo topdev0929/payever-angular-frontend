@@ -1,0 +1,8 @@
+<pe-counter
+    [value]="10" // default is 0
+    [minValue]="5" // default is 0
+    [maxValue]="15" // default is 10000
+    [readOnly]="false" // default is false
+    [autoFocus]="false" // default is false
+    (counterValueChange)="handleCounterValue($event)" // event return value on change
+></pe-counter>

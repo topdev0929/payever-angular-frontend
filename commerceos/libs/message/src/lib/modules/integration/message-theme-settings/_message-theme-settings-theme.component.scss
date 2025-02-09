@@ -1,0 +1,33 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $row-background: map.get($color-config, 'row-background');
+  $border: map.get($color-config, 'border');
+  $confirm: map.get($color-config, '$confirm');
+  $text-color: map.get($color-config, 'text-color');
+
+  .color-theme {
+    &__color-mock-up {
+      background-color: $row-background;
+      border-bottom: solid 1px $border;
+    }
+
+    &__color-layout {
+      background-color: $row-background;
+    }
+  }
+
+  .mock-up-block {
+    &:hover {
+      border: solid 1px $border;
+    }
+
+    &.selected {
+      border: solid 2px $confirm;
+    }
+  }
+
+  .mock-up-title {
+    color: $text-color;
+  }
+}

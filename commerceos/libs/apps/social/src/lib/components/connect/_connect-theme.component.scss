@@ -1,0 +1,37 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $confirm: map.get($color-config, 'confirm');
+  $background: map.get($color-config, 'background');
+  $primary: map.get($color-config, 'primary');
+  $box-shadow-color: map.get($color-config, 'box-shadow-color');
+  $text-color: map.get($color-config, 'text-color');
+  $active-button: map.get($color-config, 'active-button');
+  $label-color: map.get($color-config, 'label-color');
+  $icon-background: map.get($color-config, 'icon-background');
+  $scrollbar: map.get($color-config, 'scrollbar');
+  $scrollbar-thumb: map.get($color-config, 'scrollbar-thumb');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $scrollbar-thumb-hover: map.get($color-config, 'scrollbar-thumb-hover');
+  .social-settings {
+    .page-header {
+      color: $text-color;
+    }
+    .scrollbar {
+      &::-webkit-scrollbar {
+        background: $transparent-color;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: $scrollbar-thumb;
+      }
+      &::-webkit-scrollbar-thumb:hover {
+        background: $scrollbar-thumb-hover;
+      }
+    }
+    &__section {
+      &__header {
+        color: $label-color;
+      }
+    }
+  }
+}

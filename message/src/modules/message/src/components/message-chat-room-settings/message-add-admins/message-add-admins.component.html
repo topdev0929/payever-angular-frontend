@@ -1,0 +1,11 @@
+<div class="add-admins" [formGroup]="channelGroup">
+  <pe-picker
+    class="pe-picker"
+    label="{{ 'message-app.channel.form.add_member' | translate }}"
+    placeholder="{{ 'message-app.channel.form.search' | translate }}"
+    [data]="userList"
+    formControlName="members"
+    [buttonFunction]="addMember"
+    buttonLabel="{{ 'message-app.channel.form.add_member' | translate }}"
+  ></pe-picker>
+</div>

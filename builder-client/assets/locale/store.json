@@ -1,0 +1,69 @@
+{
+  "notifications": {
+    "messages": {
+      "was_added_to_your_cart": "was added to your cart"
+    }
+  },
+  "hamburger_menu": {
+    "back_button": "Back"
+  },
+  "footer":{
+    "powered_by_payever":"Powered by payever"
+  },
+  "cart":{
+    "product_column_title":"PRODUCT",
+    "quantity_column_title":"QTY",
+    "price_column_title":"PRICE",
+    "total":"Total",
+    "cart_is_empty":"Cart is empty",
+    "continue_shopping_button":"Continue shopping",
+    "checkout_button":"Checkout",
+    "view_cart_button":"View cart",
+    "quantity_error": "Total stock quantity is {{ quantity }}"
+  },
+  "product_page": {
+    "shop_now_button": "Shop now"
+  },
+  "routes":{
+    "checkout":{
+      "go_to_checkout":"Go to checkout"
+    }
+  },
+  "headers": {
+    "owner_header": {
+      "admin": "Admin",
+      "store_builder": "Store builder"
+    }
+  },
+  "search":{
+    "search_input_placeholder": "Search our store",
+    "results_page": {
+      "title": "Search results for"
+    }
+  },
+  "system_pages": {
+    "catalog": "Catalog",
+    "home": "Home",
+    "product": "Product"
+  },
+  "not_found": {
+    "shop": "Shop not found.",
+    "interested": "Interested in payever Shop?",
+    "register": "Register",
+    "link": "/entry/registration/business"
+  },
+  "password": {
+    "enter_store_using_password": "Enter store using password",
+    "password_label": "Password",
+    "password_incorrect": "Incorrect password",
+    "enter": "Enter",
+    "enter_password": "Enter password",
+    "are_you_owner": "Are you the store owner? Please login"
+  },
+  "cookies_label": "Payever verwendet Cookies, um Ihnen den bestmöglichen Service zu gewährleisten. Wenn Sie auf der Seite weitersurfen stimmen Sie der Cookie-Nutzung zu.Ich stimme zu.",
+  "under_construction": "Website is under construction and will be available soon",
+  "payever_fashion": "payever Fashion",
+  "start_business": "Start, run and grow your fashion business.",
+  "register_domain": "Register domain",
+  "here": "here"
+}

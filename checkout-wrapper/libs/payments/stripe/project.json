@@ -1,0 +1,26 @@
+{
+  "name": "stripe",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/payments/stripe/src",
+  "prefix": "pe",
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/payments/stripe"],
+      "options": {
+        "jestConfig": "libs/payments/stripe/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/payments/stripe/src/**/*.ts", "libs/payments/stripe/src/**/*.html"]
+      },
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": ["scope:libs", "type:feature"],
+  "implicitDependencies": []
+}

@@ -1,0 +1,8 @@
+which FE cases/pages do we need?
+I am going to create todo app with
+- todo items data grid based on ng-kit data grid
+- CRUD operations based on ng-kit modals
+
+with ngrx store state management
+with translations
+with unit tests

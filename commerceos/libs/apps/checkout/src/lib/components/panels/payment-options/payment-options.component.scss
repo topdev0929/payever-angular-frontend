@@ -1,0 +1,57 @@
+@import "~@pe/ui-kit/scss/pe_variables.scss";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+@import "../page-container.scss";
+
+:host {
+  min-height: fit-content;
+}
+
+.page {
+  &__main-title {
+    margin-bottom: 3px;
+  }
+
+  &__title {
+    padding-top: 24px;
+    width: 100%;
+    @media (max-width: $viewport-breakpoint-xs-2){
+      padding-top: 0;  
+    }
+  }
+
+  &__container {
+    height: 100%;
+    width: 1005;
+    max-width: 100%;
+    margin: auto;
+  }
+}
+
+.pe-info-box-container-fixed.pe-checkout-payment-options {
+  flex-direction: column;
+  min-height: fit-content;
+}
+
+@media (max-width: 720px) {
+  .page__container {
+    width: 100%;
+  }
+
+  .icon-menu-wrapper {
+    .icon-menu-item {
+      display: flex !important;
+    }
+  }
+
+  .mat-list-item-content.expansion-list-title {
+    width: 100%;
+  }
+
+  .mat-list-item {
+    .mat-list-item-content {
+      .mat-list-item-flex.no-right-padding {
+        padding-left: 0;
+      }
+    }
+  }
+}

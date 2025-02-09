@@ -1,0 +1,60 @@
+<div
+  class="clearfix"
+  *ngIf="formData?.personalForm?.employer">
+  <span
+    class="text-secondary"
+    i18n="@@santander-no.inquiry.form.employer.label"
+    >Employer</span
+  >:
+  <span class="text-primary">{{ formData?.personalForm?.employer }}</span>
+</div>
+<div
+  class="clearfix"
+  *ngIf="formData?.personalForm?.netMonthlyIncome">
+  <span
+    class="text-secondary"
+    i18n="@@santander-no.inquiry.form.net_monthly_income.label"
+    >Monthly income</span
+  >:
+  <span class="text-primary">{{ formData?.personalForm?.netMonthlyIncome }}</span>
+</div>
+<div
+  class="clearfix"
+  *ngIf="formData?.personalForm?.rentIncome">
+  <span
+    class="text-secondary"
+    i182="@@santander-no.inquiry.form.rent_income.label"
+    >Rental income</span
+  >:
+  <span class="text-primary">{{ formData?.personalForm?.rentIncome }}</span>
+</div>
+<div
+  class="clearfix"
+  *ngIf="formData?.personalForm?.numberOfChildren">
+  <span
+    class="text-secondary"
+    i18n="@@santander-no.inquiry.form.number_of_children.label"
+    >Number of children</span
+  >:
+  <span class="text-primary">{{ formData?.personalForm?.numberOfChildren }}</span>
+</div>
+<div
+  class="clearfix"
+  *ngIf="formData?.debtForm?.totalDebt">
+  <span
+    class="text-secondary"
+    i18n="@@santander-no.inquiry.form.total_debt.label"
+    >Total debt</span
+  >:
+  <span class="text-primary">{{ formData?.debtForm?.totalDebt }}</span>
+</div>
+<div
+  class="clearfix"
+  *ngIf="formData?.monthlyExpensesForm?.otherMonthlyExpenses">
+  <span
+    class="text-secondary"
+    i18n="@@santander-no.inquiry.form.other_monthly_expences.label"
+    >Other fixed expenses</span
+  >:
+  <span class="text-primary">{{ formData?.monthlyExpensesForm?.otherMonthlyExpenses }}</span>
+</div>

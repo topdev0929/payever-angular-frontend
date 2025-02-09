@@ -1,0 +1,63 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup">
+  <pe-payment-text
+    *ngIf="merchantMode && (isComfortCardCondition$ | async) === false"
+    [defaultMargin]="true"
+    [marginBottom]="true"
+    type="text">
+    <span [innerHTML]="translations.merchantModeText + 1"></span>
+  </pe-payment-text>
+
+  <mat-checkbox
+    *ngIf="formGroup.get('forOwnAccount').enabled"
+    formControlName="forOwnAccount"
+    analyticFieldName="For own account"
+    [analyticsConsent]="analyticConsentEventEnum.GENERAL_CONSENT_GIVEN">
+    <span [innerHTML]="translations.forOwnAccount"></span>
+  </mat-checkbox>
+
+  <mat-checkbox
+    *ngIf="formGroup.get('_borrowerAgreeToBeAdvised').enabled"
+    formControlName="_borrowerAgreeToBeAdvised"
+    analyticFieldName="Borrower agree to be advised"
+    [analyticsConsent]="analyticConsentEventEnum.MARKETING_CONSENT_GIVEN">
+    <span [innerHTML]="translations._borrowerAgreeToBeAdvised"></span>
+  </mat-checkbox>
+
+  <mat-checkbox
+    *ngIf="formGroup.get('dataPrivacy').enabled"
+    formControlName="dataPrivacy"
+    analyticFieldName="Data privacy"
+    [analyticsConsent]="analyticConsentEventEnum.INSURANCE_CONSENT_GIVEN">
+    <span [innerHTML]="translations.dataPrivacy"></span>
+  </mat-checkbox>
+
+  <mat-checkbox
+    *ngIf="formGroup.get('webIdConditionsAccepted').enabled"
+    formControlName="webIdConditionsAccepted"
+    analyticFieldName="Web id conditions accepted"
+    [analyticsConsent]="analyticConsentEventEnum.ANALYZE_DOCUMENT_PASSED">
+    <span [innerHTML]="translations.webIdConditionsAccepted"></span>
+  </mat-checkbox>
+
+  <mat-checkbox
+    *ngIf="formGroup.get('_agreeToBeAdvised').enabled"
+    formControlName="_agreeToBeAdvised"
+    analyticFieldName="Agree to be advised">
+    <span [innerHTML]="translations._agreeToBeAdvised"></span>
+  </mat-checkbox>
+
+  <input
+    type="hidden"
+    formControlName="advertisementConsent" />
+  <input
+    type="hidden"
+    formControlName="customerConditionsAccepted" />
+
+  <pe-payment-text
+    *ngIf="!merchantMode"
+    type="text">
+    <span [innerHTML]="translations.selfModeText"></span>
+  </pe-payment-text>
+</form>

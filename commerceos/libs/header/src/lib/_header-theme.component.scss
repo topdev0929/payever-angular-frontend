@@ -1,0 +1,18 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $secondary-button: map.get($color-config, 'secondary-button');
+  $hover-icon: map.get($color-config, 'hover-icon');
+  $border: map.get($color-config, 'border');
+  $active-text: map.get($color-config, 'active-text');
+  $label-color: map.get($color-config, 'label-color');
+
+  pe-header {
+    .back-to-dashboard {
+      background-color: $secondary-button;
+      color: $text-color;
+    }
+  }
+}

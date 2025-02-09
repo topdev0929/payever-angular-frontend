@@ -1,0 +1,100 @@
+<ng-container *ngIf="vm$ | async as vm">
+  <div
+    *ngIf="vm.products && !vm.products?.length"
+    class="h5 no-products">
+    <p i18n="@@santander-dk.credit_rates.error.no_products">santander-dk.credit_rates.error.no_products</p>
+    <button
+      class="btn btn-primary"
+      i18n="@@checkout_sdk.action.try_again"
+      type="button"
+      (click)="fetchProducts()">
+      checkout_sdk.action.try_again
+    </button>
+    <br />
+  </div>
+
+  <ng-container *ngIf="vm.products && vm.products?.length <= 1">
+    <ng-container
+      *ngTemplateOutlet="
+      ratesContainer;
+      context: { rates: vm.rates, viewRates: vm.viewRates }
+      ">
+    </ng-container>
+  </ng-container>
+
+  <ng-container *ngIf="!vm.products || vm.products?.length > 1">
+    <checkout-sdk-rates-container
+      i18n-noRatesText="@@santander-dk.inquiry.step.rates.no_rates"
+      noRatesText="santander-dk.inquiry.step.rates.no_rates"
+      [rates]="vm.products"
+      [loadErrorMessage]="productsLoadError"
+      [isLoading]="!vm.products">
+      <checkout-sdk-choose-rate-accordion
+        class="choose-rate-accordion"
+        [trackFlowId]="flowId"
+        [trackPaymentMethod]="paymentMethod"
+        [rates]="vm.viewProducts"
+        [isLoading]="!vm.viewProducts"
+        [doSelectRate]="doSelectProduct$"
+        (rateSelected)="productSelected($event, vm.products)"
+        (panelOpened)="productPanelOpened.emit($event)">
+        <ng-container
+          *ngTemplateOutlet="
+          ratesContainer;
+          context: { rates: vm.rates, viewRates: vm.viewRates }
+          ">
+        </ng-container>
+      </checkout-sdk-choose-rate-accordion>
+    </checkout-sdk-rates-container>
+  </ng-container>
+</ng-container>
+
+<ng-template
+  #ratesContainer
+  let-rates="rates"
+  let-viewRates="viewRates">
+  <div
+    class="no-credit-options-for-product"
+    *ngIf="!rates?.length
+          && !productsLoadError
+          && !ratesLoadError
+        ">
+    <p
+      class="pe-payment-text small-text no-mb"
+      i18n="@@santander-dk.credit_rates.error.no_credit_options_for_product">
+      santander-dk.credit_rates.error.no_credit_options_for_product
+    </p>
+  </div>
+
+  <checkout-sdk-rates-container
+    *ngIf="rates?.length || ratesLoadError"
+    i18n-noRatesText="@@santander-dk.inquiry.step.rates.no_rates"
+    noRatesText="santander-dk.inquiry.step.rates.no_rates"
+    [rates]="rates"
+    [loadErrorMessage]="ratesLoadError">
+    <div class="selected-rate-wrap-box">
+      <form class="form-table">
+        <div class="selected-rate-dropdown">
+          <checkout-sdk-choose-rate
+            [trackFlowId]="flowId"
+            [trackPaymentMethod]="paymentMethod"
+            [rates]="viewRates"
+            [isLoading]="!rates"
+            [doSelectRate]="doSelectRate$"
+            (rateSelected)="rateSelected($event, rates)">
+          </checkout-sdk-choose-rate>
+        </div>
+        <div class="selected-rate-info">
+          <checkout-sdk-santander-de-selected-rate-details
+            *ngIf="rates?.length > 0"
+            [details]="details"
+            [isManyColumnsDisabled]="true"
+            [noMarginBottom]="true">
+          </checkout-sdk-santander-de-selected-rate-details>
+          <ng-content></ng-content>
+        </div>
+      </form>
+      <div class="clearfix"></div>
+    </div>
+  </checkout-sdk-rates-container>
+</ng-template>

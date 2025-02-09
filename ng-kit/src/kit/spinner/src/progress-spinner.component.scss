@@ -1,0 +1,16 @@
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+.pe-progress-spinner {
+  position: relative;
+
+  .check-mark {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include pe_flexbox();
+    align-items: center;
+    justify-content: center;
+  }
+}

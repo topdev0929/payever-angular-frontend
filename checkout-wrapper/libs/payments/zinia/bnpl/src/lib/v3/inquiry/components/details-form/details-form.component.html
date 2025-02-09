@@ -1,0 +1,50 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup">
+  <div class="form-fieldset-new">
+    <mat-form-field
+      *ngIf="formGroup.get('birthday').enabled"
+      longDateFormat
+      class="col-xs-12"
+      [ngClass]="{ 'col-sm-6': formGroup.get('phone').enabled }">
+      <mat-label i18n="@@payment-openbank.inquiry.form.birthDate.label"> Birthday </mat-label>
+
+      <input
+        matInput
+        peDatePickerMask="fullDate"
+        formControlName="birthday"
+        type="text"
+        [min]="adultDateConstraints.min"
+        [max]="adultDateConstraints.max"
+        [matDatepicker]="birthdayDp" />
+
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="birthdayDp">
+        <svg
+          matDatepickerToggleIcon
+          class="icon icon-16">
+          <use xlink:href="#icon-calendar-16"></use>
+        </svg>
+      </mat-datepicker-toggle>
+      <mat-datepicker
+        #birthdayDp
+        startView="multi-year">
+      </mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('phone').enabled"
+      class="col-xs-12"
+      [ngClass]="{ 'col-sm-6': formGroup.get('birthday').enabled }">
+      <mat-label i18n="@@payment-openbank.inquiry.form.phone.label"> Phone </mat-label>
+
+      <input
+        matInput
+        peInputMask
+        formControlName="phone"
+        type="text"
+        [mask]="phoneMask" />
+    </mat-form-field>
+  </div>
+</form>

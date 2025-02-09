@@ -1,0 +1,15 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $background: map.get($color-config, 'background');
+  $backdrop-filter-transparent: map.get($color-config, 'backdrop-filter-transparent');
+  .shipping-root {
+    background: $background;
+    backdrop-filter: $backdrop-filter-transparent !important;
+  }
+
+  .shipping-items__content,
+  .sidebar-item {
+    color: #fff;
+  }
+}

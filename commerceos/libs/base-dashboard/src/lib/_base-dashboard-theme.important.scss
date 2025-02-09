@@ -1,0 +1,7 @@
+@use 'pe_theming' as pet;
+@use './base-dashboard/base-dashboard-theme.component' as base_dashboard;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include base_dashboard.color($color-config);
+}

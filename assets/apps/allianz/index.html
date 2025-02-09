@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en" id="html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allianz</title>
+    <link rel="stylesheet" href="../../css/shared.css">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body data-payment-demo="Allianz">
+    <div id="main-container" class="main-container active-order-step">
+        <div id="main-content" class="main-content">
+            <div class="content-wrapper">
+                <div class="body">
+                    <div class="desktop-device">
+                        <div id="device-main-border" class="border">
+                            <div id="device-main-wrapper" class="wrapper">
+                                <div id="checkout-header" class="desktop-header">
+                                    <div class="desktop-header-inner">
+                                        <img id="form-logo" src="../../assets/payever-logo.svg" alt="">
+                                    </div>
+                                </div>
+                                <div id="checkout-items" class="desktop-checkout-items">
+                                    <div class="payment-wrapper">
+                                        <div id="order-step-header" class="item-header active">
+                                            <div class="payment-label order-text" data-text="ORDER">ORDER</div>
+                                            <img src="../../assets/arrow.svg" alt="">
+                                        </div>
+                                        <div id="order-step" class="step order-step active">
+                                            <div class="step-content">
+                                                <table class="products-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <td class="total total-text" data-text="TOTAL">
+                                                                TOTAL
+                                                            </td>
+                                                            <td class="quantity qty-text" data-text="QTY">
+                                                                QTY
+                                                            </td>
+                                                            <td class="price price-text-2" data-text="Price">
+                                                                Price
+                                                            </td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="product-info">
+                                                                    <div class="button-remove">
+                                                                        <img src="../../assets/remove-light.svg" alt="Item">
+                                                                    </div>                                          
+                                                                    <img class="product-media product-img" src="../../assets/drone-camera.png" alt="">
+                                                                    <div class="product-name">
+                                                                        Drone Camera
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="quantity-input">
+                                                                    <div class="control decrease">
+                                                                        <img src="../../assets/minus.svg" alt="Minus">
+                                                                    </div>
+                                                                    <div class="value">
+                                                                        1
+                                                                    </div>
+                                                                    <div class="control increase">
+                                                                        <img src="../../assets/plus.svg" alt="Plus">
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="product-price"><span class="price-text">2.039,00</span>&nbsp€</div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="price-info-line">
+                                                    <div class="subtotal-text" data-text="Subtotal">Subtotal</div>
+                                                    <div><span class="price-text">2.039,00</span>&nbsp€</div>
+                                                </div>
+                                                <div class="price-info-line total">
+                                                    <div class="total-text-2" data-text="TOTAL">Total</div>
+                                                    <div><span class="price-text">2.039,00</span>&nbsp€</div>
+                                                </div>
+                                                <div class="continue-button-wrapper">
+                                                    <div class="clickable animate-once" id="step-1-click">
+                                                        <div></div>
+                                                    </div>
+                                                    <div class="set-corner set-color continue-text continue-button" data-text="Continue">
+                                                        Continue
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="account-step-header" class="item-header">
+                                            <div class="item-header-info">
+                                                <div class="payment-label account-text" data-text="Account">Account</div>
+                                                <div id="account-step-selected-data" class="selected-step-data">
+                                                    max.mustermann@mail.com
+                                                </div>
+                                            </div>
+                                            <img src="../../assets/arrow.svg" alt="">
+                                        </div>
+                                        <div id="account-step" class="step account-step">
+                                            <div class="step-content">
+                                                <div class="form-group">
+                                                    <div class="form-field">
+                                                        <div class="inner">
+                                                            <div class="label email-text" data-text="Email">Email</div>
+                                                            <div class="value">max.mustermann@mail.com</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-field form-field-address">
+                                                        <div class="inner">
+                                                            <div class="icon">
+                                                                <img src="../../assets/globe.svg" alt="">
+                                                            </div>
+                                                            <div class="field-data">
+                                                                <div class="label address-text" data-text="Address">Address</div>
+                                                                <div class="value">
+                                                                    <span class="desktop-view-value">Rödingsmarkt 20, 20459 Hamburg, Germany</span>
+                                                                    <span class="mobile-view-value">Rödingsmarkt 20, 20459 Hamburg, Ger...</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="continue-button-wrapper top-spacing-medium">
+                                                    <div class="clickable" id="step-2-click">
+                                                        <div></div>
+                                                    </div>
+                                                    <div class="set-corner set-color continue-text-2 continue-button" data-text="Continue">
+                                                        Continue
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="shipping-step-header" class="item-header">
+                                            <div class="item-header-info">
+                                                <div class="payment-label billing-and-shipping-text" data-text="BILLING & SHIPPING">BILLING & SHIPPING</div>
+                                                <div id="shipping-step-selected-data" class="selected-step-data">
+                                                    <div>payever</div>
+                                                    <div><span class="value mr-text-2" data-text="Mr">Mr.</span> Max Mustermann</div>
+                                                    <div>Rödingsmarkt 20</div>
+                                                    <div>20459 Hamburg, Germany</div>
+                                                </div>
+                                            </div>
+                                           
+                                            <img src="../../assets/arrow.svg" alt="">
+                                        </div>
+                                        <div id="shipping-step" class="step shipping-step">
+                                            <div class="step-content">
+                                                <div class="form-group">
+                                                    <div class="form-field">
+                                                        <div class="inner">
+                                                            <div class="label company-text" data-text="Company">Company</div>
+                                                            <div class="value">payever</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-field">
+                                                        <div class="inner">
+                                                            <div class="label email-text-2" data-text="Email">Email</div>
+                                                            <div class="value">max.mustermann@mail.com</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="inline-fields-group">
+                                                        <div class="form-field salutation-field">
+                                                            <div class="inner">
+                                                                <div class="label salutation-text" data-text="Salutation">Salutation</div>
+                                                                <div class="value mr-text" data-text="Mr">Mr.</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-field">
+                                                            <div class="inner">
+                                                                <div class="label first-name-text" data-text="FirstName">First Name</div>
+                                                                <div class="value">Max</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-field">
+                                                            <div class="inner">
+                                                                <div class="label last-name-text" data-text="LastName">Last Name</div>
+                                                                <div class="value">Mustermann</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-field form-field-address">
+                                                        <div class="inner">
+                                                            <div class="icon">
+                                                                <img src="../../assets/globe.svg" alt="">
+                                                            </div>
+                                                            <div class="field-data">
+                                                                <div class="label address-text-2" data-text="Address">Address</div>
+                                                                <div class="value">
+                                                                    <span class="desktop-view-value">Rödingsmarkt 20, 20459 Hamburg, Germany</span>
+                                                                    <span class="mobile-view-value">Rödingsmarkt 20, 20459 Hamburg, Ger...</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="inline-fields-group">
+                                                        <div class="form-field form-field-select">
+                                                            <div class="inner">
+                                                                <div class="field-data">
+                                                                    <div class="label country-text" data-text="Country">Country</div>
+                                                                    <div class="value">Germany</div>
+                                                                </div>
+                                                                <div class="caret">
+                                                                    <img src="../../assets/dropdown-light.svg" alt="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-field">
+                                                            <div class="inner">
+                                                                <div class="label city-text" data-text="City">City</div>
+                                                                <div class="value">Hamburg</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="inline-fields-group">
+                                                        <div class="form-field">
+                                                            <div class="inner">
+                                                                <div class="label street-and-number-text" data-text="StreetAndNumber">Street and number</div>
+                                                                <div class="value">Rödingsmarkt 20</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-field post-code-field">
+                                                            <div class="inner">
+                                                                <div class="label post-code-text" data-text="PostCode">Post Code</div>
+                                                                <div class="value">20459</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-field">
+                                                        <div class="inner">
+                                                            <div class="label phone-optional-text" data-text="PhoneOptional">Phone (Optional)</div>
+                                                            <div class="value">+49 40 999969820</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="continue-button-wrapper top-spacing-medium">
+                                                    <div class="clickable" id="step-3-click">
+                                                        <div></div>
+                                                    </div>
+                                                    <div class="set-corner set-color continue-text-3 continue-button" data-text="Continue">
+                                                        Continue
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="payment-method-step-header" class="item-header">
+                                            <div class="payment-label payment-text" data-text="PAYMENT">PAYMENT</div>
+                                            <img src="../../assets/arrow.svg" alt="">
+                                        </div>
+                                        <div id="payment-method-step" class="step payment-method-step">
+                                            <div class="step-content">
+                                                <div class="payment-methods">
+                                                    <div class="payment-method">
+                                                        <div class="method">
+                                                            <div class="info">
+                                                                <img src="../../assets/checkout-checkmark-icon.svg" alt="">
+                                                                <span>B2B BNPL by Allianz Trade</span>
+                                                            </div>
+                                                            <div class="assets">
+                                                                <img class="allianz-icon" src="../../assets/allianz-pay-logo.svg" alt="Allianz">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="payment-method">
+                                                        <div class="method">
+                                                            <div class="info">
+                                                                <div class="checkout-checkmark"></div>
+                                                                <span>Santander Ratenkredit</span>
+                                                            </div>
+                                                            <div class="assets">
+                                                                <img class="santander-icon" src="../../assets/santander-full-logo.svg" alt="Santander">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="payment-method">
+                                                        <div class="method">
+                                                            <div class="info">
+                                                                <div class="checkout-checkmark"></div>
+                                                                <span>PayPal</span>
+                                                            </div>
+                                                            <div class="assets">
+                                                                <img class="paypal-icon" src="../../assets/paypal-logo.svg" alt="PayPal">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="payment-method">
+                                                        <div class="method">
+                                                            <div class="info">
+                                                                <div class="checkout-checkmark"></div>
+                                                                <span>Ratenkauf (in 3-36 Raten zahlen)</span>
+                                                            </div>
+                                                            <div class="assets">
+                                                                <img class="zinia-by-santander-icon" src="../../assets/zinia-by-santander-logo.svg" alt="Zinia by Santander">
+                                                            </div>
+                                                        </div>
+                                                    </div>                                    
+                                                </div>
+                                                <div class="continue-button-wrapper top-spacing-medium">
+                                                    <div class="clickable" id="step-4-click">
+                                                        <div></div>
+                                                    </div>
+                                                    <div class="set-corner set-color continue-button">
+                                                        Pay
+                                                    </div>
+                                                </div>
+                                                <div class="step-terms">
+                                                    <div class="terms-line1-text" data-text="TermsLine1">
+                                                        Mit dem Klick auf <b>Pay</b> Stimmen Sie den <br class="mobile-br"> <span>AGB der payever GmbH</span> zu.
+                                                    </div>
+                                                    <div>&nbsp;</div>
+                                                    <div class="terms-line2-text" data-text="TermsLine2">
+                                                        By clicking <b>Pay</b> you agree with the following policies
+                                                    </div>
+                                                    <div class="terms-list">
+                                                        Terms & Servicee, Privacy Statement, Rückgaberichtlinie, Cookie Policy, Versandbedingungen, AGB der payever GmbH
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="payment-summary">
+                                            <div class="order-text-2" data-text="ORDER">
+                                                ORDER
+                                            </div>
+                                            <div id="right-order-details" class="right">
+                                                <div class="details-text">
+                                                    <div class="subtotal-text-2" data-text="Subtotal">Subtotal</div>
+                                                    <div class="payment-cost-text" data-text="Payment Cost">Payment Cost</div>
+                                                    <div class="shipping-text" data-text="Shipping">Shipping</div>
+                                                    <div class="total-value total-text-3" data-text="TOTAL">
+                                                        TOTAL
+                                                    </div>
+                                                </div>
+                                                <div class="details-text right">
+                                                    <div><div class="price-text">2.039,00</div>&nbsp€</div>
+                                                    <div>0,00 €</div>
+                                                    <div>0,00 €</div>
+                                                    <div><b class="price-text">2.039,00</b>&nbsp€</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="payment-footer">
+                                            <div class="logo">
+                                                <img src="../../assets/footer-logo.svg" alt="Logo">
+                                            </div>
+                                            <nav>
+                                                <ul>
+                                                    <li>
+                                                        © payever GmbH
+                                                    </li>
+                                                    <li class="imprint-text" data-text="Imprint">
+                                                        Impressum
+                                                    </li>
+                                                    <li class="terms-of-service-text" data-text="TermsOfService">
+                                                        Nutzungsbedigungen
+                                                    </li>
+                                                    <li class="privacy-text" data-text="Privacy">
+                                                        Datenschutzerklärung
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="transaction-successful-modal" class="success-modal">
+                                    <div id="transaction-successful-wrapper" class="set-corner successful-modal rounded">
+                                        <img class="successful-icon" src="../../assets/checkmark-green.svg" alt="">
+                                        <div class="label-wrapper">
+                                            <div class="header transaction-successful-text" data-text="Transaction Successful">Transaction Successful</div>
+                                            <div class="sub-header"><div class="transaction-id-text" data-text="Transaction ID">Transaction ID</div>:#14141414</div>
+                                        </div>
+                                        <div class="item-wrapper">
+                                            <div class="line"></div>
+                                        </div>
+                                        <div class="item-wrapper">
+                                            <div>
+                                                <div class="label phone-text-2" data-text="Phone">Phone</div>
+                                                <div class="label-data">+49 124 567 8910</div>
+                                            </div>
+                                            <div>
+                                                <div class="label full-name-text" data-text="FullName">Full Name</div>
+                                                <div class="label-data">Max Mustermann</div>
+                                            </div>
+                                        </div>
+                                        <div class="item-wrapper">
+                                            <div>
+                                                <div class="label date-text" data-text="Date">Date</div>
+                                                <div class="label-data label-without-space">
+                                                    <span class="march-text" data-text="March">March</span>, 18 2024
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item-wrapper">
+                                            <div>
+                                                <div class="label product-name-text" data-text="Product Name">Product Name</div>
+                                                <div class="product-name label-data">Drone Camera</div>
+                                            </div>
+                                            <div>
+                                                <div class="label qty-text-2" data-text="QTY">QTY</div>
+                                                <div class="label-data">x1</div>
+                                            </div>
+                                            <div>
+                                                <div class="label price-text-3" data-text="Price">Price</div>
+                                                <div class="label-data green-text">
+                                                    €<b class="price-text">2.039,00</b>
+                                                </div>
+                                            </div>
+                                            <img class="product-img" src="../../assets/drone-camera.png" alt="">
+                                        </div>
+                                        <div class="item-wrapper grey-wrapper">
+                                            <div>
+                                                <div class="label payment-method-text" data-text="Payment Method">Payment Method</div>
+                                                <div class="label-data">B2B BNPL by Allianz Trade</div>
+                                            </div>
+                                            <img src="../../assets/allianz-pay-logo.svg" alt="">
+                                        </div>
+                                        <div class="item-wrapper">
+                                            <div>
+                                                <div class="label subtotal-text-3" data-text="Subtotal">Subtotal</div>
+                                                <div class="label-data">€<div class="price-text">2.039,00</div> </div>
+                                            </div>
+                                        </div>
+                                        <div class="item-wrapper">
+                                            <div>
+                                                <div class="label payment-cost-text-2" data-text="Payment Cost">Payment Cost</div>
+                                                <div class="label-data">€ 0,00</div>
+                                            </div>
+                                        </div>
+                                        <div class="item-wrapper">
+                                            <div>
+                                                <div class="label shipping-text-2" data-text="Shipping">Shipping</div>
+                                                <div class="label-data">€ 0,00</div>
+                                            </div>
+                                        </div>
+                                        <div class="item-wrapper">
+                                            <div>
+                                                <div class="label">
+                                                    <b class="total-text-4" data-text="TOTAL">TOTAL</b>
+                                                </div>
+                                                <div class="green-text label-data">
+                                                    €<div class="price-text">2.039,00</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="modal-backdrop" class="modal-backdrop"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-buttons">
+                        <div id="back-button" class="arrow-buttons disable" >
+                            <img name="back" src="../../assets/chevron.left.circle.fill.svg" alt="">
+                        </div>
+                        <ul id="step-spots" class="step-spots"></ul>
+                     
+                        <div id="forward-button" class="arrow-buttons" >
+                            <img name="forward" src="../../assets/chevron.right.circle.fill.svg" alt="">
+                        </div>
+                        <div class="auto-play-icon" >
+                            <img id="autoplay-button" src="../../assets/pause.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <ul class="tool-bar">
+                    <li class="item-bar">
+                        <div data-text="language-radio" class="tool-bar-pill-label item-wrapper left">
+                            <img src="../../assets/globe-icon.svg" alt="">
+                            <div class="label language-text" data-text="Language">Sprache</div>
+                        </div>
+                        <div id="language-toolbar-item" data-index="0" class="tool-bar-item item-wrapper right">
+                            <img id="language-flag" src="../../assets/germany-icon.svg" alt="">
+                            <div id="language-label">Germany</div>
+                            <img src="../../assets/dropdown-icon.svg" alt="">
+                        </div>
+                        <ul data-text="language-radio" class="dropdown-tool-bar dropdown-items">
+                            <li class="item">
+                                <div class="left">
+                                    <img src="../../assets/germany-icon.svg" alt="">
+                                    <div>Germany</div>
+                                </div>
+                                <img name="language" data-text="germany" class="language-radio active right" src="../../assets/checkmark-blue-icon.svg" alt="">
+                            </li>
+                            <li class="item">
+                                <div class="left">
+                                    <img src="../../assets/english-icon.svg" alt="">
+                                    <div>English</div>
+                                </div>
+                                <img name="language" data-text="english" class="language-radio right" src="../../assets/checkoff-icon.svg" alt="">
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="item-bar">
+                        <div data-text="device-radio" class="tool-bar-pill-label item-wrapper left">
+                            <img src="../../assets/devices-icon.svg" alt="">
+                            <div class="label device-text" data-text="Device">Gerät</div>
+                        </div>
+                        <div id="device-toolbar-item" data-index="1" class="tool-bar-item item-wrapper">
+                            <div id="device-label">Desktop</div>
+                            <img src="../../assets/dropdown-icon.svg" alt="">
+                        </div>
+                        <ul data-text="device-radio" class="dropdown-tool-bar dropdown-items">
+                            <li>
+                                <div class="left">
+                                    <img src="../../assets/desktop-icon.svg" alt="">
+                                    <div>Desktop</div>
+                                </div>
+                                <img  name="device" data-text="Desktop" id="desktop-device" class="device-radio right" src="../../assets/checkoff-icon.svg" alt="">
+                            </li>
+                            <li>
+                                <div class="left">
+                                    <img src="../../assets/phone-icon.svg" alt="">
+                                    <div>Mobile</div>
+                                </div>
+                                <img name="device" data-text="mobile" id="mobile-device" class="device-radio right" src="../../assets/checkoff-icon.svg" alt="">
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="item-bar">
+                        <div class="tool-bar-pill-label item-wrapper left">
+                            <img src="../../assets/bag-icon.svg" alt="">
+                            <div class="label industry-text" data-text="Industry">Industrie</div>
+                        </div>
+                        <div id="industry-toolbar-item" data-index="2" class="tool-bar-item item-wrapper">
+                            <div id="industry-label" class="technology-text" data-text="Technology">Technologie</div>
+                            <img src="../../assets/dropdown-icon.svg" alt="">
+                        </div>
+                        <ul id="industry-dropdown" data-text="industry-radio" class="dropdown-tool-bar dropdown-items">
+                            <li>
+                                <div class="left">
+                                    <div class="technology-text-2" data-text="Technology">Technologie</div>
+                                </div>
+                                <img name="industry" data-text="Technology" class="industry-radio active right" src="../../assets/checkmark-blue-icon.svg" alt="">
+                            </li>
+                            <li>
+                                <div class="left">
+                                    <div class="car-text" data-text="Car">Automobil</div>
+                                </div>
+                                <img name="industry" data-text="Car" class="industry-radio right" src="../../assets/checkoff-icon.svg" alt="">
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="item-bar" data-name="style" >
+                        <div class="tool-bar-pill-label item-wrapper left">
+                            <img src="../../assets/paintpalette-icon.svg" alt="">
+                            <div class="label style-text" data-text="Style">Stil</div>
+                        </div>
+                        <label id="color-toolbar-item" data-index="3" class="item-wrapper tool-bar-item">
+                            <div class="item-color">
+                                <input type="color" name="" value="#3E8FF4" id="input-color">
+                            </div>
+                            <div class="colors-text" data-text="Colors">Farben</div>
+                            <img src="../../assets/dropdown-black-icon.svg" alt="">
+                        </label>
+                        <div id="corner-toolbar-item" data-index="3" class="item-wrapper tool-bar-item">
+                            <img id="corner-img" src="../../assets/rounded-corner-icon.svg" alt="">
+                            Corner
+                            <img src="../../assets/dropdown-black-icon.svg" alt="">
+                        </div>
+                        <ul id="corner-dropdown" data-text="corner-radio" class="dropdown-tool-bar dropdown-items">
+                            <li>
+                                <div class="left">
+                                    <img src="../../assets/sharp-corner-icon.svg" alt="">
+                                    <div>Sharp</div>
+                                </div>
+                                <img name="corner" data-text="sharp"  class="corner-radio right" src="../../assets/checkoff-icon.svg" alt="">
+                            </li>
+                            <li>
+                                <div class="left">
+                                    <img src="../../assets/rounded-corner-icon.svg" alt="">
+                                    <div>Rounded</div>
+                                </div>
+                                <img name="corner" data-text="rounded" class="corner-radio right active" src="../../assets/checkmark-blue-icon.svg" alt="">
+                            </li>
+                            <li>
+                                <div class="left">
+                                    <img src="../../assets/pill-corner-icon.svg" alt="">
+                                    <div>Pill</div>
+                                </div>
+                                <img name="corner" data-text="pill" class="corner-radio right" src="../../assets/checkoff-icon.svg" alt="">
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="item-bar">
+                        <div class="tool-bar-pill-label item-wrapper left">
+                            <img src="../../assets/textformat-icon.svg" alt="">
+                            <div class="label font-text" data-text="Font">Font</div>
+                        </div>
+                        <div id="font-toolbar-item" data-index="4" class="tool-bar-item item-wrapper">
+                            <div id="font-label">Roboto</div>
+                            <img src="../../assets/dropdown-icon.svg" alt="">
+                        </div>
+                        <ul data-text="font-radio"  class="dropdown-tool-bar dropdown-items">
+                            <li>
+                                <div class="left">
+                                    <div class="roboto-font">Roboto</div>
+                                </div>
+                                <img name="font" data-text="Roboto" class="font-radio active right" src="../../assets/checkmark-blue-icon.svg" alt="">
+                            </li>
+                            <li>
+                                <div class="left">
+                                    <div class="Inter-font">Inter</div>
+                                </div>
+                                <img name="font" data-text="Inter" class="font-radio right" src="../../assets/checkoff-icon.svg" alt="">
+                            </li>
+                            <li>
+                                <div class="left">
+                                    <div class="montserrat-font">Montserrat</div>
+                                </div>
+                                <img name="font" data-text="Montserrat" class="font-radio right" src="../../assets/checkoff-icon.svg" alt="">
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="item-bar">
+                        <div class="tool-bar-pill-label item-wrapper left">
+                            <img src="../../assets/logo.svg" alt="">
+                            <div class="label font-text" data-text="Font">Logo</div>
+                        </div>
+                        <div id="font-toolbar-item" data-index="5" class="tool-bar-item item-wrapper">
+                            <div id="logo-label">payever</div>
+                            <img src="../../assets/dropdown-icon.svg" alt="">
+                            <input type="file" style="display: none;" id="logo-uploader">
+                        </div>
+                        <ul data-text="logo-radio"  class="dropdown-tool-bar dropdown-items">
+                            <li>
+                                <div class="left">
+                                    <div>payever</div>
+                                </div>
+                                <img name="logo" data-text="payever" id="payever-logo" class="logo-radio active right" src="../../assets/checkmark-blue-icon.svg" alt="">
+                            </li>
+                            <li>
+                                <div class="left">
+                                    <div>Custom logo</div>
+                                </div>
+                                <label for="logo-uploader">
+                                    <img name="logo" data-text="custom" class="logo-radio right" src="../../assets/checkoff-icon.svg" alt="">
+                                </label>
+                               
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="../../demo.js"></script>
+</body>
+</html>

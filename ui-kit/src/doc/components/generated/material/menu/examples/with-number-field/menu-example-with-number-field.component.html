@@ -1,0 +1,77 @@
+<button class="mat-button-link mat-muted-light mat-button-no-padding"
+        mat-button
+        mat-icon-button
+        [matMenuTriggerFor]="menu">
+  <svg class="icon icon-16">
+    <use xlink:href="#icon-dots-v-16"></use>
+  </svg>
+</button>
+<mat-menu #menu="matMenu" class="mat-menu-lg mat-menu-padding-top">
+  <div (click)="dontClose($event)" class="mat-menu-item-number-field mat-menu-item-with-indicator mat-orange">
+    Variant 1
+    <div class="number-field">
+      <button mat-button
+              [ngClass]="{'minus': true, 'mat-button-no-padding': true}"
+              (click)="subtract($event)">
+        <svg class="icon icon-16">
+          <use xlink:href="#icon-minus-16"></use>
+        </svg>
+      </button>
+      <input matInput class="number-input" [(ngModel)]="testingNumber" placeholder="0" type="number">
+      <button mat-button
+              [ngClass]="{'plus': true, 'mat-button-no-padding': true}"
+              (click)="add($event)">
+        <svg class="icon icon-16">
+          <use xlink:href="#icon-add-16"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div (click)="dontClose($event)" class="mat-menu-item-number-field mat-menu-item-with-indicator mat-accent">
+    Variant 2
+    <div class="number-field">
+      <button mat-button
+              [ngClass]="{'minus': true, 'mat-button-no-padding': true}"
+              (click)="subtract($event)">
+        <svg class="icon icon-16">
+          <use xlink:href="#icon-minus-16"></use>
+        </svg>
+      </button>
+      <input matInput class="number-input" placeholder="0" type="number">
+      <button mat-button
+              [ngClass]="{'plus': true, 'mat-button-no-padding': true}"
+              (click)="add($event)">
+        <svg class="icon icon-16">
+          <use xlink:href="#icon-add-16"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div (click)="dontClose($event)" class="mat-menu-item-number-field mat-menu-item-with-indicator mat-warn">
+    Variant 3
+    <div class="number-field">
+      <button mat-button
+              [ngClass]="{'minus': true, 'mat-button-no-padding': true}"
+              (click)="subtract($event)">
+        <svg class="icon icon-16">
+          <use xlink:href="#icon-minus-16"></use>
+        </svg>
+      </button>
+      <input matInput class="number-input" placeholder="0" type="number">
+      <button mat-button
+              [ngClass]="{'plus': true, 'mat-button-no-padding': true}"
+              (click)="add($event)">
+        <svg class="icon icon-16">
+          <use xlink:href="#icon-add-16"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div (click)="dontClose($event)" class="mat-menu-footer">
+    <button mat-button color="primary"
+
+            [ngClass]="{'mat-menu-footer-button': true, 'mat-button-link': true, 'mat-button-no-padding': true}">
+      Update
+    </button>
+  </div>
+</mat-menu>

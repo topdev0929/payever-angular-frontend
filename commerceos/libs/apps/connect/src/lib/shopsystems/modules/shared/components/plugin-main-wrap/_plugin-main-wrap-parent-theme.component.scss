@@ -1,0 +1,42 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $confirm: map.get($color-config, 'confirm');
+  $background: map.get($color-config, 'background');
+  $row-background: map.get($color-config, 'row-background');
+  $text-color: map.get($color-config, 'text-color');
+
+  .cdk-overlay-backdrop.connect-modal + .cdk-global-overlay-wrapper {
+    .plugin-main-wrap-container {
+      .mat-expansion-panel-header-title-no-logo.text-centered {
+        .add-button {
+          color: $confirm;
+        }
+      }
+      .mat-list-item-col.sections-step-buttons {
+        .icon.icon-16 {
+          color: $text-color;
+        }
+      }
+      .key {
+        background-color: $row-background;
+        &-info__title {
+            color: $text-color;
+        }
+        &-value {
+            .btn-copy {
+                color: $confirm;
+            }
+        }
+        .row {
+            border-bottom-color: $background;
+        }
+      }
+      .connect-payment-option-wrapper__api-keys .mat-accordion .mat-expansion-panel {
+        &:first-of-type {
+          border-top: $background;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,252 @@
+{
+  "title": "Contacts",
+  "customers": {
+    "add": "+ Add",
+    "add_contact": "Add contact",
+    "import_contacts": "Import contacts",
+    "add_group": "Add group",
+    "add_business": "Add a business",
+    "list": {
+      "columns": {
+        "name": "Name",
+        "email": "Email",
+        "city": "City",
+        "location": "Location",
+        "lastOrder": "Last order",
+        "ordersCount": "Orders",
+        "totalSpent": "Total Spent",
+        "selected": "Selected",
+        "membersCount": "Members"
+      },
+      "actions": {
+        "send_message": "Send message",
+        "send_invitation": "Send invitation",
+        "add_to_group": "Add to group",
+        "delete": "Delete"
+      },
+      "filters": {
+        "name": "Name",
+        "phone": "Phone",
+        "email": "Email",
+        "location": "Location",
+        "members_count": "Members count",
+        "purchase_date": "Purchase date",
+        "orders_count": "Orders count",
+        "products_purchased": "Products purchased",
+        "total_spent": "Total spent"
+      },
+      "customers": "Customers",
+      "sort_by": "Sort by:",
+      "filter": "Filter by:"
+    },
+    "edit": {
+      "add": "Add",
+      "save": "Save",
+      "form": {
+        "avatar": {
+          "placeholder": "Avatar"
+        },
+        "firstName": {
+          "label": "First name",
+          "placeholder": "First name"
+        },
+        "lastName": {
+          "label": "Last name",
+          "placeholder": "Last name"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Email"
+        },
+        "birthday": {
+          "label": "Birthday",
+          "placeholder": "Birthday"
+        },
+        "address": {
+          "phone": {
+            "label": "Phone number",
+            "placeholder": "Phone number"
+          },
+          "full": {
+            "label": "Address",
+            "placeholder": "Start typing address here"
+          },
+          "street": {
+            "label": "Street",
+            "placeholder": "Street"
+          },
+          "country": {
+            "label": "Country",
+            "placeholder": "Country"
+          },
+          "city": {
+            "label": "City",
+            "placeholder": "City"
+          },
+          "zip_code": {
+            "label": "Zip code",
+            "placeholder": "Zip code"
+          },
+          "extra_phone": {
+            "label": "Additional phone number",
+            "placeholder": "Additional phone number"
+          }
+        }
+      }
+    },
+    "details": {
+      "categories": {
+        "transactions.title": "Transactions",
+        "products.title": "Products",
+        "addresses": {
+          "title": "Addresses",
+          "actions.orders": "orders"
+        },
+        "offers.title": "Offers",
+        "coupons": {
+          "title": "Coupons",
+          "state.used": "Used",
+          "actions": {
+            "send": "Send coupon",
+            "create": "Create"
+          }
+        }
+      }
+    },
+    "toolbar": {
+      "filter": "Filter"
+    },
+    "import": {
+      "google_contacts": "Google contacts",
+      "actions": {
+        "done": "Done"
+      }
+    }
+  },
+  "business": {
+    "add_business": {
+      "title": "Add a business"
+    },
+    "edit": {
+      "add": "Add",
+      "save": "Save",
+      "form": {
+        "avatar": {
+          "placeholder": "Avatar"
+        },
+        "lastName": {
+          "label": "Company name",
+          "placeholder": "Company name"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Email"
+        },
+        "url": {
+          "label": "URL",
+          "placeholder": "URL"
+        },
+        "address": {
+          "phone": {
+            "label": "Phone number",
+            "placeholder": "Phone number"
+          },
+          "full": {
+            "label": "Address",
+            "placeholder": "Start typing address here"
+          },
+          "street": {
+            "label": "Street",
+            "placeholder": "Street"
+          },
+          "country": {
+            "label": "Country",
+            "placeholder": "Country"
+          },
+          "city": {
+            "label": "City",
+            "placeholder": "City"
+          },
+          "zip_code": {
+            "label": "Zip code",
+            "placeholder": "Zip code"
+          },
+          "extra_phone": {
+            "label": "Additional phone number",
+            "placeholder": "Additional phone number"
+          }
+        }
+      }
+    },
+    "details": {
+      "actions": {
+        "edit": "+Info",
+        "delete": "Delete business",
+        "save": "Save"
+      }
+    }
+  },
+  "customer": {
+    "title": {
+      "add": "Create contact",
+      "save": "Edit contact"
+    },
+    "details": {
+      "actions": {
+        "edit": "Edit customer",
+        "delete": "Delete customer",
+        "add": "Add",
+        "save": "Save",
+        "cancel": "Cancel"
+      }
+    }
+  },
+  "group": {
+    "avatar": "Image",
+    "name.placeholder": "Group name",
+    "actions": {
+      "create": "Create group"
+    }
+  },
+  "actions": {
+    "add": "Add",
+    "send_message": "Send message",
+    "send_invitation": "Send invitation",
+    "add_to_group": "Add to group",
+    "open": "Open",
+    "edit": "Edit",
+    "done": "Done",
+    "cancel": "Cancel",
+    "remove": "Remove",
+    "search": "Search",
+    "download": "Download",
+    "disconnect": "Disconnect",
+    "go_back": "Go back",
+    "install": "Install",
+    "uninstall": "Uninstall",
+    "close": "Close",
+    "copy": "Copy",
+    "paste": "Paste",
+    "continue": "Continue",
+    "copied": "Copied!",
+    "create": "Create",
+    "reset_creds": "Reset Credentials",
+    "connect": "Connect",
+    "save": "Save",
+    "send": "Send",
+    "rename": "Rename",
+    "delete": "Delete",
+    "addPlus": "+ Add",
+    "upload": "Upload",
+    "submit": "Submit",
+    "move": "Move",
+    "of": "of"
+  },
+  "common": {
+    "errors": {
+      "required": "Field's required",
+      "pattern": "Pattern Error",
+      "email": "Invalid Email"
+    }
+  }
+}

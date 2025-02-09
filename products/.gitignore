@@ -1,0 +1,11 @@
+.idea
+.vscode
+node_modules
+dist
+i18n-serve
+*.iml
+*.log
+src/env.json
+coverage
+.DS_Store
+.history

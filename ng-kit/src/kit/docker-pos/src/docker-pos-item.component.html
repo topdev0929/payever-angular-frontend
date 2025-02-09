@@ -1,0 +1,8 @@
+<div class="menu-item" [class.current]="dockerItem.isCurrent" [class.hidden]="dockerItem.isHidden" [class.disabled]="dockerItem.isDisabled">
+  <a>
+    <svg class="icon icon-24">
+      <use [attr.xlink:href]="dockerItem.iconId"></use>
+    </svg>
+    <span>{{dockerItem.title}}</span>
+  </a>
+</div>

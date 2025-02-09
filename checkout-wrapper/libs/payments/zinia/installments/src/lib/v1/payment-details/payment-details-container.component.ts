@@ -1,0 +1,28 @@
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+} from '@angular/core';
+
+import { AbstractPaymentDetailsContainerInterface } from '@pe/checkout/payment';
+import { PeDestroyService } from '@pe/destroy';
+
+import { BaseContainerComponent } from '../../shared';
+
+@Component({
+  selector: 'zinia-installments-payment-details-container',
+  template: '',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [PeDestroyService],
+})
+export class PaymentDetailsContainerComponent
+  extends BaseContainerComponent
+  implements AbstractPaymentDetailsContainerInterface, OnInit {
+  @Output() continue = new EventEmitter<void>();
+
+  ngOnInit(): void {
+    this.continue.emit();
+  }
+}

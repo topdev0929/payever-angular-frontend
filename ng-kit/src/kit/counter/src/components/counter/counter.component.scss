@@ -1,0 +1,35 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+$counter_base_size: $grid-unit-x * 2.5;
+
+.counter-container {
+  border: 1px solid $color-gray-2;
+  background-color: transparent;
+  background-origin: border-box;
+  line-height: $line-height-base;
+  @include pe_flexbox;
+  border-radius: $border-radius-base;
+  width: $counter_base_size * 4.5;
+  margin: 0 auto;
+
+  & > button {
+    background-color: transparent;
+    border: none;
+    width: $counter_base_size;
+    color: $color-gray-2;
+  }
+
+  & > input {
+    color: $color-gray-2;
+    background-color: transparent;
+    height: $counter_base_size;
+    max-width: $counter_base_size * 2.5;
+    border-top: none;
+    border-bottom: none;
+    border-right: 1px solid $color-gray-2;
+    border-left: 1px solid $color-gray-2;
+    border-radius: 0;
+    text-align: center;
+  }
+}

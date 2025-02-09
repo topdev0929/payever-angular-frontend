@@ -1,0 +1,14 @@
+{
+  "code": "marketing",
+  "dashboardInfo": {
+    "title": "dashboard.apps.marketing",
+    "icon": "icon-commerceos-marketing-32.png"
+  },
+  "tag": "<app-marketing></app-marketing>",
+  "url": "/business/{uuid}/marketing/",
+  "bootstrapScriptUrl": "${MICRO_URL_FRONTEND_MARKETING}/micro.js?{hash}",
+  "platformHeader": {
+    "tag": "marketing-app-header",
+    "bootstrapScriptUrl": "${MICRO_URL_FRONTEND_MARKETING}/header/micro.js?{hash}"
+  }
+}

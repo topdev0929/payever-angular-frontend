@@ -1,0 +1,55 @@
+<div
+  class="virtual-grid-list"
+  [style.--scrollWidth.px]="scrollWidth"
+>
+  <div #virtualScroll
+    pe-grid-infinite-scroll
+    class="virtual-grid-list__items"
+    (scrolledToEnd)="scrolledToEnd.emit()"
+    [wrapperRef]="container"
+    [isCopyingByDrag]="isCopyingByDrag"
+  >
+    <div #virtualScrollWrapper
+      class="virtual-grid-list__wrapper"
+      [style.height.px]="container.height"
+    >
+      <pe-grid-list-skeleton
+        *ngIf="isShowSkeleton()"
+        [columns]="columns"
+      ></pe-grid-list-skeleton>
+      <div #container
+        class="grid-list-container"
+        [class.hidden]="isShowSkeleton()"
+        [class.is-list-with-mobile]="isListWithMobileView"
+        [@showHideAnimation]="isShowSkeleton() ? 'hide' : 'show'"
+      >
+        <ng-container *ngIf="items.length || viewAdd">
+          <ng-container
+            *ngFor="let item of items; trackBy: trackByIdx"
+            [ngTemplateOutlet]="item?.addGridItem ? addItem : itemTemplate"
+            [ngTemplateOutletContext]="{ item: item }"
+          ></ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #addItem>
+  <pe-grid-list-item
+    *ngIf="isViewAdd"
+    (click)="create.emit()"
+    [toAdd]="isViewAdd"
+  ></pe-grid-list-item>
+</ng-template>
+
+<ng-container *ngIf="!items?.length">
+  <div *ngIf="itemsInitialized$ | async"
+    class="grid-list-container__no-items"
+    [class.hidden]="isShowSkeleton()">
+    <span class="grid-list-container__no-items--title">{{ 'grid.items.no_items_title'| translate:{value:noItemsPlaceholder} }}</span>
+    <span class="grid-list-container__no-items--subtitle">
+      {{ 'grid.items.no_items_subtitle' | translate:{value:noItemsPlaceholder} }}
+    </span>
+  </div>
+</ng-container>

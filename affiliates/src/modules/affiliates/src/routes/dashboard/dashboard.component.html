@@ -1,0 +1,26 @@
+<!-- <div class='dashboard-container' [ngClass]="theme">
+</div> -->
+<div class="dashboard-header" [ngClass]="theme">
+  <div class="dashboard-header__title">Affiliate Dashboard</div>
+  <button class="dashboard-header__open">
+    Open
+  </button>
+  <button class="dashboard-header__menu" [matMenuTriggerFor]="itemMenu">
+    <svg>
+      <use [attr.xlink:href]="'#icon-dots-h-24'"></use>
+    </svg>
+  </button>
+
+  <mat-menu #itemMenu="matMenu" backdropClass="dashboard__backdrop" [classList]="'dashboard__menu ' + theme">
+    <button
+      mat-menu-item
+      >
+      Edit
+    </button>
+  </mat-menu>
+</div>
+
+<div class="dashboard-viewer-container">
+  <div class="scrollbar">          
+  </div>
+</div>

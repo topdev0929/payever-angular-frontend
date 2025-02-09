@@ -1,0 +1,64 @@
+<div class="pe-info-box-container-fixed policies-content">
+  <pe-info-box [withHeader]="false"
+               [withFooter]="false"
+               [notFullwidthOnMobile]="true"
+               [roundBorder]="true"
+               [fixed]="false"
+               (onClose)="goBack()"
+  >
+    <ng-container content>
+      <peb-form-background class="policies-content-row">
+        <div class="checkbox-setting">
+          <div class="checkbox-setting_title">
+            {{ enablePayeverTerms.name }}
+          </div>
+          <div class="checkbox-setting_checkbox">
+            <peb-button-toggle
+              [checked]="enablePayeverTerms.active"
+              (changed)="onChangeToggle($event, enablePayeverTerms, toggleType.PayeverTerms)"
+            >
+            </peb-button-toggle>
+          </div>
+        </div>
+      </peb-form-background>
+      <peb-expandable-panel
+          [headerLabel]=" 'settings.policies.panels.general' | translate">
+        <peb-form-background>
+          <ng-container
+            *ngFor="let item of payeverTerms$ | async"
+            [ngTemplateOutlet]="toggleItem"
+            [ngTemplateOutletContext]="{item: item, type: toggleType.PayeverTerms}"
+          >
+        </ng-container>
+        </peb-form-background>
+      </peb-expandable-panel>
+      <peb-expandable-panel
+        [headerLabel]="'settings.policies.panels.channels' | translate">
+        <peb-form-background>
+          <ng-container
+          *ngFor="let item of channelSetsList$ | async"
+          [ngTemplateOutlet]="toggleItem"
+          [ngTemplateOutletContext]="{item: item, type: toggleType.ChannelSets}"
+        >
+        </ng-container>
+        </peb-form-background>
+      </peb-expandable-panel>
+    </ng-container>
+  </pe-info-box>
+</div>
+
+<ng-template #toggleItem let-item="item" let-type="type">
+  <div class="payment-notification-failed-container_integration">
+    <div class="payment-notification-failed-container_integration-item checkbox-setting">
+      <div class="checkbox-setting_title">
+        {{ item.name }}
+      </div>
+      <div class="checkbox-setting_checkbox">
+        <peb-button-toggle
+          [checked]="item.active" (changed)="onChangeToggle($event, item, type)"
+        >
+        </peb-button-toggle>
+      </div>
+    </div>
+  </div>
+</ng-template>

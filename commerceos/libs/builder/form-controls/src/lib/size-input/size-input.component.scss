@@ -1,0 +1,52 @@
+:host {
+  display: inline-flex;
+  height: 28px;
+}
+
+.input-value {
+  display: flex;
+  border-radius: 6px;
+  font-size: 11px;
+  box-sizing: border-box;
+  padding-right: 6px;
+  user-select: none;
+
+  .units {
+    display: flex;
+    padding: 0 2px 0 5px;
+    align-items: center;
+
+    &[disabled] {
+      pointer-events: none;
+    }
+  }
+}
+
+.unit {
+  padding: 6px;
+  font-size: 12px;
+  font-weight: normal;
+  cursor: pointer;
+
+  &:first-child {
+    margin-top: -8px;
+  }
+  
+  label {
+    font-weight: inherit;
+    cursor: pointer;
+  }
+
+  &:last-child {
+    margin-bottom: -8px;
+  }
+}
+
+::ng-deep {
+  .size-input-menu {
+    background-color: black;
+    width: 36px;
+    min-width: inherit;
+    min-height: unset;
+  }
+}

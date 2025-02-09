@@ -1,0 +1,19 @@
+@use "pe_variables" as pe_variables;
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $hover-icon: map.get($color-config, 'hover-icon');
+  $text-color: map.get($color-config, 'text-color');
+  pe-user-avatar {
+    .user {
+      color: $text-color;
+    }
+    @media (min-width: pe_variables.$viewport-breakpoint-sm-2) {
+      &:hover {
+        .user {
+          background-color: $hover-icon;
+        }
+      }
+    }
+  }
+}

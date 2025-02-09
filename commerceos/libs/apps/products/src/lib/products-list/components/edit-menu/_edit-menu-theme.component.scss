@@ -1,0 +1,42 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+    $background: map.get($color-config, 'background');
+    $text-color: map.get($color-config, 'text-color');
+    $border: map.get($color-config, 'border');
+    $confirm: map.get($color-config, 'confirm');
+    $primary: map.get($color-config, 'primary');
+    $row-background: map.get($color-config, 'row-background');
+    $default-avatar-background: map.get($color-config, 'default-avatar-background');
+    $transparent-color: map.get($color-config, 'transparent-color');
+
+    .products-edit-menu {          
+          p {
+            color: $text-color;
+          }
+          
+          .picture {
+            &-wrapper {
+              background-image: $default-avatar-background;
+            }
+ 
+            &-delete-image {
+              background: $row-background;
+          
+              svg {
+                color: $text-color;
+              }
+            }
+          
+            &-add-button {
+              border: solid 0.8px $border;
+              background: $transparent-color;
+            }
+          }
+          
+          .button {
+            color: $confirm;
+            background-color: $primary;
+          }
+    }
+}

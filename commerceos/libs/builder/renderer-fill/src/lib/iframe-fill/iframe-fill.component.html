@@ -1,0 +1,2 @@
+<iframe *ngIf="!container?.editMode" [attr.peb-lazy-iframe]="lazySrc" [src]="safeSrc" frameborder="0"></iframe>
+<div *ngIf="container?.editMode" class="preview"></div>

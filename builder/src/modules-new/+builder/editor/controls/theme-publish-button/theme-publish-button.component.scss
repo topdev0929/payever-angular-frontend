@@ -1,0 +1,9 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+
+.dialog-publish-panel .mat-dialog-container {
+  padding: $padding-base-vertical;
+  margin-top: $grid-unit-header-y-top;
+  background: $color-solid-grey-3;
+  font-size: $font-size-micro-1;
+  color: $color-white;
+}

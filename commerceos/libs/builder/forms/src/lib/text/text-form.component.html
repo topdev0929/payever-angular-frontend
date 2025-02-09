@@ -1,0 +1,108 @@
+<form class="form" [formGroup]="textForm">
+  <div class="group__row">
+    <label class="group__label">
+      {{ 'builder-app.forms.text.font' | translate }}
+    </label>
+  </div>
+
+  <div class="group__row">
+    <button class="sidebar__button sidebar__button--details" type="button" (click)="showFontsList()">
+      {{ textForm.value.fontFamily }}
+      <mat-icon class="sidebar__icon sidebar__icon__arrow" svgIcon="arrow"></mat-icon>
+    </button>
+  </div>
+
+  <div class="group__row">
+    <div class="toggle-group">
+      <peb-button-toggle formControlName="bold">
+        <mat-icon class="font-style-icon" svgIcon="font-style-bold"></mat-icon>
+      </peb-button-toggle>
+      <peb-button-toggle formControlName="italic">
+        <mat-icon class="font-style-icon" svgIcon="font-style-italic"></mat-icon>
+      </peb-button-toggle>
+      <peb-button-toggle formControlName="underline">
+        <mat-icon class="font-style-icon" svgIcon="font-style-underline"></mat-icon>
+      </peb-button-toggle>
+      <peb-button-toggle formControlName="strike">
+        <mat-icon class="font-style-icon" svgIcon="font-style-line-through"></mat-icon>
+      </peb-button-toggle>
+    </div>
+  </div>
+
+  <div class="group__row line-height-container">
+    <peb-number-input title="Line Height" formControlName="lineHeight" precision="1" defaultValue="auto">
+    </peb-number-input>
+    <mat-icon title="Line Height" svgIcon="line-height" class="icon"></mat-icon>
+
+    <peb-number-input title="Spacing" formControlName="letterSpacing" precision="1" defaultValue="auto"></peb-number-input>
+    <mat-icon title="Spacing" svgIcon="letter-spacing" class="icon"></mat-icon>
+  </div>
+  
+  <div class="group__row">
+    <label class="group__label">
+      {{ 'builder-app.forms.text.color' | translate }}
+    </label>
+    <div class="peb-fill" (click)="showTextColorForm()">
+      <div class="peb-fill__thumbnail" *ngIf="(textColor$ | async) as style" [style]="style">
+        <mat-icon svgIcon="no-color" class="peb-fill__no-color" *ngIf="!style"></mat-icon>
+      </div>
+      <mat-icon svgIcon="arrow" class="sidebar__icon sidebar__icon__arrow sidebar__icon__arrow--fill"></mat-icon>
+    </div>
+  </div>
+
+  <div class="group__row">
+    <label class="group__label">
+      {{ 'builder-app.forms.text.size' | translate }}
+    </label>
+    <peb-number-input-spinbutton
+      class="row__control row__control--right control sidebar__spinbutton"
+      formControlName="fontSize"
+      [min]="1"
+      [max]="1000"
+      units="px"
+    ></peb-number-input-spinbutton>
+  </div>
+
+  <div class="group__row">
+    <label class="group__label">
+      {{ 'builder-app.forms.text.alignment' | translate }}
+    </label>
+  </div>
+
+  <div class="group__row">
+    <peb-button-toggle-group class="toggle-group" formControlName="textJustify">
+      <peb-button-toggle title="Left" [value]="justify.Left">
+        <mat-icon class="font-style-icon" svgIcon="font-alignment-left"></mat-icon>
+      </peb-button-toggle>
+      <peb-button-toggle title="Center" [value]="justify.Center">
+        <mat-icon class="font-style-icon" svgIcon="font-alignment-center"></mat-icon>
+      </peb-button-toggle>
+      <peb-button-toggle title="Right" [value]="justify.Right">
+        <mat-icon class="font-style-icon" svgIcon="font-alignment-right"></mat-icon>
+      </peb-button-toggle>
+      <peb-button-toggle title="Justify" [value]="justify.Justify">
+        <mat-icon class="font-style-icon" svgIcon="font-alignment-justify"></mat-icon>
+      </peb-button-toggle>
+    </peb-button-toggle-group>
+  </div>
+
+  <div class="group__row">
+    <peb-button-toggle-group class="toggle-group vertical-align" formControlName="verticalAlign">
+      <peb-button-toggle title="Top" [value]="align.Top">
+        <mat-icon class="icon" svgIcon="vertical-alignment-top"></mat-icon>
+      </peb-button-toggle>
+      <peb-button-toggle title="Middle" [value]="align.Center">
+        <mat-icon class="icon" svgIcon="vertical-alignment-middle"></mat-icon>
+      </peb-button-toggle>
+      <peb-button-toggle title="Bottom" [value]="align.Bottom">
+        <mat-icon class="icon" svgIcon="vertical-alignment-bottom"></mat-icon>
+      </peb-button-toggle>
+    </peb-button-toggle-group>
+  </div>
+  
+  <div class="group__row" *ngIf="textForm.value.fixedWidth && textForm.value.allowAutoWidth && (isTextEditing$ | async) !== true">
+    <button class="auto-width" (click)="makeAutoWidth()">
+      {{ 'builder-app.forms.text.auto-width' | translate }}
+    </button>
+  </div>
+</form>

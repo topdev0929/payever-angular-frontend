@@ -1,0 +1,19 @@
+<button class="btn btn-primary btn-vmargin sidebar-notification-opener" type="button" (click)="toggleSidebar()">
+  Open / Close transparent sidebar
+</button>
+<div>
+  <div class="row">
+    <div class="col-xs-12">
+      <pe-sidebar
+        [isOpen]="isSidebarOpen"
+        [configuration]="configuration"
+        (onSidebarOpened)="onSidebarOpened"
+        (onSidebarClosed)="onSidebarClosed"
+      >
+        <iframe src="https://getbootstrap.com/docs/3.3/css/" frameborder="0"
+                hspace="0" marginheight="0" marginwidth="0" scrolling="no" seamless vspace="0">
+        </iframe>
+      </pe-sidebar>
+    </div>
+  </div>
+</div>

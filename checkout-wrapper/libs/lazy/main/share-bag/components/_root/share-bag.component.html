@@ -1,0 +1,47 @@
+<share-bag-styles></share-bag-styles>
+<div class="qr-container">
+  <div class="header">
+    <div class="close-icon" (click)="close()">
+      <svg width="32" height="32">
+        <use xlink:href="#icon-close-16-bold"></use>
+      </svg>
+    </div>
+  </div>
+  <div class="content">
+    <ui-tabs [activeTabIndex]="0">
+      <ui-tab title="QR">
+        <div class="qr" *ngIf="qr$ | async as qr; else skeleton">
+          <img height="260" width="260" [src]="qr" alt="Qr code">
+        </div>
+      </ui-tab>
+
+      <ui-tab title="Email">
+        <email-form
+          [flowId]="data.flow.id"
+          [url]="restoreUrl$ | async">
+        </email-form>
+      </ui-tab>
+
+      <ui-tab title="SMS">
+        <sms-form
+          [flowId]="data.flow.id"
+          [url]="restoreUrl$ | async">
+        </sms-form>
+      </ui-tab>
+    </ui-tabs>
+    <div class="cancel-container">
+      <ui-button
+        skin="cancel"
+        (click)="close()">
+        <span class="button-text">{{ translations.cancel }}</span>
+      </ui-button>
+    </div>
+  </div>
+</div>
+
+<ng-template #skeleton>
+  <div class="qr-skeleton-container">
+    <div class="qr-skeleton">
+    </div>
+  </div>
+</ng-template>

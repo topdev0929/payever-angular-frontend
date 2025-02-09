@@ -1,0 +1,37 @@
+<ng-container *peNotServerRender>
+  <cookie-bar
+    *ngIf="isShopApplication"
+    [labels]="cookieBarLabels$ | async"
+  ></cookie-bar>
+</ng-container>
+
+<pe-viewer
+  *ngIf="(page$ | async)"
+  class="viewer"
+  [document]="(page$ | async)?.snapshot"
+  [activeProduct]="activeProduct$ | async"
+  [cartData]="cartData$ | async"
+  [locale]="defaultLocale$ | async"
+  [activeLogo]="activeLogo$ | async"
+  (event)="onEvent($event)"
+></pe-viewer>
+
+<pe-builder-checkout
+  [hidden]="(cartModeShown$ | async) !== 'cart'"
+  mode="cart"
+></pe-builder-checkout>
+<pe-builder-checkout
+  *ngIf="!isShopApplication"
+  [hidden]="(cartModeShown$ | async) !== 'amount'"
+  mode="amount"
+></pe-builder-checkout>
+
+<div
+  class="cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing"
+  *ngIf="cartModeShown$ | async"
+>
+</div>
+
+<div class="shop-background" *ngIf="backgroundImageShown$ | async" [style.background]="backgroundImage"></div>
+<pe-password-dialog *ngIf="passwordDialogShown$ | async" [logo]="activeLogo$ | async"></pe-password-dialog>
+<pe-locked-store *ngIf="storeLockDialogShown$ | async"></pe-locked-store>

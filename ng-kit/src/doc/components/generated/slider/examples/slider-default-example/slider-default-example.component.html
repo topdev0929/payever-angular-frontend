@@ -1,0 +1,16 @@
+<form novalidate [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div>
+    <pe-slider [multiplyFactor]="100"
+               [roundToFixed]="0"
+               [formControlRef]="form.controls['sliderValue']"
+               [label]="'Opacity slider'"
+               [max]="1"
+               [min]="0"
+               [step]="0.01"
+               [valueLabelAppend]="'%'"
+    ></pe-slider>
+  </div>
+  <div>
+    <button>Submit</button>
+  </div>
+</form>

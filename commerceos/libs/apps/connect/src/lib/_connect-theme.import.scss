@@ -1,0 +1,19 @@
+@use 'pe_theming' as pet;
+@use './root/connect-root-theme.component' as root;
+@use './connect/components/integration-installed/integration-installed-theme.component' as integration_installed;
+@use './connect/components/modals/modals-theme' as modals;
+@use './communications/modules/device-payments/components/main/main-theme.component' as main_component;
+@use './shared/components/plugin-api-keys/plugin-api-keys-theme.component' as plugin_api_keys;
+@use './shared/components/plugin-api-keys-list/plugin-api-keys-list-theme.component' as plugin_api_keys_list;
+@use './shopsystems/modules/shared/components/plugin-main-wrap/plugin-main-wrap-parent-theme.component' as plugin_main_wrap_parent;
+
+@mixin theme($theme-config) {
+    $color-config: pet.get-color-config-from-theme($theme-config);
+    @include root.color($color-config);
+    @include integration_installed.color($color-config);
+    @include modals.color($color-config);
+    @include main_component.color($color-config);
+    @include plugin_api_keys.color($color-config);
+    @include plugin_api_keys_list.color($color-config);
+    @include plugin_main_wrap_parent.color($color-config);
+}

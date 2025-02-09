@@ -1,0 +1,8 @@
+<div class="user">
+  <img *ngIf="avatar && !hasAvatarError" class="user__avatar" [src]="avatar" (error)="hasAvatarError = true" alt="user avatar" />
+  <svg *ngIf="hasAvatarError" class="icon icon-24">
+    <use [attr.xlink:href]="'#icon-menu-avatar-24'"></use>
+  </svg>
+  <ng-content select="[avatarSlot]"></ng-content>
+  <div class="user__name">{{ name }}</div>
+</div>

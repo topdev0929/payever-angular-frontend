@@ -1,0 +1,31 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $filter-invert-light: map.get($color-config, 'filter-invert-light');
+  $confirm: map.get($color-config, 'confirm');
+  $active-text: map.get($color-config, 'active-text');
+  $text-color: map.get($color-config, 'text-color');
+  $active-button: map.get($color-config, 'active-button');
+  $gray-button: map.get($color-config, 'gray-button');
+
+  .zoom-level {
+    &__title {
+      color: $text-color;
+    }
+    &:hover {
+      background: $active-button;
+    }
+    &--active {
+      background-color: $confirm;
+      .zoom-level__title {
+          color: $active-text;
+      }
+      &:hover {
+        background-color: $confirm;
+      }
+    }
+    &__icon {
+        filter: $filter-invert-light;
+    }
+  }
+}

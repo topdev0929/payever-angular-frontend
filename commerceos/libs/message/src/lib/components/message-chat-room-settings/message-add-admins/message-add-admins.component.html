@@ -1,0 +1,16 @@
+<div class="add-admins" [formGroup]="channelGroup" #formContent>
+  <peb-form-background>
+    <pe-picker
+      class="pe-picker"
+      label="{{ 'message-app.channel.form.add_member' | translate }}"
+      placeholder="{{ 'message-app.channel.form.search' | translate }}"
+      [data]="peOverlayData.data"
+      [lazyLoadData]="peOverlayData.lazyLoadData | async"
+      [optionsItemWidth]="peMessageChannelSettingsService.optionsItemWidth$ | async"
+      (onKeyUp)="peOverlayData.onKeyUp($event, changeDetectorRef)"
+      formControlName="members"
+      (buttonClick)="peOverlayData.mode === peMessageChannelMode.Common ? addMember() : addAdmin()"
+      buttonLabel="{{ 'message-app.channel.form.add_member' | translate }}"
+    ></pe-picker>
+  </peb-form-background>
+</div>

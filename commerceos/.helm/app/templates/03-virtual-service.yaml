@@ -1,0 +1,31 @@
+{{- $chartName := .Chart.Name }}
+{{- $values := .Values }}
+
+{{- if and (.Values.deployToExclusive) ($values.issue) (not (eq .Values.namespace "production")) }}
+  {{- $appName := printf "%s-%s" $chartName $values.issue | lower | replace "_" "-" | trimSuffix "-"   }}
+  {{- $host := printf "%s-cosf.%s" $values.issue $values.domain | lower }}
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: {{ $appName }}
+  namespace: {{ $values.namespace }}
+  labels:
+    app: {{ $appName }}
+    tier: app
+spec:
+  gateways:
+    - istio-system/ingress-default-gateway
+  hosts:
+    - {{ $host | quote }}
+  http:
+    - match:
+      - uri:
+          prefix: /
+      route:
+        - destination:
+            host: {{ $appName }}
+            port:
+              number: {{ $values.service.externalPort }}
+
+---
+{{- end }}

@@ -1,0 +1,6 @@
+<form novalidate [formGroup]="form">
+  <pe-select-country [placeholder]="'Select city'"
+                     [panelHeight]="panelHeight"
+                     [scrollToInitElement]="scrollToElement"
+                     [formControlRef]="form.get('city')"></pe-select-country>
+</form>

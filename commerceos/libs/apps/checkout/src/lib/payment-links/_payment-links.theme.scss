@@ -1,0 +1,81 @@
+@use 'SASS:map';
+@use 'pe_mixins' as pe_mixins;
+@use './components/dialog/edit-payment-link/skeleton/skeleton.component.theme' as skeleton;
+@use 'pe_screen_variables.scss' as pe_variables;
+
+@mixin color($color-config) {
+  @include skeleton.color($color-config);
+
+  $confirm: map.get($color-config, 'confirm');
+  $label-color: map.get($color-config, 'label-color');
+  $text-color: map.get($color-config, 'text-color');
+  $icon-secondary-background: map.get($color-config, 'icon-secondary-background');
+  $icon-secondary-content: map.get($color-config, 'icon-secondary-content');
+  $background: map.get($color-config, 'background');
+
+  .checkout-content:has(checkout-layout pe-payment-links) {
+    overflow: unset;
+    panel-checkout, .checkout-content__wrapper, checkout-layout {
+      display: unset;
+    }
+  }
+
+  pe-payment-links {
+    .first-cell {
+      pe-share-link-cell .mat-raised-button {
+        background-color: $background;
+        color: $text-color;
+      }
+    }
+
+    .pe-grid-content_opened {
+      padding-bottom: 0;
+    }
+  }
+
+  .payment-links-column-switcher {
+    .pe-grid-menu {
+      &:not(.mobile-fullscreen) {
+        @media (min-width: pe_variables.$viewport-breakpoint-sm-2) {
+          max-height: 425px !important;
+        }
+      }
+    }
+  }
+
+  .payment-link-dialog,
+  .prefill-payment-dialog {
+    peb-overlay-widget {
+      @keyframes paymentLinksOpenOverlay {
+        from {
+          opacity: 0;
+          width: 80%;
+        }
+
+        to {
+          opacity: 1;
+          width: 100%;
+        }
+      }
+
+      .overlay-widget-container {
+        transform: none;
+        animation: none;
+        @include pe_mixins.payever_animation(paymentLinksOpenOverlay, 120ms, cubic-bezier(0, 0, 0.2, 1), forwards);
+        backdrop-filter: none !important;
+      }
+
+      .overlay-widget-container::before {
+        background-color: $background;
+        backdrop-filter: blur(25px);
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -1;
+      }
+    }
+  }
+}

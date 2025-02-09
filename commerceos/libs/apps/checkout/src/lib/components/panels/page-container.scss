@@ -1,0 +1,398 @@
+@use 'pe_spinner' as pe_spinner;
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+@mixin matListItemOpenIcon() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    height: 15px;
+    width: 8px;
+    cursor: pointer;
+  }
+}
+
+@mixin expansionListButton() {
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  text-align: right;
+  font-weight: 500;
+  background-color: inherit;
+  justify-content: flex-end;
+  border: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+@mixin matListItem() {
+  height: 39px;
+  @media (max-width: $viewport-breakpoint-sm-2) {
+    height: 44px;
+  }
+  &.action-item {
+    cursor: pointer;
+  }
+
+  .mat-list-item-content {
+    padding: 0;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+
+    .mat-list-item-flex {
+      height: 100%;
+      padding: 0 16px;
+      align-items: center;
+
+      &.no-right-padding {
+        padding-right: 0;
+      }
+
+      &.no-left-padding {
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+      }
+
+      .mat-list-item-col {
+        overflow: unset;
+        height: 100%;
+        white-space: normal;
+        padding-top: 0;
+        padding-bottom: 0;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        .button-toggle-container {
+          height: unset;
+          padding: unset;
+        }
+
+        .mat-list-item-title {
+          font-family: Roboto, sans-serif;
+          font-size: 12px;
+          line-height: 1.33;
+          font-weight: 500;
+          @media (max-width: $viewport-breakpoint-sm-2) {
+            font-size: 17px;
+            font-weight: 400;
+          }
+        }
+
+        .pe-truncate-text {
+          font-family: Roboto, sans-serif;
+          font-size: 16px;
+          @media (max-width: $viewport-breakpoint-sm-2) {
+            font-size: 17px;
+            font-weight: 400;
+          }
+
+          &.secondary-text {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.33;
+          }
+        }
+      }
+
+      &.aligned-right {
+        align-items: center;
+        padding-right: 16px;
+        justify-content: flex-end;
+        height: 39px;
+        width: fit-content;
+        @media (max-width: $viewport-breakpoint-sm-2) {
+          height: 44px;
+        }
+      }
+    }
+
+    &.expansion-list-title {
+      font-family: Roboto, sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      height: 100%;
+      padding-left: 0;
+      @media (max-width: $viewport-breakpoint-sm-2) {
+        font-size: 17px;
+        font-weight: 400;
+      }
+
+      &.no-margin {
+        margin: 0;
+      }
+    }
+
+    .mat-button {
+      margin-left: 16px;
+    }
+  }
+
+  .expansion-list-button {
+    @include expansionListButton();
+  }
+
+  .mat-list-item-flex {
+    height: 100%;
+
+    .mat-list-item-col {
+      height: 100%;
+    }
+
+    &.aligned-right {
+      justify-content: flex-end;
+    }
+  }
+
+  .mat-list-item-open-icon {
+    @include matListItemOpenIcon();
+  }
+}
+
+@mixin matListItemCol() {
+  white-space: normal; // To fix vertical align for buttons
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.33;
+
+  .icon-menu-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin-left: 16px;
+    margin-right: 8px;
+
+    &.drag-icon-wrapper {
+      margin-right: 0;
+    }
+
+    .icon-menu-item {
+      width: 14px;
+      height: 14px;
+      margin: 3px;
+
+      &.hidden-icon {
+        visibility: hidden;
+      }
+    }
+    @media (max-width: $viewport-breakpoint-sm-2) {
+      &:not(.drag-icon-wrapper) {
+        width: 30px;
+        height: 30px;
+        .icon-menu-item {
+          width: 24px;
+          height: 24px;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+:host {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  flex-direction: column;
+}
+
+.page {
+  &__container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 3px 0;
+    height: 100%;
+    max-width: 560px;
+    width: 100%;
+
+    @media (max-width: $viewport-breakpoint-sm-2) {
+      max-width: unset;
+      .pe-info-box > .info-box.not-fullwidth-mobile {
+        padding: 0;
+      }
+    }
+  }
+
+  &__main-title {
+    font-family: Roboto, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 16px 0 12px 0;
+
+    @media (max-width: $viewport-breakpoint-sm-2) {
+      display: none;
+    }
+  }
+
+  &__title {
+    font-family: Roboto, sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin: 16px 0 8px;
+  }
+
+  &__description {
+    padding: 0;
+    margin: 8px 0;
+    font-family: Roboto, sans-serif;
+    font-size: 12px;
+    line-height: 1.38;
+  }
+}
+
+.checkout-app-container {
+  .add-button {
+    width: 100%;
+    height: 40px;
+    min-height: 40px;
+    @media (max-width: $viewport-breakpoint-sm-2) {
+      height: 44px;
+      min-height: 44px;
+    }
+    border-radius: 12px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+    margin-top: 12px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .mat-spinner {
+    @include pe_spinner.mat_spinner();
+    svg {
+      position: relative !important;
+      circle {
+        stroke: #ffffff;
+      }
+    }
+  }
+}
+
+.pe-bootstrap {
+  .checkout-app-container,
+  .overlay-widget {
+    .pe-info-box-container-fixed {
+      width: 100%;
+      min-height: fit-content;
+      @media (max-width: $viewport-breakpoint-sm-2) {
+        padding-bottom: 16px;
+      }
+  
+      .pe-info-box {
+        max-width: 100%;
+  
+        .info-box {
+          .mat-card-content {
+            padding: 0;
+            background-color: rgba(0, 0, 0, 0);
+  
+            .content-wrapper {
+              border-radius: 12px;
+  
+              .mat-list {
+                .mat-divider {
+                  display: none;
+                }
+              }
+            }
+          }
+  
+          .mat-card-transparent {
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+          }
+        }
+      }
+    }
+  
+    .mat-list-item-col {
+      @include matListItemCol();
+    }
+  
+    .mat-list-item {
+      @include matListItem();
+    }
+  
+    .mat-list-item:not(:last-child),
+    .custom-drag-wrapper {
+      .mat-list-item-flex {
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+      }
+    }
+  
+    .mat-list.mat-list-base {
+      width: 100%;
+  
+  
+      .mat-list-item.no-hover-color {
+        &.action-item {
+          cursor: pointer;
+  
+          &:hover {
+            background-color: inherit;
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: $viewport-breakpoint-sm-2) {
+    .checkout-app-container {
+      .pe-info-box-container-fixed {
+        min-width: 100%;
+        max-width: 100%;
+  
+        pe-info-box.pe-info-box {
+          min-width: 100%;
+          max-width: 100%;
+  
+          .info-box {
+            .mat-card-content {
+              .content-wrapper {
+                mat-list.mat-list {
+                  padding-left: 0;
+  
+                  .mat-list-item {
+                    .mat-list-item-content {
+                      padding: 0;
+                      height: 44px;
+                      overflow: hidden;
+  
+                      .pe-truncate-text {
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        width: fit-content;
+                      }
+                    }
+  
+                    &-flex {
+                      flex-grow: 1;
+                      &.settings-description-item {
+                        flex-grow: unset;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+

@@ -1,0 +1,12 @@
+// It's needed because our layout has fixed position
+:host {
+  height: 600px;
+  display: block;
+
+  ::ng-deep pe-layout-app {
+    .ui-layout-app {
+      position: absolute;
+      top: 30px;
+    }
+  }
+}

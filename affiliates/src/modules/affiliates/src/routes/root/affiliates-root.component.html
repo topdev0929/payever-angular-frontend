@@ -1,0 +1,50 @@
+<ng-container *ngIf="translationsReady$ | async">
+  <div class="nav-content" [ngClass]="theme">
+    <ng-container *ngIf="!isSidebarClosed.value">
+      <div
+        class="sidebar-wrap"
+        [@sidebarAnimation]="{
+          value: gridAnimationState$ | async,
+          params: {
+            sidebarWidth: sidebarFilters.toArray().length > 1 ? 750 : 300
+          }
+        }"
+      >
+        <pe-sidebar [sidebarFilters]="a" (selectFilters)="navigateTolLink($event)" [ngClass]="theme"> </pe-sidebar>
+      </div>
+    </ng-container>
+
+    <div
+      *ngIf="{
+        animationState: gridAnimationState$ | async,
+        animationProgress: gridAnimationProgress$ | async
+      } as animation"
+      class="grid-content__right"
+      style="overflow: hidden; height: calc(100% + 10px)"
+      [@gridAnimation]="{
+        value: animation.animationState,
+        params: { sidebarWidth: sidebarFilters.toArray().length > 1 ? 750 : 0 }
+      }"
+      (@gridAnimation.done)="gridAnimationProgress = SiteAnimationProgress.Done"
+      (@gridAnimation.start)="gridAnimationProgress = SiteAnimationProgress.Start"
+    >
+      <div style="position: relative; height: calc(100% - 10px)">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+
+  <pe-sidebar-filters-wrapper #a>
+    <pe-sidebar-header title="Affiliate" (closeSidebar)="toggleSidebar()"></pe-sidebar-header>
+    <pe-sidebar-filter-wrapper [expandable]="true" [active]="false" title="Navigation">
+      <pe-tree-sidebar-filter [ngTemplateOutlet]="nodeImageTemplate" [ngTemplateOutletContext]="{ node: treeData }">
+        <ng-template #nodeImageTemplate let-node="node">
+          <div *ngFor="let item of node" (click)="navigateTolLink(item)" class="sidebar-item" [class.active]="getActiveLink(item.id)">
+            <img [src]="item.image" alt="" class="sidebar-item__icon" />
+            {{ item.name | translate }}
+          </div>
+        </ng-template>
+      </pe-tree-sidebar-filter>
+    </pe-sidebar-filter-wrapper>
+  </pe-sidebar-filters-wrapper>
+</ng-container>

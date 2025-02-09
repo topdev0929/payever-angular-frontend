@@ -1,0 +1,21 @@
+@import '~@pe/ui-kit/scss/pe_variables';
+@import '~@pe/ui-kit/scss/mixins/pe_mixins';
+
+@media (max-width: $viewport-breakpoint-xs-2 - 1) {
+  :host {
+    @include pe_flexbox;
+  }
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+:host {
+  padding: 0 20px;
+
+  .arrow-icon {
+    color: $color-secondary;
+    margin-left: 5px;
+  }
+}

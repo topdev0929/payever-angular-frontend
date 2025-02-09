@@ -1,0 +1,104 @@
+@use "pe_variables" as pe_variables;
+@import "~@pe/ui-kit/scss/pe_variables";
+
+connect-third-party {
+  display: flex !important;
+  flex-direction: column;
+  height: 100%;
+
+  pe-third-party-root-form {
+    display: block;
+    flex: 1;
+  }
+}
+
+cos-connect-root {
+  pe-simple-welcome-stepper {
+    position: static;
+    display: flex;
+    .pe-simple-stepper {
+      position: static;
+      width: 100%;
+    }
+  }
+
+  .top-offset-fix {
+    transform: translateX(0);
+  }
+
+  .connect-app-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    .icon-32 {
+      height: 32px;
+      width: 32px;
+    }
+  }
+
+  #connect-header {
+    .close-button .show-before {
+      margin-left: -5px;
+    }
+  }
+
+  .connect-app-content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-top: 56px;
+
+    .chips .chip .close-button {
+      display: flex;
+      align-items: center;
+      margin-top: -2px;
+    }
+  }
+}
+
+connect-communications-device-payments-main {
+  pe-info-box {
+    transform: unset !important;
+  }
+
+  .mat-expansion-panel-body {
+    padding: 0;
+  }
+}
+
+plugin-api-keys {
+  .mat-content mat-panel-title {
+    align-items: center;
+  }
+}
+.overlay-widget__content {
+  @media (max-height: 500px) {
+    border-radius: 0 !important;
+    overflow: auto !important;
+  }
+}
+
+
+.cdk-overlay-backdrop.connect-modal + .cdk-global-overlay-wrapper {
+
+  .pe-info-box .mat-card .mat-card-actions {
+    margin-top: 16px;
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .form-table .form-fieldset .row > [class*="col"] {
+    &:not(:last-child){
+      margin-bottom: 1px;
+    }
+  }
+
+  .operations-display-flex .mat-button-block:last-child {
+    border-bottom-left-radius: 12px !important;
+  }
+}

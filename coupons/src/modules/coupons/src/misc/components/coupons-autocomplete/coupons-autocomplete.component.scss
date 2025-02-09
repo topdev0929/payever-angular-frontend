@@ -1,0 +1,66 @@
+:host {
+  width: 100%;
+
+  &.ng-invalid {
+    input {
+      color: #eb4653;
+
+      &::placeholder {
+        color: rgba(235, 70, 83, .5);
+      }
+    }
+  }
+}
+
+input {
+  appearance: none;
+  border: unset;
+  font-family: inherit;
+  outline: unset;
+
+  background-color: transparent;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.5;
+  padding: 0;
+  width: 100%;
+
+  &::placeholder {
+    color: rgba(89, 89, 89, 0.95);
+  }
+}
+
+.mat-option[id^="pe-coupons-option-"] {
+  color: rgba(255, 255, 255, 0.95);
+  height: 2.875em;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.1;
+  padding-left: 0.625em;
+  padding-right: 0.625em;
+  margin: 0;
+  padding-top: 7px !important;
+
+  &:hover {
+    background-color: #0371e2;
+  }
+
+  &:not(:first-of-type) {
+    &::before {
+      background-color: #393939;
+      content: "";
+      height: 0.0625em;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
+ng-scrollbar {
+  max-height: 256px;
+}

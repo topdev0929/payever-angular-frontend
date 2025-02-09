@@ -1,0 +1,12 @@
+<img
+  *ngIf="url; else payeverLogo"
+  fetchpriority="high"
+  class="business-logo"
+  alt="Logo"
+  [src]="url" />
+
+<ng-template #payeverLogo>
+  <svg class="logo">
+    <use xlink:href="#icon-commerceos-payever-checkout-wrapper-logo"></use>
+  </svg>
+</ng-template>

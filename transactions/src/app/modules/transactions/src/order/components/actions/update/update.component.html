@@ -1,0 +1,136 @@
+<or-action-modal [close$]="close$"
+                 [heading]="'form.update.heading' | translate"
+                 [buttons]="modalButtons"
+                 [loading]="loading"
+                 class="dark">
+  <div class="inner-padding">
+    <div class="subheading fs-hide" [innerHtml]="'form.update.subheading' | translate:{total: order?.transaction?.total | currency:order?.transaction?.currency}"></div>
+  </div>
+  <p class="text-danger"
+     *ngIf="calculatedTotalError > 0"
+     [innerHtml]="'form.update.calculated_total_error.big' | translate:{
+         calculatedTotalError: calculatedTotalError | currency:order?.transaction?.currency
+       }"></p>
+  <p class="text-danger"
+     *ngIf="calculatedTotalError < 0"
+     [innerHtml]="'form.update.calculated_total_error.small' | translate:{
+         calculatedTotalError: -calculatedTotalError | currency:order?.transaction?.currency
+       }"></p>
+  <p class="text-danger" *ngIf="validationError" [innerHtml]="validationError"></p>
+  <form novalidate class="form-table" (ngSubmit)="onSubmit()" [formGroup]="form" *ngIf="form !== null">
+    <fieldset class="transparent-form">
+      <div class="clearfix">
+        <pe-form-row-table [rowProperty]="{
+                             rowClassName: 'col-xs-12 fs-hide',
+                             label: 'form.update.labels.reason' | translate
+                           }"
+                           [fieldValue]="form.get('reason').value"
+                           [fieldError]="form.getError('reason')">
+          <input type="text"
+                 class="form-control"
+                 placeholder="{{ 'form.update.placeholders.reason' | translate }}"
+                 formControlName="reason">
+        </pe-form-row-table>
+        <pe-form-row-table [rowProperty]="{
+                             rowClassName: 'col-xs-12 fs-hide',
+                             label: 'form.update.labels.delivery_fee' | translate
+                           }"
+                           [fieldValue]="form.get('updateData').get('deliveryFee').value"
+                           [fieldError]="form.getError('reason')"
+                           formGroupName="updateData">
+          <input type="number"
+                 class="form-control"
+                 [attr.max]="deliveryFeeMax"
+                 [attr.min]="0"
+                 placeholder="{{ 'form.update.placeholders.delivery_fee' | translate }}"
+                 formControlName="deliveryFee">
+        </pe-form-row-table>
+      </div>
+    </fieldset>
+    <div formGroupName="updateData" *ngIf="productLine.controls.length">
+      <div formArrayName="productLine">
+        <fieldset class="transparent-form" *ngFor="let item of productLine.controls; let i = index" [formGroupName]="i">
+          <div class="clearfix fs-hide">
+            <pe-form-row-table [rowProperty]="{
+                                 rowClassName: 'col-xs-12',
+                                 label: 'form.update.labels.item.name' | translate
+                               }"
+                               [fieldValue]="item.get('name').value"
+                               [fieldError]="item.getError('name')"
+                               [addonAppend]="{
+                                 button: 'link',
+                                 iconId: 'icon-trashcan-16',
+                                 iconSize: 16
+                               }"
+                               (clickAddonAppend)="onClickRemoveItem(i)">
+              <input type="text"
+                     class="form-control"
+                     placeholder="{{ 'form.update.placeholders.item.name' | translate }}"
+                     formControlName="name">
+            </pe-form-row-table>
+            <pe-form-row-table [rowProperty]="{
+                                 rowClassName: 'col-xs-6 col-sm-3',
+                                 label: 'form.update.labels.item.identifier' | translate
+                               }"
+                               [fieldValue]="item.get('identifier').value"
+                               [fieldError]="item.getError('identifier')">
+              <input type="text"
+                     class="form-control"
+                     placeholder="{{ 'form.update.placeholders.item.identifier' | translate }}"
+                     formControlName="identifier">
+            </pe-form-row-table>
+            <pe-form-row-table [rowProperty]="{
+                                 rowClassName: 'col-xs-6 col-sm-3',
+                                 label: 'form.update.labels.item.vat_rate' | translate
+                               }"
+                               [fieldValue]="true"
+                               [fieldError]="item.getError('vat_rate')">
+              <select class="form-control" formControlName="vat_rate">
+                <option value="" [innerHtml]="'form.update.placeholders.item.vat_rate' | translate"></option>
+                <option *ngFor="let vatRate of businessVat" [value]="vatRate.value" [innerHtml]="vatRateValue(vatRate)" [selected]="vatRate.value == item.get('vat_rate').value"></option>
+              </select>
+            </pe-form-row-table>
+            <pe-form-row-table [rowProperty]="{
+                                 rowClassName: 'col-xs-6 col-sm-3',
+                                 label: 'form.update.labels.item.price' | translate
+                               }"
+                               [fieldValue]="item.get('price').value"
+                               [fieldError]="item.getError('price')">
+              <input type="text"
+                     class="form-control"
+                     placeholder="{{ 'form.update.placeholders.item.price' | translate }}"
+                     formControlName="price">
+            </pe-form-row-table>
+            <pe-form-row-table [rowProperty]="{
+                                 rowClassName: 'col-xs-6 col-sm-3',
+                                 label: 'form.update.labels.item.quantity' | translate
+                               }"
+                               [fieldValue]="item.get('quantity').value"
+                               [fieldError]="item.getError('quantity')">
+              <input type="text"
+                     class="form-control"
+                     placeholder="{{ 'form.update.placeholders.item.quantity' | translate }}"
+                     formControlName="quantity">
+            </pe-form-row-table>
+            <pe-form-row-table [rowProperty]="{
+                                 rowClassName: 'col-xs-12',
+                                 label: 'form.update.labels.item.description' | translate
+                               }"
+                               [fieldValue]="item.get('description').value"
+                               [fieldError]="item.getError('description')">
+              <textarea class="form-control"
+                        rows="4"
+                        placeholder="{{ 'form.update.placeholders.item.description' | translate }}"
+                        formControlName="description"></textarea>
+            </pe-form-row-table>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <div class="inner-padding">
+      <button class="btn btn-link white btn-inline" (click)="onClickAddItem($event)">
+        +&nbsp;<span [innerHtml]="'form.update.actions.add_item' | translate"></span>
+      </button>
+    </div>
+  </form>
+</or-action-modal>

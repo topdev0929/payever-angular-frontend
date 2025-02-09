@@ -1,0 +1,19 @@
+cdk-virtual-scroll-viewport.content-bottom-aligned {
+  .cdk-virtual-scroll-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 100%;
+    padding-top: 38px;
+  }
+  &.pe-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    .cdk-virtual-scroll-content-wrapper {
+      visibility: hidden;
+    }
+  }
+}

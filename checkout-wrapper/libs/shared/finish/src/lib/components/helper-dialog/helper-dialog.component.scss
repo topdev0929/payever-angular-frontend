@@ -1,0 +1,60 @@
+@import '../../../../../styles/assets/ui-kit-styles/pe_variables';
+
+.pe-checkout-finish-modal-backdrop {
+  background-color: rgba(17, 17, 17, 0.94);
+}
+
+.cdk-overlay-container .pe-checkout-finish-modal-panel.dialog-overlay-panel {
+  max-width: 600px !important;
+
+  .mat-dialog-actions {
+    gap: 4px;
+    .mat-button {
+      height: 40px;
+      min-width: 64px;
+      background-color: rgba(18, 18, 18, 0.85);
+      border-radius: 3px;
+      font-size: 16px;
+      color: #ffffff;
+      font-weight: 300;
+      line-height: 30px;
+      padding: 0px 12px;
+    }
+  }
+
+  // For final icons:
+  .text-primary,
+  .text-success,
+  .text-info {
+    color: $color-gray-2;
+  }
+
+  .mat-dialog-content {
+    max-height: 85vh;
+  }
+}
+
+@media (min-width: $viewport-breakpoint-ipad) {
+  .cdk-overlay-container .pe-checkout-finish-modal-panel.dialog-overlay-panel {
+    width: 600px;
+  }
+}
+
+@media (max-width: $viewport-breakpoint-ipad - 1px) {
+  .cdk-overlay-container .pe-checkout-finish-modal-panel.dialog-overlay-panel {
+    width: 100%;
+    margin: 0 !important;
+
+    max-width: calc(100% - 16px) !important;
+    padding: 0 16px 0 0;
+
+    display: block;
+    left: 0;
+  }
+}
+
+@media (max-width: $viewport-breakpoint-xs-2 - 1px) {
+  .cdk-overlay-container .pe-checkout-finish-modal-panel.dialog-overlay-panel {
+    padding-right: 6px;
+  }
+}

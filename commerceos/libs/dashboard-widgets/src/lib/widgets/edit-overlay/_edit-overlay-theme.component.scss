@@ -1,0 +1,56 @@
+@use "pe_variables" as pe_variables;
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $border: map.get($color-config, 'border');
+  $text-color: map.get($color-config, 'text-color');
+  $row-background: map.get($color-config, 'row-background');
+  $separator: map.get($color-config, 'separator');
+  $button: map.get($color-config, 'button');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $background: map.get($color-config, 'background');
+  $confirm: map.get($color-config, 'confirm');
+  $select-button: map.get($color-config, 'select-button');
+  $active-text: map.get($color-config, 'active-text');
+
+  .pe-widget-edit-toggle {
+    color: $text-color;
+    background-color: $select-button;
+    .toggle-button {
+      &.active {
+        background-color: $button;
+        color: $active-text;
+      }
+    }
+  }
+  .pe-widget-edit-container {
+    .item {
+      background-color: $row-background;
+      border-bottom-color: $background;
+      &-icon {
+        background-color: $separator;
+      }
+      &-title {
+        color: $text-color;
+      }
+      @media (min-width: pe_variables.$viewport-breakpoint-xs-2) {        
+        &:hover {
+          background-color: $confirm;
+          .item-title, .loading {
+            color: $active-text !important;
+          }
+          .button-toggle-slider {
+            background-color: #000;
+          }
+        }
+      }
+
+    }
+  }
+  .edit-overlay-container {
+    &::-webkit-scrollbar {
+      background-color: $transparent-color !important;
+    }
+  }
+}

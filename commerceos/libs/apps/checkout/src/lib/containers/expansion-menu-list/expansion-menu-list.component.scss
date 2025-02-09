@@ -1,0 +1,71 @@
+@import "~@pe/ui-kit/scss/pe_variables.scss";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+@import "./../../components/panels/page-container.scss";
+
+:host {
+  .mat-card-transparent {
+    .mat-toolbar .navbar-header-text {
+      @include pe_flexbox();
+
+      .mat-toolbar-text {
+        line-height: $font-size-h3;
+      }
+    }
+
+    .mat-card-content {
+      @media (max-width: $viewport-breakpoint-xs-2 - 1) {
+        &-scrollable {
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  .icon-menu-wrapper {
+    .icon-menu-item {
+      display: flex !important;
+    }
+  }
+}
+
+.expansion-conn-menu-list {
+  .text-right {
+    display: flex;
+    padding-right: 8px;
+    justify-content: flex-end;
+  }
+}
+
+
+@media (max-width: $viewport-breakpoint-sm-1 - 1) {
+  .icon-menu-item {
+    display: none;
+  }
+}
+
+@media (min-width: $viewport-breakpoint-sm-1) {
+  .mat-list-item-no-padding-left .expansion-list-title {
+    margin-left: 15px;
+  }
+}
+
+.mat-divider-full-width {
+  margin-left: 0;
+}
+
+
+.button-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+
+  .expansion-list-button {
+    margin: 0;
+  }
+}
+
+.pe-truncate-text {
+  max-width: 100%;
+  font-weight: 400;
+}

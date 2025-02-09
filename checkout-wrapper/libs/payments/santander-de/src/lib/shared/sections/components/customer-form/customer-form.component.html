@@ -1,0 +1,269 @@
+<form
+  *ngIf="paymentOptions$ | async as options"
+  class="form-table"
+  [formGroup]="formGroup">
+  <div class="form-fieldset-new">
+    <mat-form-field class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-de.inquiry.form.customer.personalNationality.label"> Nationality </mat-label>
+
+      <mat-select formControlName="personalNationality">
+        <mat-option
+          *ngFor="let option of options.nationalities"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-de.inquiry.form.customer.personalMaritalStatus.label"> Marital status </mat-label>
+
+      <mat-select formControlName="personalMaritalStatus">
+        <mat-option
+          *ngFor="let option of options.maritalStatuses"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field
+      longDateFormat
+      class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-de.inquiry.form.customer.personalDateOfBirth.label"> Date of birth </mat-label>
+
+      <input
+        matInput
+        peDatePickerMask="fullDate"
+        formControlName="personalDateOfBirth"
+        type="text"
+        [min]="adultDateOfBirth.min"
+        [max]="adultDateOfBirth.max"
+        [matDatepicker]="birthdayDp" />
+
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="birthdayDp">
+        <svg
+          matDatepickerToggleIcon
+          class="icon icon-16">
+          <use xlink:href="#icon-calendar-16"></use>
+        </svg>
+      </mat-datepicker-toggle>
+      <mat-datepicker
+        #birthdayDp
+        startView="multi-year">
+      </mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12 col-sm-6 ">
+      <mat-label i18n="@@santander-de.inquiry.form.customer.employment.label"> Employment </mat-label>
+
+      <mat-select formControlName="employment">
+        <mat-option
+          *ngFor="let option of employmentOptions$ | async"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field
+      shortDateFormat
+      class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-de.inquiry.form.customer.addressResidentSince.label">
+        Address resident since
+      </mat-label>
+
+      <input
+        matInput
+        peDatePickerMask="shortDate"
+        formControlName="addressResidentSince"
+        type="text"
+        [min]="pastDateConstraints.min"
+        [max]="pastDateConstraints.max"
+        [matDatepicker]="addressResidentSinceDp" />
+
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="addressResidentSinceDp">
+        <svg
+          matDatepickerToggleIcon
+          class="icon icon-16">
+          <use xlink:href="#icon-calendar-16"></use>
+        </svg>
+      </mat-datepicker-toggle>
+      <mat-datepicker
+        #addressResidentSinceDp
+        startView="multi-year"
+        (monthSelected)="selectAddressResidentSince($event, addressResidentSinceDp)">
+      </mat-datepicker>
+    </mat-form-field>
+
+    <ng-container
+      *ngIf="formGroup.get('prevAddress').enabled"
+      formGroupName="prevAddress">
+      <mat-form-field class="col-xs-12 col-sm-6">
+        <mat-label i18n="@@santander-de.inquiry.form.customer._prevAddressLine.label"> Previous address </mat-label>
+        <input
+          matInput
+          peInputMask
+          peAddressAutocomplete
+          [matAutocomplete]="auto"
+          formControlName="_prevAddressLine"
+          [mask]="addressMask"
+          (addressChange)="prevAddressChange($event)"
+          type="text" />
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option
+            *ngFor="let option of addressItems$ | async"
+            [value]="option">
+            {{ option.address }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <mat-form-field class="col-xs-12 col-sm-6">
+        <mat-label i18n="@@santander-de.inquiry.form.customer.prevAddressCity.label"> Previous address city </mat-label>
+
+        <input
+          matInput
+          formControlName="prevAddressCity"
+          type="text" />
+      </mat-form-field>
+
+      <mat-form-field class="col-xs-12 col-sm-6">
+        <mat-label i18n="@@santander-de.inquiry.form.customer.prevAddressCountry.label">
+          Previous address country
+        </mat-label>
+
+        <mat-select formControlName="prevAddressCountry">
+          <mat-option
+            *ngFor="let country of countries$ | async; trackBy: trackByFn"
+            [value]="country.value">
+            {{ country.label }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="col-xs-12">
+        <mat-label i18n="@@santander-de.inquiry.form.customer.prevAddressStreet.label">
+          Previous address street
+        </mat-label>
+
+        <input
+          matInput
+          formControlName="prevAddressStreet"
+          type="text" />
+      </mat-form-field>
+      
+      <mat-form-field class="col-xs-6">
+        <mat-label i18n="@@santander-de.inquiry.form.customer.prevAddressStreetNumber.label">
+          Previous address street number
+        </mat-label>
+        <input
+          matInput
+          formControlName="prevAddressStreetNumber"
+          type="text" />
+      </mat-form-field>
+
+      <mat-form-field class="col-xs-6">
+        <mat-label i18n="@@santander-de.inquiry.form.customer.prevAddressZip.label">
+          Previous address zip code
+        </mat-label>
+
+        <input
+          matInput
+          formControlName="prevAddressZip"
+          type="text" />
+      </mat-form-field>
+
+      <mat-form-field
+        class="col-xs-12 col-sm-6"
+        shortDateFormat>
+        <mat-label i18n="@@santander-de.inquiry.form.customer.prevAddressResidentSince.label">
+          Previous address resident since
+        </mat-label>
+
+        <input
+          matInput
+          [min]="pastDateConstraints.min"
+          [max]="formGroup.get('addressResidentSince').value ?? pastDateConstraints.max"
+          formControlName="prevAddressResidentSince"
+          peDatePickerMask="shortDate"
+          [matDatepicker]="prevAddressResidentSinceDp"
+          type="text" />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="prevAddressResidentSinceDp">
+          <svg
+            matDatepickerToggleIcon
+            class="icon icon-16">
+            <use xlink:href="#icon-calendar-16"></use>
+          </svg>
+        </mat-datepicker-toggle>
+        <mat-datepicker
+          #prevAddressResidentSinceDp
+          startView="multi-year"
+          (monthSelected)="selectPrevAddressResidentSince($event, prevAddressResidentSinceDp)">
+        </mat-datepicker>
+      </mat-form-field>
+    </ng-container>
+
+    <mat-form-field class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-de.inquiry.form.customer.personalBirthName.label"> Birth name </mat-label>
+
+      <input
+        matInput
+        formControlName="personalBirthName"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field 
+      [class]="formGroup.get('typeOfGuarantorRelation').enabled 
+      ? 'col-xs-12 col-sm-6' 
+      : 'col-xs-12'
+      ">
+      <mat-label i18n="@@santander-de.inquiry.form.customer.personalPlaceOfBirth.label"> Place of birth </mat-label>
+
+      <input
+        matInput
+        formControlName="personalPlaceOfBirth"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-de.inquiry.form.customer.addressLandlinePhone.label"> Landline phone </mat-label>
+
+      <input
+        matInput
+        formControlName="addressLandlinePhone"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-de.inquiry.form.customer.addressCellPhone.label"> Mobile phone </mat-label>
+
+      <input
+        matInput
+        formControlName="addressCellPhone"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('typeOfGuarantorRelation').enabled"
+      class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-de.inquiry.form.customer.guarantorRelation.label">
+        Type of guarantor relation
+      </mat-label>
+
+      <mat-select formControlName="typeOfGuarantorRelation">
+        <mat-option
+          *ngFor="let option of guarantorRelations"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</form>

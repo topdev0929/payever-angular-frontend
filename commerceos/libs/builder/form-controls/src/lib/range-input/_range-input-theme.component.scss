@@ -1,0 +1,23 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $button-menu-opened: map.get($color-config, 'button-menu-opened');
+  $text-color: map.get($color-config, 'text-color');
+  $confirm: map.get($color-config, 'confirm');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $label-color: map.get($color-config, 'label-color');
+
+  peb-range-input {
+    .slider { 
+        &__track {
+            background-color: $button-menu-opened;
+        }
+        &__value {
+            background-color: $confirm;
+        }
+        &__input {
+            background-color: $transparent-color !important;
+        }
+    }
+  }
+}

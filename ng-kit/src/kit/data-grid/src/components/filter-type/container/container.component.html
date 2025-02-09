@@ -1,0 +1,34 @@
+<div class="filter-container form-group" [ngSwitch]="filterSchema.type" (click)="$event.stopPropagation()">
+  <label>{{ filterSchema.fieldLabel | translate }}</label>
+  <pe-data-grid-filter-type-date *ngSwitchCase="'date'"
+                                 [activeFilters]="activeFilters"
+                                 [filterSchema]="filterSchema"
+                                 [(filter)]="filter"
+                                 (submitForm)="onSubmitForm()"
+  ></pe-data-grid-filter-type-date>
+  <pe-data-grid-filter-type-number *ngSwitchCase="'number'"
+                                   [activeFilters]="activeFilters"
+                                   [filterSchema]="filterSchema"
+                                   [(filter)]="filter"
+                                   (submitForm)="onSubmitForm()"
+  ></pe-data-grid-filter-type-number>
+  <pe-data-grid-filter-type-select *ngSwitchCase="'select'"
+                                   [activeFilters]="activeFilters"
+                                   [filterSchema]="filterSchema"
+                                   [(filter)]="filter"
+                                   (submitForm)="onSubmitForm()"
+  ></pe-data-grid-filter-type-select>
+  <pe-data-grid-filter-type-default *ngSwitchDefault
+                                    [activeFilters]="activeFilters"
+                                    [filterSchema]="filterSchema"
+                                    [(filter)]="filter"
+                                    (submitForm)="onSubmitForm()"
+  ></pe-data-grid-filter-type-default>
+</div>
+<div class="text-right">
+  <button mat-button class="mat-button-default mat-button-link mat-button-no-width"
+          [disableRipple]="true"
+          (click)="onSubmitForm()"
+          [disabled]="isDisabledApply()"
+  >{{ 'ng_kit.data_grid.filter.actions.apply' | translate }}</button>
+</div>

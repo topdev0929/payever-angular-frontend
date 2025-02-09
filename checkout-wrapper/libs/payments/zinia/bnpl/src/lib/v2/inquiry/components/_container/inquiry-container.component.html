@@ -1,0 +1,16 @@
+<p
+  *ngIf="errorMessage"
+  class="text text-danger"
+  [innerHtml]="errorMessage"></p>
+<div
+  class="pe-payment-container"
+  *ngIf="threatMetrixProcess$ | async as tmx">
+  <payment-error
+    *ngIf="!tmx.inProgress && !tmx.loaded"
+    i18n-errorText="@@checkout_sdk.error.form_options_not_loaded"
+    errorText="Something went wrong, try again"
+    (tryAgain)="reloadThreatMetrix()"></payment-error>
+  <zinia-bnpl-inquiry-form-v2
+    [class.hidden]="!tmx.inProgress && !tmx.loaded"
+    (submitted)="onSend($event)"></zinia-bnpl-inquiry-form-v2>
+</div>

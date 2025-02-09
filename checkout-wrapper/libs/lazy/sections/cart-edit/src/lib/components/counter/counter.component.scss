@@ -1,0 +1,38 @@
+@import "../../../../../../../shared/styles/assets/ui-kit-styles/pe_variables";
+@import "../../../../../../../shared/styles/assets/ui-kit-styles/mixins/pe_mixins.scss";
+
+$counter_base_size: $grid-unit-x * 2.5;
+$text-color: var(--checkout-input-text-primary-color, $color-gray-2);
+$line-color: var(--checkout-input-border-color, $color-gray-2);
+
+.counter-container {
+  border: 1px solid $line-color;
+  background-color: var(--checkout-input-background-color, transparent);
+  background-origin: border-box;
+  line-height: $line-height-base;
+  @include pe_flexbox;
+  border-radius: var(--checkout-input-border-radius, $border-radius-default);
+  width: $counter_base_size * 4.5;
+  margin: 0 auto;
+
+  & > button {
+    background-color: transparent;
+    border: none;
+    width: $counter_base_size;
+    color: $text-color;
+  }
+
+  & > input {
+    line-height: 100%;
+    color: $text-color;
+    background-color: transparent;
+    height: $counter_base_size;
+    max-width: $counter_base_size * 2.5;
+    border-top: none;
+    border-bottom: none;
+    border-right: 1px solid $line-color;
+    border-left: 1px solid $line-color;
+    border-radius: 0;
+    text-align: center;
+  }
+}

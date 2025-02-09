@@ -1,0 +1,26 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+    $row-background: map.get($color-config, 'row-background');
+    $overlay-background: map.get($color-config, 'overlay-background');
+      
+        .box-color {
+          &__message {
+            border: solid 2px $overlay-background;
+          }
+      
+          &__settings {
+      
+            &.selected {
+              .box-color__round {
+                border: solid 2px $overlay-background;
+              }
+            }
+          }
+      
+          &__round {
+            border: solid 0 $overlay-background;
+          }
+        }
+
+}

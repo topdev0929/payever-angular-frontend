@@ -1,0 +1,15 @@
+<ng-template #rateContent>
+  <ng-content></ng-content>
+</ng-template>
+
+<pe-choose-rate-accordion
+  [rates]="rates"
+  [isLoading]="isLoading"
+  [initialRateId]="initialRateId"
+  [doSelectRate]="doSelectRate"
+  (rateSelected)="rateSelected.emit($event)"
+  (rateClicked)="onRateClicked($event)"
+  (panelOpened)="panelOpened.emit($event)"
+>
+  <ng-container *ngTemplateOutlet="rateContent"></ng-container>
+</pe-choose-rate-accordion>

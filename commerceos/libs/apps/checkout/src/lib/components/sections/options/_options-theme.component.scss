@@ -1,0 +1,12 @@
+@use "SASS:map";
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, "text-color");
+  $background: map.get($color-config, "background");
+
+  .pe-overlay-widget-backdrop.section-options-modal + .cdk-global-overlay-wrapper {
+    .checkbox-option_title {
+      color: $text-color;
+    }
+  }
+}

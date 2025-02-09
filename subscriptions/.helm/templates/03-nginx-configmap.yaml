@@ -1,0 +1,34 @@
+{{ $chartName := .Chart.Name }}
+{{ $values := .Values }}
+{{ $appName := $chartName }}
+{{ $nginxConfigName:= printf "%s-nginx" $appName }}
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $nginxConfigName }}
+  namespace: {{ $values.namespace }}
+
+  labels:
+    app: {{ $nginxConfigName }}
+
+data:
+  default.conf: |
+    server {
+        listen   80;
+        listen   8080;
+        root /payever;
+
+        location /finance/business {
+          index  finance_express.embed.min.js;
+
+          try_files $uri /finance_express.embed.min.js;
+        }
+
+        index  index.html;
+        try_files $uri /index.html;
+
+        location /api/status {
+            add_header Content-Type text/plain;
+        }
+    }

@@ -1,0 +1,62 @@
+<div *ngIf="label" class="image-picker-label" [class.text-danger]="errorMessage && isErrorState" [innerHTML]="label"></div>
+<div class="image-picker"
+     [attr.tabindex]="tabIndex"
+     [class.image-picker-with-description]="description"
+     [class.image-picker-description-right]="description && descriptionAlignment === 'right'"
+     [class.image-picker-round]="style === 'round' || style === 'details'"
+     [class.image-picker-details]="style === 'details'"
+     [class.image-picker-align-left]="alignment === 'left'"
+     [class.image-picker-align-center]="alignment === 'center'"
+     [class.image-picker-align-right]="alignment === 'right'"
+>
+  <div *ngIf="description" class="image-picker-description image-picker-description-vertical-center small">
+    <span [innerHtml]="description"></span>
+  </div>
+  <div *ngIf="!loading"
+       class="image-picker-container"
+       [class.image-picker-container-error]="isErrorState"
+       [class.image-picker-container-disabled]="disabled"
+  >
+    <div class="image-picker-empty" *ngIf="!formControl.value" (click)="!disabled && fileSelector.click()">
+      <svg *ngIf="style === 'default'" class="icon icon-32"><use xlink:href="#icon-plus-24"></use></svg>
+      <svg *ngIf="style === 'round'" class="icon icon-24"><use xlink:href="#add-photo-alternate-24"></use></svg>
+      <svg *ngIf="style === 'details'" viewBox="-2 0 26 26" class="icon icon-48"><use xlink:href="#add-photo-alternate-24"></use></svg>
+      <p class="image-picker-empty-label" [innerHTML]="placeholder"></p>
+    </div>
+    <div class="image-wrapper" *ngIf="formControl.value">
+      <img *ngIf="checkIsImageUrl(formControl.value) else labelFromString" [attr.src]="formControl.value | mediaUrl:container">
+      <ng-template #labelFromString>
+        <div class="image-picker-preview-label" (click)="!disabled && fileSelector.click()">
+          {{ formControl.value }}
+        </div>
+      </ng-template>
+    </div>
+    <button mat-raised-button
+            *ngIf="formControl.value && checkIsImageUrl(formControl.value)"
+            class="image-picker-delete mat-button-rounded mat-button-icon mat-button-xs"
+            color="dark"
+            type="button"
+            [disabled]="disabled"
+            (click)="!disabled && clearImage()"
+    >
+      <svg class="icon icon-8"><use xlink:href="#icon-b-remove-16"></use></svg>
+    </button>
+    <input #fileSelector
+           accept="image/*"
+           type="file"
+           class="hidden"
+           [disabled]="disabled"
+           (change)="pickImage($event)"
+    >
+  </div>
+  <div *ngIf="loading"
+       class="image-picker-container image-picker-container-loader"
+       [class.image-picker-container-disabled]="disabled"
+  >
+    <mat-progress-spinner [strokeWidth]="spinnerStrokeWidth"
+                          [diameter]="spinnerDiameter"
+                          [value]="uploadProgress"
+                          [mode]="spinnerMode"
+    ></mat-progress-spinner>
+  </div>
+</div>

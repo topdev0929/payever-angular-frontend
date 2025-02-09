@@ -1,0 +1,7 @@
+import { BadgeItem } from '../../../../../modules/badge';
+
+badgeSet: BadgeItem[] = [
+  { id: 1, title: 'Smart keyboard for 12.9-inch iPad' },
+  { id: 2, title: 'UE Megaboon Partable' },
+  { id: 3, title: 'Wireless Mouse' }
+];

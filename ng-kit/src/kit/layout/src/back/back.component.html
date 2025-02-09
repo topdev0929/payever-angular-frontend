@@ -1,0 +1,27 @@
+<a *ngIf="isLink" 
+   class="btn btn-primary btn-link back-link" 
+   [routerLink]="link">
+  <svg class="icon icon-16">
+    <use xlink:href="#icon-arrow-left-ios-16"></use>
+  </svg>
+  <span class="hidden-xs">{{ text }}</span>
+</a>
+
+<a *ngIf="isHref" 
+    class="btn btn-primary btn-link back-href" 
+    [attr.href]="href">
+  <svg class="icon icon-16">
+    <use xlink:href="#icon-arrow-left-ios-16"></use>
+  </svg>
+  <span class="hidden-xs">{{ text }}</span>
+</a>
+
+<button *ngIf="!isLink && !isHref" 
+         class="btn btn-primary btn-link back-button" 
+         type="button"
+         (click)="click.emit($event)">
+  <svg class="icon icon-16">
+    <use xlink:href="#icon-arrow-left-ios-16"></use>
+  </svg>
+  <span class="hidden-xs">{{ text }}</span>
+</button>

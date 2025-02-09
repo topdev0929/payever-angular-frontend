@@ -1,0 +1,24 @@
+<pe-overlay-container *ngIf="!isMobile" [title]="'details.title' | translate"
+                      [class.fixed]="false"
+                      [specialCardClass]="'transactions-back'"
+                      [class.reset-scroll-container]="true"
+                      [contentScrollable]="false"
+                      [showHeader]="false"
+                      [withPadding]="false"
+                      (onClose)="backToTransactionsList()"
+                      [showSpinner]="loading"
+                      pePreventDoubleTapZoom
+>
+  <or-details content></or-details>
+</pe-overlay-container>
+
+<mat-card *ngIf="isMobile" class="mat-card-transparent no-border-radius"
+  [style.visibility]="loading ? 'hidden' : 'visible'"
+  [style.opacity]="loading ? '0' : '1'">
+  <or-details content></or-details>
+</mat-card>
+
+<div class="widget-spinner-container" *ngIf="isMobile && loading">
+  <mat-spinner [strokeWidth]="2" [diameter]="26"></mat-spinner>
+</div>
+

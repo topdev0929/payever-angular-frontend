@@ -1,0 +1,255 @@
+<pe-data-grid-layout *ngIf="(items$ | async) as items"
+                     [viewMode]="viewMode"
+                     [loading]="false && (items?.pagination_data.page === -1 || isLoading)"
+                     [displayFooter]="isMobile"
+                     [filtersPanelActive]="(activeFiltersVisible$ | async)?.length > 0"
+                     [itemsEmpty]="!(items?.pagination_data.page === -1 || isLoading) && (!items || items?.collection.length === 0)"
+                     [infinite]="isMobile"
+                     [hasMore]="items?.collection.length < items?.pagination_data.total"
+                     (loadMore)="onLoadMore()">
+  <pe-data-grid-toolbar peToolbar
+                        [viewMode]="viewMode"
+                        [showViewSwitcher]="false"
+                        [showColumnSwitcher]="!isMobile"
+                        [columns]="columns$ | async"
+                        [searchValue]="searchValue$ | async"
+                        [isShowColumnSwitcherArrow]="false"
+                        [columnSwitcherTitle]="'header.show' | translate"
+                        (inputSearch)="onSearch($event)"
+                        (columnsChanged)="onColumnsChange($event)">
+
+    <pe-data-grid-filters-menu col-left
+                               class="filter-block"
+                               [filtersSchema]="filtersSchemaCloned$ | async"
+                               [activeFilters]="activeFilters$ | async"
+                               [isShowAddText]="false"
+                               [title]="'header.filter_by' | translate"
+                               (filterAdded)="onFilterAdded($event)"
+    ></pe-data-grid-filters-menu>
+
+    <transaction-exports col-left
+                         [columns]="columns$ | async"
+                         [filters]="activeFilters$ | async"
+                         [currency]="currency$ | async"
+                         [searchValue]="searchValue$ | async"
+                         [gridOrder]="gridOrder"
+    ></transaction-exports>
+
+    <div col-right class="products-toolbar-right">
+      <button mat-button class="mat-button mat-button-icon mobile-padding-left-24" [matMenuTriggerFor]="menu">
+        <svg class="icon icon-24"><use xlink:href="#icon-data-grid-sort"></use></svg>
+      </button>
+      <mat-menu class="mat-menu-dark" #menu="matMenu">
+      <ng-template matMenuContent>
+          <span class="mat-menu-filter-caption">{{ 'sort_transactions.sort_by' | translate }}</span>
+          <ng-container *ngFor="let option of sortOptions">
+            <button [class.active]="activeSort?.label === option.label"
+                    (click)="onDropdownSort(option)"
+                    mat-menu-item>
+                <span class="option-text" translate>{{ 'sort_transactions.' + option.label }}</span>
+                <svg *ngIf="activeSort?.label === option.label" class="icon icon-16 icon-right">
+                    <use xlink:href="#icon-check2-16"></use>
+                </svg>
+            </button>
+          </ng-container>
+      </ng-template>
+      </mat-menu>
+    </div>
+    <span col-center *ngIf="items?.pagination_data.amount && !isMobile">{{ 'total_orders.heading' | translate:{
+      total_count: items?.pagination_data.total,
+      total_sum: (items?.pagination_data.amount | currency:(currency$ | async):'symbol':'1.2-2')
+    } }}</span>
+  </pe-data-grid-toolbar>
+  <pe-data-grid-filters peGridFilters
+                        [filters]="activeFilters$ | async"
+                        [filtersSchema]="filtersSchemaWithSearch$ | async"
+                        (filterRemoved)="onClickFilterRemove($event)"
+  ></pe-data-grid-filters>
+
+  <pe-table #table
+            peTable
+            #matSortEl
+            matSort
+            class="table-responsive"
+            [dataSource]="items?.collection"
+            (matSortChange)="onSort($event)"
+  >
+    <ng-container *ngFor="let column of (columns$ | async)"
+                  peTableColumnDef="{{ column.name }}">
+      <ng-container [ngSwitch]="column.name">
+        <ng-container *ngSwitchCase="'channel'">
+          <pe-table-header-cell class="sticky-cell"
+                                [style.width]="sizes.channel + 'px'"
+                                *peHeaderCellDef
+          >{{ column.title }}</pe-table-header-cell>
+          <pe-table-cell #channelEl *peTableCellDef="let item;">
+            <svg class="icon icon-24">
+              <use [attr.xlink:href]="getChannelIconId(item.channel)"></use>
+            </svg>
+          </pe-table-cell>
+        </ng-container>
+        <ng-container *ngSwitchCase="'original_id'">
+          <pe-table-header-cell class="sticky-cell"
+                                [style.width]="sizes.original_id + 'px'"
+                                *peHeaderCellDef
+          >
+            <span class="uuid-title" *ngIf="!isMobile">{{ column.title }}</span>
+            <span class="uuid-title" *ngIf="isMobile"></span>
+          </pe-table-header-cell>
+          <pe-table-cell #originalIdEl *peTableCellDef="let item;" class="uuid-cell">
+            <button mat-button class="mat-button-link mat-button-no-padding uuid-title fs-hide"
+                    (click)="openTransaction(item.uuid)" *ngIf="!isMobile">
+              {{ '#' + (item.original_id || item.uuid) }}
+            </button>
+            <button mat-button class="mat-button-link mat-button-no-padding uuid-title"
+                    (click)="openTransaction(item.uuid)" *ngIf="isMobile">
+                    <svg class="icon icon-16"><use xlink:href="#icon-arrow-right-16"></use></svg>
+            </button>
+          </pe-table-cell>
+        </ng-container>
+        <ng-container *ngSwitchCase="'reference'">
+          <pe-table-header-cell class="sticky-cell"
+                                [style.width]="sizes.reference + 'px'"
+                                *peHeaderCellDef
+          >{{ column.title }}</pe-table-header-cell>
+          <pe-table-cell #referenceEl *peTableCellDef="let item;">
+            {{ item.reference }}
+          </pe-table-cell>
+        </ng-container>
+        <ng-container *ngSwitchCase="'created_at'">
+          <pe-table-header-cell class="sticky-cell"
+                                [style.width]="sizes.createdAt + 'px'"
+                                *peHeaderCellDef
+          >{{ column.title }}</pe-table-header-cell>
+          <pe-table-cell #createdAtEl *peTableCellDef="let item;">
+            {{ item.created_at | date:dateTimeFormat }}
+          </pe-table-cell>
+        </ng-container>
+        <ng-container *ngSwitchCase="'customer_name'">
+          <pe-table-header-cell class="sticky-cell"
+                                [style.width]="sizes.customerName + 'px'"
+                                *peHeaderCellDef
+          >{{ column.title }}</pe-table-header-cell>
+          <pe-table-cell #customerNameEl *peTableCellDef="let item;">
+            <span class="payment-customer-merchant fs-hide">{{ item.customer_name }}</span>
+          </pe-table-cell>
+        </ng-container>
+        <ng-container *ngSwitchCase="'customer_email'">
+          <pe-table-header-cell class="sticky-cell"
+                                [style.width]="sizes.customerEmail + 'px'"
+                                *peHeaderCellDef
+          >{{ column.title }}</pe-table-header-cell>
+          <pe-table-cell class="fs-hide" #customerEmailEl *peTableCellDef="let item;">
+            {{ item.customer_email }}
+          </pe-table-cell>
+        </ng-container>
+        <ng-container *ngSwitchCase="'merchant_name'">
+          <pe-table-header-cell class="sticky-cell"
+                                [style.width]="sizes.merchantName + 'px'"
+                                *peHeaderCellDef
+          >{{ column.title }}</pe-table-header-cell>
+          <pe-table-cell #merchantNameEl *peTableCellDef="let item;">
+            <span class="payment-customer-merchant fs-hide">{{ item.merchant_name }}</span>
+          </pe-table-cell>
+        </ng-container>
+        <ng-container *ngSwitchCase="'merchant_email'">
+          <pe-table-header-cell class="sticky-cell"
+                                [style.width]="sizes.merchantEmail + 'px'"
+                                *peHeaderCellDef
+          >{{ column.title }}</pe-table-header-cell>
+          <pe-table-cell class="fs-hide" #merchantEmailEl *peTableCellDef="let item;">
+            {{ item.merchant_email }}
+          </pe-table-cell>
+        </ng-container>
+        <ng-container *ngSwitchCase="'seller_name'">
+          <pe-table-header-cell class="sticky-cell"
+                                [style.width]="sizes.sellerName + 'px'"
+                                *peHeaderCellDef
+          >{{ column.title }}</pe-table-header-cell>
+          <pe-table-cell class="fs-hide" #sellerNameEl *peTableCellDef="let item;">
+            <span class="payment-customer-seller">{{ item.seller_name }}</span>
+          </pe-table-cell>
+        </ng-container>
+        <ng-container *ngSwitchCase="'seller_email'">
+          <pe-table-header-cell class="sticky-cell"
+                                [style.width]="sizes.sellerEmail + 'px'"
+                                *peHeaderCellDef
+          >{{ column.title }}</pe-table-header-cell>
+          <pe-table-cell class="fs-hide" #sellerEmailEl *peTableCellDef="let item;">
+            {{ item.seller_email }}
+          </pe-table-cell>
+        </ng-container>
+        <ng-container *ngSwitchCase="'status'">
+          <pe-table-header-cell class="sticky-cell"
+                                [style.width]="sizes.status + 'px'"
+                                *peHeaderCellDef
+          >{{ column.title }}</pe-table-header-cell>
+          <pe-table-cell #statusEl *peTableCellDef="let item;">
+            <!-- @TODO - move translations to FE -->
+            <span class="status status-{{ getStatusColor$(item) | async }}" [class.status-loading]="getStatusLoading$(item) | async">
+              <div *ngIf="getStatusLoading$(item) | async" class="status-loading-container">
+                <div class="loader_48 loader-white"></div>
+              </div>
+              {{ (getStatus$(item) | async | translate) || '-'}}
+            </span>
+          </pe-table-cell>
+        </ng-container>
+        <ng-container *ngSwitchCase="'specific_status'">
+          <pe-table-header-cell class="sticky-cell"
+                                [style.width]="sizes.specificStatus + 'px'"
+                                *peHeaderCellDef
+          >{{ column.title }}</pe-table-header-cell>
+          <pe-table-cell #specificStatusEl *peTableCellDef="let item;">
+            <span *ngIf="(getSpecificStatus$(item) | async) as ss">{{ ss ? (ss | translate) : '-' }}</span>
+          </pe-table-cell>
+        </ng-container>
+        <ng-container *ngSwitchCase="'type'">
+          <pe-table-header-cell class="sticky-cell"
+                                [style.width]="sizes.type + 'px'"
+                                *peHeaderCellDef
+          >
+            <span class="payment-type-title fs-hide" [class.hidden]="!isDesktopLg">{{ column.title }}</span>
+            <span class="payment-type-title fs-hide" [class.hidden]="isDesktopLg">Type</span>
+          </pe-table-header-cell>
+          <pe-table-cell #typeEl *peTableCellDef="let item;">
+            <svg class="icon icon-24">
+              <use [attr.xlink:href]="getPaymentMethodIconId(item.type)"></use>
+            </svg>&nbsp;
+            <span class="payment-name"
+                  [class.hidden]="!isDesktopLg">{{ 'filters.type.' + item.type | translate }}</span>
+          </pe-table-cell>
+        </ng-container>
+        <ng-container *ngSwitchCase="'total'">
+          <pe-table-header-cell class="sticky-cell"
+                                [style.width]="sizes.total + 'px'"
+                                *peHeaderCellDef
+          >{{ column.title }}</pe-table-header-cell>
+          <pe-table-cell class="fs-hide" #totalEl *peTableCellDef="let item;">
+            {{ item.total - (item.amount_refunded || 0) | currency:item.currency }}
+          </pe-table-cell>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+
+    <pe-table-header-row *peTableHeaderRowDef="displayedColumns$ | async"></pe-table-header-row>
+    <pe-table-row class="transactions-table-row" *peTableRowDef="let row; columns: displayedColumns$ | async;"
+                  (click)="onRowClick(row)"
+    ></pe-table-row>
+  </pe-table>
+
+  <pe-data-grid-pagination pePagination
+                           *ngIf="(pagination$ | async).total"
+                           [length]="(pagination$ | async).total"
+                           [pageIndex]="(pagination$ | async).page - 1"
+                           [pageSize]="pageSize"
+                           (pageSelect)="getTransactions($event)"
+  ></pe-data-grid-pagination>
+
+  <div class="transactions-grid-footer" peGridFooter>
+    <div *ngIf="items?.pagination_data.amount && isMobile" class="fs-hide">{{ 'total_orders.heading' | translate:{
+      total_count: items?.pagination_data.total,
+      total_sum: (items?.pagination_data.amount | currency:(currency$ | async):'symbol':'1.2-2')
+    } }}</div>
+  </div>
+
+</pe-data-grid-layout>

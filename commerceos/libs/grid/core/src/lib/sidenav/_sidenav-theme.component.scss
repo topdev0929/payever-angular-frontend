@@ -1,0 +1,46 @@
+@use 'SASS:map';
+@use 'pe_variables' as pe_variables;
+
+@mixin color($color-config) {
+  $primary: map.get($color-config, 'primary');
+  $skeleton: map.get($color-config, 'skeleton');
+  $text-color: map.get($color-config, 'text-color');
+  $secondary: map.get($color-config, 'secondary');
+  $filter-invert-light: map.get($color-config, 'filter-invert-light');
+  $extra-bg-color: map.get($color-config, 'extra-bg-color');
+
+  pe-grid-sidenav {
+    .pe-grid-sidenav {
+      &__container {
+        background-color: $primary;
+        .skeleton-title {
+          background-color: $skeleton;
+        }
+      }
+
+      &__content_message-extra {
+        background: $extra-bg-color;
+      }
+
+      &__title {
+        color: $text-color;
+      }
+
+      &__menu {
+        background-color: $secondary;
+        color: $text-color;
+        .mat-icon svg {
+          g {
+            fill: $text-color;
+          }
+        }
+      }
+    }
+
+    @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+      .ng-scroll-viewport {
+        width: 100%;
+      }
+    }
+  }
+}

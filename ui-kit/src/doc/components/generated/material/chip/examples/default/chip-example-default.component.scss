@@ -1,0 +1,39 @@
+@import "../../../../../../../../scss/pe_variables";
+
+::ng-deep .pe-bootstrap {
+
+  .mat-chip {
+
+    &.mat-chip-with-avatar {
+
+      .mat-chip-avatar {
+        border: 1px solid $color-orange;
+      }
+    }
+
+    &-sm {
+      min-width: 130px;
+    }
+
+    &-md {
+      min-width: 160px;
+    }
+
+    &-lg {
+      min-width: 310px;
+
+      .pe-chip-body {
+
+        p {
+          margin: 0;
+
+          &:last-child {
+            font-size: $font-size-small;
+            color: $color-grey-4;
+            font-weight: $font-weight-light;
+          }
+        }
+      }
+    }
+  }
+}

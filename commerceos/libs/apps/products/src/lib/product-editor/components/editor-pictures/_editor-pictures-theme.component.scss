@@ -1,0 +1,38 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $divider: map.get($color-config, 'divider');
+  $primary: map.get($color-config, 'primary');
+  $text-color: map.get($color-config, 'text-color');
+  $fill-black: map.get($color-config, 'fill-black');
+  $label-color: map.get($color-config, 'label-color');
+  $image-placeholder: map.get($color-config, 'image-placeholder');
+  $transparent-color: map.get($color-config, 'transparent-color');
+
+  .picture {
+    &-wrapper {
+      background-image: $image-placeholder;
+
+      p {
+        color: $fill-black;
+      }
+    }
+
+    &-delete-image {
+      background: $primary;
+
+      svg {
+        color: $text-color;
+      }
+    }
+
+    &-add-button {
+      background: $transparent-color;
+      border: 1px solid $divider;
+
+      svg > path {
+        fill: $divider;
+      }
+    }
+  }
+}

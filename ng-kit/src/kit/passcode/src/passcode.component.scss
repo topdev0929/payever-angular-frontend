@@ -1,0 +1,199 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+$dial-size: 70px;
+$dial-font-size: 26px;
+$indicator-size: 12px;
+
+.ui-passcode {
+  max-width: $pe_hgrid_gutter * 13;
+  text-align: center;
+  margin: auto;
+  .title {
+    font-size: $dial-font-size;
+    font-weight: 200;
+    margin-bottom: $pe_vgrid_height * 3;
+    color: $color-white;
+    letter-spacing: 2px;
+  }
+  .cancel, .save, .error {
+    margin-bottom: $pe_vgrid_height * 2;
+    span {
+      font-size: 20px;
+      -webkit-font-smoothing: antialiased;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+  .error {
+    span {
+      color: $color-red;
+    }
+  }
+  .save {
+    span {
+      opacity: .9;
+      cursor: pointer;
+      color: $color-white;
+    }
+  }
+  .cancel {
+    span {
+      opacity: .5;
+      cursor: pointer;
+      color: $color-white;
+    }
+  }
+  .dialpad {
+    margin-bottom: $pe_vgrid_height * 2;
+    .dialpad-num {
+      font-size: $dial-font-size;
+      color: $color-white;
+      border-radius: 100%;
+      width: $dial-size;
+      height: $dial-size;
+      padding: ($dial-size - $dial-font-size)/2;
+      display: inline-block;
+      line-height: 1;
+      background-color: rgba($color-white, .08);
+      margin-bottom: $pe_hgrid_gutter;
+      -webkit-font-smoothing: antialiased;
+      cursor: pointer;
+      -webkit-user-select: none;
+      &.dialpad-clear {
+        line-height: 22px;
+      }
+      &:active {
+        background-color: rgba($color-white, .15);
+      }
+    }
+    .icon-backspace {
+      margin-top: ($dial-size - $icon-size-48) / 2;
+      color: rgba($color-white, .08);
+      cursor: pointer;
+      &:active {
+        color: rgba($color-white, .15);
+      }
+    }
+  }
+
+  .indicators {
+    text-align: center;
+    margin-bottom: $pe_vgrid_height * 4;
+    // transform: perspective(1px) translateZ(0);
+  }
+  .indicator {
+    display: inline-block;
+    border: 1px solid $color-white;
+    width: $indicator-size;
+    height: $indicator-size;
+    border-radius: 100%;
+    margin: 0 $pe_hgrid_gutter / 2;
+    color: white;
+    overflow: hidden;
+    text-indent: -10000px;
+    &.active {
+      background-color: $color-white;
+    }
+  }
+
+  .link-cancel {
+    font-size: 21px;
+    color: $color-white;
+    -webkit-font-smoothing: antialiased;
+    cursor: pointer;
+    -webkit-user-select: none;
+    margin-top: $pe_hgrid_gutter;
+  }
+  &.newpass {
+    .indicators {
+      height: 24px;
+    }
+    .indicator {
+      font-size: 24px;
+      vertical-align: middle;
+      &.active {
+        background-color: transparent;
+        border-color: transparent;
+        text-indent: 0;
+        overflow: visible;
+        height: auto;
+      }
+    }
+  }
+  &.dark-passcode {
+    .title {
+      color: $color-gray;
+    }
+    .indicator {
+      border-color: $color-gray;
+      &.active {
+        background-color: $color-gray;
+      }
+    }
+    .dialpad {
+      .dialpad-num {
+        background-color: rgba($color-gray,.1);
+        color: $color-dark-gray;
+        &:active {
+          background-color: rgba($color-gray,.2);
+        }
+      }
+    }
+    .link-cancel {
+      color: $color-gray;
+    }
+    .save, .cancel {
+      span {
+        color: $color-dark-gray;
+      }
+    }
+    &.newpass {
+      .indicator {
+        &.active {
+          background-color: transparent;
+          color: $color-dark-gray;
+        }
+      }
+    }
+  }
+}
+
+
+@include keyframes(pe-buzz-out) {
+  10% {
+    @include payever_transform_translate(3px, 0);
+  }
+  20% {
+    @include payever_transform_translate(-3px, 0);
+  }
+  30% {
+    @include payever_transform_translate(3px, 0);
+  }
+  40% {
+    @include payever_transform_translate(-3px, 0);
+  }
+  50% {
+    @include payever_transform_translate(2px, 0);
+  }
+  60% {
+    @include payever_transform_translate(-2px, 0);
+  }
+  70% {
+    @include payever_transform_translate(2px, 0);
+  }
+  80% {
+    @include payever_transform_translate(-2px, 0);
+  }
+  90% {
+    @include payever_transform_translate(1px, 0);
+  }
+  100% {
+    @include payever_transform_translate(-1px, 0);
+  }
+}
+
+.pe-buzz-out {
+  @include payever_animation($name: pe-buzz-out, $duration: 0.75s, $timing-function: linear, $iteration-count: 1);
+}

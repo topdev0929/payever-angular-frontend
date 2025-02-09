@@ -1,0 +1,210 @@
+.desktop-device .wrapper {
+  height: 496px;
+}
+
+.outer-frame {
+  width: 100%;
+  max-width: 560px;
+  height: 100%;
+  padding: 50px 16px;
+}
+
+.mobile .outer-frame {
+  padding: 89px 17px;
+}
+
+.outer-frame .outer-frame-inner {
+  display: flex;
+  height: 100%;
+  border-radius: 18px;
+  background: var(--light);
+  box-shadow: 0 1px 10px 0 rgba(13, 34, 71, 0.10), 0 1px 10px 0 rgba(13, 34, 71, 0.10);
+  overflow: hidden;
+}
+
+.outer-frame-aside {
+  width: 151px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  padding: 15px;
+  color: var(--gray-180);
+  background: var(--light-100);
+}
+
+.mobile .outer-frame-aside {
+  display: none;
+}
+
+.outer-frame-aside .outer-frame-aside-summary {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 10px; 
+}
+
+.outer-frame-aside .outer-frame-aside-summary .total {
+  color: var(--gray-900);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.outer-frame-aside .outer-frame-aside-lang {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.outer-frame-body {
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.outer-frame-body .top-side {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.outer-frame-body-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.outer-frame-body-title {
+  color: var(--gray-900);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.outer-frame-body .input-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.outer-frame-body .input-group .input {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  height: 30px;
+  padding: 0 10px;
+  border: 1px solid var(--gray-190);
+  border-radius: 74px;
+  color: var(--gray-190);
+  font-size: 7px;
+}
+
+.outer-frame-body .input-group .input img {
+  width: 12px;
+  height: 12px;
+}
+
+.outer-frame-body .input-group .lang-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.outer-frame-body .input-group .lang-icon img {
+  width: 100%;
+  height: 100%;
+}
+
+.outer-frame-body .info {
+  max-width: 236px;
+  width: 100%;
+  color: var(--gray-900);
+  font-size: 7px;
+}
+
+.outer-frame-body .info span {
+  text-decoration: underline;
+}
+
+.outer-frame-body .payments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px 12px 0 12px;
+}
+
+.outer-frame-body .payment-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 30px;
+  padding: 0 10px 0 2px;
+  border-radius: 5px;
+}
+
+.outer-frame-body .selected-payment {
+  background: var(--secondary-180);
+}
+
+.outer-frame-body .payment-item-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--gray-900);
+  font-size: 11px;
+}
+
+.outer-frame-body .payment-item-info .bank-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.outer-frame-body .payment-search .search-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.outer-frame-body .payment-search .payment-search-info {
+  color: var(--secondary-450);
+  font-size: 7px;
+}
+
+.outer-frame-body .payment-search .payment-search-title {
+  font-weight: 700;
+}
+
+.outer-frame-secured-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 15px;
+  color: var(--gray-900);
+  font-size: 7px;
+}
+
+.outer-frame-secured-info img {
+  width: 18px;
+  height: 18px;
+}
+
+.outer-frame-secured-info br {
+  display: none;
+}
+
+.mobile .outer-frame-secured-info br {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .outer-frame-aside {
+    display: none;
+  }
+}

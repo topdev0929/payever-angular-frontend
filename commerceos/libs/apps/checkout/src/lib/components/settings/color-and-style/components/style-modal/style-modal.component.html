@@ -1,0 +1,19 @@
+<div class="style-modal-container">
+  <div class="style-form-schema-item">
+    <peb-form-background>
+      <ng-container *ngFor="let item of items; trackBy: trackByItems">
+        <pe-style-item
+          class="pe-style-item"
+          *ngIf="isShowScreen(item)"
+          [control]="parentForm.get(item.controlName)"
+          [type]="item.type"
+          [labelTranslateKey]="item.labelKey"
+          [buttonLabelTranslateKey]="item?.buttonLabelKey"
+          [min]="item?.min"
+          [max]="item?.max"
+        >
+        </pe-style-item>
+      </ng-container>
+    </peb-form-background>
+  </div>
+</div>

@@ -1,0 +1,108 @@
+<!-- <div class="shipping-form__wrapper">
+  <div class="shipping-form__header">
+    <button class="shipping-form__cancel" (click)="onClose()">Cancel</button>
+    <span class="shipping-form__title">Free shipping</span>
+    <button class="shipping-form__done" (click)="onSave()">Done</button>
+  </div> -->
+  <form [formGroup]="shippingForm">
+    <div class="main-form">
+      <peb-form-background>
+        <peb-button-toggle
+          formControlName="isActive"
+          label="Free shipping"
+          labelPosition="before"
+        ></peb-button-toggle>
+      </peb-form-background>
+
+      <div class="form-margins">
+        <peb-form-background>
+          <peb-select
+            selectType="label"
+            label="Applies to"
+            formControlName="appliesTo"
+          >
+            <peb-select-option
+              value=""
+              label="Select option"
+            ></peb-select-option>
+            <peb-select-option
+              *ngFor="let item of appliesTo"
+              value="{{ item.value }}"
+              label="{{ item.label }}"
+            ></peb-select-option>
+          </peb-select>
+          <peb-country-picker 
+            [externalCountries]="countriesAutocomplete"
+            formControlName="countries"
+          ></peb-country-picker>
+        </peb-form-background>
+
+        <div class="form-margins__error">
+          <peb-messages
+            *ngIf="shippingForm.get('appliesTo').invalid"
+            message="Applies to is required"
+          ></peb-messages>
+          <peb-messages
+            *ngIf="shippingForm.get('countries').invalid"
+            message="Countries are required"
+          ></peb-messages>
+        </div>
+      </div>
+
+      <div class="form-margins">
+        <peb-form-background>
+          <peb-checkbox formControlName="shippingRatesOverCertainValue"
+            >Exclude shipping rates over certain amount</peb-checkbox
+          >
+          <peb-form-field-input label="Discount value" appearance="label">
+            <input
+              type="number"
+              pebInput
+              placeholder="Enter value"
+              formControlName="discount"
+            />
+            <div class="suffix">
+              <p>Dollars($)</p>
+            </div>
+          </peb-form-field-input>
+        </peb-form-background>
+      </div>
+
+      <div class="form-margins">
+        <peb-form-background>
+          <peb-select
+            selectType="label"
+            label="Minimum requirements"
+            formControlName="minRequirements"
+          >
+            <peb-select-option
+              *ngFor="let requirement of minRequirements"
+              value="{{ requirement.value }}"
+              label="{{ requirement.label }}"
+            ></peb-select-option>
+          </peb-select>
+          <peb-form-field-input
+            label="Minimum purchase amount"
+            appearance="label"
+          >
+            <input
+              type="number"
+              pebInput
+              placeholder="Enter value"
+              formControlName="minPurchaseAmount"
+            />
+            <div class="suffix">
+              <p>Dollars($)</p>
+            </div>
+          </peb-form-field-input>
+        </peb-form-background>
+        <div class="form-margins__error">
+          <peb-messages
+            *ngIf="shippingForm.get('minPurchaseAmount').invalid"
+            message="Minimum purchase amount is required"
+          ></peb-messages>
+        </div>
+      </div>
+    </div>
+  </form>
+<!-- </div> -->

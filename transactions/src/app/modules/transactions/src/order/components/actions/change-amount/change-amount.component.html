@@ -1,0 +1,35 @@
+<or-action-modal [close$]="close$"
+                 [heading]="'form.change_amount.heading' | translate"
+                 [buttons]="modalButtons"
+                 [loading]="loading"
+                 class="dark"
+>
+  <div class="inner-padding" *ngIf="error">
+    <div class="text-danger" [innerHtml]="error"></div>
+  </div>
+  <form novalidate (ngSubmit)="onSubmit()" [formGroup]="form" *ngIf="form !== null">
+    <div class="inner-padding">
+      <div [innerHtml]="'form.change_amount.note' | translate"></div>
+    </div>
+    <div class="form-table">
+      <fieldset class="transparent-form">
+        <div class="clearfix">
+          <div class="col-xs-12" [ngClass]="{'has-error': form.get('amount').errors}">
+            <div class="input-group">
+              <span class="input-group-main">
+                <input class="form-control fs-hide"
+                       id="input_amount"
+                       placeholder="{{ 'form.change_amount.labels.amount' | translate }}"
+                       formControlName="amount"
+                       type="number">
+                <label for="input_amount">{{ 'form.change_amount.labels.amount' | translate }}</label>
+                <span class="error small" [innerHtml]="form.get('amount').errors" *ngIf="form.get('amount').errors"></span>
+              </span>
+              <span class="input-group-addon">{{ currencySymbol }}</span>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </form>
+</or-action-modal>

@@ -1,0 +1,229 @@
+@use "pe_variables" as pe_variables;
+
+.mobile-row-wrap {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 12px 0;
+  border-top-style: solid;
+  border-top-width: 1px;
+  cursor: pointer;
+
+  &.is-table-width-scroll {
+    width: fit-content;
+    min-width: 100%;
+  }
+
+
+  &:not(.selectable) {
+    padding-left: 8px;
+
+    &.grid-table-body-cell {
+      padding-left: 0;
+    }
+  }
+
+  .grid-table-body-cell {
+    height: 50px;
+    border: 0;
+    min-width: var(--checkboxWidth);
+    width: var(--checkboxWidth);
+    align-items: center;
+    justify-content: center !important;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__thumbnail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .mat-icon {
+      width: 30px;
+    }
+  }
+
+  &__thumbnail-grid {
+    flex: 24px;
+    border-radius: 4px;
+    align-items: center;
+  }
+
+  &__thumbnail-item {
+    width: 50px;
+    min-width: 50px;
+    height: 50px;
+
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 8px 0 12px;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    flex: 1;
+
+    .rows-wrap {
+      width: 100%;
+
+      &__row {
+        width: auto;
+        font-size: 17px;
+        font-weight: 400;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      &__description {
+        margin: 0;
+        padding-top: 0;
+        height: 26px;
+        width: 100%;
+        font-size: 11px;
+        font-weight: 400;
+        line-height: 1.2;
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .bottom-line {
+      width: auto;
+      display: grid;
+      grid-template-columns: max-content;
+      grid-auto-flow: column;
+      gap: 10px;
+      height: 25px;
+    }
+  }
+
+  &__content-with-label {
+    width: 34%;
+  }
+
+  .first-cell ~ &__content-with-label {
+    width: 34%;
+    overflow: hidden;
+  }
+
+  &__content-grid {
+
+    .rows-wrap {
+      display: grid;
+      grid-template-columns: 22% auto min-content;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+
+      &__row {
+        padding: 0 4px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+
+    &.is-table-width-scroll {
+      flex-direction: row;
+      margin-left: 0;
+
+      .rows-wrap {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        width: fit-content;
+        min-width: 100%;
+      }
+    }
+
+    & ~ .mobile-row-wrap__badge-wrap {
+      display: none;
+    }
+  }
+
+  &__badge-wrap {
+    display: flex;
+    align-items: center;
+    padding-right: 12px;
+    height: 50px;
+  }
+
+  &__badge {
+    align-items: center;
+    border-radius: 11px;
+    cursor: default;
+    display: flex;
+    height: 22px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    user-select: none;
+    white-space: nowrap;
+  }
+
+  &__more-icon {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-right: 12px;
+    cursor: pointer;
+  }
+
+  &.first-row {
+    border-width: 0;
+
+    &.is-show-header {
+      border-radius: 0;
+    }
+  }
+  &.last-row {
+    border-radius: 0 0 12px 12px;
+  }
+}
+
+@media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+  .mobile-row-wrap {
+    &__thumbnail-item {
+      width: 45px;
+      min-width: 45px;
+      height: 45px;
+    }
+    &__thumbnail {
+      .mat-icon {
+        width: 25px;
+      }
+    }
+    &__content {
+      .rows-wrap {
+        &__row {
+          flex: 1;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          font-size: 16px;
+          min-width: 1px;
+          }
+        }
+      }
+    }
+  }

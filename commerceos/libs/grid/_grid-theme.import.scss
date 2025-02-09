@@ -1,0 +1,29 @@
+@use 'pe_theming' as pet;
+@use './core/src/lib/content/content-theme.component' as content;
+@use './core/src/lib/menu/menu-theme.component' as menu;
+@use './core/src/lib/misc/components/material/material-theme.component' as material;
+@use './core/src/lib/misc/components/move-overview/move-overview-theme' as move_overview;
+@use './core/src/lib/sidenav/sidenav-theme.component' as sidenav;
+@use './core/src/lib/viewport/viewport-theme.component' as viewport;
+@use './core/src/lib/list/list-theme.import' as list;
+@use './core/src/lib/toolbar/toolbar-theme.import' as toolbar;
+@use './core/src/lib/table/table-theme.import' as table;
+@use './extensions/import-file/components/import-menu-style/import-menu-style-theme.component' as import_menu_style;
+@use './extensions/import-file/components/import-menu/import-menu-theme.component' as import_menu;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include list.theme($theme-config);
+  @include toolbar.theme($theme-config);
+  @include table.theme($theme-config);
+  @if $color-config != null {
+    @include content.color($color-config);
+    @include menu.color($color-config);
+    @include material.color($color-config);
+    @include move_overview.color($color-config);
+    @include sidenav.color($color-config);
+    @include viewport.color($color-config);
+    @include import_menu_style.color($color-config);
+    @include import_menu.color($color-config);
+  }
+}

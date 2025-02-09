@@ -1,0 +1,8 @@
+<form novalidate [formGroup]="form" (ngSubmit)="onSubmit()">
+  <pe-radio-group [radioButtons]="radioButtons"
+                  [formGroup]="form"
+                  [formControlRef]="form.get('options')"
+  >
+  </pe-radio-group>
+  <button>Submit</button>
+</form>

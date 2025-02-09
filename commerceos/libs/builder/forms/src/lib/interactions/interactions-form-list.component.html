@@ -1,0 +1,13 @@
+<div class="form_button" (click)="addTrigger()">
+  {{ 'builder-app.forms.animation.add_trigger' | translate }}
+</div>
+
+<div class="list__row" *ngFor="let item of interactions$ | async">
+  <peb-item-bar
+    [titles]="[item.trigger, item.action]"
+    (click)="editTrigger(item)"
+  ></peb-item-bar>
+  <div class="list__row__remove" [title]=" 'Remove Item'" (click)="removeTrigger(item)">
+    <span>-</span>
+  </div>
+</div>

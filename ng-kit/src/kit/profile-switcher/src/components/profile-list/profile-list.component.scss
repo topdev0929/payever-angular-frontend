@@ -1,0 +1,166 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+:host {
+  &:not(.without-top-switcher) {
+    .profile-list-layout {
+      .mat-card-transparent {
+        height: 0;
+        @include payever_transition($property: height, $duration: .45s, $effect: ease-out);
+        &.opened {
+          height: auto;
+          @include payever_transition($property: height, $duration: .45s, $effect: ease-in);
+        }
+      }
+    }
+  }
+
+  .profile-list-layout {
+
+    .mat-card-transparent {
+      box-shadow: none;
+      background: transparent;
+      margin: $padding-large-vertical auto;
+      max-width: 100%;
+
+      .card-content-center-align {
+        text-align: center;
+
+        .profile-list-title {
+          text-align: center;
+        }
+
+        .profile-list-container {
+          @include pe_inline-flex;
+          @include pe_justify-content(center);
+          @include pe_flex-wrap(wrap);
+          max-width: $grid-unit-x * 56;
+
+          @include screen-xs() {
+            margin-bottom: 40px;
+          }
+
+          .business-item {
+            display: inline-block;
+            min-width: $grid-unit-x * 9;
+            width: $grid-unit-x * 9;
+            margin: 0 $padding-xs-horizontal * 2;
+
+            .logo-placeholder {
+              background-image: linear-gradient(#a0a7aa, #808893);
+              font-family: sans-serif;
+              overflow: hidden;
+              position: relative;
+
+              .img-circle {
+                object-fit: cover;
+              }
+            }
+
+            .no-overflow {
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              padding: 0 $padding-xs-horizontal;
+            }
+
+            .multiLine-no-overflow {
+              $max-lines: 2;
+              transition: text-shadow 0.2s linear;
+              height: $max-lines * $line-height-computed;
+              line-height: $line-height-computed;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              padding: 0 $padding-xs-horizontal;
+              word-break: break-all;
+            }
+
+            .transparent-card {
+              &.multiLine {
+                background-color: transparent;
+              }
+
+              &:hover {
+                border-radius: 15%;
+                background-color: #a7a7a747;
+              }
+
+              &.with-actions {
+                height: $grid-unit-y * 14 !important;
+              }
+
+              .actions-container {
+                @include pe_flexbox();
+                @include pe_justify-content(space-between);
+                padding: $padding-base-vertical $grid-unit-x;
+
+                &.aligned-right {
+                  @include pe_justify-content(flex-end);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .profile-list-title {
+    font-size: $font-size-h3;
+    color: $color-white-pe;
+  }
+
+  .mat-card-content .transparent-card.active {
+    background-color: $color-white-grey-2;
+    &:hover {
+      background-color: $color-white-grey-2;
+    }
+  }
+
+  @media(max-width: $viewport-breakpoint-sm-2 - 1) {
+    .profile-list-layout {
+      .mat-card-transparent {
+        &.opened {
+          .profile-list-container {
+            padding-left: 0;
+            padding-right: 0;
+            margin-bottom: $grid-unit-y * 4;
+          }
+        }
+
+        .card-content-center-align {
+          .profile-list-container {
+            .business-item {
+              margin-left: 0;
+              margin-right: 0;
+              @include pe_flex(0, 0, 24.9%); // 25% looks wrong in safari
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media(max-width: $viewport-breakpoint-xs-2 - 1) {
+    .profile-list-layout {
+      .mat-card-transparent {
+        .card-content-center-align {
+          .profile-list-container {
+            .business-item {
+              @include pe_flex(0, 0, 33.2%); // 33.33% looks wrong in safari
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes initOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

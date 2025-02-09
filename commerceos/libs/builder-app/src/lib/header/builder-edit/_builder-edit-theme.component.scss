@@ -1,0 +1,49 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $text-color: map.get($color-config, 'text-color');
+  $label-color: map.get($color-config, 'label-color');
+  $border: map.get($color-config, 'border');
+  $active-button: map.get($color-config, 'active-button');
+  $confirm: map.get($color-config, 'confirm');
+  $active-text: map.get($color-config, 'active-text');
+
+  .mat-builder-edit {
+    background-color: $secondary-background;
+    border: solid 1px $border;
+    .widget {
+      &__title {
+        color: $text-color;
+      }
+      &__close {
+        color: $label-color;
+        &:hover {
+          color: $text-color;
+        }
+      }
+      &__body {
+        .view-item {
+          &__divider {
+            background-color: $border;
+          }
+          &__icon, &__menu {
+            background-color: $label-color;
+          }
+          &__title {
+            color: $text-color;
+          }
+          &:hover {
+            background-color: $active-button;
+          }
+          &.active {
+            background-color: $confirm;
+            .view-item__title {
+              color: $active-text;
+            }
+          }
+        }
+      }
+    }
+  }
+}

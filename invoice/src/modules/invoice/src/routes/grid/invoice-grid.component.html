@@ -1,0 +1,81 @@
+<pe-data-grid
+  [filters]="[]"
+  [items]="null"
+  [filterItems]="filterItems"
+  [searchItems]="searchItems"
+  [dataListOptions]="dataGridListOptions"
+  [initialFilterItem]='initialFilterItem'
+  [navbarLeftPaneButtons]="leftPaneButtons"
+  [totalCount]="(gridItems$|async|filter:{title:this.searchItems[0]?.searchText})?.length"
+  (searchRemove)="onSearchRemove($event)"
+  [selectedItems]="invoiceService.selectedItems"
+  (multipleSelectedItemsChanged)="onSelectedItemsChanged($event)"
+  [defaultLayout]="viewMode"
+  [multipleSelectedActions]="multipleSelectedActions"
+  [sortByActions]="sortByActions"
+  [enableNodeContextMenu]="true"
+  [contextMenuItems]="contextMenuItems"
+  (gridContentContextMenu)="onGridContentContextMenu($event)"
+  (filtersChanged)="onFiltersChanged($event)"
+  (layoutTypeChanged)="onLayoutChanged($event)"
+  (searchChanged)="onSearchChanged($event)"
+>
+
+<pe-sidebar-filters-wrapper>
+    <pe-sidebar-header
+      title="Invoices"
+      [allowClose]="false"
+      (closeSidebar)="sidebarService.toggleFilters$.next()">
+    </pe-sidebar-header>
+    <pe-sidebar-filter-wrapper
+      [title]="treeLabelInvoice"
+      [expandable]="true"
+      [editable]="false"
+      (changeTitleOn)="treeLabelInvoice = $event"
+    >
+      <pe-tree-sidebar-filter
+        #treeSidebar
+        [tree]="invoicesTreeData"
+        [multiple]="false"
+        [formControl]="formGroup.get('tree')"
+        (nodeClick)="onNodeclick($event)"
+      >
+        <ng-template #nodeImageTemplate let-node="node">
+          <svg  class="sidebar-item__icon">
+            <use [attr.xlink:href]="'#icon-apps-app-' + node.imageSvg"></use>
+          </svg>
+        </ng-template>
+      </pe-tree-sidebar-filter>
+    </pe-sidebar-filter-wrapper>
+  </pe-sidebar-filters-wrapper>
+
+  <!-- <pe-sidebar-footer-wrapper>
+    <pe-menu-sidebar-footer
+      [menuData]="sidebarFooterData"
+    ></pe-menu-sidebar-footer>
+  </pe-sidebar-footer-wrapper> -->
+
+  <div class="grid-row" [ngClass]="theme" *ngIf="items">
+    My invoices
+  </div>
+  <pe-data-grid-item
+    *ngIf ="viewMode===layoutTypes?.Grid"
+    [item]="addItem"
+    [selectable]="false"
+    [itemHeight]="itemHeight"
+    [isShowGridItemInfo]="false"
+    [theme]="theme"
+  >
+    <div class="invoice-image" (click)="createEditInvoice()">
+      <svg><use xlink:href="#icon-plus-softy-16"></use></svg>
+    </div>
+    <div>{{addItem.title}}</div>
+  </pe-data-grid-item>
+  <pe-data-grid-item
+    *ngFor="let item of gridItems$ | async"
+    [item]="item"
+    [itemHeight]="itemHeight"
+    [selectable]="true"
+    [isShowGridItemInfo]="true">
+  </pe-data-grid-item>
+</pe-data-grid>

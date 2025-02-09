@@ -1,0 +1,15 @@
+<div class="pe-coupons-expansion-panel-header" (click)="toggle()">
+  <div class="pe-coupons-content">
+    <ng-content select=".pe-coupons-expansion-panel-header-title"></ng-content>
+  </div>
+  <div class="pe-coupons-expansion-panel-indicator" [class.open]="isOpen">
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+</div>
+<div 
+  class="pe-coupons-expansion-panel-content"
+  [@openClose]="isOpen"
+  [class.open]="isOpen">
+  <ng-content select="pe-coupons-expansion-panel-content"></ng-content>
+</div>

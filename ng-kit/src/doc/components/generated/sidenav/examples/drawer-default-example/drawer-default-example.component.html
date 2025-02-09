@@ -1,0 +1,15 @@
+<pe-drawer #drawer
+           [containerClasses]="'example-container'"
+           [drawerSettings]="drawerSettings"
+>
+  Main content
+  <p><button mat-button (click)="drawer.closeAll()">Close all</button></p>
+</pe-drawer>
+
+<ng-template #drawerContent1>
+  Drawer content 1
+</ng-template>
+
+<ng-template #drawerContent2>
+  Drawer content 2
+</ng-template>

@@ -1,0 +1,20 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $primary: map.get($color-config, 'primary');
+  $button: map.get($color-config, 'button');
+  $warn: map.get($color-config, 'warn');
+  $active-text: map.get($color-config, 'active-text');
+
+  peb-widget-wrapper {
+    background-color: $primary;
+    .edit-btn {
+        background-color: $button;
+        color: $active-text;
+    }
+    .remove-btn { 
+        background-color: $warn;
+        color: $active-text;
+    }
+  }
+}

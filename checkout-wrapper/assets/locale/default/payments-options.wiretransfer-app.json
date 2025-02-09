@@ -1,0 +1,25 @@
+{
+  "payment-wiretransfer": {
+    "actions": {
+      "redirect_to_wiretransfer": "Redirect to wiretransfer",
+      "change_payment_method": "Please, select another payment method",
+      "pay_now": "Pay now"
+    },
+    "inquiry": {
+      "finish": {
+        "processing": {
+          "title": "Request can take a few minutes. Please do not click away",
+          "text": "We are processing your payment"
+        },
+        "labels": {
+          "total": "Total",
+          "merchant_bank_account_holder": "Bank account holder",
+          "merchant_bank_name": "Bank name",
+          "merchant_bank_city": "Bank city",
+          "bank_account_iban": "Bank IBAN",
+          "bank_account_bic": "Bank BIC"
+        }
+      }
+    }
+  }
+}

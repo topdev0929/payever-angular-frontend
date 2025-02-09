@@ -1,0 +1,73 @@
+<div
+  *ngIf="(flow$ | async) as flow"
+  class="order-block checkout-font-size">
+  <div class="row">
+    <div class="col-xs-7 text-nowrap">
+      <span i18n="@@checkout_order_summary.subtotal">checkout_order_summary.subtotal</span>
+    </div>
+    <div class="col-xs-5">
+      <span class="pull-right">
+        <span>{{ subtotalOriginal$ | async | peCurrency:flow?.currency:'symbol-narrow' }}</span>
+      </span>
+    </div>
+  </div>
+  <ng-container *ngIf="(discount$ | async) as discount">
+    <div
+      *ngIf="discount > 0"
+      class="row">
+      <div class="col-xs-7 text-nowrap">
+        <span i18n="@@checkout_order_summary.discount">checkout_order_summary.discount</span>
+      </div>
+      <div class="col-xs-5">
+        <span class="pull-right">
+          <span>-{{ discount | peCurrency:flow?.currency:'symbol-narrow' }}</span>
+        </span>
+      </div>
+    </div>
+  </ng-container>
+  <div
+    class="row"
+    *ngIf="showPaymentCost$ | async">
+    <div class="col-xs-7 text-nowrap">
+      <span i18n="@@checkout_order_summary.payment_costs">checkout_order_summary.payment_costs</span>
+    </div>
+    <div class="col-xs-5">
+      <span class="pull-right">{{ paymentCosts$ | async | peCurrency:flow?.currency:'symbol-narrow' }}</span>
+    </div>
+  </div>
+  <div
+    *ngIf="downPayment$ | async"
+    class="row">
+    <div class="col-xs-7 text-nowrap">
+      <span i18n="@@checkout_order_summary.down_payment">checkout_order_summary.down_payment</span>
+    </div>
+    <div class="col-xs-5">
+      <span class="pull-right">{{ downPayment$ | async | peCurrency:flow?.currency:'symbol-narrow' }}</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-7 text-nowrap">
+      <span i18n="@@checkout_order_summary.shipping">checkout_order_summary.shipping</span>
+    </div>
+    <div class="col-xs-5">
+      <span class="pull-right">{{ deliveryFee$ | async | peCurrency:flow?.currency:'symbol-narrow' }}</span>
+    </div>
+  </div>
+  <div class="row total">
+    <div class="col-xs-7 text-nowrap">
+      <span *ngIf="isShop$ | async"
+        ><strong i18n="@@checkout_order_summary.shop_total">checkout_order_summary.shop_total</strong></span
+      >
+      <span *ngIf="(isShop$ | async) !== true"
+        ><strong i18n="@@checkout_order_summary.total">checkout_order_summary.total</strong></span
+      >
+    </div>
+    <div class="col-xs-5">
+      <span class="pull-right total-value"
+        ><strong
+          >{{ ((total$ | async) || (totalWithFee$ | async)) | peCurrency:(flow$ | async)?.currency:'symbol-narrow' }}</strong
+        ></span
+      >
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup">
+  <mat-checkbox
+    formControlName="advertisingAccepted"
+    analyticFieldName="Advertising accepted">
+    <span
+      [innerHTML]="translations.advertisingAccepted.label"
+      (click)="advertisingAcceptedClicked($event)">
+      Advertising accepted
+    </span>
+  </mat-checkbox>
+</form>

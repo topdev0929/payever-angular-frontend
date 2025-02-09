@@ -1,0 +1,56 @@
+.active-order-step .payment-footer {
+  display: none;
+}
+
+.mobile .active-order-step .payment-footer {
+  display: flex;
+}
+
+.desktop-checkout-items.with-offset {
+  position: relative;
+  top: -96px;
+  z-index: -1;
+}
+
+.mobile .desktop-checkout-items.with-offset {
+  top: 0;
+}
+
+.modal-group .modal {
+  gap: 13px;
+  padding: 26px 26px 40px 26px;
+}
+
+.mobile .modal-group .modal {
+  gap: 10px;
+  padding: 15px 15px 30px 15px;
+}
+
+.modal .modal-logo img {
+  width: 60px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.modal .modal-footer {
+  width: 100%;
+}
+
+.modal .modal-footer .button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 6px;
+  color: var(--light);
+  font-size: 11px;
+  background: var(--seccondary-900);
+}
+
+.successful-modal .mobile-pay-logo {
+  width: 60px;
+}

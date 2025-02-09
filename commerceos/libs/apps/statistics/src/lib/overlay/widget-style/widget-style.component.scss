@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  padding: 0 12px;
+}
+
+.widget-style {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  .widget {
+    flex: 1 0 26%;
+    max-width: 48%;
+    margin-right: 14px;
+    margin-bottom: 14px;
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
+  }
+}

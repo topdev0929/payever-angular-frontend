@@ -1,0 +1,27 @@
+<div [ngClass]="theme">
+  <peb-expandable-panel [headerLabel]="'General'" [isContentOpen]="true">
+    <pe-edit-picture [businessId]="businessId" [blob]="image" (changePictures)="onUpdatePicture($event)">
+    </pe-edit-picture>
+    <div style="margin: 16px 0;">
+      <peb-form-background>
+        <peb-form-field-input animated="true" [label]="'Folder Name'" appearance="label">
+          <input name="title" [(ngModel)]="title" pebInput/>
+        </peb-form-field-input>
+      </peb-form-background>
+    </div>
+    <div style="margin: 16px 0;">
+      <peb-form-background>
+        <pe-picker label="Tags" placeholder="Search"></pe-picker>
+      </peb-form-background>
+    </div>
+  </peb-expandable-panel>
+  <peb-expandable-panel [headerLabel]="'Description'" [isContentOpen]="true">
+    <div style="margin-bottom: 30px;">
+      <peb-form-background>
+        <peb-form-field-textarea appearance="label" label="Description text">
+          <textarea name="" id="" cols="30" rows="10" [(ngModel)]="description"></textarea>
+        </peb-form-field-textarea>
+      </peb-form-background>
+    </div>
+  </peb-expandable-panel>
+</div>

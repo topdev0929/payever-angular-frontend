@@ -1,0 +1,74 @@
+.image-capture {
+  .hidden-select {
+    .mat-form-field-flex {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      top: 0;
+      height: calc(100% - 14px);
+    }
+  }
+}
+
+.pe-bootstrap .cdk-overlay-container .mat-select-panel,
+.pe-checkout-bootstrap .cdk-overlay-container .mat-select-panel {
+  .mat-option.mat-active.pe-image-capture-pos-de-option {
+    background: transparent !important;
+  }
+  .mat-option.pe-image-capture-pos-de-option:hover:not(.mat-option-disabled):not(.mat-selected) {
+    background: rgba(17, 17, 17, 0.1) !important;
+  }
+}
+
+.cdk-overlay-container .pe-checkout-pos-de-capture-image-modal-panel.dialog-overlay-panel {
+  max-width: 640px + 80px !important;
+  position: relative !important;
+
+  .mat-dialog-container {
+    padding-top: 32px;
+  }
+
+  .mat-dialog-content {
+    display: grid;
+    padding: 12px;
+  }
+
+  video,
+  img {
+    width: 100%;
+    max-width: 640px;
+    object-fit: cover;
+  }
+
+  .close-modal {
+    position: absolute !important;
+    z-index: 1;
+    height: auto;
+    background: transparent;
+    padding: 0;
+    margin: 0 !important;
+    right: 14px;
+    top: 14px;
+    width: auto !important;
+  }
+
+  .mat-button {
+    margin-top: 12px;
+    width: 100%;
+    font-weight: 900;
+  }
+
+  .buttons-container {
+    display: flex;
+    justify-content: space-between;
+
+    .mat-button {
+      width: calc(50% - 4px);
+
+      .icon {
+        width: 20px;
+        height: 16px;
+      }
+    }
+  }
+}

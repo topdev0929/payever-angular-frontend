@@ -1,0 +1,22 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $button: map.get($color-config, 'button');
+  $active-text: map.get($color-config, 'active-text');
+  $text-color: map.get($color-config, 'text-color');
+  $badge-button: map.get($color-config, 'badge-button');
+
+  pe-badge {
+    .cell-action,
+    .cell-badge,
+    .cell-preview {
+      background-color: $button;
+      color: $active-text;
+      stroke: $active-text;
+    }
+    .cell-badge {
+      background-color: $badge-button;
+      color: $text-color;
+    }
+  }
+}

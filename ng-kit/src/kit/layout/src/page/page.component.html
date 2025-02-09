@@ -1,0 +1,14 @@
+<div class="ui-layout-page" [class.layout-centered]="isCentered">
+
+  <div class="navbar navbar-fixed-top">
+    <ng-content select="[header]"></ng-content>
+  </div>
+
+  <ng-content select="[nav]"></ng-content>
+
+  <div class="content">
+    <div class="inner-wrap">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="status-wrap" [class.faded]="faded">
+  <span class="icon-wrap"
+        [class.text-placeholder22]="!passed"
+        [class.text-success]="passed">
+    <svg class="icon icon-32" width="32" height="32">
+      <use *ngIf="passed" xlink:href="#icon-register-done-32"></use>
+      <use *ngIf="!passed" xlink:href="#icon-register-32"></use>
+    </svg>
+  </span>
+  <div>
+    <div class="large-2">{{ title }}</div>
+    <p>
+      <span class="small-1" [innerHtml]="note"></span>
+    </p>
+  </div>
+</div>

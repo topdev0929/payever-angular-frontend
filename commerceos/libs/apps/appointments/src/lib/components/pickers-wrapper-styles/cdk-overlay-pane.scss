@@ -1,0 +1,17 @@
+@mixin get-background($theme-config) {
+  $background: map-get($theme-config, background);
+
+  -webkit-backdrop-filter: blur(50px);
+  backdrop-filter: blur(50px);
+  background-color: $background;
+  padding: 12px 0 0;
+  
+  .mat-dialog-container {
+    overflow: unset;
+    padding: 0;
+  }
+}
+
+.cdk-overlay-pane {
+  border-radius: 12px;
+}

@@ -1,0 +1,44 @@
+@import 'bootstrap-sass/assets/stylesheets/bootstrap/_variables';
+@import 'bootstrap-sass/assets/stylesheets/bootstrap/_mixins';
+@import '../../../../../../../shared/styles/assets/ui-kit-styles/pe_variables';
+@import '../../../../../../../shared/styles/assets/ui-kit-styles/mixins/pe_mixins.scss';
+
+.payment-option.div-table {
+  margin-bottom: $grid-unit-y;
+}
+
+.shipping-label {
+  margin-bottom: $margin-adjust;
+}
+
+.right-icon {
+  position: absolute !important;
+  right: 0;
+  top: -$grid-unit-y;
+}
+
+.delivery-types-body {
+  margin-top: 1.5 * $grid-unit-y;
+  margin-bottom: -$grid-unit-y !important;
+}
+
+.delivery-type {
+  padding-top: $grid-unit-y + 2px;
+  padding-bottom: $grid-unit-y * 0.5;
+
+  .line {
+    position: absolute !important;
+    left: 0;
+    right: 0;
+    margin-top: -$grid-unit-y - 2px;
+    border-top: 1px solid $color-grey-5;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+
+  .delivery-type-radio {
+    margin-top: -$grid-unit-y * 0.3333;
+  }
+}

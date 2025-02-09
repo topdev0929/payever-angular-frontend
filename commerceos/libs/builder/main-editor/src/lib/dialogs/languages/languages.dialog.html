@@ -1,0 +1,31 @@
+<div class="languages-dialog__wrapper">
+  <div class="languages-dialog__header">
+    <div class="languages-dialog__header-cancel" (click)="cancel()">
+      {{ 'builder-app.actions.cancel' | translate }}
+    </div>
+    <div class="languages-dialog__header-title">
+      {{ 'builder-app.main_editor.language' | translate }}
+    </div>
+    <div class="languages-dialog__header-done" (click)="done()">
+      {{ 'builder-app.actions.done' | translate }}
+    </div>
+  </div>
+  <div class="languages-dialog__body">
+    <div class="languages-dialog__options">
+      <ng-container *ngFor="let item of languages">
+        <ng-container *ngIf="item.active">
+          <div class="languages-dialog__option" (click)="setLanguage(item.language)">
+            <span class="languages-dialog__option-title">
+              {{ item.language | titlecase }}
+            </span>
+            <mat-icon
+              *ngIf="item.language === selectedLanguage"
+              svgIcon="selected-blue"
+              class="languages-dialog__option-icon"
+            ></mat-icon>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</div>

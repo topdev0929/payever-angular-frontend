@@ -1,0 +1,43 @@
+<ng-container *ngIf="vm$ | async as viewModel; else loader">
+  <ng-container *ngIf="!viewModel.codeData.code">
+    <div class="text-center code-block">
+      <p
+        class="h4"
+        i18n="@@checkout_sdk.payment_external_code.verification_required">
+        checkout_sdk.payment_external_code.verification_required
+      </p>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="viewModel.codeData.code">
+    <div class="text-center code-block">
+      <p
+        class="caption-2"
+        i18n="@@checkout_sdk.payment_external_code.confirmation_code">
+        checkout_sdk.payment_external_code.confirmation_code
+      </p>
+      <div
+        class="h3 confirm-number"
+        [innerHtml]="viewModel.codeData.code"></div>
+      <div
+        *ngIf="!(viewModel.secondFactor && viewModel.verificationType === verificationTypeEnum.VERIFY_BY_ID)"
+        class="text-secondary"
+        i18n="@@checkout_sdk.payment_external_code.description">
+        checkout_sdk.payment_external_code.description
+      </div>
+      <div
+        *ngIf="viewModel.secondFactor && viewModel.verificationType === verificationTypeEnum.VERIFY_BY_ID"
+        class="text-secondary"
+        i18n="@@checkout_sdk.payment_external_code.verification_required">
+        checkout_sdk.payment_external_code.verification_required
+      </div>
+    </div>
+  </ng-container>
+</ng-container>
+
+<ng-template #loader>
+  <div
+    *ngIf="loading$ | async"
+    class="loader-container loader-fade-light">
+    <div class="loader_48"></div>
+  </div>
+</ng-template>

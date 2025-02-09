@@ -1,0 +1,16 @@
+<form novalidate [formGroup]="demoForm" (ngSubmit)="onSubmit()">
+  <h4>Round</h4>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <mat-checkbox class="mat-checkbox-round">
+        I'm a checkbox
+      </mat-checkbox>
+    </div>
+    <div style="background-color:#999;" class="col-xs-12 col-sm-6 col-md-4">
+      <h4>White</h4>
+      <mat-checkbox color="white" class="mat-checkbox-round">
+        I'm a checkbox
+      </mat-checkbox>
+    </div>
+  </div>
+</form>

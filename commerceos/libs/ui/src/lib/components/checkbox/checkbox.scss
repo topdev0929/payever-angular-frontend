@@ -1,0 +1,73 @@
+:host {
+  &.checkbox-disabled {
+    label {
+      cursor: default;
+    }
+  }
+}
+
+.peb-checkbox-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.label-checkbox {
+  .small-label-text {
+    font-weight: 400;
+    font-size: 14px;
+  }
+}
+
+.check-box {
+  position: relative;
+  min-width: 18px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  border-radius: 25px;
+  border-width: 1.5px;
+  border-style: solid;
+  &.checked {
+    border: none;
+  }
+}
+
+.label-text {
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  margin-left: 12px;
+}
+
+.checkbox-label-aria {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  cursor: pointer;
+  align-items: baseline;
+  vertical-align: middle;
+  display: inline-flex;
+  margin: 0;
+
+  width: 100%;
+
+  .peb-checkbox-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+
+    &.label-checkbox {
+      .label-text {
+        font-size: 14px;
+        font-weight: 400;
+        @media (max-width: 720px) {
+          font-size: 17px;
+        }
+      }
+    }
+  }
+}

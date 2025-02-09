@@ -1,0 +1,25 @@
+{
+  "name": "tmetrix",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/shared/tmetrix/src",
+  "prefix": "pe",
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/shared/tmetrix"],
+      "options": {
+        "jestConfig": "libs/shared/tmetrix/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/shared/tmetrix/src/**/*.ts", "libs/shared/tmetrix/src/**/*.html"]
+      },
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": ["scope:libs", "type:utils"]
+}

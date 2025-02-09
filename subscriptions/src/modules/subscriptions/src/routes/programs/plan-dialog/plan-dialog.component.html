@@ -1,0 +1,61 @@
+<div [ngClass]="theme" class="add-plan-container">
+  <form [formGroup]="subscriptionPlanForm">
+    <div class="input-wrapper">
+      <peb-form-background>
+        <peb-form-field-input label="Plan name" appearance="label">
+          <input placeholder="Enter name" formControlName="name" />
+        </peb-form-field-input>
+      </peb-form-background>
+    </div>
+    <peb-expandable-panel headerLabel="Products" [isContentOpen]="true">
+      <peb-form-background>
+        <peb-product-picker
+          #productPibker
+          [data]="[]"
+          formControlName="products"
+          [buttonFunction]="openProductDialog"
+        ></peb-product-picker>
+      </peb-form-background>
+    </peb-expandable-panel>
+    <peb-expandable-panel headerLabel="Subscribers" [isContentOpen]="true">
+      <peb-form-background>
+        <peb-product-picker
+          #contactPibker
+          [data]="[]"
+          formControlName="contacts"
+          [buttonFunction]="openContactDialog"
+        ></peb-product-picker>
+      </peb-form-background>
+    </peb-expandable-panel>
+    <peb-expandable-panel headerLabel="Payment options" [isContentOpen]="true">
+      <peb-form-background>
+        <peb-button-toggle label="Stripe" labelPosition="before" spacer="true"></peb-button-toggle>
+        <peb-button-toggle label="PayPal" labelPosition="before" spacer="true"></peb-button-toggle>
+      </peb-form-background>
+    </peb-expandable-panel>
+    <peb-expandable-panel headerLabel="Billing period" [isContentOpen]="true">
+      <peb-form-background>
+        <peb-button-toggle
+          label="Trial period"
+          labelPosition="before"
+          spacer="true"
+          formControlName="trialPeriod"
+        ></peb-button-toggle>
+        <peb-form-field-input label="Trial period days" appearance="label">
+          <input placeholder="Enter period" formControlName="trialPeriodDuration" />
+        </peb-form-field-input>
+      </peb-form-background>
+      <div style="margin-top: 16px">
+        <peb-form-background>
+          <peb-select selectType="label" label="Billing Period" formControlName="billingInterval">
+            <peb-select-option
+              *ngFor="let interval of intervalOptions"
+              value="{{ interval.value }}"
+              label="{{ interval.label }}"
+            ></peb-select-option>
+          </peb-select>
+        </peb-form-background>
+      </div>
+    </peb-expandable-panel>
+  </form>
+</div>

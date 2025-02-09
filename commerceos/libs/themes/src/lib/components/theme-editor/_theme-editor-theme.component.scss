@@ -1,0 +1,37 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $primary: map.get($color-config, 'primary');
+  $text-color: map.get($color-config, 'text-color');
+  $host: map.get($color-config, 'host');
+  $active-text: map.get($color-config, 'active-text');
+  $border: map.get($color-config, 'border');
+  $confirm: map.get($color-config, 'confirm');
+  $hover-button: map.get($color-config, 'hover-button');
+
+  .pe-theme-editor {
+    p {
+      color: $text-color;
+    }
+    .button {
+      background-color: $primary;
+      color: $hover-button;
+    }
+    .picture {
+      &-delete-image {
+        background-color: $host;
+        svg {
+          color: $active-text;
+        }
+      }
+      &-add-button {
+        border-color: $border;
+      }
+    }
+    .peb-media-editor {
+      .pe-form-button {
+        color: $confirm;
+      }
+    }
+  }
+}

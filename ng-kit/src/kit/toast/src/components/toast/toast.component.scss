@@ -1,0 +1,15 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+
+:host {
+  width: 100%;
+  padding: $padding-base-vertical $padding-base-horizontal;
+
+  &.error {
+    background-color: $color-toast-error;
+    color: $color-white;
+  }
+
+  &.rounded-borders {
+    border-radius: $border-radius-base;
+  }
+}

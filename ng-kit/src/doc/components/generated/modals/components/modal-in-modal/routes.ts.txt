@@ -1,0 +1,18 @@
+const routes: Routes = [
+  {
+    path: 'root',
+    component: RootComponent,
+    children: [
+      {
+        path: 'first',
+        component: FirstComponent,
+        children: [
+          {
+            path: 'second',
+            component: SecondComponent,
+          },
+        ],
+      },
+    ],
+  },
+];

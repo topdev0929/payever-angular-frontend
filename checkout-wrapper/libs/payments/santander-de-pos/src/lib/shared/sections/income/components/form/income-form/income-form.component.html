@@ -1,0 +1,149 @@
+<form
+  *ngIf="options$ | async as options"
+  class="form-table"
+  [formGroup]="formGroup">
+  <div class="form-fieldset-new">
+    <mat-form-field
+      [class]="formGroup.get('partnerIncomeNet').enabled
+      ? 'col-xs-12 col-sm-6'
+      : 'col-xs-12'
+      ">
+      <mat-label>{{translations[personType].netIncome}}</mat-label>
+
+      <span
+        #netIncomePrefix
+        matPrefix>
+        {{ currency | peCurrencySymbol }}
+      </span>
+
+      <input
+        matInput
+        [peInputCurrencyMask]="currency"
+        formControlName="netIncome"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('partnerIncomeNet').enabled"
+      [class]="formGroup.get('partnerIncomeNet').enabled
+      ? 'col-xs-12 col-sm-6'
+      : 'col-xs-12'">
+      <mat-label>{{translations[personType].partnerIncomeNet}}</mat-label>
+
+      <span
+        #partnerIncomeNetPrefix
+        matPrefix>
+        {{ currency | peCurrencySymbol }}
+      </span>
+
+      <input
+        matInput
+        [peInputCurrencyMask]="currency"
+        formControlName="partnerIncomeNet"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('otherIncomeFromHousehold').enabled"
+      [class]="
+      formGroup.get('otherIncomeFromHousehold').enabled
+          ? 'col-xs-12 col-sm-6'
+          : 'col-xs-12'
+        ">
+      <mat-label>{{translations[personType].otherIncomeFromHousehold}}</mat-label>
+
+      <span
+        #otherIncomeFromHouseholdPrefix
+        matPrefix>
+        {{ currency | peCurrencySymbol }}
+      </span>
+
+      <input
+        matInput
+        [peInputCurrencyMask]="currency"
+        formControlName="otherIncomeFromHousehold"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('incomeFromRent').enabled"
+      class="col-xs-12 col-sm-6">
+      <mat-label>{{translations[personType].incomeFromRent}}</mat-label>
+
+      <span
+        #incomeFromRentPrefix
+        matPrefix>
+        {{ currency | peCurrencySymbol }}
+      </span>
+
+      <input
+        matInput
+        [peInputCurrencyMask]="currency"
+        formControlName="incomeFromRent"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('incomeInfo').enabled"
+      class="col-xs-12 col-sm-12">
+      <mat-label>{{translations[personType].incomeInfo}}</mat-label>
+
+      <input
+        matInput
+        peInputMask
+        formControlName="incomeInfo"
+        type="text"
+        [mask]="alphaMask" />
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('typeOfResident').enabled"
+      class="col-xs-12 col-sm-6">
+      <mat-label>{{translations[personType].typeOfResident}}</mat-label>
+
+      <mat-select formControlName="typeOfResident">
+        <mat-option
+          *ngFor="let option of options.residentialTypes"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('housingCosts').enabled"
+      class="col-xs-12 col-sm-6">
+      <mat-label>{{translations[personType].housingCosts}}</mat-label>
+
+      <span
+        #housingCostsPrefix
+        matPrefix>
+        {{ currency | peCurrencySymbol }}
+      </span>
+
+      <input
+        matInput
+        [peInputCurrencyMask]="currency"
+        formControlName="housingCosts"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('supportPayment').enabled"
+      class="col-xs-12 col-sm-12">
+      <mat-label>{{translations[personType].supportPayment}}</mat-label>
+
+      <span
+        #supportPaymentPrefix
+        matPrefix>
+        {{ currency | peCurrencySymbol }}
+      </span>
+
+      <input
+        matInput
+        [peInputCurrencyMask]="currency"
+        formControlName="supportPayment"
+        type="text" />
+    </mat-form-field>
+  </div>
+</form>

@@ -1,0 +1,31 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $active-text: map.get($color-config, 'active-text');
+  $text-color: map.get($color-config, 'text-color');
+  $primary: map.get($color-config, 'primary');
+  $sidebar-background: map.get($color-config, 'sidebar-background');
+  $extra-bg-color: map.get($color-config, 'extra-bg-color');
+  $secondary-background: map.get($color-config, 'secondary-background');
+
+  .chat-empty-room {
+    color: $text-color;
+    background: $extra-bg-color;
+
+
+    &__header {
+      background: $primary;
+    }
+
+    &__footer {
+      border-top: 1px solid $sidebar-background;
+      background-color: $primary;
+    }
+  }
+
+  .pe-message-pin-overlay {
+    .pin-message {
+      background: $secondary-background;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $text-color: map.get($color-config, 'text-color');
+  $confirm: map.get($color-config, 'confirm');
+  $button: map.get($color-config, 'button');
+  $border: map.get($color-config, 'border');
+  $active-text: map.get($color-config, 'active-text');
+
+  peb-video-form {
+    .form__row {
+      &_border {
+        &::before {
+          background-color: $border;
+        }
+      }
+    }
+    .replace-file-button {
+        background-color: $overlay-background;
+        color: $text-color;
+        &:hover {
+            background-color: $confirm;
+            color: $active-text
+          }
+    }
+  }
+  .video-preview__progress-spinner circle {
+    stroke: $text-color !important;
+  }
+}

@@ -1,0 +1,200 @@
+<div class="form-table">
+  <div class="form-fieldset">
+    <div class="row">
+      <div class="col-xs-12 col-md-3">
+        <mat-slide-toggle>Slide me!</mat-slide-toggle>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <mat-slide-toggle class="mat-slide-toggle-lg" [labelPosition]="'before'">Slide me!</mat-slide-toggle>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <mat-slide-toggle class="mat-label-space-between">Slide me!</mat-slide-toggle>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <mat-slide-toggle class="mat-slide-toggle-lg mat-label-space-between" [labelPosition]="'before'">Slide me!</mat-slide-toggle>
+      </div>
+      <div class="col-xs-12">
+        <div class="slider-wrapper">
+          <mat-slider min="0" max="100" step="1" [thumbLabel]="true"></mat-slider>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="slider-wrapper">
+          <span class="slider-wrapper-label">This is label</span>
+          <mat-slider min="0" max="100" step="1" [ngModel]="sliderWithLabelValue" (input)="sliderWithLabelValue = $event.value"></mat-slider>
+          <div class="slider-wrapper-value">{{ sliderWithLabelValue }} seg</div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-12 col-lg-4">
+        <mat-checkbox
+          [class.mat-checkbox-space-between]="true"
+          [(ngModel)]="agreeWithTerms"
+          [(indeterminate)]="indeterminate"
+          [disabled]="false">
+          Label after
+        </mat-checkbox>
+      </div>
+      <div class="col-xs-12 col-md-12 col-lg-8">
+        <mat-checkbox
+          [class.mat-checkbox-space-between]="true"
+          [(ngModel)]="agreeWithTerms"
+          [(indeterminate)]="indeterminate"
+          [labelPosition]="'before'"
+          [disableRipple]="true"
+          [disabled]="false">
+          Label before
+        </mat-checkbox>
+      </div>
+      <div class="col-xs-12 col-md-12 col-lg-4">
+        <div class="image-picker">
+          <div class="image-picker-container" *ngIf="!images[0].loading">
+            <div class="image-picker-empty" *ngIf="!images[0].formControl.value" (click)="fileSelector.click()">
+              <svg class="icon icon-32"><use xlink:href="#icon-plus-24"></use></svg>
+              <p class="image-picker-empty-label">Add new image</p>
+            </div>
+            <div class="image-wrapper" *ngIf="images[0].formControl.value">
+              <img [attr.src]="images[0].formControl.value">
+            </div>
+            <button mat-raised-button
+                    *ngIf="images[0].formControl.value"
+                    class="image-picker-delete mat-button-rounded mat-button-icon mat-button-xs"
+                    color="dark"
+                    (click)="clearImage(images[0])"
+              >
+              <svg class="icon icon-8"><use xlink:href="#icon-b-remove-16"></use></svg>
+            </button>
+            <input #fileSelector type="file" accept="image/jpeg,image/jpg,image/png,image/gif" class="hidden" (change)="pickImage($event, images[0])">
+          </div>
+          <div class="image-picker-container image-picker-container-loader" *ngIf="images[0].loading">
+            <mat-spinner [strokeWidth]="spinerStrokeWidth" [diameter]="spinerDiameter"></mat-spinner>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <div class="image-picker image-picker-with-description">
+          <div class="image-picker-description image-picker-description-vertical-center small">
+            <span>Upload your favicon image that will be shown in the address bar of your browser.</span>
+          </div>
+          <div class="image-picker-container" *ngIf="!images[1].loading">
+            <div class="image-picker-empty" *ngIf="!images[1].formControl.value" (click)="fileSelector.click()">
+              <svg class="icon icon-32"><use xlink:href="#icon-plus-24"></use></svg>
+              <p class="image-picker-empty-label">Add new image</p>
+            </div>
+            <div class="image-wrapper" *ngIf="images[1].formControl.value">
+              <img [attr.src]="images[1].formControl.value">
+            </div>
+            <button mat-raised-button
+                    *ngIf="images[1].formControl.value"
+                    class="image-picker-delete mat-button-rounded mat-button-icon mat-button-xs"
+                    color="dark"
+                    (click)="clearImage(images[1])"
+              >
+              <svg class="icon icon-8"><use xlink:href="#icon-b-remove-16"></use></svg>
+            </button>
+            <input #fileSelector type="file" accept="image/jpeg,image/jpg,image/png,image/gif" class="hidden" (change)="pickImage($event, images[1])">
+          </div>
+          <div class="image-picker-container image-picker-container-loader" *ngIf="images[1].loading">
+            <mat-spinner [strokeWidth]="spinerStrokeWidth" [diameter]="spinerDiameter"></mat-spinner>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <div class="image-picker image-picker-with-description image-picker-description-right">
+          <div class="image-picker-description image-picker-description-vertical-center small">
+            <span>Upload your favicon image that will be shown in the address bar of your browser.</span>
+          </div>
+          <div class="image-picker-container" *ngIf="!images[2].loading">
+            <div class="image-picker-empty" *ngIf="!images[2].formControl.value" (click)="fileSelector.click()">
+              <svg class="icon icon-32"><use xlink:href="#icon-plus-24"></use></svg>
+              <p class="image-picker-empty-label">Add new image</p>
+            </div>
+            <div class="image-wrapper" *ngIf="images[2].formControl.value">
+              <img [attr.src]="images[2].formControl.value">
+            </div>
+            <button mat-raised-button
+                    *ngIf="images[2].formControl.value"
+                    class="image-picker-delete mat-button-rounded mat-button-icon mat-button-xs"
+                    color="dark"
+                    (click)="clearImage(images[2])"
+              >
+              <svg class="icon icon-8"><use xlink:href="#icon-b-remove-16"></use></svg>
+            </button>
+            <input #fileSelector type="file" accept="image/jpeg,image/jpg,image/png,image/gif" class="hidden" (change)="pickImage($event, images[2])">
+          </div>
+          <div class="image-picker-container image-picker-container-loader" *ngIf="images[2].loading">
+            <mat-spinner [strokeWidth]="spinerStrokeWidth" [diameter]="spinerDiameter"></mat-spinner>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <div>
+          <mat-button-toggle-group class="mat-button-toggle-group-icon" [value]="'centered'">
+            <mat-button-toggle value="centered">
+              <svg class="icon icon-32"><use xlink:href="#icon-ep-space-centered"></use></svg>
+            </mat-button-toggle>
+            <mat-button-toggle value="medium">
+              <svg class="icon icon-32"><use xlink:href="#icon-ep-space-medium"></use></svg>
+            </mat-button-toggle>
+            <mat-button-toggle value="small">
+              <svg class="icon icon-32"><use xlink:href="#icon-ep-space-small"></use></svg>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <div>
+          <mat-button-toggle-group class="mat-button-toggle-group-icon mat-button-toggle-group-large" [value]="'bottom'">
+            <mat-button-toggle value="bottom">
+              <svg class="icon icon-48"><use xlink:href="#icon-sb-header-logomenucenter2-64"></use></svg>
+            </mat-button-toggle>
+            <mat-button-toggle value="top">
+              <svg class="icon icon-48"><use xlink:href="#icon-sb-header-logomenucenter-64"></use></svg>
+            </mat-button-toggle>
+            <mat-button-toggle value="right">
+              <svg class="icon icon-48"><use xlink:href="#icon-sb-header-logomenuleft1-64"></use></svg>
+            </mat-button-toggle>
+            <mat-button-toggle value="left">
+              <svg class="icon icon-48"><use xlink:href="#icon-sb-header-logomenuleft2-64"></use></svg>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <div class="mat-button-toggle-group-wrapper mat-button-toggle-group-wrapper-center">
+          <mat-button-toggle-group class="mat-button-toggle-group-icon mat-button-toggle-group-large" [value]="'bottom'">
+            <mat-button-toggle value="bottom">
+              <svg class="icon icon-48"><use xlink:href="#icon-sb-header-logomenucenter2-64"></use></svg>
+            </mat-button-toggle>
+            <mat-button-toggle value="top">
+              <svg class="icon icon-48"><use xlink:href="#icon-sb-header-logomenucenter-64"></use></svg>
+            </mat-button-toggle>
+            <mat-button-toggle value="right">
+              <svg class="icon icon-48"><use xlink:href="#icon-sb-header-logomenuleft1-64"></use></svg>
+            </mat-button-toggle>
+            <mat-button-toggle value="left">
+              <svg class="icon icon-48"><use xlink:href="#icon-sb-header-logomenuleft2-64"></use></svg>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <div class="mat-button-toggle-group-wrapper mat-button-toggle-group-wrapper-right">
+          <mat-button-toggle-group class="mat-button-toggle-group-icon mat-button-toggle-group-large" [value]="'bottom'">
+            <mat-button-toggle value="bottom">
+              <svg class="icon icon-48"><use xlink:href="#icon-sb-header-logomenucenter2-64"></use></svg>
+            </mat-button-toggle>
+            <mat-button-toggle value="top">
+              <svg class="icon icon-48"><use xlink:href="#icon-sb-header-logomenucenter-64"></use></svg>
+            </mat-button-toggle>
+            <mat-button-toggle value="right">
+              <svg class="icon icon-48"><use xlink:href="#icon-sb-header-logomenuleft1-64"></use></svg>
+            </mat-button-toggle>
+            <mat-button-toggle value="left">
+              <svg class="icon icon-48"><use xlink:href="#icon-sb-header-logomenuleft2-64"></use></svg>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

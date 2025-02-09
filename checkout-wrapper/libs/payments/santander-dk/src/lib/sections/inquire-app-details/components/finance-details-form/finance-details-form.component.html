@@ -1,0 +1,110 @@
+<form
+  *ngIf="formGroup.enabled"
+  class="form-table"
+  [formGroup]="formGroup">
+  <div class="form-fieldset-new">
+    <mat-form-field
+      *ngIf="formGroup.get('monthlySalaryBeforeTax').enabled"
+      class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-dk.inquiry.form.monthly_salary_before_tax.label"> Monthly Salary Gross </mat-label>
+
+      <span
+        #monthlySalaryBeforeTaxPrefix
+        matPrefix>
+        {{ currency | peCurrencySymbol }}
+      </span>
+      <input
+        matInput
+        [peInputCurrencyMask]="currency"
+        formControlName="monthlySalaryBeforeTax"
+        type="text" />
+    </mat-form-field>
+    <mat-form-field
+      *ngIf="formGroup.get('totalDebt').enabled"
+      class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-dk.inquiry.form.total_debt.label"> Total debt </mat-label>
+
+      <span
+        #totalDebtPrefix
+        matPrefix>
+        {{ currency | peCurrencySymbol }}
+      </span>
+      <input
+        matInput
+        [peInputCurrencyMask]="currency"
+        formControlName="totalDebt"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field
+      [class]="
+      formGroup.get('totalRentMonthly').value
+        ? 'col-xs-12 col-sm-6'
+        : 'col-xs-12'
+      ">
+      <mat-label i18n="@@santander-dk.inquiry.form.total_transport_cost_monthly__fuel.label">
+        Total transport cost monthly
+      </mat-label>
+
+      <span
+        #totalTransportCostMonthlyPrefix
+        matPrefix>
+        {{ currency | peCurrencySymbol }}
+      </span>
+      <input
+        matInput
+        [peInputCurrencyMask]="currency"
+        formControlName="totalTransportCostMonthly"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('totalRentMonthly').enabled"
+      class="col-xs-12">
+      <mat-label i18n="@@santander-dk.inquiry.form.total_rent_monthly.label"> Total rent monthly </mat-label>
+
+      <span
+        #totalRentMonthlyPrefix
+        matPrefix>
+        {{ currency | peCurrencySymbol }}
+      </span>
+      <input
+        matInput
+        [peInputCurrencyMask]="currency"
+        formControlName="totalRentMonthly"
+        type="text" />
+    </mat-form-field>
+
+    <mat-checkbox
+      class="col-xs-12"
+      formControlName="payWithMainIncome"
+      analyticFieldName="Pay with main income">
+      <span [innerHTML]="translations.payWithMainIncome.label"></span>
+    </mat-checkbox>
+
+    <mat-form-field
+      *ngIf="formGroup.get('paySource').enabled"
+      class="col-xs-12">
+      <mat-label i18n="@@santander-dk.inquiry.form.pay_source.label"> Pay source </mat-label>
+
+      <mat-select formControlName="paySource">
+        <mat-option
+          *ngFor="let option of paySourceOptions$ | async"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('otherPaySource').enabled"
+      class="col-xs-12">
+      <mat-label i18n="@@santander-dk.inquiry.form.other_pay_source.label"> Other pay source </mat-label>
+
+      <input
+        matInput
+        formControlName="otherPaySource"
+        type="text" />
+    </mat-form-field>
+  </div>
+</form>

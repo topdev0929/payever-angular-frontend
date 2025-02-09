@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('../../../../../../node_modules/normalize.css/normalize.css');
+@import "pe_colors_variables.scss";
+@import '~swiper/swiper-bundle';
+
+
+
+
+
+.cos-message-root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.message-container {
+  height: calc(100% - 56px);
+  overflow: auto;
+}
+
+.message-settings-menu {
+  border-radius: 12px;
+  min-width: 267px;
+  padding: 16px 8px 12px 16px;
+  backdrop-filter: blur(25px);
+
+  &__header {
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      line-height: normal;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+    }
+  }
+
+  &__item {
+    align-items: center;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    margin-top: 8px;
+    margin-left: -8px;
+    padding: 6px 8px;
+
+
+    svg {
+      height: 20px;
+      margin-right: 8px;
+      width: 20px;
+    }
+
+    span {
+      font-size: 14px;
+    }
+  }
+}
+
+.appearance-widget-panel {
+  min-width: 436px;
+}
+
+.cos-message-root {
+  -webkit-backdrop-filter: blur(50px);
+  backdrop-filter: blur(50px);
+  height: 100%;
+
+  pe-new-platform-header .header-container .section-left .left-section-button  {
+    &.subheader-mode {
+      .white-space {
+        display: block;
+      }
+    }
+  }
+}

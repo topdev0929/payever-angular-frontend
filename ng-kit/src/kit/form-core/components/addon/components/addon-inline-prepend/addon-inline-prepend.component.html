@@ -1,0 +1,25 @@
+<ng-container [ngSwitch]="true">
+  <ng-template *ngSwitchCase="addon?.addonType === addonTypes.Button"
+               [ngTemplateOutlet]="addonButton">
+  </ng-template>
+
+  <ng-template *ngSwitchCase="addon?.addonType === addonTypes.Text"
+               [ngTemplateOutlet]="addonText">
+  </ng-template>
+</ng-container>
+
+<!-- Addon button -->
+<ng-template #addonButton>
+  <button mat-button
+          class="mat-button-no-padding mat-button-link"
+          [type]="addon?.buttonType || 'button'"
+          (click)="onClickAddon()"
+          [ngClass]="addon?.className">
+    <span *ngIf="addon.text" [innerHtml]="addon.text"></span>
+  </button>
+</ng-template>
+
+<!-- Addon text -->
+<ng-template #addonText>
+  <span [innerHtml]="addon.text" [ngClass]="addon?.className"></span>
+</ng-template>

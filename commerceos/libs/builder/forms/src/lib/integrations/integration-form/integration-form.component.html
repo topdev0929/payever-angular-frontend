@@ -1,0 +1,65 @@
+<div *ngIf="(integration$ | async) as data">
+  <div class="group__wrapper tab">
+    <div class="form__row_border"></div>
+    <label class="group__label">{{functionTitleMap['action']}}</label>
+    <div class="form_button" *ngIf="!data.actions?.click" (click)="openActions()">
+      <span>
+        Set Action
+      </span>
+    </div>
+    <div *ngIf="data.actions?.click">
+      <div class="list__row">
+        <peb-item-bar
+          [titles]="['Action', data.actions.click.title]"
+          (click)="openActions()"
+        ></peb-item-bar>
+        <div class="list__row__remove" [title]=" 'Remove Item'" (click)="removeActions()">
+          <span>-</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group__wrapper ">
+    <div class="form__row_border"></div>
+    <label class="group__label">{{functionTitleMap['data-source']}}</label>
+    <div class="form_button" *ngIf="!data.dataSource" (click)="openDataSources()">
+      <span>
+        Set Data Source
+      </span>
+    </div>
+    <div *ngIf="data.dataSource">
+      <div class="list__row">
+        <peb-item-bar
+          [titles]="['Data', data.dataSource.title]"
+          (click)="openDataSources()"
+        ></peb-item-bar>
+        <div class="list__row__remove" [title]=" 'Remove Item'" (click)="removeDataSource()">
+          <span>-</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group__wrapper tab">
+    <div class="form__row_border"></div>
+    <label class="group__label">{{functionTitleMap['context-field']}}</label>
+    <div class="form_button" *ngIf="!data.contextField" (click)="openContextField()">
+      <span>
+        Set Context Field
+      </span>
+    </div>
+    <div *ngIf="data.contextField">
+      <div class="list__row">
+        <peb-item-bar
+          [titles]="['Field', data.contextField.eval]"
+          [description]="data.contextField.eval"
+          (click)="openContextField()"
+        ></peb-item-bar>
+        <div class="list__row__remove" [title]=" 'Remove Item'" (click)="removeContextField()">
+          <span>-</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

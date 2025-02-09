@@ -1,0 +1,239 @@
+@import '~@angular/cdk/overlay-prebuilt.css';
+
+.input-wrapper {
+  margin-right: 12px;
+  height: 100%;
+
+  .input {
+    position: relative;
+    margin: 0;
+    outline: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    height: 100%;
+
+    .select-text {
+      font-family: 'Roboto', sans-serif;
+      padding: 0 8px;
+      white-space: nowrap;
+      display: inline-flex;
+    }
+
+    .select-input-text {
+      margin-right: 4px;
+      margin-left: 10px;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .spacer {
+      flex-grow: 1;
+    }
+
+    .dropdown-arrow {
+      padding: 0 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      margin: 0 3px;
+    }
+  }
+}
+
+.peb-select-options-container {
+  max-height: 280px;
+  border-radius: 12px;
+  display: block;
+  overflow: auto;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  -webkit-backdrop-filter: blur(25px);
+  backdrop-filter: blur(25px);
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
+.label-select-wrapper {
+  align-items: center;
+  display: flex;
+  height: 44px;
+  overflow: hidden;
+
+  .input {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 4px 12px;
+    height: 44px;
+
+    &.is-invalid {
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+      margin-bottom: -2px;
+      transition: border-bottom 500ms;
+
+      .label-container {
+        .label-text {
+          font-size: 14px;
+          font-weight: 500;
+          transition: color 500ms;
+          transform-origin: left top;
+          white-space: nowrap;
+        }
+      }
+    }
+
+    .label-container {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      width: 90%;
+      justify-content: center;
+      cursor: pointer;
+
+      &.select-disabled {
+        cursor: default;
+      }
+
+      .label-text {
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 500;
+        margin: 0;
+        font-family: 'Roboto', sans-serif;
+        margin-right: 12px;
+        line-height: normal;
+        vertical-align: middle;
+        transform-origin: left top;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  .dropdown-arrow {
+    display: flex;
+    align-items: center;
+    z-index: 10;
+  }
+
+  .select-text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 12px;
+  }
+}
+
+.full-select-wrapper {
+  padding: 6px;
+  border-radius: 12px;
+  overflow: hidden;
+
+  .spacer {
+    flex-grow: 1;
+  }
+
+  .input {
+    display: flex;
+    flex-direction: row;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    height: 44px;
+
+    @media (max-width: 720px) {
+      height: 56px;
+      font-size: 17px;
+      align-items: center;
+    }
+  }
+
+  .dropdown-arrow {
+    padding-left: 12px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.status-select-wrapper {
+  padding-left: 6px;
+  border-radius: 12px;
+  overflow: hidden;
+
+  .spacer {
+    flex-grow: 1;
+  }
+
+  .input {
+    display: flex;
+    flex-direction: row;
+    border-radius: 6px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    height: 100%;
+  }
+
+  .label-container, .dropdown-arrow {
+    padding: 2px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .label-container {
+    padding: 2px;
+    border-radius: 12px 0 0 12px;
+    line-height: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+
+    .select-text {
+      padding: 0 6px;
+    }
+  }
+
+  .dropdown-arrow {
+    border-radius: 0 12px 12px 0;
+    border-left: 1px solid #3b3b3b;
+  }
+
+  @media (max-width: 720px) {
+    .label-container, .dropdown-arrow {
+      height: 24px;
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .label-select-wrapper {
+    height: 56px;
+    .input {
+      height: 56px;
+      .label-container .label-text {
+        font-size: 17px;
+        font-weight: 400;
+      }
+    }
+    .select-text {
+      font-size: 17px;
+      font-weight: 400;
+    }
+  }
+}

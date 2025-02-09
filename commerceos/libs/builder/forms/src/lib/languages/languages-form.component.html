@@ -1,0 +1,44 @@
+
+<form class="form main-form" [formGroup]="languageFormService.languageForm">
+
+  <div class="form__row" class="languages-list">
+    <div *ngFor="let lang of languageFormService.languagesControl.controls; let i = index" [formGroup]="lang">
+      <peb-checkbox class="checkbox-language" formControlName="active" type="label">
+        {{ lang.value.title }}
+      </peb-checkbox>
+    </div>
+  </div>
+
+  <div class="form__row_border">
+    <div class="group__row">
+      <span class="group__label">
+        {{ 'builder-app.forms.language.add_language' | translate }}
+      </span>
+    </div>
+
+    <peb-select label="Choose" class="field-control" formControlName="languageToAdd" placeholder="Choose"
+      [options]="(languageFormService.languages$ | async) ?? []"></peb-select>
+    <button pe-form-button color="confirm" class="add" (click)="languageFormService.addLanguage()">
+      {{ 'builder-app.forms.language.add' | translate }}
+    </button>
+  </div>
+
+  <div class="form__row_border">
+    <div class="group__row">
+      <span class="group__label">{{ 'builder-app.forms.language.default' | translate }}</span>
+    </div>
+
+    <peb-select label="Default Language" class="field-control" formControlName="defaultLanguage" placeholder="Default Language"
+      [options]="languageFormService.activeLanguageOptions">
+    ></peb-select>
+  </div>
+
+  <div class="form__row_border">
+    <div class="group__row">
+      <span class="group__label">{{ 'builder-app.forms.language.editor_language' | translate }}</span>
+    </div>
+
+    <peb-select label="Editor Language" class="field-control" formControlName="editorLanguage"
+      placeholder="Editor Language" [options]="languageFormService.activeLanguageOptions"></peb-select>
+  </div>
+</form>

@@ -1,0 +1,126 @@
+
+<expansion-conn-menu-list-styles></expansion-conn-menu-list-styles>
+<mat-list
+  id="drag-list"
+  class="mat-list-transparent"
+  [class.mat-list-padding-md]="sizeMd"
+  cdkDropList
+  (cdkDropListDropped)="drop($event)"
+>
+  <ng-content></ng-content>
+  <ng-container *ngIf="installedIntegrations">
+      <ng-container *ngFor="let item of installedIntegrations">
+        <div
+          class="custom-drag-wrapper"
+          cdkDrag
+          (cdkDragStarted)="onDragStart()"
+          (cdkDragEnded)="onDragEnd()"
+          cdkDragPreviewClass="custom-drag-preview"
+          [cdkDragDisabled]="installedIntegrations?.length < 2 || isDisabledDragged(item.connections)"
+        >
+          <div class="drag-placeholder" *cdkDragPlaceholder>
+            <div class="placeholder-item" *ngIf="item.connections?.length > 1"></div>
+            <div class="placeholder-item" *ngFor="connect of item.connections"></div>
+          </div>
+          <ng-template
+            [ngTemplateOutlet]="integration"
+            [ngTemplateOutletContext]="{integration: item.integration, connections: item.connections, enableDragIcon: true}"></ng-template>
+        </div>
+      </ng-container>
+  </ng-container>
+</mat-list>
+<mat-list
+  class="mat-list-transparent"
+  [class.mat-list-padding-md]="sizeMd"
+>
+  <ng-container *ngIf="notInstalledIntegrations">
+      <ng-container *ngFor="let item of notInstalledIntegrations">
+        <ng-template
+          [ngTemplateOutlet]="integration"
+          [ngTemplateOutletContext]="{integration: item.integration, connections: item.connections, enableDragIcon: false}"></ng-template>
+      </ng-container>
+  </ng-container>
+</mat-list>
+
+<ng-template #integration let-integration="integration" let-connections="connections" let-enableDragIcon="enableDragIcon">
+  <mat-list-item [class.mat-list-item-no-padding-left]="noPaddingLeft">
+    <div class="item-wrapper">
+      <div class="mat-list-item-col fit-content">
+        <div class="icon-menu-wrapper drag-icon-wrapper">
+          <svg class="icon icon-16 icon-menu-item">
+            <use *ngIf="enableDragIcon" xlink:href="#icon-expand-16"></use>
+          </svg>
+        </div>
+      </div>
+      <div (touchstart)="$event.stopPropagation()" class="mat-list-item-col">
+        <div class="icon-menu-wrapper">
+          <svg class="icon icon-16 icon-menu-item">
+            <use [attr.xlink:href]="integration.integration.displayOptions.icon"></use>
+          </svg>
+        </div>
+      </div>
+      <div (touchstart)="$event.stopPropagation()" class="mat-list-item-flex no-left-padding">
+        <div class="mat-list-item-content expansion-list-title">
+          <span class="pe-truncate-text">{{ integration.integration.displayOptions.title | translate }}</span>
+        </div>
+      </div>
+      <div (touchstart)="$event.stopPropagation()" class="mat-list-item-flex">
+        <div class="mat-list-item-col text-right" *ngIf="isShowToggleButton">
+          <ng-container *ngIf="connections.length <= 1">
+            <peb-button-toggle *ngIf="connections[0] as connection;"
+                              [checked]="connection.installed"
+                              (changed)="toggleClick($event, integration, connection)"
+            ></peb-button-toggle>
+            <peb-button-toggle *ngIf="!connections[0]"
+                              [checked]="false"
+                              [disabled]="true"
+            ></peb-button-toggle>
+        </ng-container>
+        </div>
+        <div>
+          <button peb-text-button
+                  (click)="onOpen(integration)"
+                  class="expansion-list-button"
+                  color="confirm">
+            <pe-progress-button-content class="mat-progress-spinner-light"
+                                        [spinnerDiameter]="15"
+                                        [spinnerStrokeWidth]="2"
+                                        [loading]="(openingIntegration$ | async)?.integration?.name === integration?.integration.name">
+              {{ 'actions.open' | translate }}
+            </pe-progress-button-content>
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-list-item>
+  <ng-template *ngIf="connections.length > 1" [ngTemplateOutlet]="multiConnections"
+    [ngTemplateOutletContext]="{integration: integration, connections: connections}"
+  ></ng-template>
+</ng-template>
+
+<ng-template #multiConnections let-integration="integration" let-connections="connections">
+  <ng-container *ngFor="let connection of connections">
+    <mat-list-item [class.mat-list-item-no-padding-left]="noPaddingLeft" class="list-item-connection">
+      <div (touchstart)="$event.stopPropagation()" class="mat-list-item-col multi-connection">
+        <div class="icon-menu-wrapper transparent">
+          <svg class="icon icon-16 icon-menu-item">
+          </svg>
+        </div>
+      </div>
+      <div (touchstart)="$event.stopPropagation()" class="mat-list-item-flex no-left-padding">
+        <div class="mat-list-item-content expansion-list-title no-margin">
+          <span
+            class="pe-truncate-text">{{ connection.name || ('integrationConnection.default' | translate) }}</span>
+        </div>
+      </div>
+      <div (touchstart)="$event.stopPropagation()" class="mat-list-item-flex no-right-padding">
+        <div class="mat-list-item-col text-right">
+          <peb-button-toggle *ngIf="isShowToggleButton"
+                            [checked]="connection.installed"
+                            (changed)="toggleClick($event, integration, connection)"
+          ></peb-button-toggle>
+        </div>
+      </div>
+    </mat-list-item>
+  </ng-container>
+</ng-template>

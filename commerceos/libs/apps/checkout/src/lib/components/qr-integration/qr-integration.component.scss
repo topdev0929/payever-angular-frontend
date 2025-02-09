@@ -1,0 +1,55 @@
+.overlay-widget pe-third-party-root-form.third-party-root-form-container {
+  width: 100%;
+
+  .tpm-outer-container.pe-info-box-container-fixed {
+    margin-left: -12px;
+    width: calc(100% + 24px);
+    min-height: fit-content;
+
+    .pe-info-box {
+      padding: 0;
+      width: 100%;
+      min-width: fit-content;
+
+      mat-card.mat-card {
+        margin: 0;
+        width: 100%;
+        max-width: 100%;
+
+        .mat-card-content {
+          .content-wrapper {
+
+            .mat-accordion .mat-expansion-panel {
+              .mat-expansion-panel-header {
+                border: none;
+
+                .mat-content mat-panel-title {
+                  font-family: Roboto, sans-serif;
+                  font-size: 14px;
+                  font-weight: 500;
+                  padding-left: 0;
+                  text-transform: none;
+                }
+              }
+
+              .mat-expansion-panel-body {
+                padding: 0;
+              }
+
+              mat-list.mat-list.mat-list-base mat-list-item.mat-list-item{
+                  height: auto !important;
+                  .mat-list-item-content {
+                  height: fit-content !important;
+
+                  .mat-list-item-flex {
+                    padding: 0;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

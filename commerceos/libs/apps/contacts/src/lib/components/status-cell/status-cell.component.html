@@ -1,0 +1,31 @@
+<div 
+    *ngIf="getStatus$() | async as status"
+    (click)="$event.stopPropagation()"
+    class="status-cell" 
+    [style.backgroundColor]="(loading$ | async)? 'transparent' : status.color"
+    [formGroup]="formGroup"
+>
+    <div *ngIf="!(loading$ | async); else loading" class="status-loading-container">
+        <peb-select
+            class="status-cell__select status-select"
+            formControlName="status"
+            [overlayMinWidth]="150"
+            [arrowIcon]="'#icon-chevron-up-down'"
+        >
+            <peb-select-option
+                *ngFor="let status of getStatusFieldsWithIcon$() | async"
+                [label]="status.name | translate"
+                [icon]="status.icon"
+                [value]="status.id"
+                [action]="status.action"
+                (callAction)="editStatus($event)"
+                class="status-cell__option"
+            ></peb-select-option>
+        </peb-select>
+    </div>
+    <ng-template #loading>
+        <div class="status-loading-container">
+            <div class="loader-white"></div>
+        </div>
+    </ng-template>
+</div>

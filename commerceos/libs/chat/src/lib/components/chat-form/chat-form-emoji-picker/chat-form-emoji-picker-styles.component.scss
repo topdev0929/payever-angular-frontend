@@ -1,0 +1,41 @@
+.emoji-container {
+  &.blur-mode {
+    border: 1px solid #fafafa12;
+    background-color: rgb(50 50 50 / 94%);
+
+    .emoji-mart-dark {
+      background-color: transparent;
+
+      .emoji-mart-category-label span {
+        background-color: rgb(60 60 60 / 20%);
+        backdrop-filter: blur(60px)
+      }
+    }
+
+    .emoji-header {
+      background: transparent;
+
+      .emoji-tabs {
+        button {
+          background: transparent;
+          color: #fff;
+          border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+      }
+    }
+  }
+}
+
+.emoji-mart-dark {
+  background-color: unset;
+  color: unset;
+
+  .emoji-mart-category-label {
+    position: unset;
+    span {
+      background-color: unset;
+      color: unset;
+      opacity: 0.6;
+    }
+  }
+}

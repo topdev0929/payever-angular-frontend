@@ -1,0 +1,25 @@
+<mat-form-field [floatLabel]="floatLabel"
+                [hideRequiredMarker]="hideRequiredMarker"
+                [class.mat-form-field-has-prefix]="hasAddonPrepend"
+                [class.mat-form-field-addon-style-filled]="isAddonStyleFilled">
+  <div class="mat-input-with-addon-inline-prepend-wrapper">
+    <pe-form-addon-inline-prepend [addon]="addonPrepend" *ngIf="hasAddonInlinePrepend"></pe-form-addon-inline-prepend>
+    <input matInput
+           type="text"
+           autocomplete="off"
+           [attr.pe-qa-input-credit-card-expiration]="controlQaId"
+           [attr.tabindex]="tabIndex"
+           [errorStateMatcher]="errorStateMatcher"
+           [placeholder]="placeholder"
+           [formControl]="formControl"
+           [readonly]="disabled || readonly"
+           [required]="required"
+           [peBlockCopyPaste]="blockCopyPaste"
+           [textMask]="{mask: cardMask, guide: false}"
+           (focus)="onFocus($event)"
+           (blur)="onBlur($event)">
+  </div>
+  <mat-error *ngIf="errorMessage && formControl?.invalid" [style.margin-left.px]="addonPrependOffset">{{ errorMessage }}</mat-error>
+  <pe-form-addon matSuffix [addon]="addonAppend" *ngIf="hasAddonAppend"></pe-form-addon>
+  <pe-form-addon matPrefix #addonPrependElem [addon]="addonPrepend" *ngIf="hasAddonPrepend"></pe-form-addon>
+</mat-form-field>

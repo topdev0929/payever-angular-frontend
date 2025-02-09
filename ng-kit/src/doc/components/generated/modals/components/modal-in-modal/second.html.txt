@@ -1,0 +1,4 @@
+<pe-modal (onClose)="back()">
+  <h2>Second modal</h2>
+  <p>One fine body…</p>
+</pe-modal>

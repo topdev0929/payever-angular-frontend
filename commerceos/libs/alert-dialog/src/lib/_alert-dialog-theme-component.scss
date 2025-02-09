@@ -1,0 +1,36 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $active-text: map.get($color-config, 'active-text');
+  $border: map.get($color-config, 'border');
+  $warn: map.get($color-config, 'warn');
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $secondary-button: map.get($color-config, 'secondary-button');
+  $gray-button: map.get($color-config, 'gray-button');
+
+  .pe-bootstrap .cdk-overlay-container .cdk-global-overlay-wrapper .cdk-overlay-pane.pe-alert-dialog__panel mat-dialog-container.mat-dialog-container {
+    background-color: $secondary-background !important;
+    border-color: $border;
+    color: $text-color !important;
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.20) !important;
+  }
+  pe-alert-dialog {
+    .alert-dialog {
+      &__title,
+      &__subtitle {
+        color: $text-color;
+      }
+      &__actions {
+        button {
+          background-color: $gray-button;
+          color: $text-color;
+          &:first-child {
+            background-color: $warn;
+            color: $active-text;
+          }
+        }
+      }
+    }
+  }
+}

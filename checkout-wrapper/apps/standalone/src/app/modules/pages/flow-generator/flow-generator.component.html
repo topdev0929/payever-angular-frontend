@@ -1,0 +1,43 @@
+<h1>Create flow</h1>
+
+<p>For coupons:</p>
+<p>Code is <strong>TEST-100</strong></p>
+<p><a href="/pay/create-flow/channel-set-id/087e34dc-c84a-40c6-be46-5c7df52dd25a?cart=eccc8c2c-0498-412a-828e-f6d1037f848f">Link to create flow</a></p>
+<br><br>
+
+<p>
+  Instant payment test data:<br>
+  Use test data: <br>&nbsp; Holder: <strong>Hartmut Mustermann</strong><br>&nbsp; IBAN: <strong>DE62888888880012345678</strong><br>
+  &nbsp; In Modal: <strong>88888888</strong> / <strong>test</strong> / <strong>autosubmit</strong>
+</p>
+
+<div *ngFor="let payment of keys">
+  <div *ngIf="payments[payment] as data">
+    <div class="payment-title">{{ payment }}:</div>
+    <div class="payment-row">
+      <mat-form-field appearance="fill" style="width: 80px;">
+        <mat-label>Amount</mat-label>
+        <input matInput [value]="data.amount" (change)="data.filledAmount = getInputValue($event)">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Channel set id for test server</mat-label>
+        <mat-select #ctest (selectionChange)="data.selectedChannelSet = $event.value; cstage.value = ''">
+          <mat-option *ngFor="let option of data.testChannelSets" [value]="option">{{option}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Channel set id for stage server</mat-label>
+        <mat-select #cstage (selectionChange)="data.selectedChannelSet = $event.value; ctest.value = ''">
+          <mat-option *ngFor="let option of data.stageChannelSets" [value]="option">{{option}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Stub</mat-label>
+        <mat-select (selectionChange)="data.selectedStub = $event.value">
+          <mat-option *ngFor="let option of data.stubs" [value]="option">{{option.firstName}} {{option.lastName}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-raised-button type="submit" (click)="onCreate(data)">Create</button>
+    </div>
+  </div>
+</div>

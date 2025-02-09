@@ -1,0 +1,23 @@
+<!-- [activeItemId]="activeThemeId$ | async" -->
+<pe-data-grid
+  [filters]="filters"
+  [items]="items"
+  [selectedItems]="selectedCampaigns$ | async"
+  [singleSelectedAction]="firstCardAction"
+  [isShowGridItemInfo]="true"
+  [multipleSelectedActions]="multipleSelectedActions"
+  [sidebarHeader]="sidebarHeader"
+  [navbarAdditionalButton]="navbarAdditionalButton"
+  [newEntityOption]="newEntityOption"
+  (filtersChanged)="onFiltersChanged($event)"
+  searchPlaceholder="Search"
+  itemsTitle="Campaigns"
+>
+  <!-- [additionalFilter]="ownThemesFilter"
+  [secondSingleSelectedAction]="secondCardAction"
+  [multipleSelectedActions]="multipleSelectedActions$ | async"
+  [dataListOptions]="dataGridListOptions"
+  [showCollectionsCountInHeader]="showCollectionsCountInHeader" -->
+  (searchChanged)="onSearchChanged($event)"
+  (multipleSelectedItemsChanged)="onSelectedItemsChanged($event)" -->
+</pe-data-grid>

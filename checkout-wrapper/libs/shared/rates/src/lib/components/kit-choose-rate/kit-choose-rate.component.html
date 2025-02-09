@@ -1,0 +1,111 @@
+<pe-choose-rate-styles *ngIf="ratesStateService.enableDurationsSelectForMerchant$ | async"></pe-choose-rate-styles>
+<ng-template #container></ng-template>
+<mat-card
+  (click)="openRatesDropdown()"
+  cdk-overlay-origin
+  #fallbackOverlayOrigin="cdkOverlayOrigin"
+  class="mat-card-dark mat-card-no-shadow mat-card-small-paddings">
+  <ng-container
+    *ngIf="!isLoading && selectedRate"
+    [ngTemplateOutlet]="mainButtonRateSelectedView"></ng-container>
+  <ng-container
+    *ngIf="!isLoading && !selectedRate"
+    [ngTemplateOutlet]="mainButtonRateNotSelectedView"></ng-container>
+  <ng-container
+    *ngIf="isLoading"
+    [ngTemplateOutlet]="mainButtonRateLoadingView"></ng-container>
+</mat-card>
+
+<ng-template #mainButtonRateSelectedView>
+  <div class="select-rate-container">
+    <pe-rate-view
+      [rate]="selectedRate"
+      [previewMode]="true"
+      [previewAsSingleLine]="previewAsSingleLine"></pe-rate-view>
+    <ng-container [ngTemplateOutlet]="chooseRateInfoButton"></ng-container>
+    <ng-container
+      *ngIf="isShowArrowDropdown()"
+      [ngTemplateOutlet]="chooseRateToggleButton"></ng-container>
+  </div>
+</ng-template>
+
+<ng-template #mainButtonRateNotSelectedView>
+  <div class="select-rate-container">
+    <pe-rate-view
+      [rate]="{ title: noRateSelectedText ? noRateSelectedText : translations.noRateSelected }"
+      [previewMode]="true"
+      [previewAsSingleLine]="true"
+      [notSelected]="true"></pe-rate-view>
+    <ng-container [ngTemplateOutlet]="chooseRateInfoButton"></ng-container>
+    <ng-container [ngTemplateOutlet]="chooseRateToggleButton"></ng-container>
+  </div>
+</ng-template>
+
+<ng-template #mainButtonRateLoadingView>
+  <button
+    mat-button
+    class="mat-button-link mat-button-space-between mat-button-block">
+    &nbsp;
+  </button>
+  <div class="loader_48"></div>
+</ng-template>
+
+<ng-template
+  cdk-connected-overlay
+  cdkConnectedOverlayLockPosition
+  cdkConnectedOverlayHasBackdrop
+  cdkConnectedOverlayBackdropClass="cdk-overlay-transparent-backdrop"
+  [cdkConnectedOverlayOrigin]="fallbackOverlayOrigin"
+  [cdkConnectedOverlayWidth]="getOverlayWidth(fallbackOverlayOrigin)"
+  [cdkConnectedOverlayPositions]="getOverlayPositions(fallbackOverlayOrigin)"
+  [cdkConnectedOverlayOpen]="isOpened$ | async"
+  (backdropClick)="close()"
+  (detach)="close()">
+  <div
+    class="rates-dropdown"
+    [style.max-height.px]="maxDropDownHeight">
+    <div
+      *ngFor="let rate of rates"
+      class="rates-dropdown-option"
+      [class.selected]="selectedRate?.id === rate?.id"
+      (click)="onRateClicked(rate)">
+      <div class="rates-dropdown-option__title">
+        <img
+          *ngIf="rate?.svgIconUrl"
+          class="rate-icon"
+          alt="rate icon"
+          [src]="rate.svgIconUrl" />
+        <div [innerHtml]="rate.listTitle || rate.title"></div>
+      </div>
+
+      <mat-checkbox
+        *ngIf="ratesStateService.enableDurationsSelectForMerchant$ | async"
+        [id]="rate.id"
+        [value]="rate.id"
+        [checked]="isSelectedExtraDuration(rate.id)"
+        (change)="onSelectExtraDuration($event)"
+        (click)="$event.stopPropagation();">
+      </mat-checkbox>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #chooseRateInfoButton>
+  <button
+    mat-button
+    type="button"
+    *ngIf="hasInfoButton"
+    (click)="onInfoButtonClicked()"
+    class="mat-button-link mat-button-space-around mat-button-fit-content choose-rate-info-button">
+    <svg class="icon icon-16"><use xlink:href="#icon-settings-info-48"></use></svg>
+  </button>
+</ng-template>
+
+<ng-template #chooseRateToggleButton>
+  <button
+    mat-button
+    type="button"
+    class="mat-button-link mat-button-space-around mat-button-fit-content choose-rate-toggle-button">
+    <svg class="icon icon-16"><use xlink:href="#icon-arrow-left-16"></use></svg>
+  </button>
+</ng-template>

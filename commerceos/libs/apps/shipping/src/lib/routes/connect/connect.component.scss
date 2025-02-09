@@ -1,0 +1,26 @@
+@import '../settings';
+
+.page-shipping {
+  .group {
+    margin-bottom: 15px;
+    &__item {
+
+      &-right-content {
+        .button-toggle-container {
+          margin: 0;
+          padding: 0;
+        }
+        &__button {
+          width: fit-content;
+        }
+      }
+
+      &-icon {
+        .mat-icon {
+          height: 20px;
+          width: 20px;
+        }
+      }
+    }
+  }
+}

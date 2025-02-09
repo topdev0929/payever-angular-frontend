@@ -1,0 +1,19 @@
+@use "sass:map";
+
+@function define-theme($key, $theme_config) {
+    @return (
+        key: $key,
+        theme_config: $theme_config,
+    )
+}
+
+
+@function get-color-config-from-theme($theme_config){
+    $theme: map.get($theme_config, theme_config);
+    @if map.has-key($theme, color) {
+        @return map.get($theme, color);
+    }
+    @else {
+        @error 'Pe-theming configuration is missing a "color" value';
+    }
+}

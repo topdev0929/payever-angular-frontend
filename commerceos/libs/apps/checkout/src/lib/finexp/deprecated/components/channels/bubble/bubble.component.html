@@ -1,0 +1,48 @@
+<div [ngClass]="{'blurry-box': isGeneratedCode}">
+  <pe-channel-settings-box (clickedButton)="onClickButton($event)"
+                           [boxTitle]="'channels.bubble.name' | translate"
+                           [allowSettingsManualScroll]="allowSettingsManualScroll"
+  >
+    <ng-container settings>
+      <div *ngIf="form" class="settings-container" [formGroup]="form">
+        <div class="settings-box">
+          <span class="name-setting" translate>channels.bubble.visibility</span>
+          <mat-slide-toggle formControlName="isVisible"
+                            class="mat-slide-toggle-xs"
+          ></mat-slide-toggle>
+        </div>
+        <mat-divider class="settings-divider" [vertical]="true" [class.mat-divider-indented]="true"></mat-divider>
+        <div class="settings-box">
+          <span class="name-setting" translate>channels.bubble.checkoutOverlay</span>
+          <mat-slide-toggle [checked]="isCheckoutOverlayControlValue"
+                            class="mat-slide-toggle-xs"
+                            (change)="toggleOverlay('fin_exp', $event.checked)"
+          ></mat-slide-toggle>
+        </div>
+        <div class="settings-box">
+          <span class="name-setting" translate>channels.bubble.calculatorPlusOverlay</span>
+          <mat-slide-toggle [checked]="isCalculatorOverlayControlValue"
+                            class="mat-slide-toggle-xs"
+                            (change)="toggleOverlay('fin_calculator', $event.checked)"
+          ></mat-slide-toggle>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container example>
+      <div [class.hidden]="errorMessage || showSpinner" class="payever-bubble-preview" #preview></div>
+
+      <div [class.hidden]="!errorMessage" class="mat-error">{{ errorMessage | translate }}</div>
+
+      <div *ngIf="showSpinner" class="spinner-container">
+        <div class="spinner-container-spinner">
+          <mat-spinner [diameter]="spinnerDiameter" [strokeWidth]="spinnerWidth" ></mat-spinner>
+        </div>
+      </div>
+    </ng-container>
+  </pe-channel-settings-box>
+</div>
+<checkout-generate-html [generatedHtml]="generatedHtml"
+                        (clickedGeneratedBox)="onClickGeneratedBox($event)"
+                        *ngIf="isGeneratedCode"
+></checkout-generate-html>

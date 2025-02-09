@@ -1,0 +1,78 @@
+<checkout-sdk-finish-wrapper
+  [buttons]="buttons"
+  [errorMessage]="errorMessage"
+  [iframeCallbackUrl]="getIframeCallbackUrl()"
+  [isLoading]="isLoading"
+  [isChangingPaymentMethod]="isChangingPaymentMethod"
+  [embeddedMode]="embeddedMode"
+  [merchantMode]="merchantMode"
+  [isDisableChangePayment]="isDisableChangePayment"
+  i18n-processingTitle="@@payment-openbank.inquiry.finish.processing.title"
+  processingTitle="@@payment-openbank.inquiry.finish.processing.title"
+  i18n-processingText="@@payment-openbank.inquiry.finish.processing.text"
+  processingText="@@payment-openbank.inquiry.finish.processing.text"
+  (close)="onClose()">
+  <ng-container *ngIf="isOtpVerify()">
+    <pe-otp-container
+      *ngIf="consents$ | async as consents"
+      [consents]="consents"
+      [showConsent]="false"
+      [flow]="flow"
+      [paymentId]="nodeResult.id"
+      [phoneNumber]="nodeResult.payment.address.phone"
+      [status]="otpStatus"
+      (codeReady)="otpCodeReady.emit($event)"
+      (closed)="closeOtp()">
+    </pe-otp-container>
+  </ng-container>
+
+  <ng-container *ngIf="nodeResult">
+    <ng-container *ngIf="isStatusSuccess()">
+      <checkout-sdk-finish-status-success
+        class="finish-container"
+        i18n-title="@@checkout_sdk.default_receipt.finish.order_success.title"
+        title="@@checkout_sdk.default_receipt.finish.order_success.title"
+        [total]="nodeResult.payment?.total"
+        [currency]="flow?.currency"
+        [storeName]="nodeResult.payment?.businessName || '---'"
+        [createdAt]="nodeResult.createdAt"
+        [billingAddressName]="isPosPayment() ? billingAddressName() : null"
+        [orderId]="orderId"
+        [applicationNumber]="applicationNumber"
+        [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"
+        [flowId]="flow?.id"></checkout-sdk-finish-status-success>
+    </ng-container>
+
+    <ng-container *ngIf="isStatusPending()">
+      <checkout-sdk-finish-status-pending
+        class="finish-container"
+        [title]="true"
+        [total]="nodeResult.payment?.total"
+        [currency]="flow?.currency"
+        [storeName]="nodeResult.payment?.businessName || '---'"
+        [createdAt]="nodeResult.createdAt"
+        [billingAddressName]="isPosPayment() ? billingAddressName() : null"
+        [applicationNumber]="applicationNumber"
+        [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"
+        [flowId]="flow?.id"></checkout-sdk-finish-status-pending>
+    </ng-container>
+
+    <ng-container *ngIf="isStatusFail()">
+      <checkout-sdk-finish-status-fail
+        class="finish-container"
+        i18n-title="@@checkout_sdk.default_receipt.finish.order_fail.title"
+        title="@@checkout_sdk.default_receipt.finish.order_fail.title"
+        [canChangePaymentMethod]="canChangePaymentMethod()"
+        [applicationNumber]="applicationNumber"
+        [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"></checkout-sdk-finish-status-fail>
+    </ng-container>
+
+    <ng-container *ngIf="isStatusUnknown()">
+      <checkout-sdk-finish-status-unknown
+        class="finish-container"
+        [nodeResult]="nodeResult"
+        [applicationNumber]="applicationNumber"
+        [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"></checkout-sdk-finish-status-unknown>
+    </ng-container>
+  </ng-container>
+</checkout-sdk-finish-wrapper>

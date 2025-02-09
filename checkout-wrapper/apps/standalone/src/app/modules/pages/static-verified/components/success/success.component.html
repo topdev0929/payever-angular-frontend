@@ -1,0 +1,14 @@
+<checkout-sdk-finish-wrapper>
+  <checkout-sdk-finish-status-icon [status]="'success'"> </checkout-sdk-finish-status-icon>
+  <div
+    class="large-1"
+    i18n="@@flow_verified_finish.success.title">
+    flow_verified_finish.success.title
+  </div>
+  <p i18n="@@flow_verified_finish.success.text">flow_verified_finish.success.text</p>
+  <p
+    class="small text-secondary"
+    *ngIf="orderNumber">
+    {{ orderNumberText }}
+  </p>
+</checkout-sdk-finish-wrapper>

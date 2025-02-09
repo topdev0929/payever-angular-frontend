@@ -1,0 +1,493 @@
+//
+// Typography
+// ----------------------------
+
+// Headings
+// ---------------------------
+
+@mixin pe-text-link() {
+  a {
+    color: var(--checkout-page-text-primary-color, $color-black-pe);
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
+
+.pe-checkout-bootstrap {
+  @include pe-text-link();
+
+  .display-1 {
+    font-size: $font-size-d1;
+    font-weight: $font-weight-medium;
+    color: var(--checkout-page-text-primary-color, $color-black-pe);
+    @include pe-text-link();
+
+    .dark & {
+      // To overwrite wrong root selector in cosf
+      color: $color-black-pe;
+    }
+    .dark-checkout-wrapper & {
+      color: $color-white-pe;
+    }
+  }
+  .pe-payment-micro .display-1 {
+    color: $color-black-pe;
+  }
+
+  h1,
+  .h1,
+  h2,
+  .h2,
+  h3,
+  .h3,
+  h4,
+  .h4,
+  h5,
+  .h5,
+  h6,
+  .h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  h1,
+  .h1,
+  .page-title {
+    font-family: $font-family-base;
+    font-size: $font-size-h1;
+    font-weight: $font-weight-thin;
+    color: var(--checkout-page-text-primary-color, $color-black-pe);
+    @include pe-text-link();
+
+    .dark & {
+      // To overwrite wrong root selector in cosf
+      color: $color-black-pe;
+    }
+    .dark-checkout-wrapper & {
+      color: $color-white-pe;
+    }
+
+    line-height: $grid-unit-y * 4;
+    margin-bottom: $grid-unit-y * 3;
+    margin-top: $grid-unit-y * 4;
+
+    @include screen-xs() {
+      font-size: ceil($font-size-h1 * $font-size-ratio-xs);
+      margin-bottom: $grid-unit-y * 2;
+      margin-top: $grid-unit-y * 3;
+    }
+  }
+  .pe-payment-micro h1,
+  .pe-payment-micro .h1,
+  .pe-payment-micro .page-title {
+    color: $color-black-pe;
+  }
+
+  h2,
+  .h2,
+  .heading-2 {
+    font-family: $font-family-base;
+    font-size: $font-size-h2;
+    font-weight: $font-weight-thin;
+    color: var(--checkout-page-text-primary-color, $color-black-pe);
+    @include pe-text-link();
+
+    .dark & {
+      // To overwrite wrong root selector in cosf
+      color: $color-black-pe;
+    }
+    .dark-checkout-wrapper & {
+      color: $color-white-pe;
+    }
+
+    line-height: $grid-unit-y * 4;
+    margin-bottom: $grid-unit-y * 2;
+    margin-top: $grid-unit-y * 3;
+
+    @include screen-xs() {
+      font-size: ceil($font-size-h2 * $font-size-ratio-xs);
+      margin-bottom: $grid-unit-y;
+      margin-top: $grid-unit-y * 2;
+      line-height: $grid-unit-y * 3;
+    }
+  }
+  .pe-payment-micro h2,
+  .pe-payment-micro .h2,
+  .pe-payment-micro .heading-2 {
+    color: $color-black-pe;
+  }
+
+  h3,
+  .h3,
+  .heading-3 {
+    font-family: $font-family-base;
+    font-size: $font-size-h3;
+    font-weight: $font-weight-light;
+    color: var(--checkout-page-text-primary-color, $color-black-pe);
+    @include pe-text-link();
+
+    .dark & {
+      // To overwrite wrong root selector in cosf
+      color: $color-black-pe;
+    }
+    .dark-checkout-wrapper & {
+      color: $color-white-pe;
+    }
+
+    line-height: $grid-unit-y * 3;
+    margin-bottom: $grid-unit-y * 2;
+    margin-top: $grid-unit-y * 3;
+
+    @include screen-xs() {
+      font-size: ceil($font-size-h3 * $font-size-ratio-xs);
+      margin-bottom: $grid-unit-y;
+      margin-top: $grid-unit-y * 2;
+    }
+  }
+  .pe-payment-micro h3,
+  .pe-payment-micro .h3,
+  .pe-payment-micro .heading-3 {
+    color: $color-black-pe;
+  }
+
+  h4,
+  .h4,
+  .heading-4 {
+    font-family: $font-family-base;
+    font-size: $font-size-h4;
+    font-weight: $font-weight-regular;
+    color: var(--checkout-page-text-primary-color, $color-black-pe);
+    @include pe-text-link();
+
+    .dark & {
+      // To overwrite wrong root selector in cosf
+      color: $color-black-pe;
+    }
+    .dark-checkout-wrapper & {
+      color: $color-white-pe;
+    }
+
+    line-height: $grid-unit-y * 2;
+    margin-bottom: $grid-unit-y;
+    margin-top: $grid-unit-y * 2;
+  }
+  .pe-payment-micro h4,
+  .pe-payment-micro .h4,
+  .pe-payment-micro .heading-4 {
+    color: $color-black-pe;
+  }
+
+  h5,
+  .h5,
+  .heading-5 {
+    font-family: $font-family-base;
+    font-size: $font-size-h5;
+    font-weight: $font-weight-light;
+    color: var(--checkout-page-text-primary-color, $color-black-pe);
+    @include pe-text-link();
+
+    .dark & {
+      // To overwrite wrong root selector in cosf
+      color: $color-black-pe;
+    }
+    .dark-checkout-wrapper & {
+      color: $color-white-pe;
+    }
+
+    line-height: $grid-unit-y * 2;
+    margin-bottom: $grid-unit-y;
+    margin-top: $grid-unit-y;
+  }
+  .pe-payment-micro h5,
+  .pe-payment-micro .h5,
+  .pe-payment-micro .heading-5 {
+    color: $color-black-pe;
+  }
+
+  .pe-payment-micro .h5 {
+    margin-bottom: 5px;
+  }
+
+  // Large Font
+  // ---------------------------
+
+  .large-1 {
+    @include font-large-1(true);
+  }
+  .pe-payment-micro .large-1 {
+    color: $color-black-pe;
+  }
+
+  .large-2,
+  .subhead-2,
+  .subheading,
+  .large {
+    @include font-large-2(true);
+  }
+  .pe-payment-micro .large-2,
+  .pe-payment-micro .subhead-2,
+  .pe-payment-micro .subheading,
+  .large {
+    color: $color-black-pe;
+  }
+
+  .large-3 {
+    @include font-large-3(true);
+  }
+  .pe-payment-micro .large-3 {
+    color: $color-black-pe;
+  }
+
+  // Regular Font
+  // ---------------------------
+
+  .regular-1 {
+    @include font-regular-1(true);
+  }
+  .pe-payment-micro .regular-1 {
+    color: $color-black-pe;
+  }
+
+  .regular-2,
+  .subhead-2,
+  .caption-1 {
+    @include font-regular-2(true);
+  }
+  .pe-payment-micro .regular-2,
+  .pe-payment-micro .subhead-2,
+  .pe-payment-micro .caption-1 {
+    color: $color-black-pe;
+  }
+
+  .regular-3,
+  .subhead-1 {
+    @include font-regular-3(true);
+  }
+  .pe-payment-micro .regular-3,
+  .pe-payment-micro .subhead-1 {
+    color: $color-black-pe;
+  }
+
+  // Small Font
+  // ---------------------------
+
+  // TODO: check user cases
+  small,
+  .small {
+    font-size: 85.714%;
+    line-height: 140%; // $grid-unit-y * 2;
+    font-weight: $font-weight-regular;
+  }
+
+  .small-1,
+  .footnote-1 {
+    @include font-small-1(true);
+  }
+  .pe-payment-micro .small-1,
+  .pe-payment-micro .footnote-1 {
+    color: $color-black-pe;
+  }
+
+  .small-2,
+  .footnote-2 {
+    @include font-small-2(true);
+  }
+  .pe-payment-micro .small-2,
+  .pe-payment-micro .footnote-2 {
+    color: $color-black-pe;
+  }
+
+  // Micro Font
+  // ---------------------------
+
+  .micro-1 {
+    @include font-micro-1(true);
+  }
+  .pe-payment-micro .micro-1 {
+    color: $color-black-pe;
+  }
+
+  .micro-2,
+  .caption-2 {
+    @include font-micro-2(true);
+  }
+  .pe-payment-micro .micro-2,
+  .pe-payment-micro .caption-2 {
+    color: $color-black-pe;
+  }
+
+  // Extra Font
+  // ---------------------------
+
+  .page-header {
+    padding-bottom: $grid-unit-y;
+    margin: $grid-unit-y * 4 0 $grid-unit-y * 2;
+    border-bottom: $border-light-gray-2;
+  }
+
+  .text-secondary {
+    color: var(--checkout-page-text-secondary-color, $color-gray-2);
+    @include pe-text-link();
+  }
+  .pe-payment-micro .text-secondary {
+    color: $color-gray-2;
+  }
+
+  // Color variations
+  // -------------------------
+
+  @include payever-text-emphasis-variant-ex('.text-primary', $color-blue, $color-dark-blue);
+
+  @include payever-text-emphasis-variant-ex('.text-success', $color-green, $color-dark-green);
+
+  @include payever-text-emphasis-variant-ex('.text-info', $color-blue, $color-dark-blue);
+
+  @include payever-text-emphasis-variant('.text-warning', $color-orange, $color-dark-orange);
+
+  @include payever-text-emphasis-variant('.text-danger', $color-red, $color-dark-red);
+
+  .pe-payment-micro .text-primary,
+  .pe-payment-micro .text-success,
+  .pe-payment-micro .text-info {
+    color: $color-gray-2;
+  }
+
+  @include payever-bg-variant('.bg-primary', $color-blue, $color-dark-blue);
+
+  @include payever-bg-variant('.bg-success', $color-white, $color-white);
+
+  @include payever-bg-variant('.bg-info', $color-white, $color-white);
+
+  @include payever-bg-variant('.bg-warning', $color-white, $color-white);
+
+  @include payever-bg-variant('.bg-danger', $color-white, $color-white);
+
+  // Lists
+  // ------------------
+
+  ul,
+  ol {
+    margin-bottom: $grid-unit-y;
+
+    ul,
+    ol {
+      margin-bottom: 0;
+    }
+  }
+
+  .list-inline {
+    margin-left: 0;
+
+    > li {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+  // Extra
+  // ----------------
+
+  p {
+    margin-bottom: $grid-unit-y;
+    margin-top: 0;
+  }
+
+  dl {
+    margin-bottom: $grid-unit-y * 2;
+  }
+
+  dt,
+  dd {
+    line-height: $grid-unit-y * 2;
+  }
+
+  dt {
+    font-weight: bold;
+  }
+
+  .dl-horizontal {
+    @media (min-width: $viewport-breakpoint-sm-2) {
+      dt {
+        float: left;
+        width: 160px;
+        clear: left;
+        text-align: right;
+        @include text-overflow;
+      }
+      dd {
+        margin-left: 180px;
+      }
+    }
+  }
+
+  .text-warning {
+    word-break: break-word;
+  }
+
+  .pe-checkout-bootstrap {
+    .pe-truncate-text {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .pe-hidden-after-sm-2 {
+      @media (min-width: $viewport-breakpoint-sm-2) {
+        display: none !important;
+      }
+    }
+
+    .pe-hidden-after-sm-1 {
+      @media (min-width: $viewport-breakpoint-sm-1) {
+        display: none !important;
+      }
+    }
+
+    .pe-hidden-after-xs-2 {
+      @media (min-width: $viewport-breakpoint-xs-2) {
+        display: none !important;
+      }
+    }
+
+    .pe-hidden-after-xs-1 {
+      @media (min-width: $viewport-breakpoint-xs-1) {
+        display: none !important;
+      }
+    }
+
+    .pe-hidden-sm-2 {
+      @media (max-width: $viewport-breakpoint-sm-2 - 1) {
+        display: none !important;
+      }
+    }
+
+    .pe-hidden-sm-1 {
+      @media (max-width: $viewport-breakpoint-sm-1 - 1) {
+        display: none !important;
+      }
+    }
+
+    .pe-hidden-xs-2 {
+      @media (max-width: $viewport-breakpoint-xs-2 - 1) {
+        display: none !important;
+      }
+    }
+
+    .pe-hidden-xs-1 {
+      @media (max-width: $viewport-breakpoint-xs-1 - 1) {
+        display: none !important;
+      }
+    }
+  }
+
+  @mixin pe-custom-colors($inputTextSecondaryColor) {
+    .pe-payment-micro h5,
+    .pe-payment-micro .h5,
+    .pe-payment-micro .heading-5 {
+      color: $inputTextSecondaryColor;
+    }
+  }
+
+  @include pe-custom-colors(var(--checkout-page-text-secondary-color, $color-secondary-9));
+}

@@ -1,0 +1,10 @@
+<div class="pe-welcome-screen-box">
+  <svg class="icon icon-96 pe-welcome-screen-icon"><use [attr.xlink:href]="icon"></use></svg>
+  <div class="pe-welcome-screen-title" [innerHtml]="title"></div>
+  <div class="pe-welcome-screen-message" [innerHtml]="message"></div>
+  <button class="pe-welcome-screen-button mat-raised-button" (click)="handleStart()" mat-raised-button>
+    <pe-progress-button-content [loading]="isLoading" [spinnerDiameter]="21" [spinnerColor]="'black'">
+      {{'ng_kit.welcome_screen_component.start_button' | translate}}
+    </pe-progress-button-content>
+  </button>
+</div>

@@ -1,0 +1,12 @@
+<div
+  *ngIf="errors?.length"
+  class="text-danger small">
+  <p
+    *ngFor="let error of errors | keyvalue"
+    [innerHtml]="error"></p>
+</div>
+
+<div
+  *ngIf="finishModalErrorMessage"
+  class="text-danger small"
+  [innerHtml]="finishModalErrorMessage"></div>

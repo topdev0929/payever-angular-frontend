@@ -1,0 +1,66 @@
+@import '../../../builder.styles';
+
+.builder-editor-navbar {
+  @extend %builder-editor-navbar;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+:host {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  .right-buttons {
+    margin-left: auto;
+  }
+
+  mat-divider {
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0 6px;
+  }
+}
+
+.field {
+  margin-right: 24px;
+
+  label {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0 12px 0 0;
+    line-height: 17px;
+    font-weight: normal;
+  }
+
+  input[type="text"], input[type="number"] {
+    font: inherit;
+    background: rgba(17, 17, 17, 0.3);
+    border: none;
+    border-radius: 4px;
+    outline: 0;
+    padding: 0 4px;
+    margin: 0;
+    text-align: inherit;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 11px;
+    vertical-align: middle;
+    line-height: 17px;
+  }
+}
+
+peb-ui-page-toolbar,
+peb-ui-video-toolbar {
+  font-size: 12px;
+
+  @at-root ::ng-deep peb-ui-page-toolbar label {
+    font-weight: normal;
+    margin-bottom: 0 !important;
+  }
+
+  @at-root ::ng-deep peb-ui-video-toolbar label {
+    font-weight: normal;
+    margin-bottom: 0 !important;
+  }
+}
+

@@ -1,0 +1,28 @@
+<div class="generate-box full-width-pe-info-box">
+  <pe-info-box [withFooter]="true"
+               [fixed]="true"
+               [notFullwidthOnMobile]="true"
+               [roundBorder]="true"
+               [withPadding]="true"
+               [withHeader]="false"
+               (onClose)="clickedGeneratedBox.emit('cancel')"
+  >
+    <ng-container content>
+      <div class="content">
+        <div class="generated-code">
+          <div>{{ 'channels.generateHtml.title' | translate }}</div>
+          <p #inputTarget>
+            {{ generatedHtml }}
+          </p>
+        </div>
+      </div>
+
+    </ng-container>
+
+    <ng-container footer>
+      <button mat-button (click)="onCopyClick()">
+        {{ ((copied$ | async) ? 'channels.generateHtml.copied' : 'channels.generateHtml.copy') | translate }}
+      </button>
+    </ng-container>
+  </pe-info-box>
+</div>

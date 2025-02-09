@@ -1,0 +1,45 @@
+<div class="chapter">
+  <h2>PaymentOptionComponent</h2>
+  <div class="main-block">
+    <tabset>
+      <tab heading="Overview">
+        <h3>Import PaymentOptionModule</h3>
+        <pre><code class="typescript" [innerHTML]="'import {PaymentOptionsModule } from \'@pe/ng-kit/modules/payment-option\';'"></code></pre>
+        <p>&nbsp;</p>
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          [tsExample]="tsExample"
+          >
+          <div class="row">
+            <div class="col-xs-6">
+              <pe-payment-option
+                title="SOFORT Banking"
+                linkTitle="Edit"
+                [iconPng]="iconPng"
+                [hasSwitch]="true"
+                [switchOn]="true"
+                (onSwitchToggle)="handleSwitchToggle($event)"
+                (onLinkClick)="handleLinkClick($event)"
+                ></pe-payment-option>
+            </div>
+            <div class="col-xs-6">
+              <pe-payment-option
+                title="PayPal"
+                linkTitle="Add payment"
+                iconPng="https://stage.payever.de/media/cache/payment_option.icon/18de526e7ef2103cc3588c6c4239c544.png"
+                (onLinkClick)="handleLinkClick($event)"
+                ></pe-payment-option>
+            </div>
+          </div>
+        </example-viewer>
+      </tab>
+      <tab heading="API">
+        <component-api-renderer [path]="'payment-option/src/payment-option.component'"></component-api-renderer>
+      </tab>
+      <tab heading="README">
+        <doc-viewer documentUrl="/assets/module-guides/payment-option/payment-option.html"></doc-viewer>
+      </tab>
+    </tabset>
+  </div>
+</div>

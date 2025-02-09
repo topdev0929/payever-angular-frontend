@@ -1,0 +1,57 @@
+<div *ngIf="{ isLoading: isLoading$ | async } as vm">
+  <div class="top-text-1">
+    <p>
+      <svg class="icon icon-64 text-primary">
+        <use xlink:href="#icon-register-done-32"></use>
+      </svg>
+    </p>
+    <p class="dark-text h2">{{translations.headerCardTitle}}</p>
+    <p class="caption-1">{{translations.headerCardSubtitle}}</p>
+  </div>
+  <div class="top-text-2" [ngClass]="{ 'has-error': error }">
+    <p class="dark-text large-1">{{translations.descriptionCardTitle}}</p>
+    <p class="subtitle">{{translations.descriptionCardSubtitle}}</p>
+  </div>
+
+  <ng-container *ngIf="error">
+    <p class="error-container text-danger small" [innerHtml]="getErorText(error)"></p>
+  </ng-container>
+
+  <div class="action-wrapper">
+    <div
+      *ngFor="let action of actions"
+      class="action-card"
+      [ngClass]="'action-card-' + action.type"
+      (click)="onClicked(action.type)">
+      <p class="large-3">
+        {{action.title}}
+      </p>
+      <p *ngIf="vm.isLoading !== action.type">
+        <svg class="icon icon-64 text-primary">
+          <use [attr.xlink:href]="action.icon"></use>
+        </svg>
+      </p>
+      <div
+        class="loading-spinner"
+        [ngClass]="'loading-spinner-' + action.type"
+        *ngIf="vm.isLoading === action.type">
+        <mat-progress-spinner
+          matSuffix
+          strokeWidth="2"
+          diameter="26"
+          mode="indeterminate">
+        </mat-progress-spinner>
+      </div>
+      <p class="subtitle">
+        {{action.subtitle}}
+      </p>
+    </div>
+  </div>
+
+  <div class="skip-button">
+    <a (click)="skip()"
+    i18n="@@santander-de.inquiry.additionalSteps.identification.confirmDialog.skip"
+    > Skip> </a>
+    <p>{{translations.skipText}}</p>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="doc-container-black">
+  <mat-accordion>
+    <mat-expansion-panel [class.mat-expansion-panel-dark]="true">
+      <mat-expansion-panel-header collapsedHeight="44px" expandedHeight="44px">
+        <div class="mat-panel-icon">
+          <svg class="icon icon-24"><use xlink:href="#icon-apps-pos"></use></svg>
+        </div>
+        <mat-panel-title>
+          Point of Sale
+        </mat-panel-title>
+        <div class="mat-expansion-panel-spacer"></div>
+        <mat-chip class="mat-chip-sm">6</mat-chip>
+      </mat-expansion-panel-header>
+
+      <mat-list class="mat-list-transparent">
+        <ng-container *ngFor="let vegetable of vegetableList">
+          <mat-list-item class="mat-list-item-no-padding-left">
+            {{ vegetable }}
+            <div class="mat-list-item-content-addon-prepend">
+              <svg class="icon icon-8"><use xlink:href="#icon-n-indicator-16"></use></svg>
+            </div>
+            <div class="mat-list-spacer"></div>
+            <button mat-raised-button [class.mat-button-rounded]="true" [class.mat-button-xs]="true" color="muted-light">
+              Open
+            </button>
+            <button mat-raised-button [class.mat-button-rounded]="true" [class.mat-button-xs]="true" color="muted-light" [class.mat-list-item-close]="true">
+              <svg class="icon icon-8"><use xlink:href="#icon-close-12"></use></svg>
+            </button>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+        </ng-container>
+      </mat-list>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false"
+                         [class.mat-expansion-panel-dark]="true"
+                         [class.mat-expansion-panel-no-arrow]="true">
+      <mat-expansion-panel-header collapsedHeight="44px" expandedHeight="44px">
+        <div class="mat-panel-icon">
+          <svg class="icon icon-24"><use xlink:href="#icon-apps-pos"></use></svg>
+        </div>
+        <mat-panel-title>
+          Self aware panel
+        </mat-panel-title>
+        <div class="mat-expansion-panel-spacer"></div>
+        <button mat-raised-button [class.mat-button-rounded]="true" [class.mat-button-xs]="true" color="muted-light">
+          Open
+        </button>
+      </mat-expansion-panel-header>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

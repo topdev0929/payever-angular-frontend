@@ -1,0 +1,33 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $border: map.get($color-config, 'border');
+  $text-color: map.get($color-config, 'text-color');
+  $gray-button: map.get($color-config, 'gray-button');
+  $active-text: map.get($color-config, 'active-text');
+  $hover-button: map.get($color-config, 'hover-button');
+  $big-button-text: map.get($color-config, 'big-button-text');
+
+  .welcome-screen {
+    background-color: $overlay-background;
+    border-color: $border;
+    .welcome-screen-content,
+    .welcome-screen-content-title,
+    .welcome-screen-content-description,
+    .welcome-screen-content-aclaration {
+      color: $text-color;
+    }
+    .welcome-screen-content-button {
+      color: $active-text;
+      background-color: $hover-button;
+      &__dashboard {
+        background-color: $gray-button;
+        color: $big-button-text;
+      }
+      circle {
+        stroke: $active-text;
+      }
+    }
+  }
+}

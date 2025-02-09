@@ -1,0 +1,4 @@
+<ng-container *ngIf="signingQr$ | async as qr">
+  <img height="200" width="200" [src]="qr" alt="Qr code">
+</ng-container>
+

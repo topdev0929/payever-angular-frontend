@@ -1,0 +1,48 @@
+.cdk-overlay-backdrop {
+  background: transparent;
+  height: 100%;
+  position: fixed;
+
+  &.blurred {
+    backdrop-filter: blur(60px);
+  }
+}
+
+.locked-store-title {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 110%;
+  padding: 14px 0 2px;
+  text-align: center;
+}
+
+.password-dialog-button {
+  background: #3a3a3a4d;
+  border-bottom-left-radius: 11px;
+  border-bottom-right-radius: 11px;
+  cursor: pointer;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+
+  &:hover {
+    background: #17171754;
+  }
+}
+
+.password-dialog-title {
+  margin: 30px auto;
+  text-align: center;
+}
+
+.password-form {
+
+  &.hidden {
+    display: none;
+  }
+}
+
+.password-dialog {
+  margin-top: -114px;
+  top: 50%;
+}

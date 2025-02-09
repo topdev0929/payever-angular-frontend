@@ -1,0 +1,8 @@
+<pe-load-micro [innerMicro]="{micro: 'shipping', innerMicro: 'package-slip'}" [isShowLoader]="false">
+  <custom-package-slip
+    *ngIf="data && business"
+    [attr.data]="data | json"
+    [attr.business]="business | json"
+    [attr.shippingorderid]="shippingOrderId">
+  </custom-package-slip>
+</pe-load-micro>

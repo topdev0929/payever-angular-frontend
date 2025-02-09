@@ -1,0 +1,32 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+$docker_height: 140px;
+$docker_item_width: 160px;
+$docker_item_width_mobile: 80px;
+$docker_padding: 81px;
+$mobile_checkpoint: $viewport-breakpoint-sm-2;
+.ui-docker-store {
+  background-color: rgba($color-justblack, .5);
+  position: fixed;
+  z-index: 1060;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: $docker_height;
+  padding: 0 $docker_padding;
+  @media(max-width: $mobile_checkpoint) {
+    padding: 0 $pe_hgrid_gutter/2;
+    height: $docker_height/2;
+  }
+  .docker-menu {
+    font-size: 0;
+    justify-content: center;
+    display: flex;
+    .mItem {
+      flex: 1 1 160px;
+      max-width: 160px;
+    }
+  }
+}
+

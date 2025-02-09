@@ -1,0 +1,11 @@
+:host {
+  display: block;
+}
+
+.has-empty-space {
+  // This is kind of hack needed for builder shops and payment widgets (finance express),
+  //  when modal is not over whole screen but as part of wrapper element.
+  // In this case when text in finish modal has too big height - it's out of wrapper.
+  margin-top: 324px;
+  display: block;
+}

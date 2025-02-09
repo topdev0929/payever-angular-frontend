@@ -1,0 +1,52 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup">
+  <div class="form-fieldset-new">
+    <mat-form-field
+      *ngIf="formGroup.get('credit_due_date').enabled"
+      [class]="isDownPaymentAllowed ? 'col-xs-12 col-sm-6' : 'col-xs-12'">
+      <mat-label i18n="@@santander-de.inquiry.form.credit_due_date.label"> Credit due options </mat-label>
+
+      <mat-select formControlName="credit_due_date">
+        <mat-option
+          *ngFor="let option of creditDueDateOptions"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('_down_payment_view').enabled"
+      class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-de.inquiry.form._down_payment_view.label"> Down payment </mat-label>
+
+      <span
+        #downPaymentPrefix
+        matPrefix>
+        {{ currency | peCurrencySymbol }}
+      </span>
+      <input
+        matInput
+        [peInputCurrencyMask]="currency"
+        formControlName="_down_payment_view"
+        type="text" />
+      <button
+        *ngIf="showDownpaymentApply$ | async"
+        class="mat-button-no-padding mat-button-link btn btn-link"
+        mat-button
+        matSuffix
+        i18n="@@santander-de.actions.apply"
+        (click)="applyDownpayment()">
+        Apply
+      </button>
+      <mat-progress-spinner
+        *ngIf="isRatesLoading"
+        matSuffix
+        strokeWidth="2"
+        diameter="18"
+        mode="indeterminate">
+      </mat-progress-spinner>
+    </mat-form-field>
+  </div>
+</form>

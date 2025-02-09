@@ -1,0 +1,64 @@
+<ng-container *ngIf="hasDropdownMenu; then buttonWithMenu; else button"></ng-container>
+<div class="button-label">{{ bottomLabel }}</div>
+
+<ng-template #button>
+  <button mat-button
+    class="button-control"
+    [class.button-control--active]="active"
+    [disableRipple]="true"
+    [disabled]="disabled"
+    (click)="clicked.emit($event)"
+    [attr.pe-qa-builder]="getTestingAttribute()">
+    <ng-container [ngTemplateOutlet]="buttonInnerContent"></ng-container>
+  </button>
+</ng-template>
+
+<ng-template #buttonWithMenu>
+  <button mat-button
+    class="button-control"
+    [matMenuTriggerFor]="menu"
+    #t="matMenuTrigger"
+    [disableRipple]="true"
+    [disabled]="disabled"
+    (click)="clicked.emit($event)"
+    [attr.pe-qa-builder]="getTestingAttribute(bottomLabel)">
+    <ng-container [ngTemplateOutlet]="buttonInnerContent"></ng-container>
+
+    <svg *ngIf="showDropdownArrow"
+      class="icon icon-16 mat-toolbar-link-icon-append">
+      <use [attr.xmlns:xlink]="'http://www.w3.org/1999/xlink'"
+        [attr.xlink:href]="'#icon-dropdown-triangle-16'"></use>
+    </svg>
+    <mat-menu [overlapTrigger]="false"
+      #menu="matMenu"
+      class="mat-menu-dark-muted mat-menu-fit-content mat-menu-dropdown dropdown-menu-container">
+      <ng-content *ngIf="t.menuOpen"></ng-content>
+    </mat-menu>
+  </button>
+</ng-template>
+
+<ng-template #buttonInnerContent>
+  <ng-container *ngIf="!showSpinner; else spinner">
+    <svg *ngIf="icon"
+      class="button-icon"
+      [style.width]="iconWidth || 16"
+      [style.height]="iconHeight || 16">
+      <use [attr.xlink:href]="icon"></use>
+    </svg>
+
+    <img class="icon-20"
+      [src]="img"
+      *ngIf="img" />
+
+    <span class="mat-toolbar-link-text"
+      [innerHtml]="text"
+      translate></span>
+
+    <span>{{ label }}</span>
+  </ng-container>
+</ng-template>
+
+<ng-template #spinner>
+  <mat-spinner [strokeWidth]="spinnerStrokeWidth"
+    [diameter]="spinnerDiameter"></mat-spinner>
+</ng-template>

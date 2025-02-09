@@ -1,0 +1,93 @@
+@use 'pe_variables' as pe_variables;
+
+.wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.category-header {
+  align-items: center;
+  display: flex;
+  height: 44px;
+  justify-content: space-between;
+  padding: 12px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+   height: 56px;
+  }
+}
+
+.add {
+  margin: 22px 0;
+}
+
+.form-field {
+  display: flex;
+  margin-top: 1px;
+
+  &-input {
+    display: flex;
+
+    > div:first-child {
+      flex-grow: 7;
+    }
+
+    > button {
+      flex-grow: 3;
+      font-size: 14px;
+      line-height: 1.33;
+      border: none;
+      text-align: right;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+        font-size: 16px;
+      }
+    }
+  }
+
+}
+
+.autocomplete {
+  flex: 1;
+}
+
+.category {
+  align-items: center;
+  display: flex;
+  padding: 4px 12px;
+  box-sizing: border-box;
+  height: 40px;
+  margin-top: 1px;
+
+  > div {
+    align-items: center;
+    display: flex;
+    margin-right: auto;
+  }
+
+  &__name {
+    span {
+      font-family: Roboto, sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.33;
+    }
+  }
+
+  button {
+    appearance: none;
+    background-color: rgba(0, 0, 0, 0);
+    font-family: Roboto, sans-serif;
+    font-size: 12px;
+    line-height: 1.33;
+    letter-spacing: normal;
+    outline: none;
+    padding: 0;
+    border: none;
+    margin: 0;
+    cursor: pointer;
+  }
+}

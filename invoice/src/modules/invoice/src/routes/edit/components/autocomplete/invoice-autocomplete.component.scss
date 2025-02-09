@@ -1,0 +1,61 @@
+:host {
+  width: 100%;
+}
+
+input {
+  appearance: none;
+  border: unset;
+  font-family: inherit;
+  outline: unset;
+  
+  background-color: #111111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  caret-color: rgba(255, 255, 255, 0.95);
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 20px;
+  padding: 9px 10px;
+  line-height: 1.1;
+  width: 100%;
+
+  &::placeholder {
+    color: rgba(89, 89, 89, 0.95);
+  }
+}
+
+// TODO: remove ng-deep
+::ng-deep .mat-autocomplete-panel {
+  background-color: #1c1d1e;
+  border-radius: 12px !important;
+
+  .mat-option.mat-selected:not(.mat-active):not(:hover):not(.mat-option-disabled) {
+    background-color: inherit;
+    color: rgba(255, 255, 255, 0.95);
+  }
+}
+
+.mat-option {
+  color: rgba(255, 255, 255, 0.95);
+  height: 46px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  line-height: 1.1;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  &:hover {
+    background-color: #0091df !important;
+  }
+
+  &:not(:first-of-type) {
+    &::before {
+      background-color: #393939;
+      content: "";
+      height: 1px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+}

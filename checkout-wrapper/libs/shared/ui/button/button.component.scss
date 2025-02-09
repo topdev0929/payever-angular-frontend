@@ -1,0 +1,44 @@
+@import 'libs/shared/styles/assets/ui-kit-styles/pe_variables';
+
+:host {
+  display: block;
+  max-height: 100%;
+  line-height: 40px;
+  cursor: pointer;
+  position: relative;
+  height: inherit;
+}
+
+.checkout-button {
+  height: 100%;
+  width: 100%;
+  display: block;
+
+  &.mat-button-gradient:hover {
+    opacity: 0.95;
+  }
+
+  &.mat-button-secondary,
+  &.cancel {
+    font-size: 12px;
+    margin-bottom: 10px;
+    line-height: 36px;
+    height: 36px;
+    padding: 0 20px;
+
+    @media (max-width: 380px) {
+      padding: 0px 10px;
+      font-size: 8px;
+      line-height: 30px;
+      height: 30px;
+    }
+  }
+
+  &.cancel {
+    color: $color-blue;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}

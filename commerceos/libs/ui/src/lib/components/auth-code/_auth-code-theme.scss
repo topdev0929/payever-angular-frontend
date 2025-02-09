@@ -1,0 +1,15 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $row-background: map.get($color-config, 'row-background');
+  $text-color: map.get($color-config, 'text-color');
+
+  .auth-code-wrapper {
+    .digit-wrapper {
+      background-color: $row-background;
+      input {
+        color: $text-color;
+      }
+    }
+  }
+}

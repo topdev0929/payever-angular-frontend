@@ -1,0 +1,20 @@
+<mat-drawer-container #drawerContainer
+                      [ngClass]="containerClasses"
+                      [autosize]="autosize"
+                      (backdropClick)="onBackdropClicked()"
+>
+  <mat-drawer #drawer
+              *ngFor="let drawerSettingsItem of drawerSettings"
+              [disableClose]="drawerSettingsItem?.disableClose"
+              [mode]="drawerSettingsItem?.mode"
+              [opened]="drawerSettingsItem?.opened"
+              [position]="drawerSettingsItem?.position"
+              (positionChanged)="onPositionChanged(drawerSettingsItem)"
+              (openedChange)="onOpenedChanged(drawerSettingsItem)"
+  >
+    <ng-container *ngTemplateOutlet="drawerSettingsItem.content"></ng-container>
+  </mat-drawer>
+  <mat-drawer-content>
+    <ng-content></ng-content>
+  </mat-drawer-content>
+</mat-drawer-container>

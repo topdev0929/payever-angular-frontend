@@ -1,0 +1,10 @@
+<div class="pe-payment-container">
+  <stripe-direct-debit-inquiry-form (submitted)="onSend($event)"> </stripe-direct-debit-inquiry-form>
+
+  <stripe-direct-debit-shared-finish
+    *ngIf="isFinishModalShown"
+    [isLoading]="isSendingPayment"
+    [errorMessage]="finishModalErrorMessage"
+    (close)="onModalClose()"
+    (tryAgain)="tryAgain()"></stripe-direct-debit-shared-finish>
+</div>

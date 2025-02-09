@@ -1,0 +1,17 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+
+.error {
+  color: $color-red;
+}
+
+.form-table {
+  border-radius: 0;
+  fieldset {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.caption-1 {
+  color: $color-white-pe;
+}

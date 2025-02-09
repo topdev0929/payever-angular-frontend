@@ -1,0 +1,142 @@
+.desktop-checkout-items.with-offset {
+  position: relative;
+  z-index: -1;
+  top: -96px;
+}
+
+.outer-frame-inner {
+  background: var(--light);
+}
+
+.outer-frame-header {
+  position: relative;
+  padding: 10px 12px;
+  background: var(--light);
+  z-index: 1;
+}
+
+.outer-frame-header-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  max-width: 248px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.outer-frame-header img {
+  width: 37px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.outer-frame-body {
+  padding: 0 12px;
+  position: relative;
+  transition: top 0.5s ease-in-out;
+}
+
+.active-payment-method-step-2 .outer-frame-body {
+  top: 0;
+}
+
+.active-payment-method-step-3 .outer-frame-body {
+  top: -150px;
+}
+
+.active-payment-method-step-3 .mobile .outer-frame-body {
+  top: -92px;
+}
+
+.outer-frame-body .outer-frame-body-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 248px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.outer-frame-fields-inline {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.outer-frame-get-info {
+  display: flex;
+}
+
+.outer-frame-get-info img {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.outer-frame-field {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 37px;
+  padding: 0 10px;
+  border-radius: 4px;
+  border: 1px solid var(--secondary-200);
+}
+
+.outer-frame-field.field-dropdown {
+  justify-content: space-between;
+}
+
+.outer-frame-field.field-dropdown img {
+  width: 8px;
+}
+
+.outer-frame-field .label {
+  position: absolute;
+  top: -5px;
+  left: 8px;
+  padding: 0 2px;
+  font-size: 8px;
+  line-height: 8px;
+  color: var(--secondary-300);
+  background: var(--light);
+}
+
+.outer-frame-field .value {
+  color: var(--secondary-700);
+  font-size: 10px;
+}
+
+.outer-frame-field .credit-card-assets {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.outer-frame-field .credit-card-assets img {
+  width: 20px;
+}
+
+.outer-frame-terms {
+  font-size: 8px;
+  color: var(--secondary-300);
+}
+
+.outer-frame-button {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--light);
+  background: #0127BC;
+  border-radius: 70px;
+}

@@ -1,0 +1,26 @@
+{
+  "name": "santander-nl",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/payments/santander-nl/src",
+  "prefix": "pe",
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/payments/santander-nl"],
+      "options": {
+        "jestConfig": "libs/payments/santander-nl/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/payments/santander-nl/src/**/*.ts", "libs/payments/santander-nl/src/**/*.html"]
+      },
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": ["scope:libs", "type:feature"],
+  "implicitDependencies": []
+}

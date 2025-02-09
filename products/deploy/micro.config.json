@@ -1,0 +1,16 @@
+{
+  "code": "products",
+  "dashboardInfo": {
+    "title": "dashboard.apps.products",
+    "icon": "icon-commerceos-products-32.png"
+  },
+  "access" : {
+    "business" : {
+        "url" : "/business/{uuid}/products", 
+        "defaultInstalled" : true, 
+        "isDefault" : true
+    }
+  },
+  "tag": "<app-products-standalone></app-products-standalone>",
+  "bootstrapScriptUrl": "${MICRO_URL_FRONTEND_PRODUCTS}/micro.js?{hash}"
+}

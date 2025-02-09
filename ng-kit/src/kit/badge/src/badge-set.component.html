@@ -1,0 +1,6 @@
+<div class="ui-badge-set">
+  <div class="badge" *ngFor="let item of badgeSet; let i=index">
+    {{item.title}}
+    <svg class="icon icon-close" (click)="removeBadge(item, i)"><use xlink:href="#icon-x"></use></svg>
+  </div>
+</div>

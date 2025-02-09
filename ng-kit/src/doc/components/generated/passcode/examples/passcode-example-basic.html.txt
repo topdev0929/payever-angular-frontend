@@ -1,0 +1,16 @@
+<pe-passcode
+  title="NATIVE UNION"
+  [newPasscode]="false"
+  labelError="Wrong passcode"
+  labelSave="Save this passcode"
+  [codeLength]="6"
+  [onlyPad]="false"
+  [withDot]="false"
+  [darkTheme]="false"
+  (onSave)="handleOnSave($event)"
+  (onCancel)="handleOnCancel($event)"
+  (onReset)="handleOnReset($event)"
+  (onRemove)="handleOnRemove($event)"
+  (onDial)="handleOnDial($event)"
+  >
+</pe-passcode>

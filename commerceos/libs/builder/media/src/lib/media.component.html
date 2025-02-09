@@ -1,0 +1,11 @@
+<peb-media-styles></peb-media-styles>
+<div class="dialog">
+  <div class="dialog__backdrop"></div>
+  <div class="dialog__header">
+    <button class="dialog__button" (click)="close()">{{ 'builder-app.actions.close' | translate }}</button>
+  </div>
+  <div class="dialog__content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+

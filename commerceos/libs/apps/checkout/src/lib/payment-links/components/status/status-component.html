@@ -1,0 +1,9 @@
+<div
+  class="status status-{{ getStatusColor(item) }}"
+  [style.minWidth.ch]="15"
+>
+  <div class="">
+    <div class="loader-white"></div>
+  </div>
+  <span>{{ getLabel(item.data.status) || '-'}}</span>
+</div>

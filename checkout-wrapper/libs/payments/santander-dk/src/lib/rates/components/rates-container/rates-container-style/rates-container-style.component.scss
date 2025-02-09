@@ -1,0 +1,26 @@
+@import '../../../../../../../../shared/styles/assets/ui-kit-styles/pe_variables.scss';
+
+.santander-dk-rates-container {
+  .selected-rate-dropdown {
+    margin: $padding-base-vertical * 2 0 $padding-base-vertical * 2;
+
+    .rate-description {
+      font-weight: 300;
+    }
+  }
+
+  .choose-rate-accordion .mat-accordion.mat-accordion-choose-rate .mat-expansion-panel {
+    border-radius: 4px !important;
+    margin: $payment-grid-unit-y 0 !important;
+
+    &:first-child {
+      margin-top: 0px !important;
+    }
+
+    .mat-expansion-panel-header .panel-icon {
+      &.minus {
+        line-height: 35px !important;
+      }
+    }
+  }
+}

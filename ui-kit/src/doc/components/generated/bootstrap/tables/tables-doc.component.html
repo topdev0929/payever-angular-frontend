@@ -1,0 +1,258 @@
+<div class="chapter">
+    <h2>Tables</h2>
+    <div id="tables-basic-style" class="main-block">
+        <h3>Base style</h3>
+        <div class="doc-block">
+            <tabset>
+                <tab heading="View">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p>For basic styling &mdash; light padding and only horizontal dividers &mdash; add the base class <code html-entities="true">.table</code> to any <code html-entities="true"><table></table></code>. Use <code html-entities="true">.table-striped</code>, <code html-entities="true">.table-hover</code>, <code html-entities="true">.table-bordered</code>, <code html-entities="true">.table-padded</code> for additional styles.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <table class="table table-padded">
+                                <thead>
+                                <tr>
+                                    <th class="sortable sort">
+                                        <span>#</span>
+                                        <svg class="icon icon-16">
+                                            <use xlink:href="#icon-arrow-down-small-16"/>
+                                        </svg>
+                                    </th>
+                                    <th class="sortable">First Name</th>
+                                    <th class="sortable">Last Name</th>
+                                    <th class="text-right" style="width:100px;">Action</th>
+                                    <th class="text-right" style="width:30px;">&nbsp;</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Mark</td>
+                                    <td><span class="text-secondary small">Otto</span></td>
+                                    <td class="text-right">
+                                        <input class="form-control-toggle input-xs" id="switchert1" type="checkbox">
+                                        <label for="switchert1"></label>
+                                    </td>
+                                    <td class="text-right">
+                                        <button class="btn btn-default btn-link btn-inline">
+                                            <svg class="icon icon-24"><use xlink:href="#icon-dots-v-24"></use></svg>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Jacob</td>
+                                    <td><span class="text-secondary small">Thornton</span></td>
+                                    <td class="text-right">
+                                        <input class="form-control-toggle input-xs" id="switchert2" type="checkbox">
+                                        <label for="switchert2"></label>
+                                    </td>
+                                    <td class="text-right">
+                                        <button class="btn btn-default btn-link btn-inline">
+                                            <svg class="icon icon-24"><use xlink:href="#icon-dots-v-24"></use></svg>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Larry</td>
+                                    <td><span class="text-secondary small">the Bird</span></td>
+                                    <td class="text-right">
+                                        <input class="form-control-toggle input-xs" id="switchert3" type="checkbox">
+                                        <label for="switchert3"></label>
+                                    </td>
+                                    <td class="text-right">
+                                        <button class="btn btn-default btn-link btn-inline">
+                                            <svg class="icon icon-24"><use xlink:href="#icon-dots-v-24"></use></svg>
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </tab>
+                <tab heading="Template">
+                    <div class="row">
+                        <div class="col-xs-12">
+                    <pre><code class="html" html-entities="true"><table class="table table-padded">
+    <thead>
+    <tr>
+        <th class="sortable sort">
+            <span>#</span>
+            <svg class="icon icon-16">
+                <use xlink:href="#icon-arrow-down-small-16"/>
+            </svg>
+        </th>
+        <th class="sortable">First Name</th>
+        <th class="sortable">Last Name</th>
+        <th class="text-right" style="width:100px;">Action</th>
+        <th class="text-right" style="width:30px;">&nbsp;</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>Mark</td>
+        <td><span class="text-secondary small">Otto</span></td>
+        <td class="text-right">
+            <input class="form-control-toggle input-xs" id="switchert1" type="checkbox">
+            <label for="switchert1"></label>
+        </td>
+        <td class="text-right">
+            <button class="btn btn-default btn-link btn-inline">
+                <svg class="icon icon-24"><use xlink:href="#icon-dots-v-24"></use></svg>
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Jacob</td>
+        <td><span class="text-secondary small">Thornton</span></td>
+        <td class="text-right">
+            <input class="form-control-toggle input-xs" id="switchert2" type="checkbox">
+            <label for="switchert2"></label>
+        </td>
+        <td class="text-right">
+            <button class="btn btn-default btn-link btn-inline">
+                <svg class="icon icon-24"><use xlink:href="#icon-dots-v-24"></use></svg>
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Larry</td>
+        <td><span class="text-secondary small">the Bird</span></td>
+        <td class="text-right">
+            <input class="form-control-toggle input-xs" id="switchert3" type="checkbox">
+            <label for="switchert3"></label>
+        </td>
+        <td class="text-right">
+            <button class="btn btn-default btn-link btn-inline">
+                <svg class="icon icon-24"><use xlink:href="#icon-dots-v-24"></use></svg>
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table></code></pre><p></p>
+                        </div>
+
+                    </div>
+                </tab>
+            </tabset>
+        </div>
+    </div>
+    <div id="table-responsive" class="main-block">
+        <h3>Responsive table</h3>
+        <div class="doc-block">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>Create responsive tables by wrapping any <code html-entities="true">.table</code> in <code html-entities="true">.table-responsive</code> to make them scroll horizontally on small devices (under 720px). When viewing on anything larger than 720px wide, you will not see any difference in these tables.</p>                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Table heading</th>
+                                <th>Table heading</th>
+                                <th>Table heading</th>
+                                <th>Table heading</th>
+                                <th>Table heading</th>
+                                <th>Table heading</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>Or you can reorder table for mobile devices with <code html-entities="true">.table-reorder</code>.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="table-reorder">
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Table heading</th>
+                                <th>Table heading</th>
+                                <th>Table heading</th>
+                                <th>Table heading</th>
+                                <th>Table heading</th>
+                                <th>Table heading</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<form novalidate class="form-table" (ngSubmit)="onSubmit()" [formGroup]="form" *ngIf="form">
+
+  <pe-form-fieldset
+    [isSubmitted]="isSubmitted"
+    [fields]="testFieldset"
+    [formGroup]="form"
+    [translationScope]="formTranslationsScope"
+    [errors]="errors$ | async"
+    [formStyle]="'no-border'"
+  ></pe-form-fieldset>
+
+</form>

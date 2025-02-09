@@ -1,0 +1,22 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+
+.ui-badge-set {
+  .badge {
+    background-color: $color-very-light-gray;
+    height: $pe_vgrid_height * 2;
+    line-height: $pe_vgrid_height * 2;
+    color: inherit;
+    padding: 0 $margin_adjust * 2;
+    font-size: $pe_vgrid_height;
+    font-weight: 400;
+    margin-bottom: $margin_adjust * 2;
+    text-align: left;
+  }
+  .icon-close {
+    width: $pe_vgrid_height * 2;
+    height: $pe_vgrid_height * 2;
+    padding: $margin_adjust * 1.5;
+    float: right;
+    cursor: pointer;
+  }
+}

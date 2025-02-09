@@ -1,0 +1,63 @@
+<div class="chapter">
+  <h2>Dashboard</h2>
+  <div id="dashboard-desktop" class="main-block">
+    <h3>Desktop</h3>
+    <div class="doc-block">
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="button" class="btn btn-primary btn-lg btn-vmargin" data-toggle="modal" data-target="#modalDashboard">
+            Show dashboard docker
+          </button>
+          <div class="modal fade" tabindex="-1" id="modalDashboard" role="dialog">
+            <div class="modal-dialog modal-lg modal-lg-new" role="document">
+              <div class="modal-content">
+                <div class="modal-body modal-docker">
+                  <div class="container-dashboard">
+                    <doc-desktop-docker
+                      [settings] = "settings"
+                      [appsList] = "appsList"
+                      [storesList] = "storesList"
+                      [settingsList] = "settingsList"
+                      [notificationsList] = "notificationsList">
+                    </doc-desktop-docker>
+                    <doc-mobile-docker
+                      [settings] = "settings"
+                      [appsList] = "appsList"
+                      [storesList] = "storesList"
+                      [settingsList] = "settingsList"
+                      [notificationsList] = "notificationsList"
+                    ></doc-mobile-docker>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-close">
+                <button aria-label="Close" class="btn btn-default btn-xs btn-link btn-inline" data-dismiss="modal" type="button">
+                  <svg class="icon icon-16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-x-16"></use></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12">
+          <div class="panel-group hidden-xs" id="accordion">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                    Code
+                  </a>
+                </h4>
+              </div>
+              <div id="collapseOne" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <pre><code class="javascript" html-entities="true" [innerHTML]="exampleJs"></code></pre>
+                  <pre><code class="html" [innerHTML]="html1 | code"></code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

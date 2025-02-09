@@ -1,0 +1,21 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $widget-background: map.get($color-config, 'widget-background');
+  pe-dashboard-platform-header {
+    color: $text-color;
+    position: relative;
+    background: $widget-background;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(75px);
+      z-index: -1;
+    }
+  }
+}

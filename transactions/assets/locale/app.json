@@ -1,0 +1,986 @@
+{
+  "title": "Transactions",
+  "STATUS_NEW": "New",
+  "STATUS_IN_PROCESS": "In progress",
+  "STATUS_ACCEPTED": "Accepted",
+  "STATUS_PAID": "Paid",
+  "STATUS_DECLINED": "Declined",
+  "STATUS_REFUNDED": "Refunded",
+  "STATUS_FAILED": "Failed",
+  "STATUS_CANCELLED": "Cancelled",
+  "STATUS_INVOICE_CANCELLATION": "Cancelled",
+  "STATUS_INVOICE_INCOLLECTION": "Collection",
+  "STATUS_INVOICE_LATEPAYMENT": "Late payment",
+  "STATUS_INVOICE_REMINDER": "Reminder",
+  "STATUS_SANTANDER_IN_PROGRESS": "In progress",
+  "STATUS_SANTANDER_IN_PROCESS": "In process",
+  "STATUS_SANTANDER_DECLINED": "Declined",
+  "STATUS_SANTANDER_APPROVED": "Approved",
+  "STATUS_SANTANDER_APPROVED_WITH_REQUIREMENTS": "Approved with requirements",
+  "STATUS_SANTANDER_DEFERRED": "Deferred",
+  "STATUS_SANTANDER_CANCELLED": "Cancelled",
+  "STATUS_SANTANDER_AUTOMATIC_DECLINE": "Automatically declined",
+  "STATUS_SANTANDER_IN_DECISION": "In decision",
+  "STATUS_SANTANDER_DECISION_NEXT_WORKING_DAY": "Decision in the next working day",
+  "STATUS_SANTANDER_IN_CANCELLATION": "In cancellation",
+  "STATUS_SANTANDER_ACCOUNT_OPENED": "Account opened",
+  "STATUS_SANTANDER_CANCELLED_ANOTHER": "Cancelled",
+  "STATUS_SANTANDER_SHOP_TEMPORARY_APPROVED": "Temporarily approved",
+  "actions": {
+    "back": "Back",
+    "back_to": "Back to {{ app }}",
+    "cancel_order": "Cancel order",
+    "check_status": "Update status",
+    "credit_answer": "Credit answer",
+    "contract": "Contract",
+    "create_label_ship": "Create label & ship",
+    "details": "Order details",
+    "edit": "Edit",
+    "cancel": "Cancel",
+    "close": "Close",
+    "print_invoice": "Print invoice",
+    "confirm": "Confirm",
+    "save": "Save"
+  },
+  "export": {
+    "csv": "Comma-separated values (.csv)",
+    "format": "Format:"
+  },
+  "errors": {
+    "error": "An error has occurred",
+    "forbidden": "You don't have permission to perform this action!"
+  },
+  "total_orders": {
+    "heading": "{{total_count}} orders for {{total_sum}}"
+  },
+  "header": {
+    "all": "All",
+    "show": "Show:",
+    "filter_by": "Filter by:",
+    "close": "Close",
+    "back_to_apps": "Back to apps"
+  },
+  "form": {
+    "cancel": {
+      "actions": {
+        "cancel": "Cancel order"
+      },
+      "heading": "Cancel order",
+      "labels": {
+        "reason": "Write a reason to cancel (optional)",
+        "amount": "Write an amount (optional)"
+      },
+      "note": "You can re issue this order at any time in the future."
+    },
+    "capture": {
+      "heading": "Capture order",
+      "actions": {
+        "capture": "Capture"
+      },
+      "labels": {
+        "amount": "Insert amount"
+      }
+    },
+    "change_amount": {
+      "actions": {
+        "change": "Change"
+      },
+      "heading": "Change amount",
+      "labels": {
+        "amount": "Insert new amount"
+      },
+      "errors": {
+        "must_be_positibe_number": "This value must be positive number",
+        "must_be_less_than": "This value must be less than {{ amount }}"
+      },
+      "note": "Do you want to change purchased amount?"
+    },
+    "change_reference": {
+      "actions": {
+        "change": "Change"
+      },
+      "heading": "Change reference",
+      "labels": {
+        "reference": "Insert new reference"
+      },
+      "errors": {
+        "must_be_not_empty": "This value can't be empty"
+      },
+      "note": "Do you want to change reference?"
+    },
+    "change_invoiceid": {
+      "actions": {
+        "change": "Change"
+      },
+      "heading": "Change invoice ID",
+      "labels": {
+        "invoiceId": "Insert invoice ID"
+      },
+      "errors": {
+        "must_be_not_empty": "This value can't be empty",
+        "unknown": "Unknown error"
+      },
+      "note": "Do you want to change invoice ID?"
+    },
+    "charge": {
+      "actions": {
+        "charge": "Charge"
+      },
+      "heading": "Charge payment",
+      "note": "Payment was preauthorized you can change it."
+    },
+    "invoice": {
+      "actions": {
+        "transfer": "Transfer"
+      },
+      "heading": "Invoice",
+      "labels": {
+        "customer_id": "Customer ID",
+        "invoice_date": "Invoice date",
+        "invoice_id": "Invoice ID"
+      },
+      "note": "To protect your payment, you have to transfer your invoice data."
+    },
+    "paid": {
+      "actions": {
+        "confirm": "Confirm"
+      },
+      "heading": "Payment confirmation",
+      "note": "Please confirm this payment if you have already accepted it."
+    },
+    "refund": {
+      "actions": {
+        "refund": "Refund {{ amount }}"
+      },
+      "heading": "Refund",
+      "labels": {
+        "amount": "Total available for refund {{ amount }}",
+        "itemsRestocked": "Restock items",
+        "reason": "Write a reason to refund (optional)",
+        "refundCollectedBySepa": "I wish, that the (partial) cancellation amount should be collected by SEPA direct debit.",
+        "refundDeliveryFee": "Refund delivery fee",
+        "refundGoodsReturned": "The goods have been returned by the customer.",
+        "refundInvoiceNumber": "Invoice number",
+        "refundPaymentFee": "Refund payment fee",
+        "type": {
+          "full": "Refund full amount of order {{ amount }}",
+          "partial": "Refund the partial amount of the order",
+          "items": "Select items to refund"
+        }
+      },
+      "placeholders": {
+        "amount": "Amount"
+      },
+      "products_table": {
+        "delivery_fee": "Delivery fee",
+        "payment_fee": "Payment fee",
+        "product": "Product",
+        "qty": "Qty",
+        "subtotal": "Subtotal",
+        "total_refund": "Total refund"
+      }
+    },
+    "remind": {
+      "actions": {
+        "remind": "Remind"
+      },
+      "heading": "Send remind",
+      "labels": {
+        "dunning_costs": "Insert new amount"
+      },
+      "note": "Customer did not paid you yet? Remind him to pay."
+    },
+    "shipping_goods": {
+      "actions": {
+        "send": "Send",
+        "download_label": "Download label"
+      },
+      "labels": {
+        "amount": "Write an amount (optional)"
+      },
+      "heading": "Send goods",
+      "errors": {
+        "unknown": "Unknown error"
+      },
+      "note": "Customer has signed contract with bank. Goods can be shipped."
+    },
+    "verify": {
+      "actions": {
+        "verify": "Verify",
+        "decline": "Decline"
+      },
+      "labels": {
+        "paid": "Paid",
+        "confirm": "I herby confirm that I verified the customer data and the customer data is accurate",
+        "signed": "Der Kunde hat die Zahlungsvereinbarung Für die Ratenzahlung unterschrieben"
+      },
+      "heading": "Verification",
+      "errors": {
+        "must_confirm_verified_customer_data": "You must confirm customer data is verified and accurate",
+        "unknown": "Unknown error"
+      }
+    },
+    "update": {
+      "heading": "Update orderline invoice",
+      "subheading": "for total amount {{ total }}",
+      "actions": {
+        "add_item": "Add product",
+        "update": "Update"
+      },
+      "calculated_total_error": {
+        "big": "Attention! The calculated amount is bigger than Order total amount on {{ calculatedTotalError }}",
+        "small": "Attention! The calculated amount is smaller than Order total amount on {{ calculatedTotalError }}"
+      },
+      "errors": {
+        "price": {
+          "big": "Price is too big",
+          "small": "Price is too low"
+        }
+      },
+      "labels": {
+        "delivery_fee": "Delivery fee",
+        "reason": "Write a reason to update Order",
+        "item": {
+          "description": "Item description",
+          "identifier": "Product Id",
+          "name": "Item name",
+          "price": "Price",
+          "quantity": "Quantity",
+          "vat_rate": "VAT rate"
+        }
+      },
+      "placeholders": {
+        "delivery_fee": "Delivery fee",
+        "reason": "Write a reason to update Order",
+        "item": {
+          "description": "Item description",
+          "identifier": "Product Id",
+          "name": "Item name",
+          "price": "Price",
+          "quantity": "Quantity",
+          "vat_rate": "No VAT/Tax"
+        }
+      },
+      "products_table": {
+        "description": "Description",
+        "identifier": "Identifier",
+        "price": "Price",
+        "quantity": "Quantity"
+      }
+    },
+    "upload": {
+      "heading": "Upload",
+      "submit": "Send",
+      "labels": {
+        "upload_type": "Upload type",
+        "file": "Choose file"
+      },
+      "upload_types": {
+        "none": "Please choose",
+        "merit_prove": "Payment slip",
+        "self_employment_prove": "Prove of self-employment",
+        "identification": "ID",
+        "credit_agreement": "Credit agreement",
+        "other": "Other",
+        "unknown": "Unknown"
+      },
+      "errors": {
+        "choose_type": "Please choose document type",
+        "file_name_too_long": "File name '<i>{{ name }}</i>' is too long",
+        "file_size_too_big": "Maximum file size is 5MB"
+      },
+      "messages": {
+        "empty_form": "No files have been uploaded yet."
+      }
+    },
+    "edit": {
+      "heading_error": "Error occured",
+      "errors": {
+        "cant_load_data": "Can't load data from server",
+        "not_implemented_payment": "This payment method data can't be edited"
+      }
+    },
+    "filter": {
+      "actions": {
+        "add": "Add filters",
+        "apply": "Add",
+        "close": "Close"
+      },
+      "labels": {
+        "amount": "Amount",
+        "channel": "Channel",
+        "currency": "Currency",
+        "original_id": "Id",
+        "reference": "Reference",
+        "total": "Total",
+        "type": "Payment type",
+        "customer_name": "Customer name",
+        "customer_email": "Customer email",
+        "merchant_email": "Merchant email",
+        "merchant_name": "Merchant name",
+        "seller_email": "Seller email",
+        "seller_name": "Seller name",
+        "created_at": "Date",
+        "status": "Status",
+        "specific_status": "Specific status",
+        "channel_set_uuid": "Channel set id",
+        "search": "Search"
+      },
+      "condition": {
+        "is": "Is",
+        "isNot": "Is not",
+        "startsWith": "Starts with",
+        "endsWith": "Ends with",
+        "contains": "Contains",
+        "doesNotContain": "Does not contain",
+        "greaterThan": "Greater than",
+        "lessThan": "Less than",
+        "between": "Between",
+        "isDate": "Is",
+        "isNotDate": "Is not",
+        "afterDate": "After",
+        "beforeDate": "Before",
+        "betweenDates": "Between"
+      }
+    }
+  },
+  "channels": {
+    "other_shopsystem": "Other shopsystem",
+    "shopify": "Shopify",
+    "facebook": "Facebook",
+    "finance_express": "Finance express",
+    "store": "Store",
+    "wooCommerce": "WooCommerce",
+    "woo_commerce": "WooCommerce",
+    "magento": "Magento",
+    "marketing": "Marketing",
+    "pos": "PoS",
+    "shopware": "Shopware"
+  },
+  "filters": {
+    "status": {
+      "STATUS_NEW": "New",
+      "STATUS_IN_PROCESS": "In progress",
+      "STATUS_ACCEPTED": "Accepted",
+      "STATUS_PAID": "Paid",
+      "STATUS_DECLINED": "Declined",
+      "STATUS_REFUNDED": "Refunded",
+      "STATUS_FAILED": "Failed",
+      "STATUS_CANCELLED": "Cancelled"
+    },
+    "channel": {
+      "shopify": "Shopify",
+      "facebook": "Facebook",
+      "finance_express": "Finance express",
+      "store": "Store",
+      "wooCommerce": "WooCommerce",
+      "magento": "Magento",
+      "marketing": "Marketing",
+      "pos": "PoS",
+      "shopware": "Shopware",
+      "debitoor": "Debitoor",
+      "link": "Link",
+      "e-conomic": "E-conomic",
+      "jtl": "JTL",
+      "oxid": "OXID",
+      "weebly": "Weebly",
+      "plentymarkets": "Plentymarkets",
+      "advertising": "Advertising",
+      "offer": "Offer",
+      "dandomain": "DanDomain",
+      "presta": "PrestaShop",
+      "xt_commerce": "xt:Commerce",
+      "overlay": "Overlay"
+    },
+    "type": {
+      "sofort": "SOFORT Banking",
+      "invoice": "Invoice",
+      "cash": "Wire Transfer",
+      "paymill_creditcard": "Paymill Credit Card",
+      "paymill_directdebit": "Direct Debit",
+      "paypal": "PayPal",
+      "stripe": "Credit Card",
+      "santander_installment": "Santander Installments",
+      "santander_pos_installment": "POS Santander Installments",
+      "santander_installment_no": "Santander Installments Norway",
+      "santander_pos_installment_no": "POS Santander Installments Norway",
+      "santander_invoice_no": "Santander Invoice Norway",
+      "santander_installment_at": "Santander Installments Austria",
+      "santander_pos_invoice_no": "POS Santander Invoice Norway",
+      "santander_installment_dk": "Santander Installments Denmark",
+      "santander_installment_se": "Santander Installments Sweden",
+      "payex_faktura": "PayEx Invoice",
+      "santander_ccp_installment": "Santander DE Comfort card plus",
+      "payex_creditcard": "PayEx Credit Card",
+      "stripe_directdebit": "Stripe DirectDebit",
+      "santander_invoice_de": "Santander DE Invoice",
+      "santander_pos_invoice_de": "POS Santander DE Invoice",
+      "santander_pos_installment_se": "POS Santander Installments Sweden",
+      "santander_factoring_de": "Santander Factoring",
+      "santander_pos_factoring_de": "POS Santander Factoring",
+      "instant_payment": "Instant Payment"
+    }
+  },
+  "details": {
+    "title": "Order details",
+    "grand_total": "Grand total",
+    "actions": {
+      "cash": {
+        "download_shipping_label": "Download label",
+        "download_shipping_slip": "Download shipping slip",
+        "download_return_label": "Download return label",
+        "resend_shipping_order_template": "Resend shipping order confirmation",
+        "authorize": "Sent",
+        "cancel": "Cancel",
+        "change_amount": "Change amount",
+        "change_reference": "Change reference",
+        "collection": "Get money",
+        "late_payment": "Late payment",
+        "paid": "Paid",
+        "refund": "Refund",
+        "remind": "Remind",
+        "return": "Refund",
+        "shipping_goods": "Shipping goods",
+        "update": "Update"
+      },
+      "invoice": {
+        "download_shipping_label": "Download label",
+        "download_shipping_slip": "Download shipping slip",
+        "download_return_label": "Download return label",
+        "resend_shipping_order_template": "Resend shipping order confirmation",
+        "authorize": "Sent",
+        "cancel": "Cancel",
+        "change_amount": "Change amount",
+        "change_reference": "Change reference",
+        "collection": "Get money",
+        "late_payment": "Late payment",
+        "paid": "Paid",
+        "refund": "Refund",
+        "remind": "Remind",
+        "return": "Refund",
+        "shipping_goods": "Shipping goods",
+        "update": "Update"
+      },
+      "payex_creditcard": {
+        "download_shipping_label": "Download label",
+        "download_shipping_slip": "Download shipping slip",
+        "download_return_label": "Download return label",
+        "resend_shipping_order_template": "Resend shipping order confirmation",
+        "authorize": "Capture",
+        "cancel": "Cancel",
+        "change_amount": "Change amount",
+        "change_reference": "Change reference",
+        "collection": "Get money",
+        "late_payment": "Late payment",
+        "paid": "Paid",
+        "refund": "Refund",
+        "remind": "Remind",
+        "return": "Refund",
+        "shipping_goods": "Shipping goods",
+        "update": "Update"
+      },
+      "payex_faktura": {
+        "download_shipping_label": "Download label",
+        "download_shipping_slip": "Download shipping slip",
+        "download_return_label": "Download return label",
+        "resend_shipping_order_template": "Resend shipping order confirmation",
+        "authorize": "Capture",
+        "cancel": "Cancel",
+        "change_amount": "Change amount",
+        "change_reference": "Change reference",
+        "collection": "Get money",
+        "late_payment": "Late payment",
+        "paid": "Paid",
+        "refund": "Refund",
+        "remind": "Remind",
+        "return": "Refund",
+        "shipping_goods": "Shipping goods",
+        "update": "Update"
+      },
+      "stripe_directdebit": {
+        "download_shipping_label": "Download label",
+        "download_shipping_slip": "Download shipping slip",
+        "download_return_label": "Download return label",
+        "resend_shipping_order_template": "Resend shipping order confirmation",
+        "authorize": "Sent",
+        "cancel": "Cancel",
+        "change_amount": "Change amount",
+        "change_reference": "Change reference",
+        "collection": "Get money",
+        "late_payment": "Late payment",
+        "paid": "Paid",
+        "refund": "Refund",
+        "remind": "Remind",
+        "return": "Refund",
+        "shipping_goods": "Shipping goods",
+        "update": "Update"
+      },
+      "paymill_creditcard": {
+        "download_shipping_label": "Download label",
+        "download_shipping_slip": "Download shipping slip",
+        "download_return_label": "Download return label",
+        "resend_shipping_order_template": "Resend shipping order confirmation",
+        "authorize": "Capture",
+        "refund": "Refund",
+        "capture": "Capture",
+        "reauthorize": "Reauthorize",
+        "shipping_goods": "Shipping goods",
+        "cancel": "Cancel"
+      },
+      "paymill_directdebit": {
+        "download_shipping_label": "Download label",
+        "download_shipping_slip": "Download shipping slip",
+        "download_return_label": "Download return label",
+        "resend_shipping_order_template": "Resend shipping order confirmation",
+        "refund": "Refund",
+        "capture": "Capture",
+        "reauthorize": "Reauthorize",
+        "shipping_goods": "Shipping goods",
+        "cancel": "Cancel"
+      },
+      "santander_factoring_de": {
+        "download_shipping_label": "Download label",
+        "download_shipping_slip": "Download shipping slip",
+        "download_return_label": "Download return label",
+        "resend_shipping_order_template": "Resend shipping order confirmation",
+        "cancel": "Cancel",
+        "refund": "Refund",
+        "shipping_goods": "Shipping goods"
+      },
+      "santander_pos_factoring_de": {
+        "download_shipping_label": "Download label",
+        "download_shipping_slip": "Download shipping slip",
+        "download_return_label": "Download return label",
+        "resend_shipping_order_template": "Resend shipping order confirmation",
+        "cancel": "Cancel",
+        "refund": "Refund",
+        "shipping_goods": "Shipping goods",
+        "edit": "Edit",
+        "change_amount": "Change amount",
+        "change_reference": "Change reference",
+        "verify": "Verify"
+      },
+      "paypal": {
+        "download_shipping_label": "Download label",
+        "download_shipping_slip": "Download shipping slip",
+        "download_return_label": "Download return label",
+        "resend_shipping_order_template": "Resend shipping order confirmation",
+        "authorize": "Sent",
+        "capture": "Capture",
+        "reauthorize": "Reauthorize",
+        "cancel": "Cancel",
+        "refund": "Refund",
+        "shipping_goods": "Shipping goods",
+        "void": "Void"
+      },
+      "instant_payment": {
+        "download_shipping_label": "Download label",
+        "download_shipping_slip": "Download shipping slip",
+        "download_return_label": "Download return label",
+        "resend_shipping_order_template": "Resend shipping order confirmation",
+        "authorize": "Sent",
+        "capture": "Capture",
+        "reauthorize": "Reauthorize",
+        "cancel": "Cancel",
+        "refund": "Refund",
+        "shipping_goods": "Shipping goods",
+        "void": "Void"
+      },
+      "santander_ccp_installment": {
+        "download_shipping_label": "Download label",
+        "download_shipping_slip": "Download shipping slip",
+        "download_return_label": "Download return label",
+        "resend_shipping_order_template": "Resend shipping order confirmation",
+        "cancel": "Cancel",
+        "return": "Refund",
+        "shipping_goods": "Shipping goods",
+        "upload": "Upload"
+      },
+      "santander_installment": {
+        "download_shipping_label": "Download label",
+        "download_shipping_slip": "Download shipping slip",
+        "download_return_label": "Download return label",
+        "resend_shipping_order_template": "Resend shipping order confirmation",
+        "cancel": "Cancel",
+        "return": "Refund",
+        "shipping_goods": "Shipping goods",
+        "upload": "Upload"
+      },
+      "santander_installment_at": {
+        "download_shipping_label": "Download label",
+        "download_shipping_slip": "Download shipping slip",
+        "download_return_label": "Download return label",
+        "resend_shipping_order_template": "Resend shipping order confirmation",
+        "cancel": "Cancel",
+        "refund": "Refund",
+        "shipping_goods": "Shipping goods"
+      },
+      "santander_installment_dk": {
+        "download_shipping_label": "Download label",
+        "download_shipping_slip": "Download shipping slip",
+        "download_return_label": "Download return label",
+        "resend_shipping_order_template": "Resend shipping order confirmation",
+        "cancel": "Cancel",
+        "refund": "Refund",
+        "shipping_goods": "Shipping goods"
+      },
+      "santander_installment_no": {
+        "download_shipping_label": "Download label",
+        "download_shipping_slip": "Download shipping slip",
+        "download_return_label": "Download return label",
+        "resend_shipping_order_template": "Resend shipping order confirmation",
+        "refund": "Refund",
+        "cancel": "Cancel",
+        "change_amount": "Change amount",
+        "change_reference": "Change reference",
+        "shipping_goods": "Shipping goods",
+        "edit": "Edit"
+      },
+      "santander_installment_se": {
+        "download_shipping_label": "Download label",
+        "download_shipping_slip": "Download shipping slip",
+        "download_return_label": "Download return label",
+        "resend_shipping_order_template": "Resend shipping order confirmation",
+        "cancel": "Cancel",
+        "change_amount": "Change amount",
+        "change_reference": "Change reference",
+        "refund": "Refund",
+        "shipping_goods": "Shipping goods"
+      },
+      "santander_invoice_no": {
+        "download_shipping_label": "Download label",
+        "download_shipping_slip": "Download shipping slip",
+        "download_return_label": "Download return label",
+        "resend_shipping_order_template": "Resend shipping order confirmation",
+        "refund": "Refund",
+        "cancel": "Cancel",
+        "change_amount": "Change amount",
+        "change_reference": "Change reference",
+        "shipping_goods": "Shipping goods",
+        "edit": "Update",
+        "update": "Update"
+      },
+      "santander_invoice_de": {
+        "download_shipping_label": "Download label",
+        "download_shipping_slip": "Download shipping slip",
+        "download_return_label": "Download return label",
+        "resend_shipping_order_template": "Resend shipping order confirmation",
+        "cancel": "Cancel",
+        "change_amount": "Change amount",
+        "change_reference": "Change reference",
+        "refund": "Refund",
+        "shipping_goods": "Shipping goods"
+      },
+      "santander_pos_invoice_de": {
+        "download_shipping_label": "Download label",
+        "download_shipping_slip": "Download shipping slip",
+        "download_return_label": "Download return label",
+        "resend_shipping_order_template": "Resend shipping order confirmation",
+        "cancel": "Cancel",
+        "contract": "Product information",
+        "refund": "Refund",
+        "shipping_goods": "Shipping goods",
+        "edit": "Edit",
+        "change_amount": "Change amount",
+        "change_reference": "Change reference",
+        "verify": "Verify"
+      },
+      "santander_pos_installment": {
+        "download_shipping_label": "Download label",
+        "download_shipping_slip": "Download shipping slip",
+        "download_return_label": "Download return label",
+        "resend_shipping_order_template": "Resend shipping order confirmation",
+        "cancel": "Cancel",
+        "return": "Refund",
+        "shipping_goods": "Shipping goods",
+        "upload": "Upload",
+        "edit": "Edit"
+      },
+      "santander_pos_installment_se": {
+        "download_shipping_label": "Download label",
+        "download_shipping_slip": "Download shipping slip",
+        "download_return_label": "Download return label",
+        "resend_shipping_order_template": "Resend shipping order confirmation",
+        "cancel": "Cancel",
+        "change_amount": "Change amount",
+        "change_reference": "Change reference",
+        "refund": "Refund",
+        "shipping_goods": "Shipping goods"
+      },
+      "santander_pos_invoice_no": {
+        "download_shipping_label": "Download label",
+        "download_shipping_slip": "Download shipping slip",
+        "download_return_label": "Download return label",
+        "resend_shipping_order_template": "Resend shipping order confirmation",
+        "refund": "Refund",
+        "cancel": "Cancel",
+        "change_amount": "Change amount",
+        "change_reference": "Change reference",
+        "shipping_goods": "Shipping goods",
+        "edit": "Edit"
+      },
+      "sofort": {
+        "download_shipping_label": "Download label",
+        "download_shipping_slip": "Download shipping slip",
+        "download_return_label": "Download return label",
+        "resend_shipping_order_template": "Resend shipping order confirmation",
+        "refund": "Refund",
+        "capture": "Capture",
+        "reauthorize": "Reauthorize",
+        "cancel": "Cancel",
+        "shipping_goods": "Shipping goods"
+      },
+      "stripe": {
+        "download_shipping_label": "Download label",
+        "download_shipping_slip": "Download shipping slip",
+        "download_return_label": "Download return label",
+        "resend_shipping_order_template": "Resend shipping order confirmation",
+        "authorize": "Sent",
+        "capture": "Capture",
+        "reauthorize": "Reauthorize",
+        "cancel": "Cancel",
+        "refund": "Refund",
+        "shipping_goods": "Shipping goods"
+      }
+    },
+    "overview": {
+      "products_number": "{{ count }} products"
+    },
+    "items": {
+      "amount": {
+        "fee": {
+          "payment": "Payment fee",
+          "delivery": "Delivery fee"
+        },
+        "subtotal": "Subtotal",
+        "total": "Total"
+      },
+      "header": "Products",
+      "orders_summary": "Orders summary",
+      "refunded": "* {{ name }} (refunded)",
+      "refundedAmount": "* Fixed amount (refunded)",
+      "refundedReason": "* Refunded: {{ reasons }}"
+    },
+    "order_details": {
+      "birthday": "Birthday"
+    },
+    "order": {
+      "header": "Order #",
+      "payeverId": "Payever ID",
+      "santanderApplicationId": "Santander Application ID",
+      "applicationNo": "Application No",
+      "panId": "PAN ID",
+      "paymentId": "Payment ID",
+      "invoiceId": "Invoice ID",
+      "editInvoiceId": "Edit invoice",
+      "reference": "Reference"
+    },
+    "billing": {
+      "header": "Bills to",
+      "name": "Name",
+      "email": "E-mail",
+      "address": "Address"
+    },
+    "shipping": {
+      "header": "Ships to",
+      "name": "Name",
+      "email": "E-mail",
+      "address": "Address",
+      "carrier": "Shipping carrier",
+      "same_as_billing": "Shipping address is same as billing address"
+    },
+    "header": "Order details",
+    "history": {
+      "action": {
+        "app_sent": "Application sent",
+        "create": "Create",
+        "edit": "Edit",
+        "change_amount": "Amount changed to {{amount}}",
+        "change_reference": "Reference changed to {{reference}}",
+        "remind": "Remind",
+        "latepayment": "Late payment",
+        "collection": "Collection",
+        "paid": "Paid",
+        "return": "Return",
+        "cancel": "Cancel",
+        "statuschanged": "Status changed to {{ payment_status }}",
+        "changeamount": "Amount changed to {{ amount }}",
+        "upload": "Upload in category {{ upload_type }}",
+        "transfer": "Goods sent",
+        "refund": {
+          "amount": "Refund of {{ amount }}",
+          "items": "Refunded {{ count }} \"{{ item }}\""
+        },
+        "preauthorize": "Preauthorize",
+        "preauthorize_submit": "Preauthorize submit",
+        "capture": "Capture",
+        "capture_with_amount": "{{ amount }} captured",
+        "update": "Update",
+        "shipping_goods": "Shipping goods"
+      },
+      "header": "Timeline"
+    },
+    "payment": {
+      "header": "Payment",
+      "type": "Payment method",
+      "iban": "IBAN number"
+    },
+    "totals": {
+      "subtotal": "Subtotal",
+      "refunded": "Refunded",
+      "delivery_fee": "Shipping fee",
+      "total_incl_tax": "Order total including tax"
+    },
+    "credit_answer": {
+      "header": "Credit answer",
+      "not_available": "Credit answer not available at the moment.",
+      "print": "Print"
+    }
+  },
+  "salutation": {
+    "SALUTATION_MR": "Mr",
+    "SALUTATION_MRS": "Mrs"
+  },
+  "amount": {
+    "actions": {
+      "edit_amount": "Edit amount"
+    },
+    "form": {
+      "amount": {
+        "label": "Amount",
+        "placeholder": "Amount"
+      }
+    },
+    "header": {
+      "amount": "Amount"
+    }
+  },
+  "cart": {
+    "actions": {
+      "edit_cart": "Edit cart"
+    },
+    "header": {
+      "cart": "Cart"
+    }
+  },
+  "address": {
+    "actions": {
+      "edit_billing_address": "Edit billing address"
+    },
+    "form": {
+      "new_addresses": {
+        "label": "New address"
+      },
+      "city": {
+        "label": "City",
+        "placeholder": "City"
+      },
+      "company": {
+        "label": "Company",
+        "placeholder": "Company (optional)"
+      },
+      "country": {
+        "label": "Country",
+        "placeholder": "Country"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Email"
+      },
+      "error": {
+        "city": "Enter the valid city",
+        "country": "Select country",
+        "email": "Enter the valid email",
+        "first_name": "Enter your first name",
+        "full_address": "Full address should have at least 8 letters",
+        "last_name": "Enter your last name",
+        "salutation": "Select salutation",
+        "street": "Enter the your street address",
+        "zip_code": "Enter the your post code"
+      },
+      "first_name": {
+        "label": "First name",
+        "placeholder": "First name"
+      },
+      "full_address": {
+        "label": "Address",
+        "placeholder": "Start typing address here"
+      },
+      "label": {
+        "address": "Address",
+        "city": "City",
+        "company": "Company",
+        "country": "Country",
+        "deliver_to_different_address": "Deliver to a different address",
+        "email": "Email",
+        "first_name": "First name",
+        "last_name": "Last name",
+        "phone": "Phone",
+        "salutation": "Salutation",
+        "select_address": "Select an existing address or add new",
+        "street": "Street and number",
+        "zip_code": "Post code"
+      },
+      "last_name": {
+        "label": "Last name",
+        "placeholder": "Last name"
+      },
+      "phone": {
+        "label": "Phone",
+        "placeholder": "Phone (optional)"
+      },
+      "placeholder": {
+        "address": "Start typing address here",
+        "city": "City",
+        "company": "Company (optional)",
+        "country": "Country",
+        "edit_address": "Edit address",
+        "email": "Email",
+        "first_name": "First name",
+        "last_name": "Last name",
+        "new_address": "New address",
+        "phone": "Phone (optional)",
+        "salutation": "Salutation",
+        "street": "Street and number",
+        "zip_code": "Post code"
+      },
+      "plain_password": {
+        "label": "Password",
+        "placeholder": "Password"
+      },
+      "salutation": {
+        "label": "Salutation",
+        "placeholder": "Salutation"
+      },
+      "select_address": {
+        "label": "Select an existing address or add new",
+        "placeholder": "New address"
+      },
+      "street": {
+        "label": "Street and number",
+        "placeholder": "Street and number"
+      },
+      "username": {
+        "label": "Email",
+        "placeholder": "Email"
+      },
+      "zip_code": {
+        "label": "Post code",
+        "placeholder": "Post code"
+      }
+    },
+    "suggest_your_email": "Is it your email?",
+    "header": {
+      "billing_address": "Billing address",
+      "billing_and_shipping_address": "Billing and shipping address",
+      "shipping_address": "Shipping address"
+    }
+  },
+  "sort_transactions": {
+    "total_high": "Total high",
+    "total_low": "Total low",
+    "customer_name": "Customer Name",
+    "date": "Date",
+    "sort_by": "Sort by:"
+  }
+}

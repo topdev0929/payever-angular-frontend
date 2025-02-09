@@ -1,0 +1,1 @@
+export { WidgetStyleComponent } from './widget-style.component';

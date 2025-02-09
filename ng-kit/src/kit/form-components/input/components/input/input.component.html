@@ -1,0 +1,31 @@
+<div>
+  <mat-form-field [floatLabel]="floatLabel"
+                  [hideRequiredMarker]="hideRequiredMarker"
+                  [class.mat-form-field-has-prefix]="hasAddonPrepend"
+                  [class.mat-form-field-addon-style-filled]="isAddonStyleFilled">
+    <div class="mat-input-with-addon-inline-prepend-wrapper">
+      <pe-form-addon-inline-prepend [addon]="addonPrepend" *ngIf="hasAddonInlinePrepend"></pe-form-addon-inline-prepend>
+      <input matInput
+             [attr.pe-qa-input]="controlQaId"
+             [attr.tabindex]="tabIndex"
+             [attr.name]="nameAttribute"
+             [attr.autocomplete]="autocompleteAttribute"
+             [errorStateMatcher]="errorStateMatcher"
+             [placeholder]="placeholder"
+             [type]="type"
+             [formControl]="formControl"
+             [readonly]="disabled || readonly"
+             [required]="required"
+             [peBlockCopyPaste]="blockCopyPaste"
+             (focus)="onFocus($event)"
+             (blur)="onBlur($event)">
+    </div>
+    <mat-error *ngIf="errorMessage && formControl?.invalid" [style.margin-left.px]="addonPrependOffset">{{ errorMessage }}</mat-error>
+    <pe-form-addon matSuffix [addon]="addonAppend" *ngIf="hasAddonAppend"></pe-form-addon>
+    <pe-form-addon matPrefix #addonPrependElem [addon]="addonPrepend" *ngIf="hasAddonPrepend"></pe-form-addon>
+  </mat-form-field>
+  <span class="number-controls" *ngIf="showNumberControls && type === 'number'">
+      <span class="control-caret-up" [attr.pe-qa-input]="controlQaId + '-up'" (click)="changeNumber(true)"><svg class="icon icon-16"><use xlink:href="#icon-arrow-up-small-16"></use></svg></span>
+      <span class="control-caret-down" [attr.pe-qa-input]="controlQaId + '-down'" (click)="changeNumber(false)"><svg class="icon icon-16"><use xlink:href="#icon-arrow-down-small-16"></use></svg></span>
+    </span>
+</div>

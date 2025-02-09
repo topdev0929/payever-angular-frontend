@@ -1,0 +1,17 @@
+<checkout-sdk-finish-status-icon [status]="'fail'">
+</checkout-sdk-finish-status-icon>
+
+<!-- TODO: ADD TRANSLATIONS -->
+<ng-container *ngIf="merchantMode">
+  <p class="large-2 mt20">Vielen Dank für Ihre Anfrage.</p>
+  <p class="large-2 mt20">Leider kann die Bank in diesem Fall keinen Kredit gewähren.</p>
+  <p class="large-2 mt20">Bitte verweisen Sie Ihren Kunden auf alternative Bezahlungsmöglichkeiten.</p>
+  <p class="large-2 mt20">Vielen Dank für Ihr Verständnis!</p>
+</ng-container>
+
+<ng-container *ngIf="!merchantMode">
+  <p class="large-2 mt20">Vielen Dank für Ihre Anfrage.</p>
+  <p class="large-2 mt20">Leider konnte mit Ihrem derzeitigen Angaben keine Kreditgenehmigung durch die Bank erreicht werden.</p>
+  <p class="large-2 mt20">Bitte wenden Sie sich im Zweifelsfall an das Service-Personal, das für Sie durch Eingabe zusätzlicher Angaben oder Hinzunahme eines Angehörigen als zweiten Darlehensnehmer ggf. noch einen positiven Bescheid erreichen kann.</p>
+  <p class="large-2 mt20">Vielen Dank für Ihr Verständnis!</p>
+</ng-container>

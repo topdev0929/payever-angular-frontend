@@ -1,0 +1,172 @@
+.desktop-checkout-items .item-header .selected-step-data {
+  width: 160px;
+}
+
+.active-payment-method-step-1 .desktop-checkout-items {
+  top: -128px;
+}
+
+.active-payment-method-step-2 .desktop-checkout-items {
+  top: -304px;
+}
+
+.active-mit-id-and-skat-step .desktop-checkout-items {
+  top: -226px;
+}
+
+.active-application-details-step-1 .desktop-checkout-items {
+  top: -186px;
+}
+
+.active-application-details-step-2 .desktop-checkout-items {
+  top: -620px;
+}
+
+.active-application-details-step-3 .desktop-checkout-items {
+  top: -802px;
+}
+
+.active-application-details-step-4 .desktop-checkout-items,
+.active-application-details-step-5 .desktop-checkout-items {
+  top: -1032px;
+}
+
+.mobile .active-shipping-step .desktop-checkout-items {
+  top: -54px;
+}
+
+.mobile .active-payment-method-step-2 .desktop-checkout-items {
+  top: -352px;
+}
+
+.mobile .active-mit-id-and-skat-step .desktop-checkout-items {
+  top: -160px;
+}
+
+.mobile .active-application-details-step-2 .desktop-checkout-items {
+  top: -736px;
+}
+
+.mobile .active-application-details-step-3 .desktop-checkout-items {
+  top: -1226px;
+}
+
+.mobile .active-application-details-step-4 .desktop-checkout-items,
+.mobile .active-application-details-step-5 .desktop-checkout-items {
+  top: -1494px;
+}
+
+.collapse-item-group.opened .collapse-item-header {
+  border-radius: 4px 4px 0 0;
+}
+
+.collapse-item-group.opened .collapse-item-body {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.collapse-item-group .collapse-item-header {
+  display: flex;
+  height: 34px;
+  padding: 0px 10px;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  color: var(--light);
+  line-height: 135%;
+  background: #707070;
+  border-radius: 4px;
+}
+
+.collapse-item-header-title {
+  font-weight: 500;
+}
+
+.collapse-item-group .control-assets {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.collapse-item-group .collapse-item-body {
+  display: none;
+  padding: 11px 15px 15px 15px;
+  border: 1px solid #707070;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+}
+
+.mobile .collapse-item-group .collapse-item-body {
+  padding: 11px 10px 15px 10px;
+}
+
+.paragraph-content {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  font-size: 9px;
+}
+
+.mobile .paragraph-content {
+  gap: 8px;
+}
+
+.paragraph-content p {
+  margin: 0;
+}
+
+.paragraph-content .underline {
+  text-decoration: underline;
+}
+
+.application-details-step .continue-button-wrapper {
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--secondary-200);
+}
+
+.steps-guide-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 15px;
+}
+
+.steps-guide-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.steps-guide-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.steps-guide-item-icon img {
+  max-width: 20px;
+}
+
+.steps-guide-item-title {
+  font-size: 11px;
+  margin-bottom: 2px;
+}
+
+.form-fields-desktop-view {
+  display: block;
+}
+
+.mobile .form-fields-desktop-view {
+  display: none;
+}
+
+.form-fields-mobile-view {
+  display: none;
+}
+
+.mobile .form-fields-mobile-view {
+  display: block;
+}

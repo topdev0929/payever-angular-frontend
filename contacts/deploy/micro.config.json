@@ -1,0 +1,10 @@
+{
+  "code": "contacts",
+  "dashboardInfo": {
+    "title": "dashboard.apps.contacts",
+    "icon": "icon-commerceos-customers-32.png"
+  },
+  "tag": "<contacts-app></contacts-app>",
+  "url": "/business/{uuid}/contacts",
+  "bootstrapScriptUrl": "${MICRO_URL_FRONTEND_CONTACTS}/micro.js?{hash}"
+}

@@ -1,0 +1,31 @@
+<or-action-modal [close$]="close$"
+                 [heading]="'form.remind.heading' | translate"
+                 [buttons]="modalButtons"
+                 [loading]="loading"
+                 class="dark"
+>
+  <form novalidate (ngSubmit)="onSubmit()" [formGroup]="form" *ngIf="form !== null">
+    <div class="inner-padding">
+      <div [innerHtml]="'form.remind.note' | translate"></div>
+    </div>
+    <div class="form-table">
+      <fieldset class="transparent-form">
+        <div class="clearfix">
+          <div class="col-xs-12">
+            <div class="input-group">
+            <span class="input-group-main">
+              <input class="form-control"
+                     id="input_dunning_costs"
+                     placeholder="{{ 'form.remind.labels.dunning_costs' | translate }}"
+                     formControlName="dunningCosts"
+                     type="number">
+              <label for="input_dunning_costs">{{ 'form.remind.labels.dunning_costs' | translate }}</label>
+            </span>
+              <span class="input-group-addon">{{ currencySymbol }}</span>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </form>
+</or-action-modal>

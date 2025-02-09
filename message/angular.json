@@ -1,0 +1,315 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false
+  },
+  "version": 1,
+  "newProjectRoot": "src/modules",
+  "defaultProject": "sandbox",
+  "projects": {
+    "sandbox": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "scr/sandbox",
+      "sourceRoot": "src/sandbox/src",
+      "prefix": "sandbox",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/sandbox",
+            "index": "src/sandbox/src/index.html",
+            "main": "src/sandbox/src/main.ts",
+            "polyfills": "src/sandbox/src/polyfills.ts",
+            "tsConfig": "src/sandbox/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "src/sandbox/src/favicon.ico",
+              "src/sandbox/src/assets",
+              "src/sandbox/src/env.json",
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/filters/filter-icons",
+                "output": "./assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/sidebar/sidebar-icons",
+                "output": "./assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/ui/src/assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/modules/message/assets/icons",
+                "output": "./assets/icons"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@pe/shipping-app/assets",
+                "output": "./assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@pe/data-grid/assets",
+                "output": "./assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@pe/subscriptions/assets/",
+                "output": "/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@pe/themes/src/assets",
+                "output": "./assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/connect-app/assets/icons",
+                "output": "/assets/icons"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@pe/builder-base-plugins/assets",
+                "output": "./assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@pe/builder-editor/src/assets",
+                "output": "./assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@pe/builder-shop/assets",
+                "output": "./assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@pe/builder-shapes/src/assets",
+                "output": "./assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@pe/builder-pages/src/assets",
+                "output": "./assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@pe/builder-media/src/assets",
+                "output": "./assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@pe/platform-header/src/assets",
+                "output": "./assets/"
+              }
+            ],
+            "styles": [
+              "src/sandbox/src/styles.scss"
+            ],
+            "scripts": [],
+            "preserveSymlinks": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/sandbox/src/environments/environment.ts",
+                  "with": "src/sandbox/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "12kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "sandbox:build",
+            "port": 4100
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "sandbox:build:production"
+            }
+          }
+        }
+      }
+    },
+    "embed": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "scr/embed",
+      "sourceRoot": "src/embed/src",
+      "prefix": "embed",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/embed",
+            "index": "src/embed/src/index.html",
+            "main": "src/embed/src/main.ts",
+            "polyfills": "src/embed/src/polyfills.ts",
+            "tsConfig": "src/embed/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "src/embed/src/favicon.ico",
+              "src/embed/src/assets",
+              "src/embed/src/env.json",
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/filters/filter-icons",
+                "output": "./assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/sidebar/sidebar-icons",
+                "output": "./assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/ui/src/assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/modules/message/assets/icons",
+                "output": "./assets/icons"
+              }
+            ],
+            "styles": [
+              "src/embed/src/styles.scss"
+            ],
+            "scripts": [],
+            "preserveSymlinks": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/embed/src/environments/environment.ts",
+                  "with": "src/embed/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "12kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "embed:build",
+            "port": 4100
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "embed:build:production"
+            }
+          }
+        }
+      }
+    },
+    "libs.message": {
+      "root": "src/modules/message",
+      "sourceRoot": "src/modules/message/src",
+      "projectType": "library",
+      "prefix": "pe-message",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "src/modules/message/tsconfig.lib.json",
+            "project": "src/modules/message/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "src/modules/message/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/modules/message/src/test.ts",
+            "tsConfig": "src/modules/message/tsconfig.spec.json",
+            "karmaConfig": "src/modules/message/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "prefix": "peb",
+      "style": "scss",
+      "changeDetection": "OnPush",
+      "skipTests": true
+    },
+    "@schematics/angular:directive": {
+      "prefix": "peb",
+      "skipTests": true
+    },
+    "@schematics/angular:guard": {
+      "skipTests": true
+    },
+    "@schematics/angular:module": {
+      "skipTests": true
+    },
+    "@schematics/angular:pipe": {
+      "skipTests": true
+    },
+    "@schematics/angular:service": {
+      "skipTests": true
+    }
+  }
+}

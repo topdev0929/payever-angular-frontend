@@ -1,0 +1,30 @@
+<div class="chapter">
+  <h2>TextEditorComponent</h2>
+  <div class="main-block">
+    <tabset>
+      <tab heading="Overview">
+        <h3>Import TextEditorModule</h3>
+        <pre><code class="typescript" [innerHTML]="'import { TextEditorModule } from \'@pe/ng-kit/modules/text-editor\';'"></code></pre>
+        <h3>Import TextEditorToolbarModule</h3>
+        <pre><code class="typescript" [innerHTML]="'import { TextEditorToolbarModule } from \'@pe/ng-kit/modules/text-editor\';'"></code></pre>
+        <p>&nbsp;</p>
+        <p>Text Editor <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/execCommand/">documentation</a></p>
+        <example-viewer
+          title="Basic Example"
+        >
+          <div style="background-color: rgba(73, 72, 70, 0.95); display: block; padding: 5px 0">
+            <pe-text-editor-toolbar #editorToolbar [links]="links" (actionClicked)="triggerCommand($event)"></pe-text-editor-toolbar>
+          </div>
+          <hr>
+          <div style="height: 200px">
+            <pe-text-editor [editable]="true" [htmlText]="exampleText" [isOutlineNone]="false"></pe-text-editor>
+          </div>
+        </example-viewer>
+      </tab>
+      <tab heading="API">
+        <component-api-renderer [path]="'text-editor/src/text-editor.component'"></component-api-renderer>
+      </tab>
+    </tabset>
+  </div>
+</div>
+

@@ -1,0 +1,42 @@
+<checkout-sdk-finish-wrapper
+  [buttons]="buttons"
+  [errorMessage]="errorMessage"
+  [iframeCallbackUrl]="getIframeCallbackUrl()"
+  [isLoading]="isLoading"
+  [isChangingPaymentMethod]="isChangingPaymentMethod"
+  [isDisableChangePayment]="isDisableChangePayment"
+  [merchantMode]="merchantMode"
+  [embeddedMode]="embeddedMode"
+  (close)="onClose()">
+  <ng-container *ngIf="nodeResult">
+    <ng-container [ngSwitch]="true">
+      <!-- For Factoring we never show transactionLink -->
+
+      <checkout-sdk-finish-status-success
+        *ngIf="isStatusSuccess() || isStatusPending()"
+        i18n-title="@@santander-de-fact.inquiry.finish.application_success.title"
+        title="santander-de-fact.inquiry.finish.application_success.title"
+        [total]="nodeResult?.paymentDetails?.totalCreditCost || nodeResult.payment?.total"
+        [currency]="flow?.currency"
+        [storeName]="nodeResult.payment?.businessName || '---'"
+        [createdAt]="nodeResult.createdAt"
+        [billingAddressName]="isPosPayment() ? billingAddressName() : null"
+        [applicationNumber]="applicationNumber"
+        [transactionLink]="null"
+        [flowId]="flow?.id"
+        [isPosPayment]="isPOS"></checkout-sdk-finish-status-success>
+
+      <checkout-sdk-finish-status-fail
+        *ngIf="isStatusFail()"
+        [title]="failedTitle$() | async"
+        [canChangePaymentMethod]="canChangePaymentMethod()"
+        [transactionLink]="null"></checkout-sdk-finish-status-fail>
+
+      <checkout-sdk-finish-status-unknown
+        *ngIf="isStatusUnknown()"
+        [nodeResult]="nodeResult"
+        [orderId]="orderId"
+        [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"></checkout-sdk-finish-status-unknown>
+    </ng-container>
+  </ng-container>
+</checkout-sdk-finish-wrapper>

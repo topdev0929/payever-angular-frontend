@@ -1,0 +1,129 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  .preview {
+    display: flex;
+    flex: 1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 20px;
+  }
+  .container-fluid {
+    display: flex;
+    position: relative;
+    width: 100%;
+    flex: 1;
+    &.dark {
+      background-color: #24272e;
+    }
+    &.transparent {
+      -webkit-backdrop-filter: blur(37.5px);
+      backdrop-filter: blur(37.5px);
+      box-shadow: 3px 3px 30px 0 rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+    &.light {
+      background-color: #ffffff;
+    }
+  }
+  .bg-preview {
+    object-fit: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 20px 35px;
+  }
+  .navbar-detail {
+    display: flex;
+    height: 5%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    .get_image{
+      height: 20px;
+      padding: 4px 12px 3px;
+      border-radius: 6px;
+      background-color: #0371e2;
+      font-size: 11px;
+      font-weight: 500;
+      color: white;
+      outline: 0;
+      border: 0;
+    }
+    &.dark {
+      background-color: #24272e;
+    }
+    &.transparent {
+      -webkit-backdrop-filter: blur(37.5px);
+      backdrop-filter: blur(37.5px);
+      box-shadow: 3px 3px 30px 0 rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+    &.light {
+      background-color: #ffffff;
+      svg {
+        g {
+          fill: rgba(0, 0, 0, 0.4);
+        }
+      }
+    }
+    div {
+      display: flex;
+    }
+    .actions-detail {
+      width: 10%;
+      align-items: center;
+      flex-direction: row;
+      justify-content: space-around;
+      max-width: 150px;
+      div{
+        min-width: 20px;
+        justify-content: center;
+        cursor: pointer;
+      }
+      img {
+        margin-left: 5%;
+        color: #7a7a7a;
+      }
+    }
+  }
+}
+.image-options{
+  .header{
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    padding: 0 8px;
+
+    justify-content: space-between;
+    svg{
+      cursor: pointer;
+    }
+  }
+  .content{
+    margin-top: 12px;
+    font-size: 16px;
+    &__item{
+      cursor: pointer;
+      padding: 6px 8px;
+      svg{
+        width:20px;
+        height: 20px;
+        margin-right: 8px;
+        vertical-align: top;
+      }
+      &:hover{
+        background-color: #0371e2;
+        border-radius: 7px;
+      }
+    }
+  }
+}

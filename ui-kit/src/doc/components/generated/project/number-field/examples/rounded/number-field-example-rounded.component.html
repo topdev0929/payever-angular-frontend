@@ -1,0 +1,17 @@
+<div class="number-field number-field-rounded">
+  <button mat-button [disableRipple]="true"
+          [ngClass]="{'minus': true, 'mat-button-no-padding': true}"
+          (click)="subtract()">
+    <svg class="icon icon-16">
+      <use xlink:href="#icon-minus-big-16"></use>
+    </svg>
+  </button>
+  <input matInput class="number-input" [(ngModel)]="testingNumber" placeholder="0" type="number">
+  <button mat-button [disableRipple]="true"
+          [ngClass]="{'minus': true, 'mat-button-no-padding': true}"
+          (click)="add()">
+    <svg class="icon icon-16">
+      <use xlink:href="#icon-plus-big-16"></use>
+    </svg>
+  </button>
+</div>

@@ -1,0 +1,39 @@
+.button-page {
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.45);
+
+  &.active {
+    color: #ffffff;
+  }
+}
+
+.button-page-label {
+  font-size: 13px;
+}
+
+.button-page-divider {
+  height: 22px;
+  border-right-color: rgba(255, 255, 255, 0.2);
+  margin: 0 6px;
+}
+
+.button-page-dropdown {
+  padding: 0;
+  width: 28px;
+  height: 28px;
+  line-height: 0;
+}
+
+.button-page-dropdown-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.menu-button {
+  color: #ffffff;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}

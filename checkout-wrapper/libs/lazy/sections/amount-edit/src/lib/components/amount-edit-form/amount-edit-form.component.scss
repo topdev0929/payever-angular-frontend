@@ -1,0 +1,17 @@
+.loading {
+  position: relative !important;
+  text-align: center;
+  min-height: 96px;
+}
+.qr-image {
+  display: block;
+  text-align: center;
+  img {
+    width: 100%;
+    max-width: 224px;
+  }
+}
+
+.amount-from {
+  margin-top: 15px;
+}

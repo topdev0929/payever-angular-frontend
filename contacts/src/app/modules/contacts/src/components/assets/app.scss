@@ -1,0 +1,7 @@
+.grid-content__right {
+  .grid {
+    & > .scrollbar {
+      height: calc(100% - 50px);
+    }
+  }
+}

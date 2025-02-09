@@ -1,0 +1,9 @@
+@use 'pe_theming' as pet;
+@use './root/coupons-root-theme.component' as root;
+@use './components/coupon-editor/coupon-editor-theme.component' as coupon_editor;
+
+@mixin theme($theme-config) {
+    $color-config: pet.get-color-config-from-theme($theme-config);
+    @include root.color($color-config);
+    @include coupon_editor.color($color-config);
+}

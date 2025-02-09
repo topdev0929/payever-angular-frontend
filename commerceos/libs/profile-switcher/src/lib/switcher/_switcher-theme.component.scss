@@ -1,0 +1,55 @@
+@use 'SASS:map';
+@use 'pe_screen_variables.scss' as pe_variables;
+
+@mixin color($color-config) {
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $border: map.get($color-config, 'border');
+  $active-text: map.get($color-config, 'active-text');
+  $text-color: map.get($color-config, 'text-color');
+  $icon-background: map.get($color-config, 'icon-background');
+  $row-background: map.get($color-config, 'row-background');
+  $confirm: map.get($color-config, 'confirm');
+
+  pe-switcher {
+    .switcher-container {
+      .business-items-container {
+        background-color: $secondary-background;
+        border: $border;
+        .header {
+          color: $text-color;
+          &-back {
+            color: $confirm;
+          }
+        }
+        .content {
+          .expandable-panel__content {
+            @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+              padding: 16px;
+            }
+            .profile-card {
+              .card-title,
+              .card-image .logo {
+                color: $text-color;
+                .abbreviation {
+                  color: $active-text;
+                }
+              }
+            }
+          }
+          .business-item {
+            background-color: $row-background;
+            .business-title,
+            .icon-arrow svg {
+              color: $text-color;
+            }
+            &:hover {
+              .icon-arrow svg {
+                color: $active-text;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

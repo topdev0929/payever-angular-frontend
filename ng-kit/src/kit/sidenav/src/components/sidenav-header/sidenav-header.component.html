@@ -1,0 +1,17 @@
+<button *ngIf="leftButtonConfig" mat-button [disabled]="leftButtonConfig.disabled"
+        (click)="leftButtonConfig.onClick()"
+        class="mat-sidenav-header-left mat-sidenav-first-el mat-sidenav-grey mat-button  mat-button-link mat-button-bold mat-button-no-padding">
+  <svg *ngIf="leftButtonConfig.icon" style="margin-top:1px;" class="icon icon-16">
+    <use [attr.xlink:href]="leftButtonConfig.icon"></use>
+  </svg>
+  <span *ngIf="leftButtonConfig.title">{{leftButtonConfig.title}}</span>
+</button>
+<button *ngIf="rightButtonConfig" mat-button [disabled]="rightButtonConfig.disabled"
+        (click)="rightButtonConfig.onClick()" color="primary"
+        [class.mat-sidenav-first-el]="!leftButtonConfig"
+        class="mat-sidenav-header-right mat-button mat-button-link mat-button-bold mat-button-no-padding">
+  <span *ngIf="rightButtonConfig.title">{{rightButtonConfig.title}}</span>
+  <svg *ngIf="rightButtonConfig.icon" class="icon icon-16">
+    <use [attr.xlink:href]="rightButtonConfig.icon"></use>
+  </svg>
+</button>

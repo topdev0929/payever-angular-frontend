@@ -1,0 +1,3 @@
+<div *ngIf="errors?.length" class="text-danger small">
+  <p *ngFor="let error of errors" [innerHtml]="error"></p>
+</div>

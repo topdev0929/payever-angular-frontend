@@ -1,0 +1,27 @@
+<div class="chapter">
+  <h2>Switcher</h2>
+  <div id="theme-switcher" class="main-block">
+    <h3>Theme Switcher</h3>
+    <div class="doc-block">
+      <tabset>
+        <tab heading="View">
+          <div class="row">
+            <div class="col-xs-12">
+              <pe-theme-switcher
+                [isMobileSelected]="true"
+                (onToggled)="handleOnToggle($event)"
+              ></pe-theme-switcher>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Template">
+          <div class="row">
+            <div class="col-xs-12">
+              <pre><code class="html" html-entities="true" [innerHTML]="html1 | code"></code></pre>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+</div>

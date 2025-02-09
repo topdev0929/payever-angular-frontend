@@ -1,0 +1,6 @@
+<ng-container *ngIf="fill">
+  <peb-script-fill *ngIf="fill.type === fillType.Js" [fill]="fill" [container]="container"></peb-script-fill>
+  <peb-iframe-fill *ngIf="fill.type === fillType.Iframe" [fill]="fill" [container]="container"></peb-iframe-fill>
+  <peb-three-js-model-fill *ngIf="fill.type === fillType.ThreeJs" [model]="fill" [container]="container"></peb-three-js-model-fill>
+  <peb-video-fill *ngIf="fill.type === fillType.Video" [element]="element" [video]="fill" [container]="container"></peb-video-fill>
+</ng-container>

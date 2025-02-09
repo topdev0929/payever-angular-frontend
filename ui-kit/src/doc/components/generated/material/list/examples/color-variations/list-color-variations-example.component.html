@@ -1,0 +1,108 @@
+<h4>Default</h4>
+<mat-list>
+  <mat-list-item *ngFor="let vegetable of vegetableList"> {{vegetable}} </mat-list-item>
+</mat-list>
+
+<h4>Dark</h4>
+<div class="example-dark">
+  <mat-list class="mat-list-dark">
+    <mat-list-item *ngFor="let vegetable of vegetableList"> {{vegetable}} </mat-list-item>
+  </mat-list>
+</div>
+
+<h4>Transparent</h4>
+<div class="doc-container-black">
+  <mat-list class="mat-list-transparent">
+    <ng-container *ngFor="let vegetable of vegetableList">
+      <mat-list-item class="mat-list-item-no-padding-left">
+        {{ vegetable }}
+        <div class="mat-list-item-content-addon-prepend">
+          <svg class="icon icon-8"><use xlink:href="#icon-n-indicator-16"></use></svg>
+        </div>
+        <div class="mat-list-spacer"></div>
+        <button mat-raised-button [class.mat-button-rounded]="true" [class.mat-button-xs]="true" color="muted-light">
+          Open
+        </button>
+        <button mat-raised-button [class.mat-button-rounded]="true" [class.mat-button-xs]="true" [class.mat-list-item-close]="true" color="muted-light">
+          <svg class="icon icon-8"><use xlink:href="#icon-close-12"></use></svg>
+        </button>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </ng-container>
+  </mat-list>
+</div>
+
+<h4>Transparent Bold</h4>
+<div class="doc-container-black">
+  <mat-list class="mat-list-transparent mat-list-transparent-bold">
+    <mat-list-item class="mat-list-item-no-padding-left">
+      <div class="mat-list-item-flex">
+        <div class="mat-list-item-col">
+          Terminal Nmae
+        </div>
+        <div class="mat-list-item-col">
+          <div class="mat-list-item-subtitle">
+            Native Union Inc.
+          </div>
+        </div>
+        <div class="mat-list-item-col text-right">
+          <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true">Edit</button>
+        </div>
+      </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+
+    <mat-list-item class="mat-list-item-no-padding-left">
+      <div class="mat-list-item-flex">
+        <div class="mat-list-item-col">
+          6 digit password
+        </div>
+        <div class="mat-list-item-col text-right">
+          <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true">Edit</button>
+        </div>
+      </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+
+    <mat-list-item class="mat-list-item-no-padding-left">
+      <div class="mat-list-item-flex">
+        <div class="mat-list-item-col">
+          Languages
+        </div>
+        <div class="mat-list-item-col">
+          <div class="mat-list-item-subtitle">
+            English (Default)
+          </div>
+        </div>
+        <div class="mat-list-item-col text-right">
+          <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true">Edit</button>
+        </div>
+      </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+
+    <mat-list-item class="mat-list-item-no-padding-left">
+      <div class="mat-list-item-flex">
+        <div class="mat-list-item-col-2">
+          Universally Unique Identifier of Business (UUID)
+        </div>
+        <div class="mat-list-item-col text-right">
+          <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true">Edit</button>
+        </div>
+      </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+
+    <mat-list-item class="mat-list-item-no-padding-left">
+      <div class="mat-list-item-flex">
+        <div class="mat-list-item-col-2">
+          Twillo SMS
+        </div>
+        <div class="mat-list-item-col text-right">
+          <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true">Edit</button>
+        </div>
+      </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </mat-list>
+</div>

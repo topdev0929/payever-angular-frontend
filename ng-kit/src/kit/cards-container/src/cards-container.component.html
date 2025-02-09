@@ -1,0 +1,45 @@
+<div class="ui-cards-container"
+  [ngClass]="{'no-pagination': isPaginationHidden, 'no-controls': (isControlsHidden || (isContainerEmpty === true)),
+    'switched-off': isSwitchedOff, 'inited': ((swiper) || (isContainerEmpty === true)) }">
+  <div class="left arrow" #arrowLeft>
+    <svg class="icon icon-48"><use xlink:href="#icon-arrow-left-48"></use></svg>
+  </div>
+  <div class="right arrow" #arrowRight>
+    <svg class="icon icon-48"><use xlink:href="#icon-arrow-right-48"></use></svg>
+  </div>
+
+  <div class="swiper-outer">
+    <div class="ui-card-empty" *ngIf="containerItems.length === 0">{{ config.empty }}</div>
+    <div class="swiper-container" #swiperContainer>
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide" *ngFor="let item of containerItems">
+          <div class="ui-card">
+            <div class="ui-card-wrapper" (click)="onItemSelect($event, item)">
+              <div class="ui-card-img" [style.background-image]="getBackground(item.imagePath)"></div>
+              <div class="ui-card-logo" [style.background-image]="getBackground(item.logoPath)" *ngIf="item.logoPath"></div>
+              <div class="ui-card-abbr" *ngIf="item.abbr"><span>{{ item.abbr }}</span></div>
+              <div class="ui-card-title">{{ item.title }}</div>
+              <div class="ui-card-subtitle">{{ item.subtitle }}</div>
+            </div>
+            <div class="ui-card-actions" *ngIf="item.actions">
+              <div class="dropdown btn-group pull-right dropup">
+                <button class="btn btn-default btn-inline btn-link dropdown-toggle" type="button" id="id_{{ item.id }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  <svg class="icon icon-24"><use xlink:href="#icon-dots-v-24"></use></svg>
+                </button>
+                <div class="dropdown-menu" [attr.aria-labelledby]="'id_'+ item.id" role="menu">
+                  <ul>
+                    <li role="menuitem" *ngFor="let action of item.actions"><a class="dropdown-item"  (click)="onActionSelect($event, item, action)">{{ action.title }}</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui-card-add"><span (click)="config.addSelect($event)">{{ config.add }}</span></div>
+  </div>
+
+  <div class="swiper-pagination"></div>
+</div>

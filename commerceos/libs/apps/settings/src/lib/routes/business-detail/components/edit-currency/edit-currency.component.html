@@ -1,0 +1,22 @@
+<pe-edit-currency-styles></pe-edit-currency-styles>
+<form
+  class="form-container"
+  [formGroup]="currencyForm"
+  #form="ngForm"
+  (ngSubmit)="onSave()"
+>
+    <peb-form-background>
+        <pe-input-picker
+            class="select-options"
+            formControlName="currency"
+            [selectedItem]="selectedCurrency"
+            panelClass="edit-currency-autocomplete"
+            [label]="'info_boxes.modals.currency.label' | translate"
+            [placeholder]="'info_boxes.modals.currency.label' | translate"
+            [data]="currencies"
+            [isFieldInvalid]="form.submitted && currencyForm.get('currency').invalid"
+            [errorMessage]="'common.forms.validations.required' | translate"
+        ></pe-input-picker>
+    </peb-form-background>
+    <button #submitTrigger type="submit" class="hidden"></button>
+</form>

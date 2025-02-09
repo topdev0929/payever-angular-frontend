@@ -1,0 +1,67 @@
+import { PaymentMethodEnum } from '@pe/checkout/types';
+
+export type PaymentTranslationType = {
+  [key in PaymentMethodEnum]: string;
+}
+
+export type ValuesTranslationsType = {
+  [key: string]: string;
+}
+
+export const PAYMENT_TRANSLATIONS: PaymentTranslationType = {
+  [PaymentMethodEnum.PSA_B2B_BNPL]: $localize `:@@payment_methods.psa_b2b_bnpl:`,
+  [PaymentMethodEnum.ALLIANZ]: $localize `:@@payment_methods.allianz_trade_b2b_bnpl:`,
+  [PaymentMethodEnum.BFS_B2B_BNPL]: $localize `:@@payment_methods.bfs_b2b_bnpl:`,
+  [PaymentMethodEnum.HSBC]: $localize `:@@payment_methods.hsbc:`,
+  [PaymentMethodEnum.APPLE_PAY]: $localize `:@@payment_methods.apple_pay:`,
+  [PaymentMethodEnum.CASH]: $localize `:@@payment_methods.cash:`,
+  [PaymentMethodEnum.GOOGLE_PAY]: $localize `:@@payment_methods.google_pay:`,
+  [PaymentMethodEnum.INSTANT_PAYMENT]: $localize `:@@payment_methods.instant_payment:`,
+  [PaymentMethodEnum.IVY]: $localize `:@@payment_methods.ivy:`,
+  [PaymentMethodEnum.PAYPAL]: $localize `:@@payment_methods.paypal:`,
+  [PaymentMethodEnum.SANTANDER_FACTORING_DE]: $localize `:@@payment_methods.santander_factoring_de:`,
+  [PaymentMethodEnum.SANTANDER_INSTALLMENT]: $localize `:@@payment_methods.santander_installment:`,
+  [PaymentMethodEnum.SANTANDER_INSTALLMENT_AT]: $localize `:@@payment_methods.santander_installment_at:`,
+  [PaymentMethodEnum.SANTANDER_INSTALLMENT_BE]: $localize `:@@payment_methods.santander_installment_be:`,
+  [PaymentMethodEnum.SANTANDER_INSTALLMENT_DK]: $localize `:@@payment_methods.santander_installment_dk:`,
+  [PaymentMethodEnum.SANTANDER_INSTALLMENT_FI]: $localize `:@@payment_methods.santander_installment_fi:`,
+  [PaymentMethodEnum.SANTANDER_POS_INSTALLMENT_FI]: $localize `:@@payment_methods.santander_pos_installment_fi:`,
+  [PaymentMethodEnum.SANTANDER_INSTALLMENT_NL]: $localize `:@@payment_methods.santander_installment_nl:`,
+  [PaymentMethodEnum.SANTANDER_INSTALLMENT_NO]: $localize `:@@payment_methods.santander_installment_no:`,
+  [PaymentMethodEnum.SANTANDER_INSTALLMENT_SE]: $localize `:@@payment_methods.santander_installment_se:`,
+  [PaymentMethodEnum.SANTANDER_INSTALLMENT_UK]: $localize `:@@payment_methods.santander_installment_uk:`,
+  [PaymentMethodEnum.SANTANDER_INVOICE_DE]: $localize `:@@payment_methods.santander_invoice_de:`,
+  [PaymentMethodEnum.SANTANDER_INVOICE_NO]: $localize `:@@payment_methods.santander_invoice_no:`,
+  [PaymentMethodEnum.SANTANDER_POS_FACTORING_DE]: $localize `:@@payment_methods.santander_pos_factoring_de:`,
+  [PaymentMethodEnum.SANTANDER_POS_INSTALLMENT]: $localize `:@@payment_methods.santander_pos_installment:`,
+  [PaymentMethodEnum.SANTANDER_POS_INSTALLMENT_AT]: $localize `:@@payment_methods.santander_pos_installment_at:`,
+  [PaymentMethodEnum.SANTANDER_POS_INSTALLMENT_DK]: $localize `:@@payment_methods.santander_pos_installment_dk:`,
+  [PaymentMethodEnum.SANTANDER_POS_INSTALLMENT_NO]: $localize `:@@payment_methods.santander_pos_installment_no:`,
+  [PaymentMethodEnum.SANTANDER_POS_INSTALLMENT_SE]: $localize `:@@payment_methods.santander_pos_installment_se:`,
+  [PaymentMethodEnum.SANTANDER_POS_INSTALLMENT_UK]: $localize `:@@payment_methods.santander_pos_installment_uk:`,
+  [PaymentMethodEnum.SANTANDER_POS_INVOICE_DE]: $localize `:@@payment_methods.santander_pos_invoice_de:`,
+  [PaymentMethodEnum.SANTANDER_POS_INVOICE_NO]: $localize `:@@payment_methods.santander_pos_invoice_no:`,
+  [PaymentMethodEnum.SOFORT]: $localize `:@@payment_methods.sofort:`,
+  [PaymentMethodEnum.STRIPE]: $localize `:@@payment_methods.stripe:`,
+  [PaymentMethodEnum.STRIPE_DIRECTDEBIT]: $localize `:@@payment_methods.stripe_directdebit:`,
+  [PaymentMethodEnum.STRIPE_IDEAL]: $localize `:@@payment_methods.ideal:`,
+  [PaymentMethodEnum.SWEDBANK_CREDITCARD]: $localize `:@@payment_methods.swedbank_creditcard:`,
+  [PaymentMethodEnum.SWEDBANK_INVOICE]: $localize `:@@payment_methods.swedbank_invoice:`,
+  [PaymentMethodEnum.SWEDBANK_VIPPS]: $localize `:@@payment_methods.swedbank_vipps:`,
+  [PaymentMethodEnum.SWEDBANK_TRUSTLY]: $localize `:@@payment_methods.swedbank_trustly:`,
+  [PaymentMethodEnum.SWEDBANK_MOBILE_PAY]: $localize `:@@payment_methods.swedbank_mobile_pay:`,
+  [PaymentMethodEnum.SWEDBANK_SWISH]: $localize `:@@payment_methods.swedbank_swish:`,
+  [PaymentMethodEnum.ZINIA_BNPL]: $localize `:@@payment_methods.zinia_bnpl:`,
+  [PaymentMethodEnum.ZINIA_BNPL_DE]: $localize `:@@payment_methods.zinia_bnpl_de:`,
+  [PaymentMethodEnum.ZINIA_INSTALLMENT]: $localize `:@@payment_methods.zinia_installment:`,
+  [PaymentMethodEnum.ZINIA_INSTALLMENT_DE]: $localize `:@@payment_methods.zinia_installment_de:`,
+  [PaymentMethodEnum.ZINIA_POS]: $localize `:@@payment_methods.zinia_pos:`,
+  [PaymentMethodEnum.ZINIA_POS_DE]: $localize `:@@payment_methods.zinia_pos_de:`,
+  [PaymentMethodEnum.ZINIA_SLICE_THREE]: $localize `:@@payment_methods.zinia_slice_three:`,
+  [PaymentMethodEnum.ZINIA_SLICE_THREE_DE]: $localize `:@@payment_methods.zinia_slice_three_de:`,
+  [PaymentMethodEnum.ZINIA_POS_INSTALLMENT]: $localize `:@@payment_methods.zinia_installment:`,
+  [PaymentMethodEnum.ZINIA_POS_INSTALLMENT_DE]: $localize `:@@payment_methods.zinia_installment_de:`,
+  [PaymentMethodEnum.ZINIA_POS_SLICE_THREE]: $localize `:@@payment_methods.zinia_slice_three:`,
+  [PaymentMethodEnum.ZINIA_POS_SLICE_THREE_DE]: $localize `:@@payment_methods.zinia_slice_three_de:`,
+  [PaymentMethodEnum.SANTANDER_INSTANT_AT]: $localize `:@@payment_methods.santander_at_instant:Santander Instant AT`,
+};

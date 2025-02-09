@@ -1,0 +1,46 @@
+<div class="modal-overlay">
+  <div
+    class="modal-window"
+    [class.position-absolute]="leftOffset || topOffset"
+    [style.top]="topOffset"
+    [style.left]="leftOffset"
+    [style.width]="width"
+    [style.height]="height"
+    [style.maxWidth]="maxWidth"
+    [style.maxHeight]="maxHeight">
+    <div
+      *ngIf="leftSideActions?.length || rightSideActions?.length || title"
+      class="modal-actions">
+      <div class="modal-actions__block left-side">
+        <ng-container *ngFor="let action of leftSideActions">
+          <div
+            class="modal-actions__button"
+            [class.active]="action.active"
+            (click)="action.callback()">
+            {{action.title}}
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="modal-actions__block title">
+        <div
+          class="modal-actions__title">
+          {{title}}
+        </div>
+      </div>
+
+      <div class="modal-actions__block right-side">
+        <ng-container *ngFor="let action of rightSideActions">
+          <div
+            class="modal-actions__button"
+            [class.active]="action.active"
+            [style.color]="action.color || '#d9d9d9'"
+            (click)="action.callback()">
+            {{action.title}}
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <ng-content></ng-content>
+  </div>
+</div>

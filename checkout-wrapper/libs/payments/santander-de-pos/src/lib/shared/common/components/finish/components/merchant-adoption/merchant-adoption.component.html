@@ -1,0 +1,160 @@
+<santander-de-pos-merchant-adoption-styles></santander-de-pos-merchant-adoption-styles>
+<ng-container *ngIf="(isApproved || isAccepted && hideSigning) && !isContractDownloaded">
+  <checkout-sdk-finish-status-icon [status]="'pending'"> </checkout-sdk-finish-status-icon>
+
+  <p class="large-1">
+    <span
+      class="title"
+      i18n="@@payment-santander-de-pos.inquiry.finish.adoption.merchant.note1"
+      >payment-santander-de-pos.inquiry.finish.adoption.merchant.note1</span
+    >
+  </p>
+
+  <ng-container *ngIf="!hideSigning">
+    <p class="caption-1 mt30">
+      <strong i18n="@@payment-santander-de-pos.inquiry.finish.adoption.merchant.note2"
+        >payment-santander-de-pos.inquiry.finish.adoption.merchant.note2</strong
+      >
+    </p>
+    <p
+      class="caption-1 text-left"
+      i18n="@@payment-santander-de-pos.inquiry.finish.adoption.merchant.note3">
+      payment-santander-de-pos.inquiry.finish.adoption.merchant.note3
+    </p>
+    <p
+      class="caption-1 text-left"
+      i18n="@@payment-santander-de-pos.inquiry.finish.adoption.merchant.note4">
+      payment-santander-de-pos.inquiry.finish.adoption.merchant.note4
+    </p>
+    <p
+      class="caption-1 text-left"
+      i18n="@@payment-santander-de-pos.inquiry.finish.adoption.merchant.note5">
+      payment-santander-de-pos.inquiry.finish.adoption.merchant.note5
+    </p>
+
+    <p
+      *ngIf="errorMessage"
+      style="color: red;"
+      [innerHTML]="errorMessage"></p>
+    <div
+      class="signing-qr"
+      *ngIf="customerSigningLink$ | async as link">
+      <ui-qr-box [url]="link"></ui-qr-box>
+    </div>
+    <button
+      mat-button
+      type="button"
+      [disabled]="isSigned('customerSigned') || (isCustomerSending$ | async)"
+      [disableRipple]="true"
+      class="mat-button-md mat-button-gradient continue-button mt20"
+      (click)="sendCustomerSigningLink()">
+      <pe-progress-button-content
+        class="progress-button-content"
+        [class.loading]="isCustomerSending$ | async"
+        [loading]="isCustomerSending$ | async"
+        [spinnerDiameter]="17">
+        <span i18n="@@payment-santander-de-pos.inquiry.finish.adoption.merchant.button1"
+          >payment-santander-de-pos.inquiry.finish.adoption.merchant.button1</span
+        >
+        <span *ngIf="isGuarantor">{{ borrowerPersonTitle1 }}</span>
+      </pe-progress-button-content>
+      <span
+        *ngIf="(isCustomerSending$ | async) && isCustomerSended"
+        i18n="@@payment-santander-de-pos.inquiry.finish.adoption.merchant.sended_link"
+        >payment-santander-de-pos.inquiry.finish.adoption.merchant.sended_link</span
+      >
+    </button>
+    <div
+      class="signing-qr"
+      *ngIf="guarantorSigningLink$ | async as link">
+      <ui-qr-box [url]="link"></ui-qr-box>
+    </div>
+    <button
+      *ngIf="isGuarantor"
+      mat-button
+      type="button"
+      [disabled]="!isSigned('customerSigned') || (isSigned('guarantorSigned') || (isGuarantorSending$ | async))"
+      [disableRipple]="true"
+      class="mat-button-md mat-button-gradient continue-button mt20"
+      (click)="sendGuarantorSigningLink()">
+      <pe-progress-button-content
+        class="progress-button-content"
+        [class.loading]="isGuarantorSending$ | async"
+        [loading]="isGuarantorSending$ | async"
+        [spinnerDiameter]="17">
+        <span i18n="@@payment-santander-de-pos.inquiry.finish.adoption.merchant.button2"
+          >payment-santander-de-pos.inquiry.finish.adoption.merchant.button2</span
+        >
+        <span *ngIf="isGuarantor">{{ borrowerPersonTitle2 }}</span>
+      </pe-progress-button-content>
+      <span
+        *ngIf="(isGuarantorSending$ | async) && isGuarantorSended"
+        i18n="@@payment-santander-de-pos.inquiry.finish.adoption.merchant.sended_link"
+        >payment-santander-de-pos.inquiry.finish.adoption.merchant.sended_link</span
+      >
+    </button>
+  </ng-container>
+
+  <p
+    #contractBox
+    class="caption-2 mt50 text-left"
+    [class.disable-contract]="sendingSignature$ | async"
+    [innerHTML]="contractHtml"></p>
+</ng-container>
+
+<ng-container *ngIf="isContractDownloaded">
+  <checkout-sdk-finish-status-icon [status]="'pending'"> </checkout-sdk-finish-status-icon>
+
+  <p
+    class="caption-1 mt30"
+    i18n="@@payment-santander-de-pos.inquiry.finish.adoption.merchant.note6">
+    payment-santander-de-pos.inquiry.finish.adoption.merchant.note6
+  </p>
+  <p
+    class="caption-1 mt30"
+    i18n="@@payment-santander-de-pos.inquiry.finish.adoption.merchant.note7">
+    payment-santander-de-pos.inquiry.finish.adoption.merchant.note7
+  </p>
+  <p
+    class="caption-1 mt30"
+    i18n="@@payment-santander-de-pos.inquiry.finish.adoption.merchant.note8">
+    payment-santander-de-pos.inquiry.finish.adoption.merchant.note8
+  </p>
+  <p
+    class="caption-1 mt30"
+    i18n="@@payment-santander-de-pos.inquiry.finish.adoption.merchant.note9">
+    payment-santander-de-pos.inquiry.finish.adoption.merchant.note9
+  </p>
+  <p
+    class="caption-1 mt30"
+    i18n="@@payment-santander-de-pos.inquiry.finish.adoption.merchant.note10">
+    payment-santander-de-pos.inquiry.finish.adoption.merchant.note10
+  </p>
+</ng-container>
+
+<ng-container *ngIf="isAccepted && !hideSigning">
+  <p>
+    <svg class="icon icon-64 text-primary"><use xlink:href="#icon-sign-contract"></use></svg>
+  </p>
+
+  <p
+    class="caption-1 mt30"
+    i18n="@@payment-santander-de-pos.inquiry.finish.adoption.merchant.note11">
+    payment-santander-de-pos.inquiry.finish.adoption.merchant.note11
+  </p>
+  <p
+    class="caption-1 mt30 no-mb"
+    i18n="@@payment-santander-de-pos.inquiry.finish.adoption.merchant.note12">
+    payment-santander-de-pos.inquiry.finish.adoption.merchant.note12
+  </p>
+  <p
+    class="caption-1"
+    i18n="@@payment-santander-de-pos.inquiry.finish.adoption.merchant.note13">
+    payment-santander-de-pos.inquiry.finish.adoption.merchant.note13
+  </p>
+  <p
+    class="caption-1 mt30"
+    i18n="@@payment-santander-de-pos.inquiry.finish.adoption.merchant.note14">
+    payment-santander-de-pos.inquiry.finish.adoption.merchant.note14
+  </p>
+</ng-container>

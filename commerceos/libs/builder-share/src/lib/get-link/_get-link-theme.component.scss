@@ -1,0 +1,34 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $label-color: map.get($color-config, 'label-color');
+  $text-color: map.get($color-config, 'text-color');
+  $icon-secondary-background: map.get($color-config, 'icon-secondary-background');
+  $icon-secondary-content: map.get($color-config, 'icon-secondary-content');
+  $row-background: map.get($color-config, 'row-background');
+
+  .peb-get-link {
+    .get-link {
+      &__wrapper {
+        background-color: $row-background;
+      }
+      &__label {
+        color: $label-color;
+      }
+      &__value {
+        color: $text-color;
+      }
+      &__social {
+        &-item {
+          &-wrapper {
+            background-color: $icon-secondary-background;
+            color: $icon-secondary-content;
+          }
+          &-label {
+            color: $text-color;
+          }
+        }
+      }
+    }
+  }
+}

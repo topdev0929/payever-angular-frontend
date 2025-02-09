@@ -1,0 +1,91 @@
+<mat-toolbar class="mat-toolbar-selectbar" *ngIf="items.length">
+  <div class="mat-toolbar-left">
+    <button mat-raised-button
+            color="muted-white"
+            class="mat-button-rounded mat-button-xxs"
+            (click)="onClosed()"
+    >
+      <svg class="icon icon-8"><use xlink:href="#icon-close-8"></use></svg>
+    </button>
+    <span class="mat-toolbar-selectbar-quantity" [innerHtml]="'ng_kit.data_grid.select_bar.items_count_selected' | translate:{ itemsLength: items.length }"></span>
+  </div>
+
+
+  <div class="mat-toolbar-right">
+    <button mat-button
+            class="mat-button-bold mat-toolbar-selectbar-action hide-sm"
+            (click)="onAllSelected()"
+    ><span translate>ng_kit.data_grid.select_bar.buttons.select_all</span></button>
+    <mat-divider class="mat-divider-indented hide-sm" *ngIf="idx !== buttons.length - 1" [vertical]="true"></mat-divider>
+    <button mat-button
+            class="mat-button-bold mat-button-fit-content mat-toolbar-selectbar-action hide-sm"
+            (click)="onUnselected()"
+            translate
+    >ng_kit.data_grid.select_bar.buttons.unselect</button>
+    <mat-divider class="mat-divider-indented hide-sm" *ngIf="idx !== buttons.length - 1" [vertical]="true"></mat-divider>
+    <ng-container *ngIf="buttons.length <= buttonsCountLimit">
+      <ng-container *ngFor="let button of buttons; let idx = index">
+        <button mat-button
+                class="mat-button-bold mat-toolbar-selectbar-action hide-sm"
+                (click)="button.onSelect(items)"
+        ><span>{{ button.title }}</span></button>
+        <mat-divider class="mat-divider-indented hide-sm" *ngIf="idx !== buttons.length - 1" [vertical]="true"></mat-divider>
+      </ng-container>
+    </ng-container>
+    <ng-container *ngIf="buttons.length > buttonsCountLimit">
+      <ng-container *ngFor="let button of buttons.slice(0, buttonsCountLimit - 1)">
+        <button mat-button
+                class="mat-default mat-button-bold mat-toolbar-selectbar-action hide-sm"
+                (click)="button.onSelect(items)"
+        ><span>{{ button.title }}</span></button>
+        <mat-divider class="mat-divider-indented hide-sm" [vertical]="true"></mat-divider>
+      </ng-container>
+      <div class="show-sm">
+        <button mat-button
+                class="mat-default mat-button-bold"
+                [matMenuTriggerFor]="menuDesktop"
+        >
+          <svg class="icon icon-24"><use xlink:href="#icon-dots-h-24"></use></svg>
+        </button>
+        <mat-menu class="mat-menu-dark"
+                  panelClass="pe-bootstrap"
+                  #menuDesktop="matMenu"
+                  [hasBackdrop]="true"
+                  [overlapTrigger]="false"
+                  [attr.xPosition]="'before'"
+
+        >
+          <ng-template matMenuContent>
+            <ng-container *ngFor="let button of buttons.slice(buttonsCountLimit - 1)">
+              <button mat-menu-item
+                      (click)="button.onSelect(items)"
+              >{{ button.title }}</button>
+            </ng-container>
+          </ng-template>
+        </mat-menu>
+      </div>
+    </ng-container>
+    <div class="show-sm">
+      <button mat-icon-button
+              [matMenuTriggerFor]="menu"
+      >
+        <svg class="icon icon-24"><use xlink:href="#icon-dots-h-24"></use></svg>
+      </button>
+      <mat-menu #menu="matMenu" panelClass="pe-bootstrap" class="mat-menu-dark" [hasBackdrop]="true" [overlapTrigger]="true">
+        <ng-template matMenuContent>
+          <button mat-menu-item
+                  (click)="onAllSelected()"
+          >{{'ng_kit.data_grid.select_bar.buttons.select_all' | translate}}</button>
+          <button mat-menu-item
+                  (click)="onUnselected()"
+          >{{'ng_kit.data_grid.select_bar.buttons.unselect' | translate}}</button>
+          <ng-container *ngFor="let button of buttons">
+            <button mat-menu-item
+                    (click)="button.onSelect(items)"
+            >{{ button.title }}</button>
+          </ng-container>
+        </ng-template>
+      </mat-menu>
+    </div>
+  </div>
+</mat-toolbar>

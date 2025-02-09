@@ -1,0 +1,70 @@
+<button type="button" mat-button (click)="toggle()">Toggle</button>
+<div class="doc-container-black">
+  <pe-sidenav [opened]="isOpen" [hasBackdrop]="false" classNames="mat-sidenav-md mat-sidenav-padding-top mat-sidenav-dark">
+    <pe-sidenav-header
+      header
+      classNames="mat-sidenav-paddings-short"
+      [leftButtonConfig]="leftButtonConfig"
+      [rightButtonConfig]="rightButtonConfig">
+    </pe-sidenav-header>
+    <pe-sidenav-subheader-buttons
+      sub-header
+      [buttons]="subheaderData"
+      [activeButton]="activeView">
+    </pe-sidenav-subheader-buttons>
+    <div sidenav-content>
+      <div class="mat-sidenav-paddings">
+        <pe-tree *ngIf="activeView === 'Pages'" [theme]="theme" [treeData]="treeData"></pe-tree>
+        <span *ngIf="activeView === 'Navigation'">Navigation list</span>
+      </div>
+    </div>
+    <div main-content>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus augue, placerat commodo tellus a,
+      ornare lobortis libero. Suspendisse iaculis vestibulum nisl sit amet facilisis. Aenean varius sem in
+      sem ullamcorper, sed efficitur ex ultrices. In blandit iaculis arcu a venenatis. Curabitur egestas semper ipsum,
+      ut molestie tortor dapibus quis. Sed nibh felis, lacinia in pharetra in, euismod eget velit. Praesent quis diam non
+      ligula tempus molestie sit amet nec purus. Praesent vel urna lacus. Nam mauris ligula, tincidunt quis pharetra vel,
+      malesuada at magna. Quisque in elementum sem. Ut dui tortor, viverra in turpis eget, ullamcorper condimentum purus.
+      Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec accumsan enim vel purus
+      ultrices vehicula.
+      <br/>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus augue, placerat commodo tellus a,
+      ornare lobortis libero. Suspendisse iaculis vestibulum nisl sit amet facilisis. Aenean varius sem in
+      sem ullamcorper, sed efficitur ex ultrices. In blandit iaculis arcu a venenatis. Curabitur egestas semper ipsum,
+      ut molestie tortor dapibus quis. Sed nibh felis, lacinia in pharetra in, euismod eget velit. Praesent quis diam non
+      ligula tempus molestie sit amet nec purus. Praesent vel urna lacus. Nam mauris ligula, tincidunt quis pharetra vel,
+      malesuada at magna. Quisque in elementum sem. Ut dui tortor, viverra in turpis eget, ullamcorper condimentum purus.
+      Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec accumsan enim vel purus
+      ultrices vehicula.
+      <br/>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus augue, placerat commodo tellus a,
+      ornare lobortis libero. Suspendisse iaculis vestibulum nisl sit amet facilisis. Aenean varius sem in
+      sem ullamcorper, sed efficitur ex ultrices. In blandit iaculis arcu a venenatis. Curabitur egestas semper ipsum,
+      ut molestie tortor dapibus quis. Sed nibh felis, lacinia in pharetra in, euismod eget velit. Praesent quis diam non
+      ligula tempus molestie sit amet nec purus. Praesent vel urna lacus. Nam mauris ligula, tincidunt quis pharetra vel,
+      malesuada at magna. Quisque in elementum sem. Ut dui tortor, viverra in turpis eget, ullamcorper condimentum purus.
+      Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec accumsan enim vel purus
+      ultrices vehicula.
+    </div>
+  </pe-sidenav>
+</div>
+<ng-template #AddonPrepend>
+  <button class="mat-button-link mat-button-no-padding"
+          mat-button
+          (click)="onClickAddonPrepend()">
+    <svg class="icon icon-16 mat-tree-grey dots-width">
+      <use xlink:href="#icon-dots-v-16"></use>
+    </svg>
+  </button>
+</ng-template>
+<ng-template #NodeTreeContent>
+<div class="form-table">
+  <div class="pe-form-fieldset pe-form-fieldset-media-controls dark">
+    <div class="row">
+      <div class="col-xs-12">
+        <mat-slide-toggle class="mat-label-space-between">Slide me!</mat-slide-toggle>
+      </div>
+    </div>
+  </div>
+</div>
+</ng-template>

@@ -1,0 +1,76 @@
+:host {
+  display: block;
+  margin: -24px;
+}
+
+.widget {
+  border-radius: 12px;
+  -webkit-backdrop-filter: blur(50px);
+  backdrop-filter: blur(50px);
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.5);
+  padding: 8px 8px 16px;
+
+  &__header {
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 32px;
+    margin-top: 8px;
+  }
+  &__title {
+    font-size: 24px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+  }
+  &__close {
+    height: 20px;
+    transition: all .2s;
+    cursor: pointer;
+  }
+  &__body {
+    margin-top: 8px;
+    .view-item {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      border-radius: 7px;
+      transition: all .2s;
+      padding: 6px 8px;
+      cursor: pointer;
+      &__divider {
+        height: 1px;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      &__icon {
+        width: 20px;
+        height: 20px;
+        border-radius: 5px;
+        margin-right: 8px;
+        img{
+          display: flex;
+          width: 20px;
+          height: 20px;
+        }
+      }
+      &__menu {
+        position: absolute;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      &__title {
+        font-size: 16px;
+        width: 100%;
+        line-height: 20px;
+        font-weight: 400;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

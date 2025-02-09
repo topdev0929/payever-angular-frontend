@@ -1,0 +1,21 @@
+
+<span>{{ 'builder-app.forms.layout.position' | translate }}</span>
+
+<form [formGroup]="form">
+  <peb-slide-toggle formControlName="auto"> {{ 'builder-app.forms.layout.auto_position' | translate }} </peb-slide-toggle>
+</form>
+
+<div
+  pebAutoHideScrollBar
+  class="indices-container"
+  [style.gridTemplateRows]="gridTemplateRows"
+  [style.gridTemplateColumns]="gridTemplateColumns"  
+>
+  <div class="disabled" *ngIf="form.value.auto"></div>
+  <div
+    class="index"
+    *ngFor="let index of indices"
+    (click)="changeIndex(index)"
+    [class.active]="selectedIndex === index"
+  ></div>
+</div>

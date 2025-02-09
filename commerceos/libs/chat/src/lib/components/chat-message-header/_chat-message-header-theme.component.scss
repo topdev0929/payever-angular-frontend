@@ -1,0 +1,46 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $primary: map.get($color-config, 'primary');
+  $text-color: map.get($color-config, 'text-color');
+  $hover-button: map.get($color-config, 'hover-button');
+  $active-text: map.get($color-config, 'active-text');
+  $separator: map.get($color-config, 'separator');
+  $label-color: map.get($color-config, 'label-color');
+
+  .forward-by {
+    color: $text-color;
+  }
+
+  .message-header {
+
+    &__from,
+    &__sender {
+      color: $text-color;
+    }
+
+    &__forwarded-from {
+      color: $hover-button;
+    }
+
+    &__edited,
+    &__reply {
+      color: $label-color;
+    }
+
+    span {
+      color: $text-color;
+    }
+
+    .checkbox-frame {
+      &__background {
+        background-color: $hover-button;
+      }
+    }
+    &__message-info {
+      .message-status-icon {
+        stroke: $label-color;
+      }
+    }
+  }
+}

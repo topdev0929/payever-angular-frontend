@@ -1,0 +1,7 @@
+<pe-rate
+  rateAmount="75,50&nbsp;NOK"
+  [rateOptions]="rateOptions"
+  [isSelected]="true"
+  (onSelect)="handleRateSelect($event)"
+  >
+</pe-rate>

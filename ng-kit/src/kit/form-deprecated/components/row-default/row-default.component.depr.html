@@ -1,0 +1,17 @@
+<div class="form-design form-widget {{ formWidgetClassName }} {{ decoratorClassName }}">
+  <label class="control-label small" [innerHtml]="properties.label" *ngIf="properties.label"></label>
+  <span class="pe-input-group-addon pe-input-group-prepend pe-input-group-addon-grey" *ngIf="addonPrepend && hasTextAddonPrepend" [innerHtml]="addonPrepend.text"></span>
+  <pe-form-row-addon [ngClass]="{'pe-input-group-addon': true, 'pe-input-group-prepend': true}"
+                     *ngIf="addonPrepend && !hasTextAddonPrepend"
+                     [addon]="addonPrepend"
+                     (clickAddon)="onClickAddonPrepend()"></pe-form-row-addon>
+  <ng-content></ng-content>
+  <span class="required input-group-addon pe-input-group-append" *ngIf="properties.required && hasAddon"></span>
+  <span class="pe-input-group-addon pe-input-group-addon-grey pe-input-group-append" *ngIf="addonAppend && hasTextAddonAppend" [innerHtml]="addonAppend.text"></span>
+  <pe-form-row-addon [ngClass]="{'pe-input-group-addon': true, 'pe-input-group-append': true}"
+                     *ngIf="addonAppend && !hasTextAddonAppend"
+                     [addon]="addonAppend"
+                     (clickAddon)="onClickAddonAppend()"></pe-form-row-addon>
+  <div class="error small" [innerHtml]="errorText" *ngIf="errorText"></div>
+  <span class="required" *ngIf="properties.required && !hasAddon"></span>
+</div>

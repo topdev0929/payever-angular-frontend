@@ -1,0 +1,15 @@
+<ng-container *ngIf="translationsReady$ | async">
+  <entry-layout [hideLogo]="true">
+    <div class="text-center dark" style="padding: 10px 0;">
+      <div style="width:56px;height:56px;display: flex;margin: auto;">
+        <svg width="56" height="56">
+          <use [attr.xlink:href]="'#icon-commerceos-success'"></use>
+        </svg>
+      </div>
+      <p class="descriptions">{{ 'password.confirmation.message' | translate }}</p>
+      <div class="buttons-back">
+        <button type="button" class="verification-button" translate (click)="navigateToLogin()">password.confirmation.back</button>
+      </div>
+    </div>
+  </entry-layout>
+</ng-container>

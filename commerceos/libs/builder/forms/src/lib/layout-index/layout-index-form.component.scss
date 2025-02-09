@@ -1,0 +1,42 @@
+@import '../../../../styles/src/lib/styles/_sidebars.scss';
+
+span {
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.indices-container {
+  display: grid;
+  gap: 4px;
+    min-height: 80px;
+  overflow: auto;
+  margin-top: 9px;
+    position: relative;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+    .disabled {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      cursor: not-allowed;
+      z-index: 2;
+      background: #1c1d1ebd;
+    }
+  .index {
+    background-color: #6a6a6a;
+      cursor: pointer;
+    height: 100%;
+    border-radius: 4px;
+
+    &.active,
+    &:hover {
+      background-color: #d9d9d9
+    }
+  }
+}

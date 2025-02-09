@@ -1,0 +1,47 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+:host {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  @media (min-width: 720px) {
+    top: 60px;
+  }
+}
+
+@media (max-width: $viewport-breakpoint-md-1) {
+  ::ng-deep .pe-bootstrap .mat-card-transparent {
+    width: 100%;
+  }
+}
+
+.widget-spinner-container {
+  @include full_screen();
+  @include pe_flexbox;
+  @include pe_justify-content(center);
+  @include pe_align-items(center);
+}
+
+.reset-scroll-container {
+  margin: 0 !important;
+
+  ::ng-deep .mat-card {
+    border-radius: 0;
+    width: 100% !important;
+
+    .mat-expansion-panel-dark:first-child {
+
+      .mat-expansion-panel-header {
+        background-color: transparent!important;
+      }
+    }
+  }
+}
+
+.no-border-radius {
+  border-radius: 0;
+}

@@ -1,0 +1,31 @@
+<form [formGroup]="form">
+  <div class="form__row form__row--image">
+    <peb-renderer
+      [style.height.px]="height"
+      [style.width.px]="width"
+      [style.transform]="'translateX('+translateX * scale +'px) scale(' + scale + ')'"
+      [elements]="viewElements"
+      [container]="container"
+    ></peb-renderer>
+  </div>
+  <div class="form__row">
+    <peb-editor-text-input formControlName="title"></peb-editor-text-input>
+  </div>
+  <div class="form__row">
+    <div class="selected-album" #menuTrigger="matMenuTrigger" [matMenuTriggerFor]="menu">
+      <span>{{ selectedAlbum?.name ?? 'All shape' }}</span>
+      <mat-icon [svgIcon]="menuTrigger.menuOpen ? 'collapse' : 'expand'"></mat-icon>
+    </div>
+  </div>
+</form>
+
+<mat-menu #menu="matMenu" class="album-selector" [hasBackdrop]="false">
+  <div
+    class="album"
+    *ngFor="let album of albumOptions$ | async"
+    (click)="changeAlbum(album)"
+    [class.selected]="album.value === form.value.album"
+  >
+    <label>{{ album.name }}</label>
+  </div>
+</mat-menu>

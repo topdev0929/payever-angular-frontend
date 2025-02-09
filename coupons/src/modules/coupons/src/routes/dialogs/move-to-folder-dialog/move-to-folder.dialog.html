@@ -1,0 +1,39 @@
+<ng-scrollbar track="vertical" [ngClass]="theme">
+  <div class="confirmation-form__wrapper">
+    <div class="confirmation-form__header">
+      <button class="confirmation-form__cancel" (click)="onClose()">Cancel</button>
+      <span class="confirmation-form__title">{{overlayData?.isCopy ? 'Copy' : 'Move'}} to folder</span>
+      <button class="confirmation-form__done"
+              (click)="onSave()">Done</button>
+    </div>
+
+    <form [formGroup]="moveToFolderForm">
+
+      <pe-coupons-expansion-panel>
+        <pe-coupons-expansion-panel-content>
+
+          <ng-container>
+            <pe-coupons-form-group formGroupName="type">
+              <peb-form-background>
+
+                <!-- APPLIES TO START -->
+                <peb-select label="Select Folder" selectType="label" formControlName="folderData">
+                  <peb-select-option *ngIf="overlayData?.isCopy" [value]="null" label="-- Root Folder ---"></peb-select-option>
+                  <peb-select-option *ngFor="let option of folders" [value]="option._id" [label]="option.name"></peb-select-option>
+                </peb-select>
+                <!-- APPLIES TO END -->
+
+              </peb-form-background>
+            </pe-coupons-form-group>
+
+          </ng-container>
+
+        </pe-coupons-expansion-panel-content>
+      </pe-coupons-expansion-panel>
+
+    </form>
+  </div>
+</ng-scrollbar>
+
+
+

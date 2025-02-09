@@ -1,0 +1,196 @@
+<div class="docker" [ngClass]="{ 'hide': isDockerClose }">
+  <div class="docker-desktop" [ngClass]="{ 'opened': isDockerContentOpened, 'closed': !isDockerInitialized, 'settings-opened': isSettingsOpened }">
+    <div class="main-apps">
+      <div [ngClass]="{ 'bg-container': true, 'active': isDockerContentOpened }">
+        <div class="blur" [ngStyle]="{ 'background-image': 'url(' + backgroundImage + ')' }"></div>
+      </div>
+      <div [ngClass]="{ 'close-arrow-container': true }" (click)="closeDockerContent()">
+        <div (mouseenter)="animateArrowOnHover()" (mouseout)="animateArrowOnLeave()" [ngClass]="{ 'arrow-dashboard': true, 'up': isArrowLooksUp, 'down': isArrowLooksDown, 'hovered': isArrowHovered }"></div>
+      </div>
+      <ul>
+        <li (mouseenter)="animateArrowOnHover()" (mouseleave)="animateArrowOnLeave()" (click)="openDockerTodosContent()" [ngClass]="{ 'opened': isTodosOpened && isDockerContentOpened }">
+          <div class="app-icon">
+            <svg class="icon icon-96"><use xlink:href="#icon-db-todos-96"></use></svg>
+          </div>
+          <div class="app-title">
+            <p class="subheading" translate>{{ titleTodos }}</p>
+          </div>
+        </li>
+        <li (mouseenter)="animateArrowOnHover()" (mouseleave)="animateArrowOnLeave()" (click)="openDockerStoreContent()" [ngClass]="{ 'opened': isStoreOpened && isDockerContentOpened }">
+          <div class="app-icon">
+            <svg class="icon icon-96"><use xlink:href="#icon-db-store-96"></use></svg>
+          </div>
+          <div class="app-title" *ngIf="dashboardType === 'business'">
+            <p class="subheading" translate>{{ titleStores }}</p>
+          </div>
+          <div class="app-title" *ngIf="dashboardType === 'private'">
+            <p class="subheading" translate>{{ titleShop }}</p>
+          </div>
+        </li>
+        <li (mouseenter)="animateArrowOnHover()" (mouseleave)="animateArrowOnLeave()" (click)="openDockerAppsContent()" [ngClass]="{ 'opened': isAppsOpened && isDockerContentOpened }">
+          <div class="app-icon">
+            <svg class="icon icon-96"><use xlink:href="#icon-db-apps-96"></use></svg>
+          </div>
+          <div class="app-title">
+            <p class="subheading" translate>{{ titleApps }}</p>
+          </div>
+        </li>
+        <li>
+          <a *ngIf="dashboardType === 'business'" href="{{ businessCommunicationLink }}">
+            <div class="app-icon">
+              <svg class="icon icon-96"><use xlink:href="#icon-db-talk-96"></use></svg>
+            </div>
+            <div class="app-title">
+              <p class="subheading" translate>{{ titleTalk }}</p>
+            </div>
+          </a>
+          <a *ngIf="dashboardType === 'private'" href="/private/network/app/communication">
+            <div class="app-icon">
+              <svg class="icon icon-96"><use xlink:href="#icon-db-talk-96"></use></svg>
+            </div>
+            <div class="app-title">
+              <p class="subheading" translate>{{ titleTalk }}</p>
+            </div>
+          </a>
+        </li>
+        <li (mouseenter)="animateArrowOnHover()" (mouseleave)="animateArrowOnLeave()" (click)="openDockerSettingsContent()" [ngClass]="{ 'opened': isSettingsOpened && isDockerContentOpened }">
+          <!-- settings Entry -->
+          <a>
+            <div class="app-icon">
+              <svg class="icon icon-96"><use xlink:href="#icon-db-settings-96"></use></svg>
+            </div>
+            <div class="app-title">
+              <p class="subheading" translate>{{ titleSettings }}</p>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="docker-content-container">
+      <div class="bg-container">
+        <div class="blur" [ngStyle]="{ 'background-image': 'url(' + backgroundImage + ')' }"></div>
+      </div>
+      <div [ngClass]="{ 'apps-container': true, 'opened': isAppsOpened }">
+        <div class="categories-header">
+          <ul *ngIf="dashboardType === 'business'">
+            <li [ngClass]="{ 'subheading': true, 'active': currentCategory === 'all-category' }" id="all-category"
+                (click)="changeAppCategory($event)" translate>{{ titleCategoryAll }}</li>
+            <li [ngClass]="{ 'subheading': true, 'active': currentCategory === 'start-category' }" id="start-category"
+                (click)="changeAppCategory($event)" translate>{{ titleCategoryStart }}</li>
+            <li [ngClass]="{ 'subheading': true, 'active': currentCategory === 'run-category' }" id="run-category"
+                (click)="changeAppCategory($event)" translate>{{ titleCategoryRun }}</li>
+            <li [ngClass]="{ 'subheading': true, 'active': currentCategory === 'grow-category' }" id="grow-category"
+                (click)="changeAppCategory($event)" translate>{{ titleCategoryGrow }}</li>
+          </ul>
+        </div>
+        <div *ngIf="dashboardType === 'business'" [ngClass]="{ 'apps-wrapper': true, 'opened': currentCategory === 'start-category' }">
+          <div class="app" *ngFor="let dockerApp of startApps">
+            <span class="info-circle" *ngIf="dockerApp.hasUnreadMessages"></span>
+            <a (click)="switchToApp()">
+              <doc-app-icon [app]="dockerApp"></doc-app-icon>
+              <span>{{ dockerApp.name }}</span>
+            </a>
+          </div>
+        </div>
+        <div *ngIf="dashboardType === 'business'" [ngClass]="{ 'apps-wrapper': true, 'opened': currentCategory === 'all-category' }">
+          <div class="app" *ngFor="let dockerApp of dockerApps">
+            <span class="info-circle" *ngIf="dockerApp.hasUnreadMessages"></span>
+            <a (click)="switchToApp()">
+              <doc-app-icon [app]="dockerApp"></doc-app-icon>
+              <span>{{ dockerApp.name }}</span>
+            </a>
+          </div>
+        </div>
+        <div *ngIf="dashboardType === 'business'" [ngClass]="{ 'apps-wrapper': true, 'opened': currentCategory === 'run-category' }">
+          <div class="app" *ngFor="let dockerApp of runApps">
+            <span class="info-circle" *ngIf="dockerApp.hasUnreadMessages"></span>
+            <a (click)="switchToApp()">
+              <doc-app-icon [app]="dockerApp"></doc-app-icon>
+              <span>{{ dockerApp.name }}</span>
+            </a>
+          </div>
+        </div>
+        <div *ngIf="dashboardType === 'business'" [ngClass]="{ 'apps-wrapper': true, 'opened': currentCategory === 'grow-category' }">
+          <div class="app" *ngFor="let dockerApp of growApps">
+            <span class="info-circle" *ngIf="dockerApp.hasUnreadMessages"></span>
+            <a (click)="switchToApp()">
+              <doc-app-icon [app]="dockerApp"></doc-app-icon>
+              <span>{{ dockerApp.name }}</span>
+            </a>
+          </div>
+        </div>
+        <div *ngIf="dashboardType === 'private'" [ngClass]="{ 'apps-wrapper': true, 'opened': currentCategory === 'all-category' }">
+          <div class="app" *ngFor="let dockerApp of dockerApps">
+            <a [href]="dockerApp.url">
+              <doc-app-icon [app]="dockerApp"></doc-app-icon>
+              <span>{{ dockerApp.name }}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div [ngClass]="{ 'todos-container': true, 'opened': isTodosOpened }">
+        <div [ngClass]="{ 'notifications-swiper-container': true }">
+          <div [ngClass]="{ 'left arrow': true }" [ngStyle]="{ 'visibility': isSliderHidden ? 'hidden' : 'visible' }" #arrowLeft>
+            <svg class="icon icon-48"><use xlink:href="#icon-arrow-left-48"></use></svg>
+          </div>
+          <div [ngClass]="{ 'right arrow': true }" [ngStyle]="{ 'visibility': isSliderHidden ? 'hidden' : 'visible' }" #arrowRight>
+            <svg class="icon icon-48"><use xlink:href="#icon-arrow-right-48"></use></svg>
+          </div>
+          <div [ngClass]="{ 'swiper-container': true, 'slider-visibility': isSliderHidden }" #swiperContainer>
+            <div class="swiper-wrapper">
+              <div class="swiper-slide" *ngFor="let notification of notificationsList">
+                <div class="notify2-list">
+                  <pe-notification2 *ngIf="notification"
+                                    headerImg="{{ notification.logo }}"
+                                    headerText="{{ notification.headline }}"
+                                    class="notify2 fixed up"
+                                    iconN="{{ notification.logo }}"
+                                    titleN="{{ notification.headline}}"
+                                    descriptionN="{{ notification.subline }}"
+                                    openText="{{ notification?.appAction?.name }}"
+                                    skipText="{{ notification?.skipAction?.name }}"
+                                    openURL="{{ notification?.appAction?.url }}"
+                                    [settings]="notification.settings">
+                  </pe-notification2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3 *ngIf="!notificationsList.length" translate>{{ titleNoNotifications }}</h3>
+        <div class="help-question-container">
+          <a class="subheading" target="_blank" [href]="helpLink" translate>{{ titleHelp }}</a>
+        </div>
+      </div>
+      <div [ngClass]="{ 'store-container': true, 'opened': isStoreOpened }">
+        <div *ngIf="dashboardType === 'business'" [ngClass]="{ 'store-apps-wrapper': true, 'opened': isStoreOpened }">
+          <div class="app" *ngFor="let storeItem of storesList">
+            <a [href]="storeItem.url">
+              <doc-app-icon [app]="storeItem"></doc-app-icon>
+              <span>{{ storeItem.name }}</span>
+            </a>
+          </div>
+        </div>
+        <div *ngIf="dashboardType === 'private'" [ngClass]="{ 'store-apps-wrapper': true, 'opened': isStoreOpened }">
+          <h3>{{ titleNoOffers }}</h3>
+        </div>
+      </div>
+
+      <div class="settings-container" [ngClass]="{ 'opened': isSettingsOpened }">
+        <div class="settings-wrapper" [ngClass]="{ 'opened': isSettingsOpened }">
+          <div class="settings-item-list">
+            <div class="settings-item" *ngFor="let settingsItem of settingsList">
+              <a>
+                <svg class="icon icon-48">
+                  <use [attr.xlink:href]="'#icon-'+settingsItem.label"></use>
+                </svg>
+                <span class="title">{{ settingsItem.name }}</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

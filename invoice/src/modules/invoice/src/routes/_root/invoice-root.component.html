@@ -1,0 +1,75 @@
+<ng-container *ngIf="translationsReady$ | async">
+  <pe-invoice-material-styles></pe-invoice-material-styles>
+  <ng-container >
+    <div class="nav-content" *ngIf="!isMobile">
+      <ng-container *ngIf="!isSidebarClosed">
+        <div
+          class="sidebar-wrap"
+          [@sidebarAnimation]="{value: gridAnimationState$ | async, params: { sidebarWidth: 254 }}"
+          >
+          <pe-sidebar
+          style="margin-right:0"
+            [ngClass]="theme"
+            [sidebarFilters]="filters"
+            (selectFilters)="navigateTolLink($event)"
+          >
+          </pe-sidebar>
+        </div>
+      </ng-container>
+
+        <div
+          *ngIf="{
+          animationState: gridAnimationState$ | async,
+          animationProgress: gridAnimationProgress$ | async
+        } as animation"
+          class="grid-content__right"
+          [@gridAnimationInvoice]="{value: animation.animationState, params: { sidebarWidth: 16 }}"
+          (@gridAnimationInvoice.done)="gridAnimationProgress = SidebarAnimationProgress.Done"
+          (@gridAnimationInvoice.start)="gridAnimationProgress = SidebarAnimationProgress.Start"
+        >
+          <div style="position: relative;height:100%">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+    </div>
+
+  <ng-container *ngIf="isMobile">
+    <div [class.is-mobile]="isMobile" class="sidebar-wrap"
+    style="margin: 0;display: inline-block; width: 100%; height: calc(100% - 56px);"
+    [@slideInOut]="menuState"
+    >
+      <pe-sidebar style="margin:0; height:100%!important" [ngClass]="theme" [sidebarFilters]="filters"
+        (selectFilters)="navigateTolLink($event)">
+      </pe-sidebar>
+      <div style="position: relative;height:100%; width: 100%; transform: translate(100%);">
+        <router-outlet></router-outlet>
+      </div>
+
+    </div>
+
+  </ng-container>
+
+  <pe-sidebar-filters-wrapper #filters
+  >
+    <pe-sidebar-header title="Invoice" (closeSidebar)="toggleSidebar()"></pe-sidebar-header>
+    <pe-sidebar-filter-wrapper
+      [expandable]="true"
+      [active]="false"
+      title="Navigation"
+    >
+      <pe-tree-sidebar-filter
+        [ngTemplateOutlet]="nodeImageTemplate"
+        [ngTemplateOutletContext]="{node:treeData}"
+      >
+        <ng-template #nodeImageTemplate let-node="node">
+            <div *ngFor="let item of node" (click)="navigateTolLink(item.id)" class="sidebar-item" [class.active]="getActiveLink(item.id)">
+              <svg  class="sidebar-item__icon">
+                <use [attr.xlink:href]="item.image"></use>
+              </svg>
+              {{item.name}}
+            </div>
+        </ng-template>
+      </pe-tree-sidebar-filter>
+    </pe-sidebar-filter-wrapper>
+  </pe-sidebar-filters-wrapper>
+</ng-container>

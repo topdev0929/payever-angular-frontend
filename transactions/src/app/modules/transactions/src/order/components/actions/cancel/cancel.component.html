@@ -1,0 +1,39 @@
+<or-action-modal [close$]="close$"
+                 [heading]="'form.cancel.heading' | translate"
+                 [buttons]="modalButtons"
+                 [loading]="loading"
+                 class="dark"
+>
+  <div class="inner-padding" *ngIf="error">
+    <div class="text-danger" [innerHtml]="error"></div>
+  </div>
+  <form novalidate (ngSubmit)="onSubmit()" [formGroup]="form" *ngIf="form !== null">
+    <div class="form-table">
+      <fieldset class="transparent-form">
+        <div class="clearfix">
+          <div class="col-xs-12" [ngClass]="{'has-error': form.get('reason').errors}">
+            <input class="form-control fs-hide"
+                   type="text"
+                   id="input_reason"
+                   placeholder="{{ 'form.cancel.labels.reason' | translate }}"
+                   formControlName="reason">
+            <label for="input_reason">{{ 'form.cancel.labels.reason' | translate }}</label>
+            <span class="error small" [innerHtml]="form.get('reason').errors" *ngIf="form.get('reason').errors"></span>
+          </div>
+          <div *ngIf="form.get('amount')" class="col-xs-12" [ngClass]="{'has-error': form.get('amount').errors}">
+            <input class="form-control fs-hide"
+                   type="number"
+                   id="input_amount"
+                   placeholder="{{ 'form.cancel.labels.amount' | translate }}"
+                   formControlName="amount">
+            <label for="input_amount">{{ 'form.cancel.labels.amount' | translate }}</label>
+            <span class="error small" [innerHtml]="form.get('amount').errors" *ngIf="form.get('amount').errors"></span>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    <div class="inner-padding">
+      <div class="small" [innerHtml]="'form.cancel.note' | translate"></div>
+    </div>
+  </form>
+</or-action-modal>

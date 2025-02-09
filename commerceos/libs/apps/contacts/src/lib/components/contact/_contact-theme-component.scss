@@ -1,0 +1,23 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+    $accent-fill: map.get($color-config, 'accent-fill');
+    $text-color: map.get($color-config, 'text-color');
+    $label-color: map.get($color-config, 'label-color');
+
+    .action-item {
+        &__label {
+          color: $text-color;
+        }
+    }
+   .add-contact {
+        &__field-suffix {
+            background-color: $accent-fill;
+        }
+        &__loader {
+            .mat-progress-spinner {
+                stroke: $text-color;
+            }
+        }
+    }
+}

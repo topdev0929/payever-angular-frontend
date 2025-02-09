@@ -1,0 +1,74 @@
+@import '../../../../../styles/assets/ui-kit-styles/pe_variables';
+@import '../../../../../styles/assets/ui-kit-styles/mixins/pe_mixins.scss';
+
+:host {
+  position: relative !important;
+  display: block;
+}
+
+mat-card.mat-card-small-paddings {
+  border-radius: $border-radius-base;
+}
+
+.mat-accordion-choose-rate {
+  .mat-expansion-panel {
+    border-radius: 0; // $border-radius-base;
+    border: 2px solid $color-grey-2 !important;
+    margin: $grid-unit-y 0;
+    ::ng-deep .mat-expansion-indicator {
+      color: $color-light-gray-3;
+      font-size: $font-size-base;
+      margin-top: 0px;
+      &::after {
+        padding: 4px;
+        border-width: 0 2px 2px 0;
+      }
+    }
+    .mat-expansion-panel-header {
+      position: relative !important;
+      padding: $grid-unit-y $grid-unit-x;
+      background-color: $color-grey-2 !important;
+      border-radius: 0;
+      .mat-expansion-panel-header-title,
+      .mat-expansion-panel-header-description {
+        text-transform: none;
+        color: $color-light-gray-3;
+        font-size: $font-size-base;
+      }
+      .panel-header-text {
+        color: $color-white !important;
+      }
+      .mat-expansion-panel-header-title {
+        width: 50%;
+        max-width: 280px;
+      }
+      .mat-expansion-panel-header-description {
+        color: $color-white-grey-5;
+        font-size: $font-size-small;
+        .inner {
+          width: 100%;
+          text-align: right;
+          padding-right: 32px;
+          font-size: 14px;
+        }
+      }
+      .panel-icon {
+        position: absolute !important;
+        right: 11px;
+        top: 0px;
+        color: $color-white;
+        font-weight: 300;
+        font-size: 32px;
+        height: auto;
+        line-height: 42px;
+
+        &.minus {
+          top: 2px;
+        }
+      }
+    }
+    ::ng-deep .mat-expansion-panel-body {
+      padding-bottom: 0;
+    }
+  }
+}

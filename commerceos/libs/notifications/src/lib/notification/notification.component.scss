@@ -1,0 +1,56 @@
+:host {
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  cursor: pointer;
+
+  a {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    text-decoration: none;
+    outline: none;
+  }
+}
+
+:host(:hover) {
+  background-color: #0371e2;
+  color: #ffffff;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 5px;
+}
+
+.ellipsis {
+  display: inline-block;
+  white-space: nowrap;
+  margin:0 8px;
+  flex-grow: 1;
+  font-weight: 400;
+}
+
+.round {
+  justify-self: center;
+  min-width: 11px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background-color: #eb4653;
+}
+
+.round-blue {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}

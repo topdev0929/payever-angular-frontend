@@ -1,0 +1,32 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import '../../../../shared/styles/details-section.scss';
+@import '../../../../shared/styles/section-mixin.scss';
+
+.timeline-section {
+  @include section();
+
+  .section-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &__value {
+      .status-icon {
+        width: 10px;
+        height: 10px;
+        margin-right: 5px;
+        transform: translateY(1px);
+        will-change: transform;
+      }
+
+      &.success {
+        color: #069D3B;
+      }
+
+      &.failed {
+        color: #EB4653;
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+<form
+  *ngIf="formGroup.enabled"
+  class="santander-no-monthly-expenses-form"
+  [formGroup]="formGroup">
+  <div
+    i18n="@@santander-no.inquiry.step.section.monthly_expences.title"
+    class="h5">
+    Monthly expenses
+  </div>
+
+  <pe-payment-text
+    type="text"
+    [fixMarginTop]="true">
+    <span i18n="@@santander-no.inquiry.step.section.monthly_expences.text">
+      santander-no.inquiry.step.section.monthly_expences.text
+    </span>
+  </pe-payment-text>
+  <br />
+
+  <div class="form-fieldset-new">
+    <mat-form-field class="col-xs-12">
+      <mat-label i18n="@@santander-no.inquiry.form.other_monthly_expences.label"> Monthly expenses </mat-label>
+
+      <span
+        matPrefix
+        #prefix
+        >{{ currency | peCurrencySymbol }}
+      </span>
+      <input
+        matInput
+        [peInputCurrencyMask]="currency"
+        formControlName="otherMonthlyExpenses"
+        type="text" />
+    </mat-form-field>
+  </div>
+</form>

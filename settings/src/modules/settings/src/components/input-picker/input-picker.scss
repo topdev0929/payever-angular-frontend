@@ -1,0 +1,129 @@
+.picker-container {
+  overflow: hidden;
+  &__controls {
+    height: 44px;
+    display: flex;
+    flex-direction: row;
+    .input-with-label {
+      display: inherit;
+      flex-direction: column;
+      flex: 1;
+      padding: 4px 12px;
+
+      span {
+        font-family: 'Roboto', sans-serif;
+        font-size: 11px;
+        height: 16px;
+      }
+
+      input {
+        font-family: 'Roboto', sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.33;
+        height: 16px;
+        background-color: transparent;
+        border: 0;
+        outline: 0;
+        padding: 0;
+      }
+
+      &__button {
+        width: 105px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+    }
+
+    .button-container {
+      display: inherit;
+      flex-direction: row;
+      flex: 0.4;
+      align-items: center;
+      justify-content: flex-end;
+      .peb-text-button {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.picker-autocomplete-panel {
+  border-radius: 12px;
+  margin-top: 4px;
+
+  .mat-option.mat-selected:not(.mat-active):not(:hover):not(.mat-option-disabled) {
+    background-color: inherit;
+
+    .mat-option-text {
+      background-color: inherit;
+    }
+  }
+
+  .mat-option {
+    height: 44px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.1;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0;
+
+    &:hover {
+      background-color: #0091df !important;
+    }
+
+    &:not(:first-of-type) {
+      &::before {
+        content: '';
+        height: 1px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+    }
+
+    .picker-option-item {
+      box-sizing: border-box;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      &__image {
+        border-radius: 6.7px;
+        height: 32px;
+        width: 32px;
+        overflow: hidden;
+      }
+      &__label {
+        margin-left: 12px;
+        white-space: initial;
+      }
+    }
+  }
+
+  &:hover {
+    &::-webkit-scrollbar {
+      display: block;
+    }
+  }
+
+  /* width */
+  &::-webkit-scrollbar {
+    width: 4px;
+    display: none;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    border-radius: 2px;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    cursor: pointer;
+  }
+}

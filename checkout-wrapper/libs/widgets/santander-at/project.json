@@ -1,0 +1,25 @@
+{
+  "name": "widget-santander-at",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/widgets/santander-at/src",
+  "prefix": "pe",
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/widgets/santander-at"],
+      "options": {
+        "jestConfig": "libs/widgets/santander-at/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/widgets/santander-at/src/**/*.ts", "libs/widgets/santander-at/src/**/*.html"]
+      },
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": ["scope:libs", "type:feature"]
+}

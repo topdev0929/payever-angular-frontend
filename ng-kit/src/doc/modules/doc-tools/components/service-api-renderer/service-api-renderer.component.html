@@ -1,0 +1,23 @@
+<h3>API reference for {{ className }}</h3>
+
+<h3>Properties</h3>
+<table class="docs-api-properties-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-template ngFor let-property [ngForOf]="properties">
+      <tr>
+        <td>
+          <p class="docs-api-property-name"><code>{{ property.name }}: {{ getPropertyTypeFormatted(property.type) }}</code></p>
+        </td>
+        <td>
+          <p>{{ property?.comment?.shortText }}</p>
+        </td>
+      </tr>
+    </ng-template>
+  </tbody>
+</table>

@@ -1,0 +1,61 @@
+<peb-editor-sidebar-tabs>
+  <peb-editor-sidebar-tab [title]="'builder-app.sidebar.style' | translate">
+
+    <div class="form__row" *ngIf="!hasSection && !hasGrid">
+      <div class="group__row">
+        <label class="group__label">
+          {{ 'builder-app.sidebar.link' | translate }}
+        </label>
+      </div>
+      <peb-link-form></peb-link-form>
+    </div>
+
+    <div class="form__row_border" *ngIf="!hasSection && !hasGrid">
+      <div class="palette-row" [formGroup]="backgroundForm" (change)="onSubmit()">
+        <peb-color-palette formControlName="color"></peb-color-palette>
+      </div>
+    </div>
+
+    <div class="form__row_border" *ngIf="!hasGrid">
+      <div class="group__row">
+        <label class="group__label">Fill</label>
+        <div class="peb-fill" (click)="showBackgroundForm()">
+          <div class="peb-fill__thumbnail" [ngStyle]="background$ | async"></div>
+          <mat-icon svgIcon="arrow" class="sidebar__icon sidebar__icon__arrow sidebar__icon__arrow--fill"></mat-icon>
+        </div>
+      </div>
+    </div>
+
+    <div class="form__row_border" *ngIf="!hasSection">
+      <peb-function-form></peb-function-form>
+    </div>
+
+    <div class="form__row_border" *ngIf="hasShape && !hasText && !hasGrid">
+      <peb-shadow-form></peb-shadow-form>
+    </div>
+
+    <div class="form__row_border" *ngIf="hasShape && !hasText && !hasGrid && !hasSection">
+      <peb-shape-border></peb-shape-border>
+    </div>
+
+    <div class="form__row_border" *ngIf="hasShape && !hasText && !hasGrid && !hasSection">
+      <peb-opacity-form></peb-opacity-form>
+    </div>
+
+    <div class="form__row_border" *ngIf="hasShape && !hasText && !hasGrid && !hasSection">
+      <peb-border-radius-form></peb-border-radius-form>
+    </div>
+
+  </peb-editor-sidebar-tab>
+  <peb-editor-sidebar-tab [hidden]="hasSection || hasGrid" title="Text">
+
+    <peb-text-form></peb-text-form>
+
+  </peb-editor-sidebar-tab>
+  <peb-editor-sidebar-tab [hidden]="hasSection" [title]="'builder-app.sidebar.arrange' | translate">
+
+    <peb-position-form></peb-position-form>
+    <peb-dimensions-form></peb-dimensions-form>
+
+  </peb-editor-sidebar-tab>
+</peb-editor-sidebar-tabs>

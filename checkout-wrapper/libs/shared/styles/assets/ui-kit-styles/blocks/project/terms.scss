@@ -1,0 +1,10 @@
+.pe-checkout-bootstrap terms-form,
+.pe-checkout-bootstrap .terms-form {
+  pe-payment-text {
+    width: 100%;
+  }
+  mat-checkbox {
+    @extend .col-xs-12;
+    padding: unset;
+  }
+}

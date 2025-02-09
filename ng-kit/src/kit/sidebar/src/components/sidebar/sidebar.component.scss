@@ -1,0 +1,303 @@
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+@mixin sidebar_default {
+  top: 0;
+  bottom: 0;
+
+  .ui-sidebar-container {
+    background-color: $color-white;
+  }
+
+  .ui-sidebar-close {
+    $button-width: $pe_hgrid_gutter;
+    $button-height: ceil($pe_hgrid_gutter * 1.5);
+
+    position: absolute;
+    top: 50%;
+    width: $button-width;
+    height: $button-height;
+    text-indent: -10000px;
+    overflow: hidden;
+    margin-top: - $button-height / 2;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      margin-top: -$margin_adjust;
+      width: 0;
+      height: 0;
+      border-top: $margin_adjust solid transparent;
+      border-bottom: $margin_adjust solid transparent;
+    }
+    &:focus, &:active {
+      background: $color-white;
+      border-color: $color-light-gray-1;
+    }
+    &:hover {
+      border-color: $color-blue;
+    }
+  }
+
+  &.ui-sidebar-left {
+    border-right: $border-light-gray-2;
+
+    .ui-sidebar-close {
+      right: 0;
+      @include payever_transform_translate(100%, 0);
+      border-radius: 0 $border-radius-base $border-radius-base 0;
+      border-left-color: $color-white;
+
+      &:after {
+        left: $margin_adjust * 2;
+        border-right: $margin_adjust solid $color-gray_2;
+      }
+      &:hover:after {
+        border-right-color: $color-blue;
+      }
+      &:focus, &:active {
+        border-left-color: $color-white;
+      }
+      &:hover {
+        border-left-color: $color-white;
+      }
+    }
+  }
+
+  &.ui-sidebar-right {
+    border-left: $border-light-gray-2;
+
+    .ui-sidebar-close {
+      left: 0;
+      @include payever_transform_translate(-100%, 0);
+      border-radius: $border-radius-base 0 0 $border-radius-base;
+      border-right-color: $color-white;
+
+      &:after {
+        right: $margin_adjust * 2;
+        border-left: $margin_adjust solid $color-gray_2;
+      }
+      &:hover:after {
+        border-left-color: $color-blue;
+      }
+      &:focus, &:active {
+        border-right-color: $color-white;
+      }
+      &:hover {
+        border-right-color: $color-white;
+      }
+    }
+  }
+}
+
+.ui-sidebar-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.ui-sidebar-wrapper {
+  $sidebar-size: $sidebar-width-extra-large;
+
+  &.ui-sidebar {
+    width: $sidebar-size;
+    display: block;
+    right: auto;
+    @include payever_transition(margin-right, $animation-duration-slide-in, $animation-effect-ease-out);
+
+    &.ui-sidebar-left {
+      right: auto;
+      left: 0;
+      @include payever_transform_translate(-100%, 0);
+
+      &.in {
+        @include payever_transform_translate(0, 0);
+      }
+    }
+
+    &.ui-sidebar-right {
+      left: auto;
+    }
+
+    .ui-sidebar-inner {
+      height: 100%;
+    }
+
+    .ui-sidebar-container {
+      height: 100%;
+      width: 100%;
+      position: relative;
+    }
+
+    &-default {
+      position: absolute;
+      z-index: $zindex-navbar-fixed - 10;
+      @include sidebar_default();
+    }
+
+    &-transparent {
+      position: fixed;
+      top: 0;
+      bottom: $sidebar_margin_v;
+      z-index: $zindex-navbar-fixed + 100;
+      overflow: hidden;
+      -webkit-transition: none;
+      -moz-transition: none;
+      -o-transition: none;
+      transition: none;
+
+      &.first-open {
+        @include payever_transition(margin-right, $animation-duration-slide-in, $animation-effect-ease-out);
+      }
+
+      &.ui-sidebar-left {
+        &.in {
+          left: $sidebar_margin_h;
+        }
+
+        .blur {
+          background-position-x: calc(#{-$sidebar_margin_h / 2});
+        }
+
+        @include break-down('sm_2') {
+          width: calc(100% - #{$padding-large-horizontal});
+          max-width: calc(100% - #{$padding-large-horizontal});
+
+          &.in {
+            right: $padding-large-horizontal / 2;
+          }
+
+          .ui-sidebar-bg {
+            width: 100%;
+          }
+
+          .ui-sidebar-container {
+            width: 100%;
+          }
+        }
+      }
+
+      &.ui-sidebar-right {
+        &.in {
+          right: $sidebar_margin_h;
+        }
+
+        @include break-down('sm_2') {
+          width: 100%;
+          max-width: 100%;
+
+          &.in {
+            right: $padding-large-horizontal / 2;
+          }
+
+          .ui-sidebar-bg {
+            width: 100%;
+          }
+
+          .ui-sidebar-container {
+            width: 100%;
+          }
+        }
+      }
+
+      .ui-sidebar-container {
+        height: 100%;
+        position: relative;
+        z-index: 2;
+        overflow: hidden;
+        
+        .scroll-container {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          overflow-x: hidden;
+          overflow-y: scroll;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      
+      .ui-sidebar-bg {
+        background-color: $color-instead-blur-bg;
+
+        @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
+          background-color: $color-notifications-background;
+          -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+        }
+
+      }
+
+      .ui-sidebar-close {
+        color: $color-white;
+        position: absolute;
+        top: $pe_vgrid_height * 2;
+        right: $pe_vgrid_height * 2;
+        padding: 0;
+
+        &:hover,
+        &:active,
+        &:focus {
+          color: $color-blue;
+        }
+
+        .icon.icon-16 {
+          margin-top: 0;
+        }
+      }
+    }
+
+    &-fixed {
+      position: fixed;
+      z-index: $zindex-navbar-fixed + 100;
+      @include sidebar_default();
+
+      &.ui-sidebar-left {
+        &.in {
+          left: 0;
+          transform: inherit;
+        }
+
+        .blur {
+          background-position-x: calc(#{-$sidebar_margin_h / 2});
+        }
+
+        @include break-down('sm_2') {
+          width: calc(100% - #{$sidebar_margin_h * 2});
+          max-width: calc(100% - #{$sidebar_margin_h * 2});
+
+          &.in {
+            right: $sidebar_margin_h;
+          }
+
+          .ui-sidebar-container {
+            width: 100%;
+          }
+        }
+      }
+
+      &.ui-sidebar-right {
+        &.in {
+          right: 0;
+          transform: inherit;
+        }
+
+        @include break-down('sm_2') {
+          width: calc(100% - #{$sidebar_margin_h * 2});
+          max-width: calc(100% - #{$sidebar_margin_h * 2});
+
+          .ui-sidebar-container {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

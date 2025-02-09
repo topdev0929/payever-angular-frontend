@@ -1,0 +1,134 @@
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+:host {
+  display: block;
+  padding: $pe_vgrid_height * 2 0;
+}
+
+:host ::ng-deep {
+  pe-counter {
+    display: inline-block;
+    .counter-container {
+      margin-top: -5px;
+    }
+  }
+
+  @media (max-width: $screen-xs) {
+    pe-counter {
+      .counter-container {
+        width: 77px;
+        input {
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
+.preparing-data-spinner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -32px;
+  margin-left: -32px;
+}
+
+.image-col {
+  overflow-x: hidden;
+  img {
+    max-width: 128px;
+    max-height: 66px;
+  }
+}
+
+.delete-control:hover {
+  cursor: pointer;
+}
+
+.order-row {
+  border-bottom: $border-light-gray-2;
+  [class*="col-"] {
+    padding-bottom: $pe_vgrid_height * 2;
+  }
+  margin-bottom: $pe_vgrid_height * 2;
+  .form-control {
+    margin-top: -$margin-adjust;
+  }
+}
+.summary-row {
+  text-transform: uppercase;
+  &.font-weight-bold {
+    font-weight: bold;
+  }
+}
+.order-actions {
+  margin-top: $pe_vgrid_height * 2;
+}
+@media (min-width: $screen-sm) {
+  .order-col-first {
+    padding-left: 0;
+  }
+  .order-col-last {
+    padding-right: 0;
+  }
+}
+
+.valign-container {
+  height: 66px;
+  line-height: 66px;
+  vertical-align: middle;
+}
+
+.valign-container-top {
+  height: 36px;
+  line-height: 52px;
+  vertical-align: middle;
+}
+
+.valign-container-bottom {
+  height: 21px;
+  line-height: 21px;
+  vertical-align: middle;
+}
+
+.description-block {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.select-qty-wrap {
+  min-width: 36px;
+  font-size: 14px;
+  ::ng-deep .mat-select-value {
+    text-align: right;
+    padding-right: 8px;
+  }
+  ::ng-deep .mat-select-arrow:before {
+    opacity: 0.4 !important;
+    top: 34px !important;
+  }
+}
+
+@media (max-width: $screen-xs) {
+  .order-row {
+    [class*="col-"] {
+      padding-bottom: $pe_vgrid_height * 1;
+    }
+    margin-bottom: $pe_vgrid_height * 1;
+    .form-control {
+      margin-top: -$margin-adjust;
+    }
+    font-size: 13px;
+  }
+  .summary-row {
+    font-size: 13px;
+  }
+}
+
+.order-row-error {
+  color: $color-red;
+}

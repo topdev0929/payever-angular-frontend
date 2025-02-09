@@ -1,0 +1,61 @@
+@import '../../../../../../../shared/styles/assets/mixins';
+@import '../../../../../../../shared/styles/assets/ui-kit-styles/pe_variables';
+
+$color-black: #111111;
+$color-grey-1: rgba($color-black, 0.8);
+$viewport-breakpoint-xs-2: 480px;
+$viewport-breakpoint-sm-1: 600px;
+$screen-xs: $viewport-breakpoint-xs-2;
+
+.form-fieldset-wrapper.mt-12 {
+  margin-top: 12px !important;
+}
+
+.promo-desktop {
+  margin: $payment-grid-unit-y - 11 0 0;
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+
+    .promo-icon {
+      color: #404040;
+
+      .icon-32 {
+        width: 26px;
+      }
+    }
+
+    @media (min-width: $screen-xs) {
+      .promo-icon {
+        float: left;
+        margin-right: 24px;
+      }
+    }
+    @media (max-width: $screen-xs - 1) {
+      .promo-icon {
+        text-align: center;
+        margin-bottom: 11px;
+      }
+    }
+  }
+}
+
+.promo-mobile {
+  display: none;
+}
+
+@media (max-width: $viewport-breakpoint-sm-1 - 1) {
+  .promo-desktop {
+    display: none;
+  }
+  .promo-mobile {
+    display: flex;
+    justify-content: center;
+  }
+}

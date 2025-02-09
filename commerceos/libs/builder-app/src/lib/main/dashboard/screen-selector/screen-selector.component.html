@@ -1,0 +1,23 @@
+<div class="screens-selector-button" #menuTrigger="matMenuTrigger" [matMenuTriggerFor]="menu">
+  <span>{{ selectedScreen?.title }}</span>
+  <mat-icon [svgIcon]="selectedScreen?.icon ?? 'desktop'"></mat-icon>
+</div>
+
+<mat-menu #menu="matMenu" class="screens-selector">
+  <div class="screens-selector__header">
+    <div class="peb-dialog__title">Screen</div>
+    <mat-icon svgIcon="button-close" (click)="menu.toggle()"></mat-icon>
+  </div>
+
+  <div class="screens-selector__body">
+    <div
+      class="screens-selector__body__item"
+      *ngFor="let screen of screens$ | async"
+      (click)="changeScreen(screen)"
+      [class.selected]="screen.key === selectedScreen?.key"
+    >
+      <mat-icon [svgIcon]="screen.icon ?? 'desktop'"></mat-icon>
+      <label>{{ screen.title }}</label>
+    </div>
+  </div>
+</mat-menu>

@@ -1,0 +1,14 @@
+<santander-se-shared-finish
+  [embeddedMode]="embeddedMode"
+  [merchantMode]="merchantMode"
+  [isDisableChangePayment]="isDisableChangePayment"
+  [nodeResult]="paymentResponse"
+  [showCloseButton]="showCloseButton"
+  [isLoading]="!paymentResponse && !errorMessage || (updating$ | async)"
+  [errorMessage]="errorMessage"
+  (cleanUp)="cleanUp()"
+  (close)="close()"
+  (startSigning)="onStartSigning()"
+  (closeButtonClicked)="close()"
+  (changePaymentMethod)="changePayment($event)"
+  (tryAgain)="tryAgain()"></santander-se-shared-finish>

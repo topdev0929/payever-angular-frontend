@@ -1,0 +1,139 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+@include keyframes(fadeInLeftShort) {
+  from {
+    opacity: 0;
+    @include payever_transform_translate(-100px, 0);
+  }
+
+  to {
+    opacity: 1;
+    @include payever_transform_translate(0, 0);
+  }
+}
+
+.ui-shortcuts {
+  color: $color-white;
+  padding: $pe_vgrid_height * 3 0;
+  position: relative;
+
+  .text-center-wrap {
+    height: $icon-size-32;
+    text-align: center;
+  }
+
+  .btn-scroll {
+    color: $color-white;
+    cursor: pointer;
+    height: $icon-size-32;
+    width: $icon-size-32;
+    display: inline-block;
+    transition: opacity $animation-duration-slide-in / 2 $animation-effect-ease-in;
+    opacity: .7;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  .btn-up {
+    top: 0;
+  }
+  .btn-down {
+    bottom: 0;
+  }
+}
+
+.ui-shortcuts-view-main {
+  @include payever_animation(fadeInLeftShort, $animation-duration-slide-in, $animation-effect-ease-out);
+}
+
+.ui-shortcuts-list {
+  margin: $pe_vgrid_height / 2 0;
+  .item {
+    @include pe_flexbox();
+    @include pe_align-items(center);
+    margin-bottom: $pe_vgrid_height * 2;
+    cursor: pointer;
+    &:hover {
+      .item-btn {
+        opacity: 1;
+        transition: opacity $animation-duration-slide-in / 2 $animation-effect-ease-in;
+      }
+    }
+  }
+  .item-icon {
+    @include pe_flex-grow(0);
+    @include pe_align-self(flex-start);
+    img {
+      margin-right: $margin_adjust * 4;
+    }
+  }
+  .item-headline {
+    @include pe_flex-grow(1);
+  }
+  .item-title {
+    font-size: 15px;
+    font-weight: 300;
+    margin-bottom: 0;
+  }
+  .item-desc {
+    color: rgba($color-white, .4);
+    margin-bottom: 0;
+  }
+
+  .item-btn {
+    color: inherit;
+    @include pe_flex-grow(0);
+    @include pe_align-items(center);
+    padding: $margin_adjust * 2;
+    opacity: .7;
+  }
+}
+
+.current-item {
+  @include pe_flexbox();
+  @include pe_align-items(center);
+  @include pe_justify-content(center);
+  margin-bottom: $pe_vgrid_height * 4;
+  height: $pe_vgrid_height * 4;
+  position: relative;
+  .item-title {
+    font-size: 22px;
+    font-weight: 300;
+    display: inline-block;
+    margin: 0;
+  }
+}
+
+.btn-back {
+  color: inherit;
+  position: absolute;
+  top: $pe_vgrid_height / 2;
+  left: 0;
+  cursor: pointer;
+  width: $icon-size-32;
+  height: $icon-size-32;
+  padding: $margin_adjust * 2;
+  line-height: 1;
+}
+
+.ui-shortcuts-view-details {
+  text-align: center;
+  position: relative;
+  @include payever_animation(fadeInLeftShort, $animation-duration-slide-in, $animation-effect-ease-out);
+}
+
+.ui-shortcuts-links-list {
+  .item {
+    color: $color-white;
+    opacity: .57;
+    font-size: 15px;
+    font-weight: 300;
+    margin-bottom: $pe_vgrid_height * 2;
+    cursor: pointer;
+    transition: opacity $animation-duration-slide-in / 2 $animation-effect-ease-in;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

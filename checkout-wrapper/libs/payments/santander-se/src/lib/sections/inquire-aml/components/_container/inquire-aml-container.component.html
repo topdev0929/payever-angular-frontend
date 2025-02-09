@@ -1,0 +1,8 @@
+<ng-container [ngSwitch]="mode">
+  <ng-container *ngSwitchCase="modeEnum.Edit">
+    <pe-santander-se-inquire-aml-form (submitted)="onSubmit($event)"></pe-santander-se-inquire-aml-form>
+  </ng-container>
+  <ng-container *ngSwitchCase="modeEnum.View">
+    <pe-santander-se-inquire-aml-summary></pe-santander-se-inquire-aml-summary>
+  </ng-container>
+</ng-container>

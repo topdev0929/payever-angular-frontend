@@ -1,0 +1,11 @@
+<mat-grid-list [cols]="itemsPerRow"
+               [rowHeight]="rowHeight"
+               [gutterSize]="gutter"
+>
+  <mat-grid-tile *ngIf="defaultTileTemplateRef">
+    <ng-template [ngTemplateOutlet]="defaultTileTemplateRef"></ng-template>
+  </mat-grid-tile>
+  <mat-grid-tile *ngFor="let item of items" >
+    <ng-template [ngTemplateOutlet]="tileTemplateRef" [ngTemplateOutletContext]="{ $implicit: item }"></ng-template>
+  </mat-grid-tile>
+</mat-grid-list>

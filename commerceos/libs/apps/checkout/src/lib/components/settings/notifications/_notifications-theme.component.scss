@@ -1,0 +1,64 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $select-button: map.get($color-config, 'select-button');
+  $row-background: map.get($color-config, 'row-background');
+  $text-color: map.get($color-config, 'text-color');
+  $active-text: map.get($color-config, 'active-text');
+  $background: map.get($color-config, 'background');
+  $spinner: map.get($color-config, 'spinner');
+  $label-color: map.get($color-config, 'label-color');
+
+  .overlay-widget .pe-info-box-container-fixed {
+    .mat-progress-spinner circle {
+      stroke: $spinner;
+    }
+    &.notifications-content {
+      .pe-info-box {
+        .info-box {
+          .mat-card {
+            .checkout-mat-accordion {
+              .mat-expansion-panel {
+                border-bottom-color: $background;
+                &-header {
+                  background-color: $select-button;
+                  color: $text-color;
+                  .notifications-content_accordion {
+                    &-icon {
+                      background-color: $label-color;
+                      svg {
+                        color: $active-text;
+                      }
+                    }
+                    &-label {
+                      color: $text-color;
+                    }
+                    &-status {
+                      color: $label-color;
+                    }
+                  }
+                }
+                &-body {
+                  .payment-notification-failed-container {
+                    .label-select-wrapper {
+                      background-color: $row-background;
+                    }
+                  }
+                  .checkbox-setting {
+                    background-color: $row-background;
+                    &_title {
+                      color: $text-color;
+                    }
+                  }
+                  .select-setting { 
+                    border-right-color: $background;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

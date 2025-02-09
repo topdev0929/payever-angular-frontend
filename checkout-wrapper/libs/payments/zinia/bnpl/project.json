@@ -1,0 +1,26 @@
+{
+  "name": "zinia-bnpl",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/payments/zinia/bnpl/src",
+  "prefix": "pe",
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/payments/zinia/zinia-bnpl"],
+      "options": {
+        "jestConfig": "libs/payments/zinia/bnpl/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/payments/zinia/bnpl/src/**/*.ts", "libs/payments/zinia/bnpl/src/**/*.html"]
+      },
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": ["scope:libs", "type:feature"],
+  "implicitDependencies": []
+}

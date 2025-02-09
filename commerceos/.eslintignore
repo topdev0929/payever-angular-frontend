@@ -1,0 +1,7 @@
+node_modules
+dist
+dist-libs
+package-lock.json
+package.json
+apps/commerceos/src/environments
+apps/peb-client/src/environments

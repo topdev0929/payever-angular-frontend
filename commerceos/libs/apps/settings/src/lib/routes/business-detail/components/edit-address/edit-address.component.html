@@ -1,0 +1,77 @@
+<form
+  class="pe-setting-edit-address"
+  [formGroup]="locationForm"
+  #form="ngForm"
+  (ngSubmit)="onSave()"
+>
+  <div class="main-form">
+    <div class="form-margins">
+      <peb-form-background>
+        <peb-form-field-input
+          label="{{ formTranslationsService.getFormControlLabel('googleAutocomplete') }}"
+          appearance="label"
+        >
+          <input
+            matGoogleMapsAutocomplete
+            [type]="'address'"
+            (onAutocompleteSelected)="onAutocompleteSelected($event)"
+            [value]="address"
+            formControlName="address"
+          />
+        </peb-form-field-input>
+        <div class="columns">
+          <peb-select
+            class="two-column-input"
+            selectType="label"
+            label="{{ formTranslationsService.getFormControlLabel('country') }}"
+            formControlName="country"
+            [isFieldInvalid]="form.submitted && locationForm.get('country').invalid"
+            [errorMessage]="formTranslationsService.getFormControlErrorMessage('country')"
+          >
+            <peb-select-option
+              class="select-options"
+              *ngFor="let item of countries"
+              value="{{ item.value }}"
+              label="{{ item.label }}"
+            ></peb-select-option>
+          </peb-select>
+          <div class="divider"></div>
+          <peb-form-field-input
+            class="two-column-input"
+            label="{{ formTranslationsService.getFormControlLabel('city') }}"
+            appearance="label"
+            [isFieldInvalid]="form.submitted && locationForm.get('city').invalid"
+            [errorMessage]="fieldErrorMessage('city')"
+            formControlName="city"
+          >
+            <input />
+          </peb-form-field-input>
+        </div>
+        <div class="columns">
+          <peb-form-field-input
+            class="two-column-input"
+            label="{{ formTranslationsService.getFormControlLabel('street') }}"
+            appearance="label"
+            [isFieldInvalid]="form.submitted && locationForm.get('street').invalid"
+            [errorMessage]="fieldErrorMessage('street')"
+            formControlName="street"
+          >
+            <input type="text" />
+          </peb-form-field-input>
+          <div class="divider"></div>
+          <peb-form-field-input
+            class="two-column-input"
+            label="{{ formTranslationsService.getFormControlLabel('zip_code') }}"
+            appearance="label"
+            [isFieldInvalid]="form.submitted && locationForm.get('zipCode').invalid"
+            [errorMessage]="fieldErrorMessage('zipCode')"
+            formControlName="zipCode"
+          >
+            <input type="text" />
+          </peb-form-field-input>
+        </div>
+      </peb-form-background>
+    </div>
+  </div>
+  <button #submitTrigger type="submit" class="hidden"></button>
+</form>

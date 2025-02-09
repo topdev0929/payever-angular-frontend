@@ -1,0 +1,24 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup">
+  <santander-de-rates-edit-list
+    *ngIf="formGroup.get('ratesForm') && formGroup.get('termsForm')"
+    [flowId]="flow.id"
+    [paymentMethod]="paymentMethod"
+    [currency]="flow.currency"
+    [rates]="rates$ | async"
+    [initialRate]="initialRate"
+    (selectRate)="onSelectRate($event)">
+  </santander-de-rates-edit-list>
+
+  <div peFixFileLinks>
+    <pe-payment-text
+      type="text"
+      [fixMarginTop]="true">
+      <span [innerHTML]="translations.legalPromoConditions"></span>
+    </pe-payment-text>
+  </div>
+
+  <rates-details-form formControlName="ratesForm"></rates-details-form>
+  <terms-form formControlName="termsForm"></terms-form>
+</form>

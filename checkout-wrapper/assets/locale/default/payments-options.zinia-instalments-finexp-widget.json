@@ -1,0 +1,27 @@
+{
+  "zinia-installments-finexp-widget": {
+    "common": {
+      "rate_param": {
+        "duration": "Duration",
+        "monthly_rate": "Monthly Rate",
+        "period": "Financing period in months",
+        "annual_percentage_cost": "Annual rate",
+        "interest_rate": "Interest rate",
+        "monthly_payment": "Monthly Payment",
+        "total": "Total amount",
+        "amount": "Purchase amount"
+      },
+      "month": {
+        "one": "{{ count }} Month",
+        "many": "{{ count }} Months"
+      },
+      "rate_title": "{{ monthly_rate_with_currency }}/mo. for {{ duration_with_months }}",
+      "header_text": "In Raten bezahlen",
+      "header_text_extended": "IN RATEN BEZAHLEN",
+      "introduction_text": "Pay for your purchase with Zinia easily and conveniently in monthly installments. Simply select the term you want and then enter your mobile number and date of birth. You will receive a 4-digit code from Zinia via SMS with which you can complete your request. As soon as the retailer ships your order, you will receive your payment plan from Zinia including the transfer details that must be provided when transferring the monthly installments.",
+      "credit_details_text": "Provided creditworthiness. This information also represents the 2/3 example in accordance with Section 6a Paragraph 4 PAngV. Provider: {{info}}. <br> The installment purchase is offered in collaboration with Zinia - a brand of Open Bank S.A., Plaza de Santa Bárbara 2, 28004, Madrid, Spain. ",
+      "show_checkout_wrapper": "Checkout with finance express",
+      "show_more_info": "Further information"
+    }
+  }
+}

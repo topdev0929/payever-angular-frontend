@@ -1,0 +1,108 @@
+<div class="script-form-dialog script-dialog">
+  <form [formGroup]="form" class="script-dialog__form">
+    <div class="script-dialog__header">
+      <div class="script-dialog__header-action script-dialog__header-action--cancel" (click)="closeForm()">
+        {{ 'builder-app.actions.cancel' | translate }}
+      </div>
+      <div class="script-dialog__title">
+        <span>{{ title }}</span>
+      </div>
+      <div class="script-dialog__header-action script-dialog__header-action--success" (click)="submitForm()" [class.disabled]="!form.valid">
+        {{ 'builder-app.actions.done' | translate }}
+      </div>
+    </div>
+    <div class="script-dialog__content">
+      <div class="script-dialog__fields">
+        <div class="script-dialog__field">
+          <div class="form-background-wrapper script-dialog__toggle">
+            <div class="group__row">
+              <label class="group__label">Run only if cookies allowed</label>
+              <peb-slide-toggle formControlName="needPermission" name="needPermission"></peb-slide-toggle>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="script-dialog__fields">
+        <div class="script-dialog__field">
+          <peb-form-background>
+            <peb-select
+              class="script-dialog__field-select"
+              formControlName="page"
+              selectType="label"
+              [animated]="true"
+              label="Page"
+            >
+              <peb-select-option
+                *ngFor="let option of pageOptions; let i = index"
+                [label]="option.name"
+                [value]="option.value"
+                [class]="'peb-select-option '">
+              </peb-select-option>
+            </peb-select>
+          </peb-form-background>
+        </div>
+      </div>
+      <div class="script-dialog__fields">
+        <div class="script-dialog__field">
+          <peb-form-background>
+            <peb-select
+              class="script-dialog__field-select"
+              formControlName="triggerPoint"
+              selectType="label"
+              [animated]="true"
+              label="Trigger point"
+            >
+              <peb-select-option
+                *ngFor="let option of triggerPointOptions; let i = index"
+                [label]="option.name"
+                [value]="option.value"
+                [class]="'peb-select-option '">
+              </peb-select-option>
+            </peb-select>
+          </peb-form-background>
+        </div>
+      </div>
+      <div class="script-dialog__fields">
+        <div class="script-dialog__field">
+          <peb-form-background>
+            <peb-form-field-input class="script-dialog__field-input" label="Name" appearance="label" [animated]="true">
+              <input placeholder="" formControlName="name" id="name" name="name" type="text"/>
+            </peb-form-field-input>
+            <peb-form-field-textarea class="script-dialog__field-textarea" label="Content" appearance="label">
+              <textarea formControlName="content" name="content"></textarea>
+            </peb-form-field-textarea>
+          </peb-form-background>
+        </div>
+      </div>
+    </div>
+    <div class="script-dialog__actions" *ngIf="data?.script">
+      <button pe-form-button color="warn" class="script-dialog__action" (click)="removeScript()">
+        <span>
+          {{ 'builder-app.main_editor.remove_script' | translate }}
+        </span>
+      </button>
+    </div>
+  </form>
+</div>
+
+<ng-template #confirmDialogTpl>
+  <div class="script-dialog__confirm">
+    <div class="script-dialog__confirm-icon">
+      <mat-icon svgIcon="alert"></mat-icon>
+    </div>
+    <div class="script-dialog__confirm-title">
+      {{ 'builder-app.main_editor.confirm' | translate }}
+    </div>
+    <div class="script-dialog__confirm-subtitle">
+      {{ 'builder-app.main_editor.close_confirm' | translate }}
+    </div>
+    <div class="script-dialog__confirm-actions">
+      <div class="script-dialog__confirm-action script-dialog__confirm-action--confirm" (click)="confirmDialogRef?.close(true)">
+        {{ 'builder-app.main_editor.yes' | translate }}
+      </div>
+      <div class="script-dialog__confirm-action script-dialog__confirm-action--reject" (click)="confirmDialogRef?.close(false)">
+        {{ 'builder-app.main_editor.no' | translate }}
+      </div>
+    </div>
+  </div>
+</ng-template>

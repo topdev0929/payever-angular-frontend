@@ -1,0 +1,65 @@
+@use 'pe_spinner' as pe_spinner;
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $border: map.get($color-config, 'border');
+  $widget-separator-line: map.get($color-config, 'widget-separator-line');
+  $hover-text: map.get($color-config, 'hover-text');
+  $text-color: map.get($color-config, 'text-color');
+  $label-color: map.get($color-config, 'label-color');
+  $secondary-button: map.get($color-config, 'secondary-button');
+  $widget-background: map.get($color-config, 'widget-background');
+  $button: map.get($color-config, 'button');
+  $active-text: map.get($color-config, 'active-text');
+  $tertiary-button: map.get($color-config, 'tertiary-button');
+  $backdrop-filter-light-transparent: map.get($color-config, 'backdrop-filter-light-transparent');
+
+  .pe-widget-start {
+    z-index: 1;
+    position: relative;
+    border-radius: 1.32em;
+    background: $widget-background;
+    overflow: hidden;
+    .widget {
+      color: $text-color;
+      svg {
+        fill: $text-color;
+      }
+      &__content,
+      &____notifications {
+        color: $text-color;
+        .widget__header {
+          .widget__open-button {
+            background-color: $button;
+            color: $active-text;
+          }
+        }
+      }
+      &__notification-row {
+        border-bottom-color: $secondary-background;
+      }
+
+      .start__action {
+        background-color: $tertiary-button;
+        color: $text-color;
+        .mat-spinner {
+          @include pe_spinner.mat_spinner();
+          position: relative !important;
+          svg {
+            position: relative !important;
+            circle {
+              stroke: #ffffff;
+            }
+          }
+        }
+        &:hover {
+          opacity: 0.9;
+        }
+        &:not(:last-child) {
+          border-right-color: $widget-separator-line;
+        }
+      }
+    }
+  }
+}

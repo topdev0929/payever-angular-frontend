@@ -1,0 +1,78 @@
+@import "../../../../styles/src/lib/styles/variables";
+$space-between-controls: 10px;
+
+:host {
+  overflow: auto;
+}
+
+.main-form {
+  padding-bottom: 30px;
+}
+
+.list {
+  &__row {
+    display: grid;
+    grid-template-columns: auto 14px;
+    grid-gap: 5px;
+    gap: 5px;
+    margin-bottom: 8px;
+
+    &__item {
+      border-radius: 6px;
+      width: 100%;
+      background-color: rgba(36, 39, 46, 0.9);
+      padding: 6px 11px;
+      font-size: 12px;
+      font-weight: 400;
+      cursor: pointer;
+      grid-column: 1;
+      height: 33px;
+      overflow: hidden;
+      line-height: 23px;
+
+      &span {
+        display: inline-block;
+      }
+
+      &__arrow {
+        font-size: 28px;
+        line-height: 0px;
+        color: #0371e2;
+        font-weight: bold;
+        width: 23px;
+        height: 11px;
+        display: inline-block;
+        text-align: center;
+        vertical-align: -3px;
+      }
+    }
+
+    &__remove {
+      font-size: 34px;
+      line-height: 27px;
+      cursor: pointer;
+      text-align: center;
+
+      &:hover {
+        opacity: 0.75;
+      }
+    }
+  }
+}
+
+.form_button {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 0;
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+  height: auto;
+  padding: 8px 18px;
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  text-align: center;
+  color: #ffffff;
+  width: 100%;
+  margin-bottom: 13px;
+}

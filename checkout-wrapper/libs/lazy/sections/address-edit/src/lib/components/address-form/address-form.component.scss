@@ -1,0 +1,18 @@
+:host {
+  display: block;
+  position: relative !important;
+}
+
+:host ::ng-deep {
+  .no-right-border {
+    border-right: none !important;
+  }
+  @media (max-width: 400px - 1px) {
+    .pe-address-mobile-col-xs-12 {
+      width: 100%;
+    }
+    .pe-address-mobile-col-xs-6 {
+      width: 50%;
+    }
+  }
+}

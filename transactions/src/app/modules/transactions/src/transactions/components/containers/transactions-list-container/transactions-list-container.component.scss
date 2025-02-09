@@ -1,0 +1,55 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+:host {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  ::ng-deep {
+    .data-grid-scroll-container {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      -webkit-overflow-scrolling: touch;
+
+      &::-webkit-scrollbar {
+        width: 0;
+        background: 0 0;
+      }
+    }
+
+    .content-wrapper {
+      position: relative;
+      min-height: 100%;
+    }
+  }
+}
+
+.transactions-list {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  @media (min-width: 720px) {
+    top: 60px;
+  }
+
+  ::ng-deep .mat-chip-list-wrapper {
+    .mat-chip {
+      width: auto;
+    }
+  }
+
+  &.embedded {
+    top: 0;
+  }
+}
+
+::ng-deep .data-grid-scroll-container {
+  padding-left: 0 !important;
+}

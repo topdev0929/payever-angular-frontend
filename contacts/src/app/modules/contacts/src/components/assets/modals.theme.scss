@@ -1,0 +1,53 @@
+.cdk-overlay-container .overlay-widget-container {
+  .overlay-dark {
+    background-color: rgb(36, 39, 46);
+
+    .mat-expansion-panel {
+      box-shadow: none;
+      background-color: transparent;
+      border-radius: 0;
+      border: none;
+    }
+
+    .mat-expansion-panel-body {
+      padding: 0;
+    }
+
+    .mat-expansion-panel-header,
+    .mat-expansion-panel-header.mat-expanded {
+      height: 40px;
+      padding: 0 24px;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.3);
+
+      &:focus {
+        background-color: rgba(0, 0, 0, 0.3);
+      }
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+    }
+
+    .flex-space-between {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .mat-expansion-panel-header-title {
+      width: 100%;
+      max-width: unset;
+      margin: 0;
+      font-size: 14px;
+      font-weight: 500;
+      color: white;
+
+      .icon {
+        height: 12px;
+        width: 12px;
+      }
+    }
+  }
+}

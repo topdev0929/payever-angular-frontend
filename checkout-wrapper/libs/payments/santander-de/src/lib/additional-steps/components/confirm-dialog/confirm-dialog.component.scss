@@ -1,0 +1,62 @@
+@import '../../../../../../../shared/styles/assets/ui-kit-styles/pe_variables.scss';
+
+.mat-card-content {
+  max-width: 420px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 22px;
+  font-size: 12px;
+
+  .header {
+    margin-bottom: 12px;
+
+    .header-title {
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+
+  .requirements-list {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    margin: auto;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 36px;
+
+    &__item {
+      span {
+        line-height: 16px;
+      }
+    }
+
+    &__icon {
+      color: $color-grey-dark;
+      margin-right: 6px;
+    }
+  }
+
+  .action-button {
+    margin: auto;
+  }
+}
+
+.mat-card-actions {
+  text-align: center;
+
+  .card-action-container {
+    padding-bottom: 6px;
+
+    a {
+      cursor: pointer;
+      color: $link-color;
+
+      &:hover {
+        color: $link-hover-color;
+      }
+    }
+  }
+}

@@ -1,0 +1,154 @@
+<pe-new-platform-header class="review-publish-dialog__platform-header"></pe-new-platform-header>
+<div style="margin-left: 50px;" #menuTrigger="matMenuTrigger" [matMenuTriggerFor]="menu"></div>
+
+<mat-menu #menu="matMenu" class="screen-menu">
+  <div class="screen-menu__header">
+    <div class="screen-menu__title">
+      {{ 'screen' | uppercase }}
+    </div>
+    <mat-icon class="screen-menu__close" svgIcon="button-close"></mat-icon>
+  </div>
+
+  <ng-container *ngFor="let screen of screens$ | async">
+    <button (click)="onView(screen.key)" class="screen-menu__button" [class.active]="screen.key === (screen$|async)?.key" mat-menu-item>
+      <mat-icon svgIcon="desktop" class="screen-menu__icon"></mat-icon>
+      <span>{{screen.title}}</span>
+    </button>
+  </ng-container>
+
+</mat-menu>
+<div class="main-container" *ngIf="totalPages.length; else noPages">
+  <ng-container>
+    <ng-container *ngIf="!isSidebarClosed">
+      <div
+        class="sidebar-wrap"
+        [@sidebarAnimation]="{value: gridAnimationState$ | async, params: { sidebarWidth: 315 }}"
+      >
+        <pe-sidebar
+          style="margin: 0 0 0 8px;"
+          [sidebarFilters]="filters">
+        </pe-sidebar>
+      </div>
+    </ng-container>
+
+    <pe-sidebar-filters-wrapper #filters>
+      <pe-sidebar-header title="History" [allowClose]="false"></pe-sidebar-header>
+      <pe-sidebar-filter-wrapper
+        [expandable]="true"
+        [active]="true">
+        <pe-tree-sidebar-filter
+          [ngTemplateOutlet]="nodeImageTemplate"
+          [ngTemplateOutletContext]="{node:treeData}">
+          <ng-template #nodeImageTemplate let-node="node">
+            <div *ngFor="let item of node"
+                 (click)="onSelectPage(item, $event)"
+                 class="sidebar-item"
+                 [class.active]="getActiveNode(item)">
+              <div class="sidebar-item__info">
+                <div class="sidebar-item__name">
+                  {{ item?.name }}
+                </div>
+              </div>
+              <div class="sidebar-item__timestamp" [class.active]="isActiveNode(item)">
+                <span class="sidebar-item__date">
+                  {{ item.data.date }}
+                </span>
+                <span class="sidebar-item__time">
+                  {{ item.data.time }}
+                </span>
+              </div>
+            </div>
+          </ng-template>
+        </pe-tree-sidebar-filter>
+      </pe-sidebar-filter-wrapper>
+    </pe-sidebar-filters-wrapper>
+
+    <div class="theme-versions-container" #versions>
+      <div class="draft preview"
+           #draftPreview>
+        <div class="dashboard-header draft">
+          <div class="dashboard-header__title">{{ 'builder-app.publish.draft' | translate }},</div>
+          <button class="dashboard-header__menu" (click)="onFullscreenChange(0)">
+            <ng-container *ngIf="!fullScreens[0]; then openFullscreen else exitFullscreen">
+            </ng-container>
+          </button>
+        </div>
+
+        <div class="dashboard-viewer-container">
+          <mat-spinner
+            *ngIf="(currentElements$ | async)?.length === 0 || (screenChanging$ | async)"
+            class="mat-spinner-themed dashboard-spinner"
+            [strokeWidth]="2"
+            [diameter]="22"
+          ></mat-spinner>
+
+          <div #scrollbar class="scrollbar" *ngIf="(screenChanging$ | async)!==true">
+            <peb-renderer
+              *ngIf="(currentElements$ | async)"
+              [elements]="currentElements$ | async"
+              [style.transform]="transform$ | async"
+              [style.width.px]="width$ | async"
+            ></peb-renderer>
+          </div>
+        </div>
+      </div>
+      <div class="current-version preview"
+           #currentVersionPreview>
+        <div class="dashboard-header">
+          <div class="dashboard-header__title">{{ 'builder-app.publish.currently_published' | translate }}</div>
+          <button class="dashboard-header__menu" (click)="onFullscreenChange(1)">
+            <ng-container *ngIf="!fullScreens[1]; then openFullscreen else exitFullscreen">
+            </ng-container>
+          </button>
+        </div>
+
+        <div class="dashboard-viewer-container">
+          <mat-spinner
+            *ngIf="(publishedElements$ | async)?.length === 0 || (screenChanging$ | async)"
+            class="mat-spinner-themed dashboard-spinner"
+            [strokeWidth]="2"
+            [diameter]="22"
+          ></mat-spinner>
+
+          <div class="scrollbar" *ngIf="(screenChanging$ | async)!==true">
+            <peb-renderer
+              *ngIf="(publishedElements$ | async)"
+              [elements]="publishedElements$ | async"
+              [style.transform]="transform$ | async"
+              [style.width.px]="width$ | async"
+            ></peb-renderer>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<ng-template #noPages>
+  <div class="no-pages">
+    {{ 'builder-app.publish.no_unpublished_changes' | translate }}
+    <span class="no-pages__back" (click)="onBack()">
+      {{ 'builder-app.publish.return_editor' | translate }}
+    </span>
+  </div>
+</ng-template>
+
+<ng-template #deletedPage>
+  <div class="missing-page">
+    {{ 'builder-app.publish.page_deleted' | translate }}
+  </div>
+</ng-template>
+
+<ng-template #missingPage>
+  <div class="missing-page">
+    {{ 'builder-app.publish.page_not_published' | translate }}
+  </div>
+</ng-template>
+
+<ng-template #openFullscreen>
+  <mat-icon svgIcon="openFullscreen" class="icon"></mat-icon>
+</ng-template>
+
+<ng-template #exitFullscreen>
+  <mat-icon svgIcon="closeFullscreen" class="icon"></mat-icon>
+</ng-template>

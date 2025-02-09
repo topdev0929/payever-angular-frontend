@@ -1,0 +1,28 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $row-background: map.get($color-config, 'row-background');
+  $text-color: map.get($color-config, 'text-color');
+  $hover-button: map.get($color-config, 'hover-button');
+  $active-text: map.get($color-config, 'active-text');
+  $host: map.get($color-config, 'host');
+
+  .pe-text-editor-toolbar {
+    button {
+      background-color: $row-background;
+      color: $text-color;
+      &.active{
+        background-color: $hover-button;
+        color: $active-text;
+      }
+    }
+    pe-form-fieldset.font-size{
+      .form-fieldset-horizontal{
+        .row {
+          color: $text-color;
+          background: $host;
+        }
+      }
+    }
+  }
+}

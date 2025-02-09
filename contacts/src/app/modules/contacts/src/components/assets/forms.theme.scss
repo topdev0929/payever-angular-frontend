@@ -1,0 +1,67 @@
+.cdk-overlay-container .overlay-widget-container {
+  .overlay-dark {
+    *::placeholder {
+      color: #7a7a7a;
+    }
+
+    @supports (-moz-appearance:none) {
+      .mat-select-placeholder {
+        color: #474747; // should be hardcoded for FF, for input placeholders FF adds opacity and for selects does not
+      }
+    }
+
+    .mat-form-field {
+      padding: 9px 12px;
+      font-size: 12px;
+      width: 100%;
+      min-width: 0;
+      height: 40px;
+
+      .mat-select-value,
+      .mat-input-element {
+        caret-color: auto;
+        color: #ffffff;
+        font-weight: 500;
+      }
+
+      .mat-form-field-infix {
+        padding: 0 0 3px;
+        margin-top: -3px;
+      }
+
+      .mat-form-field-label {
+        mat-label {
+          font-size: 11px;
+          color: #7a7a7a;
+        }
+      }
+
+      &.mat-form-field-invalid {
+        .mat-form-field-label {
+          color: #ff3c30;
+        }
+      }
+    }
+
+    .mat-select-trigger {
+      top: 0
+    }
+
+    .mat-form-field-wrapper {
+      padding-bottom: 0;
+    }
+
+    .mat-form-field-underline {
+      display: none;
+    }
+
+    .mat-checkbox-frame {
+      border-color: white !important;
+    }
+
+    .mat-checkbox-checked .mat-checkbox-background .mat-checkbox-checkmark-path,
+    .mat-checkbox-checked.mat-accent .mat-checkbox-background .mat-checkbox-checkmark-path {
+      stroke: white !important;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+@use 'pe_theming' as pet;
+@use './color-picker-form-themes' as color_picker_form;
+@use './color-picker-theme' as color_picker;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include color_picker_form.color($color-config);
+  @include color_picker.color($color-config);
+}

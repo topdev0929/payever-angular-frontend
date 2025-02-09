@@ -1,0 +1,121 @@
+@import "../../../../styles/src/lib/styles/variables";
+$space-between-controls: 10px;
+
+:host {
+  overflow: auto;
+}
+
+.main-form {
+  padding-bottom: 30px;
+}
+
+.form_button {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 0;
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+  height: auto;
+  padding: 8px 18px;
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  text-align: center;
+  color: #ffffff;
+  width: 100%;
+  margin-bottom: 13px;
+}
+
+.field-control {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+
+.form {
+  padding: 12px;
+
+  &__row {
+    margin-top: $space-between-controls;
+
+    &_border {
+      padding-top: $space-between-controls * 2;
+      padding-bottom: 0;
+      position: relative;
+
+      &::before {
+        content: '';
+        height: 1px;
+        width: 100%;
+        display: block;
+        top: $space-between-controls;
+        position: absolute;
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+.grid-2-columns {
+  column-gap: 4px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+}
+
+input {
+  border: 0;
+  border-radius: 6px;
+  box-sizing: border-box;
+  padding: 4px 20px 4px 8px;
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: normal;
+  height: 28px;
+  margin: 0;
+  outline: none;
+  width: 100%;
+  background-color: rgba(36, 39, 46, .9);
+  color: #fff;
+}
+
+.group {
+  &__label {
+    display: block;
+    font-size: 11px;
+    font-family: Roboto, sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    color: #7a7a7a;
+  }
+}
+
+.field {
+  &__label {
+    display: block;
+    font-size: 11px;
+    font-family: Roboto, sans-serif;
+    margin-bottom: 5px;
+    color: #7a7a7a;
+    font-weight: normal;
+  }
+
+  &__slide-toggle {
+    padding-left: 7px;
+    padding-top: 5px;
+  }
+}
+
+.form__row.inline {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-column-gap: 5px;
+  align-items: flex-start;
+}
+
+.position-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+}

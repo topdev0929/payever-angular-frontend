@@ -1,0 +1,26 @@
+.platform-background-wrap {
+    background-position: center;
+    background-size: cover;
+    position: fixed;
+    top: -140px;
+    left: -140px;
+    bottom: -140px;
+    right: -140px;
+    z-index: -1;
+    @include payever_transition(all, $animation-duration-slide-out, $animation-effect-ease-in);
+    @include payever_transform_translate3d(0,0,0);
+}
+
+body.pe-bootstrap {
+    padding: 0 !important;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+
+    line-height: 22px;
+    font-size: 15px;
+    font-weight: 400;
+}
+

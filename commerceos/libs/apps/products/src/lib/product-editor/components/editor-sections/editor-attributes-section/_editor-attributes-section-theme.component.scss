@@ -1,0 +1,16 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+
+  .attribute__wrapper {
+    .attribute__row {
+      .cdk-focused .label-input-content-wrapper::after {
+        margin-bottom: 0;
+      }
+      .label-input-content-wrapper .label-container.is-invalid:after {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,120 @@
+<div class="doc">
+  <h2>Button Groups</h2>
+
+  <div id="button-group-base" class="doc-chapter">
+    <h3>Base Button Groups</h3>
+
+    <div class="doc-block">
+      <tabset>
+        <tab heading="View">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default">Left</button>
+                <button type="button" class="btn btn-default">Middle</button>
+                <button type="button" class="btn btn-default">Right</button>
+              </div>
+              <div class="btn-group">
+                <button type="button" class="btn btn-default">Action</button>
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                  <svg class="icon icon-16">
+                    <use xlink:href="#icon-arrow-down-small-16"/>
+                  </svg>
+                </button>
+                <ul class="dropdown-menu pull-right">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Template">
+          <div class="row">
+            <div class="col-xs-12">
+              <pre><code class="html" html-entities="true" [innerHTML]="examples.base | code"></code></pre>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+
+  <div id="button-group-dark" class="doc-chapter">
+    <h3>Button Groups Dark</h3>
+
+    <div class="doc-block">
+      <tabset>
+        <tab heading="View">
+          <div class="doc-container doc-container-padding-vertical padding-top-0">
+            <div class="row">
+              <div class="col-xs-2">
+                <div class="btn-group btn-group-justified btn-group-dark" role="group">
+                  <div class="btn-group">
+                    <button type="button" class="btn active">
+                      <svg class="icon icon-16">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-ep-space-small"></use>
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="btn-group">
+                    <button type="button" class="btn">
+                      <svg class="icon icon-16">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-ep-left-16"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-container doc-container-padding-vertical">
+            <div class="row">
+              <div class="col-xs-12">
+                Hover on icon <code>.btn-group-dark-icon-hover</code>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-3">
+                <div class="btn-group btn-group-dark btn-group-dark-icon-hover"
+                     style="background-color: #323232" role="group">
+                  <div class="btn-group">
+                    <button type="button" class="btn active">
+                      <svg class="icon icon-32">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-ep-space-centered"></use>
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="btn-group">
+                    <button type="button" class="btn">
+                      <svg class="icon icon-32">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-ep-space-medium"></use>
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="btn-group">
+                    <button type="button" class="btn">
+                      <svg class="icon icon-32">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-ep-space-small"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Template">
+          <div class="col-xs-12">
+            <pre><code class="html" html-entities="true" [innerHTML]="examples.dark | code"></code></pre>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+</div>

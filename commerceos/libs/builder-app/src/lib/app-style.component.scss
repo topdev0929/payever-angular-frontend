@@ -1,0 +1,18 @@
+@use "pe_variables" as pe_variables;
+
+.pe-bootstrap .cdk-overlay-container .cdk-global-overlay-wrapper .cdk-overlay-pane {
+  &:not(.pe-checkout-bootstrap) {
+    mat-dialog-container.mat-dialog-container {
+      background-color: rgba(0, 0, 0, 0) !important;
+      box-shadow: unset !important;
+      color: rgba(0, 0, 0, 0) !important;
+    }
+  }
+}
+
+.mat-drawer-container .mat-drawer-content {
+  overflow-x: hidden;
+  @media (max-width:  pe_variables.$viewport-breakpoint-sm-2) {
+    padding-right: 0;
+  }
+}

@@ -1,0 +1,21 @@
+<p
+  class="text text-danger"
+  *ngIf="stripeError">
+  {{ stripeError }}
+</p>
+
+<stripe-wallet-shared-finish
+  *ngIf="!stripeError && paymentResponse"
+  [embeddedMode]="embeddedMode"
+  [merchantMode]="merchantMode"
+  [showCloseButton]="showCloseButton"
+  [isDisableChangePayment]="isDisableChangePayment"
+  [nodeResult]="paymentResponse"
+  [isLoading]="!paymentResponse || isCheckStatusProcessing && (confirmCardPaymentLoading$ | async) === false"
+  [isCheckStatusProcessing]="isCheckStatusProcessing"
+  [isCheckStatusTimeout]="isCheckStatusTimeout"
+  [errorMessage]="errorMessage"
+  (cleanUp)="cleanUp()"
+  (close)="close()"
+  (tryAgain)="tryAgain()"
+  (changePaymentMethod)="changePayment($event)"></stripe-wallet-shared-finish>

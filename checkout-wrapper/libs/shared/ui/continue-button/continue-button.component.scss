@@ -1,0 +1,39 @@
+@import "../../styles/assets/ui-kit-styles/pe_variables";
+
+::ng-deep .pe-checkout-bootstrap {
+
+  .checkout-wrapper-sdk-continue-button {
+    display: block;
+    width: 100%;
+    // Hack to reset global commerceos styles for button:
+    .mat-button-gradient,
+    .mat-button-gradient:active,
+    .mat-button-gradient:hover,
+    .mat-button-gradient:focus,
+    .mat-button-gradient:active:hover,
+    .mat-button-gradient:active:focus,
+    .mat-button-gradient.disabled,
+    .mat-button-gradient.disabled.focus,
+    .mat-button-gradient.disabled:focus,
+    .mat-button-gradient.disabled:hover,
+    .mat-button-gradient[disabled],
+    .mat-button-gradient[disabled].focus,
+    .mat-button-gradient[disabled]:focus,
+    .mat-button-gradient[disabled]:hover {
+      background-image: none;
+      border-color: transparent;
+      border-width: 0;
+      background-origin: border-box;
+      // To fix strange button disappear for on hover inside shops
+      -webkit-tap-highlight-color: currentColor;
+      position: static !important;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    .mat-button-gradient:hover {
+      opacity: 0.95;
+    }
+  }
+}
+

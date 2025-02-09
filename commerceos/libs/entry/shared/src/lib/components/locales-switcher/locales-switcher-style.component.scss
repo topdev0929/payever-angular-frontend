@@ -1,0 +1,12 @@
+@import "pe_variables";
+
+.pe-locale-switcher {
+  .overlay-widget-container {
+    @media (max-width: $viewport-breakpoint-xs-2) {
+      border-radius: 0;
+      > div {
+        border-radius: 0;
+      }
+    }
+  }
+}

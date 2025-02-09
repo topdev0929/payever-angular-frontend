@@ -1,0 +1,17 @@
+:host {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// required to prevent width changes of button
+.hidden-content {
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.mat-spinner {
+  margin: 0 auto;
+}

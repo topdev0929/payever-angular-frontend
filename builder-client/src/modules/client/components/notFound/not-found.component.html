@@ -1,0 +1,22 @@
+<div class="not-found-container" *ngIf="show">
+  <img class="no-shop-icon" src="assets/ui-kit/icons-png/icon-shop-not-found.png" alt=""/>
+
+  <ng-container [ngSwitch]="mode">
+
+    <ng-container *ngSwitchCase="'not-found'">
+      <div class="http-error">
+        404
+      </div>
+
+      <div class="shop-not-found" [innerHTML]="title"></div>
+
+      <div class="interested" [innerHTML]="'not_found.interested' | translate"></div>
+
+      <a [attr.href]="'not_found.link' | translate" class="register-button">{{ 'not_found.register' | translate }}</a>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'not-available'">
+      <div class="shop-not-found" [innerHTML]="'Shop is not available'"></div>
+    </ng-container>
+  </ng-container>
+</div>

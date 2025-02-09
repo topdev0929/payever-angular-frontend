@@ -1,0 +1,11 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $icon-background: map-get($color-config, 'icon-background');
+
+  .pe-widget-icons {
+    .icons__image {
+      background-color: $icon-background;
+    }
+  }
+}

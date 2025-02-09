@@ -1,0 +1,77 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+:host {
+   position: fixed;
+   top: 0;
+   left: calc(50% - #{$padding-small-horizontal * 23});
+  @media(max-width: $viewport-breakpoint-xs-2 - 1) {
+    left: unset;
+    width: 100%;
+  }
+
+  .loading-box {
+    $animation-duration: 1s;
+
+    $logo-width: $grid-unit-x * 2;
+    $text-width: $grid-unit-x * 6;
+    $full-width: $logo-width + $text-width;
+    $center: ceil($full-width/2);
+
+    @include pe_flexbox;
+    @include pe_align-items(center);
+    @include pe_justify-content(center);
+    height: $grid-unit-y * 11;
+
+    .icon-logo {
+      width: $logo-width;
+      height: $logo-width + 1;
+      display: inline-block;
+      animation-name: slidein;
+      animation-duration: $animation_duration;
+      opacity: 1;
+    }
+
+    .icon-text {
+      width: $text-width;
+      display: inline-block;
+      height: $grid-unit-y * 1.5;
+      animation-name: slideright;
+      animation-duration: $animation_duration;
+      margin-left: ceil($grid-unit-y / 2);
+    }
+
+    $translateX: 40px;
+
+    @keyframes slidein {
+      from {
+        @include payever_transform_translateX($translateX);
+        opacity: 0;
+      }
+
+      70% {
+        opacity: 1;
+        @include payever_transform_translateX($translateX);
+      }
+
+      to {
+        @include payever_transform_translateX(0);
+      }
+    }
+
+    @keyframes slideright {
+      from {
+        opacity: 0;
+        @include payever_transform_translateX(-$translateX);
+      }
+      70% {
+        opacity: 0;
+        @include payever_transform_translateX(-$translateX);
+      }
+      to {
+        opacity: 1;
+        @include payever_transform_translateX(0);
+      }
+    }
+  }
+}

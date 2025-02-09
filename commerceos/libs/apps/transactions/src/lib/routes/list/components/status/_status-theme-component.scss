@@ -1,0 +1,45 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $card: map.get($color-config, 'card');
+  $confirm: map.get($color-config, 'confirm');
+  $warn: map.get($color-config, 'warn');
+  $success: map.get($color-config, 'success');
+  $active-text: map.get($color-config, 'active-text');
+  $primary: map.get($color-config, 'primary');
+  $spinner-background: map.get($color-config, 'spinner-background');
+  $label-color: map.get($color-config, 'label-color');
+  $text-color: map.get($color-config, 'text-color');
+  $row-background: map.get($color-config, 'row-background');
+
+  .status {
+    color: $active-text;
+
+    .status-loading-container {
+      background-color: $spinner-background;
+
+      .loader-white {
+        background-color: $label-color;
+      }
+
+      .loader-white::before {
+        background-color: $label-color;
+      }
+
+      .loader-white::after {
+        background-color: $label-color;
+      }
+
+      @keyframes doLoding {
+        0% {
+          background-color: $label-color;
+        }
+        50%,
+        100% {
+          background-color: $active-text;
+        }
+      }
+    }
+  }
+}

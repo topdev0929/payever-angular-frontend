@@ -1,0 +1,60 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+$docker_height: 140px;
+$docker_item_width: 160px;
+$docker_item_width_mobile: 80px;
+$docker_padding: 81px;
+$mobile_checkpoint: $viewport-breakpoint-sm-2;
+
+.menu-item {
+  display: block;
+  max-width: $docker_item_width;
+  width: 100%;
+  height: $docker_height;
+  text-align: center;
+  position: relative;
+  vertical-align: middle;
+  padding-top: 38px;
+  text-decoration: none;
+  color: $color-white;
+  font-size: 13px;
+  opacity: 1;
+
+  @media(max-width: $mobile_checkpoint) {
+    height: $docker_height/2;
+    padding-top: 11px;
+  }
+
+  button {
+    padding: 0;
+    background-color: transparent;
+    display: inline-block;
+
+    .icon {
+      width: $icon-size-48;
+      height: $icon-size-48;
+      margin-bottom: 6px;
+      @media(max-width: $mobile_checkpoint) {
+        transform: scale(.6);
+      }
+    }
+
+    &:hover, &:focus {
+      opacity: .75;
+      color: $color-white;
+    }
+  }
+
+  span {
+    display: block;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    @media(max-width: $mobile_checkpoint) {
+      display: none;
+    }
+  }
+
+}

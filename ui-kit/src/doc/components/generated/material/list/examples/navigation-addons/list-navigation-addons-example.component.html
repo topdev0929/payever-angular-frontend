@@ -1,0 +1,32 @@
+<mat-nav-list>
+  <mat-divider *ngIf="vegetableList && vegetableList.length !== 0"></mat-divider>
+  <ng-container *ngFor="let vegetable of vegetableList">
+    <mat-list-item class="mat-list-item-no-padding-left">
+      <a matLine href="javascript:void(0)" (click)="onClick(vegetable)">{{ vegetable }}</a>
+      <div class="mat-list-item-content-addon-append">
+        <svg class="icon icon-16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-arrow-right-2-16"></use></svg>
+      </div>
+      <div class="mat-list-item-content-addon-prepend">
+        <button class="mat-button-link mat-muted-light mat-button-no-padding"
+                mat-button
+                mat-icon-button
+                [matMenuTriggerFor]="menu"
+
+        >
+          <svg class="icon icon-16"><use xlink:href="#icon-dots-v-16"></use></svg>
+        </button>
+        <mat-menu #menu="matMenu" class="mat-menu-lg mat-menu-padding-lg" [hasBackdrop]="true" [overlapTrigger]="true">
+          <div class="mat-menu-item-slide-toggle">
+            Visibility
+            <mat-slide-toggle (click)="toggleClick($event)"></mat-slide-toggle>
+          </div>
+          <mat-divider></mat-divider>
+          <div mat-menu-item>Edit</div>
+          <div mat-menu-item>Duplicate</div>
+          <div mat-menu-item>Delete</div>
+        </mat-menu>
+      </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </ng-container>
+</mat-nav-list>

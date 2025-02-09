@@ -1,0 +1,17 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $text-color: map.get($color-config, 'text-color');
+  $label-color: map.get($color-config, 'label-color');
+
+  peb-editor-text-input {
+    input {
+      background-color: $overlay-background;
+      color: $text-color;
+      &::placeholder {
+        color: $label-color;
+      }
+    }
+  }
+}

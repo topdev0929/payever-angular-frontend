@@ -1,0 +1,28 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $primary: map-get($color-config, primary);
+  $text-color: map-get($color-config, text-color);
+  $secondary-background: map-get($color-config, secondary-background);
+  $confirm: map-get($color-config, confirm);
+
+  pe-grid-material-styles {
+    .move_overlay-panel-dark {
+      background: $primary;
+    }
+
+    peb-overlay-widget {
+      .overlay-widget-container {
+        .overlay-widget {
+          &__header {
+            .header-container {
+              .overlay-widget__title {
+                color: $text-color;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

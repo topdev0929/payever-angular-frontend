@@ -1,0 +1,22 @@
+@import "./imports";
+
+// Force enable acceleration to avoid iOS problem (disappeared content on scroll)
+@supports (-webkit-marquee-repetition:infinite) and (object-fit:fill) {
+  body:not(.modal-open) {
+    -webkit-transform: translate3d(0, 0, 0);
+    .ui-layout-content-main {
+      -webkit-transform: translate3d(0, 0, 0);
+    }
+    .ui-layout-app {
+      position: static !important;
+    }
+  }
+}
+
+// Fixing position: fixed for IE
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .pe-checkout-bootstrap .modal {
+    position: -ms-page;
+  }
+}
+

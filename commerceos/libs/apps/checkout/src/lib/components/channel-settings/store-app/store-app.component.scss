@@ -1,0 +1,12 @@
+@import "~@pe/ui-kit/scss/pe_variables.scss";
+@import "./../../panels/page-container.scss";
+
+.overlay-widget .pe-info-box-container-fixed.store-app-container {
+  width: 100%;
+  min-height: fit-content;
+
+  .pe-info-box {
+    min-width: 100%;
+    padding: 0;
+  }
+}

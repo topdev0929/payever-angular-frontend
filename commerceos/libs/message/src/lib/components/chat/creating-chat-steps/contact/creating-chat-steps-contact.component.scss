@@ -1,0 +1,73 @@
+@use 'pe_variables' as pe_variables;
+
+.contact-invite-link {
+  &__link {
+    margin-top: 12px;
+    border-radius: 12px;
+  }
+
+  &__actions-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__copy {
+    padding: 14px 12px;
+    appearance: none;
+    min-width: 105px;
+  }
+
+  &__skip {
+    margin: 12px 0 0;
+  }
+
+  &__copy {
+    outline: none;
+    line-height: 40px;
+    letter-spacing: normal;
+    box-shadow: none;
+    text-align: center;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    font-stretch: normal;
+    font-style: normal;
+    width: 100%;
+    cursor: pointer;
+
+    @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+      font-size: 17px;
+    }
+
+    &:focus,
+    &:hover,
+    &:active {
+      border: none;
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  &__root-link {
+    flex: 1;
+    width: 100px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 14px !important;
+    margin-right: 0 !important;
+  }
+
+}
+
+.add-admins {
+  .errors {
+    margin-top: 5px;
+  }
+
+  .picker-container {
+    border-radius: 12px;
+  }
+}

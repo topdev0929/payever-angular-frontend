@@ -1,0 +1,51 @@
+.desktop-checkout-items .item-header .selected-step-data {
+  width: 164px;
+}
+
+.mobile .desktop-checkout-items .item-header .selected-step-data {
+  width: 158px;
+}
+
+.active-shipping-step .desktop-checkout-items {
+  top: -28px;
+}
+
+.mobile .active-shipping-step .desktop-checkout-items {
+  top: 0;
+}
+
+.active-payment-method-step-1 .desktop-checkout-items {
+  top: -128px;
+}
+
+.active-payment-method-step-2 .desktop-checkout-items {
+  top: -314px;
+}
+
+.mobile .active-payment-method-step-2 .desktop-checkout-items {
+  top: -268px;
+}
+
+.active-application-details-step .desktop-checkout-items {
+  top: -188px;
+}
+
+.active-household-expenses-step .desktop-checkout-items {
+  top: -131px;
+}
+
+.active-household-expenses-step-1 .desktop-checkout-items,
+.active-household-expenses-step-2 .desktop-checkout-items {
+  top: -158px;
+}
+
+.mobile .active-household-expenses-step-1 .desktop-checkout-items,
+.mobile .active-household-expenses-step-2 .desktop-checkout-items {
+  top: -174px;
+}
+
+.application-details-step .continue-button-wrapper,
+.household-expenses-step .continue-button-wrapper {
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--secondary-200);
+}

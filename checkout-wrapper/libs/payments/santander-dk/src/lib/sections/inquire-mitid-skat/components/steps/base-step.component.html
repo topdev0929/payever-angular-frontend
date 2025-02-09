@@ -1,0 +1,47 @@
+<p
+  *ngIf="navigationError"
+  class="small text-danger">
+  {{ navigationError }}
+</p>
+
+<ng-container
+  *ngIf="
+  {
+    isStepActive: isStepActive$ | async,
+    isReady: isReady$ | async,
+    loading: loading$ | async
+  } as vm
+  ">
+  <santander-dk-mitid-status
+    [title]="translations.status.title"
+    [note]="translations.status.text"
+    [faded]="!vm.isStepActive"
+    [passed]="!vm.isStepActive">
+  </santander-dk-mitid-status>
+
+  <checkout-sdk-continue-button
+    *ngIf="vm.isStepActive"
+    [text]="translations.actions.login"
+    [loading]="vm.loading"
+    (clicked)="navigate()">
+  </checkout-sdk-continue-button>
+  <checkout-sdk-continue-button
+    *ngIf="vm.isReady"
+    [text]="translations.actions.continue"
+    (clicked)="pass()"
+    [loading]="vm.loading">
+  </checkout-sdk-continue-button>
+</ng-container>
+
+<div *ngIf="formRedirectData">
+  <form
+    id="formRedirectData"
+    method="post"
+    [action]="formRedirectData.postUrl">
+    <input
+      *ngFor="let data of formRedirectData.postValues"
+      type="hidden"
+      [name]="data.key"
+      [value]="data.value" />
+  </form>
+</div>

@@ -1,0 +1,13 @@
+{
+  "extends": ["../../../../.eslintrc.json"],
+  "ignorePatterns": ["!**/*"],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "rules": {
+        "@angular-eslint/no-input-rename": "off",
+        "@angular-eslint/no-output-rename": "off"
+      }
+    }
+  ]
+}

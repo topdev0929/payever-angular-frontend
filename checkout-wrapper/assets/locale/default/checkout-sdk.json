@@ -1,0 +1,152 @@
+{
+  "checkout_sdk": {
+    "action": {
+      "cancel": "Cancel",
+      "close": "Close",
+      "continue": "Continue",
+      "change_payment_method": "Change payment method",
+      "done": "Done",
+      "pick": "Pick",
+      "edit": "Edit",
+      "return_to_store": "Back to the store",
+      "return_to_pos": "Back to the terminal",
+      "try_again": "Try again",
+      "submit_application": "Submit application"
+    },
+    "error": {
+      "form_options_not_loaded": "Could not load form options. Please try again.",
+      "no_variant": "Could not load payment variant.",
+      "no_rates": "Could not load credit rates.",
+      "threat_metrix_not_loaded": "Something went wrong, try again"
+    },
+    "finish": {
+      "header": {
+        "processing": "We are processing your application",
+        "request_error": "Error occurred during inquiry request"
+      },
+      "details": {
+        "processing": "Verification can take a few minutes. Please do not click away"
+      }
+    },
+    "finish_already_submitted": {
+      "title": "Payment was already finalized"
+    },
+    "finish_status_success": {
+      "title": "Loan temporarely approved",
+      "text": "Verify your identification now",
+      "details": {
+        "total": "Total",
+        "store_name": "Store name",
+        "created": "Created",
+        "name": "Name"
+      },
+      "application_number": "Application number: {{ applicationNumber }}",
+      "transaction_number": "Transaction number: {{ transactionNumber }}",
+      "print_docs": "Print POSTIDENT documents",
+      "transaction_details": "See <a href='{{transactionLink}}' target='_blank'>transaction details</a> for missing steps of this application",
+      "download_contract": "Download contract"
+    },
+    "finish_status_pending": {
+      "title": "We are processing your application",
+      "text": "Verify your identification now",
+      "details": {
+        "total": "Total",
+        "store_name": "Store name",
+        "created": "Created",
+        "name": "Name"
+      },
+      "application_number": "Application number: {{ applicationNumber }}",
+      "transaction_number": "Transaction number: {{ transactionNumber }}",
+      "print_docs": "Print POSTIDENT documents",
+      "transaction_details": "See <a href='{{transactionLink}}' target='_blank'>transaction details</a> for missing steps of this application",
+      "download_contract": "Download contract"
+    },
+    "finish_status_fail": {
+      "title": "Application failed",
+      "text": "Unfortunately, we can not provide you with a loan at this time.",
+      "change_payment_method": "Please, select another payment method",
+      "application_number": "Application number: {{ applicationNumber }}",
+      "transaction_number": "Transaction number: {{ transactionNumber }}",
+      "transaction_details": "See <a href='{{transactionLink}}' target='_blank'>transaction details</a> for missing steps of this application"
+    },
+    "finish_status_unknown": {
+      "title": "Unknown status of order",
+      "text": "Unfortunately, server has returned unknown status of order",
+      "application_number": "Application number: {{ applicationNumber }}",
+      "transaction_number": "Transaction number: {{ transactionNumber }}",
+      "transaction_details": "See <a href='{{transactionLink}}' target='_blank'>transaction details</a> for missing steps of this application"
+    },
+    "default_receipt": {
+      "finish": {
+        "order_success": {
+          "title": "Thank you! Your order has been placed"
+        },
+        "order_fail": {
+          "title": "Not possible to process payment"
+        },
+        "order_unknown": {
+          "title": "Unknown status",
+          "text": "Order has unknown status"
+        },
+        "labels": {
+          "order_number": "Order number"
+        }
+      }
+    },
+    "payment_status": {
+      "STATUS_NEW": "New",
+      "STATUS_IN_PROCESS": "In progress",
+      "STATUS_ACCEPTED": "Accepted",
+      "STATUS_PAID": "Paid",
+      "STATUS_DECLINED": "Declined",
+      "STATUS_REFUNDED": "Refunded",
+      "STATUS_FAILED": "Failed",
+      "STATUS_CANCELLED": "Cancelled",
+      "STATUS_INVOICE_CANCELLATION": "Cancelled",
+      "STATUS_INVOICE_INCOLLECTION": "Collection",
+      "STATUS_INVOICE_LATEPAYMENT": "Late payment",
+      "STATUS_INVOICE_REMINDER": "Reminder",
+      "STATUS_SANTANDER_IN_PROGRESS": "In progress",
+      "STATUS_SANTANDER_IN_PROCESS": "In process",
+      "STATUS_SANTANDER_DECLINED": "Declined",
+      "STATUS_SANTANDER_APPROVED": "Approved",
+      "STATUS_SANTANDER_APPROVED_WITH_REQUIREMENTS": "Approved with requirements",
+      "STATUS_SANTANDER_DEFERRED": "Deferred",
+      "STATUS_SANTANDER_CANCELLED": "Cancelled",
+      "STATUS_SANTANDER_AUTOMATIC_DECLINE": "Automatically declined",
+      "STATUS_SANTANDER_IN_DECISION": "In decision",
+      "STATUS_SANTANDER_DECISION_NEXT_WORKING_DAY": "Decision in the next working day",
+      "STATUS_SANTANDER_IN_CANCELLATION": "In cancellation",
+      "STATUS_SANTANDER_ACCOUNT_OPENED": "Account opened",
+      "STATUS_SANTANDER_CANCELLED_ANOTHER": "Cancelled",
+      "STATUS_SANTANDER_SHOP_TEMPORARY_APPROVED": "Temporarily approved"
+    },
+    "payment_external_code": {
+      "title": "Please shows this numeric code to the cashier",
+      "confirmation_code": "Confirmation code",
+      "description": "Show this confirmation code to take your goods",
+      "verification_required": "Please go to cashier with id card or passport for verification"
+    },
+    "rate": {
+      "no_rate_selected": "Please select a rate"
+    },
+    "qr_share": {
+      "title": "Scan QR Code",
+      "share_bag": "Share",
+      "or": "or",
+      "cancel": "Cancel",
+      "email": {
+        "placeholder": "Enter e-mail",
+        "text": "Share with e-mail",
+        "error": "Invalid email",
+        "snackbarSuccess": "E-mail sent successfully!"
+      },
+      "sms": {
+        "placeholder": "Enter SMS",
+        "text": "Share with SMS",
+        "error": "Invalid phone number",
+        "snackbarSuccess": "SMS sent successfully!"
+      }
+    }
+  }
+}

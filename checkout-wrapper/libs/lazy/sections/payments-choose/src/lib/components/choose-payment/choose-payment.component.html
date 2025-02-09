@@ -1,0 +1,158 @@
+<div *ngIf="!!(flow$ | async)">
+  <div *ngIf="paymentOptions && paymentOptions.length > 0">
+    <div
+      *ngFor="let paymentOptionItem of paymentOptions; trackBy: trackById;"
+      class="div-table div-table-no-overflow-hidden div-table-payment-option"
+      [class.hidden]="paymentOption?.id !== paymentOptionItem.id
+        && isPaymentModalShown
+        && (embeddedMode$ | async)
+        && (showOtherPayment$ | async) !== true"
+      [class.payment-option-selected]="paymentOptionItem.id === paymentOptionLastClicked.id">
+      <div class="row">
+        <!-- Have to have position static to have fullscreen finish modal in embed mode (check .checkout-sdk-finish-modal-mode-container class) -->
+        <div
+          class="col-xs-12"
+          [style.position]="'static'">
+          <choose-payment-header
+            [flow]="flow"
+            [paymentOption]="paymentOptionItem"
+            [selectedPayment]="paymentOptionLastClicked"
+            [disabled]="isChangeDisabled"
+            [ready]="isPaymentReady"
+            (paymentChange)="onChangePaymentOption($event)">
+          </choose-payment-header>
+          <div class="clearfix"></div>
+          <div
+            [class.hidden]="isSwitching"
+            [class.no-payment-body-paddings]="isFullWidth"
+            *ngIf="(paymentOption$ | async)?.id === paymentOptionItem.id">
+            <div
+              class="pe-payment-micro"
+              [class.hidden]="isLoading || isFormOptionsLoading">
+              <ng-template #paymentContainer></ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="div-table div-table-no-overflow-hidden"
+    *ngIf="(!paymentOptions || !paymentOptions.length) && !isUpdatingList">
+    <div class="row">
+      <div class="col-xs-12 well-lg">
+        <div [class.alert]="(isMobile$ | async) !== true">
+          <svg
+            class="icon text-warning"
+            [class.icon-32]="(isMobile$ | async) !== true"
+            [class.icon-16]="(isMobile$ | async)">
+            <use [attr.xlink:href]="'#icon-alert-32'"></use>
+          </svg>
+          &nbsp;
+          <span i18n="@@payment.error.no_payment_options">payment.error.no_payment_options</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="help-text small"
+    *ngIf="helpText">
+    <p [innerHtml]="helpText"></p>
+  </div>
+
+  <ng-container *ngIf="(isHiddenContinueBlock$ | async) !== true">
+    <checkout-sdk-continue-button
+      *ngIf="!hiddenContinue"
+      [text]="textContinue"
+      [disabled]="isContinueDisabled$ | async"
+      [loading]="isLoading || isRatesLoading || isFormOptionsLoading || isUpdatingList"
+      (clicked)="onSubmit()">
+    </checkout-sdk-continue-button>
+
+    <div
+      *ngIf="paymentOption && paymentOptions.length"
+      class="small">
+      <section-policies
+        *ngIf="(isContinueDisabled$ | async) !== true"
+        [paymentMethod]="paymentOption.paymentMethod"
+        [textContinue]="textContinue">
+      </section-policies>
+      <div
+        *ngIf="isShowRememberMe$ | async"
+        class="form-table">
+        <section-choose-payment-styles></section-choose-payment-styles>
+        <div class="remember-me-container text-secondary">
+          <div class="clearfix">
+            <div class="col-xs-12 field-checkbox">
+              <div class="input-group">
+                <div class="pe-input-group-main input-group-main">
+                  <div class="form-not-field form-widget form-design">
+                    <div class="remember-me-checkbox">
+                      <mat-checkbox
+                        [id]="'pe-remember_me'"
+                        (change)="onChangeRememberMe($event)"></mat-checkbox>
+                      <label [for]="'pe-remember_me'">
+                        <span
+                          class="checkout-font-size"
+                          [innerHTML]="translations.rememberMe"></span
+                        >&nbsp;
+                        <svg
+                          class="icon icon-24"
+                          (click)="tooltipClick()">
+                          <use xlink:href="#icon-help-24"></use>
+                        </svg>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<error-flow-finished
+  *ngIf="isFlowFinished"
+  [flow]="flow"></error-flow-finished>
+
+<ng-template
+  #tooltipRef
+  let-data>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    style="display:none;">
+    <symbol
+      id="icon-forms-close-16"
+      viewBox="0 0 16 16"
+      width="100%">
+      <path
+        class="path1"
+        d="M16 .9l-.9-.9L8 7.1.9 0 0 .9 7.1 8 0 15.1l.9.9L8 8.9l7.1 7.1.9-.9L8.9 8z" />
+    </symbol>
+  </svg>
+
+  <button
+    type="button"
+    mat-button
+    mat-dialog-close
+    class="mat-button-no-padding mat-button-link mat-button-xs mat-dialog-close-icon">
+    <svg class="icon icon-16"><use xlink:href="#icon-forms-close-16"></use></svg>
+  </button>
+
+  <div>
+    <div class="mat-dialog-content-wrapper">
+      <div>
+        <div mat-dialog-content>
+          <div class="dialog-container">
+            <p [innerHtml]="data.text"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

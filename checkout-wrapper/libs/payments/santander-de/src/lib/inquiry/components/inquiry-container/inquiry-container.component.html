@@ -1,0 +1,17 @@
+<checkout-sdk-payment-sections
+  *ngIf="nodeFormOptions$ | async as nodeFormOptions"
+  [sectionsConfig]="sectionsConfig"
+  [formSections]="formSectionsData"
+  [doSubmit$]="doSubmit$"
+  [flow]="flow"
+  [nodeFormOptions]="nodeFormOptions"
+  [paymentMethod]="paymentMethod"
+  [merchantMode]="merchantMode"
+  [isBillingAddressStepVisible]="false"
+  i18n-submitButtonText="@@santander-de.actions.send_inquiry"
+  submitButtonText="santander-de.actions.send_inquiry"
+  (changePaymentMethod)="changePayment($event)"
+  (checkStepsLogic)="checkStepsLogic($event)"
+  (loadedLazyModule)="loadedLazyModule($event)"
+  (submitted)="onSend()">
+</checkout-sdk-payment-sections>

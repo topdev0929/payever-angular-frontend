@@ -1,0 +1,21 @@
+{
+  "code": "settings",
+  "dashboardInfo": {
+    "title": "dashboard.apps.settings",
+    "icon": "icon-commerceos-settings-32.png"
+  },
+  "tag": "<settings-root></settings-root>",
+  "access": {
+    "business": {
+      "url": "/business/{uuid}/settings",
+      "defaultInstalled": true,
+      "isDefault": true
+    },
+    "user": {
+      "url": "/personal/{uuid}/settings",
+      "defaultInstalled": true,
+      "isDefault": true
+    }
+  },
+  "bootstrapScriptUrl": "${MICRO_URL_FRONTEND_SETTINGS}/micro.js?{hash}"
+}

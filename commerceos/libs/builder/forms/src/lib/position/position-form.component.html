@@ -1,0 +1,34 @@
+<form class="form" [formGroup]="positionForm">
+  <div class="group__row">
+    <label class="label">{{ 'builder-app.forms.position.type' | translate }}</label>
+  </div>
+  <div class="group__row">
+    <peb-select formControlName="type" [options]="positionTypes$|async" [label]="'builder-app.forms.position.type' | translate"
+      [placeholder]="'builder-app.forms.position.type' | translate"></peb-select>
+  </div>
+
+  <div class="group__row position-form" *ngIf="canChangePosition">
+    <peb-size-input formControlName="left" prefix="L" [precision]="2" title="Left"></peb-size-input>
+    <peb-size-input formControlName="right" prefix="R" [precision]="2" title="Right"></peb-size-input>
+    <peb-size-input formControlName="top" prefix="T" [precision]="2" title="Top"></peb-size-input>
+    <peb-size-input formControlName="bottom" prefix="B" [precision]="2" title="Bottom"></peb-size-input>
+  </div>
+
+  <div class="group__row position-form" *ngIf="showSectionStickyOption$|async">
+    <peb-size-input formControlName="top" prefix="T" [precision]="2" title="Top"></peb-size-input>
+    <peb-size-input formControlName="bottom" prefix="B" [precision]="2" title="Bottom"></peb-size-input>
+  </div>
+
+  <div class="form__row" *ngIf="showArrangeButtons$|async">
+    <div class="position">
+      <div class="position__button" (click)="changePosition(1)">
+        <peb-editor-move-down-icon></peb-editor-move-down-icon>
+      </div>
+      <div class="position__button" (click)="changePosition(-1)">
+        <peb-editor-move-up-icon></peb-editor-move-up-icon>
+      </div>
+    </div>
+  </div>
+
+  <div [class.readonly]="syncEnabled$ | async" title="auto sync size/position is enabled"></div>
+</form>

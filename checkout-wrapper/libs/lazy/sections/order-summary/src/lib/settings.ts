@@ -1,0 +1,1 @@
+export const DISABLED_PAYMENT_COST_FOR_COUNTRY = ['NO', 'SE'];

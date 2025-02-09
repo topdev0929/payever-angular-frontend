@@ -1,0 +1,23 @@
+<form
+  *ngIf="formGroup.enabled"
+  class="form-table"
+  [formGroup]="formGroup">
+  <pe-payment-text type="html">
+    <div [innerHTML]="translations.agreeText"></div>
+  </pe-payment-text>
+  <mat-checkbox
+    formControlName="_agreeObtainCreditStatus"
+    analyticFieldName="Agree obtain credit status">
+    <span [innerHTML]="translations._agreeObtainCreditStatus.label"></span>
+  </mat-checkbox>
+  <mat-checkbox
+    formControlName="applyOnBehalfOfOther"
+    analyticFieldName="Apply on behalf of other">
+    <span [innerHTML]="translations.applyOnBehalfOfOther.label"></span>
+  </mat-checkbox>
+  <mat-checkbox
+    formControlName="confirmEnteredData"
+    analyticFieldName="Confirm entered Data">
+    <span [innerHTML]="translations.confirmEnteredData.label"></span>
+  </mat-checkbox>
+</form>

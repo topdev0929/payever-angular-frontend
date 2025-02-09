@@ -1,0 +1,66 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $primary: map.get($color-config, 'primary');
+  $button: map.get($color-config, 'button');
+  $badge-button: map.get($color-config, 'badge-button');
+  $text-color: map.get($color-config, 'text-color');
+  $background: map.get($color-config, 'background');
+  $active-text: map.get($color-config, 'active-text');
+  $accent: map.get($color-config, 'accent');
+  $grid-item-background: map.get($color-config, 'grid-item-background');
+  $accent-border: map.get($color-config, 'accent-border');
+  $accent-fill: map.get($color-config, 'accent-fill');
+  $accent-fill-border: map.get($color-config, 'accent-fill-border');
+  $confirm: map.get($color-config, 'confirm');
+
+  pe-table-row {
+    .mobile-row-wrap {
+      background: $primary;
+      border-top: 1px solid $background;
+      &__content {
+        .rows-wrap {
+          &__description,
+          &__row {
+            color: $text-color;
+          }
+        }
+      }
+      &__badge {
+        color: $text-color;
+        stroke: $text-color;
+      }
+      &__thumbnail-item {
+        &:not(.image-loaded) {
+          background: $grid-item-background;
+        }
+      }
+      &__more-icon {
+        circle {
+          fill: $button;
+        }
+        path {
+          color: $active-text;
+        }
+      }
+    }
+    .grid-table-body-cell {
+      background-color: $primary;
+      color: $text-color;
+      border-top-color: $background;
+      &.action {
+        button {
+          color: $active-text;
+        }
+      }
+      &__checkbox {
+        background-color: $accent;
+        border-color: $accent-border;
+        &_active {
+          background-color: $confirm;
+          stroke: $active-text;
+        }
+      }
+    }
+  }
+}

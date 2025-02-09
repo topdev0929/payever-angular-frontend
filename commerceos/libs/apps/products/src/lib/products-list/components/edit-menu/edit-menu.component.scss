@@ -1,0 +1,41 @@
+.products-edit-menu {
+  div {
+    display: flex;
+  }
+
+  svg {
+    background: none !important;
+    transform: rotate(90deg);
+    margin-right: 0 !important;
+    cursor: pointer;
+  }
+
+  ul {
+    list-style-type: none;
+    margin-top: -16px;
+    margin-bottom: -8px;
+    margin-right: -9px;
+    margin-left: -9px;
+    padding: 0;
+
+    li {
+      box-sizing: border-box;
+      color: inherit;
+      cursor: pointer;
+      font-family: Roboto, sans-serif;
+      font-size: 15px;
+      height: 40px;
+      line-height: 1.2;
+      padding: 12px;
+
+      &:not(:last-of-type) {
+        border-bottom: 1px solid;
+      }
+    }
+  }
+
+  ::ng-deep.mat-menu-content {
+    background-color: unset !important;
+    padding-bottom: 4px !important;
+  }
+}

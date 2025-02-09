@@ -1,0 +1,40 @@
+<button type="button" mat-button (click)="snav.toggle()">Toggle</button>
+<div class="doc-container-black">
+  <mat-sidenav-container>
+    <mat-sidenav #snav position="start" class="col-xs-5 mat-sidenav-dark">
+      <button (click)="snav.toggle()" mat-button color="primary"
+              class="mat-sidenav-first-el mat-button mat-button-link mat-button-bold mat-button-no-padding mat-sidenav-header-right">
+        <span>Done</span>
+      </button>
+      <mat-tab-group>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <svg class="icon icon-32">
+              <use xlink:href="#icon-sb-header-position-3-32"></use>
+            </svg>
+          </ng-template>
+          Content 1
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <svg class="icon icon-32">
+              <use xlink:href="#icon-sb-settings-32"></use>
+            </svg>
+          </ng-template>
+          Content 2
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <svg class="icon icon-32">
+              <use xlink:href="#icon-sb-images-32"></use>
+            </svg>
+          </ng-template>
+          Content 3
+        </mat-tab>
+      </mat-tab-group>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <p style="color: transparent" *ngFor="let content of fillerContent">{{content}}</p>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

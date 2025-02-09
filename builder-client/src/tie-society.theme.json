@@ -1,0 +1,2302 @@
+[
+    {
+        "uuid": "document:front",
+        "component": "pe-builder-elements-document",
+        "pageSlug": "about-us",
+        "anchors": {},
+        "attributes": {},
+        "style": {
+            "width": {
+                "desktop": 1440,
+                "mobile": 375
+            }
+        },
+        "text": "",
+        "children": [
+            {
+                "uuid": "header",
+                "component": "pe-builder-elements-section",
+                "anchors": {},
+                "attributes": {},
+                "style": {
+                    "background": "black",
+                    "height": 60
+                },
+                "text": "",
+                "children": [
+                    {
+                        "uuid": "eb950287-1fce-419e-904e-91dbf2fb44da",
+                        "component": "pe-builder-elements-block",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "width": {
+                                "desktop": 1440,
+                                "mobile": 375
+                            },
+                            "height": 60
+                        },
+                        "text": "",
+                        "children": [
+                            {
+                                "uuid": "4e2f6f4b-2560-4fcc-8745-6e6a4c872150",
+                                "component": "pe-builder-elements-block",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "left": {
+                                        "desktop": 20,
+                                        "mobile": 123
+                                    },
+                                    "top": {
+                                        "desktop": 14.6,
+                                        "mobile": 17
+                                    },
+                                    "width": 129,
+                                    "height": 29,
+                                    "color": "white",
+                                    "fontSize": 18,
+                                    "backgroundImage": "url(\"http://37.235.231.145:3000/assets/tiesociety/logo.png\")",
+                                    "backgroundSize": "cover"
+                                },
+                                "text": "",
+                                "children": []
+                            },
+                            {
+                                "uuid": "899bff58-bc7e-4fc0-bebb-d34f41bf4898",
+                                "component": "pe-builder-elements-block",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "width": 24,
+                                    "height": 24,
+                                    "left": 16,
+                                    "top": 16,
+                                    "display": {
+                                        "desktop": "none",
+                                        "mobile": "block"
+                                    },
+                                    "backgroundImage": "url(\"http://37.235.231.145:3000/assets/list.svg\")",
+                                    "backgroundSize": "cover"
+                                },
+                                "text": "",
+                                "children": []
+                            },
+                            {
+                                "uuid": "0d50a42a-caa9-4896-adf6-959bcd0009c4",
+                                "component": "pe-builder-elements-block",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "width": 24,
+                                    "height": 24,
+                                    "left": 335,
+                                    "top": 16,
+                                    "display": {
+                                        "desktop": "none",
+                                        "mobile": "block"
+                                    },
+                                    "backgroundImage": "url(\"http://37.235.231.145:3000/assets/cart.svg\")",
+                                    "backgroundSize": "cover"
+                                },
+                                "text": "",
+                                "children": []
+                            },
+                            {
+                                "uuid": "tc-menu-wrapper",
+                                "component": "pe-builder-elements-block",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "display": {
+                                        "desktop": "block",
+                                        "mobile": "none"
+                                    },
+                                    "height": 60,
+                                    "width": 1440
+                                },
+                                "text": "",
+                                "children": [
+                                    {
+                                        "uuid": "a1f9ee56-185a-4c53-abee-0d4e8b259b91",
+                                        "component": "pe-builder-elements-text",
+                                        "anchors": {},
+                                        "attributes": {},
+                                        "style": {
+                                            "padding": 0,
+                                            "top": 16.11,
+                                            "fontFamily": "Roboto",
+                                            "fontSize": 14,
+                                            "fontWeight": 500,
+                                            "lineHeight": 2,
+                                            "color": "#ffffff",
+                                            "textTransform": "uppercase",
+                                            "left": 230,
+                                            "textDecoration": "underline"
+                                        },
+                                        "text": "Krawatten",
+                                        "children": []
+                                    },
+                                    {
+                                        "uuid": "7e4c9c05-c635-4874-80f7-b60e3c5c2db8",
+                                        "component": "pe-builder-elements-text",
+                                        "anchors": {},
+                                        "attributes": {},
+                                        "style": {
+                                            "padding": 0,
+                                            "top": 16.11,
+                                            "fontFamily": "Roboto",
+                                            "fontSize": 14,
+                                            "fontWeight": 500,
+                                            "lineHeight": 2,
+                                            "color": "#ffffff",
+                                            "textTransform": "uppercase",
+                                            "left": 315
+                                        },
+                                        "text": "Schals",
+                                        "children": []
+                                    },
+                                    {
+                                        "uuid": "1630878d-aeeb-4c71-ae0d-7fefeb724aeb",
+                                        "component": "pe-builder-elements-text",
+                                        "anchors": {},
+                                        "attributes": {},
+                                        "style": {
+                                            "padding": 0,
+                                            "top": 16.11,
+                                            "fontFamily": "Roboto",
+                                            "fontSize": 14,
+                                            "fontWeight": 500,
+                                            "lineHeight": 2,
+                                            "color": "#ffffff",
+                                            "textTransform": "uppercase",
+                                            "left": 375
+                                        },
+                                        "text": "Fliegen",
+                                        "children": []
+                                    },
+                                    {
+                                        "uuid": "967d8952-b903-4f6b-8a44-9e1d7980492b",
+                                        "component": "pe-builder-elements-text",
+                                        "anchors": {},
+                                        "attributes": {},
+                                        "style": {
+                                            "padding": 0,
+                                            "top": 16.11,
+                                            "fontFamily": "Roboto",
+                                            "fontSize": 14,
+                                            "fontWeight": 500,
+                                            "lineHeight": 2,
+                                            "color": "#ffffff",
+                                            "textTransform": "uppercase",
+                                            "left": 440
+                                        },
+                                        "text": "Einstecktücher",
+                                        "children": []
+                                    },
+                                    {
+                                        "uuid": "9e35171d-dbcf-479b-a51a-612a45d89f33",
+                                        "component": "pe-builder-elements-text",
+                                        "anchors": {},
+                                        "attributes": {},
+                                        "style": {
+                                            "padding": 0,
+                                            "top": 16.11,
+                                            "fontFamily": "Roboto",
+                                            "fontSize": 14,
+                                            "fontWeight": 500,
+                                            "lineHeight": 2,
+                                            "color": "#ffffff",
+                                            "textTransform": "uppercase",
+                                            "left": 555
+                                        },
+                                        "text": "Hemden",
+                                        "children": []
+                                    },
+                                    {
+                                        "uuid": "fd3ad759-3ba0-4df1-9be6-75b95ab50fc1",
+                                        "component": "pe-builder-elements-text",
+                                        "anchors": {},
+                                        "attributes": {},
+                                        "style": {
+                                            "padding": 0,
+                                            "top": 16.11,
+                                            "fontFamily": "Roboto",
+                                            "fontSize": 14,
+                                            "fontWeight": 500,
+                                            "lineHeight": 2,
+                                            "color": "#ffffff",
+                                            "textTransform": "uppercase",
+                                            "left": 632
+                                        },
+                                        "text": "Socken",
+                                        "children": []
+                                    },
+                                    {
+                                        "uuid": "e1d64abc-d5b9-4f09-9195-280ffce9bef3",
+                                        "component": "pe-builder-elements-text",
+                                        "anchors": {},
+                                        "attributes": {},
+                                        "style": {
+                                            "padding": 0,
+                                            "top": 16.11,
+                                            "fontFamily": "Roboto",
+                                            "fontSize": 14,
+                                            "fontWeight": 500,
+                                            "lineHeight": 2,
+                                            "color": "#ffffff",
+                                            "textTransform": "uppercase",
+                                            "left": 705
+                                        },
+                                        "text": "Geschenke",
+                                        "children": []
+                                    },
+                                    {
+                                        "uuid": "abb259b3-b94e-4860-8ce3-7e4196969239",
+                                        "component": "pe-builder-elements-text",
+                                        "anchors": {},
+                                        "attributes": {},
+                                        "style": {
+                                            "padding": 0,
+                                            "top": 16.11,
+                                            "fontFamily": "Roboto",
+                                            "fontSize": 14,
+                                            "fontWeight": 500,
+                                            "lineHeight": 2,
+                                            "color": "red",
+                                            "textTransform": "uppercase",
+                                            "left": 817
+                                        },
+                                        "text": "Sale",
+                                        "children": []
+                                    },
+                                    {
+                                        "uuid": "64c43093-97e8-456d-8615-aeb0156cbe5c",
+                                        "component": "pe-builder-elements-text",
+                                        "anchors": {},
+                                        "attributes": {},
+                                        "style": {
+                                            "padding": 0,
+                                            "top": 16.11,
+                                            "fontFamily": "Roboto",
+                                            "fontSize": 14,
+                                            "fontWeight": 500,
+                                            "lineHeight": 2,
+                                            "color": "#ffffff",
+                                            "textTransform": "uppercase",
+                                            "right": 20
+                                        },
+                                        "text": "BASKET (0)",
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "uuid": "558cfd36-5b65-4652-92c1-15ff0e608f86",
+                "component": "pe-builder-elements-section",
+                "anchors": {},
+                "attributes": {},
+                "style": {
+                    "height": {
+                        "desktop": 473,
+                        "mobile": 305
+                    },
+                    "background": "black",
+                    "fontFamily": "Roboto"
+                },
+                "text": "",
+                "children": [
+                    {
+                        "uuid": "44af8faf-bfa9-4060-9423-1948a2b6c9f5",
+                        "component": "pe-builder-elements-block",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "width": {
+                                "desktop": 1440,
+                                "mobile": 375
+                            },
+                            "height": {
+                                "desktop": 473,
+                                "mobile": 305
+                            },
+                            "backgroundSize": "contain",
+                            "backgroundImage": {
+                                "desktop": "url(\"http://37.235.231.145:3000/assets/tiesociety/about/beard-guy.desktop.jpg\")",
+                                "mobile": "url(\"http://37.235.231.145:3000/assets/tiesociety/about/beard-guy.mobile.jpg\")"
+                            }
+                        },
+                        "text": "",
+                        "children": [
+                            {
+                                "uuid": "4bc5d110-44ac-499c-bd9e-5e530c80ec5a",
+                                "component": "pe-builder-elements-text",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "top": {
+                                        "desktop": 157,
+                                        "mobile": 125
+                                    },
+                                    "left": {
+                                        "desktop": 218,
+                                        "mobile": 16
+                                    },
+                                    "fontSize": {
+                                        "desktop": 94,
+                                        "mobile": 32
+                                    },
+                                    "fontWeight": 500,
+                                    "color": "white"
+                                },
+                                "text": "About us",
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "uuid": "99a74c45-9406-4108-a11d-87b344ae179e",
+                "component": "pe-builder-elements-section",
+                "anchors": {},
+                "attributes": {},
+                "style": {
+                    "height": {
+                        "desktop": 746,
+                        "mobile": 1400
+                    },
+                    "fontFamily": "Roboto"
+                },
+                "text": "",
+                "children": [
+                    {
+                        "uuid": "10a99fe3-5b83-4c4d-9940-0a3c0fb5d05a",
+                        "component": "pe-builder-elements-block",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "backgroundSize": "contain",
+                            "backgroundImage": "url(\"http://37.235.231.145:3000/assets/tiesociety/about/bow.jpg\")",
+                            "width": {
+                                "desktop": 696,
+                                "mobile": 327
+                            },
+                            "height": {
+                                "desktop": 599,
+                                "mobile": 282
+                            },
+                            "top": {
+                                "desktop": 84,
+                                "mobile": 24
+                            },
+                            "left": 24
+                        },
+                        "text": "",
+                        "children": []
+                    },
+                    {
+                        "uuid": "13d3e335-b01c-47c0-b870-5eeec770851f",
+                        "component": "pe-builder-elements-block",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "width": {
+                                "desktop": 596,
+                                "mobile": 327
+                            },
+                            "left": {
+                                "desktop": 774,
+                                "mobile": 24
+                            },
+                            "top": {
+                                "desktop": 84,
+                                "mobile": 373
+                            }
+                        },
+                        "text": "",
+                        "children": [
+                            {
+                                "uuid": "329dbbde-11f7-47d4-a647-4c958194c733",
+                                "component": "pe-builder-elements-text",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "fontSize": 24,
+                                    "fontWeight": 500
+                                },
+                                "text": "Contrary",
+                                "children": []
+                            },
+                            {
+                                "uuid": "be4fdb4f-8c42-4b25-93dd-f9292bcf3017",
+                                "component": "pe-builder-elements-text",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "top": 40,
+                                    "fontSize": 16,
+                                    "lineHeight": 1.63,
+                                    "color": "#616161"
+                                },
+                                "text": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has\n  roots in a piece of classical Latin literature from 45 BC, making it over\n  2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College\n  in Virginia, looked up one of the more obscure Latin words, consectetur, from\n  a Lorem Ipsum passage, and going through the cites of the word in classical\n  literature, discovered the undoubtable source.",
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "535da786-5d12-4d90-8b04-dfcb963667dc",
+                        "component": "pe-builder-elements-block",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "width": {
+                                "desktop": 596,
+                                "mobile": 327
+                            },
+                            "left": {
+                                "desktop": 774,
+                                "mobile": 24
+                            },
+                            "top": {
+                                "desktop": 289,
+                                "mobile": 683
+                            }
+                        },
+                        "text": "",
+                        "children": [
+                            {
+                                "uuid": "653d3c6e-34e6-42ea-bfd5-78a41e9e9e23",
+                                "component": "pe-builder-elements-text",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "fontSize": 24,
+                                    "fontWeight": 500
+                                },
+                                "text": "Lorem",
+                                "children": []
+                            },
+                            {
+                                "uuid": "7d665732-79f9-4751-bb55-f502ac1044e6",
+                                "component": "pe-builder-elements-text",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "top": 40,
+                                    "fontSize": 16,
+                                    "lineHeight": 1.63,
+                                    "color": "#616161"
+                                },
+                                "text": "Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et\n  Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book\n  is a treatise on the theory of ethics, very popular during the Renaissance. The\n  first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in\n  section 1.10.32.",
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "91b58872-5195-4dbf-b54d-6b094efa0ae3",
+                        "component": "pe-builder-elements-block",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "width": {
+                                "desktop": 596,
+                                "mobile": 327
+                            },
+                            "left": {
+                                "desktop": 774,
+                                "mobile": 24
+                            },
+                            "top": {
+                                "desktop": 455,
+                                "mobile": 968
+                            }
+                        },
+                        "text": "",
+                        "children": [
+                            {
+                                "uuid": "99b81304-436c-4834-b933-fb80149d4ff7",
+                                "component": "pe-builder-elements-text",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "fontSize": 24,
+                                    "fontWeight": 500
+                                },
+                                "text": "The",
+                                "children": []
+                            },
+                            {
+                                "uuid": "dce2364e-7774-414c-bb35-7ff6f2304b5a",
+                                "component": "pe-builder-elements-text",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "top": 40,
+                                    "fontSize": 16,
+                                    "lineHeight": 1.63,
+                                    "color": "#616161"
+                                },
+                                "text": "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for\n  those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\"\n  by Cicero are also reproduced in their exact original form, accompanied by English\n  versions from the 1914 translation by H. Rackham.",
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "uuid": "footer",
+                "component": "pe-builder-elements-section",
+                "anchors": {},
+                "attributes": {},
+                "style": {
+                    "height": {
+                        "desktop": 270,
+                        "mobile": 762
+                    },
+                    "background": "#f8f8f8"
+                },
+                "text": "",
+                "children": [
+                    {
+                        "uuid": "859979bb-0cea-40c8-a768-69861500a5a7",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "top": {
+                                "desktop": 40,
+                                "mobile": 19
+                            },
+                            "left": {
+                                "mobile": 24,
+                                "desktop": 56
+                            },
+                            "fontSize": 18,
+                            "fontFamily": "Roboto",
+                            "fontWeight": 500,
+                            "lineHeight": 2.28,
+                            "color": "black"
+                        },
+                        "text": "Versandinformationen",
+                        "children": []
+                    },
+                    {
+                        "uuid": "2b22eca5-7e18-46b4-9a36-3631344203ce",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "top": {
+                                "desktop": 96,
+                                "mobile": 68
+                            },
+                            "left": {
+                                "mobile": 24,
+                                "desktop": 56
+                            },
+                            "fontSize": 14,
+                            "fontWeight": "normal",
+                            "fontFamily": "Roboto",
+                            "lineHeight": 2,
+                            "color": "#000000"
+                        },
+                        "text": "\n        Versand durch DHL<br/>\n        Versandkostenfrei ab 40 €<br/>\n        Versandkosten (DE) 4,90 €<br/>\n        Express-Versand (DE) 15 €<br/>\n        Versandkosten (AT) 12,90 €\n      ",
+                        "children": []
+                    },
+                    {
+                        "uuid": "64aba660-1b7f-4e72-b46a-d4f5e53ede10",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "top": {
+                                "desktop": 40,
+                                "mobile": 240
+                            },
+                            "left": {
+                                "mobile": 24,
+                                "desktop": 450
+                            },
+                            "fontSize": 18,
+                            "fontFamily": "Roboto",
+                            "fontWeight": 500,
+                            "lineHeight": 2.28,
+                            "color": "black"
+                        },
+                        "text": "Kundenservice",
+                        "children": []
+                    },
+                    {
+                        "uuid": "43fc4dce-ddc4-45d6-88ff-641b53cfa90c",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "top": {
+                                "desktop": 96,
+                                "mobile": 289
+                            },
+                            "left": {
+                                "mobile": 24,
+                                "desktop": 450
+                            },
+                            "fontSize": 14,
+                            "fontWeight": "normal",
+                            "fontFamily": "Roboto",
+                            "lineHeight": 2,
+                            "color": "#000000"
+                        },
+                        "text": "\n        Hilfe & FAQ<br/>\n        Versand & Lieferung<br/>\n        Bezahlung<br/>\n        Kontakt\n      ",
+                        "children": []
+                    },
+                    {
+                        "uuid": "04679030-ca6d-4b40-836c-0753247e207a",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "top": {
+                                "desktop": 40,
+                                "mobile": 433
+                            },
+                            "left": {
+                                "mobile": 24,
+                                "desktop": 800
+                            },
+                            "fontSize": 18,
+                            "fontFamily": "Roboto",
+                            "fontWeight": 500,
+                            "lineHeight": 2.28,
+                            "color": "black"
+                        },
+                        "text": "Tiesociety",
+                        "children": []
+                    },
+                    {
+                        "uuid": "7f3a8e13-3b32-4ac9-bf42-62bc673417ac",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "top": {
+                                "desktop": 96,
+                                "mobile": 482
+                            },
+                            "left": {
+                                "mobile": 24,
+                                "desktop": 800
+                            },
+                            "fontSize": 14,
+                            "fontWeight": "normal",
+                            "fontFamily": "Roboto",
+                            "lineHeight": 2,
+                            "color": "#000000"
+                        },
+                        "text": "\n        Individuell<br/>\n        Datenschutz<br/>\n        AGB<br/>\n        Widerrufsbelehrung<br/>\n        Impressum\n      ",
+                        "children": []
+                    },
+                    {
+                        "uuid": "bd0f6788-78d6-44e9-9f77-d048b95703e3",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "top": {
+                                "desktop": 40,
+                                "mobile": 654
+                            },
+                            "left": {
+                                "mobile": 24,
+                                "desktop": 1140
+                            },
+                            "fontSize": 18,
+                            "fontFamily": "Roboto",
+                            "fontWeight": 500,
+                            "lineHeight": 2.28,
+                            "color": "black"
+                        },
+                        "text": "Kontakte",
+                        "children": []
+                    },
+                    {
+                        "uuid": "cf6c00e7-1772-40be-ad3f-29cf7d5542e3",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "top": {
+                                "desktop": 96,
+                                "mobile": 703
+                            },
+                            "left": {
+                                "mobile": 24,
+                                "desktop": 1140
+                            },
+                            "fontSize": 14,
+                            "fontWeight": "normal",
+                            "fontFamily": "Roboto",
+                            "lineHeight": 2,
+                            "color": "#000000"
+                        },
+                        "text": "\n        +49 (0)2151 83770<br/>\n        E-mail: info@tiesociety.de\n      ",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "uuid": "legal",
+                "component": "pe-builder-elements-section",
+                "anchors": {},
+                "attributes": {},
+                "style": {
+                    "height": {
+                        "desktop": 60,
+                        "mobile": 173
+                    }
+                },
+                "text": "",
+                "children": [
+                    {
+                        "uuid": "cf617997-b418-43cd-84e1-cc3c26ff07d6",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "opacity": 0.4,
+                            "fontSize": 10,
+                            "lineHeight": 4.1,
+                            "color": "000000",
+                            "top": {
+                                "desktop": 5,
+                                "mobile": 121
+                            },
+                            "left": {
+                                "desktop": 655,
+                                "mobile": 132
+                            }
+                        },
+                        "text": "2019 All Rights Reserved",
+                        "children": []
+                    },
+                    {
+                        "uuid": "ee8dd77a-e47f-40a8-a52c-4e5e5e705c5f",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "opacity": 0.4,
+                            "fontSize": 10,
+                            "lineHeight": 4.1,
+                            "color": "000000",
+                            "top": {
+                                "desktop": 5,
+                                "mobile": 63
+                            },
+                            "left": {
+                                "desktop": 948,
+                                "mobile": 60
+                            }
+                        },
+                        "text": "Privacy Policy | Terms of Service | Sitemap | Accessibility",
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "uuid": "document:front",
+        "pageSlug": "home",
+        "component": "pe-builder-elements-document",
+        "anchors": {},
+        "attributes": {},
+        "style": {
+            "width": {
+                "desktop": 1440,
+                "mobile": 375
+            }
+        },
+        "text": "",
+        "children": [
+            {
+                "uuid": "topnav",
+                "component": "pe-builder-elements-section",
+                "anchors": {},
+                "attributes": {},
+                "style": {
+                    "display": {
+                        "any": "block",
+                        "mobile": "none"
+                    },
+                    "height": {
+                        "any": 40
+                    },
+                    "background": "#3e3e3e",
+                    "color": "white",
+                    "fontSize": 8
+                },
+                "text": "",
+                "children": [
+                    {
+                        "uuid": "382717ab-7cdc-423f-8fa3-2b952ff5afb0",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "left": 20,
+                            "top": 10,
+                            "fontSize": 10
+                        },
+                        "text": "FAMILIENTTRADITION SEIT 1936",
+                        "children": []
+                    },
+                    {
+                        "uuid": "2fdc95f2-0b11-4d86-b6a8-4cee2982d5a1",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "left": 230,
+                            "top": 10,
+                            "fontSize": 10
+                        },
+                        "text": "KOSTENLOSER VERSAND AB 40€",
+                        "children": []
+                    },
+                    {
+                        "uuid": "08f67e47-c2b9-4482-a3e5-5570b51a2a9b",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "left": 430,
+                            "top": 10,
+                            "fontSize": 10
+                        },
+                        "text": "LIEFERUNG IN 1-3 WERKTAGEN",
+                        "children": []
+                    },
+                    {
+                        "uuid": "tmp.helper",
+                        "component": "pe-builder-elements-block",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "width": 20,
+                            "height": 40,
+                            "top": 0,
+                            "left": 1420
+                        },
+                        "text": "",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "uuid": "header",
+                "component": "pe-builder-elements-section",
+                "anchors": {},
+                "attributes": {},
+                "style": {
+                    "background": "black",
+                    "backgroundImage__comment": "url(\"https://res.cloudinary.com/do4wya7pb/image/upload/v1562409792/tiesociety/header.host-background.jpg\")",
+                    "backgroundSize": "cover",
+                    "backgroundPosition": "center",
+                    "height": 720
+                },
+                "text": "",
+                "children": [
+                    {
+                        "added__comment": "",
+                        "uuid": "header-image",
+                        "component": "pe-builder-image",
+                        "image": "https://res.cloudinary.com/do4wya7pb/image/upload/v1562409792/tiesociety/header.host-background.jpg",
+                        "style": {}
+                    },
+                    {
+                        "uuid": "7190aadf-5506-4829-ac04-ce504d7c7fed",
+                        "component": "pe-builder-elements-block",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "width": {
+                                "desktop": 1440,
+                                "mobile": 375
+                            },
+                            "height": 60
+                        },
+                        "text": "",
+                        "children": [
+                            {
+                                "uuid": "86c9a316-5923-481e-87a4-3045db6a1073",
+                                "component": "pe-builder-elements-block",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "left": {
+                                        "desktop": 20,
+                                        "mobile": 123
+                                    },
+                                    "top": {
+                                        "desktop": 14.6,
+                                        "mobile": 17
+                                    },
+                                    "width": 129,
+                                    "height": 29,
+                                    "color": "white",
+                                    "fontSize": 18,
+                                    "backgroundImage": "url(\"https://res.cloudinary.com/do4wya7pb/image/upload/v1562409792/tiesociety/logo.png\")",
+                                    "backgroundSize": "cover"
+                                },
+                                "text": "",
+                                "children": []
+                            },
+                            {
+                                "uuid": "f3e4d9a9-fd75-4760-93f2-53d1a9837bd5",
+                                "component": "pe-builder-elements-block",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "width": 24,
+                                    "height": 24,
+                                    "left": 16,
+                                    "top": 16,
+                                    "display": {
+                                        "desktop": "none",
+                                        "mobile": "block"
+                                    },
+                                    "backgroundImage": "url(\"https://res.cloudinary.com/do4wya7pb/image/upload/v1562409667/list.svg\")",
+                                    "backgroundSize": "cover"
+                                },
+                                "text": "",
+                                "children": []
+                            },
+                            {
+                                "uuid": "c39bbfc1-e6c0-4501-9315-d7464e9dd93d",
+                                "component": "pe-builder-elements-block",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "width": 24,
+                                    "height": 24,
+                                    "left": 335,
+                                    "top": 16,
+                                    "display": {
+                                        "desktop": "none",
+                                        "mobile": "block"
+                                    },
+                                    "backgroundImage": "url(\"https://res.cloudinary.com/do4wya7pb/image/upload/v1562409667/cart.svg\")",
+                                    "backgroundSize": "cover"
+                                },
+                                "text": "",
+                                "children": []
+                            },
+                            {
+                                "uuid": "tc-menu-wrapper",
+                                "component": "pe-builder-elements-block",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "display": {
+                                        "desktop": "block",
+                                        "mobile": "none"
+                                    },
+                                    "height": 60,
+                                    "width": 1440
+                                },
+                                "text": "",
+                                "children": [
+                                    {
+                                        "uuid": "e85fd5ec-bf64-4c90-bc85-8eff82626948",
+                                        "component": "pe-builder-elements-text",
+                                        "anchors": {},
+                                        "attributes": {},
+                                        "style": {
+                                            "padding": 0,
+                                            "top": 16.11,
+                                            "fontFamily": "Roboto",
+                                            "fontSize": 14,
+                                            "fontWeight": 500,
+                                            "lineHeight": 2,
+                                            "color": "#ffffff",
+                                            "textTransform": "uppercase",
+                                            "left": 230,
+                                            "textDecoration": "underline"
+                                        },
+                                        "text": "Krawatten",
+                                        "pageId__comment": "added below",
+                                        "pageId": "about-us-id",
+                                        "children": []
+                                    },
+                                    {
+                                        "uuid": "b1c12ea4-25cd-4775-9be9-c7ef5f60c36d",
+                                        "component": "pe-builder-elements-text",
+                                        "anchors": {},
+                                        "attributes": {},
+                                        "style": {
+                                            "padding": 0,
+                                            "top": 16.11,
+                                            "fontFamily": "Roboto",
+                                            "fontSize": 14,
+                                            "fontWeight": 500,
+                                            "lineHeight": 2,
+                                            "color": "#ffffff",
+                                            "textTransform": "uppercase",
+                                            "left": 315
+                                        },
+                                        "text": "Schals",
+                                        "children": []
+                                    },
+                                    {
+                                        "uuid": "b6797096-38ca-426f-a71a-156b79bd0d79",
+                                        "component": "pe-builder-elements-text",
+                                        "anchors": {},
+                                        "attributes": {},
+                                        "style": {
+                                            "padding": 0,
+                                            "top": 16.11,
+                                            "fontFamily": "Roboto",
+                                            "fontSize": 14,
+                                            "fontWeight": 500,
+                                            "lineHeight": 2,
+                                            "color": "#ffffff",
+                                            "textTransform": "uppercase",
+                                            "left": 375
+                                        },
+                                        "text": "Fliegen",
+                                        "children": []
+                                    },
+                                    {
+                                        "uuid": "8e44e000-2c58-45d2-b40e-30f5d126c15a",
+                                        "component": "pe-builder-elements-text",
+                                        "anchors": {},
+                                        "attributes": {},
+                                        "style": {
+                                            "padding": 0,
+                                            "top": 16.11,
+                                            "fontFamily": "Roboto",
+                                            "fontSize": 14,
+                                            "fontWeight": 500,
+                                            "lineHeight": 2,
+                                            "color": "#ffffff",
+                                            "textTransform": "uppercase",
+                                            "left": 440
+                                        },
+                                        "text": "Einstecktücher",
+                                        "children": []
+                                    },
+                                    {
+                                        "uuid": "0c045bbb-92ab-4800-adc9-5a87bb1f896d",
+                                        "component": "pe-builder-elements-text",
+                                        "anchors": {},
+                                        "attributes": {},
+                                        "style": {
+                                            "padding": 0,
+                                            "top": 16.11,
+                                            "fontFamily": "Roboto",
+                                            "fontSize": 14,
+                                            "fontWeight": 500,
+                                            "lineHeight": 2,
+                                            "color": "#ffffff",
+                                            "textTransform": "uppercase",
+                                            "left": 555
+                                        },
+                                        "text": "Hemden",
+                                        "children": []
+                                    },
+                                    {
+                                        "uuid": "e4d09936-2db6-4297-bb6e-8d1e97f788ce",
+                                        "component": "pe-builder-elements-text",
+                                        "anchors": {},
+                                        "attributes": {},
+                                        "style": {
+                                            "padding": 0,
+                                            "top": 16.11,
+                                            "fontFamily": "Roboto",
+                                            "fontSize": 14,
+                                            "fontWeight": 500,
+                                            "lineHeight": 2,
+                                            "color": "#ffffff",
+                                            "textTransform": "uppercase",
+                                            "left": 632
+                                        },
+                                        "text": "Socken",
+                                        "children": []
+                                    },
+                                    {
+                                        "uuid": "59b932ba-458e-42b0-9e8a-92341baab289",
+                                        "component": "pe-builder-elements-text",
+                                        "anchors": {},
+                                        "attributes": {},
+                                        "style": {
+                                            "padding": 0,
+                                            "top": 16.11,
+                                            "fontFamily": "Roboto",
+                                            "fontSize": 14,
+                                            "fontWeight": 500,
+                                            "lineHeight": 2,
+                                            "color": "#ffffff",
+                                            "textTransform": "uppercase",
+                                            "left": 705
+                                        },
+                                        "text": "Geschenke",
+                                        "children": []
+                                    },
+                                    {
+                                        "uuid": "80dfed30-bb8e-446c-92f8-0ce23de59b62",
+                                        "component": "pe-builder-elements-text",
+                                        "anchors": {},
+                                        "attributes": {},
+                                        "style": {
+                                            "padding": 0,
+                                            "top": 16.11,
+                                            "fontFamily": "Roboto",
+                                            "fontSize": 14,
+                                            "fontWeight": 500,
+                                            "lineHeight": 2,
+                                            "color": "red",
+                                            "textTransform": "uppercase",
+                                            "left": 817
+                                        },
+                                        "text": "Sale",
+                                        "children": []
+                                    },
+                                    {
+                                        "uuid": "037517ac-dfc1-4b93-acd4-0842603da70e",
+                                        "component": "pe-builder-elements-text",
+                                        "anchors": {},
+                                        "attributes": {},
+                                        "style": {
+                                            "padding": 0,
+                                            "top": 16.11,
+                                            "fontFamily": "Roboto",
+                                            "fontSize": 14,
+                                            "fontWeight": 500,
+                                            "lineHeight": 2,
+                                            "color": "#ffffff",
+                                            "textTransform": "uppercase",
+                                            "right": 20
+                                        },
+                                        "text": "BASKET (0)",
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "dccc9aaf-4395-4d08-a2d7-9a9acbe87182",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "left": {
+                                "desktop": 450,
+                                "mobile": 55
+                            },
+                            "top": {
+                                "desktop": 320,
+                                "mobile": 264
+                            },
+                            "width": {
+                                "desktop": 540,
+                                "mobile": 264
+                            },
+                            "fontFamily": "Roboto",
+                            "fontSize": 48,
+                            "fontWeight": 900,
+                            "color": "white"
+                        },
+                        "text": "REAL GUYS WEAR TIES!",
+                        "children": []
+                    },
+                    {
+                        "uuid": "b43ca473-32cd-4dfa-b653-cb4056d6baa5",
+                        "component": "pe-builder-elements-block",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "left": {
+                                "desktop": 632,
+                                "mobile": 99
+                            },
+                            "top": {
+                                "desktop": 408,
+                                "mobile": 456
+                            },
+                            "width": 177,
+                            "height": 46,
+                            "borderRadius": 2,
+                            "border": "solid 2px #ffffff"
+                        },
+                        "text": "",
+                        "children": [
+                            {
+                                "uuid": "5c5b7cb0-96e5-4504-adf1-d20d3e87229c",
+                                "component": "pe-builder-elements-text",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "left": 41,
+                                    "top": 6,
+                                    "fontFamily": "Roboto",
+                                    "fontSize": 20,
+                                    "fontWeight": 900,
+                                    "color": "white"
+                                },
+                                "text": "DISCOVER",
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "uuid": "product-carousel",
+                "component": "pe-builder-elements-section",
+                "anchors": {},
+                "attributes": {},
+                "style": {
+                    "background": "white",
+                    "height": {
+                        "desktop": 680,
+                        "mobile": 518
+                    }
+                },
+                "text": "",
+                "children": [
+                    {
+                        "uuid": "30a6ee8f-22ec-421b-92c1-406c5540cfff",
+                        "component": "pe-builder-elements-block",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "top": 56,
+                            "height": {
+                                "desktop": 568,
+                                "mobile": 462
+                            },
+                            "width": {
+                                "desktop": 432,
+                                "mobile": 290
+                            },
+                            "fontFamily": "Roboto",
+                            "left": {
+                                "desktop": 56,
+                                "mobile": 18
+                            }
+                        },
+                        "text": "",
+                        "children": [
+                            {
+                                "uuid": "f933cdf5-6e6f-4171-993a-1b1638513e81",
+                                "component": "pe-builder-elements-block",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "width": {
+                                        "desktop": 432,
+                                        "mobile": 290
+                                    },
+                                    "height": {
+                                        "desktop": 432,
+                                        "mobile": 290
+                                    },
+                                    "backgroundImage": "url(\"https://res.cloudinary.com/do4wya7pb/image/upload/v1562409792/tiesociety/products.image-1.jpg\")",
+                                    "backgroundSize": "contain"
+                                },
+                                "text": "",
+                                "children": []
+                            },
+                            {
+                                "uuid": "fbae0c8c-3a75-4515-929f-165087ad98b5",
+                                "component": "pe-builder-elements-text",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "top": {
+                                        "desktop": 449,
+                                        "mobile": 368
+                                    },
+                                    "fontSize": 24,
+                                    "fontWeight": 500,
+                                    "color": "black"
+                                },
+                                "text": "Krawatten für jeden Anlass",
+                                "children": []
+                            },
+                            {
+                                "uuid": "56686606-ff16-4d38-828e-916d5caccef8",
+                                "component": "pe-builder-elements-text",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "top": {
+                                        "desktop": 484,
+                                        "mobile": 403
+                                    },
+                                    "fontSize": 18,
+                                    "color": "#8d8d8d"
+                                },
+                                "text": "Schon ab 19,90 €",
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "ac84fe84-741e-4a55-b5eb-14a15cb350bc",
+                        "component": "pe-builder-elements-block",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "top": 56,
+                            "height": {
+                                "desktop": 568,
+                                "mobile": 462
+                            },
+                            "width": {
+                                "desktop": 432,
+                                "mobile": 290
+                            },
+                            "fontFamily": "Roboto",
+                            "left": 510,
+                            "display": {
+                                "mobile": "none"
+                            }
+                        },
+                        "text": "",
+                        "children": [
+                            {
+                                "uuid": "79e0c2ec-887b-47df-9393-5de47933ccff",
+                                "component": "pe-builder-elements-block",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "width": {
+                                        "desktop": 432,
+                                        "mobile": 290
+                                    },
+                                    "height": {
+                                        "desktop": 432,
+                                        "mobile": 290
+                                    },
+                                    "backgroundImage": "url(\"https://res.cloudinary.com/do4wya7pb/image/upload/v1562409791/tiesociety/products.image-2.jpg\")",
+                                    "backgroundSize": "contain"
+                                },
+                                "text": "",
+                                "children": []
+                            },
+                            {
+                                "uuid": "00d16432-f931-4d2f-a6f9-2a271699c662",
+                                "component": "pe-builder-elements-text",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "top": {
+                                        "desktop": 449,
+                                        "mobile": 368
+                                    },
+                                    "fontSize": 24,
+                                    "fontWeight": 500,
+                                    "color": "black"
+                                },
+                                "text": "Bunte Socken rocken",
+                                "children": []
+                            },
+                            {
+                                "uuid": "b32a48f8-2e35-4692-9729-9a55d878dca3",
+                                "component": "pe-builder-elements-text",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "top": {
+                                        "desktop": 484,
+                                        "mobile": 403
+                                    },
+                                    "fontSize": 18,
+                                    "color": "#8d8d8d"
+                                },
+                                "text": "Schon ab 9,50€",
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "bc2116f8-7dcd-44fe-9392-78d781478587",
+                        "component": "pe-builder-elements-block",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "top": 56,
+                            "height": {
+                                "desktop": 568,
+                                "mobile": 462
+                            },
+                            "width": {
+                                "desktop": 432,
+                                "mobile": 290
+                            },
+                            "fontFamily": "Roboto",
+                            "left": 964,
+                            "display": {
+                                "mobile": "none"
+                            }
+                        },
+                        "text": "",
+                        "children": [
+                            {
+                                "uuid": "b592271c-e59a-47d0-a4a9-fb5b5df6cc12",
+                                "component": "pe-builder-elements-block",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "width": {
+                                        "desktop": 432,
+                                        "mobile": 290
+                                    },
+                                    "height": {
+                                        "desktop": 432,
+                                        "mobile": 290
+                                    },
+                                    "backgroundImage": "url(\"https://res.cloudinary.com/do4wya7pb/image/upload/v1562409792/tiesociety/products.image-3.jpg\")",
+                                    "backgroundSize": "contain"
+                                },
+                                "text": "",
+                                "children": []
+                            },
+                            {
+                                "uuid": "83df7f17-3152-4119-9ff0-fd7aae497f31",
+                                "component": "pe-builder-elements-text",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "top": {
+                                        "desktop": 449,
+                                        "mobile": 368
+                                    },
+                                    "fontSize": 24,
+                                    "fontWeight": 500,
+                                    "color": "black"
+                                },
+                                "text": "Hosenträger",
+                                "children": []
+                            },
+                            {
+                                "uuid": "c4fea7e9-438a-4597-99b5-38b5f9a6fba9",
+                                "component": "pe-builder-elements-text",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "top": {
+                                        "desktop": 484,
+                                        "mobile": 403
+                                    },
+                                    "fontSize": 18,
+                                    "color": "#8d8d8d"
+                                },
+                                "text": "Für nur 39,90€",
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "uuid": "about",
+                "component": "pe-builder-elements-section",
+                "anchors": {},
+                "attributes": {},
+                "style": {
+                    "backgroundImage__commented": "url(\"https://res.cloudinary.com/do4wya7pb/image/upload/v1562409794/tiesociety/about.host-background.jpg\")",
+                    "backgroundSize": "cover",
+                    "backgroundPosition": "center",
+                    "height": {
+                        "desktop": 880,
+                        "mobile": 876
+                    },
+                    "fontFamily": "Roboto"
+                },
+                "text": "",
+                "children": [
+                    {
+                        "added_comment": "",
+                        "component": "pe-builder-image",
+                        "uuid": "about-image",
+                        "image": "https://res.cloudinary.com/do4wya7pb/image/upload/v1562409794/tiesociety/about.host-background.jpg",
+                        "style": {}
+                    },
+                    {
+                        "uuid": "158846e9-7c0b-4410-be90-516e2da2a624",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "width": {
+                                "desktop": 635,
+                                "mobile": 323
+                            },
+                            "padding": 0,
+                            "left": {
+                                "desktop": 56,
+                                "mobile": 24
+                            },
+                            "top": {
+                                "desktop": 164,
+                                "mobile": 125
+                            },
+                            "fontSize": {
+                                "desktop": 60,
+                                "mobile": 30
+                            },
+                            "fontWeight": 900,
+                            "lineHeight": {
+                                "desktop": 1.18,
+                                "mobile": 1.43
+                            },
+                            "color": "white"
+                        },
+                        "text": "Tiesociety - Ihr Online-Shop für Krawatten, Schals, Fliegen und Einstecktücher",
+                        "children": []
+                    },
+                    {
+                        "uuid": "047dae51-7a90-4e4c-92a5-24fe72329062",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "width": {
+                                "desktop": 585,
+                                "mobile": 261
+                            },
+                            "padding": 0,
+                            "left": {
+                                "desktop": 56,
+                                "mobile": 24
+                            },
+                            "top": {
+                                "desktop": 503,
+                                "mobile": 324
+                            },
+                            "fontSize": {
+                                "desktop": 30,
+                                "mobile": 18
+                            },
+                            "fontWeight": "bold",
+                            "color": "white"
+                        },
+                        "text": "Hier finden Sie Ihre neue Lieblingskrawatte für Beruf, Freizeit und besondere Anlässe.",
+                        "children": []
+                    },
+                    {
+                        "uuid": "7e51b45b-86ff-4fb6-9bba-a2307c6c5e16",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "width": {
+                                "desktop": 568,
+                                "mobile": 323
+                            },
+                            "padding": 0,
+                            "left": {
+                                "desktop": 776,
+                                "mobile": 24
+                            },
+                            "top": {
+                                "desktop": 164,
+                                "mobile": 439
+                            },
+                            "fontSize": {
+                                "desktop": 28,
+                                "mobile": 16
+                            },
+                            "lineHeight": 1.5,
+                            "color": "white"
+                        },
+                        "text": "\n        Seit 1936 liegt uns die Herstellung von hochwertigen Krawatten, Schleifen und Co am Herzen.\n        Von unserem Firmensitz in Krefeld aus verkaufen wir unseren modebewussten Kunden eine große\n        Auswahl an Produkten. Entdecken Sie jetzt unser umfangreiches Sortiment und bestellen Sie\n        einfach und sicher Ihre Lieblingsprodukte. Sollten Sie einmal nicht das finden, was Sie\n        suchen, zögern Sie nicht, uns anzusprechen und wir versuchen in unserem nahezu unerschöpflichen\n        Fundus zu finden was Sie suchen.",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "uuid": "special-offers",
+                "component": "pe-builder-elements-section",
+                "anchors": {},
+                "attributes": {},
+                "style": {
+                    "background": "white",
+                    "height": {
+                        "desktop": 470,
+                        "mobile": 1004
+                    }
+                },
+                "text": "",
+                "children": [
+                    {
+                        "uuid": "7f5ae607-bf23-46d1-b54f-9106506fab4c",
+                        "component": "pe-builder-elements-block",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "width": {
+                                "desktop": 640,
+                                "mobile": 343
+                            },
+                            "height": {
+                                "desktop": 390,
+                                "mobile": 478
+                            },
+                            "backgroundSize": "cover",
+                            "top": {
+                                "desktop": 40,
+                                "mobile": 16
+                            },
+                            "left": {
+                                "desktop": 40,
+                                "mobile": 16
+                            },
+                            "backgroundImage_commented": "url(\"https://res.cloudinary.com/do4wya7pb/image/upload/v1562409791/tiesociety/special-offers.block-1.jpg\")"
+                        },
+                        "text": "",
+                        "children": [
+                            {
+                                "added_comment": "",
+                                "uuid": "special_offer_image_1",
+                                "component": "pe-builder-image",
+                                "image": "https://res.cloudinary.com/do4wya7pb/image/upload/v1562409791/tiesociety/special-offers.block-1.jpg",
+                                "style": {}
+                            },
+                            {
+                                "uuid": "1aab1ad9-7d66-4de2-999e-354954143846",
+                                "component": "pe-builder-elements-text",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "top": {
+                                        "desktop": 48,
+                                        "mobile": 100
+                                    },
+                                    "left": {
+                                        "desktop": 54,
+                                        "mobile": 24
+                                    },
+                                    "fontSize": {
+                                        "desktop": 50,
+                                        "mobile": 40
+                                    },
+                                    "padding": 0,
+                                    "fontFamily": "Roboto",
+                                    "fontWeight": 900,
+                                    "lineHeight": 1.42,
+                                    "color": "black"
+                                },
+                                "text": "10% Rabatt<br/>für Neukunden",
+                                "children": []
+                            },
+                            {
+                                "uuid": "b630dad2-d475-4c1f-9976-8d812641298c",
+                                "component": "pe-builder-elements-text",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "left": {
+                                        "desktop": 54,
+                                        "mobile": 24
+                                    },
+                                    "padding": 0,
+                                    "fontFamily": "Roboto",
+                                    "fontSize": 24,
+                                    "lineHeight": {
+                                        "desktop": 1.71,
+                                        "mobile": 1.42
+                                    },
+                                    "width": {
+                                        "desktop": 280,
+                                        "mobile": 166
+                                    },
+                                    "top": {
+                                        "desktop": 204,
+                                        "mobile": 222
+                                    },
+                                    "color": "black"
+                                },
+                                "text": "Gutscheincode: <strong>TIE-2017</strong>",
+                                "children": []
+                            },
+                            {
+                                "uuid": "89e51b89-4fef-4276-8c39-f357b1516bb2",
+                                "component": "pe-builder-elements-block",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "top": {
+                                        "desktop": 302,
+                                        "mobile": 335
+                                    },
+                                    "left": {
+                                        "desktop": 54,
+                                        "mobile": 24
+                                    },
+                                    "width": 240,
+                                    "height": 46,
+                                    "borderRadius": 2,
+                                    "border": "solid 2px black"
+                                },
+                                "text": "",
+                                "children": [
+                                    {
+                                        "uuid": "fa8ed518-5ad8-4ee2-87a7-0c3da87a0374",
+                                        "component": "pe-builder-elements-text",
+                                        "anchors": {},
+                                        "attributes": {},
+                                        "style": {
+                                            "left": 9.6,
+                                            "top": 4,
+                                            "fontSize": 16,
+                                            "fontWeight": "bold",
+                                            "color": "black"
+                                        },
+                                        "text": "JETZT SHOPPEN & SPAREN",
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "8da6a2ec-1992-4941-a151-63192f270ed5",
+                        "component": "pe-builder-elements-block",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "width": {
+                                "desktop": 640,
+                                "mobile": 343
+                            },
+                            "height": {
+                                "desktop": 390,
+                                "mobile": 478
+                            },
+                            "backgroundSize": "cover",
+                            "top": {
+                                "desktop": 40,
+                                "mobile": 510
+                            },
+                            "left": {
+                                "desktop": 722,
+                                "mobile": 16
+                            },
+                            "backgroundImage__commented": "url(\"https://res.cloudinary.com/do4wya7pb/image/upload/v1562409791/tiesociety/special-offers.block-2.jpg\")"
+                        },
+                        "text": "",
+                        "children": [
+                            {
+                                "added__comment": "",
+                                "uuid": "special_offer_image_2",
+                                "component": "pe-builder-image",
+                                "image": "https://res.cloudinary.com/do4wya7pb/image/upload/v1562409791/tiesociety/special-offers.block-2.jpg",
+                                "style": {}
+                            },
+                            {
+                                "uuid": "27c3ed60-a34e-456b-8b0b-7d60fb0b7b7b",
+                                "component": "pe-builder-elements-text",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "top": {
+                                        "desktop": 48,
+                                        "mobile": 100
+                                    },
+                                    "left": {
+                                        "desktop": 54,
+                                        "mobile": 24
+                                    },
+                                    "fontSize": {
+                                        "desktop": 50,
+                                        "mobile": 40
+                                    },
+                                    "padding": 0,
+                                    "fontFamily": "Roboto",
+                                    "fontWeight": 900,
+                                    "lineHeight": 1.42,
+                                    "color": "white"
+                                },
+                                "text": "3 + 1",
+                                "children": []
+                            },
+                            {
+                                "uuid": "5ce04483-8d38-4da1-aaa5-48319e18b4c3",
+                                "component": "pe-builder-elements-text",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "left": {
+                                        "desktop": 54,
+                                        "mobile": 24
+                                    },
+                                    "padding": 0,
+                                    "fontFamily": "Roboto",
+                                    "fontSize": 24,
+                                    "lineHeight": {
+                                        "desktop": 1.71,
+                                        "mobile": 1.42
+                                    },
+                                    "width": {
+                                        "desktop": 385,
+                                        "mobile": 260
+                                    },
+                                    "top": {
+                                        "desktop": 133,
+                                        "mobile": 185
+                                    },
+                                    "color": "white"
+                                },
+                                "text": "3 PRODUKTE KAUFEN UND 1 ÜBERRASCHUNG ERHALTEN",
+                                "children": []
+                            },
+                            {
+                                "uuid": "7a3763e4-d284-4357-9fc1-fd6c7645db42",
+                                "component": "pe-builder-elements-block",
+                                "anchors": {},
+                                "attributes": {},
+                                "style": {
+                                    "top": {
+                                        "desktop": 302,
+                                        "mobile": 335
+                                    },
+                                    "left": {
+                                        "desktop": 54,
+                                        "mobile": 24
+                                    },
+                                    "width": 240,
+                                    "height": 46,
+                                    "borderRadius": 2,
+                                    "border": "solid 2px white"
+                                },
+                                "text": "",
+                                "children": [
+                                    {
+                                        "uuid": "2535bb13-567c-4535-9fc2-07be8d07da88",
+                                        "component": "pe-builder-elements-text",
+                                        "anchors": {},
+                                        "attributes": {},
+                                        "style": {
+                                            "left": 9.6,
+                                            "top": 4,
+                                            "fontSize": 16,
+                                            "fontWeight": "bold",
+                                            "color": "white"
+                                        },
+                                        "text": "JETZT SHOPPEN & SPAREN",
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "uuid": "links",
+                "component": "pe-builder-elements-section",
+                "anchors": {},
+                "attributes": {},
+                "style": {
+                    "height": {
+                        "desktop": 340,
+                        "mobile": 260
+                    },
+                    "background": "white"
+                },
+                "text": "",
+                "children": [
+                    {
+                        "uuid": "d3613282-33a2-4523-b38d-277857ab3597",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "fontFamily": "Roboto",
+                            "fontSize": 18,
+                            "fontWeight": 500,
+                            "lineHeight": 2.28,
+                            "top": {
+                                "desktop": 80,
+                                "mobile": 16
+                            },
+                            "left": {
+                                "desktop": 56,
+                                "mobile": 24
+                            }
+                        },
+                        "text": "\n            Seidenkrawatten<br/>\n            Krawatten schmal<br/>\n            Krawatten extra lang<br/>\n            Krawatten zur Hochzeit\n          ",
+                        "children": []
+                    },
+                    {
+                        "uuid": "7a8ac5cd-ea4a-4a2b-ab30-d166d10ab002",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "fontFamily": "Roboto",
+                            "fontSize": 18,
+                            "fontWeight": 500,
+                            "lineHeight": 2.28,
+                            "display": {
+                                "desktop": "none"
+                            },
+                            "top": {
+                                "mobile": 190
+                            },
+                            "left": {
+                                "mobile": 24
+                            }
+                        },
+                        "text": "MORE",
+                        "children": []
+                    },
+                    {
+                        "uuid": "100cbae7-8eca-4791-961a-ca6e343f06c8",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "fontFamily": "Roboto",
+                            "fontSize": 18,
+                            "fontWeight": 500,
+                            "lineHeight": 2.28,
+                            "display": {
+                                "mobile": "none"
+                            },
+                            "top": 80,
+                            "left": 350
+                        },
+                        "text": "\n            Krawatten Schwarz<br/>\n            Krawatten Rot<br/>\n            Krawatten Blau<br/>\n            Krawatten Rosa\n          ",
+                        "children": []
+                    },
+                    {
+                        "uuid": "6615fb78-642d-40b5-8332-3a27b9f3b144",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "fontFamily": "Roboto",
+                            "fontSize": 18,
+                            "fontWeight": 500,
+                            "lineHeight": 2.28,
+                            "display": {
+                                "mobile": "none"
+                            },
+                            "top": 80,
+                            "left": 630
+                        },
+                        "text": "\n            Leichte Schals<br/>\n            Warme Schals<br/>\n            Einstecktücher aus Seide<br/>\n            Einstecktücher Hochzeit\n          ",
+                        "children": []
+                    },
+                    {
+                        "uuid": "8d1415e5-1a32-4c12-8c81-cf07c47d613f",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "fontFamily": "Roboto",
+                            "fontSize": 18,
+                            "fontWeight": 500,
+                            "lineHeight": 2.28,
+                            "display": {
+                                "mobile": "none"
+                            },
+                            "top": 80,
+                            "left": 950
+                        },
+                        "text": "\n             Fliegen schmal<br/>\n             Fliegen stumpf<br/>\n             Schwarze Fliegen<br/>\n             Rote Fliegen<br/>\n          ",
+                        "children": []
+                    },
+                    {
+                        "uuid": "ba4620b6-98ba-46a3-b35c-344febc19b3f",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "fontFamily": "Roboto",
+                            "fontSize": 18,
+                            "fontWeight": 500,
+                            "lineHeight": 2.28,
+                            "display": {
+                                "mobile": "none"
+                            },
+                            "top": 80,
+                            "left": 1235
+                        },
+                        "text": "\n            Olymp Hemden<br/>\n            Arrow Hemden<br/>\n            Weiße Hemden<br/>\n            Blaue Hemden<br/>\n          ",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "uuid": "footer",
+                "component": "pe-builder-elements-section",
+                "anchors": {},
+                "attributes": {},
+                "style": {
+                    "height": {
+                        "desktop": 270,
+                        "mobile": 762
+                    },
+                    "background": "#f8f8f8"
+                },
+                "text": "",
+                "children": [
+                    {
+                        "uuid": "45a48482-f927-4aee-a1d9-d7bcb224cda9",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "top": {
+                                "desktop": 40,
+                                "mobile": 19
+                            },
+                            "left": {
+                                "mobile": 24,
+                                "desktop": 56
+                            },
+                            "fontSize": 18,
+                            "fontFamily": "Roboto",
+                            "fontWeight": 500,
+                            "lineHeight": 2.28,
+                            "color": "black"
+                        },
+                        "text": "Versandinformationen",
+                        "children": []
+                    },
+                    {
+                        "uuid": "4916c52e-f36f-46a1-a5db-e47d5526a563",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "top": {
+                                "desktop": 96,
+                                "mobile": 68
+                            },
+                            "left": {
+                                "mobile": 24,
+                                "desktop": 56
+                            },
+                            "fontSize": 14,
+                            "fontWeight": "normal",
+                            "fontFamily": "Roboto",
+                            "lineHeight": 2,
+                            "color": "#000000"
+                        },
+                        "text": "\n        Versand durch DHL<br/>\n        Versandkostenfrei ab 40 €<br/>\n        Versandkosten (DE) 4,90 €<br/>\n        Express-Versand (DE) 15 €<br/>\n        Versandkosten (AT) 12,90 €\n      ",
+                        "children": []
+                    },
+                    {
+                        "uuid": "72dd0174-e54b-4c65-b73c-1bfffe83af99",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "top": {
+                                "desktop": 40,
+                                "mobile": 240
+                            },
+                            "left": {
+                                "mobile": 24,
+                                "desktop": 450
+                            },
+                            "fontSize": 18,
+                            "fontFamily": "Roboto",
+                            "fontWeight": 500,
+                            "lineHeight": 2.28,
+                            "color": "black"
+                        },
+                        "text": "Kundenservice",
+                        "children": []
+                    },
+                    {
+                        "uuid": "ecb01169-8ab3-4395-a744-b381780faa50",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "top": {
+                                "desktop": 96,
+                                "mobile": 289
+                            },
+                            "left": {
+                                "mobile": 24,
+                                "desktop": 450
+                            },
+                            "fontSize": 14,
+                            "fontWeight": "normal",
+                            "fontFamily": "Roboto",
+                            "lineHeight": 2,
+                            "color": "#000000"
+                        },
+                        "text": "\n        Hilfe & FAQ<br/>\n        Versand & Lieferung<br/>\n        Bezahlung<br/>\n        Kontakt\n      ",
+                        "children": []
+                    },
+                    {
+                        "uuid": "2aa42208-185c-47c7-be08-1af34245d9e7",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "top": {
+                                "desktop": 40,
+                                "mobile": 433
+                            },
+                            "left": {
+                                "mobile": 24,
+                                "desktop": 800
+                            },
+                            "fontSize": 18,
+                            "fontFamily": "Roboto",
+                            "fontWeight": 500,
+                            "lineHeight": 2.28,
+                            "color": "black"
+                        },
+                        "text": "Tiesociety",
+                        "children": []
+                    },
+                    {
+                        "uuid": "3b0a3ca4-44ec-4d75-90e4-da21b07f1bd0",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "top": {
+                                "desktop": 96,
+                                "mobile": 482
+                            },
+                            "left": {
+                                "mobile": 24,
+                                "desktop": 800
+                            },
+                            "fontSize": 14,
+                            "fontWeight": "normal",
+                            "fontFamily": "Roboto",
+                            "lineHeight": 2,
+                            "color": "#000000"
+                        },
+                        "text": "\n        Individuell<br/>\n        Datenschutz<br/>\n        AGB<br/>\n        Widerrufsbelehrung<br/>\n        Impressum\n      ",
+                        "children": []
+                    },
+                    {
+                        "uuid": "b149a056-bb36-4014-a388-15aaf3f5f3ef",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "top": {
+                                "desktop": 40,
+                                "mobile": 654
+                            },
+                            "left": {
+                                "mobile": 24,
+                                "desktop": 1140
+                            },
+                            "fontSize": 18,
+                            "fontFamily": "Roboto",
+                            "fontWeight": 500,
+                            "lineHeight": 2.28,
+                            "color": "black"
+                        },
+                        "text": "Kontakte",
+                        "children": []
+                    },
+                    {
+                        "uuid": "0af8de97-75eb-46ea-a986-69223c70d934",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "top": {
+                                "desktop": 96,
+                                "mobile": 703
+                            },
+                            "left": {
+                                "mobile": 24,
+                                "desktop": 1140
+                            },
+                            "fontSize": 14,
+                            "fontWeight": "normal",
+                            "fontFamily": "Roboto",
+                            "lineHeight": 2,
+                            "color": "#000000"
+                        },
+                        "text": "\n        +49 (0)2151 83770<br/>\n        E-mail: info@tiesociety.de\n      ",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "uuid": "legal",
+                "component": "pe-builder-elements-section",
+                "anchors": {},
+                "attributes": {},
+                "style": {
+                    "height": {
+                        "desktop": 60,
+                        "mobile": 173
+                    }
+                },
+                "text": "",
+                "children": [
+                    {
+                        "uuid": "977501ec-e0d5-4221-9388-52ea01a8a1c5",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "opacity": 0.4,
+                            "fontSize": 10,
+                            "lineHeight": 4.1,
+                            "color": "000000",
+                            "top": {
+                                "desktop": 5,
+                                "mobile": 121
+                            },
+                            "left": {
+                                "desktop": 655,
+                                "mobile": 132
+                            }
+                        },
+                        "text": "2019 All Rights Reserved",
+                        "children": []
+                    },
+                    {
+                        "uuid": "e9188088-ebe8-4de1-9f62-80b340098908",
+                        "component": "pe-builder-elements-text",
+                        "anchors": {},
+                        "attributes": {},
+                        "style": {
+                            "opacity": 0.4,
+                            "fontSize": 10,
+                            "lineHeight": 4.1,
+                            "color": "000000",
+                            "top": {
+                                "desktop": 5,
+                                "mobile": 63
+                            },
+                            "left": {
+                                "desktop": 948,
+                                "mobile": 60
+                            }
+                        },
+                        "text": "Privacy Policy | Terms of Service | Sitemap | Accessibility",
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    }
+]

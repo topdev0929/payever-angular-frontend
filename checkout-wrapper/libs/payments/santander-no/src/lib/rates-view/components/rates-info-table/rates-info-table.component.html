@@ -1,0 +1,66 @@
+<div *ngIf="paymentTitle"><strong [innerHTML]="paymentTitle"></strong></div>
+
+<ng-container *ngIf="selectedRate">
+
+  <ng-container *ngIf="!selectedRate.isFixedAmount">
+    <div class="clearfix">
+      <span class="text-secondary"
+        i18n="@@santander-no.credit_rates.rate_param.description">
+        santander-no.credit_rates.rate_param.description
+      </span>:
+      <span>{{ selectedRate.description }}</span>
+    </div>
+    <div class="clearfix">
+      <span class="text-secondary"
+        i18n="@@santander-no.credit_rates.rate_param.title">
+        santander-no.credit_rates.rate_param.title
+      </span>:
+      <span>{{ selectedRate.title }}</span>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="selectedRate.isFixedAmount">
+    <div class="clearfix">
+      <span class="text-secondary"
+        i18n="@@santander-no.credit_rates.rate_param.monthly_amount">
+        santander-no.credit_rates.rate_param.monthly_amount
+      </span>:
+      <span [innerHTML]="selectedRate.monthlyAmount | peCurrency:currency"></span>
+    </div>
+    <div class="clearfix">
+      <span class="text-secondary"
+        i18n="@@santander-no.credit_rates.rate_param.duration">
+        santander-no.credit_rates.rate_param.duration
+      </span>:
+      <span>{{ translations.duration }}</span>
+    </div>
+    <div class="clearfix">
+      <span class="text-secondary"
+        i18n="@@santander-no.credit_rates.rate_param.credit_purchase">
+        santander-no.credit_rates.rate_param.credit_purchase
+      </span>:
+      <span [innerHTML]="selectedRate.creditPurchase | peCurrency:currency"></span>
+    </div>
+    <div class="clearfix">
+      <span class="text-secondary"
+        i18n="@@santander-no.credit_rates.rate_param.credit_price">
+        santander-no.credit_rates.rate_param.credit_price
+      </span>:
+      <span [innerHTML]="(selectedRate.creditPurchase - total) | peCurrency:currency"></span>
+    </div>
+    <div class="clearfix">
+      <span class="text-secondary"
+        i18n="@@santander-no.credit_rates.rate_param.effective_rate">
+        santander-no.credit_rates.rate_param.effective_rate
+      </span>:
+      <span [innerHTML]="(selectedRate.effectiveRate / 100) | percent:'1.0-2'"></span>
+    </div>
+    <div class="clearfix">
+      <span class="text-secondary"
+        i18n="@@santander-no.credit_rates.rate_param.description">
+        santander-no.credit_rates.rate_param.description
+      </span>:
+      <span>{{ selectedRate.description }}</span>
+    </div>
+  </ng-container>
+</ng-container>

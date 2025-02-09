@@ -1,0 +1,40 @@
+<ng-container *ngIf="billingAddress | peAddressLine | async as parsedBilling">
+  <p
+    *ngIf="(billingAddress | peAddressFullName) || parsedBilling"
+    class="checkout-font-size">
+    <span
+      *ngIf="billingAddress | peAddressFullName"
+      [textContent]="billingAddress | peAddressFullName:hideSalutation">
+    </span>
+    <br />
+    <span
+      *ngIf="billingAddress?.street"
+      [textContent]="billingAddress?.street">
+    </span>
+    <br />
+    <span
+      *ngIf="parsedBilling"
+      [textContent]="parsedBilling">
+    </span>
+  </p>
+</ng-container>
+<ng-container *ngIf="shippingAddress | peAddressLine | async as parsedShipping">
+  <p
+    *ngIf="(shippingAddress | peAddressFullName) || parsedShipping"
+    class="checkout-font-size">
+    <span
+      *ngIf="shippingAddress | peAddressFullName"
+      [innerHtml]="shippingAddress | peAddressFullName:hideSalutation">
+    </span>
+    <br />
+    <span
+      *ngIf="shippingAddress?.street"
+      [innerHtml]="shippingAddress?.street">
+    </span>
+    <br />
+    <span
+      *ngIf="parsedShipping"
+      [innerHtml]="parsedShipping">
+    </span>
+  </p>
+</ng-container>

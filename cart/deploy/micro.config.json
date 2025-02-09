@@ -1,0 +1,6 @@
+{
+  "code": "cart",
+  "bootstrapScriptUrl": "${MICRO_URL_FRONTEND_CART}/micro.js?{hash}",
+  "tag": "<app-cart></app-cart>",
+  "url": "/business/{uuid}/cart"
+}

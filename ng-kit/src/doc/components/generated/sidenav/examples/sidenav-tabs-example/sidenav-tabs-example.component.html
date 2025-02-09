@@ -1,0 +1,101 @@
+<button type="button" mat-button (click)="toggle()">Toggle</button>
+<div class="doc-container-black">
+  <pe-sidenav [opened]="isOpen" [hasBackdrop]="false" classNames="col-xs-5 mat-sidenav-dark">
+    <pe-sidenav-header
+      header
+      [rightButtonConfig]="rightButtonConfig">
+    </pe-sidenav-header>
+    <pe-tab-sidenav sidenav-content [selectedIndex]="defaultSelected" [tabs]="tabs" (onTabChange)="onTabChange($event)">
+    </pe-tab-sidenav>
+    <ng-template #HeaderContent>
+      <div class="form-table">
+        <div class="pe-form-fieldset pe-form-fieldset-media-controls dark">
+          <div class="row">
+            <div class="col-xs-12">
+              <mat-slide-toggle class="mat-label-space-between">Slide me!</mat-slide-toggle>
+            </div>
+            <div class="col-xs-12">
+              <div class="pe-form-fieldset-space-between">
+                <div>
+                  <button mat-button class="mat-button-no-padding mat-button-xs mat-fieldset-corner"
+                          [matMenuTriggerFor]="menu1">
+                    <div class="mat-fieldset-corner-left">
+                      <svg class="icon icon-32">
+                        <use xlink:href="#icon-fe-corner-circle-32"></use>
+                      </svg>
+                    </div>
+                    <div class="mat-fieldset-corner-right">
+                      <svg class="icon icon-16 mat-sidenav-corner">
+                        <use xlink:href="#icon-arrow-down-small-16"></use>
+                      </svg>
+                    </div>
+                  </button>
+                  <mat-menu #menu1="matMenu" class="mat-menu-xs mat-menu-dark">
+                    <ng-template matMenuContent>
+                      <button mat-menu-item>
+                        <svg class="icon icon-32 mat-sidenav-grey">
+                          <use xlink:href="#icon-fe-corner-circle-32"></use>
+                        </svg>
+                      </button>
+                      <button mat-menu-item>
+                        <svg class="icon icon-32 mat-sidenav-grey">
+                          <use xlink:href="#icon-fe-corner-round-32"></use>
+                        </svg>
+                      </button>
+                      <button mat-menu-item>
+                        <svg class="icon icon-32">
+                          <use xlink:href="#icon-fe-corner-square-32"></use>
+                        </svg>
+                      </button>
+                    </ng-template>
+                  </mat-menu>
+                </div>
+                <span>Label</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template #SettingsContent>
+      <div class="mat-sidenav-text-section">SECTION NAME</div>
+      <div class="form-table">
+        <div class="pe-form-fieldset dark">
+          <div class="row">
+            <div class="col-xs-12">
+              <mat-form-field>
+                <input matInput placeholder="Label">
+              </mat-form-field>
+            </div>
+            <div class="col-xs-6">
+              <mat-form-field>
+                <input matInput placeholder="Enter your first name">
+              </mat-form-field>
+            </div>
+            <div class="col-xs-6">
+              <mat-form-field>
+                <input matInput placeholder="Enter your last name">
+                <mat-error></mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-xs-12">
+              <mat-form-field>
+                <mat-select required>
+                  <mat-option>-- None --</mat-option>
+                  <mat-option value="option">Option</mat-option>
+                  <mat-option value="option-1">Option 1</mat-option>
+                  <mat-option value="option-2">Option 2</mat-option>
+                  <mat-option value="option-3">Option 3</mat-option>
+                </mat-select>
+                <mat-label>Age</mat-label>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template #LinksContent>
+      <h1>Content 3</h1>
+    </ng-template>
+  </pe-sidenav>
+</div>

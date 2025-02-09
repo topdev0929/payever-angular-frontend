@@ -1,0 +1,6 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+.cards-container-wrap {
+  background-image: linear-gradient(135deg, #3095b6, #9a5193);
+  min-height: $pe_vgrid_height * 30;
+  position: relative;
+}

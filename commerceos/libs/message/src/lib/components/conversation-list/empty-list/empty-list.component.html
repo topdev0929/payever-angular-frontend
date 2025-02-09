@@ -1,0 +1,13 @@
+<div class="pe-grid-conversation-empty-list">
+  <div *ngIf="!isLoading else skeleton" class="empty-list-note">{{ "message-app.sidebar.empty_list" | translate }}</div>
+  <ng-template #skeleton>
+    <div class="pe-grid-conversation__skeleton" *ngFor="let i of [].constructor(3)">
+      <div class="pe-grid-conversation__skeleton__logo"></div>
+      <div class="pe-grid-conversation__skeleton__content">
+        <div class="pe-grid-conversation__skeleton__content__title"></div>
+        <div class="pe-grid-conversation__skeleton__content__title"></div>
+      </div>
+    </div>
+  </ng-template>
+</div>
+

@@ -1,0 +1,38 @@
+<div class="chapter">
+  <h2>GeneralDashboardComponent</h2>
+  <div class="main-block">
+    <tabset>
+      <tab heading="Overview">
+        <h3>Import GeneralDashboardModule</h3>
+        <pre><code class="typescript" [innerHTML]="'import {GeneralDashboardModule } from \'@pe/ng-kit/modules/general-dashbord\';'"></code></pre>
+        <p>&nbsp;</p>
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          [tsExample]="tsExample"
+          >
+          <div class="general-dashboard-example-wrap">
+            <pe-general-dashboard [dashboardItems]="dashboardItems"></pe-general-dashboard>
+          </div>
+        </example-viewer>
+      </tab>
+      <tab heading="API">
+        <component-api-renderer [path]="'general-dashbord/src/general-dashboard.component'"></component-api-renderer>
+      </tab>
+      <tab heading="Examples">
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          [tsExample]="tsExample"
+          >
+          <div class="general-dashboard-example-wrap">
+            <pe-general-dashboard [dashboardItems]="dashboardItems"></pe-general-dashboard>
+          </div>
+        </example-viewer>
+      </tab>
+      <tab heading="README">
+        <doc-viewer documentUrl="/assets/module-guides/general-dashboard/general-dashboard.html"></doc-viewer>
+      </tab>
+    </tabset>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="ui-layout-content">
+  <div
+    class="ui-layout-content-main scrollbar-dark light-grey transparent"
+    [class.collapsed]="collapsed"
+    [class.no-scroll]="noScroll"
+    cdkScrollable>
+    <div
+      *ngIf="showCaution"
+      class="caution-container">
+      <ng-content select="[caution]"></ng-content>
+    </div>
+
+    <div class="ui-layout-content-main-inner">
+      <div class="no-collapse-container">
+        <ng-content select="[no-collapse]"></ng-content>
+      </div>
+
+      <div *ngIf="!collapsed">
+        <ng-content></ng-content>
+        <ng-content select="[footer]"></ng-content>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>

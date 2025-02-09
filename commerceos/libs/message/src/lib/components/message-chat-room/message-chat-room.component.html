@@ -1,0 +1,176 @@
+<ng-container *ngIf="isLoading$ | async; else chatSection">
+  <div class="chat-skeleton" [ngClass]="theme">
+    <div class="chat-skeleton__header">
+      <div class="chat-skeleton__title" [class.chat-skeleton__title_mobile-view]="isLiveChat || isEmbedChat"></div>
+      <div class="chat-skeleton__avatar" [class.chat-skeleton__avatar_mobile-view]="isLiveChat || isEmbedChat"></div>
+    </div>
+    <div class="chat-skeleton__body">
+      <div class="chat-skeleton__footer">
+        <div class="chat-skeleton__avatar"></div>
+        <div class="chat-skeleton__form"></div>
+      </div>
+      <div class="chat-skeleton__logo-footer">
+        <div class="chat-skeleton__logo"></div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #chatSection>
+  <ng-container *ngIf="!peMessageAppService.selectedChannel; then emptyChat else loadedChat"></ng-container>
+</ng-template>
+
+<ng-template #emptyChat>
+  <div class="chat-empty-room">
+    <div class="chat-empty-room__header">
+      {{"message-app.chat.empty_room.header" | translate }}
+    </div>
+
+    <div class="chat-empty-room__content">
+      <span>{{"message-app.chat.empty_room.content" | translate}}</span>
+    </div>
+
+    <div class="chat-empty-room__footer">
+      <img src="assets/icons/message-app-logo.svg" alt="message app">
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #loadedChat>
+  <pe-chat
+    peChatRoomListIntersection
+    *ngIf="peMessageAppService.selectedChannel as chat"
+    class="pe-chat show"
+    [ngClass]="theme"
+    [theme]="theme"
+    [shown$]="shown$"
+    [activeUser]="peMessageService.activeUser"
+    [messagesBottomColor]="colors.blurValue ? '' : colors.accent"
+    [style.background-color]="colors.bgChat"
+    [bgColor]="colors.bgChat"
+    [scrollBottom]="true"
+    (dragover)="onDragOver($event)"
+    [blurValue]="colors.blurValue"
+    (dragleave)="onDragLeave($event)"
+    [noMessagesPlaceholder]="noMessagesPlaceholder"
+    (click)="setCursorFocus()"
+    [isLiveChat]="isLiveChat"
+    (unpinAllMessages)="unpinAllMessages()"
+    [highlightMessage]="messageToHighlight"
+  >
+    <pe-chat-header
+      [chatObj]="selectedChannel"
+      [avatar]="getAvatarFromDirect(chat)"
+      [activeChatInitials]="chat?.initials"
+      [activeChannel]="activeChannel"
+      [channelMenuItems]="channelMenuItems"
+      title="{{ chat?.title }}"
+      (channelMenuItem)="channelMenuItem($event)"
+      [totalUnreadMessages]="(unreadMessages | async) || '0'"
+      [messageAppColor]="colors.app"
+      [accentColor]="colors.accent"
+      [mobileView]="mobileView"
+      [blurValue]="colors.blurValue"
+      [hideChat]="isLiveChat || isEmbedChat"
+      [selectedMessages]="this.selectedMessages.length"
+      (selectedActions)="selectedActions($event)"
+      [pinnedMessages]="selectedChannel.pinnedMessageObj"
+      (clickByAvatarInHeader)="onAvatarInHeader()"
+      (deleteChat)="deleteChat()"
+      (unpinMessage)="unpinMessage($event)"
+      [class.mobile-view]="mobileView"
+      [class.blur-mode]="colors.blurValue"
+      [class.live-chat]="isLiveChat"
+      [typingMembers]="getTypingMembers(chat)"
+      (backArrowClick)="backArrowClick()"
+    ></pe-chat-header>
+    <pe-chat-message
+      peChatRoomMessageIntersection
+      *peVirtualFor="let message of (messages$ | async)"
+      [attr.data-msg-id]="message._id"
+      [class.not-read]="message.status === readStatus"
+      [ngClass]="{'sticky-date': message.type === peChatMessageType.DateSeparator }"
+      [type]="message.type ? message.type : peChatMessageType.Default"
+      [currentLanguage]="currentLanguage"
+      [id]="message._id"
+      [selected]="isMessageSelected(message)"
+      [showAuthor]="peMessageChatRoomListService?.activeChat?.permissions?.showSender"
+      [dateFormat]="'HH:mm'"
+      [theme]="message.theme"
+      [isPointer]="message.type === peChatMessageType.Box"
+      [status]="message.reply ? (message.status || 'not-defined') : ''"
+      [messagesBottomColor]="colors.message[message.reply ? 1 : 0]"
+      [accentColor]="messageAccentColor(message)"
+      [messageObj]="message"
+      [blurValue]="colors.blurValue"
+      [class.mobile-view]="mobileView"
+      [class.live-chat]="isLiveChat"
+      [isLiveChat]="isLiveChat"
+      [chatIntegrationType]="activeChatIntegrationType$ | async"
+      [selectedMessages]="this.selectedMessages.length"
+      [pinnedMessages]="pinnedMessages"
+      (replyingMessage)="replyingMessage(message)"
+      (selectMessage)="selectMessage(message)"
+      (template)="templateAction($event)"
+      (markedBox)="markedBox($event, message)"
+      (deleteBox)="deleteBox(message)"
+      (messageContextMenu)="openMessageContextMenu($event, message)"
+      (click)="($event.stopPropagation())"
+      (getMemberById)="getMember($event)"
+      (showReplied)="showRepliedMessage($event)"
+      (updateMessageContent)="chatComponent.scrollListBottom()"
+    ></pe-chat-message>
+    <pe-chat-form
+      [activeChat]="chat"
+      [cursorFocus]="setCursorFocus$ | async"
+      [class.mobile-view]="mobileView"
+      [mobileView]="mobileView"
+      [theme]="theme"
+      [avatar]="getAvatarForCurrentUser(chat)"
+      [members]="chat?.membersInfo"
+      [attachMenuItems]="attachMenuItems"
+      [appsMenuItems]="(channelMenuItems | async)"
+      [dropFiles]="dropFiles"
+      [showAttachButton]="true"
+      [showSendButton]="true"
+      [isLiveChat] = "isLiveChat"
+      [blurValue]="colors.blurValue"
+      [messageAppColor]="colors.app"
+      [accentColor]="colors.accent"
+      [appsImages]="appsImages"
+      [editMessage]="editMessageData"
+      (editMessageCancelled)="editMessageCancelled()"
+      [forwardMessage]="forwardMessageData"
+      (forwardMessageCancelled)="forwardMessageCancelled()"
+      (openChangeRecipientOverlay)="openChangeRecipientOverlay()"
+      [showForm]="isForm()"
+      [showEmailForm]="isEmail()"
+      [smallBoxUrlItems]="smallBoxUrlItems"
+      [messageFull]="messageFullTrigger"
+      [replyMessage]="replyMessage"
+      (send)="sendMessage($event)"
+      (openLastMessageInEditMenu)="openLastMessageInEditMenu()"
+      (attachMenuItem)="attachMenuItem($event)"
+      (replyMessageCancelled)="cancelReplyMessage($event)"
+      (appsMenuItem)="appsMenuItem($event)"
+      (smallBoxItem)="smallBoxItem($event)"
+      (largeBoxItem)="largeBoxItem($event)"
+      [dragDimensions]="dragDimensions"
+      (chatFormContextMenu)="openChatFormContextMenu($event)"
+      (draft)="draft($event)"
+      (openDeleteOverlay)="showConfirmationDialog($event)"
+    >
+      <pe-mail-actions
+        *ngIf="chat?.integrationName === messageIntegration.Email"
+        [activeChat]="chat"
+      ></pe-mail-actions>
+    </pe-chat-form>
+  </pe-chat>
+</ng-template>
+
+<ng-template #deleteForEveryOneTemplate>
+  <pe-message-delete-for-everyone-template
+    class="delete-everyone"
+    (toggleButtonChangedEmit)="toggleButtonChanged($event)"
+  ></pe-message-delete-for-everyone-template>
+</ng-template>

@@ -1,0 +1,33 @@
+<div
+  class="checkout-style-item-alignment"
+  #itemFlex
+>
+  <div #buttonMenuAlignmentTrigger [matMenuTriggerFor]="menuAlignment" class="checkout-style-item-alignment-row">
+    <svg class="icon icon-18">
+      <use [attr.xlink:href]="alignmentIcons[selectedAlignment]"></use>
+    </svg>
+    <span class="checkout-style-item-alignment-row__label" translate>{{ labelTranslateKey }}</span>
+    <svg class="arrow-open">
+      <use xlink:href="#icon-ui-arrow-open"></use>
+    </svg>
+  </div>
+  <mat-menu
+    [backdropClass]="'checkout-style-item-alignment-menu'"
+    #menuAlignment
+    [style.width]="itemFlex.clientWidth"
+  >
+    <div
+      mat-menu-item
+      [style.width.px]="itemFlex.clientWidth"
+      *ngFor="let alignment of alignmentIcons | keyvalue"
+      (click)="setSelectedAlignment(alignment.key)"
+    >
+      <svg class="icon icon-18">
+        <use [attr.xlink:href]="alignment.value"></use>
+      </svg>
+      <span class="mat-list-item-content" translate>
+        {{ 'settings.colorAndStyle.panelLogo.controls.businessLogoAlignment.values.' + alignment.key }}
+      </span>
+    </div>
+  </mat-menu>
+</div>

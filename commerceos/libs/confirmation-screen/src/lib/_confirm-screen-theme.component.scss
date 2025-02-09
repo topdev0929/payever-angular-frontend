@@ -1,0 +1,22 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $border: map.get($color-config, 'border');
+  $text-color: map.get($color-config, 'text-color');
+  $gray-button: map.get($color-config, 'gray-button');
+  $big-button-text: map.get($color-config, 'big-button-text');
+  pe-confirm-dialog {
+    .confirmation-screen {
+      background-color: $secondary-background;
+      border-color: $border;
+      &__content {
+        color: $text-color;
+      }
+      &__content-button:not(.confirmation-screen__content-button_confirm):not(.confirmation-screen__content-button_warn) {
+        background-color: $gray-button;
+        color: $big-button-text;
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.pe-picker {
+  .picker-container {
+    &__controls {
+      .input-with-label {
+        &__button {
+          width: auto;
+        }
+      }
+    }
+  }
+}

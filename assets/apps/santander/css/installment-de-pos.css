@@ -1,0 +1,80 @@
+.desktop-checkout-items {
+  position: relative;
+  z-index: -1;
+}
+
+.active-payment-method-step-1 .desktop-checkout-items {
+  top: -42px;
+}
+
+.active-payment-method-step-2 .desktop-checkout-items {
+  top: -490px;
+}
+
+.mobile .active-payment-method-step-2 .desktop-checkout-items {
+  top: -516px;
+}
+
+.active-payment-method-step-3 .desktop-checkout-items {
+  top: -646px;
+}
+
+.mobile .active-payment-method-step-3 .desktop-checkout-items {
+  top: -896px;
+}
+
+.active-personal-information-step .desktop-checkout-items {
+  top: -164px;
+}
+
+.mobile .active-personal-information-step .desktop-checkout-items {
+  top: -196px;
+}
+
+.active-additional-information-step-1 .desktop-checkout-items {
+  top: -226px;
+}
+
+.active-additional-information-step-2 .desktop-checkout-items {
+  top: -406px;
+}
+
+.mobile .active-additional-information-step-2 .desktop-checkout-items {
+  top: -336px;
+}
+
+.active-income-expenses-step-1 .desktop-checkout-items,
+.active-income-expenses-step-2 .desktop-checkout-items,
+.active-income-expenses-step-3 .desktop-checkout-items {
+  top: -258px;
+}
+
+.form-group-title {
+  margin: 11px 0 4px 0;
+}
+
+.form-boxes {
+  padding: 0;
+  border: none;
+}
+
+.form-boxes .form-box-title {
+  margin-bottom: 11px;
+  font-weight: 500;
+}
+
+.form-boxes .form-box-summary {
+  padding: 0;
+  border: none;
+}
+
+.mobile .form-boxes .form-box-summary {
+  padding: 0;
+}
+
+#personal-information-step .continue-button-wrapper,
+#additional-information-step .continue-button-wrapper,
+#income-expenses-step .continue-button-wrapper {
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--secondary-200);
+}

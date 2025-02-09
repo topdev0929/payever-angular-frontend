@@ -1,0 +1,58 @@
+@use "pe_variables" as pe_variables;
+@import "~@pe/ui-kit/scss/pe_variables";
+
+.general-section {
+  margin-bottom: 24px;
+
+  &__top-line {
+    display: flex;
+    justify-content: space-between;
+
+    .general-item {
+      flex: 1;
+      height: 52px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: column;
+      font-family: Roboto, sans-serif;
+      padding: 7px 12px;
+      overflow: hidden;
+      &:not(:last-child) {
+        margin-right: 5px;
+      }
+
+      &__text {
+        font-size: 16px;
+        font-weight: 600;
+        text-align: center;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+          font-size: 14px;
+          font-weight: 500;
+        }
+
+        &.status-yellow {
+          color: $color-status-yellow;
+        }
+      }
+
+      &__hint {
+        font-family: Roboto, sans-serif;
+        font-size: 13px;
+        font-weight: 400;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        white-space: nowrap;
+        @media (max-width: $viewport-breakpoint-sm-2) {
+          font-size: 13px;
+          margin-top: 2px;
+        }
+      }
+    }
+  }
+}

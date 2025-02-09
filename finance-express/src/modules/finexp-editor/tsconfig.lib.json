@@ -1,0 +1,24 @@
+{
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../../dist/lib",
+    "declarationMap": true,
+    "target": "es2015",
+    "declaration": true,
+    "inlineSources": true,
+    "types": [
+      "node",
+      "swiper"
+    ],
+    "lib": [
+      "dom",
+      "es2018"
+    ]
+  },
+  "angularCompilerOptions": {
+    "skipTemplateCodegen": true,
+    "strictMetadataEmit": true,
+    "enableResourceInlining": true
+  },
+  "exclude": ["node_modules", "tmp", "types", "**/*.stub*", "dist/**", "dist-libs"]
+}

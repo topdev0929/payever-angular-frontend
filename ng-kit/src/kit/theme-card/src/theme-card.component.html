@@ -1,0 +1,24 @@
+<div class="ui-theme-card">
+  <a class="card-overlay" (click)="onCardClick($event)"></a>
+  <div class="card-body" [style.background-image]="'url('+ image +')'"></div>
+  <div class="card-footer">
+    <div class="col-xs-8">
+      <h3 class="card-title" [innerHTML]="title"></h3>
+      <p class="card-subtitle" [innerHTML]="subTitle"></p>
+    </div>
+
+    <div class="col-xs-4 text-right">
+      <div *ngIf="actions && actions.length" class="dropdown btn-group" >
+        <button class="btn btn-default btn-link btn-inline dropdown-toggle" data-toggle="dropdown">
+          <svg class="icon icon-24"><use xlink:href="#icon-dots-v-24"></use></svg>
+        </button>
+
+        <div class="dropdown-menu" [ngClass]="{'dropdown-menu-right': dropdownMenuRight}" role="menu">
+          <ul>
+              <li *ngFor="let action of actions" role="menuitem"><a class="dropdown-item" (click)="onActionSelect(action)" [innerHTML]="action.label"></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<mat-slide-toggle class="mat-slide-toggle-flex"
+                  [attr.pe-qa-slide-toggle]="controlQaId"
+                  [aria-label]="ariaLabel"
+                  [aria-labelledby]="ariaLabelledby"
+                  [class.mat-checkbox-error]="isErrorState"
+                  [class.mat-slide-toggle-lg]="size === 'large'"
+                  [class.mat-slide-toggle-xs]="size === 'extra-small'"
+                  [class.mat-slide-toggle-no-padding]="withoutLeftPadding"
+                  [class.mat-label-font-weight]="isLightFontWeight"
+                  [class.mat-label-space-between]="fullWidth"
+                  [formControl]="formControl"
+                  [labelPosition]="labelPosition"
+                  [required]="required"
+                  [tabIndex]="tabIndex"
+                  (change)="onChanged($event)"
+>
+  <span [class.text-danger]="errorMessage && isErrorState" [innerHtml]="label"></span>
+</mat-slide-toggle>

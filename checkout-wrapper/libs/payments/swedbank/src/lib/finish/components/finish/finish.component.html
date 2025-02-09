@@ -1,0 +1,73 @@
+<checkout-sdk-finish-wrapper
+  [buttons]="buttons"
+  [errorMessage]="errorMessage"
+  [iframeCallbackUrl]="getIframeCallbackUrl()"
+  [isLoading]="isLoading"
+  [isChangingPaymentMethod]="isChangingPaymentMethod"
+  [merchantMode]="merchantMode"
+  [embeddedMode]="embeddedMode"
+  (close)="onClose()">
+  <ui-payment-logo
+    *ngIf="isNewStatus()"
+    class="logo"
+    [paymentMethod]="paymentMethod">
+  </ui-payment-logo>
+
+  <ng-container *ngIf="nodeResult && !showTemplate && !isNewStatus()">
+    <ng-container *ngIf="isStatusSuccess()">
+      <checkout-sdk-finish-status-success
+        i18n-title="@@swedbank.inquiry.finish.status_success.title"
+        title="swedbank.inquiry.finish.status_success.title"
+        i18n-text="@@swedbank.inquiry.finish.status_success.text"
+        text="swedbank.inquiry.finish.status_success.text"
+        [total]="nodeResult.payment?.total"
+        [currency]="flow?.currency"
+        [storeName]="nodeResult.payment?.businessName || '---'"
+        [createdAt]="nodeResult.createdAt"
+        [billingAddressName]="isPosPayment() ? billingAddressName() : null"
+        [transactionNumber]="transactionNumber"
+        [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"
+        [flowId]="flow?.id"
+        [isPosPayment]="isPosPayment()"></checkout-sdk-finish-status-success>
+    </ng-container>
+
+    <ng-container *ngIf="isStatusPending()">
+      <checkout-sdk-finish-status-pending
+        i18n-title="@@swedbank.inquiry.finish.status_processing.title"
+        title="swedbank.inquiry.finish.status_processing.title"
+        i18n-text="@@swedbank.inquiry.finish.status_processing.text"
+        text="swedbank.inquiry.finish.status_processing.text"
+        [total]="nodeResult.payment?.total"
+        [currency]="flow?.currency"
+        [storeName]="nodeResult.payment?.businessName || '---'"
+        [createdAt]="nodeResult.createdAt"
+        [billingAddressName]="isPosPayment() ? billingAddressName() : null"
+        [transactionNumber]="transactionNumber"
+        [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"
+        [flowId]="flow?.id"
+        [isPosPayment]="isPosPayment()"></checkout-sdk-finish-status-pending>
+    </ng-container>
+
+    <ng-container *ngIf="isStatusFail()">
+      <checkout-sdk-finish-status-fail
+        i18n-title="@@swedbank.inquiry.finish.status_fail.title"
+        title="swedbank.inquiry.finish.status_fail.title"
+        i18n-text="@@swedbank.inquiry.finish.status_fail.text"
+        text="swedbank.inquiry.finish.status_fail.text"
+        [canChangePaymentMethod]="canChangePaymentMethod()"
+        [transactionNumber]="transactionNumber"
+        [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"></checkout-sdk-finish-status-fail>
+    </ng-container>
+
+    <ng-container *ngIf="isStatusUnknown()">
+      <checkout-sdk-finish-status-unknown
+        [nodeResult]="nodeResult"
+        [transactionNumber]="transactionNumber"
+        [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"></checkout-sdk-finish-status-unknown>
+    </ng-container>
+  </ng-container>
+
+  <ng-container *ngIf="template && showTemplate">
+    <ng-container [ngTemplateOutlet]="template"></ng-container>
+  </ng-container>
+</checkout-sdk-finish-wrapper>

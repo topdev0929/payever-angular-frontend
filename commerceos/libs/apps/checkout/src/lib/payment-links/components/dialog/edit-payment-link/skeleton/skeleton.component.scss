@@ -1,0 +1,65 @@
+@use "pe_variables" as pe_variables;
+@use 'pe_skeleton' as pe_skeleton;
+
+.pe-edit-payment-link-skeleton {
+  &-actions {
+    display: flex;
+    justify-content: center;
+    grid-gap: 24px;
+    margin-bottom: 32px;
+    &-item {
+      width: 80px;
+      height: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      &-image,
+      &-text {
+        @include pe_skeleton.skeleton-animation();
+      }
+      &-image {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+      }
+      &-text {
+        width: 34px;
+        height: 16px;
+        margin-top: 12px;
+        border-radius: 6px;
+      }
+    }
+  }
+
+  &-general {
+    display: flex;
+    gap: 5px;
+    height: 52px;
+    margin: 0 12px 24px;
+    &-item {
+      height: 100%;
+      width: 100%;
+      @include pe_skeleton.skeleton-animation();
+      border-radius: 12px;
+    }
+  }
+
+  &-rows {
+    width: 100%;
+    &-item {
+      width: 100%;
+      height: 40px;
+      margin-top: 1px;
+      display: flex;
+      align-items: center;
+      &-text {
+        width: 100%;
+        height: 20px;
+        margin: 0 12px;
+        border-radius: 6px;
+        @include pe_skeleton.skeleton-animation();
+      }
+    }
+  }
+}

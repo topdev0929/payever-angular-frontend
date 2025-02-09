@@ -1,0 +1,63 @@
+<form novalidate class="form-table form-table-horizontal no-padding" [formGroup]="form" *ngIf="form">
+
+  <ng-container *ngIf="(themeStore?.activePage$ | async).type !== PebPageType.Master">
+    <pe-form-fieldset
+      [fields]="productsSelectionFieldset"
+      [formGroup]="form"
+      [formStyle]="'dark'"
+      [orientation]="'horizontal'"
+    ></pe-form-fieldset>
+
+    <pe-builder-navbar-controls-button
+      *ngIf="fieldValue('productsSelection') === productSelections.Custom"
+      class="button button-select-products"
+      label="Select products"
+      (buttonClick)="productsService.addProduct(document, editor)"
+    ></pe-builder-navbar-controls-button>
+  </ng-container>
+
+  <pe-form-fieldset
+    [fields]="widthFieldset"
+    [formGroup]="form"
+    [formStyle]="'dark'"
+    [orientation]="'horizontal'"
+  ></pe-form-fieldset>
+
+  <pe-form-fieldset
+    [fields]="heightFieldset"
+    [formGroup]="form"
+    [formStyle]="'dark'"
+    [orientation]="'horizontal'"
+  ></pe-form-fieldset>
+
+  <span class="form-fieldset-horizontal-label">Text Color</span>
+  <pe-form-fieldset
+    [fields]="textColorFieldset"
+    [formGroup]="form"
+    [formStyle]="'dark'"
+    [orientation]="'horizontal'"
+    (mousedown)="openColorPicker($event)"
+  ></pe-form-fieldset>
+
+  <span class="form-fieldset-horizontal-label">Price Color</span>
+  <pe-form-fieldset
+    [fields]="priceColorFieldset"
+    [formGroup]="form"
+    [formStyle]="'dark'"
+    [orientation]="'horizontal'"
+    (mousedown)="openColorPicker($event)"
+  ></pe-form-fieldset>
+
+  <pe-builder-navbar-separator></pe-builder-navbar-separator>
+
+  <pe-builder-element-visibility-toggle
+    [editor]="editor"
+    [pageStore]="pageStore"
+  ></pe-builder-element-visibility-toggle>
+
+  <pe-builder-element-pinned-toggle [editor]="editor" [pageStore]="pageStore"></pe-builder-element-pinned-toggle>
+
+  <pe-builder-element-keep-aspect-toggle [editor]="editor" [pageStore]="pageStore"></pe-builder-element-keep-aspect-toggle>
+
+  <pe-builder-navbar-spacer style="padding-right: 12px"></pe-builder-navbar-spacer>
+</form>

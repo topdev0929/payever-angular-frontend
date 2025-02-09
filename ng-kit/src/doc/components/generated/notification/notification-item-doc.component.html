@@ -1,0 +1,35 @@
+<div class="chapter">
+  <h2>NotificationItemComponent</h2>
+  <div class="main-block">
+    <tabset>
+      <tab heading="Overview">
+        <h3>Import NotificationModule</h3>
+        <pre><code class="typescript" [innerHTML]="'import {NotificationModule } from \'@pe/ng-kit/modules/notification\';'"></code></pre>
+        <p>&nbsp;</p>
+        <example-viewer
+          title="Basic Example"
+          >
+          <div class="row notification-item-example-wrap" >
+            <div class="col-xs-8 col-xs-offset-2">
+              <pe-notification-item [config]="standAloneNotifConfig" [isStandalone]="true"></pe-notification-item>
+            </div>
+          </div>
+        </example-viewer>
+      </tab>
+      <tab heading="API">
+        <component-api-renderer [path]="'notification/src/notification-item/notification-item.component'"></component-api-renderer>
+      </tab>
+      <tab heading="Examples">
+        <example-viewer
+          title="Basic Example"
+          >
+          <div class="row notification-item-example-wrap" >
+            <div class="col-xs-8 col-xs-offset-2">
+              <pe-notification-item [config]="standAloneNotifConfig" [isStandalone]="true"></pe-notification-item>
+            </div>
+          </div>
+        </example-viewer>
+      </tab>
+    </tabset>
+  </div>
+</div>

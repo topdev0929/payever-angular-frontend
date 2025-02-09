@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+STAGED_FILES=$(git --no-pager diff --name-only --cached)
+if [ -z "$STAGED_FILES" ]; then
+  echo "No files staged, skipping pre-commit tests"
+  exit 1
+fi
+
+echo "[Husky] Pre-commit lint"
+npx lint-staged

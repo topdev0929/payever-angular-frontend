@@ -1,0 +1,61 @@
+<mat-card [ngClass]="{'installed' : theme?.active}">
+  <mat-card-content [style.backgroundImage]="themeLogo | safe: 'style'" (click)="isActionEnabled('edit') && !loading && edit.emit(theme)">
+    <mat-progress-spinner *ngIf="loading" mode="indeterminate" diameter="32"></mat-progress-spinner>
+  </mat-card-content>
+
+  <mat-card-actions class="mat-card-actions">
+    <div class="theme-name-container">
+      <div class="theme-tag-label">new</div>
+      <div class="theme-name-label">{{ theme.name }}</div>
+      <div *ngIf="theme?.active" class="theme-installed-label">
+        <span [innerHtml]="'Installed'" translate></span>
+      </div>
+    </div>
+    <div class="theme-card-menu">
+      <button class="mat-button-link mat-button-no-padding button-theme-options mat-button mat-icon-button no-border"
+        pe-qa-themes="menu-trigger" mat-button mat-icon-button [matMenuTriggerFor]="menu" [disableRipple]="true">
+        <svg class="icon icon-16">
+          <path class="path1" fill="currentColor"
+            d="M2 12a2 2 0 1 1-2 2 2 2 0 0 1 2-2zm0-6a2 2 0 1 1-2 2 2 2 0 0 1 2-2zm0-6a2 2 0 1 1-2 2 2 2 0 0 1 2-2z">
+          </path>
+        </svg>
+      </button>
+    </div>
+  </mat-card-actions>
+
+  <div *ngIf="!loading" class="theme-overlay">
+    <ng-container *ngIf="!theme?.active">
+      <button class="overlay-button white" (click)="openPreview(theme)">{{ 'theme.themes_list.full_preview' | translate }}</button>
+      <button class="overlay-button black" (click)="install.emit(theme)">{{ 'theme.themes_list.choose_design' | translate }}</button>
+    </ng-container>
+  </div>
+
+</mat-card>
+
+<mat-menu #menu="matMenu" class="mat-menu-dark">
+  <div mat-menu-item pe-qa-themes="install" (click)="install.emit(theme)">
+    <span [innerHtml]="'Install'" translate></span>
+  </div>
+
+  <div *ngIf="isActionEnabled('duplicate')" mat-menu-item pe-qa-themes="duplicate" (click)="duplicate.emit(theme)">
+    <span [innerHtml]="'Duplicate'" translate></span>
+  </div>
+
+  <div *ngIf="isActionEnabled('translate')" mat-menu-item pe-qa-themes="translate" (click)="translate.emit(theme)"
+    disabled="true">
+    <span [innerHtml]="'Translate'" translate></span>
+  </div>
+
+  <div *ngIf="isActionEnabled('edit')" pe-qa-themes="edit" mat-menu-item (click)="edit.emit(theme)">
+    <span [innerHtml]="'Edit'" translate></span>
+  </div>
+
+  <div *ngIf="isActionEnabled('export')" mat-menu-item pe-qa-themes="export" (click)="export.emit(theme)"
+    disabled="true">
+    <span [innerHtml]="'Export'" translate></span>
+  </div>
+
+  <div *ngIf="isActionEnabled('delete')" mat-menu-item pe-qa-themes="delete" (click)="delete.emit(theme)">
+    <span [innerHtml]="'Delete'" translate></span>
+  </div>
+</mat-menu>

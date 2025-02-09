@@ -1,0 +1,9 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+
+.addon-icon-button:hover {
+  cursor: pointer;
+}
+
+:host {
+  margin-right: $grid-unit-x / 2;
+}

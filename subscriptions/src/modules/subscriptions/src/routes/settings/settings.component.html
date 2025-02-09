@@ -1,0 +1,51 @@
+<div class="settings-container" [ngClass]="theme">
+  <div class="settings-page">
+    <span class="settings-page__title">Settings</span>
+    <span class="settings-page__subtitle">Publishing</span>
+    <div class="settings-page__items">
+      <div class="settings-page__items-item">
+        <div class="setting-icon">
+          <mat-icon svgIcon="livestatus"></mat-icon>
+        </div>
+        <span class="setting-text">Live status</span>
+        <div class="setting-action">
+          <div class="button-toggle">
+            <peb-button-toggle [(ngModel)]="isLive"></peb-button-toggle>
+          </div>          
+        </div>
+      </div>
+    </div>
+    <span class="settings-page__subtitle">Domains</span>
+    <div class="settings-page__items">
+      <div class="settings-page__items-item" (click)="openOverlay(components.payeverDomain)">
+        <div class="setting-icon">
+          <mat-icon svgIcon="owndomain"></mat-icon>
+        </div>
+        <span class="setting-text">Payever domain</span>
+        <div class="setting-action">
+          <mat-icon svgIcon="arrow-open"></mat-icon>
+        </div>
+      </div>
+      <pe-divider leftOffset="44"></pe-divider>
+      <div class="settings-page__items-item" (click)="openOverlay(components.personalDomain)">
+        <div class="setting-icon">
+          <mat-icon svgIcon="owndomain"></mat-icon>
+        </div>
+        <span class="setting-text">Personal domain</span>
+        <div class="setting-action">
+          <mat-icon svgIcon="arrow-open"></mat-icon>
+        </div>
+      </div>
+      <pe-divider leftOffset="44"></pe-divider>
+      <div class="settings-page__items-item" (click)="openOverlay(components.connectExisting)">
+        <div class="setting-icon">
+          <mat-icon svgIcon="owndomain"></mat-icon>
+        </div>
+        <span class="setting-text">Connect existing domain</span>
+        <div class="setting-action">
+          <mat-icon svgIcon="arrow-open"></mat-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

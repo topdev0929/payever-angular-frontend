@@ -1,0 +1,39 @@
+import { Component } from '@angular/core';
+import { IDockerStoreItem } from '../../../../kit';
+
+@Component({
+  selector: 'docker-store-doc',
+  templateUrl: 'docker-store-doc.component.html',
+  styleUrls: ['docker-store-doc.component.scss'],
+})
+export class DockerStoreDocComponent {
+  itemsList: IDockerStoreItem[] = [];
+
+  constructor() {
+    this.itemsList = [
+      {
+        title: 'Store Front',
+        iconId: '#icon-settings-terminal-48',
+        onSelect: () => {
+          alert('Clicked');
+        }
+      },
+      {
+        title: 'Facebook',
+        iconId: '#icon-facebook-48'
+      },
+      {
+        title: 'Instagram',
+        iconId: '#icon-instagram-48'
+      },
+      {
+        title: 'Google Shop',
+        iconId: '#icon-google-plus-48'
+      },
+      {
+        title: 'Youtube',
+        iconId: '#icon-youtube-48'
+      }
+    ];
+  }
+}

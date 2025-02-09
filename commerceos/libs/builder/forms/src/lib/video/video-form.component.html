@@ -1,0 +1,14 @@
+<form [formGroup]="videoForm" (change)="submit()">
+  <div class="form__row" style="margin-bottom: 10px;">
+    <peb-slide-toggle formControlName="sound">{{ 'builder-app.forms.video.sound' | translate }}</peb-slide-toggle>
+  </div>
+  <div class="form__row_border">
+    <peb-slide-toggle formControlName="controls">{{ 'builder-app.forms.video.controls' | translate }}</peb-slide-toggle>
+  </div>
+  <div class="form__row_border">
+    <peb-slide-toggle formControlName="autoplay">{{ 'builder-app.forms.video.autoplay' | translate }}</peb-slide-toggle>
+  </div>
+  <div class="form__row_border">
+    <peb-slide-toggle formControlName="loop">{{ 'builder-app.forms.video.loop' | translate }}</peb-slide-toggle>
+  </div>
+</form>

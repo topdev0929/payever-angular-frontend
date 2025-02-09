@@ -1,0 +1,67 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+:host {
+  position: relative;
+  display: block;
+}
+
+mat-card.mat-card-small-paddings {
+  border-radius: $border-radius-base;
+}
+
+.mat-accordion-choose-rate {
+  .mat-expansion-panel {
+    // To prevent cutting of opened rates dropdown inside panel:
+    overflow: visible;
+
+    border-radius: $border-radius-base;
+    border: 1px solid $color-grey-2;
+    margin: $grid-unit-y 0;
+    ::ng-deep .mat-expansion-indicator {
+      color: $color-light-gray-3;
+      font-size: $font-size-base;
+      margin-top: 0px;
+      &::after {
+        padding: 4px;
+        border-width: 0 2px 2px 0;
+      }
+    }
+    .mat-expansion-panel-header {
+      position: relative;
+      padding: $grid-unit-y $grid-unit-x;
+      background: $color-grey-2;
+      .mat-expansion-panel-header-title,
+      .mat-expansion-panel-header-description {
+        text-transform: none;
+        color: $color-light-gray-3;
+        font-size: $font-size-base;
+      }
+      .mat-expansion-panel-header-title {
+        width: 50%;
+        max-width: 280px;
+      }
+      .mat-expansion-panel-header-description {
+        color: $color-white-grey-5;
+        font-size: $font-size-small;
+        .inner {
+          width: 100%;
+          text-align: right;
+          padding-right: 32px;
+        }
+      }
+      .panel-icon {
+        position: absolute;
+        right: 16px;
+        top: 11px;
+        color: $color-white;
+        font-weight: 300;
+        font-size: 32px;
+      }
+    }
+    ::ng-deep .mat-expansion-panel-body {
+      padding-bottom: 0;
+    }
+  }
+}
+

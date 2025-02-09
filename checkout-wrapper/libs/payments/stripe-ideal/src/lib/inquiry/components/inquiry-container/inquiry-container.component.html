@@ -1,0 +1,13 @@
+<div
+  class="pe-payment-container"
+  *ngIf="nodeFormOptions$ | async">
+  <checkout-sdk-choose-rate
+    [trackFlowId]="flow.id"
+    [trackPaymentMethod]="paymentMethod"
+    [rates]="transformedIdealBanks$ | async"
+    [initialRateId]="initialBank"
+    i18n-noRateSelectedText="@@payment-stripe-ideal.actions.select_bank"
+    noRateSelectedText="payment-stripe-ideal.actions.select_bank"
+    (rateSelected)="bankSelected($event)">
+  </checkout-sdk-choose-rate>
+</div>

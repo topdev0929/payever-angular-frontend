@@ -1,0 +1,37 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $row-background: map.get($color-config, 'row-background');
+  $active-text: map.get($color-config, 'active-text');
+  $confirm: map.get($color-config, 'confirm');
+  $divider: map.get($color-config, 'divider');
+
+  .language-list {
+    background-color: $row-background;
+
+    &__item {
+
+      border-top: 1px solid $divider;
+
+      &:first-child {
+        border: none;
+      }
+
+      &:hover,
+      &.selected {
+        background-color: $confirm;
+        color: $active-text;
+        svg {
+          background-color: $active-text;
+          stroke: $confirm;
+        }
+      }
+
+      .active {
+        background-color: $confirm;
+        stroke: $active-text;
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+<pe-overlay-container class="fixed reset-scroll-container"
+                      [headerControls]="headerControls"
+                      [contentScrollable]="false"
+                      [fullHeight]="true"
+                      [showSpinner]="showSpinner"
+                      [fullScreenWidth]="overlayContainerFullScreen"
+>
+  <ng-container content>
+
+    <ng-container *ngIf="!(isMobile$ | async)">
+      <ng-template [ngTemplateOutlet]="desktopLayout"></ng-template>
+    </ng-container>
+
+    <ng-container *ngIf="isMobile$ | async">
+      <ng-template [ngTemplateOutlet]="mobileLayout"></ng-template>
+    </ng-container>
+
+  </ng-container>
+</pe-overlay-container>
+
+<ng-template #headerButtons>
+  <mat-button-toggle-group [value]="views[selectedViewIndex].id" (change)="viewChanged.emit($event)" class="mat-button-toggle-group-transparent">
+    <mat-button-toggle [value]="view.id" disableRipple="true" *ngFor="let view of views">
+      {{ view.label | translate }}
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+</ng-template>
+
+<ng-template #desktopLayout>
+  <div class="content-wrapper">
+    <div class="sidebar-content" *ngIf="showSidebar && sidebarCategories && sidebarCategories.length > 0">
+      <mat-list class="mat-list-transparent">
+        <ng-container *ngFor="let category of sidebarCategories; let index = index">
+          <mat-list-item (click)="selectSidebarCategory(index)" [class.selected]="index === selectedSidebarCategory">
+            {{ categoryTranslationKey + category.code | translate }}
+          </mat-list-item>
+          <mat-divider></mat-divider>
+        </ng-container>
+      </mat-list>
+    </div>
+    <div class="main-content">
+      <div class="scroll-container" peScrollHide>
+
+        <ng-template [ngTemplateOutlet]="content" [ngTemplateOutletContext]="{ categoryIndex: selectedSidebarCategory }"></ng-template>
+
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #mobileLayout>
+  <ng-container *ngIf="showSidebar && sidebarCategories && sidebarCategories.length > 0">
+    <mat-accordion [hideToggle]="true">
+      <ng-container *ngFor="let category of sidebarCategories; let index = index">
+        <mat-expansion-panel [class.mat-expansion-panel-dark]="true"
+                             [expanded]="category.active"
+                             [hideToggle]="true">
+          <mat-expansion-panel-header [collapsedHeight]="'55px'" [expandedHeight]="'55px'">
+            <mat-panel-title>{{ categoryTranslationKey + category.code | translate }}</mat-panel-title>
+            <div class="mat-expansion-panel-spacer"></div>
+
+            <svg class="icon icon-16 icon-plus">
+              <use xlink:href="#icon-plus-softy-16"></use>
+            </svg>
+            <svg class="icon icon-16 icon-minus">
+              <use xlink:href="#icon-minus-softy-16"></use>
+            </svg>
+          </mat-expansion-panel-header>
+
+          <ng-template [ngTemplateOutlet]="content" [ngTemplateOutletContext]="{ categoryIndex: index }"></ng-template>
+
+        </mat-expansion-panel>
+      </ng-container>
+    </mat-accordion>
+  </ng-container>
+
+  <ng-container *ngIf="!showSidebar || !(sidebarCategories && sidebarCategories.length > 0)">
+    <ng-template [ngTemplateOutlet]="content"></ng-template>
+  </ng-container>
+</ng-template>

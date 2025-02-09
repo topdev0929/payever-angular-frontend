@@ -1,0 +1,40 @@
+<div #modal class="modal fade" [id]="config.id" tabindex="-1" role="dialog">
+  <div class="modal-dialog {{ config.dialogClasses }}"
+       role="document">
+    <div class="modal-content">
+      <div [ngClass]="{'modal-body': !newModeActivate}">
+        <router-outlet></router-outlet>
+      </div>
+      <div class="modal-footer">
+        <div class="row">
+          <div class="col-xs-12">
+            <button *ngIf="config.displayAdditional"
+                    (click)="onClickAdditional()"
+                    type="button"
+                    class="btn btn-primary btn-link pull-left">
+              {{ config.additionalText }}
+            </button>
+            <button *ngIf="config.displayCancel"
+                    (click)="onClickCancel()"
+                    type="button"
+                    class="btn btn-default btn-link"
+                    data-dismiss>
+              {{ config.cancelText }}
+            </button>
+            <button *ngIf="config.displaySubmit"
+                    (click)="onClickSubmit()"
+                    type="button"
+                    class="btn btn-primary btn-link">
+              {{ config.submitText }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="config.displayCloseIcon" class="modal-close">
+      <button (click)="close()" class="btn btn-default btn-xs btn-link btn-inline" type="button">
+        <svg class="icon icon-16"><use xlink:href="#icon-x-16"></use></svg>
+      </button>
+    </div>
+  </div>
+</div>

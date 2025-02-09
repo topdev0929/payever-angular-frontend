@@ -1,0 +1,64 @@
+<finexp-ui-card
+  [asModal]="isExtendedView"
+  [config]="config"
+  [forceDefaultStyles]="forceDefaultStyles"
+  (modalClosed)="isExtendedView = false">
+  <finexp-ui-full-header-santander>
+    <div topContent>
+      <widget-santander-nl-top-image></widget-santander-nl-top-image>
+    </div>
+    <finexp-ui-santander-consumer-icon-medium class="santander-icon"></finexp-ui-santander-consumer-icon-medium>
+    <span
+      class="ui-top-text"
+      i18n="@@santander-nl-finexp-widget.common.top_header_text">
+      santander-nl-finexp-widget.common.top_header_text
+    </span>
+  </finexp-ui-full-header-santander>
+  <finexp-ui-top-text
+    *ngIf="isExtendedView"
+    [config]="config"
+    [forceDefaultStyles]="forceDefaultStyles">
+    {{ translations.introductionText }}
+  </finexp-ui-top-text>
+
+  <finexp-ui-rate-dropdown
+    [numColumns]="1"
+    [isLoading]="isLoadingRates"
+    [error]="error"
+    [config]="config"
+    [forceDefaultStyles]="forceDefaultStyles"
+    [rate]="currentRate"
+    [rates]="rates"
+    [isShowSelectedRateDetails]="!hasShortToExtendedViewSwitcher || isExtendedView"
+    (rateSelected)="onRateSelected($event)">
+  </finexp-ui-rate-dropdown>
+
+  <finexp-ui-regular-text
+    *ngIf="!hasShortToExtendedViewSwitcher || isExtendedView"
+    class="finexp-regular-text"
+    [config]="config"
+    [forceDefaultStyles]="forceDefaultStyles">
+    <p
+      *ngIf="getCreditFormatted()"
+      [innerHTML]="translations.creditDetailsText"></p>
+  </finexp-ui-regular-text>
+  <finexp-ui-show-checkout-wrapper-button
+    *ngIf="isMoreInfoButtonVisible"
+    [config]="config"
+    [forceDefaultStyles]="forceDefaultStyles"
+    (clicked)="onClicked()"
+    >{{ translations.moreInfoTitle }}</finexp-ui-show-checkout-wrapper-button
+  >
+  <finexp-ui-show-checkout-wrapper-button
+    *ngIf="isShowWrapperButtonVisible && !isMoreInfoButtonVisible"
+    [config]="config"
+    [forceDefaultStyles]="forceDefaultStyles"
+    (clicked)="onClicked()"
+    >{{ translations.showWrapperTitle }}</finexp-ui-show-checkout-wrapper-button
+  >
+  <!-- We show logo only when overlay modal opened -->
+  <finexp-ui-footer-powered-by-payever
+    *ngIf="isExtendedView"
+    [config]="config"
+    [forceDefaultStyles]="forceDefaultStyles"></finexp-ui-footer-powered-by-payever>
+</finexp-ui-card>

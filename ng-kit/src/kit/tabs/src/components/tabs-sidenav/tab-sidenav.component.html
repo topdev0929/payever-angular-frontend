@@ -1,0 +1,12 @@
+<mat-tab-group [selectedIndex]="selectedIndex" (selectedIndexChange)="tabChanged($event)">
+  <ng-container *ngFor="let tab of tabs">
+    <mat-tab>
+      <ng-template mat-tab-label>
+          <svg [ngClass]="'icon icon-'+ tab.iconSize" >
+            <use [attr.xlink:href]="tab.icon"></use>
+          </svg>
+      </ng-template>
+      <ng-template [ngTemplateOutlet]="tab.content"></ng-template>
+    </mat-tab>
+  </ng-container>
+</mat-tab-group>

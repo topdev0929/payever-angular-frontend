@@ -1,0 +1,15 @@
+<zinia-bnpl-finish-v1
+  *ngIf="paymentFinishReady$ | async"
+  [errorMessage]="errorMessage"
+  [embeddedMode]="embeddedMode"
+  [merchantMode]="merchantMode"
+  [showCloseButton]="showCloseButton"
+  [isDisableChangePayment]="isDisableChangePayment"
+  [nodeResult]="paymentResponse"
+  [isLoading]="!paymentResponse && !errorMessage"
+  (cleanUp)="cleanUp()"
+  (close)="close()"
+  (tryAgain)="tryAgain()"
+  (closeButtonClicked)="close()"
+  (changePaymentMethod)="changePayment($event)">
+</zinia-bnpl-finish-v1>

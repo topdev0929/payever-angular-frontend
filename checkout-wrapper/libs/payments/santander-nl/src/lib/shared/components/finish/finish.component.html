@@ -1,0 +1,50 @@
+<checkout-sdk-finish-wrapper
+  [buttons]="buttons"
+  [errorMessage]="errorMessage"
+  [iframeCallbackUrl]="getIframeCallbackUrl()"
+  [isLoading]="isLoading"
+  [isChangingPaymentMethod]="isChangingPaymentMethod"
+  [embeddedMode]="embeddedMode"
+  [merchantMode]="merchantMode"
+  [isDisableChangePayment]="isDisableChangePayment"
+  i18n-processingTitle="@@payment-santander-nl.inquiry.finish.processing.title"
+  processingTitle="@@payment-santander-nl.inquiry.finish.processing.title"
+  i18n-processingText="@@payment-santander-nl.inquiry.finish.processing.text"
+  processingText="@@payment-santander-nl.inquiry.finish.processing.text"
+  (close)="onClose()">
+
+  <ng-container *ngIf="nodeResult">
+    <ng-container *ngIf="isStatusSuccess()">
+      <checkout-sdk-finish-status-success
+        [applicationNumber]="applicationNumber"
+        [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"
+        [flowId]="flow?.id"
+      ></checkout-sdk-finish-status-success>
+    </ng-container>
+
+    <ng-container *ngIf="isStatusPending()">
+      <checkout-sdk-finish-status-pending
+        [applicationNumber]="applicationNumber"
+        [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"
+        [flowId]="flow?.id"
+      ></checkout-sdk-finish-status-pending>
+    </ng-container>
+
+    <ng-container *ngIf="isStatusFail()">
+      <checkout-sdk-finish-status-fail
+        [canChangePaymentMethod]="canChangePaymentMethod()"
+        [applicationNumber]="applicationNumber"
+        [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"
+      ></checkout-sdk-finish-status-fail>
+    </ng-container>
+
+    <ng-container *ngIf="isStatusUnknown()">
+      <checkout-sdk-finish-status-unknown
+        [nodeResult]="nodeResult"
+        [applicationNumber]="applicationNumber"
+        [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"
+      ></checkout-sdk-finish-status-unknown>
+    </ng-container>
+  </ng-container>
+
+</checkout-sdk-finish-wrapper>

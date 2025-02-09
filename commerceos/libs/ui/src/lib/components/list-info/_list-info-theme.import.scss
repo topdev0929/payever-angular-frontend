@@ -1,0 +1,8 @@
+@use 'pe_theming' as pet;
+@use './list-info-theme' as list_info;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include list_info.color($color-config);
+}
+

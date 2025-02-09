@@ -1,0 +1,73 @@
+<div class="gd-block" *ngFor="let item of dashboardItems; let ind = index">
+  <div class="h3">{{ item.title }}</div>
+  <p class="text-secondary small">{{ item.description }}</p>
+  <div class="{{(item.title | lowercase).split(' ').join('-')}}">
+    <div class="gd-content">
+      <div class="gd-item" *ngFor="let subItem of item.subItems; let i = index"
+              [ngClass]="{
+                        'hidden': i + 1 > showItemCount,
+                        'gd-disabled': subItem.isDisabled === true
+                      }">
+        <div class="row">
+          <div class="col-lg-3 col-sm-4 col-xs-6 gd-item-name">
+            <img class="img-circle profile-48" [src]="subItem.imgSrc">
+            <b>{{ subItem.name }}</b>
+          </div>
+          <div peReadMore
+               [attr.data-readmore]="subItem.lbReadMore"
+               maxlength="60"
+               [ngClass]="{ 'col-lg-5': subItem.switcher, 'col-lg-7': !subItem.switcher }"
+               class="hidden-xs text-secondary small"
+          >
+            {{ subItem.description }}
+          </div>
+          <div class="col-sm-2 text-right line-4x col-xs-offset-3 col-sm-offset-0 text-right">
+            <div class="btn-group">
+              <button type="button"
+                      class="btn btn-blue btn-sm"
+                      [ngClass]="{ 'btn-border-radius-right': !subItem.btnGroup.btnDropdown }"
+                      (click)="onClick($event, subItem.btnGroup)"
+              >
+                {{ subItem.btnGroup.btnName }}
+              </button>
+              <button type="button"
+                      class="btn btn-blue btn-sm dropdown-toggle"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      [ngClass]="{ 'hidden': !subItem.btnGroup.btnDropdown }"
+              >
+                <svg class="icon icon-16"><use xlink:href="#icon-arrow-down-small-16"/></svg>
+              </button>
+              <ul class="dropdown-menu pull-right">
+                <li *ngFor="let btn of subItem.btnGroup.btnDropdown">
+                  <a href="#" (click)="onClick($event, btn)">{{ btn.btnName }}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-2 gd-controls text-right" [ngClass]="{ 'hidden': !subItem.switcher }">
+            <input type="checkbox"
+                   class="form-control-toggle input-sm"
+                   id="{{ 'ui_gd_switcher_' + i }}"
+                   [checked]="subItem.switcher?.isChecked"
+                   (change)="onChange($event, subItem.switcher)" />
+            <label for="{{ 'ui_gd_switcher_' + i }}"></label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-lg btn-link btn-block"
+            [ngClass]="{'hidden': showItemCount === item.subItems.length || !item.btnsMoreLess }"
+            (click)="onShowAll(ind)"
+    >
+      {{ item.btnsMoreLess?.btnMoreName }}
+    </button>
+    <button class="btn btn-lg btn-link btn-block"
+            [ngClass]="{'hidden': showItemCount <= countItems || !item.btnsMoreLess }"
+            (click)="onShowAll(ind)"
+    >
+      {{ item.btnsMoreLess?.btnLessName }}
+    </button>
+  </div>
+</div>

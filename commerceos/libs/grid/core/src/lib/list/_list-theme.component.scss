@@ -1,0 +1,36 @@
+@use 'pe_variables' as pe_variables;
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $label-color: map.get($color-config, 'label-color');
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $confirm: map.get($color-config, 'confirm');
+
+  .grid-list-container {
+    &__no-items {
+      &--title {
+        color: $text-color;
+      }
+      &--subtitle {
+        color: $label-color;
+      }
+    }
+  }
+
+  .grid-overview-box {
+    .items-wrap {
+      &__thumbnail {
+        background-color: $secondary-background;
+      }
+      &__content {
+        &-title {
+          color: $text-color;
+        }
+        &-count {
+          color: $confirm;
+        }
+      }
+    }
+  }
+}

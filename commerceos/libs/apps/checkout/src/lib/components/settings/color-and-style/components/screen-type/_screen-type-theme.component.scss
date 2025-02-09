@@ -1,0 +1,38 @@
+@use 'SASS:map';
+@mixin color($color-config) {
+  $background: map.get($color-config, 'background');
+  $active-text: map.get($color-config, 'active-text');
+  $confirm: map.get($color-config, 'confirm');
+  $accent-fill-border: map.get($color-config, 'accent-fill-border');
+  $accent-fill: map.get($color-config, 'accent-fill');
+  $text-color: map.get($color-config, 'text-color');
+
+  .screen-list {
+    &__item {
+      color: $text-color;
+      border-bottom-color: $background;
+
+      .active.selected {
+        background-color: $confirm;
+        path {
+          stroke: $active-text;
+        }
+      }
+
+      .active:not(.selected) {
+        opacity: 0;
+      }
+
+      &:hover {
+        background-color: $confirm;
+        color: $active-text;
+        .active {
+          background-color: $active-text;
+          path {
+            stroke: $confirm;
+          }
+        }
+      }
+    }
+  }
+}

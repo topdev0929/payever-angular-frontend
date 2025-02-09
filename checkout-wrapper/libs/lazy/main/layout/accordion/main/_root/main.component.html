@@ -1,0 +1,88 @@
+<ng-container *ngIf="vm$ | async as vm">
+  <mat-accordion
+    class="mat-accordion-no-top-border"
+    multi="false">
+    <ng-container
+      *ngFor="let panel of (panels$ | async);
+      trackBy: trackPanel;
+      let i = index;
+      let last = last;">
+      <mat-expansion-panel
+        #panelElement
+        class="panel"
+        [expanded]="!!panel.opened"
+        [disabled]="panel.disabled"
+        [class.payment-panel]="panel.name === 'payment'"
+        [class.expansion-panel-disabled]="panel.disabled"
+        [class.last-panel]="last"
+        [class.border-hidden]="vm.embedFinish"
+        (opened)="togglePannel(panel, true)"
+        (afterCollapse)="togglePannel(panel, false)">
+        <mat-expansion-panel-header
+          *ngIf="panel.showHeader"
+          class="expansion-panel-header-align-top"
+          collapsedHeight="auto"
+          expandedHeight="auto"
+          [class.hidden]="vm.embedFinish">
+          <mat-panel-title
+            [class.expansion-panel-header-title-only]="!panel.descriptionSelector
+            && !panel.descriptionForDisabled">
+            {{ panel.title }}
+          </mat-panel-title>
+
+          <mat-panel-description>
+            <span
+              *ngIf="panel.descriptionForDisabled"
+              class="caret-clearfix">
+              {{panel.descriptionForDisabled}}
+            </span>
+            <checkout-main-selector-show
+              *ngIf="!!panel.descriptionSelector && !panel.opened"
+              [selector]="panel.descriptionSelector">
+            </checkout-main-selector-show>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <ng-template matExpansionPanelContent>
+          <ng-container *ngIf="panel.opened">
+            <ng-container *ngFor="let sub of panel.steps">
+              <checkout-main-selector-show
+                [class.hidden-header]="!panel.showHeader"
+                [selector]="sub">
+              </checkout-main-selector-show>
+            </ng-container>
+          </ng-container>
+        </ng-template>
+      </mat-expansion-panel>
+    </ng-container>
+  </mat-accordion>
+
+  <mat-accordion
+    *ngIf="flow.total && flow.currency"
+    class="order-summary-accordion"
+    [multi]="false"
+    [class.hidden]="vm.embedFinish">
+    <mat-expansion-panel [disabled]="true">
+      <mat-expansion-panel-header
+        class="expansion-panel-header-align-top"
+        collapsedHeight="auto"
+        expandedHeight="auto">
+        <mat-panel-title>
+          <span i18n="@@layout.order.title">layout.order.title</span>
+        </mat-panel-title>
+        <mat-panel-description>
+          <div class="checkout-order-summary">
+            <checkout-main-order-summary> </checkout-main-order-summary>
+          </div>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <layout-footer
+    [flow]="flow"
+    [asCustomElement]="asCustomElement"
+    [embedFinish]="vm.embedFinish"
+    [showCancel]="vm.showCancel">
+  </layout-footer>
+</ng-container>

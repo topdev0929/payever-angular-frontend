@@ -1,0 +1,144 @@
+<!-- This is fake button. Unvisible dropdown is over it. -->
+<image-capture-style></image-capture-style>
+<button
+  type="button"
+  mat-button
+  class="mat-button-md mat-button-gradient upload-button"
+  (click)="openFilePicker()"
+  [disabled]="isFilePicked">
+  <pe-progress-button-content
+    [class.loading]="isLoading$ | async"
+    [loading]="isLoading$ | async"
+    [spinnerDiameter]="17">
+    <span class="wrap-content">
+      <svg class="icon icon-16">
+        <use [attr.xlink:href]="isFilePicked ? '#icon-checkmark-32' : '#icon-retro-camera'"></use>
+      </svg>
+      <span>{{ title }}</span>
+    </span>
+  </pe-progress-button-content>
+</button>
+<div
+  *ngIf="isFilePicked"
+  class="remove"
+  (click)="fileRemove.emit()"></div>
+
+<input
+  #fileSelector
+  class="hidden"
+  alt="File selector"
+  type="file"
+  accept="image/png,image/jpeg,image/jpg,.pdf"
+  [id]="fileInputId"
+  (change)="onPickFile($event)" />
+
+<div class="image-capture">
+  <mat-form-field
+    *ngIf="isDesktop()"
+    class="hidden-select"
+    appearance="fill">
+    <mat-select #matSelect>
+      <mat-option
+        *ngIf="!forceHideDesktopTakePhoto"
+        class="hide-for-small-resolution pe-image-capture-pos-de-option"
+        (click)="onTakePhotoDesktop()">
+        <div class="option-content">
+          <span i18n="@@payment-santander-de-pos.inquiry.filePicker.actions.takePhoto">
+            payment-santander-de-pos.inquiry.filePicker.actions.takePhoto
+          </span>
+          <svg class="icon icon-16">
+            <use [attr.xlink:href]="'#icon-retro-camera'"></use>
+          </svg>
+        </div>
+      </mat-option>
+      <mat-option
+        (click)="openFilePicker()"
+        class="pe-image-capture-pos-de-option">
+        <div class="option-content">
+          <span i18n="@@payment-santander-de-pos.inquiry.filePicker.actions.chooseFile">
+            payment-santander-de-pos.inquiry.filePicker.actions.chooseFile
+          </span>
+          <svg
+            class="icon icon-16"
+            style="width: 18px;">
+            <use [attr.xlink:href]="'#icon-photo-or-video-16'"></use>
+          </svg>
+        </div>
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<ng-template #modalContent>
+  <button
+    type="button"
+    (click)="closeModal()"
+    mat-button
+    class="mat-button-no-padding mat-button-link mat-button-xs mat-dialog-close-icon close-modal">
+    <svg class="icon icon-16"><use xlink:href="#icon-close-16"></use></svg>
+  </button>
+  <mat-dialog-content>
+    <video
+      #videoElem
+      [class.hidden]="snapshotBase64"
+      id="videoId"
+      width="640"
+      height="480"
+      autoplay="true"
+      playsinline></video>
+    <ng-container *ngIf="!snapshotBase64 else snapshot">
+      <button
+        mat-button
+        type="button"
+        [disableRipple]="true"
+        [disabled]="(isCameraReady$ | async) !== true"
+        class="mat-button-lg mat-button-gradient continue-button"
+        (click)="triggerSnapshot()">
+        <svg class="icon icon-16">
+          <use [attr.xlink:href]="'#icon-retro-camera'"></use>
+        </svg>
+        &nbsp;&nbsp;&nbsp;
+        <span i18n="@@payment-santander-de-pos.inquiry.filePicker.actions.takePhoto">
+          payment-santander-de-pos.inquiry.filePicker.actions.takePhoto
+        </span>
+      </button>
+    </ng-container>
+  </mat-dialog-content>
+</ng-template>
+<ng-template #snapshot>
+  <img
+    [src]="snapshotBase64 | safeUrl"
+    width="640"
+    height="480"
+    alt="snapshot image" />
+  <div class="buttons-container">
+    <button
+      mat-button
+      type="button"
+      [disableRipple]="true"
+      class="mat-button-lg mat-button-gradient continue-button"
+      (click)="pickImage()">
+      <svg class="icon">
+        <use [attr.xlink:href]="'#icon-pick-photo'"></use>
+      </svg>
+      &nbsp;&nbsp;&nbsp;
+      <span i18n="@@payment-santander-de-pos.inquiry.filePicker.actions.takePhoto">
+        payment-santander-de-pos.inquiry.filePicker.actions.takePhoto
+      </span>
+    </button>
+    <button
+      mat-button
+      type="button"
+      [disableRipple]="true"
+      class="mat-button-lg mat-button-gradient continue-button"
+      (click)="makeNewImage()">
+      <svg class="icon">
+        <use [attr.xlink:href]="'#icon-make-photo'"></use>
+      </svg>
+      &nbsp;&nbsp;&nbsp;
+      <span i18n="@@payment-santander-de-pos.inquiry.filePicker.actions.makeNew">
+        payment-santander-de-pos.inquiry.filePicker.actions.makeNew
+      </span>
+    </button>
+  </div>
+</ng-template>

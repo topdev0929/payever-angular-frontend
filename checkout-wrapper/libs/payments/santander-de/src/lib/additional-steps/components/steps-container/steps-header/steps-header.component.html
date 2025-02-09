@@ -1,0 +1,25 @@
+<div class="steps-header-container">
+  <div class="icons-container">
+    <ng-container *ngFor="let step of steps; index as i">
+      <div
+        [class.active]="selectedIndex >= i"
+        class="step-icon">
+        <div
+          class="step-number"
+          [innerHtml]="i+1"></div>
+        <span
+          [class.first]="i===0"
+          [class.last]="i===steps.length-1"
+          class="step-label"
+          [innerHtml]="step.label"></span>
+      </div>
+      <div
+        *ngIf="i !== steps.length-1"
+        [ngClass]="{
+          active: selectedIndex >= i,
+          'next-step-active': selectedIndex >= i+1,
+        }"
+        class="steps-header-spacer"></div>
+    </ng-container>
+  </div>
+</div>

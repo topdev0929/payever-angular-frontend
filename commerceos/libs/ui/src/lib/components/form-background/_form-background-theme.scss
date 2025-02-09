@@ -1,0 +1,19 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $background: map.get($color-config, 'background');
+  $row-background: map.get($color-config, 'row-background');
+
+  .form-background-wrapper {
+    background-color: $row-background;
+    > * {
+      &:not(&:last-child) > * {
+        border-bottom-color: $background;
+      }
+    }
+    .divider, .divider-border {
+      border-left-color: $background;
+      border-right-color: $background;
+    }
+  }
+}

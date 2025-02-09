@@ -1,0 +1,37 @@
+<div class="container" [ngClass]="config.theme">
+  <div>
+    <div class="container__logo">
+      <peb-logo-picker
+        [isImageLoading]="isImageLoading"
+        (file)="onLogoUpload($event)"
+        [image]="shopConfig.shopImage"
+        [abbrevation]="shopConfig.shopName|abbreviation"
+      ></peb-logo-picker>
+    </div>
+    <peb-form-background>
+      <peb-form-field-input
+        animated="true"
+        label="Shop name"
+        appearance="label"
+        [isFieldInvalid]="!!this.errorMsg"
+        [errorMessage]="this.errorMsg"
+      >
+        <input [value]="shopConfig.shopName" (input)="validateShop($event)" placeholder="Enter Shop Name" />
+        <div class="suffix">
+          <p>.{{env.host}}</p>
+        </div>
+      </peb-form-field-input>
+    </peb-form-background>
+  </div>
+  <button
+    pe-form-button
+    color="warn"
+    *ngIf="appData.id&&appData.name && !appData.isDefault"
+    class="delete-button"
+    (click)="removeShop()"
+    [ngClass]="config.theme"
+  >
+    Delete Shop
+  </button>
+
+</div>

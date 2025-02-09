@@ -1,0 +1,23 @@
+@use "pe_variables" as pe_variables;
+
+.coupon_code {
+  width: 181px;
+  height: 44px;
+  margin: 19px 146px 14px 0;
+  font-family: Roboto, sans-serif;
+  font-size: 38px;
+  font-weight: 500;
+  @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+    margin-right: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    font-size: 34px;
+  }
+}
+.description_col {
+  width: 1366px;
+  height: 3018px;
+  padding: 0 0 37px;
+
+}

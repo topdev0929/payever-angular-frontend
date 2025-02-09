@@ -1,0 +1,61 @@
+<finexp-ui-card
+  [asModal]="isExtendedView"
+  [config]="config"
+  [forceDefaultStyles]="forceDefaultStyles"
+  (modalClosed)="isExtendedView = false">
+  <finexp-ui-header-santander
+    *ngIf="isExtendedView"
+    [config]="config"
+    [forceDefaultStyles]="forceDefaultStyles">
+    {{ translations.headerText }}
+  </finexp-ui-header-santander>
+  <finexp-ui-powered-by-payever
+    *ngIf="isExtendedView"
+    [config]="config"
+    [forceDefaultStyles]="forceDefaultStyles"></finexp-ui-powered-by-payever>
+  <finexp-ui-top-big-text
+    *ngIf="isExtendedView"
+    [config]="config"
+    [forceDefaultStyles]="forceDefaultStyles">
+    <p [innerHTML]="translations.introductionText"></p>
+  </finexp-ui-top-big-text>
+
+  <finexp-ui-rate-text
+    *ngIf="!isExtendedView"
+    [isLoading]="isLoadingRates"
+    [error]="error"
+    [rate]="currentRate"
+    [config]="config"
+    [forceDefaultStyles]="forceDefaultStyles"
+    [isShowSelectedRateDetails]="isShowSelectedRateDetails">
+    <finexp-ui-santander-icon-short></finexp-ui-santander-icon-short>
+    <span [innerHTML]="currentRate?.selectedTitle"></span>
+  </finexp-ui-rate-text>
+  <!-- For overlay modal we always force show dropdown -->
+  <finexp-ui-rate-dropdown
+    *ngIf="isExtendedView"
+    [isLoading]="isLoadingRates"
+    [error]="error"
+    [config]="config"
+    [forceDefaultStyles]="forceDefaultStyles"
+    [rate]="currentRate"
+    [rates]="rates"
+    [isShowSelectedRateDetails]="isShowSelectedRateDetails"
+    (rateSelected)="onRateSelected($event)">
+  </finexp-ui-rate-dropdown>
+
+  <finexp-ui-show-checkout-wrapper-button
+    *ngIf="isMoreInfoButtonVisible"
+    [config]="config"
+    [forceDefaultStyles]="forceDefaultStyles"
+    (clicked)="onClicked()">
+    {{ translations.moreInfoTitle }}
+  </finexp-ui-show-checkout-wrapper-button>
+  <finexp-ui-show-checkout-wrapper-button
+    *ngIf="isShowWrapperButtonVisible && !isMoreInfoButtonVisible"
+    [config]="config"
+    [forceDefaultStyles]="forceDefaultStyles"
+    (clicked)="onClicked()">
+    {{ translations.showWrapperTitle }}
+  </finexp-ui-show-checkout-wrapper-button>
+</finexp-ui-card>

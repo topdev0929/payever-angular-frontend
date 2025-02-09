@@ -1,0 +1,25 @@
+<button *ngIf="currentLocale"
+        mat-button
+        class="mat-button-sm mat-button-small-padding mat-button-space-around locales-switcher-button"
+        [class.mat-button-transparent]="transparent"
+        [class.mat-button-dark]="dark"
+        #matMenuTrigger="matMenuTrigger"
+        [matMenuTriggerFor]="localesSwitcher">
+  {{ currentLocale.code | uppercase }}
+  <svg class="icon icon-16">
+    <use xlink:href="#icon-arrow-down-small-16"></use>
+  </svg>
+</button>
+
+<mat-menu #localesSwitcher="matMenu" panelClass="pe-bootstrap locales-switcher-menu" class="{{dark && 'locales-switcher-menu'}}">
+  <ng-template matMenuContent>
+    <span mat-menu-item
+       *ngFor="let locale of locales"
+       class="locale-switcher-link"
+       (click)="changeLocale(locale)"
+       [ngClass]="'locale-switcher-link-' + locale.code"
+       [class.active]="locale.code === currentLocale.code">
+      {{ locale.name }}
+    </span>
+  </ng-template>
+</mat-menu>

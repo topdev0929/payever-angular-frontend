@@ -1,0 +1,26 @@
+<div class="ui-app-container"
+  [ngClass]="{'no-pagination': isPaginationHidden, 'no-controls': isControlsHidden, 'inited': this.swiper, 'app-mobile': isMobile }">
+  <div class="left arrow" #arrowLeft>
+    <svg class="icon icon-48"><use xlink:href="#icon-arrow-left-48"></use></svg>
+  </div>
+  <div class="right arrow" #arrowRight>
+    <svg class="icon icon-48"><use xlink:href="#icon-arrow-right-48"></use></svg>
+  </div>
+
+  <div class="swiper-container" #swiperContainer>
+    <div class="swiper-wrapper">
+
+      <div class="swiper-slide" *ngFor="let item of containerItems">
+        <div class="app">
+          <a (click)="onItemSelect($event, item)">
+            <span class="app-icon-container">
+              <span class="icon icon-db {{ item.id }}"></span>
+            </span>
+            <span class="title">{{ item.title }}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-pagination" #swiperPagination></div>
+  </div>
+</div>

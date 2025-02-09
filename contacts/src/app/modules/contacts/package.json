@@ -1,0 +1,38 @@
+{
+  "name": "@pe/contacts",
+  "version": "2.0.17",
+  "description": "Payever Contacts",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.devpayever.com:10022/frontend/contacts.git"
+  },
+  "license": "LicenseRef-payever",
+  "dependencies": {
+    "apollo-angular": "^1.9.1",
+    "apollo-angular-link-http": "^1.10.0",
+    "apollo-cache-inmemory": "^1.6.6",
+    "apollo-client": "^2.6.10",
+    "apollo-link": "^1.2.14",
+    "tslib": "^2.0.0"
+  },
+  "peerDependencies": {
+    "@angular/common": "~10.2.4",
+    "@angular/core": "~10.2.4",
+    "@angular/material": "~10.2.7",
+    "@angular/cdk": "~10.2.4",
+    "graphql": "latest",
+    "graphql-tag": "latest",
+    "js-cookie": "latest",
+    "moment": "latest",
+    "lodash": "latest",
+    "rxjs": "latest",
+    "@pe/widgets": "latest",
+    "@pe/overlay": "latest",
+    "@pe/overlay-widget": "latest",
+    "@pe/platform-header": "latest",
+    "@pe/data-grid": "latest",
+    "@pe/filters": "latest",
+    "@pe/sidebar": "latest",
+    "@pe/ui": "1.0.48"
+  }
+}

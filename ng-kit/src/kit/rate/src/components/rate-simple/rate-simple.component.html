@@ -1,0 +1,12 @@
+<div (click)="onSelect()" class="rate rate-simple" >
+  <div class="rate-amount header">
+    <p class="rate-title subheading" [innerHTML]="title"></p>
+    <svg class="icon icon-16"><use xlink:href="#icon-arrow-right-2-16"></use></svg>
+  </div>
+  <div class="rate-options options">
+    <div *ngFor="let option of rateOptions" class="rate-option">
+      <div>{{ option.label }}</div>
+      <div>{{ option.val }}</div>
+    </div>
+  </div>
+</div>

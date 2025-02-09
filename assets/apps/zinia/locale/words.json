@@ -1,0 +1,18 @@
+{
+  "PayAfterDelivery": {
+    "english": "Pay after <br> Delivery",
+    "germany": "Erst ansehen, <br> dann bezahlen."
+  },
+  "PausePayments": {
+    "english": "Pause <br> payments",
+    "germany": "30 Tage Zeit <br> zu bezahlen."
+  },
+  "PayJustWhatYouKeep": {
+    "english": "Pay just what <br> you keep",
+    "germany": "Nur bezahlen, <br> was Sie behalten."
+  },
+  "Terms": {
+    "english": "By clicking the button, you consent to us transferring your identification data to Zinia (Open Bank, S.A.), which will make automated decisions: (i) to assess your creditworthiness (contract performance); and (ii) to conduct an analysis for fraud prevention (legitimate interest). Exercise of your rights: datenschutz.de@zinia.com. Privacy information <span>here</span>.",
+    "germany": "Durch Klicken auf den Button willigst du ein, dass wir deine Identifikationsdaten an Zinia (Open Bank, S.A.) übertragen, welches automatisierte Entscheidungen treffen wird: (i) zur Bewertung deiner Bonität (Vertragserfüllung); und (ii) zur Durchführung einer Analyse zur Betrugsprävention (berechtigtes Interesse). Ausübung deiner Rechte: datenschutz.de@zinia.com. Datenschutzinfos <span>hier</span>"
+  }
+}

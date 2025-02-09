@@ -1,0 +1,75 @@
+<form
+  *ngIf="formGroup.enabled"
+  class="form-table"
+  [formGroup]="formGroup">
+  <div
+    class="h5"
+    i18n="@@santander-se.inquiry.step.section.finance_details.title">
+    Occupation details
+  </div>
+
+  <div class="form-fieldset-new">
+    <mat-form-field class="col-xs-12">
+      <mat-label i18n="@@santander-se.inquiry.form.employment_type.label"> Employment type </mat-label>
+
+      <mat-select formControlName="employmentType">
+        <mat-option
+          *ngFor="let option of employmentTypeOptions$ | async"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('employer').enabled"
+      class="col-xs-12">
+      <mat-label i18n="@@santander-se.inquiry.form.employmer.label"> Employer </mat-label>
+
+      <input
+        matInput
+        peInputMask
+        formControlName="employer"
+        type="text" />
+    </mat-form-field>
+
+    <mat-checkbox
+      *ngIf="formGroup.get('primaryIncomeRepayment').enabled"
+      class="col-xs-12"
+      formControlName="primaryIncomeRepayment"
+      analyticFieldName="Primary income repayment">
+      <span [innerHTML]="translations.primaryIncomeRepayment.label"></span>
+    </mat-checkbox>
+
+    <mat-form-field
+      *ngIf="formGroup.get('repaymentSource').enabled"
+      class="col-xs-12">
+      <mat-label i18n="@@santander-se.inquiry.form.repayment_source.label"> Employment type </mat-label>
+
+      <mat-select formControlName="repaymentSource">
+        <mat-option
+          *ngFor="let option of repaymentSourceOptions$ | async"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('repaymentSourceOther').enabled"
+      class="col-xs-12">
+      <mat-label i18n="@@santander-dk.inquiry.form.repayment_source_other.label"> Other repayment source </mat-label>
+
+      <input
+        matInput
+        formControlName="repaymentSourceOther"
+        type="text" />
+    </mat-form-field>
+  </div>
+
+  <mat-checkbox
+    formControlName="thirdPartyDeclaration"
+    analyticFieldName="Third party declaration">
+    <span [innerHTML]="translations.thirdPartyDeclaration.label"></span>
+  </mat-checkbox>
+</form>

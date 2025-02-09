@@ -1,0 +1,43 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $text-color: map.get($color-config, 'text-color');
+  $confirm: map.get($color-config, 'confirm');
+  $warn: map.get($color-config, 'warn');
+  $primary: map.get($color-config, 'primary');
+  $select-button: map.get($color-config, 'select-button');
+  $border: map.get($color-config, 'border');
+  $background: map.get($color-config, 'background');
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $label-color: map.get($color-config, 'label-color');
+  $active-text: map.get($color-config, 'active-text');
+  $gray-button: map.get($color-config, 'gray-button');
+
+  .connect-dialog {
+    background-color: $overlay-background;
+    border-color: $border;
+    .row {
+        &:not(:last-child) {
+            border-bottom: solid 1px $background;
+        }
+    }
+    .loading {
+      color: $text-color;
+    }
+    &__header-action {
+      color: $label-color;
+      &--success {
+        color: $confirm;
+      }
+    }
+    &__title {
+      color: $text-color;
+    }
+    &__field {
+        .link {
+            color: $confirm;
+        }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+<pe-third-party-root-form *ngIf="thirdPartyService"
+                          [thirdPartyFormService]="thirdPartyService"
+                          [translationsCategory]="integration.category"
+                          [baseApiData]="{}"
+                          [withHeader]="false"
+                          (onClose)="goBack()">
+</pe-third-party-root-form>
+

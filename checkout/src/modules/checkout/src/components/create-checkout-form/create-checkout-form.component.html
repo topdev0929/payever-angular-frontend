@@ -1,0 +1,122 @@
+<form
+  *ngIf="form"
+  class="form-container create-checkout-form"
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()">
+  <div class="upload-logo">
+    <input
+      #fileInput
+      class="upload-logo__input"
+      type="file"
+      accept="image/*"
+      (change)="onLogoUpload($event)"
+    />
+    <ng-container *ngIf="isPictureLoading$ | async; else logoTemplate">
+      <mat-spinner
+        class="upload-logo__spinner mat-spinner-themed"
+        [strokeWidth]="2"
+        [diameter]="22"
+      ></mat-spinner>
+    </ng-container>
+    <ng-template #logoTemplate>
+      <div *ngIf="!form.get('logo').value && form.get('name').value" class="abbreviation">
+        <h2 class="abbreviation__name">{{ form.get('name').value | abbreviation }}</h2>
+      </div>
+      <div *ngIf="!form.get('logo').value && !form.get('name').value" class="default-icon">
+        <svg>
+          <use xlink:href="#icon-apps-default-image"></use>
+        </svg>
+      </div>
+      <div #logoWrapper *ngIf="form.get('logo').value" class="picture">
+        <img
+          #logo
+          class="picture__image"
+          [class.picture__image_large-then-parent]="isLargeThenParent"
+          [src]="form.get('logo').value"
+          (load)="onLoad()"
+        />
+        <div
+          class="picture__delete"
+          title="{{'actions.delete' | translate}}"
+          (click)="deleteImage()">
+          <svg>
+            <use xlink:href="#icon-x-round-white-cross-24"></use>
+          </svg>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+  <div class="add-logo">
+    <div class="add-logo__button" (click)="fileInput.click()">
+      <div class="add-logo__button-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17">
+          <g fill="none" fill-rule="evenodd">
+            <g fill="#F5F5F7" fill-rule="nonzero">
+              <g>
+                <path
+                  d="M12 3.5c4.418 0 8 3.582 8 8s-3.582 8-8 8-8-3.582-8-8 3.582-8 8-8zm1 4h-2v3H8v2h2.999l.001 3h2v-3h3v-2h-3v-3z"
+                  transform="translate(-644 -346) translate(640 343)"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </div>
+      <div class="add-logo__button-label" translate>
+        create_checkout.logo.addLogo
+      </div>
+    </div>
+  </div>
+
+  <div class="fields create-checkout-fields">
+    <peb-form-field-input
+      *ngIf="form"
+      class="checkout-name-input"
+      [label]="inputLabel"
+      appearance="label">
+      <input formControlName="name" (focus)="isNameInputFocused = true" (blur)="isNameInputFocused = false"/>
+    </peb-form-field-input>
+  </div>
+  <div
+    class="fields__validation fields__validation_invalid"
+    [class.fields__validation_hidden]="!form?.controls?.name || (!form?.controls?.name.value && isNameInputFocused) || !this.form.dirty || this.form.valid">
+    <svg *ngIf="this.form.controls.name.invalid || isFormNotChanged()" class="error-icon">
+      <use xlink:href="#icon-warning-20"></use>
+    </svg>
+    <div *ngIf="this.form.controls.name.invalid && !this.form.controls.name.value" translate>
+      create_checkout.validation.errors.required
+    </div>
+    <div
+      *ngIf="this.form.controls.name.invalid && this.form.controls.name.value && this.form.controls.name.value.length > nameMaxLength"
+      translate>
+      create_checkout.validation.errors.longName
+    </div>
+    <div
+      *ngIf="this.form.controls.name.invalid && this.form.controls.name.value && this.form.controls.name.value.length < nameMaxLength && (!currentCheckout || currentCheckout?.name !== this.form.controls.name.value)"
+      translate>
+      create_checkout.validation.errors.unavailableName
+    </div>
+    <div *ngIf="this.form.controls.name.valid && isFormNotChanged()" translate>
+      create_checkout.validation.errors.oldName
+    </div>
+  </div>
+
+  <div
+    *ngIf="!createMode && !isCurrentCheckout"
+    class="add-button add-button__danger-color add-button__margin-top"
+    translate
+    (click)="onDeleteButtonClick()">
+    create_checkout.buttons.deleteCheckout
+  </div>
+</form>
+
+<div
+  *ngIf="showConfirmationModal"
+  class="confirmation-modal"
+  (click)="onConfirmModalClose()">
+  <checkout-delete-confirm
+    [checkoutUuid]="checkoutUuid"
+    (confirm)="onCheckoutDelete()"
+    (cancel)="onConfirmModalClose()"
+    (click)="$event.stopPropagation()">
+  </checkout-delete-confirm>
+</div>

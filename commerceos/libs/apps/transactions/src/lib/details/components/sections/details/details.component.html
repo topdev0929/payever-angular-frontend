@@ -1,0 +1,30 @@
+<div class="details-section" *ngIf="order">
+  <div class="details-section__row">
+    <div class="section-item col-{{downPayment ? 3 : 4}}">
+      <div class="section-item__label">{{ 'transactions.sections.details.subtotal' | translate }}</div>
+      <div class="section-item__value">
+        {{ (order.transaction.amount || 0) | currency:order.transaction.currency:undefined:undefined:locale }}
+      </div>
+    </div>
+    <div class="section-item col-3" *ngIf="downPayment">
+      <div class="section-item__label">{{ 'transactions.sections.details.down_payment' | translate }}</div>
+      <div class="section-item__value">
+        {{ (downPayment) | currency:order.transaction.currency:undefined:undefined:locale }}
+      </div>
+    </div>
+    <div class="section-item col-{{downPayment ? 3 : 4}}">
+      <div class="section-item__label">{{ 'transactions.sections.details.shipping_fee' | translate }}</div>
+      <div class="section-item__value">
+        {{ (order.transaction?.delivery_fee_left || 0) |
+          currency:order.transaction.currency:undefined:undefined:locale }}
+      </div>
+    </div>
+    <div class="section-item col-{{downPayment ? 3 : 4}}">
+      <div class="section-item__label">{{ 'transactions.sections.details.order_total' | translate }}</div>
+      <div class="section-item__value">
+        {{ (order.transaction.total_left || 0) | currency:order.transaction.currency:undefined:undefined:locale }}
+      </div>
+    </div>
+
+  </div>
+</div>

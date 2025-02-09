@@ -1,0 +1,8 @@
+@use 'pe_theming' as pet;
+@use './statistics-app/statistics-app-theme.component' as apps;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+
+  @include apps.color($color-config);
+}

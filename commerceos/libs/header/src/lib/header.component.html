@@ -1,0 +1,87 @@
+<div>
+  <pe-dashboard-platform-header *ngIf="businessData">
+    <ng-content select="[leftSectionItems]"></ng-content>
+    <div class="header__right-menu">
+      <pe-user-avatar
+        [name]="businessData.name"
+        [avatar]="getBusinessImagePath(businessData.logo)"
+        (click)="navigateToSettings()"
+      >
+        <svg *ngIf="!getBusinessImagePath(businessData.logo)" class="icon icon-24" avatarSlot>
+          <use xlink:href="#icon-menu-avatar-24" />
+        </svg>
+      </pe-user-avatar>
+      <div class="header__messages" (click)="toggleMessages()">
+        <pe-messages [notifications]="unreadMessages"></pe-messages>
+        <mat-spinner
+          *ngIf="loading$ | async"
+          class="header__mat-progress-spinner mat-progress-spinner-light"
+          [strokeWidth]="2"
+          [diameter]="24"
+        ></mat-spinner>
+      </div>
+      <pe-search (click)="openSearch()"></pe-search>
+      <pe-main-menu [matMenuTriggerFor]="menu"></pe-main-menu>
+      <mat-menu #menu="matMenu" [class]="'pe-header-menu'">
+        <div class="header">
+          <span class="header-title">{{
+            'header.left_section_items.menu' | loadTranslate | async
+          }}</span>
+          <div class="close_btn">
+            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 16 16">
+              <use xlink:href="#icon-menu-close-24"></use>
+            </svg>
+          </div>
+        </div>
+        <!-- Additional menu items from configuration -->
+        <ng-container *ngIf="menuItems.length">
+          <ng-container *ngFor="let item of menuItems">
+            <ng-container *ngIf="item.show">
+            <button mat-menu-item (click)="item.onClick()">
+              <svg class="icon icon-20">
+                <use [attr.xlink:href]="item.icon"></use>
+              </svg>
+              <span class="business-menu-item">{{ item.translateTitle | translate }}</span>
+            </button>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+        <!-- Default menu items -->
+        <button mat-menu-item (click)="addBusiness()">
+          <svg class="icon icon-20">
+            <use xlink:href="#icon-n-launch"></use>
+          </svg>
+          <span class="business-menu-item">{{ 'header.menu.add_business' | translate }}</span>
+        </button>
+        <button mat-menu-item (click)="navigateToExternal(contactHref)">
+          <svg class="icon icon-20">
+            <use xlink:href="#icon-contact-20"></use>
+          </svg>
+          <span class="business-menu-item">{{ 'header.menu.contact' | translate }}</span>
+        </button>
+        <button mat-menu-item (click)="navigateToExternal(helpHref)">
+          <svg class="icon icon-20">
+            <use xlink:href="#icon-star-20"></use>
+          </svg>
+          <span class="business-menu-item">{{ 'header.menu.help' | translate }}</span>
+        </button>
+        <button mat-menu-item (click)="logout()">
+          <svg class="icon icon-20">
+            <use xlink:href="#icon-logout-20"></use>
+          </svg>
+          <span class="business-menu-item">{{ 'header.menu.log_out' | translate }}</span>
+        </button>
+      </mat-menu>
+
+      <ng-content select="[rightSectionItems]"></ng-content>
+
+      <pe-popup [connectedTo]="triggerPopupElement" #dropdown>
+        <dashboard-notification-list
+          *ngIf="dropdown.open"
+          [notifications]="notifications$ | async"
+          (hide)="toggleNotifications()"
+        ></dashboard-notification-list>
+      </pe-popup>
+    </div>
+  </pe-dashboard-platform-header>
+</div>

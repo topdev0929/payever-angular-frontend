@@ -1,0 +1,252 @@
+<h4> Transparent Dark Toolbar </h4>
+<div class="doc-container-black doc-container-no-margin">
+  <mat-toolbar class="mat-toolbar-transparent mat-toolbar-transparent-dark">
+    <div class="mat-toolbar-left">
+      <button mat-icon-button class="mat-button-no-padding mat-button-link mat-toolbar-margin-right mat-toolbar-white">
+        <svg class="mat-toolbar-item icon icon-24">
+          <use xlink:href="#icon-dashboard-24"></use>
+        </svg>
+      </button>
+      <button mat-button class="mat-button-no-padding mat-button-link mat-toolbar-white">Start</button>
+    </div>
+    <div class="mat-toolbar-center"></div>
+    <div class="mat-toolbar-right">
+      <button mat-icon-button class="mat-button-no-padding mat-button-link mat-toolbar-margin-right mat-toolbar-white">
+        <svg class="icon icon-20">
+          <use xlink:href="#icon-commerceos-burger-20"></use>
+        </svg>
+      </button>
+      <button mat-icon-button class="mat-button-no-padding mat-button-link mat-toolbar-white">
+        <svg class="icon icon-20">
+          <use xlink:href="#icon-commerceos-user-20"></use>
+        </svg>
+      </button>
+    </div>
+  </mat-toolbar>
+</div>
+
+<h4> Transparent Light Toolbar </h4>
+<mat-toolbar class="mat-toolbar-transparent mat-toolbar-transparent-light">
+  <mat-toolbar-row>
+    <div class="mat-toolbar-left">
+      <div>
+        <button mat-button
+                [class.mat-default]="true"
+                [class.mat-button-link]="true"
+                [class.mat-button-no-padding]="true"
+                [matMenuTriggerFor]="menu3">
+          <svg class="icon icon-16">
+            <use xlink:href="#icon-search-16"></use>
+          </svg>
+        </button>
+        <mat-menu #menu3="matMenu" class="mat-menu-padding-around">
+          <form class="form-table">
+            <div class="form-fieldset">
+              <div class="row">
+                <div class="col-xs-12">
+                  <mat-form-field>
+                    <input matInput
+                           [placeholder]="'Search'"
+                           [(ngModel)]="input"
+                           (click)="$event.stopPropagation()"
+                           name="search"
+                           type="text"/>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+            <button mat-button
+                    [class.mat-primary]="true"
+                    [class.mat-button-link]="true"
+                    [class.mat-button-no-padding]="true">Search
+            </button>
+          </form>
+        </mat-menu>
+      </div>
+
+      <mat-divider [vertical]="true" [class.mat-divider-indented]="true"></mat-divider>
+
+      <button mat-button
+              [class.mat-default]="true"
+              [class.mat-button-link]="true"
+              [class.mat-button-no-padding]="true"
+              [matMenuTriggerFor]="menu4">
+        <svg class="icon icon-16">
+          <use xlink:href="#icon-linemode-24"></use>
+        </svg>
+        <span class="hidden-xs">&nbsp;Add Filter</span>
+      </button>
+      <mat-menu #menu4="matMenu">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+      </mat-menu>
+    </div>
+
+    <div class="mat-toolbar-center">
+      <div class="ng-star-inserted">
+        Products 2
+      </div>
+    </div>
+
+    <div class="mat-toolbar-right">
+      <div>
+        <button mat-button
+                [class.mat-default]="true"
+                [class.mat-button-link]="true"
+                [matMenuTriggerFor]="menu1">
+          <span class="hidden-xs">Sort by:</span>
+          Default
+          <svg class="icon icon-16">
+            <use xlink:href="#icon-arrow-down-small-16"></use>
+          </svg>
+        </button>
+        <mat-menu #menu1="matMenu">
+          <button mat-menu-item>Item 1</button>
+          <button mat-menu-item>Item 2</button>
+        </mat-menu>
+      </div>
+      <button mat-button
+              [class.mat-default]="true"
+              [class.mat-button-link]="true"
+              [class.mat-button-no-padding]="true"
+              [matMenuTriggerFor]="menu2">
+        <svg class="icon icon-16">
+          <use xlink:href="#icon-gridmode-24"></use>
+        </svg>
+      </button>
+      <mat-menu #menu2="matMenu">
+        <button mat-menu-item>
+          <mat-icon>
+            <svg class="icon icon-16">
+              <use xlink:href="#icon-linemode-24"></use>
+            </svg>
+          </mat-icon>&nbsp;Table
+        </button>
+        <button mat-menu-item>
+          <mat-icon>
+            <svg class="icon icon-16">
+              <use xlink:href="#icon-gridmode-24"></use>
+            </svg>
+          </mat-icon>&nbsp;Grid
+        </button>
+      </mat-menu>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<h4> Default Toolbar </h4>
+<div class="doc-container doc-container-grey">
+  <mat-toolbar class="mat-toolbar-default">
+    <div class="mat-toolbar-left">
+      <button mat-button color="primary"
+              class="mat-button mat-button-link mat-button-no-padding mat-toolbar-left-margin">
+        <svg class="mat-toolbar-margin-right icon icon-16">
+          <use xlink:href="#icon-arrow-left-16"></use>
+        </svg>
+        <span>Start</span>
+      </button>
+    </div>
+    <div class="mat-toolbar-center">
+      <img src="../../../../../../../../icons-db/icon-orders-colored-32.png">
+    </div>
+    <div class="mat-toolbar-right">
+      <button mat-button class="mat-button mat-button-link mat-button-no-padding">
+        <img src="../../../../../../../../icons-db/icon-market-colored-32.png">
+      </button>
+    </div>
+  </mat-toolbar>
+</div>
+
+<h4> Default Dark Toolbar </h4>
+<div class="doc-container-no-margin">
+  <mat-toolbar class="mat-toolbar-default mat-toolbar-default-dark">
+    <div class="mat-toolbar-left">
+      <button mat-button
+              class="mat-button-link mat-button-no-padding"
+              [matMenuTriggerFor]="deviceMenu"
+      >
+        <svg class="icon icon-32">
+          <use xlink:href="#icon-device-desktop-32"></use>
+        </svg>
+        <svg class="icon icon-16">
+          <use xlink:href="#icon-dropdown-triangle-16"></use>
+        </svg>
+      </button>
+      <mat-menu #deviceMenu="matMenu" class="mat-menu-xs mat-menu-light">
+        <button mat-menu-item>
+          <svg class="icon icon-24">
+            <use xlink:href="#icon-device-desktop-24"></use>
+          </svg>
+        </button>
+        <button mat-menu-item>
+          <svg class="icon icon-24">
+            <use xlink:href="#icon-device-tablet-24"></use>
+          </svg>
+        </button>
+        <button mat-menu-item>
+          <svg class="icon icon-24">
+            <use xlink:href="#icon-device-mobile-24"></use>
+          </svg>
+        </button>
+      </mat-menu>
+      <mat-divider [vertical]="true" class="mat-divider-full-height mat-divider-indented"></mat-divider>
+      <button mat-button
+              class="mat-button-link mat-button-no-padding"
+              [matMenuTriggerFor]="pagesMenu"
+              [disableRipple]="true">
+        <svg class="icon icon-24">
+          <use xlink:href="#icon-home-page-24"></use>
+        </svg>
+        <span>&nbsp;Home page&nbsp;</span>
+        <svg class="icon icon-16">
+          <use xlink:href="#icon-dropdown-triangle-16"></use>
+        </svg>
+      </button>
+      <mat-menu #pagesMenu="matMenu">
+        <button mat-menu-item>Home page</button>
+        <button mat-menu-item>About page</button>
+      </mat-menu>
+    </div>
+    <div class="mat-toolbar-center">
+      <button mat-button
+              class="mat-button-link mat-button-no-padding"
+              [matMenuTriggerFor]="centerMenu"
+              [disableRipple]="true">
+        <svg class="icon icon-24">
+          <use xlink:href="#icon-apps-apps"></use>
+        </svg>
+        <svg class="icon icon-16">
+          <use xlink:href="#icon-dropdown-triangle-16"></use>
+        </svg>
+      </button>
+      <mat-menu #centerMenu="matMenu">
+        <button mat-menu-item>Store</button>
+        <button mat-menu-item>Products</button>
+      </mat-menu>
+    </div>
+    <div class="mat-toolbar-right">
+      <button mat-button color="primary" class="mat-button mat-button-link mat-button-no-padding" color="primary">
+        Done
+      </button>
+    </div>
+  </mat-toolbar>
+</div>
+
+<h4> No Padding Toolbar </h4>
+<mat-toolbar class="mat-toolbar-no-padding">
+  <span>Order Summary</span>
+  <span class="mat-toolbar-spacer"></span>
+  <a href="#" class="btn btn-link btn-inline">Edit</a>
+</mat-toolbar>
+
+<h4> Toolbar append </h4>
+<div class="example-relative-block" style="margin-bottom: 20px">
+  <span>Block with relative position</span>
+  <mat-toolbar
+    class="mat-toolbar-append mat-toolbar-bordered mat-toolbar-default-dark-transparently-active">
+    <form class="form-table">
+      <span class="form-fieldset-horizontal-label"> Text </span>
+    </form>
+  </mat-toolbar>
+</div>
+

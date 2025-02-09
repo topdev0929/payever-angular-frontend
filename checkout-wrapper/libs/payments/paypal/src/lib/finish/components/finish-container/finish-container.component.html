@@ -1,0 +1,13 @@
+<paypal-shared-finish
+  [embeddedMode]="embeddedMode"
+  [merchantMode]="merchantMode"
+  [asSinglePayment]="asSinglePayment"
+  [nodeResult]="paymentResponse"
+  [showCloseButton]="showCloseButton"
+  [errorMessage]="errorMessage"
+  [isLoading]="!paymentResponse && !errorMessage || processed"
+  (cleanUp)="cleanUp()"
+  (close)="close()"
+  (closeButtonClicked)="close()"
+  (changePaymentMethod)="changePayment($event)"
+  (tryAgain)="tryAgain()"></paypal-shared-finish>

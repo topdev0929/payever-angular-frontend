@@ -1,0 +1,7 @@
+<span class="notify-icon" *ngIf="config?.icon"><svg class="icon icon-32"><use [attr.xlink:href]="'#icon-' + config.icon + '-32'"></use></svg></span>
+<span class="notification-svg-icon" *ngIf="config?.svgIconId">
+  <svg class="icon" [ngClass]="config.svgIconClass"><use [attr.xlink:href]="config.svgIconId"></use></svg>
+</span>
+<span *ngIf="!config?.dynamicComponent" class="notify-text" [innerHTML]="config?.message"></span>
+<ng-container #DynamicComponentPlaceholder ><ng-container>
+<span class="notify-close" *ngIf="config?.showCloseBtn" (click)="onCloseClick()"><svg class="icon icon-16"><use xlink:href="#icon-x-16"></use></svg></span>

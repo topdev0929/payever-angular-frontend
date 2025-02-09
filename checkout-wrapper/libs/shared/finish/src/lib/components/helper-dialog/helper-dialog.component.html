@@ -1,0 +1,16 @@
+<mat-dialog-content>
+  <ng-container [ngTemplateOutlet]="data.template"></ng-container>
+</mat-dialog-content>
+
+<mat-dialog-actions
+  align="center"
+  *ngIf="data.buttons?.length > 0">
+  <button
+    mat-button
+    type="button"
+    class="btn {{ button.classes }}"
+    *ngFor="let button of data.buttons"
+    (click)="onButtonClick(button)">
+    {{ button.title }}
+  </button>
+</mat-dialog-actions>

@@ -1,0 +1,80 @@
+<pe-pos-material-styles></pe-pos-material-styles>
+<div class='settings__container peb-pos-settings'>
+  <div class="page-header">{{'pos-app.settings.title'|translate}}</div>
+  <div class="scrollbar">
+    <div class="content">
+      <section class="settings__section">
+        <div class="settings__section__header">{{'pos-app.settings.general'|translate}}</div>
+        <div class="settings__section__content">
+          <div class="settings__section__content-item" (click)="openOverlay(components.payeverDomain)">
+            <div class="item-icon">
+              <mat-icon svgIcon="pos-domain-icon"></mat-icon>
+            </div>
+            <div class="item-content">
+              <div class="item-name">{{'pos-app.settings.payever_domain' | translate}}</div>
+              <div class="suffix-icon">
+                <svg>
+                  <use [attr.xlink:href]="'#icon-arrow-right-2-16'"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="settings__section__content-item">
+            <div class="item-icon">
+              <mat-icon svgIcon="pos-icon-link"></mat-icon>
+            </div>
+            <div class="item-content">
+              <div class="item-content__label">{{'pos-app.settings.business_uuid' | translate}}</div>
+              <div class="item-content__info">{{businessId}}</div>
+              <button class="item-content__action" peb-text-button color="confirm" [class.isCopied]="copyButtons.businessUUID.isCopied" [cdkCopyToClipboard]="businessId" (click)="onCopy('businessUUID')">
+                {{ copyButtons.businessUUID.text | translate}}
+              </button>
+            </div>
+          </div>
+          <div class="settings__section__content-item">
+            <div class="item-icon">
+              <mat-icon svgIcon="pos-icon-link"></mat-icon>
+            </div>
+            <div class="item-content">
+              <div class="item-content__label">{{'pos-app.settings.terminal_uuid' | translate}}</div>
+                <div class="item-content__info">{{posId}}</div>
+                <button class="item-content__action" peb-text-button color="confirm" [class.isCopied]="copyButtons.terminalUUID.isCopied" [cdkCopyToClipboard]="posId" (click)="onCopy('terminalUUID')">
+                  {{ copyButtons.terminalUUID.text | translate}}
+                </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="settings__section">
+        <div class="settings__section__header">{{'pos-app.settings.terminals'|translate}}</div>
+        <div class="settings__section__content">
+          <div class="settings__section__content-item" *ngFor="let terminal of terminalList" [class.active]="terminal.active"
+          (click)="openOverlay(components.createApp, terminal)"
+          >
+            <div class="item-icon">
+              <img [src]="terminal.logo" alt="" *ngIf="terminal.logo">
+              <div *ngIf="!terminal.logo" class="item-icon">
+                <mat-icon svgIcon="pos-terminal-icon"></mat-icon>
+              </div>
+            </div>
+            <div class="item-content">
+              <div class="item-content__label">{{terminal.name}}</div>
+              <div class="suffix-icon">
+                <svg>
+                  <use [attr.xlink:href]="'#icon-arrow-right-2-16'"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+         <button
+           class="new-button"
+           pe-form-button
+           color="confirm"
+           (click)="openOverlay(components.createApp, {})"
+         >{{'pos-app.actions.create_new' | translate}}</button>
+      </section>
+    </div>
+  </div>
+</div>

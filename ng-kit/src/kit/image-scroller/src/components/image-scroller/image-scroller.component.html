@@ -1,0 +1,52 @@
+<div class="images-scroller">
+
+    <div class="images-scroller-loader" *ngIf="loading">
+        <mat-spinner [strokeWidth]="spinnerStrokeWidth" [diameter]="spinnerDiameter"></mat-spinner>
+    </div>
+
+    <input #fileSelector
+           accept="image/*"
+           type="file"
+           class="hidden"
+           (change)="uploadImage($event)"
+    >
+    <div class="upload-screen" *ngIf="!loading">
+        <div class="empty-message" *ngIf="uploadAvailable && !uploadingInProgress && (!imagesArray || imagesArray.length === 0)">
+            <p>{{ uploadMessageText }}</p>
+            <p>{{ uploadQuestionText }}</p>
+            <button color="muted-light" mat-raised-button
+                    (click)="fileSelector.click()"
+                    [class.mat-button-xs]="true"
+                    [class.mat-button-rounded]="true">
+                {{ uploadButtonText }}
+            </button>
+        </div>
+    </div>
+
+    <div class="scroll-wrapper">
+        <div #scrollContainer class="scroll-container" peScrollHide>
+            <div class="images-wrapper" [ngStyle]="{'width.px': imagesWidth}" *ngIf="!loading">
+                <div class="image-wrapper" *ngIf="uploadAvailable && imagesArray && (imagesArray.length > 0 || uploadingInProgress)">
+                    <button type="button" class="image-wrapper-add btn btn-default btn-link" (click)="fileSelector.click()">
+                        {{ uploadThumbnailText }}
+                    </button>
+                </div>
+
+                <pe-image-preview *ngIf="uploadAvailable && uploadingInProgress"
+                                  [imageSrc]="uploadingImage"
+                                  [uploadInProgress]="uploadingInProgress"
+                                  [uploadProgress]="uploadProgress">
+                </pe-image-preview>
+
+                <ng-container *ngFor="let imageBlobName of imagesArray">
+                    <pe-image-preview [selected]="imageBlobName === selected"
+                                      [imageSrc]="imageBlobName + imageNamePostfix | mediaUrl:mediaContainer"
+                                      [deleteAvailable]="deleteAvailable"
+                                      (deleteButtonClick)="deleteImage($event, imageBlobName)"
+                                      (imageSelected)="onImageSelect(imageBlobName)">
+                    </pe-image-preview>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

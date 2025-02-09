@@ -1,0 +1,102 @@
+<div class="message-dialog-wrapper">
+  <div class="message-dialog-wrapper__header">
+    <button class="close-button" (click)="close()">{{ 'builder-app.actions.close' | translate }}</button>
+  </div>
+</div>
+
+<pe-grid
+  *ngIf="(gridItems$ | async) as gridItems"
+  [items]="gridItems"
+>
+  <pe-grid-sidenav
+    #sideNav
+    [sidenavTitle]="'Shapes'"
+    [sidenavMenu]="foldersSidenavMenu"
+    (menuItemSelected)="menuItemSelected($event)"
+  >
+    <pe-folders
+      [sideNav]="sideNav"
+      [rootFolder]="rootFolder"
+      (selectedRootFolder)="loadAlbum($event)"
+      [folders]="foldersTree$ | async"
+      [selectFolder]="selectedFolder$ | async"
+      (selectedFolder)="loadAlbum($event)"
+      (createFolder)="createAlbum($event)"
+      (updateFolder)="updateAlbum($event)"
+      (deleteFolder)="deleteAlbum($event)"
+    >
+    </pe-folders>
+  </pe-grid-sidenav>
+
+  <pe-grid-content>
+    <pe-grid-toolbar
+      *ngIf="toolbar"
+      [viewAdd]="false"
+      [viewMenu]="viewMenu"
+      [totalItems]="total$ | async"
+      [filterConfig]="toolbar.filterConfig"
+      [customMenus]="toolbar.customMenus"
+      [optionsMenu]="toolbar.optionsMenu"
+      [sortMenu]="toolbar.sortMenu"
+      (sortChange)="sortChange($event)"
+      (filtersChange)="filtersChange($event)"
+    ></pe-grid-toolbar>
+
+    <pe-grid-viewport
+      [selectable]="isListView"
+      [viewportTitle]="viewportTitle"
+      [defaultLayout]="gridLayout"
+      [allowSetQueryPArams]="true"
+      [contextMenu]="viewportContextMenu$ | async"
+    >
+      <pe-grid-list
+        [viewAdd]="false"
+        [isLoading]="isLoading$ | async"
+      >
+        <ng-template let-item="item">
+          <pe-grid-item
+            [item]="item"
+            [template]="renderer"
+            [itemContextMenu]="itemContextMenu"
+            [allowPreview]="false"
+            [disableContextMenu]="item.basic"
+            [disableSelect]="item.basic"
+            (actionClick)="insertElements($event)"
+            (itemContextSelect)="itemContextSelect($event)"
+          >
+          </pe-grid-item>
+        </ng-template>
+      </pe-grid-list>
+
+      <pe-grid-table
+        [displayedColumns]="tableDisplayedColumns"
+        [scrollBottomOffset]="scrollBottomOffset"
+      >
+        <ng-template let-item="item">
+          <pe-table-row
+            [item]="item"
+            (actionClick)="insertElements($event)"
+          ></pe-table-row>
+        </ng-template>
+      </pe-grid-table>
+    </pe-grid-viewport>
+
+  </pe-grid-content>
+</pe-grid>
+
+<ng-template #renderer let-item="item">
+  <div class="shapes-item__image" *ngIf="item.data">
+    <div class="shapes-item__image-wrapper">
+      <div class="renderer-wrap">
+        <peb-renderer
+          (click)="insertElements(item)"
+          [elements]="item.data.elements"
+          [style.transform]="'translateX('+item.data.translateX * item.data.scale +'px) scale(' + item.data.scale??1 + ')'"
+          [style.width.px]="item.data.width??100"
+          [style.height.px]="item.data.height??100"
+        ></peb-renderer>
+      </div>
+    </div>
+  </div>
+</ng-template>
+

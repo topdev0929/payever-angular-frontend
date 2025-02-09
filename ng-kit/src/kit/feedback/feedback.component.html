@@ -1,0 +1,14 @@
+<div class="ui-feedback" [class.filled]="value || focused">
+  <textarea #input
+            [id]="feedbackId"
+            [value]="value"
+            (input)="onInput()"
+            (focus)="onFocus()"
+            (blur)="onBlur()"
+            [attr.maxlength]="maxLength"
+            [innerHtml]="value">
+  </textarea>
+  <label [attr.for]="feedbackId">
+    <span [innerHtml]="placeholderText"></span>
+  </label>
+</div>

@@ -1,0 +1,34 @@
+<div class="list__header">
+  <span class="list__headline">{{ 'builder-app.pages.master_pages' | translate }}</span>
+  <mat-icon (click)="close()" class="list__close" svgIcon="small-close-icon"></mat-icon>
+</div>
+<div *ngIf="(pageList$ | async) as pageList" cdkDropList class="list__content scrollbar" pebAutoHideScrollBar
+  (cdkDropListDropped)="drop($event)" [cdkDropListData]="pageList">
+  <a class="list__item" *ngFor="let page of pageList; trackBy: trackPage" routerLink="." queryParamsHandling="merge"
+    [queryParams]="{ pageId: page.id }" [class.active]="page.active" (contextmenu)="openContextMenu($event, page)"
+    cdkDrag>
+    <span class="list__thumbnail">
+      <img *ngIf="!previewImages.has(page.id)" [src]="page.preview" [alt]="page.name" />
+      <div *ngIf="previewImages.has(page.id)" [pebHtml]="previewImages.get(page.id)"></div>
+    </span>
+    <span class="list__label">{{ page.name }}</span>
+  </a>
+</div>
+<div class="list__footer">
+  <button class="list__button" (click)="createEmptyPage()">
+    <mat-icon class="list__plus" svgIcon="side-menu-icon-cc"></mat-icon>
+  </button>
+</div>
+
+<ng-template #pageMenu let-page>
+  <div class="menu">
+    <div class="menu__header">
+      <div class="menu__headline">{{ 'builder-app.common.options' | translate }}</div>
+      <mat-icon (click)="closeContextMenu()" class="menu__close" svgIcon="small-close-icon"></mat-icon>
+    </div>
+    <ul class="menu__list">
+      <li class="menu__item" (click)="duplicate(page)">{{ 'builder-app.actions.duplicate' | translate }}</li>
+      <li class="menu__item menu__item--danger" (click)="delete(page)">{{ 'builder-app.actions.delete' | translate }}</li>
+    </ul>
+  </div>
+</ng-template>

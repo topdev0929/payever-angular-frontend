@@ -1,0 +1,127 @@
+@import "../../../../styles/src/lib/styles/spinner";
+
+.form {
+  flex: 1;
+}
+
+.image {
+  align-items: center;
+  display: flex;
+  margin-top: 12px;
+
+  &_hidden {
+    display: none;
+  }
+
+  &__container {
+    border-radius: 6px;
+    height: 72px;
+    position: relative;
+    overflow: hidden;
+    width: 116px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .spinner {
+      height: 25px;
+      width: 25px;
+    }
+
+    &--has-media {
+      background: url('/assets/icons/script-place.svg');
+      background-size: 100% 100%;
+      color: black;
+      font-size: 12px;
+    }
+  }
+
+  &__thumbnail {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+  }
+
+  span {
+    cursor: pointer;
+    font-family: Roboto, sans-serif;
+    font-size: 12px;
+    line-height: 1.33;
+    margin-left: 9px;
+
+    &.disabled {
+      pointer-events: none;
+    }
+  }
+}
+
+.sizes {
+  margin: 15px 0;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      align-items: center;
+      display: flex;
+      cursor: pointer;
+      height: 20px;
+
+      &:not(:first-child) {
+        margin-top: 12px;
+      }
+
+      &.active {
+        .sizes__applied {
+          visibility: visible;
+        }
+      }
+    }
+  }
+
+  &__icon {
+    display: flex;
+    width: 16px;
+  }
+
+  span {
+    font-family: Roboto, sans-serif;
+    font-size: 12px;
+    margin-left: 15px;
+  }
+
+  &__applied {
+    margin-left: auto;
+    visibility: hidden;
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 500;
+  display: block;
+  margin: 10px 0 10px 0;
+}
+
+peb-slide-toggle {
+  width: 100%;
+}
+
+.position-selector {
+  gap: 6px;
+}
+
+peb-range-input[hidden] {
+  visibility: hidden;
+}
+
+.combined-input-range {
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 10px;
+}

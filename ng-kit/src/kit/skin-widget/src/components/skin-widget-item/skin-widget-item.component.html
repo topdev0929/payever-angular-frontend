@@ -1,0 +1,16 @@
+<div class="img-item"
+     *ngFor="let skin of skins"
+     [class.current]="isPresetRemoveEnabled ? (skin.default || skin.active) : skin.active"
+     [style.background-image]="'url(' + skin.media.sources.thumb.url + ')'"
+     (click)="onSkinClick(skin)">
+  <div *ngIf="!isPreset && !skin.active"
+       class="remove"
+       (click)="onSkinDelete($event, skin)">
+    <svg class="icon icon-16"><use xlink:href="#icon-trashcan-16"></use></svg>
+  </div>
+  <div *ngIf="isPresetRemoveEnabled && isPreset && !skin.active"
+       class="remove"
+       (click)="onSkinDelete($event, skin)">
+    <svg class="icon icon-16"><use xlink:href="#icon-trashcan-16"></use></svg>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.min-height-container {
+  min-height: 120px;
+}
+
+.checkout-action-edit ::ng-deep .mat-card-transparent .mat-card-content-padding-sm .form-table .form-fieldset {
+  margin-bottom: 22px; // Return back broken style
+}
+
+.checkout-action-edit ::ng-deep .mat-card-transparent .mat-card-content {
+  background-color: rgba(50, 50, 50, 0.7) !important; // TODO use variable that good for white background
+}

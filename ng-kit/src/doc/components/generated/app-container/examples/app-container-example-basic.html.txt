@@ -1,0 +1,6 @@
+<pe-app-container
+        [containerItems]="appItems"
+        [appLayout]="appContainerLayout"
+        [isSwiperMobile]="isSwiperMobile"
+>
+</pe-app-container>

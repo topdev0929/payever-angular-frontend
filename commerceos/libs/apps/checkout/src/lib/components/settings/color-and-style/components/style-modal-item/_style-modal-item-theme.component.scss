@@ -1,0 +1,19 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $confirm: map.get($color-config, 'confirm');
+  $input-button-background: map.get($color-config, 'input-button-background');
+  $background: map.get($color-config, 'background');
+  $text-color: map.get($color-config, 'text-color');
+
+  .style-modal-item {
+    &__label {
+        color: $text-color;
+    }
+    &__button {
+        background-color: $input-button-background;
+        color: $confirm;
+        border-left-color: $background;
+    }
+  }
+}

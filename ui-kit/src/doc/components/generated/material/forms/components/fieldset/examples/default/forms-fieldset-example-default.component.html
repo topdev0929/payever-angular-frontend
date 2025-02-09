@@ -1,0 +1,232 @@
+<div class="form-table">
+  <div class="form-fieldset">
+    <div class="form-fieldset">
+      <div class="row">
+        <div class="col-xs-6">
+          <mat-form-field>
+            <input matInput placeholder="Enter your first name" [formControl]="firstName" required>
+            <mat-error *ngIf="firstName.invalid">{{getFirstNameErrorMessage()}}</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-xs-6">
+          <mat-form-field>
+            <input matInput placeholder="Enter your last name" [formControl]="lastName" required>
+            <mat-error *ngIf="lastName.invalid">{{getLastNameErrorMessage()}}</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-xs-4">
+          <mat-form-field>
+            <input matInput placeholder="Enter your first name" [formControl]="firstName" required>
+            <mat-error *ngIf="firstName.invalid">{{getFirstNameErrorMessage()}}</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-xs-4">
+          <mat-checkbox
+            [(ngModel)]="agreeWithTerms"
+            [(indeterminate)]="indeterminate"
+            [labelPosition]="'after'"
+            [disabled]="false">
+            Agree with terms
+          </mat-checkbox>
+          <div class="tooltip-icon">
+            <svg class="icon icon-16"
+                 matTooltip="This will be send to your customers by SMS. You ca add variables to your message"
+                 [matTooltipPosition]="'above'">
+              <use xlink:href="#icon-help-question-16"></use>
+            </svg>
+          </div>
+        </div>
+        <div class="col-xs-12">
+          <mat-form-field>
+            <input matInput placeholder="Enter your email" [formControl]="email" required>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-xs-12">
+          <mat-form-field>
+            <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+            <mat-icon matSuffix (click)="hide = !hide">
+              <svg *ngIf="hide"  class="icon icon-24"><use xlink:href="#icon-eye-24"></use></svg>
+              <svg *ngIf="!hide" class="icon icon-16"><use xlink:href="#icon-x"></use></svg>
+            </mat-icon>
+          </mat-form-field>
+        </div>
+
+        <div class="col-xs-12">
+          <mat-form-field class="mat-form-field-has-prefix">
+            <input matInput [matAutocomplete]="autocomplete" placeholder="Field with Prefix and Suffix" type="text" [formControl]="prefixSuffixField">
+            <mat-error *ngIf="prefixSuffixField.invalid">{{getPrefixSuffixFieldErrorMessage()}}</mat-error>
+            <mat-icon matPrefix>
+              <svg class="icon icon-24"><use xlink:href="#icon-geocoder-24"></use></svg>
+            </mat-icon>
+            <mat-icon matSuffix>
+              <svg class="icon icon-24"><use xlink:href="#icon-rewards-24"></use></svg>
+            </mat-icon>
+            <mat-autocomplete #autocomplete="matAutocomplete">
+              <mat-option *ngFor="let option of cities" [value]="option">
+                {{ option }}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </div>
+
+        <div class="col-xs-12">
+          <mat-form-field>
+            <mat-label>Both a label and a placeholder</mat-label>
+            <input matInput placeholder="Simple placeholder">
+          </mat-form-field>
+        </div>
+
+        <div class="col-xs-4">
+          <mat-form-field>
+            <mat-select>
+              <mat-option>-- None --</mat-option>
+              <mat-option value="option">Option</mat-option>
+              <mat-option value="option-1">Option 1</mat-option>
+              <mat-option value="option-2">Option 2</mat-option>
+              <mat-option value="option-3">Option 3</mat-option>
+            </mat-select>
+            <mat-icon matPrefix>
+              <svg class="icon icon-24"><use xlink:href="#icon-device-24"></use></svg>
+            </mat-icon>
+            <mat-label>
+              <b> Fancy</b> <i> label</i></mat-label>
+          </mat-form-field>
+        </div>
+
+        <div class="col-xs-4">
+          <mat-form-field>
+            <input matInput placeholder="Enter your first name" [formControl]="firstName" required>
+            <mat-error *ngIf="firstName.invalid">{{getFirstNameErrorMessage()}}</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-xs-4">
+          <mat-checkbox
+            [(ngModel)]="agreeWithTerms"
+            [(indeterminate)]="indeterminate"
+            [labelPosition]="'after'"
+            [disabled]="false">
+            Agree with terms
+          </mat-checkbox>
+          <div class="tooltip-icon">
+            <svg class="icon icon-16"
+                 matTooltip="This will be send to your customers by SMS. You ca add variables to your message"
+                 [matTooltipPosition]="'above'">
+              <use xlink:href="#icon-help-question-16"></use>
+            </svg>
+          </div>
+        </div>
+
+
+        <div class="col-xs-12">
+          <mat-form-field>
+            <mat-select panelClass="mat-select-horizontal">
+              <mat-option>-- None --</mat-option>
+              <mat-option value="option">Option</mat-option>
+              <mat-option value="option-1">Option 1</mat-option>
+              <mat-option value="option-2">Option 2</mat-option>
+              <mat-option value="option-3">Option 3</mat-option>
+            </mat-select>
+            <mat-icon matPrefix>
+              <svg class="icon icon-24"><use xlink:href="#icon-device-24"></use></svg>
+            </mat-icon>
+            <mat-label>
+              <b> Fancy</b> <i> label</i></mat-label>
+          </mat-form-field>
+        </div>
+
+        <div class="col-xs-12">
+          <mat-form-field>
+            <mat-select  [formControl]="age" required>
+              <mat-option>-- None --</mat-option>
+              <mat-option value="option">Option</mat-option>
+              <mat-option value="option-1">Option 1</mat-option>
+              <mat-option value="option-2">Option 2</mat-option>
+              <mat-option value="option-3">Option 3</mat-option>
+            </mat-select>
+            <mat-label>Age</mat-label>
+            <mat-error *ngIf="age.invalid">{{getAgeErrorMessage()}}</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-xs-12">
+          <mat-form-field>
+            <mat-select placeholder="Toppings" [formControl]="toppings" multiple>
+              <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="col-xs-6">
+          <mat-checkbox
+            [(ngModel)]="agreeWithTerms"
+            [(indeterminate)]="indeterminate"
+            [labelPosition]="'after'"
+            [disabled]="false">
+            Agree with terms
+          </mat-checkbox>
+          <div class="tooltip-icon">
+            <svg class="icon icon-16"
+                 matTooltip="This will be send to your customers by SMS. You ca add variables to your message"
+                 [matTooltipPosition]="'above'">
+              <use xlink:href="#icon-help-question-16"></use>
+            </svg>
+          </div>
+        </div>
+
+        <div class="col-xs-6">
+          <div class="tooltip-icon">
+            <svg class="icon icon-16"
+                 matTooltip="This will be send to your customers by SMS. You ca add variables to your message"
+                 [matTooltipPosition]="'above'">
+              <use xlink:href="#icon-help-question-16"></use>
+            </svg>
+          </div>
+          <mat-checkbox
+            [(ngModel)]="agreeWithTerms2"
+            [(indeterminate)]="indeterminate"
+            [labelPosition]="'before'"
+            [disabled]="false">
+            Agree with terms
+          </mat-checkbox>
+        </div>
+
+
+        <div class="col-xs-6">
+          <mat-form-field>
+            <input matInput placeholder="Enter your last name" [formControl]="lastName" required>
+            <mat-error *ngIf="lastName.invalid">{{getLastNameErrorMessage()}}</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-xs-6">
+          <mat-radio-group>
+            <mat-radio-button value="1">Option 1</mat-radio-button>
+            <mat-radio-button value="2">Option 2</mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+
+        <div class="col-xs-12 ">
+          <mat-radio-group class="vertical">
+            <mat-radio-button value="1">Option 1</mat-radio-button>
+            <mat-radio-button value="2">Option 2</mat-radio-button>
+            <mat-radio-button value="3">Option 3</mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+        <div class="col-xs-12">
+          <mat-form-field>
+            <textarea matInput placeholder="Leave a comment"></textarea>
+          </mat-form-field>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

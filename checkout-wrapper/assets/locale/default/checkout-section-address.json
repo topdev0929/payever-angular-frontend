@@ -1,0 +1,92 @@
+{
+  "checkout_address_edit": {
+    "form": {
+      "new_addresses": {
+        "label": "New address"
+      },
+      "city": {
+        "label": "City",
+        "placeholder": "City"
+      },
+      "company": {
+        "label": "Company",
+        "placeholder": "Company",
+        "error": {
+          "required": "Company is required"
+        }
+      },
+      "country": {
+        "label": "Country",
+        "placeholder": "Country"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Email"
+      },
+      "first_name": {
+        "label": "First name",
+        "placeholder": "First name"
+      },
+      "full_address": {
+        "label": "Address",
+        "placeholder": "Start typing address here"
+      },
+      "deliver_to_different_address": {
+        "label": "Deliver to a different address"
+      },
+      "last_name": {
+        "label": "Last name",
+        "placeholder": "Last name"
+      },
+      "phone": {
+        "label": "Phone",
+        "placeholder": "Phone"
+      },
+      "plain_password": {
+        "label": "Password",
+        "placeholder": "Password"
+      },
+      "salutation": {
+        "label": "Salutation",
+        "placeholder": "Salutation",
+        "value": {
+          "SALUTATION_MR": "Mr",
+          "SALUTATION_MRS": "Mrs"
+        }
+      },
+      "select_address": {
+        "label": "Select an existing address or add new",
+        "placeholder": "New address"
+      },
+      "street": {
+        "label": "Street and number",
+        "placeholder": "Street and number",
+        "errors": {
+          "house_number_required": "House number required"
+        }
+      },
+      "username": {
+        "label": "Email",
+        "placeholder": "Email"
+      },
+      "zip_code": {
+        "label": "Post code",
+        "placeholder": "Post code",
+        "errors": {
+          "invalid_value": "Invalid zip code"
+        }
+      }
+    },
+    "header": {
+      "billing_address": "Billing address",
+      "billing_and_shipping_address": "Billing and shipping address",
+      "shipping_address": "Shipping address"
+    }
+  },
+  "checkout_address_view": {
+  },
+  "salutation": {
+    "SALUTATION_MR": "Mr",
+    "SALUTATION_MRS": "Mrs"
+  }
+}

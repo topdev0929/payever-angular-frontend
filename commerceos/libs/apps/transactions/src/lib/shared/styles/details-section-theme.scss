@@ -1,0 +1,27 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $card: map.get($color-config, 'card');
+  $primary: map.get($color-config, 'primary');
+  $confirm: map.get($color-config, 'confirm');
+  $success: map.get($color-config, 'success');
+  $warn: map.get($color-config, 'warn');
+  $label-color: map.get($color-config, 'label-color');
+  $text-color: map.get($color-config, 'text-color');
+  $box-shadow-color: map.get($color-config, 'box-shadow-color');
+  $row-background: map.get($color-config, 'row-background');
+  $active-text: map.get($color-config, 'active-text');
+
+  .section-item {
+    background: $row-background;
+
+    &__label {
+      color: $label-color;
+    }
+
+    &__value {
+      color: $text-color;
+    }
+  }
+}

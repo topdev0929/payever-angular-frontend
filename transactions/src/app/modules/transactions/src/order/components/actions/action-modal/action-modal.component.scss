@@ -1,0 +1,85 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+
+:host {
+  height: 100%;
+}
+
+::ng-deep .mat-card-actions {
+  justify-content: flex-end;
+}
+
+.modal-actions-left {
+  flex: 1;
+
+  .mat-button-link {
+    color: $color-secondary;
+  }
+}
+.modal-actions {
+  text-align: right;
+  padding-right: $grid-unit-x;
+
+  .success {
+    color: white;
+    border-radius: 7px;
+    background-color: #1db100;
+
+    &:disabled {
+      background-color: #484849;
+    }
+  }
+
+  .cancel {
+    color: white;
+    border-radius: 7px;
+    background-color: #ee230b;
+
+    &:disabled {
+      background-color: #484849;
+    }
+  }
+}
+
+.mat-button-link[disabled],
+.mat-button-link[disabled]:hover {
+  color: $color-primary-4 !important;
+}
+
+:host ::ng-deep {
+  .option-text {
+    padding-right: 12px;
+  }
+
+  .icon-right {
+    margin: 0 0 0 auto;
+  }
+
+  .form-widget.form-design input[type="radio"]:checked + label:before,
+  .form-widget.form-design input[type="checkbox"]:not(.switcher):checked + label:before {
+    background-color: transparent !important;
+    background: #ffffff url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjIwcHgiIGhlaWdodD0iMjBweCIgdmlld0JveD0iMCAwIDIwIDIwIj48cG9seWdvbiBmaWxsPSIjZmZmZmZmIiBwb2ludHM9IjguNDkwNjEsMTEuMDA5OCA2LjQ4MDQ1LDguOTkwMiA0Ljk2OTg4LDEwLjQ5OTYgOC40OTA2MSwxNC4wMjk4IDE1LjAzMDEsNy40ODA4MSAxMy41MTk1LDUuOTcwMjQgIi8+PC9zdmc+IA==') no-repeat center center;
+    border: 1px solid $color-white !important;
+    border-color: #fff;
+    filter: $color-invert-filter;
+  }
+
+  // For focused state
+  .form-widget.form-design input[type="checkbox"]:not(.switcher):focus:enabled+label:before,
+  .form-widget.form-design input[type="radio"]:focus:enabled+label:before {
+    border-color: #f2f2f2;
+  }
+
+  .mat-form-field.mat-focused .mat-form-field-ripple {
+    background-color: $color-secondary;
+  }
+
+  .inner-padding {
+    padding: $grid-unit-y 0;
+    padding-left: $padding-small-horizontal * 1;
+    padding-right: $padding-small-horizontal * 1;
+    @media (min-width: $viewport-breakpoint-sm-2) {
+      padding-left: $padding-base-horizontal * 2;
+      padding-right: $padding-base-horizontal * 2;
+    }
+  }
+}

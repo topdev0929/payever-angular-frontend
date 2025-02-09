@@ -1,0 +1,95 @@
+<div class="dashboard peb-dashboard">
+  <div class="dashboard-header">
+    <div class="dashboard-header__title">{{ appEnv.type }} - {{ url$ | async }}</div>
+    <button class="dashboard-header__open" (click)="themeActiveVersion.isDeployed ? onOpenClick() : onEditClick()"
+            *ngIf="themeActiveVersion">
+      {{ (themeActiveVersion.isDeployed ? appEnv.type + '-app.actions.open' : appEnv.type + '-app.actions.edit')  | translate}}
+    </button>
+
+    <pe-screen-selector></pe-screen-selector>
+
+    <button class="dashboard-header__menu" (click)="onOpenItemMenu()">
+      <svg>
+        <use [attr.xlink:href]="'#icon-dots-block-24'"></use>
+      </svg>
+    </button>
+
+    <div [matMenuTriggerFor]="itemMenu" #itemMenuTrigger></div>
+
+    <mat-menu
+      #itemMenu="matMenu"
+      [backdropClass]="'shop-mat-menu'">
+      <div class="shop-panel-header-menu">
+        <div class="shop-panel-header-menu__title">
+          <div>Options</div>
+          <svg class="shop-panel-header-menu__title-icon">
+            <use xlink:href="#icon-x-solid-24"></use>
+          </svg>
+        </div>
+        <div
+          (click)="onEditClick()"
+          class="shop-panel-header-menu__item selectable edit"
+        >
+          <div class="shop-panel-header-menu__item-content">
+            <svg class="icon">
+              <use xlink:href="#icon-edit-pencil-24"></use>
+            </svg>
+            <div class="shop-panel-header-menu__name">
+              {{ appEnv.type + '-app.actions.edit' | translate }}
+            </div>
+          </div>
+        </div>
+        <div
+          (click)="onLinkCopy()"
+          class="shop-panel-header-menu__item selectable"
+        >
+          <div class="shop-panel-header-menu__item-content">
+            <svg class="icon">
+              <use xlink:href="#icon-link3-16"></use>
+            </svg>
+            <div class="shop-panel-header-menu__name">
+              {{ appEnv.type + '-app.actions.copy_link' | translate }}
+            </div>
+          </div>
+        </div>
+        <div
+          (click)="onDownloadQR()"
+          class="shop-panel-header-menu__item selectable"
+        >
+          <div class="shop-panel-header-menu__item-content">
+            <svg class="icon">
+              <use xlink:href="#icon-communications-qr-white"></use>
+            </svg>
+            <div class="shop-panel-header-menu__name">
+              {{ appEnv.type + '-app.actions.download_qr' | translate }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-menu>
+  </div>
+
+  <div class="dashboard-viewer-container">
+    <div  #container class="dashboard-viewer-content">
+      <div class="dashboard-viewer-content-wrap" [style.width.px]="width$ | async" pebAutoHideScrollBar>
+        <ng-container *pebRender="elements$ | async; template: elementTemplateRef"></ng-container>
+
+        <ng-template #elementTemplateRef let-element>
+          <peb-element
+            #pebElement
+            [ngClass]="element.style.class"
+            [pebStyle]="element?.style?.host"
+            [attr.peb-type]="element.type"
+            [pebAnimation]="element"
+            (click)="elementClicked(element, pebElement.elmRef.nativeElement)"
+            (mouseenter)="elementMouseEntered(element, pebElement.elmRef.nativeElement)"
+            (mouseleave)="elementMouseLeaved(element, pebElement.elmRef.nativeElement)"
+            class="shape"
+            [def]="element"
+            [container] = "renderContainer"
+          ></peb-element>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

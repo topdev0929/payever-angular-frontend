@@ -1,0 +1,36 @@
+<div class="pe-info-box-container-fixed warning-modal-info">
+  <pe-info-box
+    class="warning-modal"
+    [notFullwidthOnMobile]="true"
+    [roundBorder]="true"
+    [fixed]="false"
+    [withHeader]="false"
+    [withFooter]="false">
+    <ng-container content>
+      <div class="warning-modal-box">
+        <svg class="icon warning-modal-icon"><use xlink:href="#icon-warning-20"></use></svg>
+        <div class="warning-modal-title" translate>warning-modal.title</div>
+        <div class="warning-modal-message" translate>warning-modal.description</div>
+        <div class="warning-modal-actions">
+          <button mat-raised-button
+                  type="button"
+                  class="warning-modal-success"
+                  (click)="handleOpen()"
+                  [class.mat-button-rounded]="true"
+                  color="muted-light">
+            {{'warning-modal.actions.yes' | translate}}
+          </button>
+          <button mat-raised-button
+                  type="button"
+                  class="warning-modal-cancel"
+                  (click)="handleClose()"
+                  [class.mat-button-rounded]="true"
+                  color="muted-light">
+            {{'warning-modal.actions.no' | translate}}
+          </button>
+        </div>
+      </div>
+    </ng-container>
+  </pe-info-box>
+</div>
+

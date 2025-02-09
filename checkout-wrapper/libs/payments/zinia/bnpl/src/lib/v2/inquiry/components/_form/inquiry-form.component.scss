@@ -1,0 +1,21 @@
+@import '../../../../../../../../../shared/styles/assets/ui-kit-styles/pe_variables';
+
+.form-table {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.terms-form {
+  display: block;
+}
+
+@media (max-width: $viewport-breakpoint-sm-1 - 1) {
+  .terms-form {
+    order: 3;
+  }
+
+  .pe-zinia-bnpl-promo {
+    order: 2;
+  }
+}

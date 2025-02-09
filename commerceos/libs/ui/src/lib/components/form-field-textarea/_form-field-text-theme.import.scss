@@ -1,0 +1,8 @@
+@use 'pe_theming' as pet;
+@use './form-field-textarea-theme' as form_field_textarea;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include form_field_textarea.color($color-config);
+}
+

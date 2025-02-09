@@ -1,0 +1,14 @@
+{{ $chartName := .Chart.Name }}
+{{ $values := .Values }}
+{{ $appName := printf "%s-%s" $chartName $values.issue | lower | replace "_" "-" | trimSuffix "-"   }}
+{{- if .Values.deployToExclusive -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $appName }}-nginx-configmap
+  namespace: {{ $values.namespace }}
+data:
+  default.conf: |-
+{{ .Files.Get "static/nginx/default.conf" | indent 4}}
+
+{{- end -}}

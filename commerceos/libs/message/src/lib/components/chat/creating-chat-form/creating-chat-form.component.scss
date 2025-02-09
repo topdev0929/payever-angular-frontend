@@ -1,0 +1,104 @@
+@use 'pe_variables.scss' as pe_variables;
+
+.pe-creating-chat-form {
+  display: block;
+  padding: 12px;
+  width: 436px;
+
+  @media (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+    width: 100%;
+    height: 100%;
+  }
+
+  .peb-form-field-input {
+    border-radius: 12px;
+    display: block;
+  }
+
+  .pe-picker {
+    border-radius: 12px;
+    display: block;
+    margin-bottom: 12px;
+    margin-top: 12px;
+    overflow: hidden;
+  }
+
+  .chat-form {
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 7px;
+      margin-bottom: 18px;
+      padding: 0 12px;
+
+      div {
+        width: 100%;
+
+        &.right {
+          text-align: right;
+        }
+
+        span {
+          font-size: 14px;
+          cursor: pointer;
+          line-height: 1.2857142857;
+
+          &.loading-btn {
+            cursor: default;
+            font-style: italic;
+          }
+        }
+      }
+
+      p {
+        width: 100%;
+        text-align: center;
+        font-size: 15px;
+        font-weight: bold;
+        line-height: 1.5;
+        margin: 0;
+      }
+
+      @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+        margin-top: 7px;
+        margin-bottom: 18px;
+        padding: 23px 0 16px;
+        height: 48px;
+
+        div {
+          span {
+            font-size: 16px;
+          }
+        }
+
+        p {
+          font-size: 20px;
+        }
+      }
+    }
+
+    &__content {
+      mat-tab-header {
+        display: none;
+      }
+    }
+  }
+
+  .creating-chat-steps-additional {
+    .creating-chat-steps-additional__invite-link-wrapper {
+      .label-container {
+        width: 74%;
+
+        .input-field {
+          justify-content: flex-end;
+          overflow: hidden;
+
+          input:not(.creating-chat-steps-additional__input-disable) {
+            width: 100px;
+          }
+        }
+      }
+    }
+  }
+}

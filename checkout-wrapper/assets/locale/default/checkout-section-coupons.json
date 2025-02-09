@@ -1,0 +1,12 @@
+{
+  "checkout_coupons_edit": {
+    "form": {
+      "couponCode": {
+        "label": "Coupon"
+      }
+    },
+    "errors": {
+      "unknown_error": "Unknown error"
+    }
+  }
+}

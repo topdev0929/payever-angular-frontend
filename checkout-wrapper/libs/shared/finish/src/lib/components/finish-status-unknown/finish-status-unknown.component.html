@@ -1,0 +1,31 @@
+<checkout-sdk-finish-status-icon [status]="'fail'">
+</checkout-sdk-finish-status-icon>
+<br>
+
+<p class="large-1" i18n="@@checkout_sdk.finish_status_unknown.title">checkout_sdk.finish_status_unknown.title</p>
+<p class="caption-1" i18n="@@checkout_sdk.finish_status_unknown.text">checkout_sdk.finish_status_unknown.text</p>
+
+<p class="text-secondary"
+  *ngIf="applicationNumber">
+  {{ translations.applicationNumber }}
+</p>
+
+<p class="text-secondary"
+  *ngIf="transactionNumber">
+  <span [innerHTML]="translations?.transactionNumber"></span>
+</p>
+
+<p *ngIf="transactionLink">
+  {{ translations.transactionDetails }}
+</p>
+
+<ng-content></ng-content>
+
+<div class="order-number-wrap" *ngIf="orderId">
+  <div class="text-secondary" i18n="@@checkout_sdk.default_receipt.finish.labels.order_number">
+    checkout_sdk.default_receipt.finish.labels.order_number
+  </div>
+  <div>{{ orderId }}</div>
+</div>
+
+<div class="status-debug" *ngIf="nodeResult">{{ nodeResult?.payment.status }}: {{ nodeResult?.payment.specificStatus }}</div>

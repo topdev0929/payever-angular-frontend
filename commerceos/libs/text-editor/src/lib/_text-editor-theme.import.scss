@@ -1,0 +1,11 @@
+@use 'pe_theming' as pet;
+@use './component/text-editor-theme.component' as text_editor;
+@use './placeholder/placeholder-theme.component' as place_holder;
+@use './toolbar/text-editor-toolbar-theme.component' as toolbar;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include text_editor.color($color-config);
+  @include place_holder.color($color-config);
+  @include toolbar.color($color-config);
+}

@@ -1,0 +1,33 @@
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+@import "~@pe/ui-kit/scss/pe_variables";
+
+.cookie-bar {
+  background-color: #f3f3f3;
+
+  &-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 965px;
+    margin: auto;
+    padding: 15px;
+  }
+
+  &-text {
+    font-size: 10px;
+    color: #666666;
+
+    a {
+      cursor: pointer;
+    }
+  }
+
+  &-close {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
+    cursor: pointer;
+    user-select: none;
+  }
+}

@@ -1,0 +1,89 @@
+# Import module
+
+```typescript
+import { Notification2Module } from '@pe/ng-kit/modules/notification2';
+
+export class YourModule {
+    imports: [
+        ...
+        Notification2Module
+        ...
+    ]
+}
+```
+# Top sticked notification
+
+## Inject the view ref in the app component
+
+app.component.ts:
+
+```typescript
+export class AppComponent {
+  constructor(public viewContainerRef: ViewContainerRef) {}
+```
+
+## Config and defaults
+
+- timeN: null,
+- checkN: null,
+- titleN: '',
+- descriptionN: '',
+- iconN: '<img src="data:image/png;base64,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">',
+- timeOut: 0,
+- openURL: '',
+- openText: 'Open',
+- skipText: 'Skip',
+- settings: false
+
+
+Config interface can be imported from @pe/notification2 if needed
+
+## Create from service
+Factory method:
+````typescript
+createNotification(config: ConfirmationDialogConfig): ComponentRef<Notification2Component> {}
+````
+### Example
+Import service
+````typescript
+import {Notification2Service} from '@pe/notification2/src/notification2.service';
+````
+
+Component
+````typescript
+export class MyComponent {
+
+  constructor(private notification2Service: Notification2Service) {
+  }
+
+  createNotification() {
+    let notificationRef = this.notification2Service.createNotification({title: 'Hello from server!'});
+    notificationRef.onDestroy(() => {
+      console.log('closed');
+    });
+  }
+}
+````
+
+Template
+````html
+    <button class="btn btn-default" (click)="createNotification()">
+      Notification
+    </button>
+````
+# Inline notifications
+
+Template
+````html
+    <pe-notification2
+        class="notify2"
+        checkN="true" // or timeN="23:50"
+        iconN="<img src='path/to/img'>" // or <svg>
+        titleN="Title of notification"
+        descriptionN="Description of notification"
+        openText="Open"
+        skipText="Skip"
+        openURL="/path/to/open"
+        [settings]="true"
+        (onSettings)="switchToNotifications($event)">
+    </pe-notification2>

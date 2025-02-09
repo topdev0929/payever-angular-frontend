@@ -1,0 +1,9 @@
+@use 'confirm-screen-theme.component' as confirm_screen;
+@use 'pe_theming' as pet;
+
+@mixin theme($theme-config) {
+    $color-config: pet.get-color-config-from-theme($theme-config);
+    @if $color-config != null {
+      @include confirm_screen.color($color-config);
+    }
+  }

@@ -1,0 +1,12 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+
+:host {
+  display: block;
+
+  .with-border {
+    // @TODO: move to ui kit after confirming ui
+    ::ng-deep.mat-toolbar-micro.dark {
+      box-shadow: 0 -1px 0 $color-white-grey-1 inset;
+    }
+  }
+}

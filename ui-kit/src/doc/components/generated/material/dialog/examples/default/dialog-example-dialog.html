@@ -1,0 +1,14 @@
+<button class="mat-button-no-padding mat-button-link mat-button-xs mat-dialog-close-icon" mat-button mat-dialog-close>
+  <svg class="icon icon-16"><use xlink:href="#icon-close-16"></use></svg>
+</button>
+<h1 mat-dialog-title>Hi {{data.name}}</h1>
+<div mat-dialog-content>
+  <p>Enter something here</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.animal">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+</div>

@@ -1,0 +1,48 @@
+<div
+  class="checkout-style-item-menu"
+  cdk-overlay-origin
+  #fallbackOverlayOrigin="cdkOverlayOrigin"
+  (click)="openDropdown()"
+>
+  <div
+    *ngIf="selectedAlignment$ | async as selectedAlignment"
+    class="checkout-style-item-menu-row">
+    <svg class="icon icon-18">
+      <use [attr.xlink:href]="alignmentIcons[selectedAlignment]"></use>
+    </svg>
+    <span class="checkout-style-item-menu-row__label">
+      {{ 'finexp.channels.settings.alignment.' + selectedAlignment | translate }}
+    </span>
+    <svg class="arrow-open">
+      <use xlink:href="#icon-ui-arrow-open"></use>
+    </svg>
+  </div>
+</div>
+<ng-template
+  cdk-connected-overlay
+  cdkConnectedOverlayLockPosition
+  cdkConnectedOverlayHasBackdrop
+  cdkConnectedOverlayBackdropClass="finexp-mat-menu"
+  [cdkConnectedOverlayOrigin]="fallbackOverlayOrigin"
+  [cdkConnectedOverlayOpen]="isOpened$ | async"
+  [cdkConnectedOverlayWidth]="getOverlayWidth(fallbackOverlayOrigin)"
+  (backdropClick)="closeDropdown()"
+  (detach)="closeDropdown()">
+  <div
+    class="checkout-style-item-menu"
+  >
+    <div
+      *ngFor="let alignment of alignmentIcons | keyvalue"
+      (click)="setSelectedAlignment(alignment.key)"
+      class="checkout-style-item-menu__option"
+      [class.selected]="alignment.key === selectedAlignment$.value"
+    >
+      <svg class="icon icon-18">
+        <use [attr.xlink:href]="alignment.value"></use>
+      </svg>
+      <span class="label" translate>
+        {{ 'finexp.channels.settings.alignment.' + alignment.key }}
+      </span>
+    </div>
+  </div>
+</ng-template>

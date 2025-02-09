@@ -1,0 +1,67 @@
+:host {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 6px 12px;
+  text-overflow: ellipsis;
+  user-select: none;
+  white-space: nowrap;
+  height: 40px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  align-items: center;
+
+  @media (max-width: 720px) {
+    height: 56px;
+    font-size: 17px;
+    font-weight: 400;
+  }
+
+  &:hover,
+  &.active {
+    outline: none;
+  }
+
+  &.disabled {
+    cursor: auto;
+
+    &:hover,
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .check-container {
+    width: 16px;
+    height: 16px;
+    position: relative;
+
+    .check {
+      position: absolute;
+      width: 10px;
+      height: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 5px;
+      left: 4px;
+    }
+    .check-background {
+      width: 16px;
+      height: 16px;
+    }
+  }
+  .checkbox {
+    height: 18px;
+    width: 18px;
+    border-radius: 100%;
+    @media (max-width: 720px) {
+      transform: scale(1.2);
+    }
+  }
+  .action-text {
+    padding-left: 10px;
+  }
+}

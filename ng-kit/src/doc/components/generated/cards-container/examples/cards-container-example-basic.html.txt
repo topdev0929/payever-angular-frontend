@@ -1,0 +1,10 @@
+<div class="cards-container-wrap">
+    <pe-cards-container
+      [containerEl]="cardItems"
+      [cardsLayout]="cardsContainerLayout"
+      [isSwiperMobile]="isSwiperMobile"
+      [isSwiperTablet]="isSwiperTablet"
+      [config]="cardConfig"
+    >
+    </pe-cards-container>
+</div>

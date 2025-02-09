@@ -1,0 +1,16 @@
+<div class="billing-section" *ngIf="order">
+  <div class="billing-section__row">
+    <div class="section-item col-6">
+      <div class="section-item__label">{{ 'transactions.sections.billing.name' | translate }}</div>
+      <div class="section-item__value" peHideAnonymizedField>{{billingAddressName}}</div>
+    </div>
+    <div class="section-item col-6" peHideAnonymizedField>
+      <div class="section-item__label">{{ 'transactions.sections.billing.email' | translate }}</div>
+      <div class="section-item__value" peHideAnonymizedField>{{order?.billing_address?.email}}</div>
+    </div>
+  </div>
+  <div class="section-item">
+    <div class="section-item__label">{{ 'transactions.sections.billing.address' | translate }}</div>
+    <div class="section-item__value" peHideAnonymizedField>{{billingAddress}}</div>
+  </div>
+</div>

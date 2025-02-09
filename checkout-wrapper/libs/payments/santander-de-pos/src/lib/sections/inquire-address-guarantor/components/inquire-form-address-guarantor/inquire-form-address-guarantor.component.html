@@ -1,0 +1,37 @@
+<form
+  *ngIf="options$ | async"
+  novalidate
+  class="form-table"
+  [formGroup]="formGroup"
+  (ngSubmit)="onSubmit()">
+  <ng-container
+    *ngIf="{
+      loading: loading$ | async
+    } as vm"
+    [ngSwitch]="mode">
+    <ng-container *ngSwitchCase="modeEnum.View">
+      <santander-de-pos-summary-g-address *ngIf="mode === 'View'"></santander-de-pos-summary-g-address>
+      <checkout-main-address-summary></checkout-main-address-summary>
+    </ng-container>
+    <ng-container *ngSwitchCase="modeEnum.Edit">
+      <div class="form-fieldset-wrapper first-content-form last-content-form">
+        <address-form
+          *ngIf="{ params: addressParams$ | async } as vm"
+          formControlName="addressForm"
+          [isFilledFieldsReadonly]="vm.params.forceAddressOnlyFillEmptyAllowed"
+          [isPhoneRequired]="vm.params.forcePhoneRequired"
+          [isCodeForPhoneRequired]="vm.params.forceCodeForPhoneRequired">
+        </address-form>
+      </div>
+      <checkout-sdk-continue-button
+        *ngIf="!isExpandAll"
+        class="button-continue"
+        i18n-text="@@action.continue"
+        text="action.continue"
+        [loading]="vm.loading"
+        [disabled]="vm.loading"
+        (clicked)="submit()">
+      </checkout-sdk-continue-button>
+    </ng-container>
+  </ng-container>
+</form>

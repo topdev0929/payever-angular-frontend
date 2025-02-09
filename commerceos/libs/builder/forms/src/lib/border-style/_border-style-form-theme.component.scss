@@ -1,0 +1,28 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $border: map.get($color-config, 'border');
+  $active-text: map.get($color-config, 'active-text');
+  $text-color: map.get($color-config, 'text-color');
+  $confirm: map.get($color-config, 'confirm');
+
+  peb-border-style-form {
+    .group {
+      border-bottom-color: $border;
+
+      &__style {
+        border-color: $text-color;
+      }
+
+      &__option {
+        &:hover {
+          background-color: $confirm;
+          color: $active-text;
+          .group__style {
+            border-color: $active-text;
+          }
+        }
+      }
+    }
+  }
+}

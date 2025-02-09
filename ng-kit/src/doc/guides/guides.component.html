@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-2 docsidebar">
+    <div class="wrapper">
+      <ul class="nav nav-sidebar">
+        <li class="title caption-2">Guides</li>
+        <li><a [routerLink]="['/guides/code-review-guidelines']">Code review guidelines</a></li>
+        <li><a [routerLink]="['/guides/testing']">TESTING</a></li>
+        <li><a [routerLink]="['/guides/integration']">Integration</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-sm-12 col-md-10 col-md-offset-2 webdoc-content">
+    <router-outlet></router-outlet>
+    <router-outlet name="modal"></router-outlet>
+  </div>
+</div>

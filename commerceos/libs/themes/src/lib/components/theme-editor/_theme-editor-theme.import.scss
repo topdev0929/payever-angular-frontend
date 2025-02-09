@@ -1,0 +1,7 @@
+@use 'pe_theming' as pet;
+@use './theme-editor-theme.component' as theme_editor;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include theme_editor.color($color-config);
+}

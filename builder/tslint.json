@@ -1,0 +1,3 @@
+{
+  "extends": "@pe/frontend-dev-kit/tslint"
+}

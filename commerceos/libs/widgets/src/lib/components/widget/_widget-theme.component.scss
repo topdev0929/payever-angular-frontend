@@ -1,0 +1,70 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $border: map.get($color-config, 'border');
+  $text-color: map.get($color-config, 'text-color');
+  $secondary-button: map.get($color-config, 'secondary-button');
+  $widget-background: map.get($color-config, 'widget-background');
+  $button: map.get($color-config, 'button');
+  $backdrop-filter-light-transparent: map.get($color-config, 'backdrop-filter-light-transparent');
+  $backdrop-filter-: map.get($color-config, 'backdrop-filter-');
+  $active-text: map.get($color-config, 'active-text');
+  $warn: map.get($color-config, 'warn');
+  $success-text: map.get($color-config, 'success-text');
+  $tertiary-button: map.get($color-config, 'tertiary-button');
+
+  .pe-widget-main {
+    z-index: 1;
+    position: relative;
+    background: $widget-background;
+    border-radius: 1.32em;
+    .widget {
+      color: $text-color;
+      a,
+      div,
+      h3 {
+        color: $text-color;
+      }
+      svg {
+        fill: $text-color;
+        position: relative !important;
+      }
+      &__content,
+      &____notifications {
+        color: $text-color;
+        .widget__header {
+          .widget__open-button {
+            background-color: $button;
+            color: $active-text;
+            &:hover {
+              opacity: 0.9;
+            }
+          }
+        }
+        .buttons__logo {
+          color: $active-text;
+        }
+      }
+      &__notification-row {
+        border-bottom-color: $secondary-background;
+      }
+
+      .start__action {
+        background-color: $tertiary-button;
+        &:not(:last-child) {
+          border-right-color: $widget-background;
+        }
+      }
+    }
+
+    .text__third-title {
+      &.red {
+        color: $warn;
+      }
+      &.green {
+        color: $success-text;
+      }
+    }
+  }
+}

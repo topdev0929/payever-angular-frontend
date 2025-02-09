@@ -1,0 +1,27 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $background: map.get($color-config, 'background');
+  $active-text: map.get($color-config, 'active-text');
+  $confirm: map.get($color-config, 'confirm');
+  $label-color: map.get($color-config, 'label-color');
+
+  .style-form-schema-item {
+    .pe-style-item {
+      &:not(:last-child) {
+        > * > * {
+          border-bottom: solid 1px $background;
+        }
+      }
+    }
+  }
+  .checkout-icon-wrapper {
+    background-color: $label-color;
+  }
+  .settings-description {
+    color: $label-color;
+  }
+  .mat-select-value-text {
+    color: $label-color;
+  }
+}

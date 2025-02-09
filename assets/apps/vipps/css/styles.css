@@ -1,0 +1,61 @@
+.desktop-device .wrapper {
+  height: 484px;
+}
+
+.desktop-checkout-items.with-offset {
+  position: relative;
+  top: -98px;
+  z-index: -1;
+}
+
+.mobile .desktop-checkout-items.with-offset {
+  top: initial;
+}
+
+.payment-method-step.active {
+  border-bottom: 1px solid var(--secondary-200);
+  padding-bottom: 15px;
+}
+
+.modal-group .modal {
+  gap: 13px;
+  padding: 26px 26px 40px 26px;
+  color: var(--seccondary-900);
+}
+
+.mobile .modal-group .modal {
+  padding: 15px 15px 30px 15px;
+}
+
+.modal-logo {
+  display: flex;
+}
+
+.modal-logo img {
+  width: 55px;
+  height: 14px;
+}
+
+.modal .modal-footer {
+  width: 100%;
+}
+
+.modal-footer .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 30px;
+  padding: 0 20px;
+  border-radius: 4px;
+  background: #2F2424;
+  color: var(--light);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.successful-modal .swedbank-logo {
+  width: 65px;
+  height: 14px;
+  flex-shrink: 0;
+}

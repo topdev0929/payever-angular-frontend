@@ -1,0 +1,43 @@
+<form
+  *ngIf="formGroup.enabled"
+  class="form-table"
+  [formGroup]="formGroup">
+  <div
+    class="h5"
+    i18n="@@santander-dk.inquiry.step.cpr_details.title">
+    Bank details
+  </div>
+  <div class="form-fieldset-new">
+    <mat-form-field class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-dk.inquiry.form.bank_registration_number.label">
+        Bank registration number
+      </mat-label>
+
+      <input
+        matInput
+        peInputMask
+        formControlName="bankRegistrationNumber"
+        type="text"
+        [mask]="registrationNumberMask" />
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-dk.inquiry.form.bank_account_number.label"> Bank account number </mat-label>
+
+      <input
+        matInput
+        peInputMask
+        formControlName="bankAccountNumber"
+        type="text"
+        [mask]="accountNumberMask"
+        [unmask]="accountNumberUnmask" />
+    </mat-form-field>
+
+    <mat-checkbox
+      class="col-xs-12"
+      formControlName="eCard"
+      analyticFieldName="eCard">
+      <span [innerHTML]="translations.eCard"></span>
+    </mat-checkbox>
+  </div>
+</form>

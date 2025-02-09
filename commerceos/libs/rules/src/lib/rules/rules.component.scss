@@ -1,0 +1,234 @@
+@use 'pe_variables' as pe_variables;
+
+.overlay-panel {
+  max-width: 436px;
+  width: 100%;
+  height: auto;
+  max-height: calc(100% - 32px);
+
+  @media screen and (max-width: 720px) {
+    max-width: 436px;
+    height: auto;
+    max-height: 410px;
+  }
+
+  .overlay-widget-container {
+    max-width: 436px;
+    width: calc(100% - 32px);
+    max-height: calc(100% - 32px);
+    border-radius: 12px;
+    -webkit-backdrop-filter: blur(50px);
+    backdrop-filter: blur(50px);
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.5);
+
+    @media screen and (max-width: pe_variables.$viewport-breakpoint-xs-2){
+      max-height: 100%;
+      border-radius: 0;
+      height: var(--app-height);
+      width: var(--app-width);
+      max-width: 100%;
+      margin: auto;
+    }
+  }
+
+  .overlay-dark {
+    border-radius: 12px;
+  }
+
+  .overlay-widget__content {
+    height: 100%;
+  }
+}
+
+.rules {
+  max-width: 412px;
+  width: 100%;
+  height: 100%;
+
+  &__items {
+    position: relative;
+
+    .scroll {
+      position: relative;
+      top: 0;
+      left: -12px;
+      width: calc(100% + 24px);
+      max-height: 549px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      padding: 0 8px 0 12px;
+
+      @media screen and (max-width:pe_variables.$viewport-breakpoint-xs-2) {
+        max-height: unset;
+      }
+
+      &.is-scrolling {
+        &::-webkit-scrollbar-thumb {
+          background: rgba(0, 0, 0, 0.7);
+        }
+        &::-webkit-scrollbar-thumb:hover {
+          background: #555;
+        }
+      }
+
+      &::-webkit-scrollbar {
+        width: 4px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0);
+      }
+      &::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 0, 0, 0);
+      }
+    }
+  }
+
+  &__action {
+    border-radius: 12px;
+  }
+
+  @media screen and (max-width:pe_variables.$viewport-breakpoint-xs-2) {
+    height: auto;
+    max-width: 100%;
+    &__action {
+        border-radius: 0;
+        left: -4px;
+        bottom: 0;
+        width: 100%;
+        height: 78px;
+        position: fixed;
+        padding: 0 12px
+    }
+
+    &__items {
+      padding-bottom: 68px;
+    }
+  }
+
+  &__button {
+    margin-top: 12px;
+  }
+}
+
+.add-rule-overlay-panel {
+  max-width: 436px;
+  max-height: 700px;
+
+  @media screen and (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+    max-width: 100%;
+    max-height: 437px;
+  }
+
+  .overlay-widget-container {
+
+    @media screen and (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+      max-height: 100%;
+      border-radius: 0 !important;
+      max-width: 100%;
+
+      & > div {
+        max-width: 100%;
+        border-radius: 0 !important;
+      }
+    }
+  }
+
+  .overlay-widget {
+    @media screen and (max-width: 720px) {
+      max-width: 100%;
+      .form-background-wrapper {
+          min-width: 188px;
+          max-width: 100%;
+      }
+    }
+  }
+}
+
+.mat-dialog-container[id^='mat-dialog-'] {
+  padding: 1em;
+  border-radius: 1em;
+  font-family: 'Roboto', sans-serif;
+
+  pe-rule-datepicker {
+    .mat-calendar-header {
+      padding: 0.125em 0;
+      margin-bottom: 1px;
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 0.75em 0.75em 0 0;
+    }
+
+    .mat-calendar-controls {
+      align-items: center;
+      justify-content: space-between;
+      margin: 0;
+
+      .mat-calendar-arrow {
+        display: none;
+      }
+    }
+
+    .mat-calendar-previous-button {
+      order: 1;
+      background-color: rgba(0, 0, 0, 0);
+      color: #fff;
+    }
+
+    .mat-calendar-period-button {
+      order: 2;
+      background-color: rgba(0, 0, 0, 0);
+      color: #fff;
+    }
+
+    .mat-calendar-next-button {
+      order: 3;
+      background-color: rgba(0, 0, 0, 0);
+      color: #fff;
+    }
+    .mat-calendar-spacer {
+      display: none;
+    }
+
+    .mat-calendar-content {
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 0 0 0.75em 0.75em;
+      padding: 8px 0 0 0;
+    }
+
+    .mat-calendar-table-header-divider::after {
+      background: #979797;
+      opacity: 0.3;
+      left: 0;
+      right: 0;
+    }
+
+    .mat-calendar-table-header {
+      color: #ffffff;
+
+      th {
+        padding-bottom: 8px;
+      }
+    }
+
+    .mat-calendar-body-cell {
+      &:not(.mat-calendar-body-disabled) {
+        .mat-calendar-body-cell-content {
+          color: #ffffff;
+          border: none;
+        }
+      }
+
+      &.mat-calendar-body-disabled {
+        .mat-calendar-body-cell-content {
+          color: #78787d;
+          border: none;
+        }
+      }
+    }
+
+    .mat-calendar-previous-button[disabled],
+    .mat-calendar-next-button[disabled] {
+      color: #78787d;
+    }
+  }
+}

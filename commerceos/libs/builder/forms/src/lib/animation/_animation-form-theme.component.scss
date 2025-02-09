@@ -1,0 +1,45 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $text-color: map.get($color-config, 'text-color');
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $active-text: map.get($color-config, 'active-text');
+  $confirm: map.get($color-config, 'confirm');
+  $label-color: map.get($color-config, 'label-color');
+
+  .peb-editor-animation-sidebar {
+    .peb-base-button {
+      border-radius: 6px;
+    }
+    .form__row {
+      &_border {
+        &::before {
+          background-color: $label-color;
+        }
+      }
+    }
+    .group__row > label, .property__title {
+        color: $label-color;
+    }
+    .keyframe {
+      &__title {
+        color: $confirm;
+      }
+    }
+    .remove-button.mat-icon {
+      color: $label-color;
+      &:hover {
+        color: $active-text;
+      }
+    }
+    .peb-base-button.pe-form-button:not(.confirm, .warn, .text-confirm, .text-warn) {
+      background-color: $confirm;
+      color: $active-text;
+      &.keyframe-button {
+        background: $overlay-background;
+        color: $confirm;
+      }
+    }
+  }
+}

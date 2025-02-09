@@ -1,0 +1,21 @@
+{
+  "form": {
+    "title": "Generate QR",
+    "type": "info-box",
+    "operations": [
+      {
+        "action": "close",
+        "text": "Close",
+        "request": {
+          "url": "https://qr-backend.test.devpayever.com/api/form/preview",
+          "method": "post"
+        }
+      }
+    ],
+    "content": {
+      "html": {
+        "bodyImg": "/background_jpg_ed4f73.jpg"
+      }
+    }
+  }
+}

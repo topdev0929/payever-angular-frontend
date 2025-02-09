@@ -1,0 +1,11 @@
+<div class="row color-palette-item">
+  <div class="col-sm-2 col-xs-2" *ngFor="let item of colorPalette">
+    <div class="color-palette-box {{ item.class }}"
+         [ngClass]="{ 'color-palette-box-dark': !item.light, 'color-palette-box-light': item.light }">{{ peVariables[item.variable] }}
+    </div>
+    <div class="color-palette-description">
+      <h4>{{ item.title }}</h4>
+    </div>
+    <pre><code html-entities="true" [innerHTML]="item.variableDescription"></code></pre>
+  </div>
+</div>

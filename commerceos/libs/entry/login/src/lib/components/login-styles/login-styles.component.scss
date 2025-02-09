@@ -1,0 +1,58 @@
+@import 'pe_variables';
+
+.login-wrapper {
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #111 inset !important;
+    box-shadow: 0 0 0 30px #111 inset !important;
+  }
+
+  padding: 0 16px;
+  @media (max-width: $viewport-breakpoint-xs-2) {
+    padding: 0;
+  }
+
+  .without-creds.mat-button-block.mat-raised-button {
+    border-radius: 12px;
+  }
+
+  .pe-recaptcha-wrap-wrap {
+    margin-top: 12px;
+    opacity: 1;
+    text-align: center;
+
+    .pe-recaptcha-wrap {
+      position: relative;
+      overflow: hidden;
+      width: 328px;
+      height: 80px;
+      border-radius: 12px;
+
+      pe-recaptcha {
+        position: absolute;
+        left: -3px;
+        top: -2px;
+      }
+    }
+  }
+
+  .password-forgot-wrap {
+    text-align: center;
+    padding-top: 8px;
+
+    a {
+      font-size: 14px;
+      font-weight: 400;
+      color: $color-white-grey-8;
+
+      text-decoration: underline;
+      cursor: pointer;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

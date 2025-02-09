@@ -1,0 +1,19 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $border: map.get($color-config, 'border');
+    .cdk-overlay-pane {
+      .extension-import-tooltip {
+        background-color: $secondary-background;
+        border-color: $border;
+        .menu-tooltip {
+          span,
+          a {
+            color: $text-color;
+          }
+        }
+      }
+    }
+}

@@ -1,0 +1,79 @@
+{
+  "payment-santander-uk": {
+    "actions": {
+      "apply": "Apply",
+      "change_payment_method": "Please, select another payment method",
+      "try_again": "Try again",
+      "pay": "Pay"
+    },
+    "credit_rates": {
+      "actions": {
+        "rate_choose_summary": "Choose {{ monthlyPayment }} for {{ duration }}"
+      },
+      "error": {
+        "rate_not_selected": "Please select rate",
+        "rates_list_empty": "No rates available"
+      },
+      "rate_details_dialog": {
+        "title_goods": "Your Goods",
+        "title_loan": "Your Loan",
+        "title_total": "Your Total",
+        "monthly_payments": "{{ monthlyPayment }} monthly Payments",
+        "total_goods_price": "Total Price of Goods",
+        "customer_deposit": "Customer deposit",
+        "interest_charges": "Interest Charges",
+        "fixed_rate": "Fixed Rate of Interest",
+        "total_amount": "Total Amount Payable",
+        "duration_agreement": "Duration of Agreement",
+        "amount_credit": "Amount of Credit",
+        "apr": "APR",
+        "total": "Total"
+      },
+      "rate_list_title": "{{ monthlyPayment }}/month for {{ duration }} months ({{ apr }} APR)",
+      "rate_title": "{{ monthlyPayment }}/month for {{ duration }} months",
+      "rate_line": "{{ apr }} APR",
+      "rate_param": {
+        "amount": "Amount of credit",
+        "interest_rate": "",
+        "flat_rate": "",
+        "duration": "Duration of agreement",
+        "total_credit_cost": "Total amount payable",
+        "interest": "",
+        "monthly_payment": "Monthly payment",
+        "first_month_payment": "",
+        "last_month_payment": ""
+      },
+      "month": "month",
+      "months": "months"
+    },
+    "inquiry": {
+      "full_details": "Full Finance Details",
+      "note1": "<strong>{{ businessName }}</strong> are a credit broker (not a lender) for the purposes of this financial promotion. We can introduce you to a limited number of carefully selected finance providers and may receive a commission from them for the introduction.",
+      "note2": "T&C's apply. Subject to status. 18's & over. Guarantee may be required. Retail sales only. Santander Consumer Finance, RH1 1SR. This quotation, available through Santander Consumer Finance, is valid for 14 days from <strong>{{ today }}</strong>. This is not a personal quotation and does not commit Santander Consumer Finance to enter into an agreement with you. Be sure you can afford the repayments before entering into a credit agreement. Santander Consumer (UK) PLC t/a Santander Consumer Finance is authorised and regulated by the Financial Conduct Authority in respect of agreements regulated by the Consumer Credit Act 1974 and for general insurance mediation activity. Authority under firm reference number is 444327.",
+      "finish": {
+        "order_success": {
+          "title": "Thank you for your purchase",
+          "text": "Order Confirmed"
+        },
+        "order_fail": {
+          "title": "Sorry. Your application was declined",
+          "text": "Please go back to the online shop and select a different payment option"
+        },
+        "order_processing": {
+          "title": "Thank you for your purchase",
+          "text": "Your payment will be accepted after verification"
+        },
+        "processing": {
+          "title": "Request can take a few minutes. Please do not click away",
+          "text": "We are processing your payment"
+        }
+      },
+      "form": {
+        "deposit": {
+          "label": "Deposit",
+          "placeholder": "Optional Deposit"
+        }
+      }
+    }
+  }
+}

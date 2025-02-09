@@ -1,0 +1,43 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $filter-invert-light: map.get($color-config, 'filter-invert-light');
+  $text-color: map.get($color-config, 'text-color');
+  $background: map.get($color-config, 'background');
+  $row-background: map.get($color-config, 'row-background');
+  $active-text: map.get($color-config, 'active-text');
+  $confirm: map.get($color-config, 'confirm');
+
+  .checkout-style-item-alignment-row {
+    &__label, .arrow-open {
+      color: $text-color;
+    }
+    .icon {
+      filter: $filter-invert-light;
+    }
+  }
+
+  .checkout-style-item-alignment-menu + .cdk-overlay-connected-position-bounding-box .cdk-overlay-pane {
+    .mat-menu-panel {
+      min-width: fit-content;
+      background-color: $row-background;
+      .mat-menu-content {
+        .mat-menu-item {
+          border-bottom-color: $background;
+          .icon {
+            filter: $filter-invert-light;
+            & + span {
+              color: $text-color;
+            }
+          }
+          &:hover {
+            background-color: $confirm;
+            .mat-list-item-content {
+              color: $active-text;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+<div
+  *ngIf="{ 
+    successUrl: successUrl$ | async,
+    isSigned: isSigned$ | async,
+  } as vm"
+  class="container"
+  [ngClass]="{
+    'container-with-callback': vm.successUrl
+  }"
+>
+  <div class="loading" *ngIf="!vm.isSigned">
+    <div class="loading-spinner">
+      <mat-progress-spinner
+        matSuffix
+        strokeWidth="2"
+        diameter="26"
+        mode="indeterminate">
+      </mat-progress-spinner>
+    </div>
+
+    <p class="large-1">{{ translations.loadingTitle }}</p>
+    <p class="subtitle">{{ translations.loadingSubtitle }}</p>
+  </div>
+  <ng-container *ngIf="vm.isSigned">
+    <div class="top-text-1">
+      <p>
+        <svg class="icon icon-64 text-primary">
+          <use xlink:href="#icon-register-done-32"></use>
+        </svg>
+      </p>
+      <p class="dark-text h2">{{translations.headerCardTitle}}</p>
+      <p class="caption-1">{{translations.headerCardSubtitle}}</p>
+    </div>
+    <div class="top-text-2">
+      <p class="dark-text large-1">{{translations.descriptionCardTitle}}</p>
+      <p class="subtitle">{{translations.descriptionCardSubtitle}}</p>
+      <p *ngIf="vm.successUrl" class="subtitle">{{translations.actionTitle}}</p>
+    </div>
+
+    <button
+      *ngIf="vm.successUrl"
+      mat-button
+      (click)="onClicked(vm.successUrl)"
+      target="_blank"
+      mat-button
+      class="mat-button-gradient action-button"
+      i18n="@@santander-de.inquiry.additionalSteps.signature.action.button">
+      santander-de.inquiry.additionalSteps.signature.action.button
+    </button>
+  </ng-container>
+</div>

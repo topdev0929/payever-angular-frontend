@@ -1,0 +1,40 @@
+.field-control {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.input-value {
+  flex: 1;
+  display: flex;
+  border-radius: 6px;
+  font-size: 11px;
+  box-sizing: border-box;
+  padding: 0 6px;
+  height: 28px;
+  margin-bottom: 8px;
+
+  .prefix {
+    display: flex;
+    padding: 0 10px 0 4px;
+    align-items: center;
+  }
+
+  .suffix {
+    display: flex;
+    padding: 0 4px 0 10px;
+    align-items: center;
+  }
+}
+
+input {
+  appearance: none;
+  color: inherit;
+  font-size: 11px;
+  line-height: normal;
+  background: transparent;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  min-width: 0;
+  width: 100%;
+}

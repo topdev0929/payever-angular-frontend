@@ -1,0 +1,25 @@
+<pe-modal
+  #modal
+  [baseViewConfig]="'largeDefaultHeader'"
+  [viewConfig]="{classes: {modalBody : bodyZeroPadding ? 'zero-padding' : ''}}"
+  [doHide]="hider"
+  (onClose)="back()"
+  [showLoading]="loading">
+
+  <div header class="row">
+    <div class="col-sm-3 col-xs-2"></div>
+    <div class="col-sm-6 hidden-xs text-center"><div class="modal-title subheading text-secondary">Modal title</div></div>
+    <div class="col-sm-3 col-xs-10 text-right">
+      <button class="btn btn-lg btn-primary btn-link" type="button">Action button</button>
+    </div>
+  </div>
+
+  <h2>H2 Header</h2>
+  <p>One fine body…</p>
+
+  <button (click)="loading = true" class="btn btn-lg btn-primary btn-link" type="button">Test loading</button>
+  <button (click)="bodyZeroPadding = true" class="btn btn-lg btn-primary btn-link" type="button">Test bodyZeroPadding</button>
+
+</pe-modal>
+
+<pe-icons-set></pe-icons-set>

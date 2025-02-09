@@ -1,0 +1,11 @@
+<div class="menu-container">
+  <button
+    mat-menu-item
+    class="menu-button"
+    *ngFor="let item of items"
+    [disableRipple]="true"
+    (click)="changed.emit(item)"
+  >
+    <svg class="button-icon" *ngIf="item?.icon"><use [attr.xlink:href]="item.icon"></use></svg>
+  </button>
+</div>

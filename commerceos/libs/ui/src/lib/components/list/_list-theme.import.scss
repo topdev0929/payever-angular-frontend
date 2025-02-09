@@ -1,0 +1,10 @@
+@use 'pe_theming' as pet;
+@use './list-container-theme' as list_container;
+@use './list-section-theme' as list_section;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include list_container.color($color-config);
+  @include list_section.color($color-config);
+}
+

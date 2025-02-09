@@ -1,0 +1,43 @@
+<div class="menu-container">
+  <div class="categories">
+    <ng-container *ngFor="let category of data">
+      <div
+        *peFeatureFlag="category.featureFlagName"
+        class="category-button"
+        [class.active]="selectedCategory?.label === category.label"
+        (click)="this.selectedCategory = category; $event.stopPropagation()"
+        [attr.pe-qa-builder]="getTestingAttribute(category.label)"
+      >
+        {{ category.label }}
+      </div>
+    </ng-container>
+  </div>
+  <div class="selected-category-content" *ngIf="selectedCategory">
+    <ng-container *ngFor="let item of (selectedCategory$ | async).items">
+      <div
+        *peFeatureFlag="item.featureFlagName"
+        class="selected-category-item"
+        [attr.pe-qa-builder]="getTestingAttribute(item.value)"
+        (click)="onItemClicked(item)"
+      >
+        <svg class="selected-category-icon" *ngIf="item.icon">
+          <use [attr.xlink:href]="item?.icon"></use>
+        </svg>
+        <ng-container *ngIf="item.template">
+          <div [innerHTML]="item.template" [ngClass]="item.containerClass"></div>
+        </ng-container>
+        <ng-container *ngIf="item.button">
+          <button mat-raised-button style="background: rgb(0, 132, 255); color: #ffffff;">
+            {{ item.button.text }}
+            <i *ngIf="item.button.icon">
+              <svg class="icon icon-16">
+                <use [attr.xlink:href]="item.button.icon"></use>
+              </svg>
+            </i>
+          </button>
+          <div [innerHTML]="item.template" [ngClass]="item.containerClass"></div>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+</div>

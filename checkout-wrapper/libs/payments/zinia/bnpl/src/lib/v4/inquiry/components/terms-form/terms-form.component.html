@@ -1,0 +1,22 @@
+<form
+  *ngIf="formGroup.enabled"
+  class="form-table"
+  [formGroup]="formGroup">
+  <ng-container *ngFor="let termGroup of customerControls | keyvalue">
+    <ng-container
+      *ngIf="!hiddenTerms[termGroup.key]"
+      [formGroupName]="termGroup.key">
+      <ng-container *ngFor="let termForm of termFromArrayControls(termGroup.value); let i = index;">
+        <ng-container [formGroupName]="i">
+          <mat-checkbox
+            class="col-xs-12"
+            [class.hidden]="!!hiddenTerms[termGroup.key]"
+            [analyticFieldName]="terms[termGroup.key][i].documentId"
+            formControlName="value">
+            <span [innerHTML]="terms[termGroup.key][i].label"></span>
+          </mat-checkbox>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</form>

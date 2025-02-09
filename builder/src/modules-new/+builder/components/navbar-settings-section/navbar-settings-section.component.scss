@@ -1,0 +1,14 @@
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+@import "~@pe/ui-kit/scss/pe_variables";
+
+:host {
+  @include pe_flexbox();
+
+  .button-settings-toggle {
+    margin-right: $grid-unit-x;
+  }
+  
+  .append-below {
+    left: unset;
+  }
+}

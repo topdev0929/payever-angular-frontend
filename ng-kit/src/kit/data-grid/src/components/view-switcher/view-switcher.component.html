@@ -1,0 +1,25 @@
+<button mat-button
+        class="mat-button-no-width mat-button-no-padding-right"
+        [matMenuTriggerFor]="menu"
+>
+  <svg class="icon icon-16" [ngSwitch]="viewMode">
+    <use *ngSwitchCase="dataViewMode.Grid" xlink:href="#icon-datagrid-16"></use>
+    <use *ngSwitchCase="dataViewMode.List" xlink:href="#icon-hamburger-16"></use>
+  </svg>
+</button>
+<mat-menu #menu="matMenu" panelClass="pe-bootstrap" class="mat-menu-panel-data-grid mat-menu-dark">
+  <ng-template matMenuContent>
+    <button mat-menu-item (click)="setViewMode(dataViewMode.List)">
+      <mat-icon>
+        <svg class="icon icon-16"><use xlink:href="#icon-hamburger-16"></use></svg>
+      </mat-icon>
+      {{ 'ng_kit.data_grid.view_switcher.buttons.table' | translate }}
+    </button>
+    <button mat-menu-item (click)="setViewMode(dataViewMode.Grid)">
+      <mat-icon>
+        <svg class="icon icon-16"><use xlink:href="#icon-datagrid-16"></use></svg>
+      </mat-icon>
+      {{ 'ng_kit.data_grid.view_switcher.buttons.grid' | translate }}
+    </button>
+  </ng-template>
+</mat-menu>

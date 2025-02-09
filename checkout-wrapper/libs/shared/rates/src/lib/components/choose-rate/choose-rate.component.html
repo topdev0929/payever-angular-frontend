@@ -1,0 +1,17 @@
+<pe-choose-rate
+  [rates]="rates"
+  [isLoading]="isLoading"
+  [initialRateId]="initialRateId"
+  [doSelectRate]="doSelectRate"
+  [maxDropDownHeight]="maxDropDownHeight"
+  [qaId]="qaId"
+  [noRateSelectedText]="noRateSelectedText"
+  [selectedExtraDurations]="selectedExtraDurations"
+  [hasInfoButton]="hasInfoButton"
+  [previewAsSingleLine]="previewAsSingleLine"
+  (ratesSelectOpened)="ratesSelectOpened.emit($event)"
+  (rateSelected)="rateSelected.emit($event)"
+  (toggleExtraDuration)="toggleExtraDuration.emit($event)"
+  (rateClicked)="onRateClicked($event)"
+  (infoButtonClicked)="infoButtonClicked.emit($event)"
+></pe-choose-rate>

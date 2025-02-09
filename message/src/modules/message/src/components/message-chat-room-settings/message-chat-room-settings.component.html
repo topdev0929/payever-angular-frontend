@@ -1,0 +1,60 @@
+<ng-container *ngIf="activeChat">
+  <div class="chat-room-settings__icon">
+    <div
+      class="chat-room-settings__avatar"
+      *ngIf="activeChat?.avatar"
+      [style.backgroundImage]="activeChat?.avatar"
+    ></div>
+    <div class="chat-room-settings__initials">{{ activeChat.initials }}</div>
+  </div>
+  <div class="chat-room-settings__action-list">
+    <div *ngFor="let action of actions" class="chat-room-settings__action-item">
+      <div class="chat-room-settings__action-icon" (click)="pushAction(action)">
+        <svg [ngSwitch]="action">
+          <use *ngSwitchCase="peMessageChatAction.Add" xlink:href="#icon-apps-customers"></use>
+          <use *ngSwitchCase="peMessageChatAction.Link" xlink:href="#icon-apps-link"></use>
+          <use *ngSwitchCase="peMessageChatAction.Edit" xlink:href="#icon-apps-edit"></use>
+          <use *ngSwitchCase="peMessageChatAction.Delete" xlink:href="#icon-apps-delete"></use>
+          <use *ngSwitchCase="peMessageChatAction.More" xlink:href="#icon-apps-more"></use>
+        </svg>
+      </div>
+      <span>{{ action }}</span>
+    </div>
+  </div>
+  <div *ngIf="admins?.length > 0" class="chat-room-settings__members-wrapper">
+    <div class="chat-room-settings__members-header">
+      <p>{{ 'message-app.channel.settings.admins' | translate}}</p>
+      <div>
+        <button width="45">{{ 'message-app.sidebar.edit' | translate}}</button>
+        <button>{{ admins.length }}<span>+</span></button>
+      </div>
+    </div>
+    <div class="chat-room-settings__members-list">
+      <div *ngFor="let member of admins" class="chat-room-settings__members-item" (click)="permissionMember(member)">
+        <div class="chat-room-settings__member-icon">
+          <div class="chat-room-settings__member-avatar" *ngIf="member?.avatar" [style.backgroundImage]="member?.avatar"></div>
+          <div class="chat-room-settings__member-initials">{{ member.initials }}</div>
+        </div>
+        <span>{{ member.title }}</span>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="subscribers?.length > 0" class="chat-room-settings__members-wrapper">
+    <div class="chat-room-settings__members-header">
+      <p>{{ 'message-app.channel.settings.subscribers' | translate}}</p>
+      <div>
+        <button width="45">{{ 'message-app.sidebar.edit' | translate}}</button>
+        <button>{{ subscribers.length }}<span>+</span></button>
+      </div>
+    </div>
+    <div class="chat-room-settings__members-list">
+      <div *ngFor="let member of subscribers" class="chat-room-settings__members-item">
+        <div class="chat-room-settings__member-icon">
+          <div class="chat-room-settings__member-avatar" *ngIf="member?.avatar" [style.backgroundImage]="member?.avatar"></div>
+          <div class="chat-room-settings__member-initials">{{ member.initials }}</div>
+        </div>
+        <span>{{ member.title }}</span>
+      </div>
+    </div>
+  </div>
+</ng-container>

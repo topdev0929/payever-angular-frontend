@@ -1,0 +1,15 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $border: map.get($color-config, 'border');
+
+  .pe-widget-table {
+    .pe-widget-table {
+      &__row {
+        &:not(:last-child) {
+          border-bottom-color: $border;
+        }
+      }
+    }
+  }
+}

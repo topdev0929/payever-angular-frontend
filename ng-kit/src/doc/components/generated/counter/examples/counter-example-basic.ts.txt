@@ -1,0 +1,3 @@
+handleCounterValue(value: number): void {
+  
+}

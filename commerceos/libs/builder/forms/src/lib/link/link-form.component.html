@@ -1,0 +1,39 @@
+<form class="form" [formGroup]="form">
+
+  <peb-select
+    label="Link type"
+    class="field-control"
+    formControlName="type"
+    [options]="linkTypes"
+  ></peb-select>
+
+  <div formGroupName="payload">
+    <ng-container *ngFor="let field of fields$ | async">
+      <peb-select
+        *ngIf="field.type === 'select'"
+        class="field-control"
+        [label]="field.label"
+        [formControlName]="field.controlName"
+        [options]="field.options"
+        [placeholder]="field.placeholder ?? ''"
+      ></peb-select>
+
+      <mat-form-field *ngIf="field.type === 'input'" class="input-value">
+        <mat-label class="prefix">{{field.label}}</mat-label>
+        <input
+          textAlign="left"
+          [formControlName]="field.controlName"
+          [placeholder]="field.placeholder || ''"
+          type="text"
+        />
+      </mat-form-field>
+
+      <input
+        *ngIf="field.type === 'hidden'"
+        type="hidden"
+        [formControlName]="field.controlName"
+      />
+    </ng-container>
+  </div>
+
+</form>

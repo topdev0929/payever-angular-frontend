@@ -1,0 +1,13 @@
+<hsbc-shared-finish
+  [errorMessage]="errorMessage"
+  [embeddedMode]="embeddedMode"
+  [merchantMode]="merchantMode"
+  [asSinglePayment]="asSinglePayment"
+  [nodeResult]="paymentResponse"
+  [showCloseButton]="showCloseButton"
+  [isLoading]="!paymentResponse && !errorMessage"
+  (cleanUp)="cleanUp()"
+  (close)="close()"
+  (tryAgain)="tryAgain()"
+  (closeButtonClicked)="close()"
+  (changePaymentMethod)="changePayment($event)"></hsbc-shared-finish>

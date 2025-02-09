@@ -1,0 +1,199 @@
+<p
+  class="small text text-danger"
+  *ngIf="commonError">
+  {{ commonError }}<br /><br />
+</p>
+<form
+  class="cart-details"
+  novalidate
+  (ngSubmit)="onSubmit()"
+  *ngIf="(flow$ | async) as flow">
+  <button
+    #submitTrigger
+    id="submitButton"
+    name="submitButton"
+    type="submit"
+    class="native-submit"
+    aria-label="Submit button"></button>
+  <table [attr.aria-describedby]="tableDescriptionText">
+    <tr class="row-block">
+      <th
+        scope="col"
+        class=""
+        colspan="3">
+        <span
+          class="text-secondary"
+          i18n="@@checkout_cart_edit.form.label.product">
+          checkout_cart_edit.form.label.product
+        </span>
+      </th>
+      <th
+        scope="col"
+        class="text-right">
+        <span
+          class="text-secondary"
+          i18n="@@checkout_cart_edit.form.label.qty">
+          checkout_cart_edit.form.label.qty
+        </span>
+      </th>
+      <th
+        scope="col"
+        class="text-right">
+        <span
+          class="text-secondary"
+          i18n="@@checkout_cart_edit.form.label.price">
+          checkout_cart_edit.form.label.price
+        </span>
+      </th>
+    </tr>
+    <ng-container *ngIf="(cart$ | async) && !(cart$ | async)?.length">
+      <th
+        scope="col"
+        colspan="5">
+        <div
+          class="h5"
+          i18n="@@checkout_cart_edit.error.card_is_empty">
+          checkout_cart_edit.error.card_is_empty
+        </div>
+      </th>
+    </ng-container>
+    <!-- Items -->
+    <ng-container *ngIf="(cart$ | async)?.length">
+      <ng-container *ngFor="let item of (cart$ | async); let i=index; trackBy: trackByFn">
+        <tr
+          class="row-block"
+          [class.order-row-error]="!!productsErrors[item.productId]">
+          <td class="cell-remove">
+            <span
+              class="delete-control"
+              [style.opacity]="(isPreparingData$ | async) ? 0 : 1.0"
+              (click)="deleteItem(item)">
+              <svg class="icon icon-16"><use xlink:href="#icon-x-solid-24"></use></svg>
+            </span>
+          </td>
+          <td class="cell-preview">
+            <div style="min-height: 66px;">
+              <img
+                class="preview"
+                *ngIf="isURL(item.image)"
+                alt="Preview"
+                [attr.src]="item.image" />
+            </div>
+          </td>
+          <td class="cell-description">
+            <div class="cell-description-inner">
+              <div class="text-left description-block">
+                {{ item.name }}
+              </div>
+              <div
+                *ngIf="item._optionsAsLine"
+                class="text-left description-block micro-2">
+                {{ item._optionsAsLine }}
+              </div>
+            </div>
+          </td>
+          <td class="cell-counter text-right">
+            <div
+              class="hidden-xs"
+              [style.opacity]="(isPreparingData$ | async) ? 0 : 1.0">
+              <pe-counter
+                [value]="item.quantity"
+                [readOnly]="isPreparingData$ | async"
+                (counterValueChange)="onCounterValueChange(item, $event)"></pe-counter>
+            </div>
+            <div
+              class="visible-xs select-qty-wrap"
+              [style.opacity]="(isPreparingData$ | async) ? 0 : 1.0">
+              <mat-select
+                [disabled]="isPreparingData$ | async"
+                [value]="item.quantity"
+                (selectionChange)="onCounterValueChange(item, $event.value)">
+                <mat-option
+                  *ngFor="let option of numberOptions"
+                  [value]="option"
+                  >{{option}}</mat-option
+                >
+              </mat-select>
+            </div>
+          </td>
+          <td class="cell-price text-right">
+            <div
+              class="old-price"
+              *ngIf="item.originalPrice && item.originalPrice !== item.price">
+              {{ item.originalPrice | peCurrency:flow?.currency:'symbol-narrow' }}
+            </div>
+            <div>
+              {{ item.price | peCurrency:flow?.currency:'symbol-narrow' }}
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+      <!-- Total -->
+      <tr class="row-summary row-block">
+        <td
+          class="text-right"
+          colspan="4">
+          <span
+            class="text-secondary"
+            i18n="@@checkout_cart_edit.form.label.subtotal"
+            >checkout_cart_edit.form.label.subtotal</span
+          >
+        </td>
+        <td class="cell-price text-right">
+          <span [innerHTML]="(subtotalOriginal$ | async) | peCurrency:flow?.currency:'symbol-narrow'"></span>
+        </td>
+      </tr>
+      <tr
+        class="row-summary row-block"
+        *ngIf="discount$ | async as discount">
+        <td
+          class="text-right"
+          colspan="4">
+          <span
+            class="text-secondary"
+            i18n="@@checkout_cart_edit.form.label.discount"
+            >checkout_cart_edit.form.label.discount</span
+          >
+        </td>
+        <td class="cell-price text-right">
+          -<span [innerHTML]="discount | peCurrency:flow?.currency:'symbol-narrow'"></span>
+        </td>
+      </tr>
+      <tr
+        class="row-summary row-block"
+        *ngIf="flow?.taxValue">
+        <td
+          class="text-right"
+          colspan="4">
+          <span
+            class="text-secondary"
+            i18n="@@checkout_cart_edit.form.label.tax"
+            >checkout_cart_edit.form.label.tax</span
+          >
+        </td>
+        <td class="cell-price text-right">
+          <span [innerHTML]="(taxValue$ | async) | peCurrency:flow?.currency:'symbol-narrow':'1.2-2'"></span>
+        </td>
+      </tr>
+      <tr class="row-summary row-summary-total">
+        <td
+          class="text-right"
+          colspan="4">
+          <span
+            *ngIf="isShop$ | async"
+            i18n="@@checkout_cart_edit.form.label.shop_total"
+            >checkout_cart_edit.form.label.shop_total</span
+          >
+          <span
+            *ngIf="(isShop$ | async) !== true"
+            i18n="@@checkout_cart_edit.form.label.total"
+            >checkout_cart_edit.form.label.total</span
+          >
+        </td>
+        <td class="cell-price text-right">
+          <span [innerHTML]="(orderTotal$ | async) | peCurrency:flow?.currency:'symbol-narrow':'1.2-2'"></span>
+        </td>
+      </tr>
+    </ng-container>
+  </table>
+</form>

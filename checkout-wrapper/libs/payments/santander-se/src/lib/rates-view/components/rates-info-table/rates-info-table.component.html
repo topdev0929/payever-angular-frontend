@@ -1,0 +1,101 @@
+<div *ngIf="paymentTitle">
+  <strong
+    id="paymentTitle"
+    [innerHTML]="paymentTitle"></strong>
+</div>
+
+<ng-container *ngIf="selectedRate">
+  <div
+    class="clearfix"
+    *ngIf="!selectedRate.payLaterType">
+    <span
+      id="PpTitle"
+      class="text-secondary"
+      [innerHTML]="translations?.titlePp">
+    </span>
+  </div>
+  <div
+    class="clearfix"
+    *ngIf="selectedRate.payLaterType">
+    <span
+      id="bnplTitle"
+      class="text-secondary"
+      [innerHTML]="translations?.titleBnpl">
+    </span>
+  </div>
+
+  <div
+    class="clearfix"
+    *ngIf="!selectedRate.payLaterType">
+    <span
+      class="text-secondary"
+      i18n="@@santander-se.credit_rates.rate_param.terms_on_month">
+      santander-se.credit_rates.rate_param.terms_on_month </span
+    >:
+    <span id="duration">{{ translations?.duration }}</span>
+  </div>
+  <div
+    class="clearfix"
+    *ngIf="selectedRate.payLaterType">
+    <span
+      class="text-secondary"
+      i18n="@@santander-se.credit_rates.rate_param.billing_fee_after_free_period">
+      santander-se.credit_rates.rate_param.billing_fee_after_free_period </span
+    >:
+    <span
+      id="bnplBillingFee"
+      [innerHTML]="selectedRate.billingFee | peCurrency:currency"></span>
+  </div>
+  <div class="clearfix">
+    <span
+      class="text-secondary"
+      i18n="@@santander-se.credit_rates.rate_param.startup_fee">
+      santander-se.credit_rates.rate_param.startup_fee </span
+    >:
+    <span
+      id="startupFee"
+      [innerHTML]="selectedRate.startupFee | peCurrency:currency"></span>
+  </div>
+  <div
+    class="clearfix"
+    *ngIf="!selectedRate.payLaterType">
+    <span
+      class="text-secondary"
+      i18n="@@santander-se.credit_rates.rate_param.billing_fee">
+      santander-se.credit_rates.rate_param.billing_fee </span
+    >:
+    <span
+      id="billingFee"
+      [innerHTML]="selectedRate.billingFee | peCurrency:currency"></span>
+  </div>
+  <div class="clearfix">
+    <span
+      class="text-secondary"
+      i18n="@@santander-se.credit_rates.rate_param.annual_fee">
+      santander-se.credit_rates.rate_param.annual_fee </span
+    >:
+    <span
+      id="annualFee"
+      [innerHTML]="selectedRate.annualFee | peCurrency:currency"></span>
+  </div>
+  <div class="clearfix">
+    <span
+      class="text-secondary"
+      i18n="@@santander-se.credit_rates.rate_param.total_cost">
+      santander-se.credit_rates.rate_param.total_cost </span
+    >:
+    <span
+      id="totalCost"
+      [innerHTML]="selectedRate.totalCost | peCurrency:currency"></span>
+  </div>
+  <div class="clearfix">
+    <span
+      class="text-secondary"
+      i18n="@@santander-se.credit_rates.rate_param.effective_interest">
+      santander-se.credit_rates.rate_param.effective_interest </span
+    >:
+    <span
+      id="effectiveInterest"
+      [innerHTML]="selectedRate.effectiveInterest/100 | percent:'1.0-2'"></span>
+  </div>
+</ng-container>

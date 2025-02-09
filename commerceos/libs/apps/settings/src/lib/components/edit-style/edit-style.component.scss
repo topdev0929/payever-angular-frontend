@@ -1,0 +1,24 @@
+@use "pe_variables" as pe_variables;
+
+.style-container {
+  border-radius: 12px;
+
+}
+
+.headline {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  span {
+    font-size: 12px;
+    margin-top: 0;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    @media (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 24px;
+      margin: 24px 0 32px;
+    }
+  }
+}

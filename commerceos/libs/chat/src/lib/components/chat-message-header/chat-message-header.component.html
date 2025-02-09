@@ -1,0 +1,22 @@
+<div class="message-header">
+  <div class="message-header__group">
+    <div class="message-header__from" (click)="getMember()">
+      <span *ngIf="messageObj.senderObj" [style.color]="accentColor" class="message-header__sender">
+        {{ (messageObj.senderObj?.firstName || '') + " " + (messageObj.senderObj?.lastName || '') }}
+      </span>      
+      <span *ngIf="messageObj.forwardFrom" class="message-header__sender">
+        {{ 'message-app.chat.forward-from' | translate }}
+        {{ messageObj.forwardFrom.senderTitle }}
+      </span>
+    </div>
+    <div class="message-header__message-info">
+      <div class="message-header__status {{messageObj.status}}">
+        <mat-icon 
+          *ngIf="messageObj.sender === userId"
+          class="message-status-icon" 
+          [svgIcon]="statusIcon" 
+          ></mat-icon>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="form_button" (click)="addAnimation()">
+    {{ 'builder-app.forms.animation.add_effect' | translate }}
+</div>
+
+<div class="list__row" *ngFor="let item of animations$ | async">
+    <peb-item-bar
+      [titles]="[item.trigger, item.action]"
+      (click)="editAnimation(item)"
+    ></peb-item-bar>
+    <div class="list__row__remove" [title]=" 'builder-app.forms.animation.remove_trigger' | translate"
+        (click)="removeAnimation(item)">
+        <span>-</span>
+    </div>
+</div>

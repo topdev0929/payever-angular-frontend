@@ -1,0 +1,40 @@
+
+<div class="pe-widget-edit-toggle editor-toggle">
+  <div class="toggle-button" (click)="changeMode(EditMode.apps)" [class.active]="currentMode===EditMode.apps">{{EditMode.apps}}</div>
+  <div class="toggle-button" (click)="changeMode(EditMode.widgets)" [class.active]="currentMode===EditMode.widgets">{{EditMode.widgets}}</div>
+
+</div>
+<div class="pe-widget-edit-container edit-overlay-container">
+  <ng-container *ngIf ="currentMode === EditMode.widgets" >
+    <div class="item" *ngFor="let widget of widgets; let i=index">
+      <div class="item-icon">
+        <svg >
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" [attr.xlink:href]="widget.icon"></use>
+        </svg>
+      </div>
+
+      <div class="item-title">{{widget.title|translate}} </div>
+      <div class="item-toggle">
+        <peb-button-toggle [(ngModel)]="widget.installed" [disabled]="widget.default || widget.disabled" (changed)="widgetChange($event,widget,i)"></peb-button-toggle>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf ="currentMode === EditMode.apps">
+    <div class="item" *ngFor="let app of cloneApps; let i=index">
+      <div class="item-icon">
+        <svg >
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" [attr.xlink:href]="app.icon"></use>
+        </svg>
+      </div>
+      <div class="item-title">{{app.title}} </div>
+      <div class="item-toggle">
+        <peb-button-toggle *ngIf="!app.isLoading" [ngModel]="app.installed" [disabled]="isAppToggleDisabled" (changed)="appChange($event,app,i)"></peb-button-toggle>
+      </div>
+      <ng-container *ngIf="app.isLoading">
+        <div class="item-toggle overlay-widget__done loading toggle-install">
+          {{app.installed ? 'Uninstalling...' : 'Installing...'}}
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+</div>

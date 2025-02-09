@@ -1,0 +1,42 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $confirm: map.get($color-config, 'confirm');
+  $active-text: map.get($color-config, 'active-text');
+  $gray-button: map.get($color-config, 'gray-button');
+
+  .container {
+
+    .text-container {
+
+      .forward-title {
+        color: $text-color;
+
+      }
+
+      .forward-details {
+        color: $text-color;
+      }
+    }
+
+    .action-btns {
+      .primary-btn {
+        background: $confirm;
+        color: $active-text;
+      }
+
+      .secondary-btn {
+        background: $gray-button;
+        color: $text-color;
+      }
+    }
+
+    .subaction-btns {
+      color: $text-color;
+      .button-toggle-container {
+        padding: 0;
+      }
+    }
+  }
+}

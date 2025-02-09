@@ -1,0 +1,165 @@
+<ng-container>
+<pe-data-grid
+  id="pe-coupons-data-grid"
+  [filters]="filters"
+  [items]="items$"
+  [ngClass]="theme"
+  *ngIf="theme"
+  [filterItems]="filterItems"
+  [dataListOptions]="gridOptions.customFieldsTitles"
+  [selectedItems]="selectedItems"
+  [isShowGridItemInfo]="true"
+  [multipleSelectedActions]="multipleSelectedActions"
+  [sortByActions]="sortByActions"
+  [navbarLeftPaneButtons] = "leftPaneButtons"
+  [displayFilters]="showSidebar$ | async"
+  [searchItems]="searchItems"
+  (searchChanged)="onSearchChange($event)"
+  (searchRemove)="onSearchRemove($event)"
+  (gridContentContextMenu)="onGridContentContextMenu($event)"
+>
+
+  <!-- Coupon Programs SideBar -->
+  <pe-sidebar-filters-wrapper
+    [ngClass]="theme"
+    [class.context-menu_light]="this.theme === 'light'"
+    [class.context-menu_transparent]="this.theme === 'transparent'">
+    <pe-sidebar-header
+      [title]="'Coupons'| translate"
+      [allowClose]="true"
+      (click)="goToRoot()"
+      (closeSidebar)="toggleSidebar()"
+    ></pe-sidebar-header>
+    <pe-sidebar-filter-wrapper
+      title="My Coupons"
+      [expandable]="true"
+      [editable]="false"
+      [editMode]="false"
+      [active]="false"
+    >
+      <pe-tree-sidebar-filter
+        [tree]="folderTreeData"
+        [multiple]="false"
+        [allowToggle]="true"
+        [refresh]="refreshSubject$"
+        [formControl]="formGroup.get('program')"
+        [refresh]="refreshSubject$"
+        (nodeClick)="onNodeClick($event)"
+        (createNode)="onNodeCreate($event)"
+        (nodeContextMenu)="onFolderRightClick($event, foldersContextMenu)"
+        (renameNode)="onRenameNode($event)"
+      >
+        <ng-template #nodeImageTemplate let-node="node">
+          <div class="sidebar-item">
+            <div class="item-icon">
+              <svg *ngIf="node?.image" class="abbreviation">
+                <use href="#icon-switch-block-16"></use>
+              </svg>
+              <div *ngIf="!node?.image" class="abbreviation">
+                <span class="abbreviation__name">{{ node?.name }}</span>
+              </div>
+            </div>
+            {{ node?.name }}
+          </div>
+        </ng-template>
+      </pe-tree-sidebar-filter>
+    </pe-sidebar-filter-wrapper>
+  </pe-sidebar-filters-wrapper>
+  <pe-sidebar-footer-wrapper
+    [ngClass]="theme">
+    <pe-menu-sidebar-footer
+      [menuData]="sidebarProgramsControls"
+    ></pe-menu-sidebar-footer>
+  </pe-sidebar-footer-wrapper>
+  <!-- Coupons Grid Items -->
+  <pe-data-grid-item
+    [item]="addItem"
+    [actions]="addActions"
+    [selectable]="false"
+    [isShowGridItemInfo]="true"
+    (click)="openCoupon()"
+    [ngClass]="theme"
+  >
+    <div class="coupon__container gray">
+      <pe-coupons-icon-add></pe-coupons-icon-add>
+    </div>
+  </pe-data-grid-item>
+
+  <pe-data-grid-item
+    *ngFor="let item of items$ | async; trackBy: trackItem"
+    inViewport
+    [item]="item"
+    [actions]="[singleSelectedAction]"
+    [selectable]="true"
+    [isShowGridItemInfo]="true"
+    [ngClass]="theme"
+  >
+    <div
+      class="coupon__container orange"
+      (contextmenu)="onCouponRightClick($event, item, couponContextMenu)">
+      <div class="coupon__image">
+        <span>{{ item.title }}</span>
+      </div>
+      <div class="coupon__info">
+        <div class="coupon__title">{{ item.title }}</div>
+        <div class="coupon__description">{{ item.description }}</div>
+      </div>
+    </div>
+  </pe-data-grid-item>
+</pe-data-grid>
+</ng-container>
+
+<ng-template #couponContextMenu>
+<div class="connect-context-menu"
+     [class.context-menu_light]="this.theme === 'light'"
+     [class.context-menu_transparent]="this.theme === 'transparent'">
+  <div class="connect-context-menu__header">
+    <span class="connect-context-menu__title">Options</span>
+    <button class="connect-context-menu__close" (click)="closeContextMenu()">
+      <svg width="20" height="20" viewBox="0 0 20 20">
+        <g fill="none" fill-rule="evenodd">
+          <path fill="#636363"
+                d="M9.75 0c5.385 0 9.75 4.365 9.75 9.75s-4.365 9.75-9.75 9.75S0 15.135 0 9.75 4.365 0 9.75 0zm4.303 5.447c-.325-.324-.833-.354-1.19-.088l-.103.088-3.01 3.01-3.01-3.01-.102-.088c-.358-.266-.866-.236-1.19.088-.358.357-.358.936 0 1.293l3.009 3.01-3.01 3.01-.081.094c-.273.358-.246.871.081 1.199.325.324.833.354 1.19.088l.103-.088 3.01-3.011 3.01 3.01.102.09c.358.265.866.235 1.19-.09.358-.356.358-.935 0-1.292l-3.01-3.01 3.01-3.01.082-.094c.273-.358.246-.871-.081-1.199z"
+                transform="translate(-859 -387) translate(643 367) translate(216 20)"></path>
+        </g>
+      </svg>
+    </button>
+  </div>
+  <ul class="connect-context-menu__list">
+    <li class="connect-context-menu__list-item active" (click)="handleMoveToFolder(couponId)">
+      <span class="connect-context-menu__list-item-label">Move To Folder</span>
+    </li>
+  </ul>
+</div>
+</ng-template>
+
+
+<ng-template #foldersContextMenu>
+<div class="connect-context-menu"
+     [class.context-menu_light]="this.theme === 'light'"
+     [class.context-menu_transparent]="this.theme === 'transparent'">
+  <div class="connect-context-menu__header">
+    <span class="connect-context-menu__title">Options</span>
+    <button class="connect-context-menu__close" (click)="closeContextMenu()">
+      <svg width="20" height="20" viewBox="0 0 20 20">
+        <g fill="none" fill-rule="evenodd">
+          <path fill="#636363"
+                d="M9.75 0c5.385 0 9.75 4.365 9.75 9.75s-4.365 9.75-9.75 9.75S0 15.135 0 9.75 4.365 0 9.75 0zm4.303 5.447c-.325-.324-.833-.354-1.19-.088l-.103.088-3.01 3.01-3.01-3.01-.102-.088c-.358-.266-.866-.236-1.19.088-.358.357-.358.936 0 1.293l3.009 3.01-3.01 3.01-.081.094c-.273.358-.246.871.081 1.199.325.324.833.354 1.19.088l.103-.088 3.01-3.011 3.01 3.01.102.09c.358.265.866.235 1.19-.09.358-.356.358-.935 0-1.292l-3.01-3.01 3.01-3.01.082-.094c.273-.358.246-.871-.081-1.199z"
+                transform="translate(-859 -387) translate(643 367) translate(216 20)"></path>
+        </g>
+      </svg>
+    </button>
+  </div>
+  <ul class="connect-context-menu__list">
+    <li class="connect-context-menu__list-item active" (click)="handleDeleteFolderClick()">
+      <span class="connect-context-menu__list-item-label">Delete</span>
+    </li>
+    <li class="connect-context-menu__list-item active" (click)="handleRenameFolderClick()">
+      <span class="connect-context-menu__list-item-label">Rename</span>
+    </li>
+    <li *ngIf="selectedCoupon | async" class="connect-context-menu__list-item active" (click)="handleMoveCouponHere()">
+      <span class="connect-context-menu__list-item-label">Move here</span>
+    </li>
+  </ul>
+</div>
+</ng-template>

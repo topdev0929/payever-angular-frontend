@@ -1,0 +1,23 @@
+:host {
+  font-family: Roboto, sans-serif;
+  display: block;
+  color: #333;
+}
+
+.rate-details-line {
+  display: flex;
+  justify-content: space-between;
+  margin: 6px 6px 12px;
+
+  .rate-cell {
+    font-size: 16px;
+  }
+
+  @media (max-width: 420px) {
+    flex-wrap: wrap;
+
+    .rate-cell{
+      width: 100%
+    }
+  }
+}

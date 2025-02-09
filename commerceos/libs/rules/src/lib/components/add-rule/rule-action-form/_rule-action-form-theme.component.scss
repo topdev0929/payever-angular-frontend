@@ -1,0 +1,28 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $row-background: map.get($color-config, 'row-background');
+  $button: map.get($color-config, 'button');
+  $filter-invert-dark: map.get($color-config, 'filter-invert-dark');
+  $text-color: map.get($color-config, 'text-color');
+
+  .rule-action-pipeline {
+    &__header,
+    &__body {
+      .block {
+        background-color: $row-background;
+      }
+    }
+  
+    &__header {
+        background-color: $row-background;
+        &-title {
+          color: $text-color;
+        }
+        &-close,
+        &-icon {
+          color: $text-color;
+        }    
+    }
+  }
+}

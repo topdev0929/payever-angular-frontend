@@ -1,0 +1,75 @@
+<div class="pe-checkout-bootstrap" style="padding-bottom: 88px;">
+
+  <div style="margin-bottom: 33px;">
+    <div>
+      Channel set id: <input type="text" class="form-control" placeholder="Channel set id" [(ngModel)]="channelSetId" name="channelSetId">
+    </div>
+    <div>
+      Amount: <input type="number" class="form-control" placeholder="Amount" [(ngModel)]="amount" name="amount">
+    </div>
+    <div>
+      Payment method:
+      <select class="form-control" [(ngModel)]="paymentMethod" name="paymentMethod">
+        <option *ngFor="let pm of paymentMethods" [value]="pm">{{ pm }}</option>
+      </select>
+    </div>
+
+    <params [defaultParams]="defaultParams"
+            (onUpdateFlow)="updateFlow()"
+            (onUpdateSettings)="updateSettings()"
+            (onOpenOrderStep)="openOrderStep()"
+            (onUpdateSteps)="updateSteps()"
+            (onSaveFlowToStorage)="saveFlowToStorage()"
+            (paramsChanged)="paramsChanged($event)"
+            (disableLocaleDetectionChanged)="disableLocaleDetection = $event"
+    ></params>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <label><input type="checkbox" [(ngModel)]="checkoutHidden"> Hidden</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <button type="button" class="btn btn-primary" (click)="reCreateFlow()">Re create flow</button>
+      </div>
+    </div>
+
+    <h4>Last incoming events</h4>
+    <ul>
+      <li *ngFor="let event of lastEvents">{{ event.event }}: {{ event.value | json }}</li>
+    </ul>
+
+    <h4>Cart</h4>
+    <ul>
+      <li *ngFor="let item of cart">{{ item.productId }}: {{ item.name }} <input type="number" class="form-control input-sm" [(ngModel)]="item.quantity"></li>
+    </ul>
+    <div *ngIf="!cart?.length">-- No items in cart --</div>
+
+    <br>
+    <div class="row" *ngIf="channelSetId">
+      <div class="col-md-10 col-md-offset-1">
+        <div style="border: 1px dashed #aaa; transform: translateX(0);">
+          <pe-checkout-wrapper-by-channel-set-id-finexp
+            [attr.checkouthidden]="checkoutHidden | json"
+            [attr.openorderstep]="openOrderStep$ | async | json"
+            [attr.recreateflow]="reCreateFlow$ | async | json"
+            [attr.updateflow]="updateFlow$ | async | json"
+            [attr.updatesettings]="updateSettings$ | async | json"
+            [attr.updatesteps]="updateSteps$ | async | json"
+            [attr.finexpcreateflowparams]="getFinExpCreateFlowParams() | json"
+            [attr.saveflowtostorage]="saveFlowToStorage$ | async | json"
+            [attr.disablelocaledetection]="disableLocaleDetection | json"
+            [attr.params]="params | json"
+            (eventemitted)="onEventEmitted($event)"
+            (layoutshown)="onLayoutShown()"
+            (flowcloned)="onFlowCloned($event)">
+          </pe-checkout-wrapper-by-channel-set-id-finexp>
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br>
+      </div>
+    </div>
+  </div>
+</div>

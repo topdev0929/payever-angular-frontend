@@ -1,0 +1,42 @@
+<form [formGroup]="formGroup" class="form">
+    <ng-container formArrayName="colorStops">
+      <div class="gradient-slider">
+        <ng-container *ngFor="let form of colorStopsForm.controls; let i = index" [formGroup]="form">
+          <input
+            type="range"
+            min="0"
+            max="100"
+            formControlName="offset"
+            (click)="activeGradientIndex = i"
+          >
+        </ng-container>
+
+        <div class="gradient-slider__track" [style.background-image]="gradientCss"></div>
+        <div class="gradient-slider__container">
+          <div
+            class="thumb"
+            *ngFor="let stop of colorStops; let i = index"
+            [class.thumb_active]="activeGradientIndex === i"
+            [style.marginLeft.%]="stop.offset"
+            [style.backgroundColor]="stop.color"
+          ></div>
+        </div>
+      </div>
+
+      <ng-container *ngFor="let form of colorStopsForm.controls; let i = index" [formGroup]="form">
+        <peb-picker *ngIf="activeGradientIndex === i" formControlName="color"></peb-picker>
+      </ng-container>
+    </ng-container>
+
+    <div class="form-row">
+      <label>
+        {{ 'builder-app.forms.background.angle' | translate }}
+      </label>
+      <div class="combined-input-range">
+        <peb-range-input [min]="0" [max]="360" formControlName="angle"></peb-range-input>
+        <peb-number-input [min]="0" [max]="360" formControlName="angle" units="°"></peb-number-input>
+      </div>
+    </div>
+</form>
+
+

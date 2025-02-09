@@ -1,0 +1,130 @@
+* {
+  box-sizing: border-box;
+}
+
+.studio-preview-container {
+  position: absolute;
+  top: 40px;
+  bottom: 0;
+  width: 100%;
+  height: calc(100% - 40px);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+
+  .spacer {
+    flex: 0 0 1;
+  }
+
+  .row-item {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+    flex-direction: column;
+    padding: 0 12px;
+
+    &.middle {
+      text-align: center;
+    }
+
+    &.right {
+      text-align: right;
+    }
+  }
+}
+
+.studio-preview-controls {
+  top: 0;
+  position: absolute;
+  height: 40px;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  .control {
+    line-height: 40px;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 300;
+
+    button, a {
+      box-shadow: none !important;
+      background: none !important;
+    }
+
+    &.pointer {
+      cursor: pointer;
+    }
+  }
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  padding: 40px 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  .preview {
+    text-align: center;
+    max-height: calc(100vh - 80px);
+
+    img {
+      max-height: calc(100vh - 100px);
+      max-width: 100%;
+    }
+  }
+}
+
+.price-tag {
+  background-color: #888888;
+  color: #fff;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 5px 15px;
+  line-height: initial;
+}
+
+.menu {
+  backdrop-filter: blur(27px);
+  background-color: var(--color-primary-0, rgba(17, 17, 17, 0.85));
+  margin: -10px 0;
+  overflow: hidden;
+
+  &__button {
+    display: inline-flex;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: var(--color-secondary-0, rgba(255, 255, 255, 0.95));
+    font-size: 14px;
+    padding: 14px;
+    text-align: left;
+    min-width: 90px;
+    cursor: pointer;
+    outline: none;
+    justify-content: space-between;
+  }
+}
+
+.preview-container {
+  border: 10px solid #777777 !important;
+  display: block;
+  height: 100vh;
+  position: relative;
+
+  &.blurred {
+    filter: blur(100px);
+  }
+}
+
+.back-icon {
+  margin: 0 10px 8px 5px;
+  transform: rotate(180deg);
+  display: inline-block;
+  vertical-align: middle;
+}

@@ -1,0 +1,13 @@
+<div
+  *ngIf="remote$ | async"
+  class="wrapper">
+  <pe-checkout-wrapper-by-channel-set-id
+    [attr.createflowparams]="createFlowParams$ | async | json"
+    [attr.params]="params$ | async | json"
+    [attr.recreateflow]="recreateFlow"
+    [attr.openorderstep]="openOrderStep"
+    [attr.cart]="cart$ | async | json"
+    (eventemitted)="eventHandler($event)"
+    >
+  </pe-checkout-wrapper-by-channel-set-id>
+</div>

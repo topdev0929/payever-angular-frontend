@@ -1,0 +1,22 @@
+<ng-container *ngIf="(treeItems$ | async) as treeItems">
+  <div class="scrollbar" pebAutoHideScrollBar>
+    <ul class="integration-list">
+      <li class="integration-list__item" *ngFor="let integration of treeItems">
+        <ng-container *ngTemplateOutlet="integrationTreeItem; context: { $implicit: integration}"></ng-container>
+      </li>
+    </ul>
+  </div>
+</ng-container>
+
+<ng-template #integrationTreeItem let-item>
+  <input *ngIf="item.children?.length" type="checkbox" [id]="item.id" />
+  <label class="integration-list__title" [for]="item.id">
+    <span (click)="select(item)">{{item.title}}</span>
+  </label>
+
+  <ul class="integration-list" *ngIf="item.children?.length">
+    <li class="integration-list__item" *ngFor="let child of item.children">
+      <ng-container *ngTemplateOutlet="integrationTreeItem; context: { $implicit: child }"></ng-container>
+    </li>
+  </ul>
+</ng-template>

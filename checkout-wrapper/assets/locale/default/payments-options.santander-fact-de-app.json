@@ -1,0 +1,155 @@
+{
+  "salutation": {
+    "SALUTATION_MR": "Mr",
+    "SALUTATION_MRS": "Mrs"
+  },
+  "action": {
+    "continue": "Continue",
+    "close": "Close",
+    "change_payment_method": "Change payment method",
+    "send_inquiry": "Send finance inquiry",
+    "try_again": "Try again",
+    "update_rates": "Update rates",
+    "update_rates_to_continue": "Update rates to continue"
+  },
+  "credit_rates": {
+    "action": {
+      "select_rate": "Please select rate",
+      "rate_choose_summary": "Choose {{total}} for {{duration}}"
+    },
+    "error": {
+      "rate_not_selected": "Please select rate"
+    },
+    "rate_title": "{{ rate }}/mo. for {{ duration }} months",
+    "rate_line1": "Total credit {{ total }}",
+    "rate_param": {
+      "total_interest": "Total interest",
+      "last_rate": "Last rate",
+      "annual_percentage_rate": "Annual rate",
+      "nominal_interest_rate": "Interest rate",
+      "total": "Total"
+    },
+    "credit_due_date": "Charging",
+    "cpi": "CPI",
+    "duration": "Term",
+    "duration_value_with_rates": "{{ monthly_rate }} / {{duration}} {{label}} + {{ last_rate }} for last rate",
+    "monthly_rate": "Monthly rate",
+    "total_amount": "Credit price",
+    "month": "month",
+    "months": "months"
+  },
+  "boolean": {
+    "yes": "Yes",
+    "no": "No"
+  },
+  "inquiry": {
+
+    "finish": {
+      "application_success": {
+        "title": "Loan temporarely approved",
+        "merchant_text": "Thank you! Please go to transactions now in order to download the contract file and confirm you have checked the customers ID"
+      },
+      "application_pending": {
+        "title": "We are processing your application",
+        "text": "Verify your identification now"
+      },
+      "application_fail": {
+        "title": "Unfortunately, we can not provide you with a loan at this time. Please, select another payment method.",
+        "title_ex2": "We cannot provide you this payment. because of following:<br><b>{{ errorText }}</b>",
+        "text": "Application failed"
+      },
+
+      "error": {
+        "cant_get_payment_status": "Can't get payment status",
+        "empty_payment": "Payment doesn't exists"
+      },
+
+      "total": "Total",
+      "store_name": "Store name",
+      "created": "Created",
+      "name": "Name",
+
+      "application_number": "Application number: {{ applicationNumber }}",
+      "print_docs": "Print POSTIDENT documents",
+      "transaction_details": "See <a href='{{transactionLink}}' target='_blank'>transaction details</a> for missing steps of this application"
+    },
+
+    "docs": {
+      "title": "Please download the pre-contractual information",
+      "download_contract": "Download contract",
+      "error": {
+        "cant_get_link_to_contract": "Can't get link to contract"
+      }
+    },
+
+    "step": {
+      "rates": {
+        "title": "Payment method"
+      },
+      "docs": {
+        "title": "Contract"
+      }
+    },
+    "extra_text": "Anbieter: {{merchantAddress}}<br>Die obigen Angaben stellen zugleich das 2/3 beispiel nach.",
+    "form": {
+      "birthday": {
+        "label": "Date of birth",
+        "placeholder": "Date of birth"
+      },
+      "phone": {
+        "label": "Phone",
+        "placeholder": "Phone"
+      },
+      "advertising_accepted": {
+        "label": "Das Anklicken des Buttons “Jetzt kaufen” löst eine Übermittlung Ihrer personenberzogenen Daten an die Santander Consumer Bank AG zum Zweck der Bonitätsprüfung aus.<br>Nähere Informationen finden Sie in den Datenschutzhinweisen der Santander für den <a target='_blank' href='https://www.santander.de/static/datenschutzhinweise/rechnungskauf/datenschutzhinweise.html'><u>Rechnungs-/Ratenkauf</u></a>. Der Kunde ist mit <a href='communication'><u>werblicher Kommunikation</u></a> durch die Santander einverstanden. Die Erteilung dieser Einwilligung ist freiwillig und kann jederzeit <u>widerrufen</u> werden.",
+        "details": {
+          "title": "WERBLICHER KOMMUNIKATION",
+          "text": "Santander Consumer Bank AG und Santander Consumer Leasing GmbH informieren Sie bei Erteilung Ihrer Einwilligung per E-Mail, Telefon, Brief oder sonstiger elektronischer Kommunikationsdienste (SMS o.ä.) personalisiert über eigene und vermittelte Services und Produkte. Sie stimmen insoweit der Verarbeitung Ihrer personenbezogenen Daten zu (Details hierzu s. <a target='_blank' href='https://www.santander.de/static/datenschutzhinweise/rechnungskauf/werbehinweise.html'><u>Santander Werbehinweise</u></a>). Sie können diese Einwilligung jederzeit <u>widerrufen</u> und ohne Einwilligung zulässiger Werbung jederzeit <u>widersprechen</u> (Details hierzu s. <a target='_blank' href='https://www.santander.de/static/datenschutzhinweise/rechnungskauf/werbehinweise.html'><u>Santander Werbehinweise</u></a>)."
+        }
+      },
+      "customer_information": {
+        "label": "I have given the customer the <a target=\"blank\" href=\"https://www.santander.de/static/datenschutzhinweise/rechnungskauf/datenschutzhinweise.html\">Notes on data protection</a>"
+      },
+      "customer_acts": {
+        "label": "The customer acts on his <a class=\"info\">own account</a> (according to Section 11 (5) GwG).",
+        "details": {
+          "title": "Legal obligation to cooperate",
+          "text": "I have informed the customer that he must disclose to the bank in accordance with Section 11 (6) GwG whether he intends to establish, continue or carry out the business relationship or transaction for a beneficial owner and must provide all information and documents relating to identification are required. The customer must notify the bank immediately of any changes in connection with the above mandatory information in the course of the business relationship"
+        }
+      },
+      "personal_salutation": {
+        "label": "Salutation",
+        "placeholder": "Salutation"
+      },
+      "_first_name": {
+        "label": "First name",
+        "placeholder": "First name"
+      },
+      "_last_name": {
+        "label": "Last name",
+        "placeholder": "Last name"
+      }
+    }
+  },
+  "santander-de-fact": {
+    "inquiry": {
+      "finish": {
+        "application_success": {
+          "title": "Your payment has been accepted"
+        }
+      }
+    }
+  },
+  "santander-de-fact-pos": {
+    "inquiry": {
+      "finish": {
+        "application_fail": {
+          "title": "Unfortunately, we can not provide you with a loan at this time. Please, select another payment method.",
+          "title_ex2": "We cannot provide you this payment. because of following:<br><b>{{ errorText }}</b>",
+          "text": "Application failed"
+        }
+      }
+    }
+  }
+}
+

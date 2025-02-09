@@ -1,0 +1,338 @@
+<div hidden>
+  <input
+    #csvFileInput
+    type='file'
+    class='file-input'
+    accept='text/plain, .csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel'
+    (change)='importFile($event)'
+  />
+
+  <input
+    #xmlFileInput
+    type='file'
+    class='file-input'
+    accept='text/xml'
+    (change)='importFile($event)'
+  />
+</div>
+
+<pe-data-grid
+  class='product-container'
+  id='products-data-grid'
+  #dataGridComponent
+  [filterItems]='dataGridService.filterItems'
+  [initialFilterItem]='dataGridService.filterItems[1]'
+  [dataListOptions]='dataGridService.dataGridListOptions'
+  [displayFilters]='dataGridService.showFilters$ | async'
+  [filters]='[]'
+  [isShowGridItemInfo]='true'
+  [items]='dataGridService.gridItems$ | async'
+  [navbarLeftPaneButtons]='navbarLeftPaneButtons'
+  [searchItems]='searchItems'
+  [multipleSelectedActions]='multipleSelectedActions'
+  [sortByActions]='dataGridService.sortByActions'
+  [theme]='theme'
+  [totalCount]='(dataGridService.gridItems$ | async).length'
+  (itemClicked)='dataGridService.openFolder($event.id)'
+  (searchRemove)='onSearchRemove($event)'
+  (searchChanged)='onSearchChanged($event)'
+  (multipleSelectedItemsChanged)='onSelectedItemsChanged($event)'
+  (layoutTypeChanged)='onLayoutChanged($event)'
+  (scrollEvent)='scrollOnBottom($event)'
+  (gridContentContextMenu)='onGridContentContextMenu($event)'>
+  <pe-sidebar-header-wrapper>
+    <pe-sidebar-header
+      [title]="'products' | translate"
+      (closeSidebar)='toggleFiltersDisplaying(false)'
+      [allowClose]='false'>
+    </pe-sidebar-header>
+  </pe-sidebar-header-wrapper>
+  <pe-sidebar-filters-wrapper *ngIf='{
+                    tree: dataGridService.treeData$ | async,
+                    channelTree: dataGridService.channelTreeData$ | async
+                } as data'>
+    <pe-sidebar-filter-wrapper
+      [expandable]='true'
+      [title]="'collections' | translate">
+      <pe-tree-sidebar-filter class='tree'
+                              [tree]='data.tree'
+                              [initialSelectedTree]='null'
+                              [allowToggle]='true'
+                              [refresh]='refresh$'
+                              [formControl]='dataGridService.filtersFormGroup.controls.tree'
+                              (nestedTreeControl)='onCreateTreeControl($event)'
+                              (nodeContextMenu)='openDashboardContextMenu($event)' #collectionsTree>
+      </pe-tree-sidebar-filter>
+    </pe-sidebar-filter-wrapper>
+    <pe-sidebar-filter-wrapper>
+      <pe-tree-sidebar-filter
+        [initialSelectedTree]='null'
+        [tree]='data.channelTree'
+        [allowToggle]='true'
+        [formControl]='dataGridService.filtersFormGroup.controls.tree'
+        (nodeContextMenu)="openDashboardContextMenu($event, 'channel')"
+        (nodeClick)='onChannelClick($event)' #channelTree>
+      </pe-tree-sidebar-filter>
+    </pe-sidebar-filter-wrapper>
+    <pe-sidebar-footer-wrapper>
+      <pe-menu-sidebar-footer
+        [menuData]='dataGridService.sidebarFooterData$ | async'
+        [theme]='theme'
+      ></pe-menu-sidebar-footer>
+    </pe-sidebar-footer-wrapper>
+  </pe-sidebar-filters-wrapper>
+  <ng-container
+    *ngIf="!dataGridService.conditionFormattedFilters.length && (viewMode$ | async) === 'grid'">
+    <div *ngIf="dataGridService.selectedFolder$ | async as folderId"
+         class='grid-section__header'>{{headerName || 'My products'}}</div>
+    <pe-data-grid-item
+      *ngIf="!dataGridService.selectedFolder || ![myDropshippingId, payeverDropshippingId].includes(dataGridService.selectedFolder)"
+      [item]='dataGridService.addItem'
+      [theme]='theme'
+      [selectable]='false'
+      [isShowGridItemInfo]='false'
+      (click)='onAddItemClick($event)'
+      class='data-grid-item new-item'>
+      <pe-data-add-collection-product-icon
+        style='align-self: center; justify-self: center;'>
+      </pe-data-add-collection-product-icon>
+    </pe-data-grid-item>
+  </ng-container>
+  <ng-container *ngIf='(dataGridService.gridItems$ | async).length > 0'>
+    <pe-data-grid-item
+      *ngFor='let item of gridItems'
+      [item]='item'
+      [theme]='theme'
+      [isShowGridItemInfo]='true'
+      class='product-item data-grid-item'>
+      <div class='folder__content' [ngClass]='theme' (click)='onOpenItemClick(item, $event)'>
+        <ng-container *ngIf='item.image; then itemImage; else itemPlaceholder'></ng-container>
+        <ng-template #itemImage>
+          <div class='folder__image' [style.backgroundImage]="'url(' + item?.image + ')'">
+            <ng-container *ngTemplateOutlet='companyWidgetRef'></ng-container>
+          </div>
+        </ng-template>
+        <ng-template #itemPlaceholder>
+          <div class='folder__placeholder company-widget'>
+            <ng-container *ngTemplateOutlet='companyWidgetRef'></ng-container>
+          </div>
+        </ng-template>
+        <ng-template #companyWidgetRef>
+          <span *ngIf="item['company'] !== envService.business['name']"
+                class='company-widget-container'>{{item['company'] || ('new' | translate).toUpperCase()}}
+          </span>
+        </ng-template>
+        <div
+          style='display: flex; justify-content: space-between; align-items: center; padding: 8px 9px 8px 12px; max-height: 75px'>
+          <div class='folder__info'>
+            <div *ngIf='item.title' class='folder__title'>{{ item.title }}</div>
+            <div *ngIf='item.subtitle' class='folder__subtitle'>{{ item.subtitle }}</div>
+            <div *ngIf='item.description' class='folder__description'>{{ item.description }}</div>
+          </div>
+          <button class='folder__button'
+                  [ngStyle]="{'background-color': item['company'] !== envService.business['name'] ?
+                   'rgb(3, 113, 226)' : '#65646d'}"
+                  (click)='onOpenItemClick(item, $event)'>
+            {{item['company'] !== envService.business['name'] ? 'GET' : item?.actions[0]?.label.toUpperCase()}}
+          </button>
+        </div>
+      </div>
+    </pe-data-grid-item>
+  </ng-container>
+  <ng-container
+    *ngIf='!dataGridService.conditionFormattedFilters.length &&
+      (dataGridService.gridFolders$ | async).length > 0'>
+    <pe-data-grid-item
+      *ngFor='let folder of dataGridService.gridFolders$ | async'
+      [item]='folder'
+      [theme]='theme'
+      class='data-grid-item'
+      [isShowGridItemInfo]='true'>
+      <div class='folder__content' [ngClass]='theme' (click)='onOpenItemClick(folder, $event)'>
+        <ng-container *ngIf='folder.image'>
+          <div class='folder__image' [style.backgroundImage]="'url(' + folder?.image + ')'"></div>
+        </ng-container>
+        <ng-container *ngIf='!folder.image'>
+          <div class='folder__placeholder'>
+            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 86 67'
+                 style='width: 100%; height: 100%;'>
+              <defs>
+                <linearGradient id='5675cexj3a' x1='50%' x2='50%' y1='0%' y2='19.745%'>
+                  <stop offset='0%' stop-color='#007DFD'></stop>
+                  <stop offset='100%' stop-color='#005DBB'></stop>
+                </linearGradient>
+                <linearGradient id='1mqut1m2qb' x1='50%' x2='50%' y1='0%' y2='100%'>
+                  <stop offset='0%' stop-color='#007EFF'></stop>
+                  <stop offset='100%' stop-color='#005CBA'></stop>
+                </linearGradient>
+              </defs>
+              <g fill='none' fill-rule='evenodd'>
+                <g>
+                  <g>
+                    <g>
+                      <path fill='url(#5675cexj3a)'
+                            d='M5.075 0h17.013c1.49 0 2.918.592 3.97 1.647l2.476 2.48c.801.803 1.89 1.255 3.024 1.255H81.46c2.507 0 4.54 2.032 4.54 4.54v41.78c0 2.95-2.392 5.342-5.342 5.342H5.342C2.392 57.044 0 54.653 0 51.703V5.075C0 2.272 2.272 0 5.075 0z'
+                            transform='translate(-910 -582) translate(826 543) translate(84 39)'></path>
+                      <path fill='url(#1mqut1m2qb)'
+                            d='M2.137 9.956h81.726c1.18 0 2.137.956 2.137 2.136v49.566C86 64.608 83.608 67 80.658 67H5.342C2.392 67 0 64.608 0 61.658V12.092c0-1.18.957-2.136 2.137-2.136z'
+                            transform='translate(-910 -582) translate(826 543) translate(84 39)'></path>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </ng-container>
+        <div
+          style='display: flex; justify-content: space-between; align-items: center; padding: 8px 9px 8px 12px; max-height: 75px'>
+          <div class='folder__info'>
+            <div *ngIf='folder.title' class='folder__title'>{{ folder.title }}</div>
+            <div *ngIf='folder.subtitle' class='folder__subtitle'>{{ folder.subtitle }}</div>
+            <div *ngIf='folder.description' class='folder__description'>{{ folder.description }}</div>
+          </div>
+          <button class='folder__button'
+                  >{{folder?.actions[0]?.label.toUpperCase()}}</button>
+        </div>
+      </div>
+    </pe-data-grid-item>
+  </ng-container>
+
+</pe-data-grid>
+
+<div class='import'>
+  <div style='flex-grow: .5'></div>
+  <div class='button' #menuTrigger='matMenuTrigger' [mat-menu-trigger-for]='leftPaneButtonMenu'
+       (menuClosed)='onMenuClosed()'>Import
+  </div>
+  <div style='width: 46px'></div>
+  <div></div>
+  <mat-menu #leftPaneButtonMenu='matMenu' backdropClass='lib-products__import-mat-menu'>
+    <div id='import-menu'>
+      <div class='menu' [ngClass]='theme'>
+        <div class='menu-header' (click)='$event.stopPropagation()'>
+          <div class='menu-header__title'>Import</div>
+          <pf-close-icon class='menu-header__close-icon' (click)='menuTrigger.closeMenu()'></pf-close-icon>
+        </div>
+        <div class='menu__button' (click)='$event.stopPropagation()'>
+          <mat-icon class='import-icon'>
+            <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'>
+              <g fill='none' fill-rule='evenodd'>
+                <g transform='translate(-728 -158) translate(712 96) translate(16 62)'>
+                  <rect width='20' height='20' fill='#86868B' rx='5' />
+                  <g fill='#FFF' fill-rule='nonzero'>
+                    <path
+                      d='M12.314 0c.889 0 1.614.7 1.68 1.588l.006.128v6.445c0 .907-.688 1.654-1.566 1.717l-.12.004h-.373v-.824h.373c.442 0 .81-.347.857-.799l.005-.098V1.718c-.001-.464-.34-.841-.769-.89l-.093-.004H4.157c-.442 0-.81.348-.858.8l-.005.098v.336H2.47v-.336c0-.908.688-1.654 1.565-1.718L4.156 0h8.158z'
+                      transform='matrix(-1 0 0 1 17 4)' />
+                    <path
+                      d='M9.843 2.47c.89 0 1.614.701 1.681 1.589l.005.128v6.444c0 .907-.688 1.654-1.565 1.718l-.12.004H1.685c-.893 0-1.62-.708-1.682-1.599L0 10.631V4.192c0-.907.688-1.654 1.566-1.717l.12-.004h8.157zm0 .824H1.686c-.442 0-.81.348-.857.8l-.005.098v6.44c0 .464.338.844.769.892l.093.005h8.157c.443 0 .81-.348.858-.8l.005-.098V4.19c-.002-.464-.34-.841-.77-.89l-.093-.005z'
+                      transform='matrix(-1 0 0 1 17 4)' />
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </mat-icon>
+          <div>
+            <span (click)='overwrite = !overwrite' [ngClass]='theme'>Overwrite existing products</span>
+            <div class='toggle'>
+              <input type='checkbox' id='toggle' [(ngModel)]='overwrite' />
+              <label for='toggle'><em></em></label>
+            </div>
+          </div>
+        </div>
+        <button class='menu__button' (click)='this.selectImportFile(FileType.CSV, { overwrite: overwrite })'>
+          <mat-icon class='import-icon'>
+            <svg width='20' height='20' viewBox='0 0 20 20'>
+              <defs>
+                <path id='kd1gu3toga' d='M0 0L11.859 0 11.859 15.476 0 15.476z' />
+              </defs>
+              <g fill='none' fill-rule='evenodd'>
+                <g transform='translate(-728 -199) translate(712 96) translate(16 103)'>
+                  <rect width='20' height='20' fill='#86868B' rx='5' />
+                  <g transform='translate(4.286 2.143)'>
+                    <mask id='7drwoiu1ob' fill='#fff'>
+                      <use xlink:href='#kd1gu3toga' />
+                    </mask>
+                    <path fill='#FFF'
+                          d='M9.965 14.76H1.891c-.648-.002-1.175-.53-1.175-1.178V1.894c0-.648.528-1.176 1.175-1.178h5.17V2.46c0 1.153.938 2.091 2.091 2.091h1.991v9.03c0 .65-.528 1.179-1.178 1.179zM11.11 3.792c.003.01.005.03.008.043H9.152c-.758 0-1.375-.617-1.375-1.375V.73c.05.006.083.013.1.019l3.232 3.043zm.516-.497L8.36.22C8.177.037 7.877 0 7.453 0H1.89C.848.003 0 .852 0 1.894v11.688c0 1.042.848 1.891 1.89 1.894h8.075c1.045 0 1.894-.85 1.894-1.894V4.3c0-.437-.016-.788-.234-1.005z'
+                          mask='url(#7drwoiu1ob)' />
+                  </g>
+                  <path fill='#FFF' fill-rule='nonzero'
+                        d='M3.497 9.642c.334 0 .602-.088.806-.264.204-.175.317-.416.34-.722h-.587c-.013.173-.064.3-.153.384-.09.082-.225.124-.406.124-.2 0-.347-.071-.44-.213-.093-.142-.14-.367-.14-.674v-.215c.003-.295.052-.512.15-.652.096-.14.243-.21.438-.21.18 0 .314.041.402.124.087.083.139.216.153.4h.586c-.031-.318-.147-.565-.348-.74-.2-.177-.465-.265-.793-.265-.237 0-.445.056-.624.167-.18.112-.317.272-.413.48-.097.209-.145.45-.145.723v.174c0 .428.105.765.314 1.011.209.245.496.368.86.368zm2.562 0c.315 0 .566-.07.752-.21.186-.14.28-.333.28-.58 0-.22-.077-.405-.23-.554-.152-.148-.395-.273-.728-.373-.181-.055-.318-.113-.411-.176-.094-.062-.14-.14-.14-.232 0-.1.04-.18.12-.24.079-.06.19-.09.333-.09.149 0 .264.036.346.108.082.072.123.173.123.304h.586c0-.171-.044-.323-.132-.458-.088-.134-.211-.238-.37-.311-.159-.074-.34-.11-.543-.11-.202 0-.384.033-.546.101-.162.068-.287.162-.373.282-.087.12-.13.258-.13.412 0 .295.161.53.484.705.119.064.28.129.483.194.203.066.344.129.422.188.078.06.117.144.117.255 0 .101-.039.18-.117.237-.078.057-.187.085-.326.085-.375 0-.563-.157-.563-.47h-.588c0 .183.047.345.142.484.094.14.231.249.41.33.18.08.38.12.599.12zm2.786-.039l.99-2.845h-.652l-.645 2.14-.64-2.14h-.651l.986 2.845h.612z'
+                        transform='translate(4.286 2.143)' />
+                </g>
+              </g>
+            </svg>
+          </mat-icon>
+          <div>
+            <span [ngClass]='theme'>Import CSV</span>
+            <pf-help-icon
+              class='menu__button-help-icon'
+              (click)='$event.stopPropagation(); showCSVTooltip = !showCSVTooltip; showXMLTooltip = false;'>
+            </pf-help-icon>
+          </div>
+        </button>
+        <button class='menu__button' (click)='this.selectImportFile(FileType.XML, { overwrite: overwrite })'>
+          <mat-icon class='import-icon'>
+            <svg width='20' height='20' viewBox='0 0 20 20'>
+              <g fill='none' fill-rule='evenodd'>
+                <g transform='translate(-728 -240) translate(712 96) translate(16 144)'>
+                  <rect width='20' height='20' fill='#86868B' rx='5' />
+                  <g fill='#FFF'>
+                    <path
+                      d='M9.965 14.76H1.891c-.648-.002-1.175-.53-1.175-1.178V1.894c0-.648.528-1.176 1.175-1.178h5.17V2.46c0 1.153.938 2.091 2.091 2.091h1.991v9.03c0 .65-.528 1.179-1.178 1.179zm1.143-10.968c.004.01.006.03.01.043H9.151c-.758 0-1.375-.617-1.375-1.375V.73c.05.006.083.013.1.019l3.231 3.043zm.517-.497L8.36.219C8.177.037 7.877 0 7.453 0H1.89C.848.003 0 .852 0 1.894v11.688c0 1.042.848 1.891 1.89 1.894h8.075c1.045 0 1.894-.85 1.894-1.894V4.3c0-.437-.016-.788-.234-1.005z'
+                      transform='translate(4.286 2.143)' />
+                    <path fill-rule='nonzero'
+                          d='M2.648 9.702l.52-.947.519.947h.647L3.527 8.34 4.314 7h-.64l-.507.931L2.661 7h-.64l.786 1.34L2 9.702h.648zm2.523 0v-.739L5.115 7.69l.728 2.012h.382l.73-2.014-.057 1.275v.739h.559V7h-.731l-.69 1.96L5.342 7h-.728v2.702h.557zm4.51 0v-.448H8.5V7h-.557v2.702h1.739z'
+                          transform='translate(4.286 2.143)' />
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </mat-icon>
+          <div>
+            <span [ngClass]='theme'>Import XML</span>
+            <pf-help-icon
+              class='menu__button-help-icon'
+              (click)='$event.stopPropagation(); showCSVTooltip = false; showXMLTooltip = !showXMLTooltip'></pf-help-icon>
+          </div>
+        </button>
+      </div>
+      <div class='menu-tooltip menu-tooltip__csv' [class.active]='showCSVTooltip' (click)='$event.stopPropagation()'>
+        <div class='menu-tooltip__content'>
+          <span>Please import a CSV file based on this example (</span>
+          <a href='#' (click)="downloadFile($event, 'product.example.valid.csv')">download</a>
+          <span>).</span>
+        </div>
+        <pf-close-icon class='menu-tooltip__close-icon'
+                       (click)='$event.stopPropagation(); showCSVTooltip = false'></pf-close-icon>
+      </div>
+      <div class='menu-tooltip menu-tooltip__xml' [class.active]='showXMLTooltip' (click)='$event.stopPropagation()'>
+        <div class='menu-tooltip__content'>
+          <span>Please import a XML file based on this example (</span>
+          <a href='#' (click)="downloadFile($event, 'product.example.valid.xml')">download</a>
+          <span>).</span>
+        </div>
+        <pf-close-icon class='menu-tooltip__close-icon'
+                       (click)='$event.stopPropagation(); showXMLTooltip = false'></pf-close-icon>
+      </div>
+    </div>
+  </mat-menu>
+</div>
+
+<div class='collections' *ngIf='collectionsMenuState'>
+  <div id='collections-menu' class='lib-products__import-mat-menu'>
+    <div class='menu' [ngClass]='theme'>
+      <div class='menu-header' (click)='$event.stopPropagation()'>
+        <div class='menu-header__title'>Add to collections</div>
+        <pf-close-icon class='menu-header__close-icon' (click)='collectionsMenuState = false'></pf-close-icon>
+      </div>
+      <div class='menu__button'
+           (click)='addSelectedToCollection(this.selectedItems, collection.id); collectionsMenuState = false;'
+           *ngFor='let collection of dataGridService.gridFolders$ | async'>
+        <div>
+          <span [ngClass]='theme'>{{ collection.title }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

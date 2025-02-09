@@ -1,0 +1,13 @@
+<entry-layout [entryLogo]="logo">
+
+  <ng-container content>
+    <div class="login-header">{{ 'forms.login.header' | translate }}</div>
+    <plugin-login
+      [withoutRegister]="true"
+      [withoutForgot]="true"
+      (successLogin)="onSuccessLogin()"
+      (secondFactorCode)="onSecondFactorCode()"
+    >
+    </plugin-login>
+  </ng-container>
+</entry-layout>

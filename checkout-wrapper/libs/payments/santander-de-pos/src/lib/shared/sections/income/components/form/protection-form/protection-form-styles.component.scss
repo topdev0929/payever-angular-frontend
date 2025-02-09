@@ -1,0 +1,11 @@
+@import '../../../../../../../../../../shared/styles/assets/ui-kit-styles/pe_variables';
+@import '../../../../../../../../../../shared/styles/assets/ui-kit-styles/mixins/pe_mixins.scss';
+
+.pe-payment-text-bigger {
+  .mat-checkbox-label span {
+    font-size: 13px !important;
+    @media (max-width: $viewport-breakpoint-sm-1 - 1) {
+      font-size: 11px !important;
+    }
+  }
+}

@@ -1,0 +1,78 @@
+.flex{
+  display: flex;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  border-radius: 12px;
+}
+
+.search-input {
+  padding-left: 10px;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.search-container {
+  display: flex;
+  margin-bottom: 9px;
+}
+
+.cancel-button {
+  border-radius: 12px;
+  border: none;
+  line-height: 12px;
+  font-family: Roboto, sans-serif;
+}
+
+.action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 16px;
+  object-fit: contain;
+  opacity: 0.5;
+
+  .icon {
+    width: 15px;
+    height: 15px;
+  }
+}
+//HACK: safari only
+@media not all and (min-resolution:.001dpcm) {
+  @supports (-webkit-appearance:none) {
+
+    .search-business-right {
+      margin-right: 7px;
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .search-box {
+    height: 44px;
+    .search-input {
+      height: 100%;
+      font-size: 17px;
+      font-weight: 400;
+    }
+    .icon-search {
+      .icon {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}

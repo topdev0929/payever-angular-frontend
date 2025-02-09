@@ -1,0 +1,74 @@
+
+<div class="channel-form__header">
+  <div>
+    <span (click)="cancel()">{{ 'message-app.sidebar.cancel' | translate }}</span>
+  </div>
+  <p>New Channel</p>
+  <div class="right">
+    <span (click)="nextStep()" class="blue">{{ nextButton }}</span>
+  </div>
+</div>
+
+<ng-container [ngSwitch]="step">
+
+  <div
+    *ngSwitchCase="1"
+    class="channel-form__first-step"
+    [formGroup]="channelFirstFormGroup"
+  >
+    <peb-logo-picker
+      [image]="avatar"
+      (file)="changeAvatar($event)"
+      buttonLabel="{{ 'message-app.channel.form.photo' | translate }}"
+    ></peb-logo-picker>
+    <peb-form-field-input class="peb-form-field-input" label="{{ 'message-app.channel.form.name' | translate }}" appearance="label" [animated]="true">
+      <input formControlName="title" type="text"/>
+    </peb-form-field-input>
+    <peb-form-field-input class="peb-form-field-input" label="{{ 'message-app.channel.form.description' | translate }}" appearance="label" [animated]="true">
+      <input formControlName="description" type="text"/>
+    </peb-form-field-input>
+  </div>
+
+  <div
+    *ngSwitchCase="2"
+    class="channel-form__second-step"
+    [formGroup]="channelSecondFormGroup"
+  >
+    <div class="channel-form__type-list">
+      <label *ngFor="let type of types">
+        <input hidden formControlName="type" type="radio" [value]="type.value">
+        <span translate>{{ type.title }}</span>
+        <div class="channel-form__checkmark">
+          <svg width="8" height="6" viewBox="0 0 14 10" style="margin: auto">
+            <g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+              <g stroke="#FFF" stroke-width="1.4">
+                <g>
+                  <path d="M8.4 14L12.6 18.2 19.6 9.8" transform="translate(-577 -373) translate(570 364)"/>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <div
+    *ngSwitchCase="3"
+    class="channel-form__third-step"
+    [formGroup]="channelThirdFormGroup"
+  >
+    <button class="channel-form__button channel-form__button-blue" [cdkCopyToClipboard]="copyInvite()">{{ 'message-app.channel.form.copy_invite' | translate }}</button>
+    <pe-picker
+      class="pe-picker"
+      label="{{ 'message-app.channel.form.add_member' | translate }}"
+      placeholder="{{ 'message-app.channel.form.search' | translate }}"
+      [data]="userList"
+      formControlName="members"
+      [buttonFunction]="addMember"
+      buttonLabel="{{ 'message-app.channel.form.add_member' | translate }}"
+    ></pe-picker>
+    <button class="channel-form__button" (click)="skip()">{{ 'message-app.channel.form.skip' | translate }}</button>
+  </div>
+
+</ng-container>

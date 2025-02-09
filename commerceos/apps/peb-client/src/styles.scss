@@ -1,0 +1,23 @@
+body,
+html {
+  margin: 0;
+}
+
+.ql-container .ql-editor a,
+.ql-container .ql-editor a:visited,
+.ql-container .ql-editor a:hover,
+.ql-container .ql-editor a:active {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.snackbar {
+  background-color: #24272e;
+  color: white;
+  height: 50px;
+
+  .snackbar__button.snackbar__button-hide {
+    height: 50px;
+    padding: 0 16px;
+  }
+}

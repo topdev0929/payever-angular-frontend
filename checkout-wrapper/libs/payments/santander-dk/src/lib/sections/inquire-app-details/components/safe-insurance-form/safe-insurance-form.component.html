@@ -1,0 +1,47 @@
+<form
+  *ngIf="formGroup.enabled"
+  class="form-table"
+  [formGroup]="formGroup">
+  <p class="text-mt">
+    <span
+      class="large-3"
+      i18n="@@santander-dk.inquiry.step.safe_insurance.title">
+      Safe insurance
+    </span>
+  </p>
+  <pe-payment-text type="text">
+    <span
+      peFixFileLinks
+      class="small-1"
+      [innerHtml]="translations.wantsSafeInsurance.text"></span>
+  </pe-payment-text>
+  <mat-checkbox
+    class="col-xs-12"
+    formControlName="wantsSafeInsurance"
+    analyticFieldName="Wants safe insurance">
+    <span [innerHTML]="translations.wantsSafeInsurance.label"></span>
+  </mat-checkbox>
+
+  <ng-container *ngIf="formGroup.get('insuranceConditionsAccepted').enabled">
+    <p class="text-mt">
+      <span
+        class="large-3"
+        [innerHtml]="translations.insuranceConditionsAccepted.title">
+      </span>
+    </p>
+
+    <pe-payment-text type="text">
+      <span
+        peFixFileLinks
+        class="small-1"
+        [innerHtml]="translations.insuranceConditionsAccepted.text">
+      </span>
+    </pe-payment-text>
+    <mat-checkbox
+      class="col-xs-12"
+      formControlName="insuranceConditionsAccepted"
+      analyticFieldName="Insurance conditions accepted">
+      <span [innerHTML]="translations.insuranceConditionsAccepted.label"></span>
+    </mat-checkbox>
+  </ng-container>
+</form>

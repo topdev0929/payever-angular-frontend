@@ -1,0 +1,8 @@
+@import "~@pe/ui/theming/theming";
+@import "~@pe/ui/theming/all-theme";
+@import "~@pe/ui/theming/background";
+
+$theme: peb-theme-choose('dark');
+
+@include peb-theme($theme);
+

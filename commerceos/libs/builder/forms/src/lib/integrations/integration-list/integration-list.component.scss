@@ -1,0 +1,85 @@
+.remove {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 0;
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+  height: auto;
+  padding: 8px 18px;
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  text-align: center;
+  color: #ffffff;
+  width: 100%;
+  margin: 0 15px;
+}
+
+.scrollbar {
+  height: 100%;
+  margin-left: 8px;
+  overflow: auto;
+}
+
+mat-spinner {
+  position: absolute;
+  left: calc(50% - 24px);
+  top: calc(50% - 24px);
+
+  ::ng-deep circle {
+    stroke: #ffffff !important;
+  }
+}
+
+.integration-list {
+  flex: 1;
+  flex-wrap: wrap;
+  padding-right: 12px;
+  padding-left: 24px;
+  list-style-type: none;
+
+  &_without-marker {
+    padding-left: 12px;
+  }
+
+  ul {
+    display: none;
+    padding-right: 0;
+  }
+
+  input[type="checkbox"] {
+    display: none;
+
+    ~ label:before {
+      content: '>';
+      transform: scale(.75, 1.5);
+    }
+
+    &:checked {
+      ~ ul {
+        display: block;
+      }
+
+      ~ label:before {
+        transform: scale(1.5, .75) rotate(90deg);
+      }
+    }
+  }
+
+  &__title {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 32px;
+    margin: 0 0 0 -24px;
+    position: relative;
+    padding-left: 24px;
+    white-space: nowrap;
+
+    &:before {
+      position: absolute;
+      pointer-events: none;
+      left: 8px;
+    }
+  }
+}

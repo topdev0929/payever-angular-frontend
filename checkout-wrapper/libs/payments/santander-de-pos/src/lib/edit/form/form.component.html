@@ -1,0 +1,102 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup"
+  #ngForm="ngForm"
+  (ngSubmit)="onSubmit()">
+  <rate-edit-list
+    (selected)="onRateSelected($event)"
+    formControlName="ratesForm"></rate-edit-list>
+  <details-form formControlName="detailsForm"></details-form>
+  <terms-form formControlName="termsForm"></terms-form>
+  <ng-container
+    peCustomerTypeDirective
+    [formGroup]="customerForm">
+    <santander-de-pos-form-identify
+      formControlName="_identifyForm"
+      [isExpandAll]="true"
+      [options]="options"
+      [isSubmitted]="ngForm.submitted"
+      [businessId]="flow.businessId">
+    </santander-de-pos-form-identify>
+    <div
+      *ngIf="showAddressStep$ | async"
+      class="form-fieldset-wrapper first-content-form last-content-form">
+      <address-form
+        *ngIf="{ params: addressParams$ | async } as vm"
+        formControlName="billingAddress"
+        [isFilledFieldsReadonly]="vm.params.forceAddressOnlyFillEmptyAllowed"
+        [isPhoneRequired]="vm.params.forcePhoneRequired"
+        [isCodeForPhoneRequired]="vm.params.forceCodeForPhoneRequired"
+        (addressReady)="firstInitAddress(personTypeEnum.Customer)">
+      </address-form>
+    </div>
+    <personal-form
+      formControlName="personalForm"
+      (togglePrevAddress)="togglePrevAddress($event, personTypeEnum.Customer)"></personal-form>
+    <prev-address-form
+      *ngIf="customerForm.get('prevAddressForm').enabled"
+      formControlName="prevAddressForm"
+      [maxDate]="(addressResidentSince$ | async)[personTypeEnum.Customer]">
+    </prev-address-form>
+    <bank-form formControlName="bankForm"></bank-form>
+    <income-form formControlName="incomeForm"></income-form>
+    <employment-form formControlName="employmentForm"></employment-form>
+    <protection-form
+      *ngIf="customerForm.get('protectionForm').enabled"
+      formControlName="protectionForm"
+      [ratesData]="incomeService.ratesData$ | async"></protection-form>
+  </ng-container>
+
+  <ng-container
+    peGuarantorTypeDirective
+    [formGroup]="guarantorForm">
+    <santander-de-pos-form-identify
+      *ngIf="guarantorForm.get('_identifyForm').enabled"
+      formControlName="_identifyForm"
+      [isExpandAll]="true"
+      [options]="options"
+      [isSubmitted]="ngForm.submitted"
+      [businessId]="flow.businessId">
+    </santander-de-pos-form-identify>
+    <div
+      *ngIf="guarantorForm.get('addressForm').enabled"
+      class="form-fieldset-wrapper first-content-form last-content-form">
+      <address-form
+        *ngIf="guarantorForm.get('addressForm').enabled && { params: addressParams$ | async } as vm"
+        formControlName="addressForm"
+        [isFilledFieldsReadonly]="vm.params.forceAddressOnlyFillEmptyAllowed"
+        [isPhoneRequired]="vm.params.forcePhoneRequired"
+        [isCodeForPhoneRequired]="vm.params.forceCodeForPhoneRequired">
+      </address-form>
+    </div>
+    <guarantor-details
+      formControlName="detailsForm"
+      *ngIf="guarantorForm.get('detailsForm').enabled"></guarantor-details>
+    <personal-form
+      *ngIf="guarantorForm.get('personalForm').enabled"
+      formControlName="personalForm"
+      (togglePrevAddress)="togglePrevAddress($event, personTypeEnum.Guarantor)"></personal-form>
+    <prev-address-form
+      *ngIf="guarantorForm.get('prevAddressForm').enabled"
+      formControlName="prevAddressForm"
+      [maxDate]="(addressResidentSince$ | async)[personTypeEnum.Customer]">
+    </prev-address-form>
+    <income-form
+      *ngIf="guarantorForm.get('incomeForm').enabled"
+      formControlName="incomeForm"></income-form>
+    <employment-form
+      *ngIf="guarantorForm.get('employmentForm').enabled"
+      formControlName="employmentForm"></employment-form>
+    <protection-form
+      *ngIf="guarantorForm.get('protectionForm').enabled"
+      formControlName="protectionForm"
+      [ratesData]="incomeService.ratesData$ | async"></protection-form>
+  </ng-container>
+
+  <checkout-sdk-continue-button
+    [loading]="isLoading"
+    i18n-text="@@payment-santander-de-pos.actions.sendInquiry"
+    text="@@payment-santander-de-pos.actions.sendInquiry"
+    (clicked)="submit()">
+  </checkout-sdk-continue-button>
+</form>

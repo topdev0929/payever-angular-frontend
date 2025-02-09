@@ -1,0 +1,9 @@
+<div class="pe-coupons-form-group__wrapper">
+
+  <ng-content></ng-content>
+  
+</div>
+
+<div class="pe-coupons-form-group__subscript" #subscript [hidden]="!showSubscript">
+  <ng-content select="pe-coupons-subscript"></ng-content>
+</div>

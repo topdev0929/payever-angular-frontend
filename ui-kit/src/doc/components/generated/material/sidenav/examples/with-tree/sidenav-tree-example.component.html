@@ -1,0 +1,130 @@
+<button type="button" mat-button (click)="snav.toggle()">Toggle</button>
+<div class="doc-container-black">
+  <mat-sidenav-container class="example-sidenav-container" hasBackdrop="false">
+    <mat-sidenav #snav position="start" [mode]="over" class="col-xs-5 mat-sidenav-dark mat-sidenav-fit-content">
+      <button mat-button (click)="snav.toggle()"
+              class="mat-sidenav-first-el mat-button mat-button-bold mat-button-no-padding mat-sidenav-header-left">
+        <svg class="icon icon-16">
+          <use xlink:href="#icon-arrow-left-small-16"></use>
+        </svg>
+        <span>Back</span>
+      </button>
+      <button mat-button (click)="snav.toggle()" color="primary"
+              class="mat-button mat-button-link mat-button-bold mat-button-no-padding mat-sidenav-header-right">
+        <span>Done</span>
+      </button>
+      <div class="mat-sidenav-toggle-buttons">
+        <button mat-button class="mat-button-xs mat-button-bold mat-sidenav-button-double ">
+          <span>Pages</span>
+        </button>
+        <button mat-button class="mat-button-xs mat-button-bold mat-sidenav-button-double"
+                [class.mat-sidenav-button-double-active]="true">
+          <span>Navigation</span>
+        </button>
+      </div>
+      <div class="mat-sidenav-paddings">
+        <mat-tree [class.mat-tree-dark]="true" [dataSource]="data" [treeControl]="tc">
+          <mat-tree-node class="mat-tree-item" *matTreeNodeDef="let node" matTreeNodeToggle>
+            <div>
+              <span class="mat-tree-text">{{node.name}}</span>
+            </div>
+          </mat-tree-node>
+          <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+            <mat-list class="mat-sidenav-list">
+              <mat-list-item class="mat-tree-node mat-tree-item" [class.mat-list-item-not-visible]="node.isNotVisible"
+                             [class.mat-tree-border-top]="tc2.getLevel(node) === 0">
+                <span matLine matTreeNodeToggle class="mat-tree-text">{{node.name}}</span>
+                <div class="mat-list-item-content-addon-prepend">
+                  <button class="mat-button-link mat-button-no-padding"
+                          mat-button
+                          [matMenuTriggerFor]="menu"
+
+                  >
+                    <svg class="icon icon-16 mat-tree-grey dots-width">
+                      <use xlink:href="#icon-dots-v-16"></use>
+                    </svg>
+                  </button>
+                  <mat-menu #menu="matMenu" class="mat-menu-lg mat-menu-padding-lg" [hasBackdrop]="true"
+                            [overlapTrigger]="true">
+                    <div class="mat-menu-item-slide-toggle">
+                      Visibility
+                      <mat-slide-toggle (click)="toggleClick($event)"></mat-slide-toggle>
+                    </div>
+                    <mat-divider></mat-divider>
+                    <div mat-menu-item>Edit</div>
+                    <div mat-menu-item>Duplicate</div>
+                    <div mat-menu-item>Delete</div>
+                  </mat-menu>
+                </div>
+                <div class="mat-tree-node-space mat-list-item-content-addon-append">
+                  <div class="mat-tree-node-right">
+                    <svg *ngIf="node.isNotVisible" class="icon icon-20 mat-tree-grey mat-tree-node-right-item">
+                      <use xlink:href="#icon-dontshow-24"></use>
+                    </svg>
+                    <span *ngIf="node.state" class="mat-tree-text mat-tree-node-right-item">{{node.state}}</span>
+                    <svg *ngIf="!tc.isExpanded(node)" class="icon icon-16 mat-tree-grey">
+                      <use xlink:href="#icon-arrow-right-ios-16"></use>
+                    </svg>
+                    <svg *ngIf="tc.isExpanded(node)" class="icon icon-16 mat-tree-grey">
+                      <use xlink:href="#icon-expand-16"></use>
+                    </svg>
+                  </div>
+                </div>
+              </mat-list-item>
+            </mat-list>
+              <ul [hidden]="!tc.isExpanded(node)" class="mat-tree-list" [class.mat-tree-scheme]="true">
+                <ng-container matTreeNodeOutlet></ng-container>
+              </ul>
+          </mat-nested-tree-node>
+        </mat-tree>
+      </div>
+
+      <div class="form-table">
+        <div class="form-fieldset dark form-fieldset-media-controls">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="form-fieldset-space-between">
+                <span>Label</span>
+                <div>
+                  <button mat-button class="mat-button-no-padding mat-button-xs mat-fieldset-corner"
+                          [matMenuTriggerFor]="menu1">
+                    <div class="mat-fieldset-corner-left">
+                      <svg class="icon icon-32">
+                        <use xlink:href="#icon-fe-corner-circle-32"></use>
+                      </svg>
+                    </div>
+                    <div class="mat-fieldset-corner-right">
+                      <svg class="icon icon-16 mat-sidenav-corner">
+                        <use xlink:href="#icon-arrow-down-small-16"></use>
+                      </svg>
+                    </div>
+                  </button>
+                  <mat-menu #menu1="matMenu" class="mat-menu-xs mat-menu-dark">
+                    <button mat-menu-item>
+                      <svg class="icon icon-32 mat-sidenav-grey">
+                        <use xlink:href="#icon-fe-corner-circle-32"></use>
+                      </svg>
+                    </button>
+                    <button mat-menu-item>
+                      <svg class="icon icon-32 mat-sidenav-grey">
+                        <use xlink:href="#icon-fe-corner-round-32"></use>
+                      </svg>
+                    </button>
+                    <button mat-menu-item>
+                      <svg class="icon icon-32">
+                        <use xlink:href="#icon-fe-corner-square-32"></use>
+                      </svg>
+                    </button>
+                  </mat-menu>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <p style="color: transparent" *ngFor="let content of fillerContent">{{content}}</p>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

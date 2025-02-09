@@ -1,0 +1,20 @@
+<finish-container-style></finish-container-style>
+
+<swedbank-shared-finish
+  [errorMessage]="errorMessage"
+  [merchantMode]="merchantMode"
+  [embeddedMode]="embeddedMode"
+  [showCloseButton]="showCloseButton"
+  [nodeResult]="paymentResponse"
+  [isLoading]="!paymentResponse && !errorMessage"
+  [template]="template"
+  [showTemplate]="swedbankRunning"
+  (cleanUp)="cleanUp()"
+  (close)="close()"
+  (tryAgain)="tryAgain()"
+  (changePaymentMethod)="changePayment($event)">
+</swedbank-shared-finish>
+
+<ng-template #template>
+  <div id="swedbank-pay-seamless-view-page"></div>
+</ng-template>

@@ -1,0 +1,19 @@
+@import "./../../panels/page-container.scss";
+.overlay-widget .pe-info-box-container-fixed.edit-settings {
+  width: 100%;
+  min-height: fit-content;
+
+  .pe-info-box {
+    min-width: 100%;
+  }
+}
+
+.edit-settings-form {
+  width: 100%;
+  padding: 0;
+
+
+  .edit-settings-input {
+    width: 100%;
+  }
+}

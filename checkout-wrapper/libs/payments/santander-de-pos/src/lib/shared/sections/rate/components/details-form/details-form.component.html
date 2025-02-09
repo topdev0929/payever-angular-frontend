@@ -1,0 +1,214 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup">
+  <pe-payment-text
+    *ngIf="(isComfortCardCondition$ | async)?.isComfortCardCondition !== true"
+    type="text"
+    [fixMarginTop]="true">
+    <span [innerHTML]="translations.paymentText"></span>
+  </pe-payment-text>
+  <div class="form-fieldset-new">
+    <mat-form-field
+      *ngIf="formGroup.get('commodityGroup').enabled"
+      class="col-xs-12">
+      <mat-label i18n="@@payment-santander-de-pos.inquiry.form.commodityGroup.label"> Commodity group </mat-label>
+
+      <mat-select formControlName="commodityGroup">
+        <mat-option
+          *ngFor="let option of options.commodityGroups"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field
+      [class.hidden]="!formGroup.get('_condition_view').enabled"
+      [class]="formGroup.get('_program_view').disabled
+        ? 'col-xs-12'
+        : 'col-xs-6'
+        ">
+      <mat-label i18n="@@payment-santander-de-pos.inquiry.form._condition_view.label"> Condition </mat-label>
+
+      <mat-select formControlName="_condition_view">
+        <mat-option
+          *ngFor="let option of detailsFormService.conditions"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field
+      [class.hidden]="!formGroup.get('_program_view').enabled"
+      [class]="formGroup.get('_condition_view').disabled
+        ? 'col-xs-12'
+        : 'col-xs-6'
+        ">
+      <mat-label i18n="@@payment-santander-de-pos.inquiry.form._program_view.label"> Program </mat-label>
+
+      <mat-select formControlName="_program_view">
+        <mat-option
+          *ngFor="let option of programs$ | async"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <ng-container formGroupName="customer">
+      <mat-form-field
+        *ngIf="customerForm.get('personalDateOfBirth').enabled"
+        longDateFormat
+        class="col-xs-12">
+        <mat-label i18n="@@payment-santander-de-pos.inquiry.form.customer.personalDateOfBirth.label">
+          Date of birth
+        </mat-label>
+
+        <input
+          matInput
+          peDatePickerMask="fullDate"
+          formControlName="personalDateOfBirth"
+          type="text"
+          [min]="adultDateConstraints.min"
+          [max]="adultDateConstraints.max"
+          [matDatepicker]="personalDateOfBirthDp" />
+
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="personalDateOfBirthDp">
+          <svg
+            matDatepickerToggleIcon
+            class="icon icon-16">
+            <use xlink:href="#icon-calendar-16"></use>
+          </svg>
+        </mat-datepicker-toggle>
+        <mat-datepicker
+          #personalDateOfBirthDp
+          startView="multi-year">
+        </mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field
+        *ngIf="customerForm.get('profession').enabled"
+        class="col-xs-12">
+        <mat-label i18n="@@payment-santander-de-pos.inquiry.form.profession.label"> Profession </mat-label>
+
+        <mat-select formControlName="profession">
+          <mat-option
+            *ngFor="let option of options.professions"
+            [value]="option.value">
+            {{ option.label }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </ng-container>
+
+    <mat-form-field
+      *ngIf="formGroup.get('_weekOfDelivery_view').enabled"
+      [class]="formGroup.get('_customWeekOfDelivery_view').enabled
+        ? 'col-xs-6'
+        : 'col-xs-12'
+        ">
+      <mat-label i18n="@@payment-santander-de-pos.inquiry.form._weekOfDelivery_view.label">
+        Week of delivery
+      </mat-label>
+
+      <mat-select formControlName="_weekOfDelivery_view">
+        <mat-option
+          *ngFor="let option of detailsFormService.weeksOfDelivery"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('_customWeekOfDelivery_view').enabled"
+      longDateFormat
+      class="col-xs-6">
+      <mat-label i18n="@@payment-santander-de-pos.inquiry.form._customWeekOfDelivery_view.label">
+        Other week
+      </mat-label>
+
+      <input
+        matInput
+        peDatePickerMask="fullDate"
+        formControlName="_customWeekOfDelivery_view"
+        type="text"
+        (dateChange)="onDateChange($event)"
+        [min]="futureDateConstraints.min"
+        [max]="futureDateConstraints.max"
+        [matDatepicker]="_customWeekOfDelivery_viewDp" />
+
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="_customWeekOfDelivery_viewDp">
+        <svg
+          matDatepickerToggleIcon
+          class="icon icon-16">
+          <use xlink:href="#icon-calendar-16"></use>
+        </svg>
+      </mat-datepicker-toggle>
+      <mat-datepicker
+        #_customWeekOfDelivery_viewDp
+        startView="multi-year">
+      </mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12">
+      <mat-label i18n="@@payment-santander-de-pos.inquiry.form.dayOfFirstInstalment.label">
+        Day of first instalment
+      </mat-label>
+
+      <mat-select formControlName="dayOfFirstInstalment">
+        <mat-option
+          *ngFor="let option of detailsFormService.daysOfInstalment"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field
+      *ngIf="(isComfortCardCondition$ | async)?.isComfortCardCondition !== true"
+      class="col-xs-12">
+      <mat-label i18n="@@payment-santander-de-pos.inquiry.form.typeOfGuarantorRelation.label">
+        Type of guarantor relation
+      </mat-label>
+
+      <mat-select formControlName="typeOfGuarantorRelation">
+        <mat-option
+          *ngFor="let option of options.guarantorRelations"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('_downPayment_view').enabled"
+      class="col-xs-12">
+      <mat-label i18n="@@payment-santander-de-pos.inquiry.form.downPayment.label"> Down payment </mat-label>
+
+      <span
+        #_downPayment_viewPrefix
+        matPrefix>
+        {{ currency | peCurrencySymbol }}
+      </span>
+      <input
+        matInput
+        [peInputCurrencyMask]="currency"
+        formControlName="_downPayment_view"
+        type="text" />
+      <button
+        *ngIf="showApply$ | async"
+        class="mat-button-no-padding mat-button-link btn btn-link"
+        mat-button
+        matSuffix
+        i18n="@@santander-de.actions.apply"
+        (click)="applyDownPayment()">
+        Apply
+      </button>
+    </mat-form-field>
+  </div>
+</form>

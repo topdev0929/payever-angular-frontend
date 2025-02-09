@@ -1,0 +1,18 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "../../controls";
+
+button {
+  @extend %navbar-button;
+}
+
+.dialog-backdrop {
+  background: none;
+}
+
+.dialog-panel .mat-dialog-container {
+  padding: $padding-base-vertical;
+  margin-top: $margin-base-y;
+  background: $color-solid-grey-3;
+  font-size: $font-size-micro-1;
+  color: $color-grey-3;
+}

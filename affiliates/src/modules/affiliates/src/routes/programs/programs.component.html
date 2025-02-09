@@ -1,0 +1,87 @@
+<div class="data-grid-wrap" [ngClass]="theme">
+  <pe-data-grid
+    id="programs-data-grid"
+    #dataGridComponent
+    [items]="programs$ | async"
+    [theme]="theme"
+    [selectedItems]="selectedPrograms$ | async"
+    [filters]="[]"
+    [singleSelectedAction]="firstCardAction"
+    [multipleSelectedActions]="multipleSelectedActions"
+    [isShowGridItemInfo]="true"
+    [dataListOptions]="dataGridListOptions"
+    [showCollectionsCountInHeader]="showCollectionsCountInHeader"
+    [sortByActions]="sortByActions"
+    searchPlaceholder="Search"
+    (filtersChanged)="onFiltersChanged($event)"
+    (searchChanged)="onSearchChanged($event)"
+    (searchRemove)="onSearchRemove($event)"
+    (onLayoutTypeChanged)="onLayoutTypeChanged($event)"
+    (multipleSelectedItemsChanged)="onSelectedItemsChanged($event)"
+  >
+  <pe-sidebar-filters-wrapper >
+    <pe-sidebar-header
+      [title]="'Programs'"
+      (closeSidebar)="toggleFiltersDisplaying(false)"
+      [allowClose]="false">
+    </pe-sidebar-header>
+    <pe-sidebar-filter-wrapper
+      [expandable]="true"
+      [title]="'My Programs'"
+    >    
+    </pe-sidebar-filter-wrapper>
+    <pe-sidebar-filter-wrapper
+      [expandable]="true"
+      [title]="'Channels'"
+    >      
+    <pe-tree-sidebar-filter
+        [ngTemplateOutlet]="nodeImageTemplate"        
+        [ngTemplateOutletContext]=""
+      >
+        <ng-template #nodeImageTemplate let-node="node">
+          <div 
+            class="channel" 
+            *ngFor="let channel channles"                        
+          >
+            <div class="channel__icon" [innerHtml]="getChannelTypeIcon(channel.type)"></div>
+            <span class="channel__name">{{ channel.name }}</span>
+          </div>
+        </ng-template>  
+      </pe-tree-sidebar-filter>
+    </pe-sidebar-filter-wrapper>
+  </pe-sidebar-filters-wrapper>
+    <pe-data-grid-item
+      [item]="addNewItem"
+      [actions]="[addItemAction]"
+      [theme]="theme"
+      [selectable]="false"
+      [isShowGridItemInfo]="false"
+      class="grid-item"
+    >
+      <div class="add-new">
+        <img src="assets/icons/new-program.svg" alt="img-new-program" />
+      </div>
+    </pe-data-grid-item>
+    <ng-container *ngIf="!isFiltered">
+      <pe-data-grid-item
+        *ngFor="let item of items"
+        [item]="item"
+        [actions]="[openItemAction, editItemAction]"
+        [theme]="theme"
+        [selectable]="true"
+        [isShowGridItemInfo]="true"
+        class="grid-item"
+      >
+        <div class="affiliates-items">
+          <div class="affiliates-items__title-container"></div>
+          <div class="affiliates-items__content">
+            <span>{{ item.data.title }}</span>
+            <span>{{ item.data.budget }}</span>
+            <span>{{ item.data.subtitle }}</span
+            >
+          </div>
+        </div>
+      </pe-data-grid-item>
+    </ng-container>
+  </pe-data-grid>
+</div>

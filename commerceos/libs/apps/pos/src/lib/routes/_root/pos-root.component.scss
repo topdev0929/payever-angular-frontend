@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  position: relative;
+  overflow-y: hidden;
+  height: 100%;
+}
+
+.nav-content {
+  display: flex;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.client-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+
+  &.preloader-bg {
+    border-radius: 13px;
+  }
+}

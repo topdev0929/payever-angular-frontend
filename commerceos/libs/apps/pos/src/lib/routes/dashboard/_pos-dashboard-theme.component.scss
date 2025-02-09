@@ -1,0 +1,53 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $active-text: map.get($color-config, 'active-text');
+  $label-color: map.get($color-config, 'label-color');
+  $divider: map.get($color-config, 'divider');
+  $border: map.get($color-config, 'border');
+  $primary: map.get($color-config, 'primary');
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $x-button: map.get($color-config, 'x-button');
+  $tertiary-button: map.get($color-config, 'tertiary-button');
+
+  .overlay-widget-container .overlay-transparent {
+    -webkit-backdrop-filter: blur(25px) !important;
+    backdrop-filter: blur(25px) !important;
+    background-color: $overlay-background!important;
+    border-radius: 19px!important;
+  }
+
+  peb-pos-dashboard {
+
+    .scrollbar::-webkit-scrollbar {
+      background-color: $transparent-color;
+    }
+    .dashboard-header {
+      color: $text-color;
+      background-color: $primary;
+      &__menu {
+        color: $text-color;
+        background-color: $x-button;
+
+        svg {
+          color: $active-text;
+        }
+      }
+      &__open {
+        background-color: $overlay-background;
+        color: $text-color;
+
+        &:disabled {
+          background-color: $tertiary-button;
+        }
+      }
+    }
+    .dashboard-viewer-container {
+      background: $active-text;
+    }
+  }
+
+}

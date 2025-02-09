@@ -1,0 +1,28 @@
+<div 
+  *ngIf="label" 
+  class="button-toggle-label" 
+  [class.text-danger]="errorMessage && isErrorState" 
+  [innerHtml]="label"
+></div>
+
+<div class="mat-button-toggle-group-wrapper"
+     [class.mat-button-toggle-group-wrapper-center]="alignment === alignments.Center"
+     [class.mat-button-toggle-group-wrapper-right]="alignment === alignments.Right"
+>
+  <mat-button-toggle-group class="mat-button-toggle-group-icon"
+                           [class.mat-button-toggle-group-error]="isErrorState"
+                           [formControl]="formControl"
+                           [multiple]="multiple"
+                           (change)="onChanged($event)"
+  >
+    <mat-button-toggle *ngFor="let button of buttons; let index = index;"
+                       [disabled]="button.disabled"
+                       [value]="button.value"
+    >
+      <span *ngIf="button.text">{{ button.text }}</span>
+      <svg *ngIf="button.icon" [attr.class]="getIconClass(button.icon, button.iconSize)">
+        <use [attr.xmlns:xlink]="'http://www.w3.org/1999/xlink'" [attr.xlink:href]="getIconId(button.icon)"></use>
+      </svg>
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+</div>

@@ -1,0 +1,18 @@
+<button class="mat-button-link mat-muted-light mat-button-no-padding"
+        mat-button
+        mat-icon-button
+        [matMenuTriggerFor]="menu">
+  <svg class="icon icon-16">
+    <use xlink:href="#icon-dots-v-16"></use>
+  </svg>
+</button>
+<mat-menu #menu="matMenu" class="mat-menu-md mat-menu-padding-lg">
+  <div class="mat-menu-item-slide-toggle">
+    Visibility
+    <mat-slide-toggle (click)="toggleClick($event)"></mat-slide-toggle>
+  </div>
+  <mat-divider></mat-divider>
+  <div mat-menu-item>Edit</div>
+  <div mat-menu-item>Duplicate</div>
+  <div mat-menu-item>Delete</div>
+</mat-menu>

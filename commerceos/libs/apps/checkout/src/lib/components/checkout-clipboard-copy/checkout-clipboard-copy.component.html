@@ -1,0 +1,24 @@
+<div class="pe-info-box-container-fixed clipboard-copy-container">
+  <pe-info-box [withHeader]="false"
+               [withFooter]="false"
+               [fixed]="false"
+               [notFullwidthOnMobile]="true"
+               [roundBorder]="true"
+               (onClose)="handleClose()"
+  >
+    <ng-container content>
+      <peb-form-background>
+        <div class="clipboard-copy-content">
+          {{ link }}
+        </div>
+      </peb-form-background>
+    </ng-container>
+  </pe-info-box>
+  <button
+    pe-form-button
+    color="confirm"
+    class="add-button"
+    (click)="onCopyClick()">
+    {{ 'actions.copy_to_clipboard' | translate }}
+  </button>
+</div>

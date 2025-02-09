@@ -1,0 +1,18 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup">
+  <div class="form-fieldset-new">
+    <mat-form-field
+      *ngIf="formGroup.get('phone').enabled"
+      class="col-xs-12">
+      <mat-label i18n="@@swedbank.inquiry.form.phone.label"> Phone </mat-label>
+
+      <input
+        matInput
+        peInputMask
+        formControlName="phone"
+        type="text"
+        [mask]="phoneMask" />
+    </mat-form-field>
+  </div>
+</form>

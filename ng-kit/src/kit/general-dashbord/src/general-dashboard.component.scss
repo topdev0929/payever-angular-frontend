@@ -1,0 +1,10 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+
+:host {
+  .btn-group {
+    .btn-border-radius-right {
+      border-bottom-right-radius: $border-radius-base;
+      border-top-right-radius: $border-radius-base;
+    }
+  }
+}

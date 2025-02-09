@@ -1,0 +1,70 @@
+.rule-action-email {
+  $p: &;
+
+  &__from {
+    padding: 10px 14px;
+    width: 100%;
+    margin: 10px 10px;
+    border-radius: 8px;
+  }
+
+  .label-input-content-wrapper .label-container .input-field {
+    #{$p}__to {
+      &[disabled] {
+        color: #7a7a7a;
+      }
+    }
+  }
+
+  .label-input-content-wrapper {
+    .label-container {
+      background-color: transparent;
+    }
+  }
+  pe-text-editor {
+    margin-top: 0;
+    .pe-text-editor {
+      background-color: transparent;
+      padding: 12px 12px 6px;
+    }
+  }
+
+  .pe-text-editor-toolbar {
+    padding: 5px 6px;
+
+    button,
+    .list {
+      padding: 0;
+      background-color: transparent;
+
+      &.active {
+        color: #0371e2;
+      }
+    }
+    form {
+      display: flex;
+      justify-content: flex-start;
+      gap: 8px;
+    }
+    .placeholder {
+      margin-left: auto;
+    }
+  }
+
+  &__cc {
+    .label-input-content-wrapper {
+      display: block;
+      height: auto;
+    }
+    .chips-container {
+      .chips-data {
+        flex-wrap: wrap;
+        margin: 8px 0 0;
+        padding: 0;
+        .chip {
+          margin-bottom: 4px;
+        }
+      }
+    }
+  }
+}

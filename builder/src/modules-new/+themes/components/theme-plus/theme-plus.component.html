@@ -1,0 +1,14 @@
+<mat-card [ngSwitch]="loading">
+  <mat-card-content
+    *ngSwitchCase="false"
+    data-pe-themes="add"
+    (click)="create.next()"
+  >
+    + Add Theme
+  </mat-card-content>
+  <mat-card-content
+    *ngSwitchCase="true"
+  >
+    <mat-progress-spinner mode="indeterminate" diameter="32"></mat-progress-spinner>
+  </mat-card-content>
+</mat-card>

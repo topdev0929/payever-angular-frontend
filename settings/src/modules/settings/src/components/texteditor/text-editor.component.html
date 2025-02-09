@@ -1,0 +1,15 @@
+<div [ngClass]="theme">
+    <label class="label" [ngClass]="theme">Description text</label>
+    <div
+      #textArea
+      class="text-area"
+      [ngStyle]="{'underline': 'none', 'text-align': align, 'font-size': fontSize + 'px', 'color': color, 'font-weight': fontWeight}"
+      [attr.contenteditable]="editable"
+      (mouseleave)="onMouseLeave()"
+      (click)="onTextAreaClick($event)"
+      (blur)="onTextAreaBlur($event)"
+      (focus)="onTextAreaFocus($event)"
+      (input)="onContentChanged($event)"
+      (paste)="onContentPasted($event)"
+    ></div>
+</div>

@@ -1,0 +1,65 @@
+.header {
+  h2 {
+    font-size: 24px;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+  }
+}
+
+.list {
+  border-radius: 12px;
+  overflow: hidden;
+  &__item {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    &__icon {
+      height: 20px;
+      margin: 0 8px 0 16px;
+      svg {
+        height: 20px;
+        width: 20px;
+      }
+    }
+    &__content {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      span {
+        font-family: "Roboto", sans-serif;
+        font-size: 16px;
+      }
+
+      svg {
+        width: 8px;
+        height: 15px;
+        margin-right: 16px;
+      }
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .list {
+    &__item {
+      height: 44px;
+      &__icon {
+        height: 30px;
+        svg {
+          height: 30px;
+          width: 30px;
+        }
+      }
+      &__content {
+        span {
+          font-size: 17px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}

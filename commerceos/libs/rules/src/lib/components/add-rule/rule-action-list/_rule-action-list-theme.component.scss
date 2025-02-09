@@ -1,0 +1,19 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+    $row-background: map.get($color-config, 'row-background');
+    $button: map.get($color-config, 'button');
+    $gray-button: map.get($color-config, 'gray-button');
+    $text-color: map.get($color-config, 'text-color');
+    
+    .rule-action-list {
+        &__item {
+            &.peb-base-button.pe-form-button.disabled {
+                background-color: $gray-button;
+            }
+            &-title, &-icon {
+                color: $text-color;
+            }
+        }
+    }
+}

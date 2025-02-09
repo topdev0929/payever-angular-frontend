@@ -1,0 +1,27 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+:host {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  height: 20px;
+}
+.position-relative {
+  position: relative;
+}
+.transparent {
+  opacity: 0;
+  cursor: default;
+}
+
+.overlay {
+  &__button {
+    white-space: nowrap;
+
+    &:disabled {
+      opacity: .5;
+      cursor: not-allowed;
+    }
+  }
+}

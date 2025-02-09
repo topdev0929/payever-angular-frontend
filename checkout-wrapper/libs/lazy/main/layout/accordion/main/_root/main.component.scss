@@ -1,0 +1,42 @@
+@import '../../../../../../shared/styles/assets/imports';
+
+.hidden-header {
+  display: block;
+  padding-top: 19px;
+}
+
+mat-accordion ::ng-deep .mat-expansion-panel {
+  border-radius: 0 !important;
+  background: transparent !important;
+  padding-right: 1px;
+  // This is solution for Modal Window Mode, when wrapper is opened inside commerceos (when it takes only part of screen)
+  // In this case when payment is finished and Finish Modal Window is shown we have a problem:
+  // Usually it's regular Modal Window over whole screen. But in Modal Window Mode it covers only wrapper main area and even header is visible.
+  // And to make this work we need to add following styles:
+  position: initial !important;
+}
+
+.pe-load-micro,
+.checkout-order-summary {
+  width: 100%;
+}
+
+mat-expansion-panel.no-top-border {
+  border-top: none;
+}
+
+.order-summary-accordion {
+  text-align: left;
+}
+
+.mat-expansion-panel.last-panel {
+  border-top: 0;
+}
+
+.caret-clearfix {
+  margin-left: -7px;
+}
+
+.border-hidden {
+  border: none;
+}

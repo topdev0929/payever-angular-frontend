@@ -1,0 +1,64 @@
+:host {
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  &.small {
+    height: 142px;
+    min-width: 141px;
+    &.expanded {
+      height: 180px;
+    }
+  }
+  &.medium {
+    height: 140px;
+    min-width: 284px;
+    &.expanded {
+      height: 180px;
+    }
+  }
+  &.large {
+    height: 292px;
+    line-height: 17px;
+    min-width: 284px;
+    &.expanded {
+      height: 372px;
+    }
+  }
+
+  &.clickable {
+    cursor: pointer;
+  }
+}
+
+.edit-btn {
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  cursor: pointer;
+}
+
+.remove-btn {
+  margin-top: 20px;
+  width: 100%;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  height: 40px;
+  outline: none;
+}

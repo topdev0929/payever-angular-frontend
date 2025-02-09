@@ -1,0 +1,105 @@
+<div
+  class="pe-checkout-bootstrap"
+  style="padding-bottom: 88px;">
+  <div style="margin-bottom: 33px;">
+    <div *ngIf="showLoginForm === false">
+      <p>You need to be logged in as merchant to access transaction</p>
+      <button (click)="showLoginForm = true">Log in to have a token</button>
+    </div>
+    <div *ngIf="showLoginForm === true">
+      <div class="form-group">
+        <input
+          id="email"
+          type="text"
+          class="form-control"
+          placeholder="Email"
+          [(ngModel)]="email"
+          name="email" />
+      </div>
+      <div class="form-group">
+        <input
+          id="password"
+          type="text"
+          class="form-control"
+          placeholder="Password"
+          [(ngModel)]="password"
+          name="password" />
+      </div>
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="doAuth()">
+        Login
+      </button>
+    </div>
+    <hr />
+    <div>
+      <div class="form-group">
+        <label for="businessId">Business id</label><br />
+        <input
+          id="businessId"
+          type="text"
+          class="form-control"
+          placeholder="Business id"
+          [(ngModel)]="businessId"
+          name="businessId" />
+      </div>
+    </div>
+    <div>
+      <div class="form-group">
+        <label for="transactionId">transactionId</label><br />
+        <input
+          id="transactionId"
+          type="text"
+          class="form-control"
+          placeholder="transactionId"
+          [(ngModel)]="transactionId"
+          name="transactionId" />
+      </div>
+    </div>
+
+    <params
+      [defaultParams]="defaultParams"
+      (onUpdateFlow)="updateFlow()"
+      (onUpdateSettings)="updateSettings()"
+      (onOpenOrderStep)="openOrderStep()"
+      (onUpdateSteps)="updateSteps()"
+      (onSaveFlowToStorage)="saveFlowToStorage()"
+      (paramsChanged)="paramsChanged($event)"
+      (disableLocaleDetectionChanged)="disableLocaleDetection = $event"></params>
+
+    <h4>Last incoming events</h4>
+    <ul>
+      <li *ngFor="let event of lastEvents">
+        <small>{{ event?.event }}: {{ event?.value | json }}</small>
+      </li>
+    </ul>
+
+    <br />
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <div style="border: 1px dashed #aaa">
+          <pe-checkout-wrapper-edit-transaction
+            *ngIf="flowId && transactionId && (billingAddress$ | async)"
+            [attr.updatesteps]="updateSteps$ | async"
+            [attr.openorderstep]="openOrderStep$ | async"
+            [attr.updateflow]="updateFlow$ | async"
+            [attr.updatesettings]="updateSettings$ | async"
+            [attr.saveflowtostorage]="saveFlowToStorage$ | async"
+            [attr.disablelocaledetection]="disableLocaleDetection"
+            [attr.params]="params | json"
+            [attr.fixedposition]="false"
+            [attr.checkouthidden]="checkoutHidden"
+            [attr.flowid]="flowId"
+            [attr.transactionid]="transactionId"
+            [attr.billingaddress]="billingAddress$ | async | json"
+            (eventemitted)="onEventEmitted($event)"
+            (layoutshown)="onLayoutShown()">
+          </pe-checkout-wrapper-edit-transaction>
+        </div>
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<pe-data-grid
+  [items]="campaigns$ | async"
+  [selectedItems]="selectedCampaigns$ | async"
+  [filters]="filters"
+  [singleSelectedAction]="firstCardAction"
+  [multipleSelectedActions]="multipleSelectedActions"
+  [isShowGridItemInfo]="true"
+  [dataListOptions]="dataGridListOptions"
+  [showCollectionsCountInHeader]="showCollectionsCountInHeader"
+  [sortByActions]="sortByActions"
+  searchPlaceholder="Search"
+  itemsTitle="campaigns"
+  (filtersChanged)="onFiltersChanged($event)"
+  (searchChanged)="onSearchChanged($event)"
+  (multipleSelectedItemsChanged)="onSelectedItemsChanged($event)"
+>
+  <div class="data-grid__add-item" (click)="addCampaign()">
+    <div
+      class="data-grid__image"
+      [style.background-image]="'url(' + adPlaceholderURL + ')'"
+    >
+    </div>
+    <div class="data-grid__buttons">
+      <div class="data-grid__button">
+        New Ad
+      </div>
+    </div>
+  </div>
+</pe-data-grid>

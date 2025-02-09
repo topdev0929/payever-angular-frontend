@@ -1,0 +1,68 @@
+<div class='editor-container'>
+  <div class="backdrop" (click)="close()"></div>
+  <div class="overlay">
+    <div class="overlay__header">
+      <button class="overlay__button overlay__button_grey" (click)="close()">Cancel</button>
+      <span class="overlay__title">{{ isEdit ? 'Edit' : 'Add' }} Product</span>
+      <button class="overlay__button" (click)="done()">Done</button>
+    </div>
+    <div class="overlay__body">
+      <mat-expansion-panel
+        *ngFor="let key of sectionsService.sectionKeys"
+        hideToggle
+        [expanded]="hasErrors(key) || activeSection === key"
+        (opened)="setStep(key)"
+        (closed)="removeStep(key)">
+        <mat-expansion-panel-header
+          collapsedHeight="40px"
+          expandedHeight="40px"
+          [attr.qa-products]="'toggle-' + key + '-panel'">
+          <mat-panel-title class="section-title">{{ 'sections.' + key | translate }}</mat-panel-title>
+          <svg class="icon icon_plus" height="12" width="12">
+            <use xlink:href="#icon-plus-softy-16"></use>
+          </svg>
+          <svg class="icon icon_minus" height="12" width="12">
+            <use xlink:href="#icon-minus-softy-16"></use>
+          </svg>
+        </mat-expansion-panel-header>
+        <ng-container [ngSwitch]="key">
+          <div class="section" *ngSwitchCase="'main'">
+            <main-section [theme]="theme"></main-section>
+          </div>
+          <div class="section" *ngSwitchCase="'content'">
+            <content-section></content-section>
+          </div>
+          <div class="section" *ngSwitchCase="'inventory'">
+            <inventory-section [externalError]="externalError$"></inventory-section>
+          </div>
+          <div class="category" *ngSwitchCase="'category'">
+            <category-section [externalError]="externalError$" class='category-section'></category-section>
+          </div>
+          <div class="variants variant-section" *ngSwitchCase="'variants'">
+            <variants-section></variants-section>
+          </div>
+          <div class="attributes" *ngSwitchCase="'attributes'">
+            <attributes-section></attributes-section>
+          </div>
+          <div class="recommendations" *ngSwitchCase="'recommendations'">
+            <recommendations-section class='recommendations-section'></recommendations-section>
+          </div>
+          <div class="channels" *ngSwitchCase="'channels'">
+            <channels-section></channels-section>
+          </div>
+          <div class="taxes" *ngSwitchCase="'taxes'">
+            <taxes-section></taxes-section>
+          </div>
+          <div class="visibility" *ngSwitchCase="'visibility'">
+            <visibility-section></visibility-section>
+          </div>
+          <div class="shipping" *ngSwitchCase="'shipping'">
+            <shipping-section></shipping-section>
+          </div>
+        </ng-container>
+      </mat-expansion-panel>
+    </div>
+  </div>
+</div>
+
+<router-outlet name="auxiliary"></router-outlet>

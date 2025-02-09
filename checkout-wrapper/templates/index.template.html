@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>payever Checkout</title>
+    <base href="/" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <script type="text/javascript">
+      var peFrontendCheckoutWrapper = 'MICRO_URL_CHECKOUT_CDN/wrapper/MICRO_CHECKOUT_VERSION';
+      var peBackendCheckout = 'MICRO_URL_CHECKOUT';
+      var peBackendCommerceos = 'MICRO_URL_COMMERCEOS';
+      var peBackendCustomStorage = 'MICRO_URL_CUSTOM_STORAGE';
+    </script>
+    <script>
+      const DEFAULT_LOCALE = 'en';
+
+      run = () => {
+        const channelSetId = getChannelSetId();
+
+        getSettingsByChannelSetId(channelSetId)
+          .then((settings) => {
+            const locale = settings?.languages.find(l => l.isDefault)?.code || DEFAULT_LOCALE;
+
+            redirectToDefaultLocale(locale);
+          })
+          .catch(err => {
+            window.location.href = '/error?message=Error occurred while loading settings';
+          });
+      }
+
+      const redirectToDefaultLocale = (locale) => {
+        window.location.href = window.location.href.replace('/pay', `/${locale}/pay`);
+      }
+
+      const getPartsFromUrl = () => {
+        return window.location.pathname.split('/').filter(function(a) { return a != ''; });
+      }
+
+      const getChannelSetId = () => {
+        const urlParams = {};
+        new URLSearchParams(window.location.search).forEach((o, k) => urlParams[k] = o);
+
+        if (urlParams.channelSetId) {
+          return urlParams.channelSetId;
+        }
+
+        const parts = getPartsFromUrl();
+        if (parts.length == 4
+          && parts[0] == 'pay'
+          && (parts[1] == 'create-flow'
+            || parts[1] == 'create-flow-from-qr')
+          && parts[2] == 'channel-set-id'
+        ) {
+          return parts[3].split('?')[0];
+        }
+
+        return null;
+      }
+
+      const getSettingsByChannelSetId = (channelSetId) => {
+        const path = `${peBackendCheckout}/api/checkout/channel-set/${channelSetId}/base-settings`;
+
+        return fetch(path, { method: 'GET' })
+          .then(res => res.status === 200 && res.text())
+          .then(data => JSON.parse(data));
+      }
+
+      run();
+    </script>
+  </head>
+  <body></body>
+</html>

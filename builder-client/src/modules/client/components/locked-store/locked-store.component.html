@@ -1,0 +1,14 @@
+<div
+  class="cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing"
+  [class.blurred]="blurBackground"
+>
+  <div class="overlay-logo" (click)="logoLinkClick()"></div>
+  <div class="password-dialog">
+    <p class="locked-store-title">{{ 'payever_fashion' | translate }}</p>
+    <p class="password-dialog-title">{{ 'start_business' | translate }}</p>
+
+    <div class="password-dialog-button" (click)="registerDomain()">
+      <span>{{ 'register_domain' | translate }}</span>
+    </div>
+  </div>
+</div>

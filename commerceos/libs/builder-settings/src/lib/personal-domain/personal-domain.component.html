@@ -1,0 +1,39 @@
+<div class="container" [ngClass]="config.theme">
+  <div *ngIf="!domainList?.length && !isloading" class="no-domain">
+    <peb-messages [showIcon]="true" [message]="appEnv.type + '-app.messages.no_domain'|translate"></peb-messages>
+    <button pe-form-button color="confirm" class="setting-button" (click)="addDomain()">{{appEnv.type + '-app.actions.create_domain'|translate}}</button>
+  </div>
+
+  <peb-expandable-panel
+    [headerLabel]="domain.name" [isContentOpen]="!i"
+    *ngFor="let domain of domainList, let i =index">
+    <div style="margin-bottom: 11px;">
+      <peb-form-background>
+        <peb-form-field-input animated="true" [label]="appEnv.type + '-app.settings.domain_label'|translate" appearance="label">
+          <input [value]="domain.name" [placeholder]="appEnv.type + '-app.settings.domain_placeholder'|translate" disabled />
+        </peb-form-field-input>
+      </peb-form-background>
+    </div>
+
+    <peb-form-background>
+      <peb-form-field-input animated="true" [label]="appEnv.type + '-app.settings.date_label'|translate" appearance="label">
+        <input [value]="domain.createdAt|date:'longDate'" disabled
+               [placeholder]="appEnv.type + '-app.settings.date_placeholder'|translate" />
+      </peb-form-field-input>
+      <peb-form-field-input animated="true" [label]="appEnv.type + '-app.settings.provider_label'|translate" appearance="label">
+        <input [value]="domain.provider ? domain.provider : 'unknown'"
+               disabled [placeholder]="appEnv.type + '-app.settings.provider_placeholder'|translate" />
+      </peb-form-field-input>
+    </peb-form-background>
+    <div style="margin-top:16px">
+      <peb-messages
+        [showIcon]="!domain.isConnected"
+        [message]="(domain.isConnected? appEnv.type + '-app.messages.domain_connected' : appEnv.type + '-app.messages.domain_disconnected') | translate"
+        [color]="domain.isConnected?'confirm':'warning'"
+      ></peb-messages>
+    </div>
+
+    <button pe-form-button color="warn" class="setting-button"
+            (click)="removeDomain(domain,i)">{{appEnv.type + '-app.actions.remove_domain'|translate}}</button>
+  </peb-expandable-panel>
+</div>

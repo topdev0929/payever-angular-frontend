@@ -1,0 +1,114 @@
+:host {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+}
+.search_container {
+  padding: 16px;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    .input-container {
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
+      padding: 12px;
+      flex-grow: 1;
+      margin-right: 16px;
+      display: flex;
+      .search-icon {
+        height: 16px;
+        width: 16px;
+        vertical-align: top;
+        margin: 3px 5px 0 0;
+      }
+      .search-input {
+        flex-grow: 1;
+        font-size: 16px;
+        font-weight: 400;
+        background-color: transparent;
+        border: 0;
+        outline: 0;
+        color: white;
+      }
+      .clear-icon {
+        cursor: pointer;
+        width: 20px;
+      }
+    }
+    .cancel-button {
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 400;
+      color: #7a7a7a;
+    }
+  }
+  .content {
+    overflow: auto;
+    border-radius: 13px;
+    margin-top: 16px;
+    max-height: 405px;
+    .no_result {
+      text-align: center;
+      margin: 23px 0;
+      div {
+        &:first-child {
+          font-size: 13px;
+          font-weight: 500;
+        }
+        &:last-child {
+          font-size: 12px;
+          font-weight: normal;
+          color: #7a7a7a;
+        }
+      }
+    }
+    .search-list-container {
+      padding: 8px;
+      border-radius: 12px;
+      background-color: rgba(0, 0, 0, 0.3);
+      .list-header {
+        font-size: 12px;
+        font-weight: 500;
+        color: #7a7a7a;
+        margin-bottom: 12px;
+      }
+      .search-items {
+        display: flex;
+        margin-bottom: 12px;
+        align-items: center;
+        cursor: pointer;
+        .search-icon {
+          height: 28px;
+          width: 28px;
+          margin-right: 16px;
+          padding: 5px;
+          -webkit-backdrop-filter: blur(18.8px);
+          backdrop-filter: blur(18.8px);
+          background-color: #37363b;
+          border-radius: 4.9px;
+        }
+        .search-title {
+          font-size: 13px;
+          font-weight: 500;
+        }
+
+        .search-description {
+          color: #7a7a7a;
+          font-size: 12px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+.light {
+  :host {
+    background-color: transparent;
+  }
+  .content .search-icon {
+    background-color: #e3e3e3 !important;
+  }
+}

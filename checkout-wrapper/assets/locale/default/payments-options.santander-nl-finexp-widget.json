@@ -1,0 +1,31 @@
+{
+  "santander-nl-finexp-widget": {
+    "common": {
+      "rate_param": {
+        "monthly_payment": "Termijnbedrag per maand",
+        "annual_percentage_cost": "Jaarlijkse kostenpercentage",
+        "amount": "Totale kredietbedrag",
+        "duration": "Duur kredietovereenkomst",
+        "annual_percentage_rate": "Debetrentevoet op jaarbasis (vast)",
+        "total_credit_cost": "Totaal te betalen bedrag"
+      },
+      "month": {
+        "one": "{{ count }} maand",
+        "many": "{{ count }} maanden"
+      },
+      "top_header_text": "Betalen in termijnen",
+      "rate_title": "{{ monthly_rate_with_currency }} voor {{ duration_with_months }}",
+      "credit_details_text": "Een niet-doorlopen kredietaanbod van Santander Consumer Finance. Toetsing en registration BKR. Bekijk hier de algemene voorwaarden. De webshop treedt op als vrijgestelde bemiddelaar van Santander. De webshop en Santander geven geen advies. U dient zelf te bepalen of het door u gewenste financieel product aansluit bij uw wensen, behoeften en persoonlijke situatie.",
+      "show_checkout_wrapper": "Afrekenen met Finance Express",
+      "show_more_info": "Verdere informatie"
+    },
+    "button": {
+    },
+    "dropdown-calculator": {
+    },
+    "text": {
+    },
+    "two-fields-calculator": {
+    }
+  }
+}

@@ -1,0 +1,67 @@
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+@import "~@pe/ui-kit/scss/pe_variables";
+
+:host {
+  position: relative;
+  .mat-toolbar {
+    @include payever_transform_translateX(0);
+    position: relative;
+    padding: 0 $grid-unit-x + 10;
+    z-index: $zindex-navbar;
+
+    .arrow-container {
+      @include pe_flexbox();
+      @include pe_justify-content(center);
+      @include pe_align-items(center);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+  
+      &.left-arrow {
+        left: 0;
+      }
+  
+      &.right-arrow {
+        right: 0;
+      }
+
+      &.visibility-hidden {
+        visibility: hidden;
+      }
+  
+      .button-arrow {
+        &[disabled] {
+          pointer-events: none;
+          opacity: 0.25;
+        }
+      }
+    }
+
+    .content-wrapper {
+      @include pe_flexbox();
+      @include pe_align-items(center);
+      width: 100%;
+      overflow: hidden;
+    }
+  }
+  
+  .button-arrow {
+    color: $color-white;
+    border-radius: $border-radius-large;
+
+    &:hover {
+      background-color: $color-white-grey-3;
+    }
+  }
+
+  &.panel-settings .mat-toolbar {
+    z-index: $zindex-popover;
+    background-color: $builder-toolbar-bg;
+    border-bottom: $builder-toolbar-light-border;
+  }
+
+  &.custom-panel .mat-toolbar {
+    background-color: $builder-toolbar-bg;
+    border-bottom: $builder-toolbar-black-border;
+  }
+}

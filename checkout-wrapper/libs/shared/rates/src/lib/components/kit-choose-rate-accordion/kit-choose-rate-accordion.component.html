@@ -1,0 +1,43 @@
+<mat-card *ngIf="isLoading" class="mat-card-dark mat-card-no-shadow mat-card-small-paddings">
+  <button mat-button class="mat-button-link mat-button-space-between mat-button-block">&nbsp;</button>
+  <div class="loader_48"></div>
+</mat-card>
+
+<ng-template #rateContent>
+  <ng-content></ng-content>
+</ng-template>
+
+<ng-container *ngIf="!isLoading">
+  <mat-accordion [multi]="false" class="mat-accordion-choose-rate">
+    <ng-container *ngFor="let rate of rates">
+      <mat-expansion-panel
+        [expanded]="selectedRate?.id === rate?.id"
+        [disabled]="selectedRate?.id === rate?.id"
+        [hideToggle]="true"
+        (opened)="chooseRate(rate)"
+        (closed)="isVisibleContent$.next(false)"
+      >
+        <mat-expansion-panel-header [collapsedHeight]="'auto'"
+                                    [expandedHeight]="'auto'"
+                                    [class.expansion-panel-header-align-top]="true"
+                                    (click)="onRateClicked(rate)">
+          <mat-panel-title>
+            <span class="panel-header-text" [innerHtml]="rate.title"></span>
+          </mat-panel-title>
+          <mat-panel-description *ngIf="rate.description">
+            <div class="panel-header-text inner" [innerHtml]="rate.description"></div>
+          </mat-panel-description>
+          <!-- For disabled rate it doesn't show right toggle icon. So we have to show manually -->
+          <span *ngIf="selectedRate?.id !== rate?.id" class="panel-icon">&#43;</span>
+          <span *ngIf="selectedRate?.id === rate?.id" class="panel-icon minus">&minus;</span>
+        </mat-expansion-panel-header>
+        <div [style.opacity]="+(isVisibleContent$ | async)">
+          <ng-container *ngIf="selectedRate?.id === rate?.id && (isShowContent$ | async)">
+            <ng-container *ngTemplateOutlet="rateContent"></ng-container>
+          </ng-container>
+        </div>
+
+      </mat-expansion-panel>
+    </ng-container>
+  </mat-accordion>
+</ng-container>

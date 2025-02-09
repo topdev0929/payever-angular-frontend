@@ -1,0 +1,96 @@
+{
+  "contentType": "accordion",
+  "connected": true,
+  "title": "Amazon",
+  "closeUrl": "https://amazon-backend.test.devpayever.com/api/flow/close-app",
+  "type": "info-box",
+  "content": {
+    "accordion": [
+      {
+        "title": "Authentication",
+        "action": {
+          "actionId": "start",
+          "text": "Reset Credentials",
+          "apiUrl": "https://amazon-backend.test.devpayever.com/api/flow/disconnect-app",
+          "httpMethod": "post",
+          "classes": "text-grey"
+        },
+        "fieldset": [
+          {
+            "fieldSettings": {
+              "classList": "col-xs-12",
+              "readonly": true
+            },
+            "inputSettings": {
+              "placeholder": "Developer Id"
+            },
+            "name": "developerId",
+            "type": "input"
+          },
+          {
+            "fieldSettings": {
+              "classList": "col-xs-12",
+              "readonly": true,
+              "required": true
+            },
+            "inputSettings": {
+              "placeholder": "MWS Auth Token"
+            },
+            "name": "mwsAuthToken",
+            "type": "input"
+          },
+          {
+            "fieldSettings": {
+              "classList": "col-xs-12",
+              "readonly": true,
+              "required": true
+            },
+            "inputSettings": {
+              "placeholder": "Seller Id"
+            },
+            "name": "sellerId",
+            "type": "input"
+          },
+          {
+            "fieldSettings": {
+              "classList": "col-xs-12",
+              "readonly": true,
+              "required": true
+            },
+            "inputSettings": {
+              "placeholder": "Marketplace Id"
+            },
+            "name": "marketplaceId",
+            "type": "input"
+          }
+        ],
+        "fieldsetData": {
+          "developerId": "19111232141",
+          "marketplaceId": "gdf",
+          "mwsAuthToken": "sada",
+          "sellerId": "fsdf"
+        }
+      },
+      {
+        "title": "Synchronization settings",
+        "fieldset": [
+          {
+            "asyncSave": true,
+            "fieldSettings": {
+              "classList": "col-xs-12"
+            },
+            "inputSettings": {
+              "placeholder": "Enable full synchronization"
+            },
+            "name": "pe_fullSynchronization",
+            "type": "slide-toggle"
+          }
+        ]
+      }
+    ],
+    "html": {
+      "icon": "#icon-check-rounded-16",
+      "innerHtml": "Status: Connected"
+    }
+  }
+}

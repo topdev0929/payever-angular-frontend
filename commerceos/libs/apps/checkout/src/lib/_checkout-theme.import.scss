@@ -1,0 +1,17 @@
+@use 'pe_theming' as pet;
+@use './root/checkout-root-theme.component' as root;
+@use './containers/container-theme.import' as container;
+@use './components/components-theme.import' as components;
+@use './finexp/finexp-theme.import' as finexp;
+@use './payment-links/components/dialog/_payment-links-dialogs.theme.scss' as payment_links_dialogs;
+@use './payment-links/payment-links.theme.scss' as payment_links;
+
+@mixin theme($theme-config) {
+    @include components.theme($theme-config);
+    @include container.theme($theme-config);
+    $color-config: pet.get-color-config-from-theme($theme-config);
+    @include finexp.color($color-config);
+    @include root.color($color-config);
+    @include payment_links_dialogs.color($color-config);
+    @include payment_links.color($color-config);
+}

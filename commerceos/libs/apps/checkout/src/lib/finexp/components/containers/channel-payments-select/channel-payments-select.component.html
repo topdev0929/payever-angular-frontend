@@ -1,0 +1,47 @@
+<div
+  class="checkout-style-item-menu"
+  cdk-overlay-origin
+  #fallbackOverlayOrigin="cdkOverlayOrigin"
+  (click)="openDropdown()"
+>
+  <div class="checkout-style-item-menu-row">
+    <span>{{(this.selectedPayment$ | async)?.name ?? 'finexp.labels.default' | translate}}</span>
+    <svg class="arrow-open">
+      <use xlink:href="#icon-ui-arrow-open"></use>
+    </svg>
+  </div>
+</div>
+<ng-template
+  cdk-connected-overlay
+  cdkConnectedOverlayLockPosition
+  cdkConnectedOverlayHasBackdrop
+  cdkConnectedOverlayBackdropClass="finexp-mat-menu"
+  [cdkConnectedOverlayOrigin]="fallbackOverlayOrigin"
+  [cdkConnectedOverlayOpen]="isOpened$ | async"
+  [cdkConnectedOverlayWidth]="getOverlayWidth(fallbackOverlayOrigin)"
+  (backdropClick)="closeDropdown()"
+  (detach)="closeDropdown()">
+  <div
+    class="checkout-style-item-menu"
+  >
+    <div
+    class="checkout-style-item-menu__option"
+    [class.selected]="(this.selectedPayment$ | async)?.name === null"
+    (click)="selectPayment(null)">
+    <div class="label">
+      <span translate>finexp.labels.default</span>
+    </div>
+  </div>
+  <ng-container *ngFor="let payment of payments">
+    <div
+      *ngIf="isPaymentSelected(payment)"
+      class="checkout-style-item-menu__option"
+      [class.selected]="(this.selectedPayment$ | async)?.name === payment.name"
+      (click)="selectPayment(payment)">
+      <div class="label">
+        <span translate>{{payment.name}}</span>
+      </div>
+    </div>
+  </ng-container>
+  </div>
+</ng-template>

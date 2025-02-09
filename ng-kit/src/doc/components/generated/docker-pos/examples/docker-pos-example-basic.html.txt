@@ -1,0 +1,3 @@
+<div class="docker-pos-example-wrap">
+  <pe-docker-pos [itemsList]="itemsList"></pe-docker-pos>
+</div>

@@ -1,0 +1,16 @@
+{
+  "name": "@pe/shipping-app",
+  "version": "1.0.5",
+  "description": "shipping app",
+  "repository": "http://gitlab.devpayever.com/frontend/shipping.git",
+  "bin": {
+    "pe-i18n-cosf-prepare-shipping-app": "./bin/i18n-cosf-prepare.js"
+  },
+  "peerDependencies": {
+    "@angular/common": "^9.1.13",
+    "@angular/core": "^9.1.13"
+  },
+  "dependencies": {
+    "tslib": "^1.10.0"
+  }
+}

@@ -1,0 +1,153 @@
+@use 'pe_variables' as pe_variables;
+@use 'pe_mixins' as pe_mixins;
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $border: map.get($color-config, 'border');
+  $confirm: map.get($color-config, 'confirm');
+  $text-color: map.get($color-config, 'text-color');
+  $secondary-button: map.get($color-config, 'secondary-button');
+  $secondary: map.get($color-config, 'secondary');
+  $overlay-backdrop: map.get($color-config, 'overlay-backdrop');
+  $label-color: map.get($color-config, 'label-color');
+  $scrollbar-thumb: map.get($color-config, 'scrollbar-thumb');
+
+  .pe-overlay-widget-backdrop {
+    background-color: $overlay-backdrop !important;
+    & + .cdk-global-overlay-wrapper {
+        &, .cdk-overlay-pane {
+      @media (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+  .cdk-overlay-backdrop-showing {
+    transition: background-color 0.3s;
+  }
+  .cdk-overlay-backdrop.pe-context-menu-backdrop {
+    background-color: unset;
+  }
+
+  .cdk-overlay-pane {
+    .overlay-widget-container {
+      border: solid 1px $border;
+      backdrop-filter: blur(25px) !important;
+      border-radius: 20px;
+      &.headless-overlay-widget {
+        @media (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+          width: 100%;
+          height:100%;
+        }
+      }
+      > div {
+        width: 100%;
+        @media (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+          height: 100%;
+        }
+        padding-bottom: 12px;
+        &:not([class]) {
+          background-color: $overlay-background;
+        }
+        .overlay-widget {
+          width: 100%;
+          height: 100%;
+          &__header {
+            span {
+              color: $text-color !important;
+            }
+            .header-container button {
+              font-weight: 500;
+            }
+          }
+          &__content {
+            padding-bottom: 0;
+            @media (max-width: 620px) {
+              height: calc(100% - 71px);
+            }
+            &__done {
+              color: $confirm;
+            }
+          }
+        }
+      }
+      @media (max-width: 620px) {
+        max-height: calc(100% - 105px);
+        max-width: 436px;
+        .overlay-widget .header-container {
+          max-width: calc(100% - 134px);
+        }
+      }
+      @media (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+        max-width: 100%;
+        width: 100%;
+        max-height: 100%;
+        height: 100%;
+        border-radius: 0;
+        border: none;
+        > div {
+          padding-bottom: 0;
+          border-radius: 0;
+          .overlay-widget {
+            &__header {
+              padding-left: 12px;
+              padding-right: 12px;
+            }
+            &__done,
+            &__back {
+              font-size: 16px;
+              margin: 0;
+            }
+            &__title {
+              font-size: 18px;
+            }
+            &__content {
+              padding-bottom: 12px;
+            }
+          }
+        }
+
+      }
+    }
+  }
+
+  .cdk-overlay-pane {
+    peb-overlay-widget {
+      width: 100%;
+      height: 100%;
+      .overlay-widget-container {
+        @include pe_mixins.openOverlayAnimation;
+      }
+    }
+  }
+
+  @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+    peb-overlay-widget {
+      .overlay-widget-container {
+        > div {
+          .overlay-widget {
+            &__header {
+              padding: 27px 0 16px;
+              height: 71px;
+
+              .header-container > button {
+                font-size: 16px;
+                overflow: visible;
+              }
+              .overlay-widget__title {
+                font-size: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .overlay-widget-container, .overlay-widget-container .overlay-dark {
+      border-radius: 0;
+    }
+  }
+}

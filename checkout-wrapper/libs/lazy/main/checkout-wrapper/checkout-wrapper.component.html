@@ -1,0 +1,8 @@
+<checkout-main-layout
+  *ngIf="showLayout$ | async"
+  [fixedPosition]="fixedPosition"
+  [hidden]="hidden"
+  [asCustomElement]="asCustomElement"
+  [settings]="settings$ | async"
+  (layoutShown)="layoutShown.emit()">
+</checkout-main-layout>

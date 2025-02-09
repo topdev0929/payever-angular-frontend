@@ -1,0 +1,25 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $confirm: map.get($color-config, 'confirm');
+  $active-text: map.get($color-config, 'active-text');
+  $text-color: map.get($color-config, 'text-color');
+
+  peb-button-toggle-group, .peb-button-toggle-form-controls {
+    background-color: $overlay-background;
+    color: $text-color;
+    &.toggle-button-checked {
+        background-color: $confirm;
+        color: $active-text;
+    }
+  }
+  peb-button-toggle {
+    &.toggle-button-checked {
+      .peb-button-toggle-form-controls {
+        background-color: $confirm;
+        color: $active-text;
+      }
+    }
+  }
+}

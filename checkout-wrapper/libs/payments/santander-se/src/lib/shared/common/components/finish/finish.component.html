@@ -1,0 +1,107 @@
+<checkout-sdk-finish-wrapper
+  [buttons]="buttons$ | async"
+  [errorMessage]="errorMessage"
+  [iframeCallbackUrl]="getIframeCallbackUrl()"
+  [isLoading]="isLoading || (isWaiting$ | async)"
+  [isDisableChangePayment]="isDisableChangePayment"
+  [isChangingPaymentMethod]="isChangingPaymentMethod"
+  [embeddedMode]="embeddedMode"
+  [merchantMode]="merchantMode"
+  [asSinglePayment]="asSinglePayment"
+  (close)="onClose()">
+  <ng-container *ngIf="isSigning()">
+    <div id="signing_processing">
+      <div
+        class="large-1"
+        i18n="@@santander-se.inquiry.finish.signing_processing.title">
+        santander-se.inquiry.finish.signing_processing.title
+      </div>
+      <p i18n="@@santander-se.inquiry.finish.signing_processing.text_ex">
+        santander-se.inquiry.finish.signing_processing.text_ex
+      </p>
+      <br /><br />
+      <div *ngIf="(paymentStateService.isCheckStatusProcessing$ | async) === false">
+        <p>
+          <svg class="icon icon-64"><use xlink:href="#icon-bankid"></use></svg>
+        </p>
+      </div>
+      <div
+        *ngIf="paymentStateService.isCheckStatusProcessing$ | async"
+        style="height: 80px; position: relative">
+        <div
+          class="loader-container"
+          style="height: 80px;">
+          <div class="loader_48"></div>
+        </div>
+      </div>
+      <br /><br />
+      <p
+        class="small text-secondary"
+        i18n="@@santander-se.inquiry.finish.signing_processing.comment">
+        santander-se.inquiry.finish.signing_processing.comment
+      </p>
+      <button
+        mat-button
+        type="button"
+        [disabled]="paymentStateService.isCheckStatusProcessing$ | async"
+        (click)="onStartSigning()"
+        class="finish-button mat-button-gradient"
+        i18n="@@santander-se.action.start_signing">
+        santander-se.action.start_signing
+      </button>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="nodeResult && !isLoading && !isSigning()">
+    <ng-container>
+      <ng-container *ngIf="isStatusSuccess()">
+        <checkout-sdk-finish-status-success
+          i18n-title="@@santander-se.inquiry.finish.application_success.title"
+          title="santander-se.inquiry.finish.application_success.title"
+          [total]="nodeResult.payment?.total"
+          [currency]="flow?.currency"
+          [storeName]="nodeResult.payment?.businessName || '---'"
+          [createdAt]="nodeResult.createdAt"
+          [billingAddressName]="isPosPayment() ? billingAddressName() : null"
+          [applicationNumber]="applicationNumber"
+          [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"
+          [flowId]="flow?.id"
+          [isPosPayment]="isPosPayment()"></checkout-sdk-finish-status-success>
+      </ng-container>
+
+      <ng-container *ngIf="isStatusPending()">
+        <checkout-sdk-finish-status-pending
+          i18n-title="@@santander-se.inquiry.finish.application_pending.title"
+          title="santander-se.inquiry.finish.application_pending.title"
+          i18n-text="@@santander-se.inquiry.finish.application_pending.text"
+          text="santander-se.inquiry.finish.application_pending.text"
+          [total]="payment?.total"
+          [currency]="flow?.currency"
+          [storeName]="payment?.store_name"
+          [createdAt]="payment?.created_at"
+          [billingAddressName]="isPosPayment() ? billingAddressName() : null"
+          [applicationNumber]="applicationNumber"
+          [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"
+          [flowId]="flow?.id"
+          [isPosPayment]="isPosPayment()">
+        </checkout-sdk-finish-status-pending>
+      </ng-container>
+
+      <ng-container *ngIf="isStatusFail()">
+        <checkout-sdk-finish-status-fail
+          i18n-title="@@santander-se.inquiry.finish.application_fail.title"
+          title="santander-se.inquiry.finish.application_fail.title"
+          [canChangePaymentMethod]="canChangePaymentMethod()"
+          [applicationNumber]="applicationNumber"
+          [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"></checkout-sdk-finish-status-fail>
+      </ng-container>
+
+      <ng-container *ngIf="isStatusUnknown()">
+        <checkout-sdk-finish-status-unknown
+          [nodeResult]="nodeResult"
+          [applicationNumber]="applicationNumber"
+          [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"></checkout-sdk-finish-status-unknown>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</checkout-sdk-finish-wrapper>

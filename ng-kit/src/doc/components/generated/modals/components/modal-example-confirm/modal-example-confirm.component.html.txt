@@ -1,0 +1,14 @@
+<pe-modal
+  [baseViewConfig]="'confirm'"
+  [viewConfig]="{classes: {modalBody : bodyZeroPadding ? 'zero-padding' : ''}}"
+  [doHide]="hider"
+  (onClose)="back()"
+  [showLoading]="loading"
+  [baseButtons]="'close'"
+  [buttons]="buttons"
+  [grayBG]="true">
+
+  <h4>Do you really want to do this?</h4>
+  <p>Please make your choice.</p>
+
+</pe-modal>

@@ -1,0 +1,86 @@
+<div class="chapter">
+    <h2>Progress bars</h2>
+    <div id="progress-default" class="main-block">
+        <h3>Default</h3>
+        <div class="doc-block">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>Default progress bar.</p>
+                </div>
+                <div class="col-xs-12">
+                    <progressbar value="60"></progressbar>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <pre><code class="html" [innerHTML]="exampleProgress1 | code"></code></pre><p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="progress-sizes" class="main-block">
+        <h3>Sizes</h3>
+        <div class="doc-block">
+            <div class="row">
+                <div class="col-xs-12">
+                    <progressbar value="20" class="progress-lg"></progressbar>
+                    <progressbar value="40"></progressbar>
+                    <progressbar value="60" class="progress-sm"></progressbar>
+                    <progressbar value="80" class="progress-xs"></progressbar>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <pre><code class="html" [innerHTML]="exampleProgress2 | code"></code></pre><p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="progress-label" class="main-block">
+        <h3>With label</h3>
+        <div class="doc-block">
+            <div class="row">
+                <div class="col-xs-12">
+                    <progressbar value="40">40%</progressbar>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <pre><code class="html" [innerHTML]="exampleProgress3 | code"></code></pre><p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="progress-contextual" class="main-block">
+        <h3>Contextual alternatives</h3>
+        <div class="doc-block">
+            <div class="row">
+                <div class="col-xs-12">
+                    <progressbar value="30" type="warning"></progressbar>
+                    <progressbar value="60" type="danger"></progressbar>
+                    <progressbar value="90" type="success"></progressbar>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <pre><code class="html" [innerHTML]="exampleProgress4 | code"></code></pre><p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="progress-striped" class="main-block">
+        <h3>Striped</h3>
+        <div class="doc-block">
+            <div class="row">
+                <div class="col-xs-12">
+                    <progressbar value="50" class="progress-striped"></progressbar>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <pre><code class="html" [innerHTML]="exampleProgress5 | code"></code></pre><p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

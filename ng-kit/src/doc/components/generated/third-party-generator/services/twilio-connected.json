@@ -1,0 +1,220 @@
+{
+  "form": {
+    "contentType": "accordion",
+    "title": "Twilio",
+    "type": "info-box",
+    "content": {
+      "accordion": [
+        {
+          "title": "Phone numbers",
+          "data": [
+            [
+              {
+                "type": "text",
+                "value": "Toggle example"
+              },
+              {
+                "classes": "text-grey text-center",
+                "type": "text",
+                "value": "$1.00 / Month"
+              },
+              {
+                "type": "toggle",
+                "size": "xs",
+                "checked": true,
+                "requestOn": {
+                  "url": "/do-on",
+                  "method": "post"
+                },
+                "requestOff": {
+                  "url": "/do-off",
+                  "method": "post"
+                }
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "value": "(571) 339-5073"
+              },
+              {
+                "classes": "text-grey text-center",
+                "type": "text",
+                "value": "$1.00 / Month"
+              },
+              {
+                "action": "remove-number",
+                "text": "Remove",
+                "type": "button",
+                "color": "muted-light",
+                "rounded": true,
+                "size": "xs"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "value": "(201) 734-5466"
+              },
+              {
+                "classes": "text-grey text-center",
+                "type": "text",
+                "value": "$1.00 / Month"
+              },
+              {
+                "action": "remove-number",
+                "text": "Remove",
+                "type": "button",
+                "color": "muted-light",
+                "rounded": true,
+                "size": "xs"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "value": "(814) 205-9637"
+              },
+              {
+                "classes": "text-grey text-center",
+                "type": "text",
+                "value": "$1.00 / Month"
+              },
+              {
+                "action": "remove-number",
+                "text": "Remove",
+                "type": "button",
+                "color": "muted-light",
+                "rounded": true,
+                "size": "xs"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "value": "(734) 385-1783"
+              },
+              {
+                "classes": "text-grey text-center",
+                "type": "text",
+                "value": "$1.00 / Month"
+              },
+              {
+                "action": "remove-number",
+                "text": "Remove",
+                "type": "button",
+                "color": "muted-light",
+                "rounded": true,
+                "size": "xs"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "value": "46765196631"
+              },
+              {
+                "classes": "text-grey text-center",
+                "type": "text",
+                "value": "$1.00 / Month"
+              },
+              {
+                "action": "remove-number",
+                "text": "Remove",
+                "type": "button",
+                "color": "muted-light",
+                "rounded": true,
+                "size": "xs"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "value": "46769458070"
+              },
+              {
+                "classes": "text-grey text-center",
+                "type": "text",
+                "value": "$1.00 / Month"
+              },
+              {
+                "action": "remove-number",
+                "text": "Remove",
+                "type": "button",
+                "color": "muted-light",
+                "rounded": true,
+                "size": "xs"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "value": "payever POS"
+              },
+              {
+                "classes": "text-grey text-center",
+                "type": "text",
+                "value": "$1.00 / Month"
+              },
+              {
+                "action": "remove-number",
+                "text": "Remove",
+                "type": "button",
+                "color": "muted-light",
+                "rounded": true,
+                "size": "xs"
+              }
+            ]
+          ],
+          "operation": {
+            "action": "add-number",
+            "text": "Add +",
+            "small": true
+          },
+          "icon": "#icon-iphone-24"
+        },
+        {
+          "title": "Authentication",
+          "html": {
+            "innerHtml": "Paste your Twillio Auth keys from Twillio Console (Dashboard) here"
+          },
+          "fieldset": [
+            {
+              "type": "input",
+              "name": "accountSid",
+              "fieldSettings": {
+                "classList": "col-xs-12"
+              },
+              "inputSettings": {
+                "placeholder": "Account SID"
+              }
+            },
+            {
+              "type": "input",
+              "name": "authToken",
+              "fieldSettings": {
+                "classList": "col-xs-12"
+              },
+              "inputSettings": {
+                "placeholder": "Auth token"
+              }
+            }
+          ],
+          "fieldsetData": {
+            "accountSid": "your-account",
+            "authToken": "your-token"
+          },
+          "operation": {
+            "action": "reset-credentials",
+            "text": "Reset credentials",
+            "classes": "text-grey"
+          },
+          "icon": "#icon-authentification-key"
+        }
+      ]
+    },
+    "actionContext": {
+      "id": "67c1eabc-6fe8-4fe6-9a1e-b926f93c3f67"
+    }
+  }
+}

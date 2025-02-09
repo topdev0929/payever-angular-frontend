@@ -1,0 +1,16 @@
+<form
+  *ngIf="mode === modeEnum.Edit"
+  class="form-table">
+  <santander-no-credit-z-status
+    i18n-title="@@santander-no.inquiry.step.section.credit.title"
+    i18n-note="@@santander-no.inquiry.step.section.credit.description"
+    title="santander-no.inquiry.step.section.credit.title"
+    note="santander-no.inquiry.step.section.credit.description">
+  </santander-no-credit-z-status>
+
+  <checkout-sdk-continue-button
+    i18n-text="@@checkout_sdk.action.continue"
+    text="@@checkout_sdk.action.continue"
+    (clicked)="submit()">
+  </checkout-sdk-continue-button>
+</form>

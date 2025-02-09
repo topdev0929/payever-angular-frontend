@@ -1,0 +1,16 @@
+@use 'pe_theming' as pet;
+@use './root/contacts-root-theme.component' as root;
+@use './components/status-cell/status-cell-theme-component' as status-cell;
+@use './components/contact/contact-theme-component' as contact;
+@use './components/contacts-widget/contacts-widget-theme-component' as contacts-widget;
+@use './components/contacts-status/contact-status-theme.component' as contact-status;
+
+@mixin theme($theme-config) {
+    $color-config: pet.get-color-config-from-theme($theme-config);
+  
+    @include root.color($color-config);
+    @include status-cell.color($color-config);
+    @include contact.color($color-config);
+    @include contacts-widget.color($color-config);
+    @include contact-status.color($color-config);
+}

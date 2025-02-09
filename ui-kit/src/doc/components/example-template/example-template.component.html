@@ -1,0 +1,29 @@
+<div [attr.id]="id" class="doc-chapter">
+  <h3 [innerHtml]="title"></h3>
+
+  <div class="doc-block">
+    <tabset>
+      <tab heading="View">
+        <div class="row">
+          <div class="col-xs-12">
+            <ng-content></ng-content>
+          </div>
+        </div>
+      </tab>
+      <tab heading="Template">
+        <div class="row">
+          <div class="col-xs-12">
+            <pre><code class="html" [innerHtml]="templateCode | code"></code></pre>
+          </div>
+        </div>
+      </tab>
+      <tab heading="Component">
+        <div class="row">
+          <div class="col-xs-12">
+            <pre><code class="html" [innerHtml]="componentCode | code"></code></pre>
+          </div>
+        </div>
+      </tab>
+    </tabset>
+  </div>
+</div>

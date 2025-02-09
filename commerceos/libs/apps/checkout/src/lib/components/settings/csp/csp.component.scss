@@ -1,0 +1,126 @@
+@use "pe_variables" as pe_variables;
+@import "./../../panels/page-container";
+
+.overlay-widget .pe-info-box-container-fixed.scp-settings {
+  width: 100%;
+  min-height: fit-content;
+  padding-bottom: 0;
+
+  .pe-info-box {
+    min-width: 100%;
+    padding: 0;
+
+    .mat-list.scp-settings-item {
+      width: 100%;
+
+      .mat-list-item {
+        cursor: default;
+        height: 45px !important;
+        @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+          height: 57px !important;
+        }
+
+        &.action-item {
+          cursor: pointer;
+        }
+
+        .mat-list-item-content .mat-list-item-flex {
+          padding: 0 0 0 16px;
+
+          &.csp-form-table-container {
+            padding: 0;
+            &.empty {
+              margin-bottom: 2px;
+            }
+
+            .csp-form-table {
+              height: 100%;
+              width: 100%;
+              display: flex;
+              justify-content: flex-start;
+
+              .csp-settings-input {
+                height: 100%;
+                flex-grow: 1;
+                border-right-style: solid;
+                border-right-width: 1px;
+
+                .label-input-content-wrapper {
+                  .label-container.form-label {
+                    .label-text {
+                      line-height: normal;
+                    }
+                  }
+                }
+              }
+
+              &_submit-button {
+                min-width: 105px;
+                padding: 0 12px;
+                font-family: Roboto, sans-serif;
+                font-size: 14px;
+                font-weight: 500;
+                border: none;
+                outline: none;
+                text-align: center;
+                @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+                  font-size: 17px;
+                  font-weight: 400;
+                }
+
+                &:focus, :active {
+                  outline: none;
+                }
+              }
+            }
+          }
+
+          .mat-list-item-col {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            &.text-right {
+              flex-grow: 0;
+              flex-basis: 105px;
+              justify-content: center;
+
+              button {
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 1.33;
+                text-align: right;
+                padding-right: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.scp-validation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-height: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  font-weight: 300;
+  transition: .2s;
+  overflow: hidden;
+
+  &-visible {
+    margin-top: 12px;
+    height: 38px;
+    max-height: 38px;
+    padding: 0 12px;
+    transition: .2s;
+  }
+}

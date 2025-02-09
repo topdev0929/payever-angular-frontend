@@ -1,0 +1,15 @@
+<doc-content-viewer [settings]="settings"></doc-content-viewer>
+
+<ng-template #overview>
+  <p>
+    If you have been tried to use <code>fixture.detectChanges()</code> multiple times for test component with
+    <code>ChangeDetectionStrategy.OnPush</code>, you are diving into hell or headacke 
+    <em>"wtf?! why it isn't just works in test environment?!"</em> or dirty hacks like 
+    <code>fixture.componentInstance.cdRef.markForCheck()</code> usage.
+  </p>
+
+  <p>
+    But now you can relax and use <code>overrideChangeDetectionStrategyHelper()</code> which is just replace 
+    <code>changeDetection</code> property in <code>@Component()</code> declaration with all other properties saving:
+  </p>
+</ng-template>

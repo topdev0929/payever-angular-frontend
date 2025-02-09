@@ -1,0 +1,20 @@
+<button
+  color="muted-dark"
+  mat-raised-button
+  [class.button-settings-toggle]="true"
+  [class.mat-button-xxs]="true"
+  [class.mat-button-menu]="true"
+  [class.mat-button-small-padding]="true"
+  (click)="opened = !opened"
+>
+  <span>{{ title }}</span>
+  <svg *ngIf="!opened" class="icon icon-16"><use xlink:href="#icon-arrow-down-small-16"></use></svg>
+  <svg *ngIf="opened" class="icon icon-16"><use xlink:href="#icon-arrow-up-small-16"></use></svg>
+</button>
+<mat-toolbar
+  *ngIf="opened"
+  class="mat-toolbar-append mat-toolbar-bordered mat-toolbar-default-dark-solid"
+  [class.append-below]="appendBelow"
+>
+  <ng-content></ng-content>
+</mat-toolbar>

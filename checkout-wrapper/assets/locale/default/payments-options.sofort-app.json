@@ -1,0 +1,19 @@
+{
+  "payment-sofort": {
+    "actions": {
+      "redirect_to_sofort": "Redirect to Sofort",
+      "change_payment_method": "Please, select another payment method"
+    },
+    "inquiry": {
+      "finish": {
+        "processing": {
+          "title": "Request can take a few minutes. Please do not click away",
+          "text": "We are processing your payment"
+        },
+        "labels": {
+          "total": "Total"
+        }
+      }
+    }
+  }
+}

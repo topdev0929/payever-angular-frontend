@@ -1,0 +1,44 @@
+@import '../../../../../../../../../shared/styles/assets/ui-kit-styles/pe_variables';
+pe-promo-styles {
+  display: contents;
+}
+
+@media (max-width: $viewport-breakpoint-sm-1 - 1) {
+  .pe-payment-container .promo-desktop {
+    padding: $grid-unit-x;
+    background-color: rgb(245, 243, 244);
+    border-radius: $border-radius-default;
+
+    .row {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__item {
+      width: 100%;
+
+      &:not(:first-child) {
+        margin-top: 10px !important;
+      }
+
+      .promo-icon {
+        margin-right: 8px !important;
+
+        .icon-32 {
+          width: 18px !important;
+          height: 22px;
+        }
+      }
+
+      .pe-payment-text {
+        text-wrap: nowrap;
+        color: #404040 !important;
+        font-size: 11px;
+
+        br {
+          display: none;
+        }
+      }
+    }
+  }
+}

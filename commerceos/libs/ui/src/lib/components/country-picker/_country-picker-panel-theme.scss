@@ -1,0 +1,41 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $row-background: map.get($color-config, 'row-background');
+  $border: map.get($color-config, 'border');
+  $text-color: map.get($color-config, 'text-color');
+  $active-text: map.get($color-config, 'active-text');
+  $separator: map.get($color-config, 'separator');
+  $primary: map.get($color-config, 'primary');
+  $hover-button: map.get($color-config, 'hover-button');
+  $background: map.get($color-config, 'background');
+
+  .cdk-overlay-pane {
+    .country-autocomplete-panel {
+      background-color: $row-background;
+      border: solid 1px $border;
+      box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+
+      .mat-option {
+        color: $text-color;
+        border: none;
+
+        &:hover {
+          color: $active-text;
+          background-color: $hover-button;
+          .mat-option-text {
+            color: $active-text;
+          }
+        }
+        .mat-option-text {
+          color: $text-color;
+        }
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: $primary;
+      }
+    }
+  }
+}

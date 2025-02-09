@@ -1,0 +1,42 @@
+<div
+  class="checkout-style-item-menu"
+  cdk-overlay-origin
+  #fallbackOverlayOrigin="cdkOverlayOrigin"
+  (click)="openDropdown()"
+>
+  <div
+    *ngIf="selectedTheme$ | async as selectedTheme"
+    class="checkout-style-item-menu-row">
+    <span class="checkout-style-item-theme-row__label">
+      {{ 'finexp.channels.settings.theme.' + selectedTheme | translate }}
+    </span>
+    <svg class="arrow-open">
+      <use xlink:href="#icon-ui-arrow-open"></use>
+    </svg>
+  </div>
+</div>
+<ng-template
+  cdk-connected-overlay
+  cdkConnectedOverlayLockPosition
+  cdkConnectedOverlayHasBackdrop
+  cdkConnectedOverlayBackdropClass="finexp-mat-menu"
+  [cdkConnectedOverlayOrigin]="fallbackOverlayOrigin"
+  [cdkConnectedOverlayOpen]="isOpened$ | async"
+  [cdkConnectedOverlayWidth]="getOverlayWidth(fallbackOverlayOrigin)"
+  (backdropClick)="closeDropdown()"
+  (detach)="closeDropdown()">
+  <div
+    class="checkout-style-item-menu"
+  >
+    <div
+      *ngFor="let theme of themes"
+      (click)="setSelectedTheme(theme)"
+      class="checkout-style-item-menu__option"
+      [class.selected]="theme === selectedTheme$.value"
+    >
+      <span class="label" translate>
+        {{ 'finexp.channels.settings.theme.' + theme }}
+      </span>
+    </div>
+  </div>
+</ng-template>

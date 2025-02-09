@@ -1,0 +1,63 @@
+<!-- We need this element for POS DE camera capture. Please don't move or remove -->
+<video id="pos-de-please-do-not-remove"></video>
+
+<checkout-main-global-custom-style *ngIf="!!flowId"> </checkout-main-global-custom-style>
+
+<checkout-temporary-cdk-overlay-style-fix *ngIf="!hidden"> </checkout-temporary-cdk-overlay-style-fix>
+
+<ng-container *ngIf="(vm$ | async) as vm">
+  <pe-layout-app
+    *ngIf="settings"
+    class="pe-checkout-wrapper-layout"
+    [fullView]="vm.forceFullScreen || !asCustomElement"
+    [staticBlockView]="!vm.forceFullScreen && asCustomElement"
+    [fixedPositionView]="fixedPosition"
+    [layoutWithPaddings]="vm.layoutWithPaddings"
+    [id]="'wrapper-layout-'+flowId">
+    <ng-container header>
+      <header-selector [layoutType]="vm.layoutType"></header-selector>
+    </ng-container>
+
+    <pe-layout-content
+      [showCaution]="settings.testingMode"
+      [noScroll]="vm.forceNoScroll"
+      [collapsed]="vm.showOrder">
+      <pe-prevent-double-tap-zoom-cdk-overlay> </pe-prevent-double-tap-zoom-cdk-overlay>
+
+      <div
+        class="row"
+        caution>
+        <div [class]="'caution-row ' + vm.gridCssClass">
+          <svg class="icon icon-16 caution-icon pull-left">
+            <use xlink:href="#icon-warning-20"></use>
+          </svg>
+          <span
+            class="caution-text"
+            i18n="@@layout.test_mode_warning">
+            layout.test_mode_warning
+          </span>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+      <div
+        no-collapse
+        class="row">
+        <div
+          #mainContent
+          [class]="vm.gridCssClass">
+          <main-selector
+            [layoutType]="vm.layoutType"
+            [asCustomElement]="asCustomElement"
+            [forceHideQRSwitcher]="true"
+            [navigateOnSuccess]="false"
+            [referenceEditEnabled]="false"
+            (submitSuccess)="orderSaved()">
+          </main-selector>
+        </div>
+      </div>
+    </pe-layout-content>
+  </pe-layout-app>
+
+  <payment-micro-snack-bar-shower *ngIf="flowId && !vm.forceNoSnackBarNotifications"> </payment-micro-snack-bar-shower>
+</ng-container>

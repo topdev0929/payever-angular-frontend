@@ -1,0 +1,19 @@
+<p *ngIf="isShowDefaultAgreement"
+   class="text-secondary text-center agreement-text checkout-font-size"
+   [innerHTML]="translations?.paymentAgreement">
+  </p>
+
+<p *ngIf="isShowCustomAgreement"
+   class="text-secondary text-center agreement-text checkout-font-size"
+   (click)="handleLinkClick($event)"
+   [innerHTML]="translations?.customAgreement"></p>
+
+<ng-template #modalContent>
+  <button (click)="closeModal()" type="button" class="close-modal btn btn-inline" aria-label="Close"><svg class="icon icon-16"><use xlink:href="#icon-x-16"/></svg></button>
+  <mat-dialog-content>
+    <div *ngIf="customAgreementText" class="dont-break-out" [innerHtml]="customAgreementText"></div>
+    <div *ngIf="!customAgreementText" class="loader-wrap">
+      <div class="loader_48"></div>
+    </div>
+  </mat-dialog-content>
+</ng-template>

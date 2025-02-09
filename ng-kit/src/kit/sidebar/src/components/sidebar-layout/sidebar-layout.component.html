@@ -1,0 +1,17 @@
+<div class="content" [ngClass]="{'sidebar-open': sidebarOpened && showSidebar}">
+  <pe-sidebar *ngIf="showSidebar"
+              [isOpen]="sidebarOpened"
+              [classes]="{ sidebar: true }"
+              [configuration]="sidebarConfiguration"
+              (onSidebarOpened)="changeSidebarOpenedState(true) && onSidebarOpened.emit()"
+              (onSidebarClosed)="changeSidebarOpenedState(false) && onSidebarClosed.emit()">
+    <div class="wrapper" [class.sidebar-content-wrapper]="sidebarConfiguration?.style !== 'transparent'">
+      <ng-content select="[sidebar-content]"></ng-content>
+    </div>
+  </pe-sidebar>
+  <div class="sidebar-before" [class.full-screen]="mainContentFullScreen">
+    <div #sidebarBeforeWrapper class="wrapper" (scroll)="onMainContentScroll()">
+      <ng-content select="[main-content]"></ng-content>
+    </div>
+  </div>
+</div>

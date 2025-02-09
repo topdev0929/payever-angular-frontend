@@ -1,0 +1,49 @@
+{
+  "payment-stripe": {
+    "actions": {
+      "change_payment_method": "Please, select another payment method",
+      "pay": "Pay"
+    },
+    "inquiry": {
+      "finish": {
+        "processing": {
+          "title": "Request can take a few minutes. Please do not click away",
+          "text": "We are processing your payment"
+        },
+        "labels": {
+          "total": "Total"
+        },
+        "iframe": {
+          "title": "Node results details"
+        }
+      },
+      "form": {
+        "cardNumber": {
+          "label": "Card number",
+          "placeholder": "Card number"
+        },
+        "cardHolderName": {
+          "label": "Holder name",
+          "placeholder": "Holder name"
+        },
+        "cardExpiration": {
+          "label": "Valid until",
+          "placeholder": "MM / YY"
+        },
+        "cardCvc": {
+          "label": "CVC",
+          "placeholder": "CVC"
+        }
+      },
+      "stripe_errors": {
+        "invalid_number": "Invalid card number",
+        "invalid_card_type": "Invalid card type",
+        "invalid_charge_amount": "Invalid charge amount",
+        "invalid_cvc": "Invalid CVC",
+        "invalid_expiry_month": "Invalid month",
+        "invalid_expiry_year": "Invalid year",
+        "unknown_error": "Unknown error"
+      }
+    }
+  }
+}

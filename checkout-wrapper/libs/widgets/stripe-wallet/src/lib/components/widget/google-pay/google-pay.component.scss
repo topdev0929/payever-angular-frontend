@@ -1,0 +1,38 @@
+:host {
+  display: grid;
+  width: 100%;
+}
+
+.button {
+  background-origin: content-box;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: 0px;
+  border-radius: 4px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 1px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  cursor: pointer;
+  min-height: 40px;
+  padding: 12px 24px 10px;
+  &:disabled {
+    background-color: lighten(#000, 40%);
+  }
+
+  justify-self: var(--alignment);
+
+  &.dark {
+    background-color: #000;
+
+    .mat-spinner {
+      stroke: #fff;
+    }
+  }
+
+  &.light {
+    background-color: #fff;
+
+    .mat-spinner {
+      stroke: #000;
+    }
+  }
+}

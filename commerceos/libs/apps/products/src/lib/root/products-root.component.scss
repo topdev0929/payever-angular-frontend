@@ -1,0 +1,116 @@
+@import '~@pe/ui-kit/scss/pe_variables';
+
+
+$stepper-height: 65px;
+
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+cos-products-root {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  top: 0;
+  height: 100%;
+  overflow: hidden;
+
+  .scrollbar {
+    .grid-view-container {
+      margin-right: 0;
+    }
+  }
+
+
+  .dashboard-content {
+    overflow-y: hidden !important;
+  }
+
+  -webkit-backdrop-filter: blur(50px);
+  backdrop-filter: blur(50px);
+}
+
+pe-products-autocomplete {
+  input {
+    &:focus + label,
+    &:not(:placeholder-shown) + label {
+      transform: translateY(0) scale(0.9166) !important;
+    }
+  }
+}
+
+#products-header {
+  margin: 0;
+  &.short-header {
+    padding: 0 20px;
+
+    ::ng-deep {
+      .header-container {
+        padding: 0;
+      }
+
+      .main-item-button {
+        padding-right: .8em;
+      }
+
+      .section-left {
+        height: 26px;
+
+        .section-button {
+          padding: 0 .8em 0 .8em;
+        }
+      }
+    }
+
+    .header-container {
+
+      .close-button {
+        @media (max-width: 620px) {
+          padding: 4px 0px 4px 4px;
+        }
+
+        @media (min-width: 621px) {
+          padding: 4px 6px 4px 0;
+        }
+      }
+    }
+  }
+}
+
+.builder-container {
+  height: calc(100% - 0px);
+  position: relative;
+
+  lib-products {
+    display: block;
+    height: calc(100% - 58px);
+  }
+
+  &.below-welcome-stepper {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - #{$stepper-height});
+    top: $stepper-height;
+    transform: translateX(0);
+    bottom: 0;
+  }
+}
+
+.products-header,
+.products-app-content {
+  overflow-x: auto !important;
+  outline: none!important;
+}
+
+.sidebar-wrap {
+  pe-sidebar {
+    @media screen and (max-width: 720px) {
+      margin: 57px 0;
+      height: calc(100% - 57px);
+    }
+  }
+}

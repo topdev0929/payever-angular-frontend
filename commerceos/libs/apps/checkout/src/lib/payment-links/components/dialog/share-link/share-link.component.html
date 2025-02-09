@@ -1,0 +1,103 @@
+<div class="pe-info-box-container-fixed share-link">
+  <pe-info-box
+    [fixed]="false"
+    [roundBorder]="true"
+    [notFullwidthOnMobile]="true"
+    [withHeader]="false"
+    [withFooter]="false"
+    [title]="'paymentLinks.shareLink.title' | translate">
+    <ng-container content>
+      <div *ngFor="let panel of (panels$ | async)">
+        <peb-expandable-panel
+        [isContentOpen]="true"
+        [headerLabel]="panel.name | translate"
+        >
+          <ng-container [ngSwitch]="panel.key">
+            <ng-container *ngSwitchCase="'QR'" [ngTemplateOutlet]="qrRef"></ng-container>
+            <ng-container *ngSwitchCase="'email'" [ngTemplateOutlet]="emailRef"></ng-container>
+            <ng-container *ngSwitchCase="'link'" [ngTemplateOutlet]="linkRef"></ng-container>
+          </ng-container>
+        </peb-expandable-panel>
+      </div>
+    </ng-container>
+  </pe-info-box>
+</div>
+
+<ng-template #qrRef>
+  <pe-third-party-root-form
+    *ngIf="thirdPartyService"
+    class="third-party-root-form-container share-link__qr"
+    [thirdPartyFormService]="thirdPartyService"
+    [translationsCategory]="integration.category"
+    [baseApiData]="{}"
+    [withHeader]="false">
+  </pe-third-party-root-form>
+</ng-template>
+
+<ng-template #emailRef>
+    <form class="form" [formGroup]="emailForm">
+      <peb-form-background>
+
+        <div>
+          <peb-form-field-input
+            formControlName="email"
+            appearance="label"
+            [errorMessage]="emailErrorMessage | translate"
+            [isFieldInvalid]="showErrors && emailForm.controls.email.invalid"
+            [label]="'paymentLinks.shareLink.email.label' | translate"
+          >
+            <input
+              type="text"
+            >
+          </peb-form-field-input>
+        </div>
+      </peb-form-background>
+      <button
+        class="share-link__button"
+        color="confirm"
+        pe-form-button
+        loading="loading"
+        (click)="sendMail()"
+        >
+          <ng-container *ngIf="!isLoading; else emailSpinner">
+            {{ 'paymentLinks.shareLink.email.action' | translate }}
+          </ng-container>
+          <ng-template #emailSpinner>
+            <mat-spinner
+              class="mat-progress-spinner-light"
+              [strokeWidth]="2"
+              [diameter]="22"
+            ></mat-spinner>
+          </ng-template>
+      </button>
+    </form>
+
+</ng-template>
+
+<ng-template #linkRef>
+  <pe-info-box [withHeader]="false"
+  [withFooter]="false"
+  [fixed]="false"
+  [notFullwidthOnMobile]="true"
+  [roundBorder]="true"
+  id="payment-link-info-box"
+  >
+    <ng-container content>
+      <peb-form-background>
+        <div class="share-link__link-contauner">
+          <div class="clipboard-copy-content" [innerHTML]="link"></div>
+          <button
+            class="share-link__copy-button"
+            [ngClass]="{ 'copy-link-btn__clicked': copied$ | async }"
+            color="confirm"
+            pe-form-button
+            (click)="onCopyClick()"
+          >
+            {{ ((copied$ | async) ? 'paymentLinks.copied' : 'actions.copy') | translate }}
+          </button>
+        </div>
+      </peb-form-background>
+
+    </ng-container>
+  </pe-info-box>
+</ng-template>

@@ -1,0 +1,128 @@
+<div class="chapter">
+  <h2>Dropdowns</h2>
+  <div id="dropdowns-styles" class="main-block">
+    <h3>Styles</h3>
+    <div class="main-block">
+      <tabset>
+        <tab heading="View">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="dropdown btn-group">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="true">
+                  Dropdown base style
+                  <svg class="icon icon-16">
+                    <use xlink:href="#icon-arrow-down-small-16"/>
+                  </svg>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu1" role="menu">
+                  <ul>
+                    <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+                    <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+                    <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="dropdown btn-group pull-right">
+                <button class="btn btn-primary btn-link dropdown-toggle" type="button" id="dropdownMenu2"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  Pulled right
+                  <svg class="icon icon-16">
+                    <use xlink:href="#icon-arrow-down-small-16"/>
+                  </svg>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2" role="menu">
+                  <ul>
+                    <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+                    <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+                    <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+                    <li class="divider dropdown-divider"></li>
+                    <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Template">
+          <div class="row">
+            <div class="col-xs-12">
+              <pre><code class="html" [innerHTML]="exampleDropdown1 | code"></code></pre>
+              <p></p>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+    <div class="main-block">
+      <tabset>
+        <tab heading="View">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="dropdown btn-group dropdown-alternate">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="true">
+                  Dropdown alternate style
+                  <svg class="icon icon-16">
+                    <use xlink:href="#icon-arrow-down-small-16"/>
+                  </svg>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu3" role="menu">
+                  <ul>
+                    <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+                    <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+                    <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+                    <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Template">
+          <div class="row">
+            <div class="col-xs-12">
+              <pre><code class="html" [innerHTML]="exampleDropdown2 | code"></code></pre>
+              <p></p>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+    <div class="main-block">
+      <tabset>
+        <tab heading="View">
+          <div class="row">
+            <div class="col-sm-4 col-xs-12">
+              <div class="btn-group dropdown-alternate dropup">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="true">
+                  Dropup
+                  <svg class="icon icon-16">
+                    <use xlink:href="#icon-arrow-down-small-16"/>
+                  </svg>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu4" role="menu">
+                  <ul>
+                    <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+                    <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+                    <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+                    <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Template">
+          <div class="row">
+            <div class="col-xs-12">
+              <pre><code class="html" [innerHTML]="exampleDropdown4 | code"></code></pre>
+              <p></p>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+</div>

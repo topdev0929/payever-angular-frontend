@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New widgets</title>
+  <style>
+    body {
+      font-family: Roboto, sans-serif;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+<div
+  class="payever-widget-finexp"
+  data-widgetid="2eaf8710-85d9-45a9-8fa3-25a2fec9e26f"
+  data-checkoutid="4e2f2cb3-cc05-4149-8904-23df639e07a1"
+  data-business="5b276a2c-7165-46df-b69e-3e1d73981f92"
+  data-type="button"
+  data-reference="order-id"
+  data-amount="50049.50">
+</div>
+<script>
+  var script = document.createElement('script');
+  script.src = '/pe-finexp-widget.min.js';
+  script.onload = function() {
+    PayeverPaymentWidgetLoader.init(
+    '.payever-widget-finexp'
+    );
+  };
+  document.head.appendChild(script);
+</script>
+</body>
+</html>

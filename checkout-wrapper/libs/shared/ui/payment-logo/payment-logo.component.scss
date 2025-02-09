@@ -1,0 +1,32 @@
+@import '../../../shared/styles/assets/imports';
+
+:host {
+  display: block;
+  padding-left: $pe-hgrid_gutter * 0.5;
+  padding-right: $pe-hgrid_gutter * 0.5;
+  &.align-left {
+    float: left;
+    padding-left: 0;
+  }
+  &.align-right {
+    float: right;
+    padding-right: 0;
+  }
+
+  #svg-icon-wrapper {
+    height: 23px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  svg {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: $margin_adjust * 0.5;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}

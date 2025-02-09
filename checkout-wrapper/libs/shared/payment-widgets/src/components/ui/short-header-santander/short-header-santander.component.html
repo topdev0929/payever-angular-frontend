@@ -1,0 +1,13 @@
+<ng-container [ngTemplateOutlet]="logoTemplate || santanderLogo"></ng-container>
+<span class="content-wrapper">
+  <ng-content></ng-content>
+</span>
+
+<ng-template #santanderLogo>
+  <finexp-ui-santander-icon-short
+    class="santander-icon"
+    *ngIf="logo === 'short'"></finexp-ui-santander-icon-short>
+  <finexp-ui-santander-icon-medium
+    class="santander-icon"
+    *ngIf="logo === 'medium'"></finexp-ui-santander-icon-medium>
+</ng-template>

@@ -1,0 +1,29 @@
+@import '../../../../shared/styles/assets/imports';
+
+:host {
+  // To fix align that came from shop
+  text-align: left;
+
+  color: $color-secondary-9;
+}
+
+svg {
+  @include payever_transition();
+
+  &.content-opened {
+    @include payever_transform_rotate(180deg);
+  }
+}
+
+#pos-de-please-do-not-remove {
+  position: absolute;
+}
+
+.caution-icon {
+  margin-top: $pe_vgrid_height * 0.5;
+  margin-right: $pe_hgrid_gutter * 0.5;
+}
+
+.order-summary-accordion {
+  text-align: left;
+}

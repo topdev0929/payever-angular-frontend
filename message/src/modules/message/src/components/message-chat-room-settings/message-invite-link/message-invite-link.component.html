@@ -1,0 +1,16 @@
+<div class="invite-link">
+  <div class="invite-link__link">
+    <peb-form-field-input
+      class="peb-form-field-input"
+      [appearance]="'label'"
+      label="{{ 'message-app.channel.settings.invite-link' | translate }}"
+      [animated]="true"
+    >
+      <input #inviteLinkInput type="text" name="" placeholder="" [(ngModel)]="inviteLink"/>
+    </peb-form-field-input>
+  </div>
+  <button
+    class="invite-link__copy"
+    [class.success]="copied"
+    (click)="copyLink(inviteLinkInput)">{{linkTextButton}}</button>
+</div>

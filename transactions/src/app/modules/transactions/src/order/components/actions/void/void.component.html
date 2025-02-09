@@ -1,0 +1,8 @@
+<or-action-modal [close$]="close$"
+                 [buttons]="modalButtons"
+                 [loading]="loading"
+                 class="dark"
+>
+  <span *ngIf="error" class="error small">{{ error }}</span>
+  <p translate>confirmation.actions.void</p>
+</or-action-modal>

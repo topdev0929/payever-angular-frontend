@@ -1,0 +1,140 @@
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+/**
+ * Global "OS" css for stylying loaders and backgrounds
+ * behind micros and monolith.
+ */
+
+$blurry_background_margin: 20px;
+$loaded_state_blur: 25px;
+$loading_state_blur: 30px;
+$os_transition_duration: 2 * $animation-duration-complex;
+
+#page {
+  background: none !important; // required to override main.scss
+}
+
+.platform-app-appearance-container {
+  // z-index: $zindex-modal;
+  position: fixed;
+  background-position: center bottom;
+  background-attachment: fixed;
+  background-size: cover;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  @include payever_transform_scale(2, 2);
+  filter: blur($loaded_state_blur);
+  @include payever_animation(osFadeOut, $os_transition_duration, both);
+
+  &.in {
+    @include payever_animation(osFadeIn, $os_transition_duration, both);
+  }
+
+  &.static {
+    animation: initial;
+    opacity: 0;
+    &.in {
+      opacity: 1;
+    }
+  }
+}
+
+.platform-app-appearance-title {
+  color: $color_white;
+  font-size: 40px;
+  font-weight: 200;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin: 0;
+  // z-index: $zindex-modal;
+  @include payever_transform_translate(-50%, -50%);
+  @include payever_animation(osFadeOut, $os_transition_duration, both);
+
+  &.in {
+    @include payever_animation(osFadeIn, $os_transition_duration, both);
+  }
+
+  &.static {
+    animation: initial;
+    opacity: 0;
+    &.in {
+      opacity: 1;
+    }
+  }
+}
+
+.platform-background-wrap {
+  background-position: center;
+  background-size: cover;
+  position: fixed;
+  top: -2 * $blurry_background_margin;
+  left: -2 * $blurry_background_margin;
+  bottom: -2 * $blurry_background_margin;
+  right: -2 * $blurry_background_margin;
+  z-index: -1;
+  @include payever_transition(all, $animation-duration-slide-out, $animation-effect-ease-in);
+  filter: blur($loaded_state_blur);
+  transform: translateZ(0);
+
+  &.loading {
+    filter: blur($loading_state_blur);
+  }
+}
+
+.platform-global-loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  @include payever_transform_translate(-50%,-50%);
+  @include payever_animation(osFadeOut, $animation-duration-complex, both);
+
+  &.in {
+    @include payever_animation(osFadeIn, $animation-duration-complex, both);
+  }
+}
+
+.app-main {
+  @include payever_animation(osFadeIn, $os_transition_duration, both);
+  visibility: visible;
+
+  &.out {
+    visibility: hidden;
+    @include payever_transition(visibility, 0s, $animation-effect-ease-in, $os_transition_duration);
+    @include payever_animation(osFadeOut, $os_transition_duration, both);
+  }
+}
+
+@keyframes osFadeIn {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.2;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes osFadeOut {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}

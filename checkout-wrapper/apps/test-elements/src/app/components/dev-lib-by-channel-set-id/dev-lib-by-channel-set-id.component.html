@@ -1,0 +1,52 @@
+<div class="pe-checkout-bootstrap" style="padding-bottom: 88px;">
+
+  <div style="margin-bottom: 33px;">
+    <div>
+      Channel set id: <input type="text" class="form-control" placeholder="Channel set id" [(ngModel)]="channelSetId" name="channelSetId">
+    </div>
+
+    <params [defaultParams]="defaultParams"
+            (onUpdateFlow)="updateFlow()"
+            (onUpdateSettings)="updateSettings()"
+            (onOpenOrderStep)="openOrderStep()"
+            (onUpdateSteps)="updateSteps()"
+            (onSaveFlowToStorage)="saveFlowToStorage()"
+            (paramsChanged)="paramsChanged($event)"
+            (disableLocaleDetectionChanged)="disableLocaleDetection = $event"
+    ></params>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <label><input type="checkbox" [(ngModel)]="checkoutHidden"> Hidden</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <button type="button" class="btn btn-primary" (click)="reCreateFlow()">Re create flow</button>
+      </div>
+    </div>
+
+    <h4>Last incoming events</h4>
+    <ul>
+      <li *ngFor="let event of lastEvents">{{ event.event }}: {{ event.value | json }}</li>
+    </ul>
+
+    <h4>Cart</h4>
+    <ul>
+      <li *ngFor="let item of cart">{{ item.productId }}: {{ item.name }} <input type="number" class="form-control input-sm" [(ngModel)]="item.quantity"></li>
+    </ul>
+    <div *ngIf="!cart?.length">-- No items in cart --</div>
+
+    <br>
+    <div class="row" *ngIf="channelSetId">
+      <div class="col-md-10 col-md-offset-1">
+        <div style="border: 1px dashed #aaa; transform: translateX(0);">
+          <ng-template #container></ng-template>
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br>
+      </div>
+    </div>
+  </div>
+</div>

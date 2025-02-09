@@ -1,0 +1,61 @@
+{
+  "santander-dk-finexp-widget": {
+    "common": {
+      "month": {
+        "one": "{{ count }} måned",
+        "many": "{{ count }} måneder"
+      },
+      "rate_param": {
+        "monthly_payment": "Månedlige ydelse",
+
+        "effective_interest": "Variabel Debitorrente",
+        "annually_procent": "ÅOP",
+        "total_cost": "Saml. kreditomk.",
+        "total_loan_amount": "Tilbagebetaling"
+      }
+    },
+
+    "regular": {
+      "rate_param": {
+        "terms_in_month": "Løbetid"
+      },
+      "rate_title": "{{ monthly_payment_with_currency }}/måned i {{ terms_in_month_with_months }}",
+      "credit_details_text": "Etabl.omk. samt mdl. gebyr er medtaget i beregningen.<br>Fortrydelsesret 14 dage.",
+      "calculator": {
+        "header_text": "Delbetaling"
+      },
+      "finance-express": {
+        "header_text": "Delbetaling"
+      },
+      "introduction_text": "Vælg Santander som betalingsløsning og del betalingen op.",
+      "show_checkout_wrapper": "Checkout with finance express",
+      "show_more_info": "Further information"
+    },
+
+    "bnpl": {
+      "rate_param": {
+        "terms_in_month": "Tilbagebetalingsperiode"
+      },
+      "rate_title": "0 kr/md i {{ payment_free_duration }} mdr derefter {{ monthly_payment_with_currency }}/md i {{ terms_in_month }} mdr",
+      "credit_details_text": "Løbetiden er {{ payment_duration }} mdr. hvoraf de første {{ payment_free_duration }} mdr. er rente- og afdragsfrie.<br>Efter {{ payment_free_duration }} mdr. starter afdragene såfremt lånet ikke er indfriet.<br>Etabl.omk. samt mdl. gebyr er medtaget i beregningen.<br>Fortrydelsesret 14 dage.",
+      "calculator": {
+        "header_text": "Køb nu, betal senere"
+      },
+      "finance-express": {
+        "header_text": "Køb nu, betal først om {{ payment_free_duration_with_months }}"
+      },
+      "introduction_text": "Vælg Santander som betalingsløsning og del betalingen op.",
+      "show_checkout_wrapper": "Checkout with finance express",
+      "show_more_info": "Further information"
+    },
+
+    "button": {
+    },
+    "dropdown-calculator": {
+    },
+    "text": {
+    },
+    "two-fields-calculator": {
+    }
+  }
+}

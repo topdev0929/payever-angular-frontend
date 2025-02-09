@@ -1,0 +1,41 @@
+<div
+  class="pe-message__wrapper"
+  [class.mobile-view]="isEmbedChat || isLiveChat"
+  [@showLiveMessage]="(shown$ | async) || alwaysOpen ? 'open' : 'close'"
+  [class.shown]="(shown$ | async) || alwaysOpen"
+  [class.live-chat]="isLiveChat"
+  [style.box-shadow]="messageWidgetShadow"
+  [class.blur-mode]="messageWidgetBlurValue"
+  [style.backdrop-filter]="messageWidgetBlurValue"
+  [style.background-color]="!messageWidgetBlurValue ? colors.bgChat : '#24272e'"
+>
+  <div
+    *ngIf="!isLiveChat && isEmbedChat && (sidenavNameEmbedView$ | async)"
+    class="pe-message__mobile-navigation"
+    [class.pe-message__mobile-navigation_out-of-chat]="(sidenavNameEmbedView$ | async) !== peMessageSidenavsEnum.ConversationList"
+    (click)="sidebarToggleButton()">
+    <mat-icon svgIcon="navigation"></mat-icon>
+  </div>
+  <div
+  *ngIf="(isEmbedChat || isLiveChat) && (sidenavNameEmbedView$ | async) && !alwaysOpen"
+    class="pe-message__hide-message"
+    [class.pe-message__hide-message_out-of-chat]="(sidenavNameEmbedView$ | async) !== peMessageSidenavsEnum.ConversationList"
+    (click)="clickOnHideChat()">
+    <mat-icon class="icon" svgIcon="chatHide"></mat-icon>
+  </div>
+  <pe-message-nav
+    *ngIf="socketInitialized$ | async"
+    class="pe-message-nav"
+    [theme]="theme"
+    [isEmbedChat]="isEmbedChat"
+    [isLiveChat]="isLiveChat"
+    [messageWidgetBg]="colors.bgChat"
+    [blurMode]="colors.blurValue"
+  ></pe-message-nav>
+</div>
+
+<pe-message-bubble-live-chat
+  *ngIf="isLiveChat && !alwaysOpen"
+  [ngClass]="'message-bubble-live-chat'"
+  [class.loaded]="loaded"
+></pe-message-bubble-live-chat>

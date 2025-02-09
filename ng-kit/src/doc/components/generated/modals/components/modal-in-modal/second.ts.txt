@@ -1,0 +1,14 @@
+@Component({
+  templateUrl: 'second.component.html',
+})
+export class SecondComponent {
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+  ) {
+  }
+
+  private back() {
+    this.router.navigate(['..'], {relativeTo: this.route});
+  }
+}

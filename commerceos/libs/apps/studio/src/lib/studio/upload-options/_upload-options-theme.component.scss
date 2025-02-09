@@ -1,0 +1,49 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $background: map.get($color-config, 'background');
+  $backdrop-filter-transparent: map.get($color-config, 'backdrop-filter-transparent');
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $border: map.get($color-config, 'border');
+  $box-shadow-color: map.get($color-config, 'box-shadow-color');
+  $text-color: map.get($color-config, 'text-color');
+  $gray-button: map.get($color-config, 'gray-button');
+  $active-text: map.get($color-config, 'active-text');
+  $select-button: map.get($color-config, 'select-button');
+  $row-background: map.get($color-config, 'row-background');
+
+  .studio-options-dialog {
+    background-color: $overlay-background;
+    backdrop-filter: blur(25px);
+    border: solid 1px $border;
+    box-shadow: 0 5px 20px 0 $box-shadow-color;
+
+    &__title,
+    &__subtitle {
+      color: $text-color;
+    }
+
+    &__options {
+      &-button {
+        background-color: $select-button;
+        color: $text-color;
+
+        &.button-cancel {
+          background: $gray-button;
+          color: $text-color;
+        }
+      }
+    }
+  }
+
+  .upload-text {
+    &__title {
+      background-color: $row-background;
+      color: $text-color;
+    }
+
+    &__input {
+      color: $text-color;
+    }
+  }
+}

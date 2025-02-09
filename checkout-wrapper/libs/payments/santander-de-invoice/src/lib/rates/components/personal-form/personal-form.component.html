@@ -1,0 +1,84 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup">
+  <div class="form-fieldset-new">
+    <mat-form-field
+      *ngIf="formGroup.get('birthday').enabled"
+      longDateFormat
+      class="col-xs-12"
+      [ngClass]="{ 'col-sm-6': formGroup.get('phone').enabled }">
+      <mat-label i18n="@@santander-de-invoice.inquiry.form.birthday.label"> Birthday </mat-label>
+
+      <input
+        matInput
+        peDatePickerMask="fullDate"
+        formControlName="birthday"
+        type="text"
+        [min]="pastDateConstraints.min"
+        [max]="pastDateConstraints.max"
+        [matDatepicker]="birthdayDp" />
+
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="birthdayDp">
+        <svg
+          matDatepickerToggleIcon
+          class="icon icon-16">
+          <use xlink:href="#icon-calendar-16"></use>
+        </svg>
+      </mat-datepicker-toggle>
+      <mat-datepicker
+        #birthdayDp
+        startView="multi-year">
+      </mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('phone').enabled"
+      class="col-xs-12"
+      [ngClass]="{ 'col-sm-6': formGroup.get('birthday').enabled }">
+      <mat-label i18n="@@santander-de-invoice.inquiry.form.phone.label"> Phones </mat-label>
+
+      <input
+        matInput
+        peInputMask
+        formControlName="phone"
+        type="text"
+        [mask]="phoneMask" />
+    </mat-form-field>
+
+    <ng-container *ngIf="isShowSalutationFields()">
+      <mat-form-field class="col-xs-4">
+        <mat-label i18n="@@santander-de-invoice.inquiry.form.personal_salutation.label"> Salutation </mat-label>
+
+        <mat-select formControlName="salutation">
+          <mat-option
+            *ngFor="let option of salutationOptions"
+            [value]="option.value">
+            {{ option.label }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="col-xs-4">
+        <mat-label i18n="@@santander-de-invoice.inquiry.form.first_name.label"> First name </mat-label>
+
+        <input
+          matInput
+          peInputMask
+          formControlName="_firstName"
+          type="text" />
+      </mat-form-field>
+
+      <mat-form-field class="col-xs-4">
+        <mat-label i18n="@@santander-de-invoice.inquiry.form.last_name.label"> Last name </mat-label>
+
+        <input
+          matInput
+          peInputMask
+          formControlName="_lastName"
+          type="text" />
+      </mat-form-field>
+    </ng-container>
+  </div>
+</form>

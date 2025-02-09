@@ -1,0 +1,107 @@
+<p
+  class="alert alert-danger"
+  [innerHtml]="error$ | async"
+  *ngIf="error$ | async"></p>
+
+<div *ngIf="(shippings$ | async)?.length > 0">
+  <div
+    class="div-table div-table-no-overflow-hidden div-table-payment-option"
+    *ngFor="let shipping of (shippings$ | async); let i = index">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="field-checkbox pe-form-row-default">
+          <div class="form-design form-widget">
+            <div class="right-icon">
+              <svg
+                class="icon icon-48"
+                *ngIf="shipping.icon">
+                <use
+                  [attr.xmlns:xlink]="'http://www.w3.org/1999/xlink'"
+                  [attr.xlink:href]="shipping.icon"></use>
+              </svg>
+            </div>
+            <input
+              type="radio"
+              class="pe-checkout-wrapper-choose-payment-checkbox"
+              [id]="'shipping-' + i"
+              [checked]="selectedIndex === i"
+              (change)="select(i)" />
+            <label
+              class="show shipping-label"
+              [for]="'shipping-' + i">
+              {{ shipping.title || '---' }}
+              &nbsp;
+              <span
+                *ngIf="shipping?.description"
+                class="small text-secondary"
+                >{{ shipping.description }}</span
+              >
+            </label>
+          </div>
+        </div>
+        <div
+          *ngIf="selectedIndex === i && shipping.options?.length"
+          class="delivery-types-body">
+          <ng-template
+            [ngTemplateOutlet]="shippingFrame"
+            [ngTemplateOutletContext]="{options: shipping.options}"></ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="div-table div-table-no-overflow-hidden"
+  *ngIf="(shippings$ | async) && (shippings$ | async).length === 0">
+  <div class="row">
+    <div class="col-xs-12 well-lg">
+      <div [ngClass]="{'alert': (isMobile$ | async) !== true}">
+        <svg
+          class="icon text-warning"
+          [ngClass]="{'icon-32': (isMobile$ | async) !== true, 'icon-16': (isMobile$ | async)}">
+          <use [attr.xlink:href]="'#icon-alert-32'"></use></svg
+        >&nbsp;
+        <span i18n="@@checkout_shipping_edit.errors.no_shippings">checkout_shipping_edit.errors.no_shippings</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template
+  #shippingFrame
+  let-options="options">
+  <div
+    *ngFor="let option of options; let i = index"
+    class="delivery-type">
+    <div class="line"></div>
+    <div class="row">
+      <div class="col-xs-4">
+        <label [for]="'shipping-delivery-type-' + i">
+          {{ option.title }}
+        </label>
+      </div>
+      <div class="col-xs-3">
+        <span *ngIf="option.deliveryTimeDays > 0">{{ option.deliveryTimeDaysTranslation }}</span>
+      </div>
+      <div class="col-xs-3">
+        <span *ngIf="option.price > 0">{{ option.priceTranslation }}</span>
+      </div>
+      <div class="col-xs-2">
+        <div class="pull-right">
+          <div class="delivery-type-radio form-design form-widget">
+            <div class="form-design form-widget">
+              <input
+                type="radio"
+                class="pe-checkout-wrapper-choose-payment-checkbox"
+                [id]="'shipping-delivery-type-' + i"
+                [checked]="selectedOptionIndex === i"
+                (change)="selectedOptionIndex = i" />
+              <label [for]="'shipping-delivery-type-' + i"></label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

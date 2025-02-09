@@ -1,0 +1,26 @@
+.appearance-preview {
+  position: relative;
+  height: 402px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  overflow: hidden;
+
+  .pe-message {
+    border-radius: 12px;
+
+    &__container.live-chat {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      top: 10px;
+      left: 10px;
+      width: calc(100% - 20px);
+    }
+
+    .message-bubble-live-chat {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+    }
+  }
+}

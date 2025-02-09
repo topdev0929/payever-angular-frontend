@@ -1,0 +1,36 @@
+.rule-action-list {
+  &__item {
+    &.confirm {
+      margin-bottom: 8px;
+      height: 45px;
+    }
+
+    &-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      align-self: center;
+      padding: 0 10px;
+    }
+
+    &-left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    &-add,
+    &-icon {
+      margin-top: 4px;
+    }
+
+    &-add-icon {
+      height: 18px;
+      width: 18px;
+    }
+
+    &.disabled {
+      pointer-events: none;
+    }
+  }
+}

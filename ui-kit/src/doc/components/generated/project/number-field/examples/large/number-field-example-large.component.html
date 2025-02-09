@@ -1,0 +1,9 @@
+<div class="number-field number-field-lg">
+  <button mat-button [disableRipple]="true"
+          [ngClass]="{'minus': true, 'mat-button-no-padding': true}"
+          (click)="subtract()">−</button>
+  <input matInput class="number-input" [(ngModel)]="testingNumber" placeholder="0" type="number">
+  <button mat-button [disableRipple]="true"
+          [ngClass]="{'plus': true, 'mat-button-no-padding': true}"
+          (click)="add()">+</button>
+</div>

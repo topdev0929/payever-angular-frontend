@@ -1,0 +1,71 @@
+<ng-container *ngIf="isShowQRSwitcher() || (isOrderHasProducts$ | async)">
+  <ng-container *ngFor="let switcher of (switcherItems$ | async); trackBy: trackByFn">
+    <div
+      *ngIf="(isShowQRSwitcher() && switcher.type === SelectedEnum.QR) || switcher.type !== SelectedEnum.QR"
+      class="div-table div-table-no-overflow-hidden div-table-payment-option"
+      [class.payment-option-selected]="selected === switcher.type">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="field-checkbox pe-form-row-default">
+            <div class="form-design form-widget">
+              <input
+                type="radio"
+                class="pe-checkout-wrapper-choose-payment-checkbox"
+                [name]="switcher.type"
+                [id]="'radio-' + switcher.type"
+                [value]="switcher.type"
+                [checked]="selected === switcher.type"
+                (change)="selected = switcher.type" />
+              <label
+                class="show payment-title"
+                [for]="'radio-' + switcher.type"
+                >{{ switcher.title }}</label
+              >
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div [class.hidden]="selected !== switcher.type">
+            <div *ngIf="switcher.type === SelectedEnum.AmountOrCart">
+              <ng-container *ngTemplateOutlet="amountOrCart"></ng-container>
+            </div>
+            <div
+              *ngIf="switcher.type === SelectedEnum.QR"
+              [style.margin-bottom.px]="-17">
+              <checkout-main-show-qr></checkout-main-show-qr>
+            </div>
+            <div
+              *ngIf="switcher.type === SelectedEnum.Products && (isOrderHasProducts$ | async)"
+              [style.margin-bottom.px]="-17">
+              <checkout-main-products-edit
+                [paymentMethod]="productsPaymentMethod"
+                [submitText]="submitText">
+              </checkout-main-products-edit>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>
+
+<ng-container *ngIf="!isShowQRSwitcher() && (isOrderHasProducts$ | async) !== true">
+  <ng-container *ngTemplateOutlet="amountOrCart"></ng-container>
+</ng-container>
+
+<ng-template #amountOrCart>
+  <div
+    class="order-block"
+    *ngIf="(isOrderHasCart$ | async) && (isOrderHasProducts$ | async) !== true">
+    <checkout-main-order-edit
+      [submitText]="submitText"
+      (submitSuccess)="onSuccess($event)"></checkout-main-order-edit>
+  </div>
+  <div
+    class="order-block"
+    [class.mt]="isShowQRSwitcher()"
+    *ngIf="(isOrderHasCart$ | async) !== true || (isOrderHasProducts$ | async)">
+    <checkout-main-amount-edit
+      [submitText]="submitText"
+      (submitSuccess)="onSuccess($event)"></checkout-main-amount-edit>
+  </div>
+</ng-template>

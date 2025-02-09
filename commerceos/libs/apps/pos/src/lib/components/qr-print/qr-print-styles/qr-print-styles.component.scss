@@ -1,0 +1,63 @@
+@use 'pe_variables' as pe_variables;
+
+.overlay-widget pe-third-party-root-form.third-party-root-form-container-pos {
+  .tpm-outer-container.pe-info-box-container-fixed {
+    .pe-info-box {
+      mat-card.mat-card {
+        .mat-card-content {
+          .content-wrapper {
+            .mat-accordion .mat-expansion-panel {
+              .mat-expansion-panel-header {
+                height: 44px;
+
+                @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+                  height: 56px;
+                  .mat-content mat-panel-title {
+                    font-size: 17px;
+                  }
+                }
+              }
+            }
+
+            .form-table .form-fieldset .row {
+              & > [class*='col'] {
+                height: 44px;
+
+                .mat-form-field-label > span {
+                  font-size: 12px;
+                }
+
+                .mat-select-value > span {
+                  font-size: 14px;
+                }
+
+                @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+                  .mat-form-field-label > span {
+                    font-size: 14px;
+                  }
+
+                  .mat-select-value > span {
+                    font-size: 17px;
+                  }
+                  height: 56px;
+                  font-size: 17px;
+                }
+              }
+            }
+
+            .mat-button-block {
+              font-size: 14px;
+              font-weight: 500;
+              height: 44px;
+
+              @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+                font-size: 17px;
+                height: 56px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $row-background: map.get($color-config, 'row-background');
+  $warn: map.get($color-config, 'warn');
+  $success-text: map.get($color-config, 'success-text');
+  $label-color: map.get($color-config, 'label-color');
+  $text-color: map.get($color-config, 'text-color');
+
+  .general-section {
+    &__top-line {
+      .general-item {
+        background-color: $row-background;
+
+        &__text {
+          color: $text-color;
+
+          &.status-red {
+            color: $warn;
+          }
+
+          &.status-green {
+            color: $success-text;
+          }
+        }
+
+        &__hint {
+          color: $label-color;
+        }
+      }
+
+      .cart-item {
+        background-color: $row-background;
+
+        &__details {
+          &-price {
+            color: $text-color;
+          }
+        }
+      }
+    }
+  }
+}

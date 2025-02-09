@@ -1,0 +1,1 @@
+export { LogoAndStatusPickerModule } from './logo-and-status-picker.module';

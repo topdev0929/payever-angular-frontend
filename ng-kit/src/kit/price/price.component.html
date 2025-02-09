@@ -1,0 +1,15 @@
+<div class="money-value">
+  <div class="wrapper">
+    <div class="currency caption-2">{{ currency }}</div>
+    <input #input
+           placeholder="0"
+           (keypress)="onKeypress($event)"
+           (keydown.backspace)=onDelete($event)
+           (paste)="onPaste($event)"
+           [autofocus]="autoFocus"
+           [style.width.px]="width"
+           [disabled]="disabled"
+           type="text"
+           autocomplete="off">
+  </div>
+</div>

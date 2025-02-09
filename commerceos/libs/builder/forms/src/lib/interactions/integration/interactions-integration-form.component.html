@@ -1,0 +1,17 @@
+<div class="form__row_border">
+  <label class="group__label">
+    <span>
+      {{ 'builder-app.forms.function.title' | translate }}
+    </span>
+  </label>
+</div>
+<div class="group__row">
+  <div class="field-control function-form__button" (click)="openIntegrationList()">
+    <span>{{ (( title$ | async ) || 'none') | titlecase }}</span>
+    <div class="sidebar__icon sidebar__icon__arrow">
+      <svg width="9" height="4" viewBox="0 0 7 3" style="overflow: unset; transform: rotate(-90deg);">
+        <path fill="none" fill-rule="evenodd" stroke="#7a7a7a" d="M0 3L3.5 0 7 3" transform="rotate(-180 3.5 1.5)" />
+      </svg>
+    </div>
+  </div>
+</div>

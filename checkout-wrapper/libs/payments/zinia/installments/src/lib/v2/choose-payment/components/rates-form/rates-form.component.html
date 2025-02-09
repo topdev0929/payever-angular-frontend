@@ -1,0 +1,29 @@
+<form
+  *ngIf="vm$ | async as vm"
+  class="form-table">
+  <checkout-sdk-choose-rate
+    class="choose-rate"
+    [trackFlowId]="vm.flow?.id"
+    [trackPaymentMethod]="paymentMethod"
+    [rates]="vm.rates"
+    [isLoading]="!vm.rates?.length"
+    [initialRateId]="vm.initialRateId"
+    [doSelectRate]="doSelectRate$"
+    (rateSelected)="rateSelected($event)">
+  </checkout-sdk-choose-rate>
+
+  <checkout-sdk-santander-de-selected-rate-details
+    [details]="vm.details"
+    [isManyColumnsDisabled]="true">
+  </checkout-sdk-santander-de-selected-rate-details>
+
+  <ng-content></ng-content>
+
+  <zinia-finish-v2
+    *ngIf="errorMessage"
+    [embeddedMode]="embeddedMode"
+    [merchantMode]="merchantMode"
+    [errorMessage]="errorMessage"
+    (tryAgain)="tryAgain()">
+  </zinia-finish-v2>
+</form>

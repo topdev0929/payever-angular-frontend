@@ -1,0 +1,19 @@
+<mat-menu #childMenu="matMenu" panelClass="pe-bootstrap">
+  <ng-template matMenuContent>
+    <ng-container *ngFor="let child of items">
+      <ng-container *ngIf="child.children && child.children.length > 0">
+        <button mat-menu-item color="primary" [matMenuTriggerFor]="menu.childMenu">
+          <mat-icon *ngIf="child.iconId">{{child.iconId}}</mat-icon>
+          <span *ngIf="child.title">{{child.title}}</span>
+        </button>
+        <pe-menu-item #menu [items]="child.children"></pe-menu-item>
+      </ng-container>
+      <ng-container *ngIf="!child.children || child.children.length === 0">
+        <button mat-menu-item (click)="onMenuItemClick(child)">
+          <mat-icon *ngIf="child.iconId">{{child.iconId}}</mat-icon>
+          <span *ngIf="child.title">{{child.title}}</span>
+        </button>
+      </ng-container>
+    </ng-container>
+  </ng-template>
+</mat-menu>

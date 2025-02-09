@@ -1,0 +1,45 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup">
+  <pe-payment-text type="text">
+    <div
+      class="h5"
+      i18n="@@santander-se.inquiry.form.existing_loans.label">
+      Existing loans
+    </div>
+    <span i18n="@@santander-se.inquiry.form.existing_loans.description">
+      Debts and credits used (excluding mortgages or CSN loans)
+    </span>
+    <svg
+      class="icon icon-24 tooltip"
+      [tooltip]="translations.tooltip">
+      <use
+        [attr.xmlns:xlink]="'http://www.w3.org/1999/xlink'"
+        [attr.xlink:href]="'#icon-help-24'"></use>
+    </svg>
+  </pe-payment-text>
+
+  <div class="form-fieldset-new">
+    <mat-form-field class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-se.inquiry.form.total_dept_amount_excluding_mortgages">
+        Existing loan amount
+      </mat-label>
+
+      <input
+        matInput
+        formControlName="totalDebtAmountExcludingMortgages"
+        type="number" />
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-se.inquiry.form.total_monthly_debt_cost_excluding_mortgages">
+        Inexpensive monthly cost of loans
+      </mat-label>
+
+      <input
+        matInput
+        formControlName="totalMonthlyDebtCostExcludingMortgages"
+        type="number" />
+    </mat-form-field>
+  </div>
+</form>

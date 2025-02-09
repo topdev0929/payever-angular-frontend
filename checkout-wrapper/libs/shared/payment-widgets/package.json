@@ -1,0 +1,13 @@
+{
+  "name": "@pe/payment-widgets-sdk",
+  "version": "0.0.124",
+  "peerDependencies": {
+    "@angular/common": "^10.0.14",
+    "@angular/core": "^10.0.14",
+    "@angular/material": "x",
+    "locale2": "x"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}

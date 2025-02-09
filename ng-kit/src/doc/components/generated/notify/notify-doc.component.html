@@ -1,0 +1,62 @@
+<div class="chapter">
+    <h2>Notify</h2>
+    <div id="notify-default" class="main-block">
+        <h3>Default</h3>
+        <div class="doc-block">
+            <div class="row">
+                <div class="col-xs-12">
+                    <button class="btn btn-primary btn-vmargin" type="button" (click)="makeDefaultNotification()">Default notification</button>
+                    <button class="btn btn-primary btn-vmargin" type="button" (click)="makeWarningNotification()">Warning notification</button>
+                    <button class="btn btn-primary btn-vmargin" type="button" (click)="makeCenterNotification()">Center notification</button>
+                    <button class="btn btn-primary btn-vmargin" type="button" (click)="makeMiddleNotification()">Middle notification</button>
+                </div>
+            </div>
+            <p>&nbsp;</p>
+            <div class="row">
+                <div class="col-xs-12">
+                  <pre><code class="typescript">{{ exampleTs1 | code }}</code></pre>
+                  <pre><code class="typescript">{{ exampleTs2 | code }}</code></pre>
+                  <pre><code class="typescript">{{ exampleTs3 | code }}</code></pre>
+                  <pre><code class="typescript">{{ exampleTs4 | code }}</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="notify-positions" class="main-block">
+        <h3>Positions</h3>
+        <div class="doc-block">
+            <div class="row">
+                <div class="col-xs-12">
+                  <p>Available positions are <code class="typescript">'top-right' | 'bottom-right' | 'bottom-left' | 'top-left'</code></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>UiNotificationItem</h2>
+    <div id="ui-notification-item" class="main-block">
+        <h3>Default</h3>
+        <div class="doc-block">
+            <div class="row">
+                <div class="col-xs-12">
+                    <button class="btn btn-primary btn-vmargin" type="button" (click)="makeDefaultUiNotification()">Default UiNotificationItem</button>
+                </div>
+            </div>
+            <p>&nbsp;</p>
+            <div class="row">
+                <div class="col-xs-12">
+                  <pre><code class="typescript">{{ exampleTs5 | code }}</code></pre>
+                </div>
+            </div>
+        </div>
+        <h3>Standalone UiNotificationItem example</h3>
+        <div class="doc-block">
+            <div class="row ui-notification-item-standalone-wrap" >
+                <div class="col-xs-8 col-xs-offset-2">
+                  <pe-notification-item [config]="standAloneNotifConfig" [isStandalone]="true"></pe-notification-item>
+                </div>
+            </div>            
+        </div>
+    </div>
+
+</div>

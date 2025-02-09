@@ -1,0 +1,7 @@
+@use 'pe_theming' as pet;
+@use 'welcome-screen-theme.component' as welcome_screen;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include welcome_screen.color($color-config);
+}

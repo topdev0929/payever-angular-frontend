@@ -1,0 +1,13 @@
+version: '3.1'
+
+services:
+
+  store:
+    image: registry.devpayever.com/store:master
+    container_name: frontend_store
+    volumes:
+      - ./proxy.conf.js:/payever/proxy.conf.js
+    command: /payever/start.sh
+    ports:
+      - 8080:8080
+    restart: on-failure

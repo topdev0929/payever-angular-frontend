@@ -1,0 +1,64 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+:host {
+  & > * {
+    display: block;
+  }
+  .btn-group {
+    border-right: 1px $color-light-gray-1 solid;
+    padding-right: $pe_hgrid_gutter / 2;
+    margin-right: $pe_hgrid_gutter / 2;
+  }
+  .btn,
+  .btn-group {
+    vertical-align: top;
+    align-self: flex-start;
+    white-space: nowrap;
+  }
+  .search-form {
+    width: 40%;
+  }
+  @media (max-width: $viewport-breakpoint-sm-2 - 1) {
+    .centered {
+      position: static;
+      transform: initial;
+    }
+    &.show-filter + .nav-block {
+      display: none;
+    }
+    @include payever_transition( $property: height, $duration: $animation-duration-slide-in / 2);
+  }
+}
+.centered {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+::ng-deep {
+  .popover {
+    margin-left: 150px;
+    width: 400px;
+    max-width: 400px !important;
+    & > .arrow {
+      margin-left: -161px !important;
+    }
+    @media (max-width: $viewport-breakpoint-xs-2 + 1) {
+      max-width: $viewport-breakpoint-xs-1 - 10 !important;
+      margin-left: 98px;
+      & > .arrow {
+        margin-left: -100px !important;
+      }
+    }
+  }
+}
+
+.mat-button-fit-content {
+  margin-left: 24px;
+}
+
+.filter-text {
+  @media (max-width: $viewport-breakpoint-xs-2) {
+    display: none;
+  }
+}

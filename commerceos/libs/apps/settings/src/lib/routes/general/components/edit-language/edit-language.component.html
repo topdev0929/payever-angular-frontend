@@ -1,0 +1,16 @@
+<form
+  class="form-container"
+  [formGroup]="languageForm"
+  (ngSubmit)="onSave()"
+>
+    <peb-form-background>
+        <peb-select selectType="label" label="{{ 'form.create_form.language.label' | translate }}" formControlName="language">
+            <peb-select-option class="select-options"
+                               *ngFor="let item of languages"
+                               value="{{ item.value }}"
+                               label="{{ item.label }}"
+            ></peb-select-option>
+        </peb-select>
+    </peb-form-background>
+    <button #submitTrigger type="submit" class="hidden"></button>
+</form>

@@ -1,0 +1,30 @@
+<peb-form-background>
+  <ng-container
+  *ngFor="let item of options$ | async | keyvalue"
+  [ngTemplateOutlet]="toggleItem"
+  [ngTemplateOutletContext]="{item: item}"
+>
+</ng-container>
+</peb-form-background>
+<button
+  pe-form-button
+  color="warn"
+  class="remove-button"
+  (click)="onDisableSection()">
+  {{ 'actions.remove' | translate }}
+  <span translate>{{ 'sections.sectionDetails.' + section.code + '.title' }}</span>
+</button>
+
+<ng-template #toggleItem let-item="item">
+  <div class="checkbox-option">
+    <div class="checkbox-option_title" translate>
+      {{'sections.options.' + item.key}}
+    </div>
+    <div class="checkbox-option_checkbox">
+      <peb-button-toggle
+        [checked]="item.value" (changed)="onChangeToggle(item.key, $event)"
+      >
+      </peb-button-toggle>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,20 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $select-button: map.get($color-config, 'select-button');
+  $text-color: map.get($color-config, 'text-color');
+  $filter-invert-light: map.get($color-config, 'filter-invert-light');
+
+  .expandable-panel {
+    &__header {
+      color: $text-color;
+      background-color: $select-button;
+      &-icon {
+        filter: $filter-invert-light;
+      }
+    }
+    &__content {
+      overflow: hidden;
+    }
+  }
+}

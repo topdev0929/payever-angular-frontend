@@ -1,0 +1,15 @@
+.pe-checkout-bootstrap {
+  .skeleton-loader .ui-layout-app {
+    position: static !important;
+    min-height: 555px;
+  }
+
+  .skeleton-loader.skeleton-no-paddings .ui-layout-app {
+    .col-lg-offset-3 {
+      margin-left: 0 !important;
+    }
+    .col-lg-6 {
+      width: 100% !important;
+    }
+  }
+}

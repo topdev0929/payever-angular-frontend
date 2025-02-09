@@ -1,0 +1,12 @@
+<div class="menu-container" *ngIf="element?.style?.display" (click)="$event.stopPropagation()">
+  <div class="description">Visible on:</div>
+
+  <mat-checkbox
+    *ngFor="let screen of screensList"
+    class="mat-white menu-item"
+    [checked]="(element?.style?.display)[screen] === 'block'"
+    (change)="changeDisplayStatus(screen, $event.checked)"
+  >
+    <span class="menu-item-label">{{ screen }}</span>
+  </mat-checkbox>
+</div>

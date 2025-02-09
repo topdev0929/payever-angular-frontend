@@ -1,0 +1,19 @@
+:host {
+  display: block;
+}
+
+.h5 {
+  font-weight: 500;
+}
+
+.checkout-stepper-container-locked {
+  position: relative !important;
+  .lock-overlap {
+    position: absolute !important;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 10000;
+  }
+}

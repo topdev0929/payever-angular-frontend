@@ -1,0 +1,61 @@
+<div class='settings__container' [ngClass]="theme">
+  <div class="page-header">Settings</div>
+  <div class="content">
+    <section class="settings__section">      
+      <div class="settings__section__content">
+        <div class="settings__section__content-item" (click)="openBrandingDialog()">
+          <div class="item-icon">
+            <img src="assets/icons/branding-icon-settings.svg" />
+          </div>
+          <div class="item-content"   style="padding-right: 8px;">
+            <div>Branding</div>
+            <div class="icon-wrap">
+              <svg class="icon-arrow">
+                <use [attr.xlink:href]="'#icon-arrow-right-2-16'"></use>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="settings__section__content-item" (click)="openPaymentsDialog()">
+          <div class="item-icon">
+            <img src="assets/icons/payments-icon-settings.svg" />
+          </div>
+          <div class="item-content">
+            <div>Payments</div>
+            <div class="icon-wrap">
+              <svg class="icon-arrow">
+                <use [attr.xlink:href]="'#icon-arrow-right-2-16'"></use>
+              </svg>
+            </div>
+          </div>
+        </div>      
+        <div class="settings__section__content-item" (click)="openCustomDomainDialog()">
+          <div class="item-icon">
+            <img src="assets/icons/owndomain-icon-settings.svg" />
+          </div>
+          <div class="item-content">
+            <div>Custom domain</div>
+            <div class="icon-wrap">
+              <svg class="icon-arrow">
+                <use [attr.xlink:href]="'#icon-arrow-right-2-16'"></use>
+              </svg>
+            </div>
+          </div>
+        </div>      
+        <div class="settings__section__content-item" (click)="openBankDialog()">
+          <div class="item-icon">
+            <img src="assets/icons/bank-icon-settings.svg" />
+          </div>
+          <div class="item-content">
+            <div>Bank</div>
+            <div class="icon-wrap">
+              <svg class="icon-arrow">
+                <use [attr.xlink:href]="'#icon-arrow-right-2-16'"></use>
+              </svg>
+            </div>
+          </div>
+        </div>      
+      </div>      
+    </section>
+  </div>
+</div>

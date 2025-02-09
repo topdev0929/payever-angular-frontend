@@ -1,0 +1,19 @@
+:host {
+  font-family: Roboto, sans-serif;
+}
+
+a {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0 6px;
+  line-height: normal;
+  text-decoration: none;
+  &:hover {
+    color: inherit;
+    opacity: 0.9;
+  }
+}

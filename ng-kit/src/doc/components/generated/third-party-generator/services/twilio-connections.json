@@ -1,0 +1,69 @@
+{
+  "form": {
+    "contentType": "accordion",
+    "title": "Twilio",
+    "type": "info-box",
+    "content": {
+      "accordion": [
+        {
+          "title": "Connections",
+          "data": [
+            [
+              {
+                "type": "text",
+                "value": "Connection 2"
+              },
+              {
+                "action": "form",
+                "actionData": {
+                  "id": "67c1eabc-6fe8-4fe6-9a3e-b926f93c3f67"
+                },
+                "text": "View",
+                "type": "button",
+                "color": "muted-light",
+                "rounded": true,
+                "size": "xs"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "value": "Connection 1"
+              },
+              {
+                "action": "form",
+                "actionData": {
+                  "id": "e2217781-9103-45c6-83f4-5dc66774613d"
+                },
+                "text": "View",
+                "type": "button",
+                "color": "muted-light",
+                "rounded": true,
+                "size": "xs"
+              }
+            ]
+          ],
+          "operation": {
+            "action": "form",
+            "text": "Add +",
+            "small": true
+          },
+          "operations": [
+            {
+              "action": "form",
+              "text": "Add 1",
+              "small": true
+            },
+            {
+              "action": "form",
+              "text": "Add 2",
+              "small": true
+            }
+          ],
+          "icon": "#icon-authentification-key"
+        }
+      ]
+    },
+    "actionContext": {}
+  }
+}

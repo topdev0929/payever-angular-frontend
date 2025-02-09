@@ -1,0 +1,29 @@
+{
+  "name": "payments-summary",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/lazy/sections/payments-summary/src",
+  "prefix": "pe",
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/lazy/sections/payments-summary"],
+      "options": {
+        "jestConfig": "libs/lazy/sections/payments-summary/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/lazy/sections/payments-summary/**/*.ts",
+          "libs/lazy/sections/payments-summary/**/*.html"
+        ]
+      },
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": ["scope:libs", "type:selector"],
+  "implicitDependencies": []
+}

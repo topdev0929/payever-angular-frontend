@@ -1,0 +1,16 @@
+<entry-layout *ngIf="(mode$ | async) !== ModeEnum.loading" [entryLogo]="entryLogo">
+  <div class="transfer-ownership">
+    <div class="login-header">{{ 'forms.business_transfer_ownership.please_login' | translate }}</div>
+    <div class="error-message" *ngIf="errorText$ | async">
+      <peb-messages [message]="errorText$ | async"></peb-messages>
+    </div>
+    <entry-login
+      [disableSignUp]="true"
+      [disableSocialLogin]="true"
+      [withoutRegister]="true"
+      [isLoading]="isLoading$ | async"
+      (successLogin)="onSuccessLogin()"
+      (secondFactorCode)="onSecondFactorCode()">
+    </entry-login>
+  </div>
+</entry-layout>

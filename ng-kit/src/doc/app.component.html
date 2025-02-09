@@ -1,0 +1,50 @@
+<pe-icons-set></pe-icons-set>
+<pe-icons-activity-tab></pe-icons-activity-tab>
+<pe-icons-apps></pe-icons-apps>
+<pe-icons-banners></pe-icons-banners>
+<pe-icons-builder></pe-icons-builder>
+<pe-icons-cards></pe-icons-cards>
+<pe-icons-categories></pe-icons-categories>
+<pe-icons-commerceos></pe-icons-commerceos>
+<pe-icons-dashboard></pe-icons-dashboard>
+<pe-icons-dock></pe-icons-dock>
+<pe-icons-edit-panel></pe-icons-edit-panel>
+<pe-icons-embed></pe-icons-embed>
+<pe-icons-finance-express></pe-icons-finance-express>
+<pe-icons-marketing></pe-icons-marketing>
+<pe-icons-messenger></pe-icons-messenger>
+<pe-icons-payment></pe-icons-payment>
+<pe-icons-santander-flags></pe-icons-santander-flags>
+<pe-icons-settings></pe-icons-settings>
+<pe-icons-shipping></pe-icons-shipping>
+<pe-icons-social></pe-icons-social>
+<pe-icons-stat></pe-icons-stat>
+<pe-icons-store-builder></pe-icons-store-builder>
+<pe-icons-trust-app></pe-icons-trust-app>
+<pe-icons-widgets></pe-icons-widgets>
+<pe-images-payment-options></pe-images-payment-options>
+
+<nav class="navbar navbar-fixed-top">
+  <header class="row">
+    <div class="col-xs-12">
+      <a class="toggle-menu hidden-md hidden-lg" (click)="onMenuToggle()"><svg class="icon icon-24"><use xlink:href="#icon-menu-24"/></svg></a>
+      <ul class="nav navbar-nav">
+        <li>
+          <img class="pe-logo" src="./assets/img/payever-logo-white@2x.png" width="24" height="24">
+        </li>
+        <li>
+          <a [routerLink]="['/components']">NG Kit<span class="version-number"></span></a>
+        </li>
+        <li>
+          <a href="https://frontend.gitlab.devpayever.com/ui-kit/">UI Kit<span class="version-number"></span></a>
+        </li>
+        <li>
+          <a [routerLink]="['/guides']">Guides</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+</nav>
+<div class="webdoc-body" [ngClass]="{ 'menu-open': isMenuOpen }">
+  <router-outlet></router-outlet>
+</div>

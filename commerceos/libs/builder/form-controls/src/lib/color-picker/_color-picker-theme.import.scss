@@ -1,0 +1,9 @@
+@use 'pe_theming' as pet;
+@use './hex-theme.component' as hex;
+@use './picker-theme.component' as picker;
+
+@mixin theme($theme-config) {
+    $color-config: pet.get-color-config-from-theme($theme-config);
+    @include hex.color($color-config);
+    @include picker.color($color-config);
+}

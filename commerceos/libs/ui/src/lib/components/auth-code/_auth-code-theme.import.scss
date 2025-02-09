@@ -1,0 +1,8 @@
+@use 'pe_theming' as pet;
+@use './auth-code-theme' as auth_code;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include auth_code.color($color-config);
+}
+

@@ -1,0 +1,25 @@
+{
+  "payment-santander-instant-at": {
+    "actions": {
+      "pay": "Pay",
+      "change_payment_method": "Please, select another payment method",
+      "select_bank": "Select bank"
+    },
+    "inquiry": {
+      "form": {
+        "bank_iban": {
+          "label": "IBAN"
+        }
+      },
+      "finish": {
+        "processing": {
+          "title": "Request can take a few minutes. Please do not click away",
+          "text": "We are processing your payment"
+        },
+        "labels": {
+          "total": "Total"
+        }
+      }
+    }
+  }
+}

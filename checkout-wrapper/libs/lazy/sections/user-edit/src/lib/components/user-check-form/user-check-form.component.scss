@@ -1,0 +1,50 @@
+@import '../../../../../../../shared/styles/assets/imports';
+
+.loading {
+  position: relative !important;
+  text-align: center;
+  min-height: 96px;
+}
+.qr-image {
+  display: block;
+  text-align: center;
+  img {
+    width: 100%;
+    max-width: 224px;
+  }
+}
+
+$input-height: $grid-unit-y * 5 + 1;
+
+.email-suggestion {
+  @include pe_flexbox();
+  @include pe_flex-direction(row);
+  @include pe_align-items(center);
+
+  height: $input-height * 0.5;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &-details {
+    @include pe_flex(1);
+  }
+
+  &-label,
+  &-email {
+    color: $color-grey-3;
+    font-weight: 400;
+    @include text-overflow();
+    line-height: $grid-unit-y * 2;
+    font-size: $font-size-large-3;
+  }
+
+  &-email {
+    line-height: $input-height * 0.5;
+  }
+
+  &-status-checked {
+    color: $color-green;
+  }
+}

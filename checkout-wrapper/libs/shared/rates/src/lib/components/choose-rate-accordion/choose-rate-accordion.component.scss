@@ -1,0 +1,78 @@
+@import "../../../../../styles/assets/ui-kit-styles/pe_variables";
+@import "../../../../../styles/assets/ui-kit-styles/mixins/pe_mixins.scss";
+
+$rates-content-height: 256px;
+
+:host {
+  position: relative !important;
+  display: block;
+}
+
+.no-rate-selected-container {
+  @include pe_flexbox();
+  @include pe_justify_content(space-between);
+  @include pe_align_items(center);
+  height: $grid-unit-y * 3;
+  padding: 0 $grid-unit-x;
+  margin-bottom: $grid-unit-y;
+}
+
+.select-rate-container {
+  @include pe_flexbox();
+  @include pe_justify_content(space-between);
+  @include pe_align_items(center);
+  padding: $grid-unit-x * 0.5;
+}
+mat-card.mat-card-small-paddings {
+  border-radius: $border-radius-base * 3;
+  &:hover {
+    cursor: pointer;
+    .mat-button-link {
+      color: $color-white-grey-5;
+    }
+  }
+}
+
+.rates-dropdown {
+  position: absolute !important;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  overflow-y: auto;
+
+  border-radius: $border-radius-base * 3;
+  background-color: $color-gray-5;
+  color: $color-white-grey-4;
+  box-shadow: $box-shadow;
+
+  &-option {
+    padding: $grid-unit-y $grid-unit-x;
+    cursor: pointer;
+  }
+  &-option.selected {
+    color: $color-white-pe;
+  }
+  &-option:hover {
+    color: $color-white-pe;
+    background: $color-black;
+  }
+}
+
+.rates-container {
+  height: $rates-content-height - $grid-unit-x * 2;
+  margin: $grid-unit-y 0;
+}
+
+.choose-rate-toggle-button {
+  background: $color-solid-grey-1;
+  position: absolute !important;
+  right: 0px;
+  top: 0px;
+  height: 100%;
+  width: $grid-unit-x * 3.5;
+  border-radius: 0 $border-radius-base * 3 $border-radius-base * 3 0;
+  .icon {
+    @include payever_transform_rotate(270deg);
+    color: #cacaca;
+  }
+}

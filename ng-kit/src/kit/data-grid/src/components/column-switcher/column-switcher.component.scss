@@ -1,0 +1,24 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+.column-switcher-menu-item {
+  @include pe_flexbox();
+  @include pe_justify_content(space-between);
+
+  & > mat-icon {
+    margin: 0 0 0 auto;
+  }
+}
+
+
+.column-title {
+  padding-right: $grid-unit-x;
+}
+
+.icon-view {
+  margin-left: 1px; // fix for FF and IE
+}
+
+.menu-switcher-button {
+  min-width: 1.5 * $grid-unit-x !important;
+}

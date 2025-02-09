@@ -1,0 +1,52 @@
+<div class="chapter">
+  <h2>{{ settings.title }}</h2>
+  <div class="main-block">
+    <tabset>
+      <tab heading="Overview">
+        <div *ngIf="settings.overview" class="overview">
+          <ng-template [ngTemplateOutlet]="settings.overview"></ng-template>
+        </div>
+
+        <div *ngIf="settings.import">
+          <h3>How to import</h3>
+          <pre><code class="typescript" [innerHTML]="settings.import"></code></pre>
+          <p>&nbsp;</p>
+        </div>
+        
+        <example-viewer *ngIf="!settings.noDefaultExample && settings.examples?.length"
+                        [title]="settings.examples[0].title"
+                        [htmlExample]="settings.examples[0].htmlExample"
+                        [tsExample]="settings.examples[0].tsExample"
+                        [cssExample]="settings.examples[0].cssExample"
+                        [disableToggle]="!settings.examples[0].content"
+        >
+          <div class="row">
+            <div class="col-xs-12">
+              <ng-template *ngIf="settings.examples[0].content" [ngTemplateOutlet]="settings.examples[0].content"></ng-template>
+            </div>
+          </div>
+        </example-viewer>
+      </tab>
+      
+      <tab *ngIf="settings.sourcePath" heading="API">
+        <component-api-renderer [path]="settings.sourcePath"></component-api-renderer>
+      </tab>
+      
+      <tab *ngIf="settings.examples?.length" heading="Examples">
+        <example-viewer *ngFor="let example of settings.examples"
+                        [title]="example.title"
+                        [htmlExample]="example.htmlExample"
+                        [tsExample]="example.tsExample"
+                        [cssExample]="example.cssExample"
+                        [disableToggle]="!example.content"
+        >
+          <div class="row">
+            <div class="col-xs-12">
+              <ng-template *ngIf="example.content" [ngTemplateOutlet]="example.content"></ng-template>
+            </div>
+          </div>
+        </example-viewer>
+      </tab>
+    </tabset>
+  </div>
+</div>

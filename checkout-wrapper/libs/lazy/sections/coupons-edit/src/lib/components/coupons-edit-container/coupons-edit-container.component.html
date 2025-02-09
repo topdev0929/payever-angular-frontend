@@ -1,0 +1,53 @@
+<div
+  class="row amount-from"
+  *ngIf="flow">
+  <ng-container *ngIf="vm$ | async as vm">
+    <div class="col-xs-12">
+      <p
+        *ngIf="vm.errorText"
+        class="text-danger small">
+        {{ vm.errorText }}
+      </p>
+      <form
+        *ngIf="formGroup"
+        [formGroup]="formGroup"
+        analyticsForm
+        (ngSubmit)="onSubmit()"
+        class="form-table form-table-checkout">
+        <div class="form-fieldset-new">
+          <mat-form-field class="col-xs-12">
+            <mat-label i18n="@@checkout_coupons_edit.form.couponCode.label"> Coupon </mat-label>
+            <input
+              matInput
+              formControlName="coupon"
+              type="text" />
+          </mat-form-field>
+        </div>
+      </form>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-6 text-center">
+        <button
+          mat-button
+          type="button"
+          class="mat-button-lg mat-button-link mat-button-bold"
+          i18n="@@send-to-device.action.skip"
+          (click)="onSkip()">
+          send-to-device.action.skip
+        </button>
+      </div>
+      <div class="col-xs-6">
+        <checkout-sdk-continue-button
+          class="button-continue"
+          i18n-text="@@action.continue"
+          text="action.continue"
+          type="submit"
+          [loading]="vm.loading"
+          [disabled]="vm.loading"
+          (click)="onSubmit()">
+        </checkout-sdk-continue-button>
+      </div>
+    </div>
+  </ng-container>
+</div>

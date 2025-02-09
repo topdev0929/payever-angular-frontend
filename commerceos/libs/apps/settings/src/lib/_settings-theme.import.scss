@@ -1,0 +1,21 @@
+@use 'pe_theming' as pet;
+@use './root/next-root-theme.component' as root;
+@use './routes/business-info/business-info-theme.component' as business_info;
+@use './routes/business-detail/components/edit-taxes/edit-taxes-theme.component' as edit_taxes;
+@use './routes/business-detail/components/edit-transaction-retention-setting/skeleton/skeleton.component.theme' as transaction_retention;
+@use './routes/general/components/edit-password/edit-password-theme.component' as edit_password;
+@use './routes/appearance/appearance-theme.component' as appearance;
+@use './components/edit-style/edit-style-theme.component' as edit_style;
+@use './routes/employees/components/employee-app-access-setter/employee-app-access-setter-theme.component' as employee_app_access_setter;
+
+@mixin theme($theme-config) {
+    $color-config: pet.get-color-config-from-theme($theme-config);
+    @include root.color($color-config);
+    @include business_info.color($color-config);
+    @include edit_taxes.color($color-config); 
+    @include transaction_retention.color($color-config); 
+    @include edit_password.color($color-config);
+    @include appearance.color($color-config);
+    @include edit_style.color($color-config);
+    @include employee_app_access_setter.color($color-config);
+}

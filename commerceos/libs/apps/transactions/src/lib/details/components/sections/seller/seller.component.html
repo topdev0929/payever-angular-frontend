@@ -1,0 +1,12 @@
+<div class="seller-section" *ngIf="order">
+  <div class="seller-section__row">
+    <div class="section-item col-6">
+      <div class="section-item__label">{{ 'transactions.sections.seller.name' | translate }}</div>
+      <div class="section-item__value" peHideAnonymizedField>{{ sellerName || '---' }}</div>
+    </div>
+    <div class="section-item col-6">
+      <div class="section-item__label">{{ 'transactions.sections.seller.email' | translate }}</div>
+      <div class="section-item__value" peHideAnonymizedField>{{ sellerEmail || '---' }}</div>
+    </div>
+  </div>
+</div>

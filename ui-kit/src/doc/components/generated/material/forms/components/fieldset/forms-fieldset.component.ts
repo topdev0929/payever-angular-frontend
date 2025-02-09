@@ -1,0 +1,112 @@
+import { Component } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+
+import { peVariables } from '../../../../../../../../scss/pe-variables';
+
+interface ImageInterface {
+  formControl: FormControl;
+  loading: boolean;
+}
+
+@Component({
+  selector: 'forms-fieldset',
+  templateUrl: 'forms-fieldset.component.html'
+})
+export class FormsFieldsetMatDocComponent {
+  formsFieldsetDefaultExampleTemplate: string = require('!!raw-loader!./examples/default/forms-fieldset-example-default.component.html');
+  formsFieldsetDefaultExampleComponent: string = require('!!raw-loader!./examples/default/forms-fieldset-example-default.component.ts');
+
+  formsFieldsetErrorStateExampleTemplate: string = require('!!raw-loader!./examples/error-state/forms-fieldset-example-error-state.component.html');
+  formsFieldsetErrorStateExampleComponent: string = require('!!raw-loader!./examples/error-state/forms-fieldset-example-error-state.component.ts');
+
+  formsFieldsetNoBordersExampleTemplate: string = require('!!raw-loader!./examples/no-borders/forms-fieldset-example-no-borders.component.html');
+  formsFieldsetNoBordersExampleComponent: string = require('!!raw-loader!./examples/no-borders/forms-fieldset-example-no-borders.component.ts');
+
+  formsFieldsetMediaExampleTemplate: string = require('!!raw-loader!./examples/media/forms-fieldset-example-media.component.html');
+  formsFieldsetMediaExampleComponent: string = require('!!raw-loader!./examples/media/forms-fieldset-example-media.component.ts');
+
+  formsFieldsetHorizontalMediaExampleTemplate: string = require('!!raw-loader!./examples/horizontal/media/forms-fieldset-horizontal-example-media.component.html');
+  formsFieldsetHorizontalMediaExampleComponent: string = require('!!raw-loader!./examples/horizontal/media/forms-fieldset-horizontal-example-media.component.ts');
+
+  email = new FormControl('', [Validators.required, Validators.email]);
+  firstName = new FormControl('', [Validators.required]);
+  lastName = new FormControl('', [Validators.required]);
+  age = new FormControl('', [Validators.required]);
+  prefixSuffixField = new FormControl('', [Validators.required]);
+  toppings = new FormControl();
+
+  toppingList = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
+  cities = ['Berlin', 'Paris', 'Moscow']
+  agreeWithTerms = false;
+  agreeWithTerms2 = false;
+  agreeWithTerms3 = false;
+
+  favoriteSeason: string;
+  favoriteSeason2: string;
+  favoriteSeason3: string;
+
+  seasons = [
+    'Winter',
+    'Spring',
+    'Summer',
+    'Autumn',
+  ];
+
+  images: ImageInterface[] = [
+    { formControl: new FormControl(), loading: false },
+    { formControl: new FormControl(), loading: false },
+    { formControl: new FormControl(), loading: false }
+  ];
+  spinerStrokeWidth: number = peVariables.toNumber('spinnerStrokeWidth');
+  spinerDiameter: number = peVariables.toNumber('spinnerStrokeSm');
+
+  sliderWithLabelValue: number = 25;
+
+  getErrorMessage(fieldName: string) {
+    return this.email.hasError('required') ? 'You must enter a value' :
+      this.email.hasError('email') ? 'Not a valid email' :
+        '';
+  }
+
+  getFirstNameErrorMessage() {
+    return this.firstName.hasError('required') ? 'You must enter a value' :
+      '';
+  }
+
+  getLastNameErrorMessage() {
+    return this.lastName.hasError('required') ? 'You must enter a value' :
+      '';
+  }
+
+  getAgeErrorMessage() {
+    return this.age.hasError('required') ? 'You must select your age' :
+      '';
+  }
+
+  getPrefixSuffixFieldErrorMessage() {
+    return this.prefixSuffixField.hasError('required') ? 'You must enter a value' :
+      '';
+  }
+
+  pickImage(event: Event, image: ImageInterface): void {
+    const fileInput: HTMLInputElement = event.target as HTMLInputElement;
+    const file: File = fileInput.files[0];
+    const reader: FileReader = new FileReader();
+    reader.readAsDataURL(file);
+    image.loading = true;
+    reader.onload = () => {
+      setTimeout(() => {
+        image.formControl.setValue(reader.result);
+        image.loading = false;
+      }, 2000);
+    };
+  }
+
+  clearImage(image: ImageInterface): void {
+    image.loading = true;
+    setTimeout(() => {
+      image.formControl.setValue(null);
+      image.loading = false;
+    }, 500);
+  }
+}

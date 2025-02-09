@@ -1,0 +1,61 @@
+<checkout-sdk-finish-wrapper
+  [buttons]="buttons"
+  [errorMessage]="errorMessage"
+  [iframeCallbackUrl]="getIframeCallbackUrl()"
+  [isLoading]="isLoading"
+  [isChangingPaymentMethod]="isChangingPaymentMethod"
+  [embeddedMode]="embeddedMode"
+  [merchantMode]="merchantMode"
+  [template]="template"
+  i18n-processingTitle="@@payment-instant-payment.inquiry.finish.processing.title"
+  processingTitle="@@payment-instant-payment.inquiry.finish.processing.title"
+  i18n-processingText="@@payment-instant-payment.inquiry.finish.processing.text"
+  processingText="@@payment-instant-payment.inquiry.finish.processing.text"
+  (close)="onClose()">
+
+  <ui-payment-logo
+    *ngIf="showTemplate"
+    class="logo"
+    [paymentMethod]="paymentMethod">
+  </ui-payment-logo>
+
+  <ng-container *ngIf="nodeResult && !showTemplate">
+    <ng-container [ngSwitch]="true">
+
+      <ng-container *ngSwitchCase="isStatusSuccess() || isStatusPending()">
+        <checkout-sdk-finish-status-success
+          i18n-title="@@payment-instant-payment.inquiry.finish.header.success"
+          title="payment-instant-payment.inquiry.finish.header.success"
+          [total]="nodeResult.payment?.total"
+          [currency]="flow?.currency"
+          [storeName]="nodeResult.paymentDetails?.recipientHolder"
+          [createdAt]="nodeResult.createdAt"
+          [billingAddressName]="isPosPayment() ? billingAddressName() : null"
+          [transactionNumber]="nodeResult.paymentDetails?.transactionId"
+          [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"
+          [flowId]="flow?.id"
+          [isPosPayment]="isPosPayment()"
+        ></checkout-sdk-finish-status-success>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="isStatusUnknown()">
+        <checkout-sdk-finish-status-unknown
+          [nodeResult]="nodeResult"
+          [applicationNumber]="applicationNumber"
+          [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"
+        ></checkout-sdk-finish-status-unknown>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="isStatusFail()">
+        <checkout-sdk-finish-status-fail
+          i18n-title="@@payment-instant-payment.inquiry.finish.header.failed"
+          title="payment-instant-payment.inquiry.finish.header.failed"
+          [canChangePaymentMethod]="canChangePaymentMethod()"
+          [transactionNumber]="nodeResult.paymentDetails?.transactionId"
+          [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"
+        ></checkout-sdk-finish-status-fail>
+      </ng-container>
+
+    </ng-container>
+  </ng-container>
+</checkout-sdk-finish-wrapper>

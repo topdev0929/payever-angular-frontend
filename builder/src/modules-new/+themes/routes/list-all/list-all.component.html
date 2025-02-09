@@ -1,0 +1,63 @@
+<div class="top-bar">
+  <div class="top-bar__item">
+    <label class="filter-select">
+      {{ 'theme.themes_list.industry' | translate }}:
+      <mat-select [ngModel]="selectedIndustry$ | async" name="industry" (ngModelChange)="onChangeIndustry($event)">
+        <mat-option value="all">{{ 'theme.themes_list.all_industries' | translate }}</mat-option>
+        <mat-option *ngFor="let industry of industries" [value]="industry">
+          {{ industry }}
+        </mat-option>
+      </mat-select>
+    </label>
+
+    <!-- <div class="filter-button-separator">
+    </div>
+
+    <div class="filter-button" (click)="onToggleFilters()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 12 12">
+        <g fill="#FFF" fill-rule="evenodd">
+          <path fill-rule="nonzero"
+            d="M11.25 9.75c.414 0 .75.336.75.75s-.336.75-.75.75H3c-.414 0-.75-.336-.75-.75s.336-.75.75-.75h8.25zm0-4.5c.414 0 .75.336.75.75s-.336.75-.75.75H3c-.414 0-.75-.336-.75-.75s.336-.75.75-.75h8.25zm0-4.5c.414 0 .75.336.75.75s-.336.75-.75.75H3c-.414 0-.75-.336-.75-.75S2.586.75 3 .75h8.25z" />
+          <circle cx=".75" cy="1.5" r="1" />
+          <circle cx=".75" cy="6" r="1" />
+          <circle cx=".75" cy="10.5" r="1" />
+        </g>
+      </svg>
+      {{ 'theme.themes_list.filter' | translate }}
+    </div> -->
+  </div>
+
+  <div class="top-bar__item top-bar__item--center">
+    <div class="filter-caption" *ngIf="themesCount$ | async">
+      <span [innerText]="(themesCount$ | async)"></span>
+      {{ 'theme.theme_container.title' | translate }}
+    </div>
+  </div>
+
+  <div class="top-bar__item top-bar__item--right">
+    <button *ngIf="isAdmin" class="mat-raised-button mat-muted-white mat-button-rounded" (click)="onCreate()">Add theme</button>
+    <label class="filter-select">
+      {{ 'theme.themes_list.sort_by' | translate }}:
+      <mat-select [(ngModel)]="selectedSortBy" name="sortby" (ngModelChange)="onChangeSortBy($event)">
+        <mat-option *ngFor="let sortBy of sortByOptions" [value]="sortBy">
+          {{ sortBy }}
+        </mat-option>
+      </mat-select>
+    </label>
+  </div>
+</div>
+
+<div class="desktop">
+  <!-- <pe-builder-theme-filters
+    class="filters"
+    [filters]="categories"
+    [opened]="filtersOpened$ | async"
+    [activeFilter]="selectedCategoryIdSubject$ | async"
+    (toggled)="onToggleFilters()"
+    (selected)="onCategorySelect($event)"
+  ></pe-builder-theme-filters> -->
+  <!-- <div class="desktop__content" [class.desktop__content--with-filters]="filtersOpened$ | async"> -->
+  <div class="desktop__content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

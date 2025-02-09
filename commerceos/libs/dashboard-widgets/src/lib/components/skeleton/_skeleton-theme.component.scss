@@ -1,0 +1,30 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $widget-background: map.get($color-config, 'widget-background');
+  $gradient-skeleton: map.get($color-config, 'gradient-skeleton');
+
+  .pe-widget-skeleton {
+    .widget-item {
+      background: $widget-background;
+      .skeleton-item {
+        @keyframes widgetSkeleton {
+          0% {
+            background-position: -190px 0;
+          }
+          100% {
+            background-position: 190px 0;
+          }
+        }
+        animation: widgetSkeleton infinite linear 8s;
+        background-image: $gradient-skeleton;
+      }
+    }
+  }
+
+  @keyframes widgetSkeletonsmall {
+    0% {
+      background-position: 50%% 0%;
+    }
+  }
+}

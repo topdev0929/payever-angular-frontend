@@ -1,0 +1,6 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+.dashboard-menu-example-wrap {
+  position: relative;
+  height: $pe_vgrid_height * 10;
+  background: $color-black;
+}

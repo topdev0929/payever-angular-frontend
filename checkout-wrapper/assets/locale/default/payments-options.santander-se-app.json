@@ -1,0 +1,239 @@
+{
+  "santander-se": {
+    "action": {
+      "buy_now_for_total": "Buy now for {{ total }}",
+      "continue": "Continue",
+      "close": "Close",
+      "change_payment_method": "Change payment method",
+      "send_inquiry": "Send finance inquiry",
+      "try_again": "Try again",
+      "start_signing": "Start signing",
+      "update_rates": "Update rates",
+      "update_rates_to_continue": "Update rates to continue",
+      "select_option": "Select an option"
+    },
+    "duration": {
+      "one_month": "{{ count }} month",
+      "count_months": "{{ count }} months"
+    },
+    "boolean": {
+      "yes": "Yes",
+      "no": "No"
+    },
+    "credit_rates": {
+      "actions": {
+        "rate_choose_summary": "Choose {{monthlyCost}} for {{duration}}",
+        "rate_choose_summary_finance_calc": "{{monthlyCost}} for {{duration}}"
+      },
+      "error": {
+        "rate_not_selected": "Please select rate",
+        "rates_list_empty": "No rates available"
+      },
+
+      "rate_title_pp": "Monthly Payment {{ monthlyCost }}",
+      "rate_title_bnpl": "Pay {{ totalCost }} in {{ monthName }}",
+
+      "rate_line1_pp": "Total credit {{ totalCost }}",
+      "rate_line1_bnpl": "Interest-free period is {{ months }} months",
+
+      "type_filter": {
+        "part_payment": "Part Payment",
+        "buy_now_pay_later": "Buy Now - Pay Later"
+      },
+
+      "rate_param": {
+        "terms_on_month": "Terms on month",
+        "startup_fee": "Startup fee",
+        "billing_fee_after_free_period": "Billing fee after interest-free period",
+        "administration_fee": "Administration fee",
+        "billing_fee": "Billing fee",
+        "annual_fee": "Annual fee",
+        "total_cost": "Total cost",
+        "effective_interest": "Effective interest",
+        "interest_rate": "Interest rate"
+      },
+      "credit_due_date": "Charging",
+      "cpi": "CPI",
+      "duration": "Term",
+      "duration_value_with_rates": "{{ monthly_rate }} / {{duration}} {{label}} + {{ last_rate }} for last rate",
+      "monthly_rate": "Monthly rate",
+      "total_amount": "Credit price",
+      "month": "month",
+      "months": "months"
+    },
+    "inquiry": {
+
+      "finish": {
+        "application_success": {
+          "title": "Order confirmed. Thank you."
+        },
+        "application_ending": {
+          "title": "Order confirmed. Thank you."
+        },
+        "application_fail": {
+          "title": "Unfortunately, we can not provide you with a loan at this time."
+        },
+        "application_pending": {
+          "title": "Pending",
+          "text": "Your application is pending."
+        },
+        "ssn_processing": {
+          "title": "Verification required",
+          "text": "Open BankID app in your mobile to verify your identity, wait for this page to update, don't reload or click away."
+        },
+        "signing_processing": {
+          "title": "Your application has been pre-approved",
+          "text_ex": "You will receive an SMS to sign the contract with your BankID app",
+          "comment": "After signature, wait for this page to update, don&apos;t reload or click away."
+        },
+        "signing_timeout": {
+          "title": "Authentication timed out",
+          "text": "We didn't receive BankID signature confirmation."
+        },
+        "invalid_signing_status": {
+          "title": "Invalid authentication status",
+          "text": "There was an error while authenticating, please try again."
+        },
+        "ssn_error": {
+          "title": "Error occurred",
+          "text": "There was an error while authenticating, please try again."
+        }
+      },
+
+      "step": {
+        "rates": {
+          "title": "Betalsätt"
+        },
+        "details": {
+          "title": "Ansökningsdetaljer"
+        },
+        "section": {
+          "app_details": {
+            "title": "Personliga detaljer"
+          },
+          "exposed_person": {
+            "title": "Är du, eller har du varit, en person i politiskt utsatt ställning (PEP) eller är du familjemedlem eller känd medarbetare till en sådan person?"
+          },
+          "finance_details": {
+            "title": "Inkomst"
+          },
+          "household_expenses": {
+            "title": "Household expenses"
+          }
+        }
+      },
+
+      "form": {
+        "accept_conditions": {
+          "label": "Yes, I accept <a>Santander Consumer Bank Conditions</a>*",
+          "details": {
+            "title": "SANTANDER CONSUMER BANK CONDITIONS",
+            "full_text": "<p>I länkarna till nedan finns villkoren du accepterar när du är i kontakt med oss. För att ansöka om betalning måste du uppnå Santander Consumer Banks basala krav. Dessa är</p><ol><li>Du är över 18 år gammal</li><li>Du har fast inkomst</li><li>Du har en inkomst som överstiger SEK 80 000 per år</li><li>Du har inga skulder</li></ol><h4>Kreditupplysning</h4><p>När du ansöker om lån gör vi en kreditupplysning, vi samlar kreditdata från UC.</p><p>Vi kommer att hantera er personliga data enligt vår <a href=\"https://sf.santanderconsumer.se/Infosidor/Personuppgiftspolicy/\" target=\"_blank\">Integritetspolicy</a>.</p><hr><ul class=\"list-unstyled\"><li><a target=\"_blank\" href=\"{{ GetSpecialTermsAndConditionsPDF }}\">Additional conditions (PDF)</a></li><li><a target=\"_blank\" href=\"{{ GetTermsAndConditionsPdf }}\">Term and Conditions (PDF)</a></li></ul>"
+          }
+        },
+        "social_security_number": {
+          "label": "Social security number",
+          "placeholder": "Social security number",
+          "invalid": "Doesn't match SSN format"
+        },
+        "phone_number": {
+          "label": "Mobile phone",
+          "placeholder": "Mobile phone"
+        },
+        "monthly_gross_income": {
+          "label": "Monthly Income before taxes",
+          "error": {
+            "range": "Income must be between {{currency}} {{min}} and {{currency}} {{max}}"
+          }
+        },
+        "citizenship": {
+          "label": "Medborgarskap"
+        },
+        "accommodation_type": {
+          "label": "Accommodation type",
+          "value": {
+            "Condominium": "Right of residence",
+            "OwnedHouse": "Living in own house/own property",
+            "Tenancy": "Tenancy via a first-hand contract",
+            "SecondhandApartment": "Tenancy via a subcontract",
+            "CollectiveHousing": "Housing in a collective (shared housing)"
+          }
+        },
+        "existing_loans": {
+          "label": "Befintligh lånen",
+          "description": "Skulder och utnyttjade krediter (exklusiv bolån eller CSN-lån)",
+          "tooltip": "<strong>Befintligt lånen</strong><br>Ange lån och utnyttjade krediter som du har,<br>exempelvis privatlån, billån, utnyttjad<br>kontokortskredit etc. Tänk på att inte räkna<br>med kostnader för ev. bolån som ränta och<br>amortering eller kostnader för CSN-lån eller<br>privatleasing."
+        },
+        "total_dept_amount_excluding_mortgages": "Befintligt lånebelopp",
+        "total_monthly_debt_cost_excluding_mortgages": "Ungedärlig månadskostnad för lån",
+        "housing_cost": {
+          "label": "Household cost",
+          "description": "Enter part of the housing cost per month, for example rent, electricity, heating, water and sewage, home insurance, garbage disposal, etc. Remember not to include costs for any mortgage, such as interest and amortization.",
+          "error": {
+            "range": "Amount must be between {{min}} and {{max}} {{currency}}"
+          }
+        },
+        "number_of_children": {
+          "label": "Number of children in household"
+        },
+        "citizenship_second": {
+          "label": "Andra medborgarskap (valfritt)"
+        },
+        "political_exposed_person": {
+          "label": "Vänligen välj",
+          "placeholder": "Vänligen välj"
+        },
+        "employment_type": {
+          "label": "Anställningsform",
+          "placeholder": "Anställningsform",
+          "value": {
+            "Permanent": "Tillsvidareanställning",
+            "Temporary": "Projektanställning/frilans",
+            "Self Employed": "Egenföretagare",
+            "Pensioners": "Pensionär",
+            "Unemployed": "Arbetssökande",
+            "Student": "Student"
+          }
+        },
+        "employer": {
+          "label": "Arbetsgivare",
+          "placeholder": "Arbetsgivare"
+        },
+        "primary_income_repayment": {
+          "label": "Jag kommer huvudsakligen att återbetala lånet med min lön/ pension."
+        },
+        "repayment_source": {
+          "label": "Från vilken inkomstkälla kommer du att återbetala lånet?",
+          "placeholder": "Från vilken inkomstkälla kommer du att återbetala lånet?",
+          "value": {
+            "Salary": "Lön",
+            "Pension": "Pension",
+            "Savings": "Sparande",
+            "SocialBenefits": "Forsörjningsstöd",
+            "EducationalSupport": "Studiestöd",
+            "CommercialIncome": "Intäkter från näringsverksamhet inklusive hyresintäkter",
+            "SaleOfRealEstate": "Vinst från försäljning av fastighet",
+            "SaleOfMovables": "Vinst från försäljning av lös egendom (bil, båt, etc.)",
+            "InheritanceGifts": "Arv/gåvor",
+            "YieldInvestments": "Vinst från investeringar",
+            "ShareDividend": "Aktieutdelning eller liknande vinst från näringsverksamhet",
+            "Compensation": "Annan typ av ersättning (t.ex. från försäkring, avgångsvederlag eller liknande)",
+            "Gambling": "Vinster från spel/lotterier",
+            "Other": "Annat [Kunde måste fylla i]"
+          }
+        },
+        "repayment_source_other": {
+          "label": "Beskriv din inkomstkälla",
+          "placeholder": "Beskriv din inkomstkälla"
+        },
+        "third_party_declaration": {
+          "label": "Jag ansöker inte åt någon annan. "
+        }
+      }
+    }
+  },
+  "salutation": {
+    "SALUTATION_MR": "Mr",
+    "SALUTATION_MRS": "Mrs"
+  }
+}

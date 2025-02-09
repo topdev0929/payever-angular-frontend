@@ -1,0 +1,7 @@
+<div class="list__row__item flex-row" [title]="description">
+  <div *ngFor="let title of titles; let i = index" class="flex-item">
+    <span>{{title}}</span>
+    <span *ngIf="i !== titles.length - 1" class="list__row__item__arrow">›</span>
+  </div>
+  
+</div>

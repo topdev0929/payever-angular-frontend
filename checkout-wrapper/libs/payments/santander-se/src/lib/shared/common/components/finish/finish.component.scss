@@ -1,0 +1,10 @@
+@import '../../../../../../../../shared/styles/assets/ui-kit-styles/pe_variables';
+@import '../../../../../../../../shared/styles/assets/mixins';
+
+.subheading-wrap {
+  margin: $grid-unit-y * 3.5 0 $grid-unit-y;
+}
+
+.icon-64 {
+  width: 68px;
+}

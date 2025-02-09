@@ -1,0 +1,40 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $primary: map.get($color-config, 'primary');
+  $text-color: map.get($color-config, 'text-color');
+  $active-text: map.get($color-config, 'active-text');
+  $confirm: map.get($color-config, 'confirm');
+  $box-shadow-color: map.get($color-config, 'box-shadow-color');
+  $transparent-color: map.get($color-config, 'transparent-color');
+
+  .forward-message-details {
+    border-left: 2px solid $confirm;
+
+    .title {
+      color: $text-color;
+    }
+  }
+
+  .forward-message-menu {
+    box-shadow: 0 3px 7px 0 $box-shadow-color;
+    background-color: $primary;
+
+    &.show {
+      color: $text-color;
+    }
+
+    .forward-message-details {
+      border-left: 2px solid $confirm;
+
+      .title {
+        color: $text-color;
+      }
+    }
+
+    button {
+      background: $transparent-color;
+    }
+
+  }
+}

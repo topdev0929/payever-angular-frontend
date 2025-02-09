@@ -1,0 +1,10 @@
+<ng-container *ngIf="isDev">
+  <pe-platform-header *ngIf="!isStepper"></pe-platform-header>
+  <pe-welcome-stepper></pe-welcome-stepper>
+</ng-container>
+
+<router-outlet></router-outlet>
+
+<router-outlet name="modal"></router-outlet>
+
+<dev-helpers *ngIf="isDev"></dev-helpers>

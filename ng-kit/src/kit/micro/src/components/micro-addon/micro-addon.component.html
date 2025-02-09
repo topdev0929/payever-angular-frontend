@@ -1,0 +1,12 @@
+<div class="iframe-wrap"
+     [style.border-top-left-radius.px]="borderTopLeftRadius"
+     [style.border-top-right-radius.px]="borderTopRightRadius"
+     [style.border-bottom-left-radius.px]="borderBottomLeftRadius"
+     [style.border-bottom-right-radius.px]="borderBottomRightRadius"
+     #iframeWrapper>
+  <!-- allow-popups-to-escape-sandbox: To disable chrome blocking pdf files inside iframe-->
+  <iframe [attr.src]="iframeSrc"
+          sandbox="allow-same-origin allow-top-navigation allow-forms allow-scripts allow-modals allow-popups allow-popups-to-escape-sandbox"
+          frameborder="0"
+          #iframe></iframe>
+</div>

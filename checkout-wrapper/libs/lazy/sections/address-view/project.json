@@ -1,0 +1,29 @@
+{
+  "name": "address-view",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/lazy/sections/address-view/src",
+  "prefix": "pe",
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/lazy/sections/address-view"],
+      "options": {
+        "jestConfig": "libs/lazy/sections/address-view/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/lazy/sections/address-view/src/**/*.ts",
+          "libs/lazy/sections/address-view/src/**/*.html"
+        ]
+      },
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": ["scope:libs", "type:selector"],
+  "implicitDependencies": []
+}

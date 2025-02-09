@@ -1,0 +1,8 @@
+@use 'pe_theming' as pet;
+@use './social-sharing-image-theme' as social_sharing_image;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include social_sharing_image.color($color-config);
+}
+

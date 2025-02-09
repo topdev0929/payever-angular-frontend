@@ -1,0 +1,10 @@
+<div class="widget-apps-container statistics-apps-widget">
+  <div class="app" *ngFor="let app of apps" (click)="onAppClick(app)">
+    <div class="app__icon">
+      <svg class="icon icon-64" *ngIf="app.icon">
+        <use [attr.xlink:href]="app.icon"></use>
+      </svg>
+    </div>
+    <div class="app__name">{{ app.name }}</div>
+  </div>
+</div>

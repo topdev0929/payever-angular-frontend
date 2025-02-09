@@ -1,0 +1,13 @@
+:host {
+  height: 100%;
+}
+
+.form {
+  padding: 12px;
+  height: 100%;
+  overflow: hidden auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

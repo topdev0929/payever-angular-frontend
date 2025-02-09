@@ -1,0 +1,42 @@
+@import '../../../../../../styles/assets/ui-kit-styles/pe_variables';
+
+:host {
+  justify-content: center;
+  padding: $padding-large-vertical * 1.5 $padding-large-horizontal;
+  display: inline-flex;
+  backdrop-filter: blur(50px);
+  border-radius: 24.5px;
+  background-color: rgba(36, 39, 46, 0.85);
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.5);
+
+  @media (max-width: $screen-sm-max) {
+    padding: $padding-large-vertical * 2 $padding-large-horizontal;
+  }
+
+  @media (max-width: $screen-xs-min - 1) {
+    min-width: 80%;
+  }
+}
+.snack-bar-content-close-icon {
+  cursor: pointer;
+  color: $color-solid-grey-3;
+
+  .snackbar-icon {
+    background: radial-gradient($color-white, $color-white 33%, transparent 33%);
+  }
+}
+
+.snack-bar-content-icon {
+  padding-left: $padding-small-horizontal;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  letter-spacing: normal;
+  color: #ffffff;
+}
+
+.snack-bar-content-text {
+  color: #ffffff !important;
+  font-weight: 500;
+  font-size: 14px;
+}

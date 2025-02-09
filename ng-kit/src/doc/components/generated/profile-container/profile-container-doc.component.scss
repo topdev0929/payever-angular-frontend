@@ -1,0 +1,11 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+.ui-profile-container-wrap {
+  top: 50%;
+  position: absolute;
+  @include payever_transform_translate(0, -50%);
+  right: 0;
+  left: 0;
+  border: 1px dashed rgba($color-white, .5);
+}

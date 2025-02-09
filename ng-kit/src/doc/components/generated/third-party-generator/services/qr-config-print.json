@@ -1,0 +1,76 @@
+{
+  "form": {
+    "title": "Generate QR",
+    "type": "info-box",
+    "triggerPrintUrl": "/background_jpg_ed4f73.jpg",
+    "operations": [
+      {
+        "action": "download",
+        "text": "Download",
+        "request": {
+          "url": "https://qr-backend.test.devpayever.com/api/form/download",
+          "method": "post"
+        }
+      },
+      {
+        "action": "print",
+        "text": "Print",
+        "request": {
+          "url": "https://qr-backend.test.devpayever.com/api/form/print",
+          "method": "post"
+        }
+      },
+      {
+        "action": "preview",
+        "text": "Preview",
+        "request": {
+          "url": "https://qr-backend.test.devpayever.com/api/form/preview",
+          "method": "post"
+        }
+      }
+    ],
+    "content": {
+      "fieldset": [
+        {
+          "name": "url",
+          "type": "hidden",
+          "fieldSettings": {
+            "required": true
+          }
+        },
+        {
+          "name": "type",
+          "type": "select",
+          "fieldSettings": {
+            "classList": "col-xs-12",
+            "label": "Type",
+            "required": true
+          },
+          "selectSettings": {
+            "panelClass": "mat-select-dark",
+            "options": [
+              {
+                "label": "svg",
+                "value": "svg"
+              },
+              {
+                "label": "png",
+                "value": "png"
+              },
+              {
+                "label": "utf8",
+                "value": "utf8"
+              }
+            ],
+            "placeholder": "Type"
+          }
+        }
+      ],
+      "fieldsetData": {
+        "url": "http://testurl.com",
+        "type": "png"
+      }
+    },
+    "actionContext": {}
+  }
+}

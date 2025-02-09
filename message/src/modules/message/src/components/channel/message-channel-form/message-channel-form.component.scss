@@ -1,0 +1,135 @@
+:host {
+  display: block;
+  padding: 12px;
+  width: 95vw;
+  
+  @media (min-width: 620px) {
+    width: 436px;
+  }
+
+  &.dark .peb-form-field-input { background-color: #111111; }
+  &.transparent .peb-form-field-input { background-color: rgba(0, 0, 0, .3); }
+  &.light .peb-form-field-input {
+    background-color: #ffffff;
+
+    input { color: black; }
+  }
+}
+
+.peb-form-field-input {
+  border-radius: 12px;
+  display: block;
+}
+
+.pe-picker {
+  border-radius: 12px;
+  display: block;
+  margin-bottom: 12px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+.channel-form {
+  &__header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 7px;
+    margin-bottom: 18px;
+
+    div {
+      min-width: 44px;
+
+      &.right {
+        text-align: right;
+      }
+
+      span {
+        font-size: 14px;
+        color: #7a7a7a;
+        cursor: pointer;
+        line-height: 1.2857142857;
+
+        &.blue {
+          color: #0091df;
+        }
+      }
+    }
+    
+    p {
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.5;
+      margin: 0;
+    }
+  }
+
+  &__first-step {
+
+    .peb-form-field-input {
+      margin-top: 12px;
+    }
+  }
+
+  &__type-list {
+    border-radius: 12px;
+    margin: -1px 0 0;
+    overflow: hidden;
+
+    label {
+      align-items: center;
+      background-color: #111111;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1px;
+      padding: 12px;
+
+      span {
+        color: white;
+        font-size: 12px;
+        line-height: 1.3333333333;
+      }
+
+      input:checked ~ .channel-form__checkmark {
+        background-color: #0371e2;
+        border-color: #fff;
+        opacity: 1;
+    
+        svg {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    }
+  }
+
+  &__checkmark {
+    align-items: center;
+    border-radius: 50%;
+    border: 1px solid white;
+    display: flex;
+    height: 20px;
+    justify-content: center;
+    margin-top: -2px;
+    margin-bottom: -2px;
+    opacity: 0;
+    width: 20px;
+  }
+
+  &__button {
+    appearance: none;
+    background-color: #1c1d1e;
+    border-radius: 12px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 12px;
+    width: 100%;
+
+    &-blue {
+      color: #0091df;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $primary: map.get($color-config, 'primary');
+  $border: map.get($color-config, 'border');
+  $text-color: map.get($color-config, 'text-color');
+  $warn: map.get($color-config, 'warn');
+  $label-color: map.get($color-config, 'label-color');
+  $active-text: map.get($color-config, 'active-text');
+  $hover-button: map.get($color-config, 'hover-button');
+
+  .pe-menu {
+    background-color: $primary;
+    border: solid 1px $border;
+    &__header {
+      .pe-menu__title {
+        color: $text-color;
+      }
+      .pe-menu__close {
+        svg g path {
+          fill: $label-color;
+        }
+      }
+    }
+    ul li {
+      span {
+        color: $text-color;
+      }
+      &.red {
+        span {
+          color: $warn;
+        }
+        &:hover {
+          background-color: $warn;
+          span {
+            color: $active-text;
+          }
+        }
+      }
+      &:hover {
+        background-color: $hover-button;
+        span {
+          color: $active-text;
+        }
+      }
+    }
+  }
+}

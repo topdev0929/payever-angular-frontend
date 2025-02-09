@@ -1,0 +1,55 @@
+@import '../../../../../../../../shared/styles/assets/ui-kit-styles/pe_variables.scss';
+@import '../../../../../../../../shared/styles/assets/ui-kit-styles/mixins/pe_mixins.scss';
+
+.div-table {
+  padding: 0 $payment-grid-unit-y;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+
+  &.embed-mode {
+    padding: 0;
+    box-shadow: none;
+    margin-bottom: 0;
+  }
+
+  .form-row {
+    display: flex;
+  }
+}
+
+.subhead-1 {
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  padding: $payment-grid-unit-y - 5 0;
+  margin-left: -1px;
+
+  .icon-24 {
+    margin-right: 8px;
+    min-width: 24px;
+  }
+}
+
+.list-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 0;
+  padding-left: 2px;
+  padding-bottom: $grid-unit-y;
+
+  &__item {
+    padding: 0 20px 0 0;
+
+    .icon {
+      margin-right: 6px;
+    }
+  }
+}
+
+.col-xxs-12 {
+  @media (max-width: 370px) {
+    width: 100%;
+  }
+}

@@ -1,0 +1,12 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $background: map.get($color-config, 'background');
+
+  .overlay-widget .pe-info-box-container-fixed.policies-content {
+    .checkbox-setting_title {
+      color: $text-color;
+    }
+  }
+}

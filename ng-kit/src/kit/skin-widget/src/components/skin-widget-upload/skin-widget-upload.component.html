@@ -1,0 +1,19 @@
+<div class="upload"
+     [ngClass]="{ 'uploading': isFileUploading, 'error': isFileUploadingFailed }">
+  <div class="add" (click)="addSkin.click()">
+    <input #addSkin
+           name="addSkin"
+           class="hidden"
+           type="file"
+           accept="image/png,image/jpeg"
+           (change)="onFileChanged($event)">
+    <span class="text">{{ config.addImage }}</span>
+  </div>
+  <div class="uploading">
+    <span class="text">{{ config.uploadBtn.uploading }}</span>
+  </div>
+  <div class="error">
+    <span class="text">{{ config.uploadBtn.fail }}</span>
+    <span class="link" (click)="addSkin.click()">{{ config.uploadBtn.retry }}</span>
+  </div>
+</div>

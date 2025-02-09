@@ -1,0 +1,16 @@
+@import "../theme-card";
+
+:host {
+  @extend %card-container;
+}
+
+mat-card {
+  @extend %card-element;
+  background: none;
+
+  mat-card-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

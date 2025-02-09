@@ -1,0 +1,27 @@
+@import '../../../../../../../../shared/styles/assets/ui-kit-styles/pe_variables';
+@import '../../../../../../../../shared/styles/assets/ui-kit-styles/mixins/pe_mixins.scss';
+
+$color-black: #111111;
+$color-grey-1: rgba($color-black, 0.8);
+$viewport-breakpoint-xs-2: 480px;
+$viewport-breakpoint-sm-1: 600px;
+$screen-xs: $viewport-breakpoint-xs-2;
+
+// TODO find better solution in ui-kit, add css class that removes margin
+.fieldset-no-margin-wrap {
+  ::ng-deep .pe-form-fieldset {
+    margin-bottom: 0 !important;
+  }
+}
+.fieldset-no-margin-wrap + p {
+  margin-top: 11px;
+}
+
+.form-table ::ng-deep .fieldset-no-margin-wrap .form-fieldset.form-fieldset-no-border {
+  margin-bottom: 11px;
+}
+
+.about-santander {
+  font-size: 12px;
+  color: $color-grey-1;
+}

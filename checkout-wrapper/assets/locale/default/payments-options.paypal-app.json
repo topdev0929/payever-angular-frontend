@@ -1,0 +1,22 @@
+{
+  "payment-paypal": {
+    "actions": {
+      "redirect_to_paypal": "Redirect to PayPal",
+      "change_payment_method": "Please, select another payment method"
+    },
+    "errors": {
+      "duplicate_invoice": "Reference {{ reference }} already in use. Please choose a different reference"
+    },
+    "inquiry": {
+      "finish": {
+        "processing": {
+          "title": "Request can take a few minutes. Please do not click away",
+          "text": "We are processing your payment"
+        },
+        "labels": {
+          "total": "Total"
+        }
+      }
+    }
+  }
+}

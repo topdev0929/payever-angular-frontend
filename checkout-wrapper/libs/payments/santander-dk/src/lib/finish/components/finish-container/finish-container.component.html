@@ -1,0 +1,16 @@
+<!-- isLoading is for isCheckStatusProcessing too, because we should not call hidden iframes before finished checking -->
+<santander-dk-finish
+  [embeddedMode]="embeddedMode"
+  [merchantMode]="merchantMode"
+  [nodeResult]="paymentResponse"
+  [showCloseButton]="showCloseButton"
+  [isLoading]="!paymentResponse && !errorMessage"
+  [isCheckStatusProcessing]="isCheckStatusProcessing"
+  [isCheckStatusTimeout]="isCheckStatusTimeout"
+  [errorMessage]="errorMessage"
+  (cleanUp)="cleanUp()"
+  (close)="close()"
+  (closeButtonClicked)="close()"
+  (changePaymentMethod)="changePayment($event)"
+  (tryAgain)="tryAgain()"
+></santander-dk-finish>

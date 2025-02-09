@@ -1,0 +1,34 @@
+<form
+  *ngIf="form"
+  class="form-container create-checkout-form"
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()">
+  <peb-logo-picker
+    [image]="form.get('logo').value"
+    [buttonLabel]="'create_checkout.logo.addLogo' | translate"
+    [abbrevation]="form.get('name').value | abbreviation"
+    [isImageLoading]="isPictureLoadingSubject | async"
+    (file)="onLogoUpload($event)"
+    (deleteLogo)="deleteImage()"
+  ></peb-logo-picker>
+
+  <peb-form-background>
+      <peb-form-field-input
+        *ngIf="form"
+        class="checkout-name-input"
+        [errorMessage]="parseFormErrors()"
+        [isFieldInvalid]="!this.form.get('name').valid && this.form.get('name').dirty"
+        [label]="inputLabel"
+        appearance="label">
+        <input formControlName="name" (focus)="isNameInputFocused = true" (blur)="isNameInputFocused = false"/>
+      </peb-form-field-input>
+  </peb-form-background>
+
+  <div
+    *ngIf="!createMode && !isCurrentCheckout"
+    class="add-button delete-button"
+    translate
+    (click)="onDeleteButtonClick()">
+    create_checkout.buttons.deleteCheckout
+  </div>
+</form>

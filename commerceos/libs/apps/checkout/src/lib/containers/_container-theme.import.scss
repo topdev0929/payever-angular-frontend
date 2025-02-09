@@ -1,0 +1,9 @@
+@use 'pe_theming' as pet;
+@use './expansion-conn-menu-list/expansion-conn-menu-list-theme.component' as expansion_conn_menu_list;
+@use './menu-list/_menu-list-theme.component.scss' as menu_list;
+
+@mixin theme($theme-config) {
+    $color-config: pet.get-color-config-from-theme($theme-config);
+    @include expansion_conn_menu_list.color($color-config);
+    @include menu_list.color($color-config);
+}

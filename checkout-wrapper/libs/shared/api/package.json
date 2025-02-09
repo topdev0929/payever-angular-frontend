@@ -1,0 +1,11 @@
+{
+  "name": "@pe/checkout/api",
+  "version": "11.0.3",
+  "peerDependencies": {
+    "@angular/common": "^11.2.14",
+    "@angular/core": "^11.2.14"
+  },
+  "dependencies": {
+    "tslib": "^2.2.0"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "skipLibCheck": true,
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "paths": {
+      "@pe/*": [
+        "../node_modules/@pe/*"
+      ],
+      "@angular/*": [
+        "../node_modules/@angular/*"
+      ],
+      "@pe/contacts": [
+        "../dist/contacts/*"
+      ]
+    },
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "baseUrl": "src"
+  },
+  "awesomeTypescriptLoaderOptions": {
+    "useWebpackText": true,
+    "silent": true
+  },
+  "compileOnSave": false,
+  "buildOnSave": false
+}

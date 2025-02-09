@@ -1,0 +1,37 @@
+@use 'pe_variables' as pe_variables;
+
+.verify-fields {
+  border-radius: 12px;
+  overflow: hidden;
+  .section-item {
+    min-height: 40px;
+    height: auto;
+    padding: 6.5px 12px;
+    font-family: Roboto, sans-serif;
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    justify-content: center;
+
+    &__label {
+      font-size: 11px;
+      font-weight: 400;
+    }
+
+    &__value {
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+      min-height: 56px;
+      &__label {
+        font-size: 12px;
+      }
+      &__value {
+        font-size: 17px;
+        font-weight: 400;
+      }
+    }
+  }
+}

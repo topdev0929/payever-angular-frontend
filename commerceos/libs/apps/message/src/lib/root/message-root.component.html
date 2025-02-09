@@ -1,0 +1,28 @@
+<div class="cos-message-root">
+  <pe-new-platform-header [isLoading]="isGlobalLoading"></pe-new-platform-header>
+  <div class="message-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<ng-template #settingsMenu>
+  <div class="message-settings-menu">
+    <div class="message-settings-menu__header">
+      <span class="title">{{ 'message-app.message-interface.settings' | translate }}</span>
+      <div (click)="closeMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M8 0C12.418 0 16 3.582 16 8C16 12.418 12.418 16 8 16C3.582 16 0 12.418 0 8C0 3.582 3.582 0 8 0ZM11.53 4.47C11.264 4.203 10.847 4.18 10.554 4.397L10.47 4.47L8 6.939L5.53 4.469L5.446 4.397C5.153 4.179 4.736 4.203 4.47 4.47C4.177 4.763 4.177 5.237 4.47 5.53L6.939 8L4.469 10.47L4.397 10.554C4.179 10.847 4.203 11.264 4.47 11.53C4.736 11.797 5.153 11.82 5.446 11.603L5.53 11.53L8 9.061L10.47 11.531L10.554 11.603C10.847 11.821 11.264 11.797 11.53 11.53C11.823 11.237 11.823 10.763 11.53 10.47L9.061 8L11.531 5.53L11.603 5.446C11.821 5.153 11.797 4.736 11.53 4.47Z"
+            fill="#636363" />
+        </svg>
+      </div>
+    </div>
+    <div class="message-settings-menu__item" *ngFor="let item of settingsMenuItems"
+      (click)="this.settingsMenuOverlayRef.dispose(); item.onClick();">
+      <svg>
+        <use [attr.xlink:href]="item.icon"></use>
+      </svg>
+      <span>{{ item.title }}</span>
+    </div>
+  </div>
+</ng-template>

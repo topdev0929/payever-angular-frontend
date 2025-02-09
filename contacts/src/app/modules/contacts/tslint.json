@@ -1,0 +1,20 @@
+{
+  "extends": "../../../../tslint.json",
+  "rules": {
+    "no-console": false,
+    "directive-selector": [
+      true,
+      "attribute",
+      "camelCase"
+    ],
+    "variable-name": [
+      true,
+      "allow-leading-underscore"
+    ],
+    "component-selector": [
+      true,
+      "peb-contacts",
+      "kebab-case"
+    ]
+  }
+}

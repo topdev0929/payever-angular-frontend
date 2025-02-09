@@ -1,0 +1,80 @@
+@use 'pe_variables.scss' as pe_variables;
+@use 'pe_mixins' as pe_mixins;
+
+:host {
+  width: 100%;
+}
+
+.studio-options-dialog {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 260px;
+  max-width: 100%;
+  height: auto;
+  padding: 25px 16px 16px;
+  border-radius: 16px;
+
+  @media (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+    width: 100%;
+    border-radius: 12px 12px 0 0;
+    border: unset;
+    @include pe_mixins.payever_bottom-sheet();
+  }
+
+  &__title {
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.21;
+    letter-spacing: normal;
+    text-align: center;
+    margin-bottom: 22px;
+  }
+
+  &__subtitle {
+    width: 220px;
+    max-width: 100%;
+    height: 14px;
+    margin: 8px 4px 16px;
+    font-family: Roboto, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+  }
+
+  &__options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &-button {
+      width: 100%;
+      height: 36px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: bold;
+      border: none;
+      outline: none;
+    }
+  }
+
+  @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+    &__title {
+      font-size: 17px;
+    }
+
+    &__options {
+      &-button {
+        height: 56px;
+        font-size: 17px;
+      }
+    }
+  }
+}
+

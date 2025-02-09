@@ -1,0 +1,69 @@
+<ng-container *ngIf="vm$ | async as vm">
+  <form
+    *ngIf="!vm.finished"
+    class="form-table form-table-checkout"
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()">
+    <div class="form-fieldset-new">
+      <mat-form-field
+        *ngIf="form.get('phoneTo').enabled"
+        class="col-xs-12">
+        <mat-label i18n="@@checkout_send_flow.form.phoneTo.label"> Phone to </mat-label>
+        <input
+          matInput
+          formControlName="phoneTo"
+          type="text" />
+      </mat-form-field>
+
+      <mat-form-field class="col-xs-12">
+        <mat-label i18n="@@checkout_send_flow.form.email.label"> Phone to </mat-label>
+        <input
+          matInput
+          formControlName="email"
+          type="text" />
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-6 text-center">
+        <button
+          mat-button
+          type="button"
+          class="mat-button-lg mat-button-link mat-button-bold"
+          i18n="@@send-to-device.action.skip"
+          (click)="onSkip()">
+          send-to-device.action.skip
+        </button>
+      </div>
+      <div class="col-xs-6">
+        <checkout-sdk-continue-button
+          class="button-continue"
+          i18n-text="@@send-to-device.action.continue"
+          text="send-to-device.action.continue"
+          [loading]="vm.loading"
+          [disabled]="vm.loading || form.invalid"
+          (clicked)="onSubmit()">
+        </checkout-sdk-continue-button>
+      </div>
+    </div>
+  </form>
+
+  <checkout-sdk-finish-wrapper
+    *ngIf="vm.finished"
+    type="submit"
+    [isLoading]="false"
+    [buttons]="{}"
+    [embeddedMode]="embeddedMode">
+    <checkout-sdk-finish-status-icon [status]="'success'"> </checkout-sdk-finish-status-icon>
+    <div
+      class="h3"
+      i18n="@@checkout_send_flow.finish.header">
+      checkout_send_flow.finish.header
+    </div>
+    <p
+      class="caption-2"
+      i18n="@@checkout_send_flow.finish.caption">
+      checkout_send_flow.finish.caption
+    </p>
+  </checkout-sdk-finish-wrapper>
+</ng-container>

@@ -1,0 +1,41 @@
+<div class="ui-terminal-list">
+  <div *ngFor="let item of listItems; let i=index;" class="ui-terminal-list-item row terminal-list">
+    <div class="col-sm-1 col-xs-3 line-4x">
+      <img *ngIf="item.iconPng" class="img-circle profile-48" [src]="item.iconPng">
+    </div>
+    <div class="col-sm-4 col-xs-9">
+      <div class="small"><b [innerHTML]="item.title"></b></div>
+      <div class="small text-secondary" [innerHTML]="item.desc"></div>
+    </div>
+
+    <div class="col-sm-3 col-xs-9 line-4x col-xs-offset-3 col-sm-offset-0" [innerHTML]="item.content"></div>
+
+    <div class="col-sm-2 col-xs-5 text-right line-4x col-xs-offset-3 col-sm-offset-0">
+
+      <div *ngIf="item.action" class="btn-group">
+        <button class="btn btn-blue btn-sm" type="button" [innerHTML]="item.action.label" (click)="onActionSelect(item.action, item)"></button>
+        <button aria-expanded="false" aria-haspopup="true" class="btn btn-blue btn-sm dropdown-toggle" data-toggle="dropdown" type="button">
+          <svg class="icon icon-16"><use xlink:href="#icon-arrow-down-small-16"></use></svg>
+        </button>
+        <ul *ngIf="item.actionGroup" class="dropdown-menu pull-right">
+          <li *ngFor="let action of item.actionGroup"><a [innerHTML]="action.label" (click)="onActionSelect(action, item)"></a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="col-sm-2 col-xs-4 text-right line-4x">
+      <ng-container *ngIf="item.hasSwitch">
+        <input
+          [attr.id]="'switcher-' + i"
+          [checked]="item.switchOn"
+          (change)="onSwitchToggle($event, item)"
+          class="form-control-toggle input-sm"
+          type="checkbox"
+         >
+        <label [attr.for]="'switcher-' + i"></label>
+      </ng-container>
+    </div>
+  </div>
+
+</div>

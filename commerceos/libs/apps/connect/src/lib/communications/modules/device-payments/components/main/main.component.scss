@@ -1,0 +1,80 @@
+@use "pe_variables" as pe_variables;
+@import "../../../../../../assets/variables";
+
+.cdk-overlay-backdrop.connect-modal + .cdk-global-overlay-wrapper {
+  .device-payments-container {
+    min-width: 100%;
+    padding: 0;
+    @media (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      .settings-save-button {
+        flex: 1;
+      }
+    }
+
+    .communication-main-wrap {
+      &__container {
+        border-radius: 12px;
+
+        .connect-payment-option-wrapper.pe-info-box {
+          padding: 0;
+
+          .info-box {
+            .mat-card {
+              border-radius: 0;
+
+              .mat-expansion-panel {
+                .mat-expansion-panel-body {
+                  margin-bottom: 0;
+                }
+              }
+            }
+          }
+        }
+
+        .mat-accordion .mat-expansion-panel .mat-expansion-panel-header .mat-expansion-indicator {
+          display: none;
+        }
+      }
+
+
+      &__settings-item {
+        .form-table .form-fieldset .row > [class*="col"]:last-of-type {
+          border-radius: 0;
+        }
+
+        &.no-border {
+          .form-table .form-fieldset .row > [class*="col"]:last-of-type {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+
+    .settings-save-button .mat-raised-button.mat-button-base {
+      max-width: calc(100% - 20px);
+      margin: 0 10px;
+      border-radius: 12px;
+      width: 100%;
+      height: 40px;
+      padding: 10px;
+      font-family: Roboto, sans-serif;
+      font-size: 16px;
+      text-align: center;
+      cursor: pointer;
+      @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+        height: 56px;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .device-payments-button .create-account-btn {
+      margin: 16px 0;
+    }
+  }
+}

@@ -1,0 +1,141 @@
+@use 'pe_variables' as pe_variables;
+
+.invoice-text {
+  form {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+      margin-left: -12px;
+    }
+  }
+
+  .clumped {
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .placeholder {
+    &.inline {
+      flex: 1;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+
+  button {
+    appearance: none;
+    border: none;
+    display: flex;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    outline: none;
+    border-radius: 8px;
+    padding: 0 16px;
+  }
+
+  .actions {
+    border-radius: 8px;
+    display: grid;
+    grid-column-gap: 1px;
+    overflow: hidden;
+    width: max-content;
+
+    &.style {
+      grid-template-columns: 30px 30px 30px;
+    }
+
+    &.align {
+      grid-template-columns: 30px 30px 30px 30px;
+    }
+
+    &.list {
+      grid-template-columns: 30px 30px;
+    }
+
+    button {
+      appearance: none;
+      border: none;
+      display: flex;
+      height: 30px;
+      width: 30px;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      outline: none;
+      border-radius: 0;
+    }
+  }
+  pe-color-picker .btn-colorpicker {
+    height: 30px;
+    width: 30px;
+    border: 0;
+    border-radius: 12px;
+  }
+  .number-controls {
+    position: relative;
+  }
+  pe-form-fieldset.font-size {
+    .form-fieldset-horizontal {
+      .row {
+        margin: 0;
+        border-radius: 12px;
+      }
+    }
+  }
+  mat-form-field {
+    .mat-form-field-wrapper {
+      padding: 0 !important;
+      .mat-form-field-infix {
+        border-top: 0;
+        width: auto;
+        padding-left: 6px;
+      }
+      .mat-form-field-label-wrapper {
+        display: none;
+      }
+      input {
+        width: 37px;
+      }
+    }
+  }
+  @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+    button {
+      height: 40px;
+    }
+    .placeholder {
+      flex: 1;
+      margin-left: 12px;
+      margin-top: 12px;
+      button {
+        width: 100%;
+        border-radius: 12px;
+      }
+    }
+    .actions {
+      margin-top: 12px;
+      margin-left: 12px;
+
+      &.style {
+        grid-template-columns: 40px 40px 40px;
+      }
+
+      &.align {
+        grid-template-columns: 40px 40px 40px 40px;
+      }
+
+      &.list {
+        grid-template-columns: 40px 40px;
+        border-radius: 12px;
+      }
+      button {
+        height: 40px;
+        width: 40px;
+      }
+    }
+  }
+}

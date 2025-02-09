@@ -1,0 +1,31 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $background: map.get($color-config, 'background');
+  $hover-button: map.get($color-config, 'hover-button');
+  $active-text: map.get($color-config, 'active-text');
+
+  pe-gex-import-menu {
+    #import-menu {
+      .divider {
+        background-color: $background;
+      }
+      .button {
+        color: $text-color;
+      }
+      .menu {
+        color: $text-color;
+        &__button {
+          span {
+            color: $text-color;
+          }
+          &:hover {
+            background-color: $hover-button;
+            color: $active-text;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $warn: map.get($color-config, 'warn');
+  $extra-bg-color: map.get($color-config, 'extra-bg-color');
+  $box-shadow-color: map.get($color-config, 'box-shadow-color');
+
+  pe-message-overlay {
+    .chat {
+      &__wrapper {
+        box-shadow: 0 2px 12px 0 $box-shadow-color;
+        background-color: $extra-bg-color;
+
+        .chat-header__close {
+          background: $warn;
+
+          svg {
+            box-shadow: 0 0 1px 0 $warn;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+//
+// Form mixins
+// --------------------------------------------------
+
+@mixin panel-item() {
+  color: $color-grey-2;
+  font-weight: $font-weight-light;
+  font-size: 14px; // $font-size-base;
+  line-height: $mat-form-field-height;
+
+  &.mat-selected:not(.mat-option-multiple) {
+    background-color: $color-grey-6;
+    color: $color-black-pe;
+  }
+
+  &:hover:not(.mat-option-disabled),
+  &:focus:not(.mat-option-disabled) {
+    background-color: $color-light-gray-hover-rgba;
+  }
+
+  .mat-option-ripple {
+    display: none;
+  }
+}
+
+@mixin panel() {
+  @include box-shadow($box-shadow);
+  border-radius: $border-radius-base * 2;
+  @include screen-xs() {
+    -webkit-overflow-scrolling: auto;
+  }
+}
+
+// Mixins for borders in form-table
+// ---------------------------------
+
+@mixin form-table-borders($border-color) {
+  pe-form-fieldset, // TODO Remove this line when all payments migrated to lib
+  .pe-form-fieldset {
+    display: block;
+  }
+  .form-fieldset-new {
+    border-radius: ceil($border-radius-base * 1.5);
+    box-shadow: inset 0 0 0 1px $border-color;
+    overflow: hidden;
+    position: relative;
+    padding-top: 0;
+    margin-bottom: $grid-unit-y * 2;
+
+    > [class*='col'] {
+      border-width: 1px;
+      border-style: solid;
+      border-color: transparent $border-color $border-color transparent;
+    }
+  }
+}

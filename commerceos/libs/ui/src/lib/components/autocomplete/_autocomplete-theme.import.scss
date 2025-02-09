@@ -1,0 +1,8 @@
+@use 'pe_theming' as pet;
+@use './autocomplete-theme' as autocomplete;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include autocomplete.color($color-config);
+}
+

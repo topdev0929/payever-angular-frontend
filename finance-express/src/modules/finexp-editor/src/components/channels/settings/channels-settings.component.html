@@ -1,0 +1,562 @@
+<pe-checkout-modal
+  [rightSideActions]="modalActions"
+  [width]="'82%'"
+  [height]="'82%'">
+  <div class="settings-container">
+    <div #container class="actions-container">
+      <div
+        *ngIf="connectedPayments?.length"
+        class="form-table settings-container"
+        [formGroup]="form"
+        >
+
+        <!--General Settings-->
+        <div class="settings-box">
+          <button
+            id="general-settings-button"
+            class="settings-menu-item general-settings"
+            mat-button
+            [matMenuTriggerFor]="generalSettingsMode">
+            <svg>
+              <use xlink:href="#icon-settings-general-48"></use>
+            </svg>
+            <span class="settings-menu-title" translate>
+                finexp.channels.settings.general
+              </span>
+          </button>
+          <mat-menu #generalSettingsMode="matMenu" backdropClass="finexp-mat-menu" (closed)="container.focus()">
+            <div
+              id="general-settings-menu"
+              class="settings-menu"
+              (click)="$event.stopPropagation()">
+              <div class="settings-menu__title">
+                <div>{{'finexp.channels.settings.general' | translate}}</div>
+                <svg
+                  class="settings-menu__title-icon"
+                  (click)="generalSettingsMode.closed.emit()">
+                  <use xlink:href="#icon-x-solid-24"></use>
+                </svg>
+              </div>
+              <div *ngIf="widgetConfig?.payments?.length === 1" class="settings-menu__block settings-menu__label">
+                {{'finexp.channels.settings.limits.title' | translate | uppercase}}
+              </div>
+              <div *ngIf="widgetConfig?.payments?.length === 1" class="settings-menu__block">
+                <div translate>finexp.channels.settings.limits.minLimit</div>
+                <div class="settings-menu__input limits">
+                  {{mathFloor(widgetConfig?.amountLimits?.min)}}
+                </div>
+              </div>
+              <div *ngIf="widgetConfig?.payments?.length === 1" class="settings-menu__block">
+                <div translate>finexp.channels.settings.limits.maxLimit</div>
+                <div class="settings-menu__input limits">
+                  {{mathFloor(widgetConfig?.amountLimits?.max)}}
+                </div>
+              </div>
+              <div class="settings-menu__block settings-menu__label">
+                {{'finexp.channels.settings.ratesOrder' | translate | uppercase}}
+              </div>
+              <div class="settings-menu__align">
+                <div
+                  id="rates-asc"
+                  class="settings-menu__align-item"
+                  (click)="form.controls['ratesOrder'].patchValue(RatesOrderEnum.Asc)"
+                  [class.active]="form.controls['ratesOrder'].value === RatesOrderEnum.Asc">
+                  <svg class="settings-menu__align-item-icon">
+                    <use xlink:href="#icon-data-grid-sort"></use>
+                  </svg>
+                </div>
+                <div
+                  id="rates-desc"
+                  class="settings-menu__align-item"
+                  (click)="form.controls['ratesOrder'].patchValue(RatesOrderEnum.Desc)"
+                  [class.active]="form.controls['ratesOrder'].value === RatesOrderEnum.Desc">
+                  <svg class="settings-menu__align-item-icon desc">
+                    <use xlink:href="#icon-data-grid-sort"></use>
+                  </svg>
+                </div>
+              </div>
+              <div class="settings-menu__block settings-menu__label">
+                {{'finexp.channels.settings.placements.title' | translate | uppercase}}
+              </div>
+              <button
+                id="placements"
+                class="settings-menu__placement"
+                mat-button
+                [matMenuTriggerFor]="menuPlacement">
+                <div class="settings-menu-title">
+                  {{translationService.translate('finexp.channels.settings.placements.' + form.controls['checkoutPlacement'].value)}}
+                </div>
+                <svg class="settings-menu__icon">
+                  <use xlink:href="#icon-dropdown-triangle-16"></use>
+                </svg>
+              </button>
+              <mat-menu #menuPlacement="matMenu" [backdropClass]="'finexp-mat-menu__placement-menu'">
+                <div class="settings-menu sub-menu" (click)="$event.stopPropagation()">
+                  <div *ngFor="let checkoutPlacement of checkoutPlacements"
+                       class="payments-menu__item-content wide-content selectable"
+                       (click)="setFormValue('checkoutPlacement', checkoutPlacement); menuPlacement.closed.emit()">
+                    <div
+                      [id]="checkoutPlacement"
+                      class="payments-menu__name selectable"
+                      translate>
+                      {{'finexp.channels.settings.placements.' + checkoutPlacement}}
+                    </div>
+                  </div>
+                </div>
+              </mat-menu>
+
+              <div class="settings-menu__block settings-menu__label">
+                {{'finexp.channels.settings.successUrl' | translate | uppercase}}
+              </div>
+              <input type="text"
+                     class="text-input-settings"
+                     [formControl]="form.controls['successUrl']"
+                     [class.error]="form.controls['successUrl'].invalid"
+                     [placeholder]="''"
+              />
+              <div class="settings-menu__block settings-menu__label">
+                {{'finexp.channels.settings.pendingUrl' | translate | uppercase}}
+              </div>
+              <input type="text"
+                     class="text-input-settings"
+                     [formControl]="form.controls['pendingUrl']"
+                     [class.error]="form.controls['pendingUrl'].invalid"
+                     [placeholder]="''"
+              />
+              <div class="settings-menu__block settings-menu__label">
+                {{'finexp.channels.settings.cancelUrl' | translate | uppercase}}
+              </div>
+              <input type="text"
+                     class="text-input-settings"
+                     [formControl]="form.controls['cancelUrl']"
+                     [class.error]="form.controls['cancelUrl'].invalid"
+                     [placeholder]="''"
+              />
+              <div class="settings-menu__block settings-menu__label">
+                {{'finexp.channels.settings.failureUrl' | translate | uppercase}}
+              </div>
+              <input type="text"
+                     class="text-input-settings"
+                     [formControl]="form.controls['failureUrl']"
+                     [class.error]="form.controls['failureUrl'].invalid"
+                     [placeholder]="''"
+              />
+              <div class="settings-menu__block settings-menu__label">
+                {{'finexp.channels.settings.noticeUrl' | translate | uppercase}}
+              </div>
+              <input type="text"
+                     class="text-input-settings"
+                     [formControl]="form.controls['noticeUrl']"
+                     [class.error]="form.controls['noticeUrl'].invalid"
+                     [placeholder]="''"
+              />
+            </div>
+          </mat-menu>
+        </div>
+
+        <!--Checkout Mode-->
+        <div class="settings-box">
+          <button
+            id="checkout-mode-button"
+            class="settings-menu-item checkout-mode"
+            mat-button
+            [matMenuTriggerFor]="menuMode">
+            <svg class="settings-menu-icon"
+                 [class.finance-express]="form.controls['checkoutMode'].value === checkoutModeEnum.FinanceExpress">
+              <use *ngIf="form.controls['checkoutMode'].value === checkoutModeEnum.None"
+                   xlink:href="#icon-close-bold-12"></use>
+              <use *ngIf="form.controls['checkoutMode'].value === checkoutModeEnum.FinanceExpress"
+                   xlink:href="#icon-dollar-14"></use>
+              <use *ngIf="form.controls['checkoutMode'].value === checkoutModeEnum.Calculator"
+                   xlink:href="#icon-overlay-24"></use>
+            </svg>
+            <span class="settings-menu-title">
+                {{translationService.translate('finexp.channels.settings.mode.' + form.controls['checkoutMode'].value) | uppercase}}
+              </span>
+          </button>
+          <mat-menu #menuMode="matMenu" backdropClass="finexp-mat-menu" (closed)="container.focus()">
+            <div
+              id="checkout-mode-menu"
+              class="settings-menu"
+              (click)="$event.stopPropagation()">
+              <div class="settings-menu__title">
+                <div>{{'finexp.channels.financeExpress' | translate}}</div>
+                <svg
+                  class="settings-menu__title-icon"
+                  (click)="menuMode.closed.emit()">
+                  <use xlink:href="#icon-x-solid-24"></use>
+                </svg>
+              </div>
+              <div
+                *ngFor="let checkoutMode of checkoutModes$ | async"
+                [id]="checkoutMode"
+                class="payments-menu__item selectable"
+                (click)="setFormValue('checkoutMode', checkoutMode); menuMode.closed.emit()">
+                <div class="payments-menu__item-content">
+                  <!--                    <none-icon class="icon" *ngIf="checkoutMode === checkoutModeEnum.None"></none-icon>-->
+                  <svg class="icon" *ngIf="checkoutMode === checkoutModeEnum.None">
+                    <use xlink:href="#icon-no-overlay-28"></use>
+                  </svg>
+                  <svg class="icon" *ngIf="checkoutMode === checkoutModeEnum.Calculator">
+                    <use xlink:href="#icon-overlay-28"></use>
+                  </svg>
+                  <svg class="icon" *ngIf="checkoutMode === checkoutModeEnum.FinanceExpress">
+                    <use xlink:href="#icon-finance-express-28"></use>
+                  </svg>
+                  <div
+                    class="payments-menu__name"
+                    translate>
+                    {{'finexp.channels.settings.mode.' + checkoutMode}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-menu>
+        </div>
+
+        <!--Payments-->
+        <div class="settings-box">
+          <button
+            id="payments-button"
+            class="settings-menu-item payments"
+            mat-button
+            [matMenuTriggerFor]="menuPayments">
+            <svg>
+              <use xlink:href="#icon-credit-cards-15"></use>
+            </svg>
+            <span class="settings-menu-title" translate>finexp.channels.settings.payments</span>
+          </button>
+          <mat-menu
+            #menuPayments="matMenu"
+            class="payments-menu"
+            backdropClass="finexp-mat-menu"
+            (closed)="container.focus()">
+            <div
+              id="payments-menu"
+              class="settings-menu"
+              (click)="$event.stopPropagation()">
+              <div class="settings-menu__title">
+                <div>{{'finexp.channels.settings.payments' | translate}}</div>
+                <svg
+                  class="settings-menu__title-icon"
+                  (click)="menuPayments.closed.emit()">
+                  <use xlink:href="#icon-x-solid-24"></use>
+                </svg>
+              </div>
+              <div
+                *ngFor="let payment of filteredPayments$ | async"
+                class="payments-menu__item"
+                [id]="payment.paymentMethod"
+                (click)="$event.stopPropagation()"
+                >
+                <div class="payments-menu__item-content no-border">
+                  <mat-checkbox
+                    class="finexp-mat-checkbox"
+                    [id]="'checkbox-' + payment.paymentMethod + '-' +  payment.isBNPL + '-' +  payment.productId"
+                    [checked]="payment.selected"
+                    (change)="onPaymentsChange(payment, $event)">
+                  </mat-checkbox>
+                  <svg class="payments-menu__icon">
+                    <use [attr.xlink:href]="payment.icon"></use>
+                  </svg>
+                  <div class="payments-menu__name ellipsis-text">
+                    <span translate>{{payment.name}}</span>
+                  </div>
+                  <div
+                    *ngIf="isPaymentSelected(payment)"
+                    [id]="'edit-' + payment.paymentMethod + '-' +  payment.isBNPL + '-' +  payment.productId"
+                    class="payments-menu__action"
+                    translate
+                    [class.active]="openedPaymentSettings === payment"
+                    (click)="setOpenedPaymentSettings(payment)">
+                    <span class="payments-menu__action-label ellipsis-text">finexp.actions.edit</span>
+                  </div>
+                  <div
+                    *ngIf="!isPaymentSelected(payment)"
+                    class="payments-menu__disabled-action">
+                  </div>
+                </div>
+                <div
+                  class="payments-menu__item-settings"
+                  [class.hidden]="payment !== openedPaymentSettings">
+                  <checkout-channel-input
+                    [id]="'min-limit-' + payment.paymentMethod + '-' +  payment.isBNPL + '-' +  payment.productId"
+                    [afterPointCount]="0"
+                    class="finexp-channel-input big-amount"
+                    *ngIf="payment === openedPaymentSettings && amountLimitsForm.controls['minLimit']"
+                    [formControlRef]="amountLimitsForm.controls['minLimit']"
+                    [placeholder]="translationService.translate('finexp.channels.settings.limits.minLimit')"
+                    (inputFocus)="setInputFocus($event)">
+                  </checkout-channel-input>
+                  <checkout-channel-input
+                    [id]="'max-limit-' + payment.paymentMethod + '-' +  payment.isBNPL + '-' +  payment.productId"
+                    [afterPointCount]="0"
+                    class="finexp-channel-input big-amount"
+                    *ngIf="payment === openedPaymentSettings && amountLimitsForm.controls['maxLimit']"
+                    [formControlRef]="amountLimitsForm.controls['maxLimit']"
+                    [placeholder]="translationService.translate('finexp.channels.settings.limits.maxLimit')"
+                    (inputFocus)="setInputFocus($event)">
+                  </checkout-channel-input>
+                </div>
+              </div>
+              <div
+                *ngIf="!connectedPayments?.length && !isLoadingPayments"
+                class="payments-menu__item error-massage"
+                translate>
+                finexp.channels.errors.noPaymentsError
+              </div>
+              <div
+                *ngIf="isLoadingPayments"
+                class="payments-menu__item error-massage">
+                Loading...
+              </div>
+            </div>
+          </mat-menu>
+        </div>
+
+        <!--Page Background Color-->
+        <div class="settings-box">
+          <pe-color-picker
+            id="page-background-color"
+            title="Page background"
+            class="round-color-picker"
+            [formControlRef]="backgroundColorControl">
+          </pe-color-picker>
+        </div>
+
+        <!--Styles Settings-->
+        <div class="settings-box style-settings">
+          <button
+            id="styles-settings-button"
+            class="settings-menu-item general-settings view-settings"
+            mat-button
+            [matMenuTriggerFor]="stylesMode">
+            <svg>
+              <use xlink:href="#icon-settings-2-16"></use>
+            </svg>
+            <span class="settings-menu-title" translate>
+                finexp.channels.settings.title
+              </span>
+          </button>
+          <mat-menu
+            #stylesMode="matMenu"
+            xPosition="before"
+            backdropClass="finexp-mat-menu"
+            (closed)="container.focus()">
+            <div
+              id="styles-settings-menu"
+              class="settings-menu"
+              (click)="$event.stopPropagation()">
+              <div class="settings-menu__title">
+                <div translate>finexp.channels.settings.title</div>
+                <svg
+                  class="settings-menu__title-icon"
+                  (click)="stylesMode.closed.emit()">
+                  <use xlink:href="#icon-x-solid-24"></use>
+                </svg>
+              </div>
+              <div class="settings-menu__block settings-menu__label">
+                {{translationService.translate('finexp.channels.settings.size') | uppercase}}
+              </div>
+              <div class="settings-menu__block">
+                <div translate>finexp.channels.settings.minWidth</div>
+                <div class="settings-menu__input">
+                  <checkout-channel-input
+                    id="minWidth"
+                    class="finexp-channel-input"
+                    [formControlRef]="form.controls['minWidth']"
+                    [afterPointCount]="0"
+                    [placeholder]="''"
+                    (inputFocus)="setInputFocus($event)">
+                  </checkout-channel-input>
+                  <span
+                    class="settings-menu__input-dimensions"
+                    [class.error]="form.controls['minWidth'].invalid">
+                    px
+                  </span>
+                </div>
+              </div>
+              <div class="settings-menu__block">
+                <div translate>finexp.channels.settings.maxWidth</div>
+                <div class="settings-menu__input">
+                  <checkout-channel-input
+                    id="maxWidth"
+                    class="finexp-channel-input"
+                    [formControlRef]="form.controls['maxWidth']"
+                    [afterPointCount]="0"
+                    [placeholder]="''"
+                    (inputFocus)="setInputFocus($event)">
+                  </checkout-channel-input>
+                  <span
+                    class="settings-menu__input-dimensions"
+                    [class.error]="form.controls['maxWidth'].invalid">
+                    px
+                  </span>
+                </div>
+              </div>
+              <div class="settings-menu__block settings-menu__label">
+                {{translationService.translate('finexp.channels.settings.colors') | uppercase}}
+              </div>
+              <div class="settings-menu__block">
+                <div translate>finexp.channels.settings.background</div>
+                <pe-color-picker
+                  id="backgroundColor"
+                  class="rectangular-color-picker"
+                  [align]="colorPickerAlign.Right"
+                  [formControlRef]="form.controls['backgroundColor']">
+                </pe-color-picker>
+              </div>
+              <div *ngIf="widgetConfig.type === WidgetTypeEnum.Button" class="settings-menu__block">
+                <div translate>finexp.channels.settings.button</div>
+                <pe-color-picker
+                  class="rectangular-color-picker"
+                  [align]="colorPickerAlign.Right"
+                  [formControlRef]="form.controls['buttonColor']">
+                </pe-color-picker>
+              </div>
+              <ng-container
+                *ngIf="widgetConfig.type === WidgetTypeEnum.DropdownCalculator || widgetConfig.type === WidgetTypeEnum.TwoFieldsCalculator">
+                <div class="settings-menu__block">
+                  <div translate>finexp.channels.settings.fieldBackground</div>
+                  <pe-color-picker
+                    class="rectangular-color-picker"
+                    [align]="colorPickerAlign.Right"
+                    [formControlRef]="form.controls['fieldBackgroundColor']">
+                  </pe-color-picker>
+                </div>
+                <div class="settings-menu__block">
+                  <div translate>finexp.channels.settings.fieldLine</div>
+                  <pe-color-picker
+                    class="rectangular-color-picker"
+                    [align]="colorPickerAlign.Right"
+                    [formControlRef]="form.controls['fieldLineColor']">
+                  </pe-color-picker>
+                </div>
+                <div class="settings-menu__block">
+                  <div translate>finexp.channels.settings.fieldArrow</div>
+                  <pe-color-picker
+                    class="rectangular-color-picker"
+                    [align]="colorPickerAlign.Right"
+                    [formControlRef]="form.controls['fieldArrowColor']">
+                  </pe-color-picker>
+                </div>
+              </ng-container>
+              <div class="settings-menu__block">
+                <div translate>finexp.channels.settings.mainText</div>
+                <pe-color-picker
+                  class="rectangular-color-picker"
+                  [align]="colorPickerAlign.Right"
+                  [formControlRef]="form.controls['mainTextColor']">
+                </pe-color-picker>
+              </div>
+              <div class="settings-menu__block">
+                <div translate>finexp.channels.settings.regularText</div>
+                <pe-color-picker
+                  class="rectangular-color-picker"
+                  [align]="colorPickerAlign.Right"
+                  [formControlRef]="form.controls['regularTextColor']">
+                </pe-color-picker>
+              </div>
+              <div class="settings-menu__block">
+                <div translate>finexp.channels.settings.ctaText</div>
+                <pe-color-picker
+                  class="rectangular-color-picker"
+                  [align]="colorPickerAlign.Right"
+                  [formControlRef]="form.controls['ctaTextColor']">
+                </pe-color-picker>
+              </div>
+              <div class="settings-menu__block">
+                <div translate>finexp.channels.settings.headerText</div>
+                <pe-color-picker
+                  class="rectangular-color-picker"
+                  [align]="colorPickerAlign.Right"
+                  [formControlRef]="form.controls['headerTextColor']">
+                </pe-color-picker>
+              </div>
+              <div class="settings-menu__block">
+                <div translate>finexp.channels.settings.borders</div>
+                <pe-color-picker
+                  class="rectangular-color-picker"
+                  [align]="colorPickerAlign.Right"
+                  [formControlRef]="form.controls['lineColor']">
+                </pe-color-picker>
+              </div>
+              <div class="settings-menu__block settings-menu__label">
+                {{translationService.translate('finexp.channels.settings.visibility') | uppercase}}
+              </div>
+              <div class="settings-menu__block">
+                <div translate>finexp.actions.show</div>
+                <mat-slide-toggle
+                  id="isVisible"
+                  formControlName="isVisible"
+                  class="mat-slide-toggle mat-slide-toggle-flex finexp-mat-slide-toggle"
+                ></mat-slide-toggle>
+              </div>
+              <div class="settings-menu__block settings-menu__label">
+                {{translationService.translate('finexp.actions.resetSettings') | uppercase}}
+              </div>
+              <div class="settings-menu__block">
+                <button
+                  id="reset-widget-settings"
+                  class="payments-menu__action reset-button"
+                  translate
+                  (click)="resetWidgetSettings()">
+                  finexp.actions.resetSettings
+                </button>
+              </div>
+            </div>
+          </mat-menu>
+        </div>
+      </div>
+    </div>
+
+    <div class="widget-example" [style.backgroundColor]="backgroundColorControl.value">
+      <div class="widget-example-container">
+        <div
+          *ngIf="widgetId"
+          class="payever-finexp-widget"
+          [attr.data-isDebugMode]="true | json"
+          [attr.data-business]="storageService.businessUuid"
+          [attr.data-channelSet]="channelSetId"
+          [attr.data-checkoutId]="checkoutUuid"
+          [attr.data-widgetId]="widgetId"
+          [attr.data-type]="channelSetType"
+          [attr.data-styles]="widgetStyles"
+          [attr.data-amount]="widgetAmount"
+          [attr.data-payments]="widgetPayments"
+          [attr.data-minWidth]="form?.controls['minWidth']?.value"
+          [attr.data-maxWidth]="form?.controls['maxWidth']?.value"
+          [attr.data-isVisible]="form?.controls['isVisible']?.value"
+          [attr.data-ratesOrder]="form?.controls['ratesOrder']?.value"
+          [attr.data-checkoutMode]="form?.controls['checkoutMode']?.value"
+          [attr.data-checkoutPlacement]="form?.controls['checkoutPlacement']?.value">
+          <div class="mat-card-content-spinner">
+            <mat-progress-spinner
+              *ngIf="!errorMessage"
+              [strokeWidth]="strokeWidth"
+              [diameter]="diameter"
+              [mode]="'indeterminate'"
+            ></mat-progress-spinner>
+          </div>
+        </div>
+
+        <div
+          *ngIf="errorMessage"
+          [style.max-width.px]="form?.controls['maxWidth']?.value"
+          class="widget-example__error">
+          <svg class="widget-example__error-icon">
+            <use xlink:href="#icon-warning-20"></use>
+          </svg>
+          <div class="widget-example__error-message">{{ errorMessage }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <checkout-generate-html
+    *ngIf="isGeneratedCode"
+    [generatedHtml]="generatedHtml"
+    (close)="setIsGeneratedCode()"
+    (clickedGeneratedBox)="onCOpyCodeClicked()">
+  </checkout-generate-html>
+</pe-checkout-modal>

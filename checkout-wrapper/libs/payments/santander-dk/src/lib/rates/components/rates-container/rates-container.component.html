@@ -1,0 +1,12 @@
+<santander-dk-rates-container-style></santander-dk-rates-container-style>
+<div class="pe-payment-container santander-dk-rates-container">
+  <santander-dk-rates-form
+    [flow]="flow"
+    [embeddedMode]="embeddedMode"
+    [paymentMethod]="paymentMethod"
+    (selectRate)="onSelectRate($event)"
+    (productPanelOpened)="panelOpened.emit($event)"
+    (ratesLoading)="ratesLoading.emit($event)"
+    (submitted)="onSubmitted($event)">
+  </santander-dk-rates-form>
+</div>

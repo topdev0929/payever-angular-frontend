@@ -1,0 +1,29 @@
+{
+  "extends": "../../../tslint.json",
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      "pebShop",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "peb-shop",
+      "kebab-case"
+    ],
+    "no-shadowed-variable": [
+      true,
+      {
+        "class": true,
+        "enum": true,
+        "function": true,
+        "interface": false,
+        "namespace": true,
+        "typeAlias": false,
+        "typeParameter": false,
+        "underscore": false
+      }
+    ]
+  }
+}

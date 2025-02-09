@@ -1,0 +1,28 @@
+<form novalidate class="form-table form-table-horizontal no-padding" [formGroup]="form" *ngIf="form">
+  <!--Colors-->
+  <span class="form-fieldset-horizontal-label">Background color</span>
+  <pe-form-fieldset
+    [fields]="formScheme?.fieldsets?.backgroundColorFieldset"
+    [formGroup]="form"
+    [formStyle]="'dark'"
+    [orientation]="'horizontal'"
+  ></pe-form-fieldset>
+
+  <pe-builder-navbar-controls-button
+    [hasDropdownMenu]="false"
+    [label]="backgroundImageLabel"
+    (buttonClick)="onChangeBackgroundImage()"
+  >
+  </pe-builder-navbar-controls-button>
+
+  <pe-form-fieldset
+    *ngIf="isMobileMode && isHeader"
+    style="margin-left: 12px; margin-right: -23px;"
+    [fields]="formScheme?.fieldsets?.isFixedHeader"
+    [formGroup]="form"
+    [formStyle]="'dark'"
+    [orientation]="'horizontal'"
+  ></pe-form-fieldset>
+
+  <pe-builder-element-deletable-toggle [editor]="editor" [pageStore]="pageStore"></pe-builder-element-deletable-toggle>
+</form>

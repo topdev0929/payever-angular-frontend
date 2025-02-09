@@ -1,0 +1,83 @@
+<div class="search_container" [ngClass]="theme">
+  <div class="header">
+    <div class="input-container">
+      <svg class="search-icon">
+        <use
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xlink:href="#icon-search-16"
+        ></use>
+      </svg>
+      <input
+        #input
+        type="text"
+        class="search-input"
+        placeholder="App search"
+        [value]="searchText"
+        (input)="onSearch($event.target.value)"
+      />
+      <svg
+        *ngIf="input.value.length > 0"
+        class="clear-icon"
+        viewBox="0 0 16 16"
+        (click)="input.value = ''; onSearch('')"
+      >
+        <g fill="none" fill-rule="evenodd">
+          <g>
+            <g>
+              <path
+                fill="#636363"
+                d="M8 0c4.418 0 8 3.582 8 8s-3.582 8-8 8-8-3.582-8-8 3.582-8 8-8zm3.53 4.47c-.266-.267-.683-.29-.976-.073l-.084.073L8 6.939l-2.47-2.47-.084-.072c-.293-.218-.71-.194-.976.073-.293.293-.293.767 0 1.06L6.939 8l-2.47 2.47-.072.084c-.218.293-.194.71.073.976.266.267.683.29.976.073l.084-.073L8 9.061l2.47 2.47.084.072c.293.218.71.194.976-.073.293-.293.293-.767 0-1.06L9.061 8l2.47-2.47.072-.084c.218-.293.194-.71-.073-.976z"
+                transform="translate(-1387 -95) translate(1387 95)"
+              ></path>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div class="cancel-button" (click)="close()">Cancel</div>
+  </div>
+  <div class="content" *ngIf="groups.length">
+    <div class="search-list-container" *ngFor="let group of groups">
+      <div class="list-header">
+        {{ group.heading | uppercase }}
+      </div>
+      <div class="search-items" *ngFor="let item of group.items">
+        <svg class="search-icon">
+          <use
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            [attr.xlink:href]="item.iconSrc"
+          ></use>
+        </svg>
+        <div>
+          <div class="search-title">{{ item.title }}</div>
+          <div class="search-description">{{ item.description }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content" *ngIf="!groups.length">
+    <div class="no_result">
+      <div>There were no results for your search</div>
+      <div>Try again or see suggested apps</div>
+    </div>
+    <div class="search-list-container">
+      <div class="list-header">SUGGESTED APPS</div>
+      <div
+        class="search-items"
+        *ngFor="let item of installedApps"
+        (click)="openApp(item)"
+      >
+        <svg class="search-icon">
+          <use
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            [attr.xlink:href]="item.icon"
+          ></use>
+        </svg>
+        <div>
+          <div class="search-title">{{ item.title }}</div>
+          <div class="search-description">{{ item.description }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="data-grid-wrap statistics-data-grid" [class.is-filters-hidden]="isFullScreenMode">
+  <pe-statistics-material-styles></pe-statistics-material-styles>
+  <pe-grid>
+    <pe-grid-sidenav
+    #sideNav
+    [sidenavTitle]="'statistics.sidebar.title' | translate"
+    [sidenavMenu]="sidenavMenu"
+    (menuItemSelected)="selectSideNavMenu($event)"
+  >
+    <pe-folders
+      [sideNav]="sideNav"
+      [selectFolder]="selectedDashboard"
+      [folders]="folders"
+      (selectedFolder)="dashboardClick($event)"
+      (createFolder)="createNewDashboard($event)"
+      [openActionLabel]="'statistics.action.set_as_default_dashboard' | translate"
+      (openFolder)="setDefaultDashboard($event)"
+      (deleteFolder)="onDeleteDashboard($event)"
+      (updateFolder)="onEditDashboard($event)"
+    ></pe-folders>
+    </pe-grid-sidenav>
+    <pe-grid-content
+    [showMobileFooter]="false"
+    [style.zIndex]="2"
+    [mobileTitle]="selectedDashboard?.name"
+    >
+      <pe-grid-toolbar
+        [filterConfig]="toolbar.filterConfig"
+        [viewAdd]="false"
+    ></pe-grid-toolbar>
+    <div class="data-grid-wrap-content">
+      <mat-grid-list
+        [cols]="gridCols"
+        [rowHeight]="(editMode$ | async) ? '180px' : '140px'"
+        gutterSize="16px"
+        (contextmenu)="openWidgetContextMenu($event)"
+      >
+        <mat-grid-tile
+          *ngFor="let widget of widgets$ | async"
+          [colspan]="widget.size === widgetService.widgetSize.Small ? 1 : 2"
+          [rowspan]="widget.size === widgetService.widgetSize.Large ? 2 : 1"
+          [class]="widget.size"
+        >
+          <peb-widget-wrapper
+            (click)="onClickToEdit($event, widget)"
+            [class]="widget.size"
+            [class.expanded]="editMode$ | async"
+            [config]="widget"
+            [showEditBtn]="widget.edit"
+            [resizableLineGraph]="true"
+          ></peb-widget-wrapper>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+    </pe-grid-content>
+  </pe-grid>
+</div>

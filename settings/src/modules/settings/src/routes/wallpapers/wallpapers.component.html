@@ -1,0 +1,111 @@
+<div class="wallpaper-wrapper" [ngClass]="theme">
+  <pe-data-grid
+    #wallpaperDatagrid
+    id="wallpaper-data-grid"
+    [filters]="[]"
+    [theme]="theme"
+    [items]="items"
+    [filterItems]="filterSettings"
+    [navbarLeftPaneButtons]="leftPaneButton"
+    [multipleSelectedActions]="selectable ? multipleSelectedActions : null"
+    [selectedItems]="selectedItems$ | async"
+    [isShowGridItemInfo]="true"
+    [dataListOptions]="gridOptions"
+    [displayFilters]="showSidebar$ | async"
+    [isFilterCreating]="isFilterCreating"
+    [isGridContextMenuAllow]="false"
+    [enableDragAndDrop]="true"
+    [sortByActions]="sortByActions"
+    [searchItems]="searchItems"
+    (scrollEvent)="scrollBottom($event)"
+    (searchRemove)="onSearchRemove($event)"
+    (searchChanged)="onSearchChanged($event)"
+    (createFilter)="onFilterCreate($event)"
+    (filtersChanged)="onFiltersChanged($event)"
+    (toggleExternalSideMenu)="toggleSidebar()"
+  >
+    <pe-sidebar-filters-wrapper>
+      <pe-sidebar-header
+        [title]="'pages.wallpaper.sidebar.title' | translate"
+        [allowClose]="isMobile"
+        (closeSidebar)="showSidebar = false"
+      >
+      </pe-sidebar-header>
+      <pe-sidebar-filter-wrapper
+        *ngFor="let category of sidebarCategories"
+        [title]="category.title"
+        [expandable]="true"
+        [editable]="false"
+        [editMode]="category.editMode"
+        [active]="false"
+        (headerClick)="onSidebarItemClick(category.id)"
+      >
+        <pe-tree-sidebar-filter
+          [tree]="category.tree"
+          [refresh]="refresh$"
+          [formControl]="wallpaperSidebarTreeControl"
+        ></pe-tree-sidebar-filter>
+      </pe-sidebar-filter-wrapper>
+    </pe-sidebar-filters-wrapper>
+
+    <ng-container>
+      <pe-data-grid-item
+              *ngIf="allowAddWallpaper"
+              [item]="addNewItem"
+              [actions]="[addItemAction]"
+              [theme]="theme"
+              [isShowSimplifyGrid]="true"
+              [selectable]="false"
+              [isShowGridItemInfo]="false"
+              class="grid-item"
+      >
+        <div class="add-new">
+          <svg color="blue">
+            <defs>
+              <linearGradient id="add@2x-a" x1="50%" x2="48.333%" y1="0%" y2="107.889%">
+                <stop offset="0%" stop-color="#007DFE"/>
+                <stop offset="100%" stop-color="#005CBB"/>
+              </linearGradient>
+            </defs>
+            <use [attr.xlink:href]="'#icon-shipping-add'" color="blue"></use>
+          </svg>
+        </div>
+      </pe-data-grid-item>
+      <pe-data-grid-item *ngIf="uploadingInProgress"
+                         [item]="{}"
+                         [isShowGridItemInfo]="false"
+                         [isShowSimplifyGrid]="true"
+                         [selectable]="false"
+                         [actions]="[]"
+                         [theme]="theme"
+      >
+        <div class="uploading-grid-item">
+          {{'info_boxes.panels.wallpaper.uploading' | translate}} {{ uploadProgress.toFixed(0) }}%
+        </div>
+      </pe-data-grid-item>
+      <pe-data-grid-item
+          *ngFor="let gridItem of items"
+          [item]="gridItem"
+          [isShowGridItemInfo]="true"
+          [isShowSimplifyGrid]="true"
+          [selectable]="true"
+          (contextmenu)="openContextMenu($event, gridItem, contextMenu)"
+          [actions]="[singleSelectedAction]"
+          [theme]="theme"
+      >
+      </pe-data-grid-item>
+    </ng-container>
+
+    <div *ngIf="uploadingInProgress" listSlot class="uploading-list-item">
+      {{'info_boxes.panels.wallpaper.uploading' | translate}} {{ uploadProgress.toFixed(0) }}%
+    </div>
+  </pe-data-grid>
+</div>
+<input #fileSelector accept="image/*" type="file" class="hidden" (change)="uploadImage($event)">
+
+<ng-template #contextMenu>
+    <peb-settings-context-menu
+            [actions]="contextActions"
+            (close)="closeContextMenu()"
+    ></peb-settings-context-menu>
+</ng-template>

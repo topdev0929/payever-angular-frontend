@@ -1,0 +1,33 @@
+
+.pe-coupons-form-field {
+
+  &__flex {
+    background-color: #111111;
+    border-radius: 1em;
+    display: flex;
+    margin-top: 1.25em;
+    overflow: hidden;
+    padding: 0.461em 0 0.461em;
+    position: relative;
+  }
+
+
+  &__infix {
+    align-items: center;
+    display: flex;
+    padding: 1em 1em 0 1em;
+    position: relative;
+    width: 100%;
+  }
+
+  &__subscript {
+    color: #7a7a7a;
+    font-size: 1em;
+    line-height: 1.38;
+    margin: 0.5em 1em 0;
+  }
+
+  &__suffix {
+    font-size: 13px;
+  }
+}

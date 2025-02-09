@@ -1,0 +1,23 @@
+@use 'SASS:map';
+
+@mixin color($theme-config) {
+  $text-color: map.get($theme-config, 'text-color');
+  $confirm: map.get($theme-config, 'confirm');
+  $secondary-background: map.get($theme-config, 'secondary-background');
+
+  .grid-overview-box {
+    .items-wrap {
+      &__thumbnail {
+        background-color: $secondary-background;
+      }
+      &__content {
+        .content-title {
+          color: $text-color;
+        }
+        .content-count {
+          color: $confirm;
+        }
+      }
+    }
+  }
+}

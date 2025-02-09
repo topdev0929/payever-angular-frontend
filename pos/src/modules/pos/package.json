@@ -1,0 +1,19 @@
+{
+  "name": "@pe/builder-pos",
+  "version": "1.0.12",
+  "description": "Builder: pos",
+  "repository": "https://gitlab.devpayever.com/frontend/pos",
+  "license": "UNLICENSED",
+  "bin": {
+    "pe-i18n-cosf-prepare-pos-app": "./bin/i18n-cosf-prepare.js"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
+  "peerDependencies": {
+    "@angular/common": "^9.1.4",
+    "@angular/core": "^9.1.4",
+    "@angular/material": "latest",
+    "@angular/cdk": "latest"
+  }
+}

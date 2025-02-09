@@ -1,0 +1,29 @@
+//
+// CDK
+// ----------------------------
+
+.pe-checkout-bootstrap {
+
+  .cdk-overlay {
+
+    &-container {
+      z-index: $zindex-top-overlay;
+    }
+
+
+    // Style variations
+    // ---------------------------
+
+    &-micro {
+      margin-top: 0;
+      margin-bottom: $grid-unit-y * 2;
+      height: calc(100% - #{$grid-unit-y} * 2);
+    }
+  }
+}
+
+// TODO Remove this when we have logic in @pe/forms select field to add root class to overlay (.pe-checkout-bootstrap)
+// For now we have to change z-index globally because it's broken in shop (shop doesn't have .pe-checkout-bootstrap on page body)
+.cdk-overlay-container {
+  z-index: $zindex-top-overlay;
+}

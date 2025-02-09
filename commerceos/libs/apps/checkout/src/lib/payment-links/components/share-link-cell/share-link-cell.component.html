@@ -1,0 +1,11 @@
+<button mat-raised-button
+  [class.copied]="copied$ | async"
+  class="pe-copy-link mat-button-sm"
+  type="button"
+  (click)="openShareModal($event)">
+  <span class="pe-copy-link__link">
+    <svg class="pe-copy-link__icon">
+      <use xlink:href="#icon-share-34"></use>
+    </svg>
+  </span>
+</button>

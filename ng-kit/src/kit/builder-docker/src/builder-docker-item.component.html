@@ -1,0 +1,9 @@
+<div class="menu-item" [class.has-subitems]="hasSubItems()">
+  <a>
+    <svg class="icon icon-32">
+      <use [attr.xlink:href]="dockerItem.iconId"></use>
+    </svg>
+    <span>{{dockerItem.title}}</span>
+  </a>
+  <div *ngIf="hasSubItems()" class="caret"></div>
+</div>

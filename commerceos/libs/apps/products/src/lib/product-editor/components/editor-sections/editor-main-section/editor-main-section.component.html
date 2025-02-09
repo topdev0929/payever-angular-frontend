@@ -1,0 +1,167 @@
+<form
+  *ngIf="form"
+  novalidate
+  [formGroup]="form"
+  (submit)="onSubmit()">
+  <button
+    #submitTrigger
+    id="submitTrigger"
+    name="submitButton"
+    type="submit" hidden>
+  </button>
+    <div class="product-editor-content-main" [ngClass]="{'has-pictures': blobs.length}">
+      <editor-pictures
+        [dragulaBag]="'product-pictures-bag'"
+        [(blobs)]="mainSection.images"
+        (changePictures)="onChangePictures($event)"
+        (loadingStateChanged)="onPicturesLoadingChanged($event)">
+      </editor-pictures>
+
+      <div class="product-main-fields">
+
+        <div class="first-row">
+          <peb-form-field-input
+            class='main-form-field-input'
+            label="{{ 'name.placeholders.name_full' | translate }}"
+            appearance="label"
+            [animated]='true'
+            [isFieldInvalid]="isSubmitted && (form.controls.title.errors?.required || form.controls.title.errors?.pattern)"
+            [errorMessage]="(form.controls.title.errors?.required ? 'mainSection.form.errors.name' : 'mainSection.form.errors.invalid_name') | translate">
+            <input placeholder="{{ 'name.placeholders.name_full' | translate }}" formControlName="title" type="text">
+          </peb-form-field-input>
+        </div>
+
+        <div class="first-row">
+          <peb-form-field-input
+            class='main-form-field-input'
+            label="{{ 'name.placeholders.brand' | translate }}"
+            [errorMessage]="'Invalid value'"
+            [isFieldInvalid]="isSubmitted && (form.controls.brand.errors?.pattern)"
+            appearance="label"
+            [animated]='true'
+          >
+            <input placeholder="{{ 'name.placeholders.brand' | translate }}" formControlName="brand" type="text">
+          </peb-form-field-input>
+        </div>
+
+        <peb-form-field-input
+          class='main-form-field-input'
+          label="{{ 'placeholders.price' | translate }}"
+          appearance="label"
+          [animated]='true'
+          [isFieldInvalid]="priceInvalid"
+          [errorMessage]="priceErrorMessage">
+          <input
+            placeholder="{{ 'placeholders.price' | translate }}"
+            formControlName="price"
+            type="number"
+            (change)="onPriceChange($event.target.value)"
+          />
+          <div class="suffix">
+            <p>{{ this.currency || 'EUR' }}</p>
+          </div>
+        </peb-form-field-input>
+
+        <peb-form-field-input
+          class='main-form-field-input'
+          label="{{ 'placeholders.salePrice' | translate }}" appearance="label"
+          [animated]='true'
+          [isFieldInvalid]='salePriceInvalid'
+          [errorMessage]="salePriceErrorMessage">
+          <input
+            placeholder="{{ 'placeholders.salePrice' | translate }}"
+            formControlName="salePrice"
+            type="number"
+            (change)="onSalePriceChange($event.target.value)"
+          />
+          <div class="suffix">
+            <p>{{ this.currency || 'EUR' }}</p>
+          </div>
+        </peb-form-field-input>
+
+        <peb-form-field-input
+          label="{{ 'placeholders.saleStartDate' | translate }}" appearance='label'
+          [isFieldInvalid]="saleStartDateInvalid"
+          [errorMessage]="saleStartDateErrorMessage"
+          [animated]='true'
+          >
+          <input
+            type='text'
+            pebInput
+            peInputMask
+            [mask]="dateMask"
+            placeholder='DD.MM.YYYY'
+            formControlName='saleStartDate'
+            #saleStartDate
+            (blur)='onSaleDateChange()'
+          />
+          <div
+            class='suffix-icon'
+            (click)="openDatepicker({ target: saleStartDate }, 'saleStartDate')"
+          >
+              <mat-icon
+                class='calendar-image'
+                svgIcon="datepicker"
+              ></mat-icon>
+          </div>
+        </peb-form-field-input>
+
+        <peb-form-field-input
+          label="{{ 'placeholders.saleEndDate' | translate }}" appearance='label'
+          [isFieldInvalid]="saleEndDateInvalid"
+          [errorMessage]="saleEndDateErrorMessage"
+          [animated]='true'
+          >
+          <input
+            type='text'
+            pebInput
+            peInputMask
+            [mask]="dateMask"
+            placeholder='DD.MM.YYYY'
+            formControlName='saleEndDate'
+            #saleEndDate
+            (blur)='onSaleDateChange()'
+          />
+          <div
+            class='suffix-icon'
+            (click)="openDatepicker({ target: saleEndDate }, 'saleEndDate')"
+          >
+            <mat-icon
+              class='calendar-image'
+              svgIcon="datepicker"
+            ></mat-icon>
+          </div>
+        </peb-form-field-input>
+
+        <peb-select
+          formControlName="productType"
+          selectType="label"
+          class='main-form-field-select peb-select'
+          label="{{ 'placeholders.productType' | translate }}"
+          selected="none"
+          [animated]='true'>
+          <peb-select-option
+            *ngFor="let type of this.productTypes"
+            [label]="('product_type.' + type.label) | lowercase | translate"
+            [value]="type.value"
+            class='peb-select-option'
+          ></peb-select-option>
+        </peb-select>
+
+        <peb-select
+          formControlName="condition"
+          selectType="label"
+          class='main-form-field-select peb-select'
+          label="{{ 'placeholders.condition' | translate }}"
+          selected="none"
+          [animated]='true'>
+          <peb-select-option
+            *ngFor="let condition of productConditions"
+            [label]="('product_condition.' + condition.label) | lowercase | translate"
+            [value]="condition.value"
+            class='peb-select-option'
+          ></peb-select-option>
+        </peb-select>
+      </div>
+    </div>
+</form>

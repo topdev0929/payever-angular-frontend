@@ -1,0 +1,17 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+
+.header-container {
+  position: relative;
+
+  &.sidebar-header {
+    max-width: 360px;
+    padding-left: $pe_hgrid_gutter;
+    padding-right: $pe_hgrid_gutter;
+    padding-bottom: $pe_vgrid_height * 2;
+    border-bottom: $border-light-gray-1;
+
+    .sidebar-after {
+      margin-top: $pe_vgrid_height * 5;
+    }
+  }
+}

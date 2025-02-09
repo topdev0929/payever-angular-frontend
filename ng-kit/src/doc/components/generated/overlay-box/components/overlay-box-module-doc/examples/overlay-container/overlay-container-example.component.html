@@ -1,0 +1,24 @@
+<button (click)="toggleShow(true)">Show fixed</button>
+<button (click)="toggleShow(false)">Show full heght</button>
+
+<div class="wrapper" *ngIf="isShow" style="background-color: #4d4d4c">
+  <pe-overlay-container [class.fixed]="isFixed" [title]="'My app'" [contentScrollable]="true" [icon]="'icon-apps-pos'" [withPadding]="true" (onClose)="toggleShow()" [showSpinner]="showSpinner">
+    <ng-container content>
+      <pe-grid peGrid
+               [gutterSize]="'small'"
+               [itemsPerRow]="3"
+               [items]="items"
+               [rowHeight]="'2:3'"
+      >
+        <ng-template let-item>
+          <div>
+            <img [src]="item?.medias[0]?.sources.customer_shop_grid.url" />
+            <div>{{ item.title }}</div>
+            <div>{{ item.variants[0].price }}</div>
+          </div>
+        </ng-template>
+      </pe-grid>
+
+    </ng-container>
+  </pe-overlay-container>
+</div>

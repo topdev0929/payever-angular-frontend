@@ -1,0 +1,65 @@
+<finexp-ui-card
+  [asModal]="isExtendedView"
+  [config]="config"
+  [forceDefaultStyles]="forceDefaultStyles"
+  (modalClosed)="isExtendedView = false">
+  <finexp-ui-top-text
+    *ngIf="isExtendedView"
+    [config]="config"
+    [forceDefaultStyles]="forceDefaultStyles">
+    <p>{{ translations.introductionText }}</p>
+  </finexp-ui-top-text>
+
+  <finexp-ui-full-header-santander>
+    <div topContent>
+      <widget-santander-nl-top-image></widget-santander-nl-top-image>
+    </div>
+    <finexp-ui-santander-consumer-icon-medium class="santander-icon"></finexp-ui-santander-consumer-icon-medium>
+    <span
+      class="ui-top-text"
+      i18n="@@santander-nl-finexp-widget.common.top_header_text">
+      santander-nl-finexp-widget.common.top_header_text
+    </span>
+  </finexp-ui-full-header-santander>
+
+  <finexp-ui-rate-button
+    *ngIf="!isExtendedView"
+    [isLoading]="isLoadingRates"
+    [error]="error"
+    [rate]="currentRate"
+    [config]="config"
+    [forceDefaultStyles]="forceDefaultStyles"
+    [isShowSelectedRateDetails]="!hasShortToExtendedViewSwitcher || isExtendedView"
+    (clicked)="onClicked()">
+    <span [innerHTML]="currentRate?.selectedTitle"></span>
+  </finexp-ui-rate-button>
+  <!-- For overlay modal we always force show dropdown -->
+  <finexp-ui-rate-dropdown
+    *ngIf="isExtendedView"
+    [numColumns]="1"
+    [isLoading]="isLoadingRates"
+    [error]="error"
+    [config]="config"
+    [forceDefaultStyles]="forceDefaultStyles"
+    [rate]="currentRate"
+    [rates]="rates"
+    [isShowSelectedRateDetails]="!hasShortToExtendedViewSwitcher || isExtendedView"
+    (rateSelected)="onRateSelected($event)">
+  </finexp-ui-rate-dropdown>
+
+  <finexp-ui-regular-text
+    *ngIf="!hasShortToExtendedViewSwitcher || isExtendedView"
+    class="finexp-regular-text"
+    [config]="config"
+    [forceDefaultStyles]="forceDefaultStyles">
+    <p
+      *ngIf="getCreditFormatted()"
+      [innerHTML]="translations.creditDetailsText"></p>
+  </finexp-ui-regular-text>
+  <!-- We show logo only when overlay modal opened -->
+  <finexp-ui-footer-powered-by-payever
+    *ngIf="isExtendedView"
+    [config]="config"
+    [forceDefaultStyles]="forceDefaultStyles">
+  </finexp-ui-footer-powered-by-payever>
+</finexp-ui-card>

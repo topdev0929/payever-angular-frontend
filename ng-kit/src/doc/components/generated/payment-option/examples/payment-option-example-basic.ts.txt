@@ -1,0 +1,26 @@
+  private paymentOptions: PaymentOptionsListItem[] = [
+    {
+      name: 'Cash',
+      image_primary_filename: 'https:\/\/stage.payever.de\/media\/cache\/payment_option.icon\/f44a44c2b80bfe8813f649232f14cad2.png'
+    },
+    {
+      name: 'Direct Debit',
+      image_primary_filename: 'https:\/\/stage.payever.de\/media\/cache\/payment_option.icon\/7e8021774db236b3bec395d05212684e.png'
+    },
+    {
+      name: 'Payex',
+      image_primary_filename: 'https:\/\/stage.payever.de\/media\/cache\/payment_option.icon\/f44a44c2b80bfe8813f649232f14cad2.png'
+    },
+    {
+      name: 'Paylater',
+      image_primary_filename: 'https:\/\/stage.payever.de\/media\/cache\/payment_option.icon\/7e8021774db236b3bec395d05212684e.png'
+    },
+    {
+      name: 'Paymill',
+      image_primary_filename: 'https:\/\/stage.payever.de\/media\/cache\/payment_option.icon\/f44a44c2b80bfe8813f649232f14cad2.png'
+    },
+    {
+      name: 'Paypal',
+      image_primary_filename: 'https:\/\/stage.payever.de\/media\/cache\/payment_option.icon\/7e8021774db236b3bec395d05212684e.png'
+    },
+  ];

@@ -1,0 +1,47 @@
+<mat-form-field
+  [class.mat-focused]="true"
+  [floatLabel]="'always'"
+  [hideRequiredMarker]="hideRequiredMarker"
+  [class.mat-form-field-has-prefix]="hasAddonPrepend"
+  [class.mat-form-field-addon-style-filled]="isAddonStyleFilled">
+  <div class="mat-input-with-addon-inline-prepend-wrapper">
+    <div class="pe-input-spinner-dec app-icon"
+      (click)="onDecrease($event)">
+      <svg id="icon-at-minus-24" preserveAspectRatio="xMidYMin slice" viewBox="0 0 24 24" width="100%" height="100%"><path class="path1" d="M12,24 C5.4,24 0,18.6 0,12 C0,5.4 5.4,0 12,0 C18.6,0 24,5.4 24,12 C24,18.6 18.6,24 12,24 Z M12,23 C18.1,23 23,18.1 23,12 C23,5.9 18.1,1 12,1 C5.9,1 1,5.9 1,12 C1,18.1 5.9,23 12,23 Z M7,13 L7,12 L17,12 L17,13 L7,13 Z" fill="currentColor" id="Combined-Shape"></path></svg>
+    </div>
+    <pe-form-addon-inline-prepend *ngIf="hasAddonInlinePrepend"
+      [addon]="addonPrepend">
+    </pe-form-addon-inline-prepend>
+    <input matInput
+      type="number"
+      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+      [attr.disabled]="'disabled'"
+      [class.pe-input-controll]="true"
+      [attr.pe-qa-input-spinner]="controlQaId"
+      [attr.tabindex]="tabIndex"
+      [attr.name]="nameAttribute"
+      [attr.autocomplete]="autocompleteAttribute"
+      [errorStateMatcher]="errorStateMatcher"
+      [placeholder]="placeholder"
+      [formControl]="formControl"
+      [readonly]="disabled || readonly"
+      [required]="required"
+      (focus)="onFocus($event)"
+      (blur)="onBlur($event)"
+    />
+    <div class="pe-input-spinner-inc app-icon"
+      (click)="onIncrease($event)">
+      <svg id="icon-at-plus-24" preserveAspectRatio="xMidYMin slice" viewBox="0 0 24 24" width="100%" height="100%"><path class="path1" d="M11.5,12 L11.5,7.5 L12.5,7.5 L12.5,12 L17,12 L17,13 L12.5,13 L12.5,17.5 L11.5,17.5 L11.5,13 L7,13 L7,12 L11.5,12 Z M12,24 C5.4,24 0,18.6 0,12 C0,5.4 5.4,0 12,0 C18.6,0 24,5.4 24,12 C24,18.6 18.6,24 12,24 Z M12,23 C18.1,23 23,18.1 23,12 C23,5.9 18.1,1 12,1 C5.9,1 1,5.9 1,12 C1,18.1 5.9,23 12,23 Z" fill="currentColor"></path></svg>
+    </div>
+  </div>
+  <mat-error *ngIf="errorMessage && formControl?.invalid"
+    [style.margin-left.px]="addonPrependOffset">
+    {{errorMessage}}
+  </mat-error>
+  <pe-form-addon matSuffix *ngIf="hasAddonAppend"
+    [addon]="addonAppend">
+  </pe-form-addon>
+  <pe-form-addon matPrefix #addonPrependElem
+    [addon]="addonPrepend" *ngIf="hasAddonPrepend">
+  </pe-form-addon>
+</mat-form-field>

@@ -1,0 +1,32 @@
+// TODO Make it different way, just not sure how to.
+
+$br: var(--checkout-input-border-radius, $border-radius-default);
+
+.pe-checkout-bootstrap .pe-checkout-wrapper-layout .form-table .form-fieldset:not(.form-fieldset-no-border) .row {
+  @media (min-width: 768px) {
+    .col-sm-border-bottom-left-radius {
+      border-bottom-left-radius: $br !important;
+    }
+    .col-sm-border-bottom-right-radius {
+      border-bottom-right-radius: $br !important;
+    }
+    .col-sm-border-top-left-radius {
+      border-top-left-radius: $br !important;
+    }
+    .col-sm-border-top-right-radius {
+      border-top-right-radius: $br !important;
+    }
+  }
+  .col-xs-border-bottom-left-radius {
+    border-bottom-left-radius: $br !important;
+  }
+  .col-xs-border-bottom-right-radius {
+    border-bottom-right-radius: $br !important;
+  }
+  .col-xs-border-top-left-radius {
+    border-top-left-radius: $br !important;
+  }
+  .col-xs-border-top-right-radius {
+    border-top-right-radius: $br !important;
+  }
+}

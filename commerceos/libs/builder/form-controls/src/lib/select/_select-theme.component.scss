@@ -1,0 +1,36 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $text-color: map.get($color-config, 'text-color');
+  $label-color: map.get($color-config, 'label-color');
+  $gray-button: map.get($color-config, 'gray-button');
+  $transparent-color: map.get($color-config, 'transparent-color');
+
+  .peb-form-controls-down {
+    background-color: $overlay-background;
+  }
+  .peb-form-controls-select {
+    background-color: $overlay-background;
+    .select {
+      background-color: $transparent-color;
+      color: $text-color;
+      &_disabled {
+        border-color: $label-color;
+        background-color: $gray-button;
+        color: $label-color;
+      }
+    }
+    .down {
+      svg path {
+        stroke: $text-color;
+      }
+      &_disabled {
+        background-color: $transparent-color;
+        svg path {
+          stroke: $label-color;
+        }
+      }
+    }
+  }
+}

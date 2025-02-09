@@ -1,0 +1,23 @@
+@import '../../../../shared/styles/assets/imports';
+
+:host {
+  display: block;
+}
+.order-block > div {
+  @media (max-width: $screen-sm - 1) {
+    margin: 0 (-$pe_hgrid_gutter * 0.5) $pe_vgrid_height (-$pe_hgrid_gutter * 0.5);
+  }
+}
+.div-table-payment-option:not(.payment-option-selected) .payment-title {
+  margin-bottom: 0;
+}
+
+.mt {
+  margin-top: $payment-grid-unit-y;
+}
+
+.hidden-order {
+  visibility: hidden;
+  opacity: 0;
+  height: 0 !important;
+}

@@ -1,0 +1,124 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+    $primary: map.get($color-config, 'primary');
+    $text-color: map.get($color-config, 'text-color');
+    $hover-button: map.get($color-config, 'hover-button');
+    $active-text: map.get($color-config, 'active-text');
+    $separator: map.get($color-config, 'separator');
+    $label-color: map.get($color-config, 'label-color');
+    $card: map.get($color-config, 'card');
+    $border: map.get($color-config, 'border');
+    $background: map.get($color-config, 'background');
+    $extra-bg-color: map.get($color-config, 'extra-bg-color');
+    $icon-background: map.get($color-config, 'icon-background');
+    $tertiary-button: map.get($color-config, 'tertiary-button');
+    $transparent-color: map.get($color-config, 'transparent-color');
+    $box-shadow-color: map.get($color-config, 'box-shadow-color');
+    $button-fill: map.get($color-config, 'button-fill');
+    $divider: map.get($color-config, 'divider');
+
+    .form-field-reply {
+        &__dash {
+            background: $hover-button;
+        }
+
+        &__label {
+            color: $label-color;
+        }
+
+        &__content {
+            color: $text-color;
+        }
+
+    }
+
+    .menu-icon {
+        color: $text-color;
+
+        &__icon {
+            border: 2px solid $primary;
+        }
+
+        .avatar {
+            color: $text-color;
+        }
+
+    }
+
+    .avatar {
+        color: $primary;
+    }
+
+    .chat-footer {
+        background-color: $primary;
+    }
+
+    .chat-footer {
+        border-top: 1px solid $primary;
+        background-color: $primary;
+    }
+
+    .form-field {
+        background-color: $primary;
+
+        input,
+        textarea {
+            color: $text-color;
+            background-color: $extra-bg-color;
+        }
+
+        &::placeholder {
+            color: $border;
+        }
+
+        &__actions {
+
+            button {
+                background-color: $separator;
+                color: $label-color;
+            }
+        }
+
+        &__button {
+            color: $text-color;
+        }
+
+        &__emoji-button {
+            background: $extra-bg-color;
+        }
+
+        &__send-button {
+            color: $active-text;
+            background-color: $hover-button;
+        }
+    }
+
+    .logo-footer {
+        border-top: 1px solid $extra-bg-color;
+        background-color: $primary;
+    }
+
+    .edit-message-menu {
+        box-shadow: 0 3px 7px 0 $box-shadow-color;
+        background-color: $primary;
+
+        button {
+            background: $primary;
+        }
+
+        &__item {
+            span {
+                color: $text-color;
+            }
+        }
+    }
+
+    .unpin-message {
+        background-color: $primary;
+
+        .unpin-message-link > span {
+            color: $text-color;
+         }
+    }
+}

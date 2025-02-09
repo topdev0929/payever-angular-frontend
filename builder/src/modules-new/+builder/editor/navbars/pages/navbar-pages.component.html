@@ -1,0 +1,25 @@
+<pe-builder-scroll-toolbar class="builder-editor-navbar">
+  <button
+    mat-button
+    class="button-add-page"
+    [disabled]="requestInProgress"
+    [disableRipple]="true"
+    (click)="pageCreate.emit()"
+  >
+    <svg class="button-add-icon">
+      <use xlink:href="#icon-plus-16"></use>
+    </svg>
+  </button>
+
+  <mat-divider vertical class="divider"></mat-divider>
+  <ng-container *ngFor="let page of pages">
+    <pe-builder-navbar-pages-button
+      [page]="page"
+      [active]="page?.uuid === activePage?.uuid"
+      [readOnly]="!pageCopy.observers.length || !pageDelete.observers.length"
+      (selected)="onPageSelected(page)"
+      (copied)="pageCopy.emit(page)"
+      (deleted)="pageDelete.emit(page)"
+    ></pe-builder-navbar-pages-button>
+  </ng-container>
+</pe-builder-scroll-toolbar>

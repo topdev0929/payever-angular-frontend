@@ -1,0 +1,11 @@
+<div
+  class="clearfix"
+  *ngIf="identifyFormValue">
+  <span class="text-secondary">{{ makeFormKey(personType + '.typeOfIdentification') }}</span
+  >:
+  <span
+    class="text-primary"
+    [innerHTML]="identifyFormValue.typeOfIdentification
+      | peTranslatedFormOptionsLabel:formOptions?.identifications:makeFormKey(personType + '.typeOfIdentification')">
+  </span>
+</div>

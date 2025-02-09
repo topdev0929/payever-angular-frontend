@@ -1,0 +1,24 @@
+.auth-code-wrapper {
+  display: flex;
+  gap: 4px;
+
+  .digit-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    height: 44px;
+    width: 32px;
+
+    input {
+      height: 17px;
+      width: 100%;
+      border: 0;
+      outline: 0;
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0);
+    }
+  }
+}

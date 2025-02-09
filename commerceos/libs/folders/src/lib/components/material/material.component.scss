@@ -1,0 +1,31 @@
+@use "pe_variables" as pe_variables;
+
+pe-folders {
+  .folder-tree .cdk-drag-placeholder {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+  .mat-tree {
+    .mat-tree-node {
+      & > div {
+        width: 100%;
+      }
+    }
+  }
+}
+
+pe-preview-container .cdk-drag-placeholder {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+body.move-to-folder {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

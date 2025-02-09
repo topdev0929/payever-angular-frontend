@@ -1,0 +1,76 @@
+<pe-data-grid-layout [viewMode]="viewMode">
+  <pe-data-grid-toolbar peToolbar
+                        [viewMode]="viewMode"
+                        [showViewSwitcher]="true"
+                        [showColumnSwitcher]="true"
+                        [showSearchBar]="false"
+                        [columns]="columns"
+                        (viewChanged)="viewMode = $event"
+                        (columnsChanged)="columns = $event"
+                        [searchValue]="searchValue"
+                        (inputSearch)="fetchProducts(null, $event)">
+    <div col-center>Items</div>
+  </pe-data-grid-toolbar>
+  <pe-data-grid-select-bar peGridSelect
+                      [buttons]="selectBarButtons"
+                      [selectedItems]="selectedItems"
+                      (unselected)="onUnselected()"
+                      (closed)="onSelectBarClosed()"
+                      (allSelected)="onAllSelected()"
+  ></pe-data-grid-select-bar>
+  <pe-data-grid-filters peGridFilters
+                        [filters]="chips"
+                        (filterRemoved)="onChipRemoved($event)"
+  ></pe-data-grid-filters>
+  <pe-grid *ngIf="viewMode === dataViewMode.Grid"
+           peGrid
+           [gutterSize]="'small'"
+           [itemsPerRow]="itemsPerRow"
+           [items]="items"
+           [rowHeight]="'2:3'"
+  >
+    <ng-template let-item>
+      <div>
+        <div>{{ item.title }}</div>
+        <div>{{ item.price }}</div>
+        <mat-checkbox [checked]="selectedItems.indexOf(item) > -1" (change)="onRowSelected(item)"></mat-checkbox>
+      </div>
+    </ng-template>
+  </pe-grid>
+  <pe-table *ngIf="viewMode === dataViewMode.List"
+            peTable
+            matSort
+            (matSortChange)="sortData($event)"
+            [dataSource]="items">
+    <ng-container *ngFor="let column of columns"
+                  peTableColumnDef="{{ column.name }}">
+      <div [ngSwitch]="column.name">
+        <div *ngSwitchCase="'selected'">
+          <pe-table-header-cell class="select-area" *peHeaderCellDef>{{ column.title }}</pe-table-header-cell>
+          <pe-table-cell class="select-area" *peTableCellDef="let item;">
+            <mat-checkbox [checked]="selectedItems.indexOf(item) > -1" (change)="onRowSelected(item)"></mat-checkbox>
+          </pe-table-cell>
+        </div>
+        <div *ngSwitchCase="'title'">
+          <pe-table-header-cell mat-sort-header="{{ column.name }}" *peHeaderCellDef>{{ column.title }}</pe-table-header-cell>
+          <pe-table-cell *peTableCellDef="let item;">
+            Second column {{ item.title }}
+          </pe-table-cell>
+        </div>
+        <div *ngSwitchDefault>
+          <pe-table-header-cell *peHeaderCellDef>{{ column.title }}</pe-table-header-cell>
+          <pe-table-cell *peTableCellDef="let item;">
+            Other column {{ item.title }}
+          </pe-table-cell>
+        </div>
+      </div>
+    </ng-container>
+    <pe-table-header-row  *peTableHeaderRowDef="activeColumns"></pe-table-header-row>
+    <pe-table-row *peTableRowDef="let row; columns: activeColumns;"></pe-table-row>
+  </pe-table>
+  <pe-data-grid-pagination pePagination
+                      [length]="allItemsCount"
+                      [pageSize]="pageSize"
+                      (pageSelect)="fetchProducts($event)"
+  ></pe-data-grid-pagination>
+</pe-data-grid-layout>

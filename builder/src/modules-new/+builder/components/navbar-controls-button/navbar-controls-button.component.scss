@@ -1,0 +1,49 @@
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  height: 17px;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255,255,255,.8);
+  background-color: rgba(17,17,17,.3);
+  border-radius: 6px;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.45);
+  }
+
+  &.button {
+    &--is-sibling {
+      margin-left: 12px;
+    }
+  }
+}
+
+.button-control {
+  padding: 0 15px;
+  width: 100%;
+  height: 100%;
+  font-size: 11px;
+  min-width: 25px;
+
+  &[disabled] {
+    color: rgba(255,255,255,.8);
+    opacity: 0.5;
+  }
+}
+
+.button-label {
+  width: 100%;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  padding-top: 3px;
+  height: 10px;
+  line-height: 1;
+}
+
+.button-icon {
+  width: 16px;
+  height: 16px;
+  color: #ffffff;
+}

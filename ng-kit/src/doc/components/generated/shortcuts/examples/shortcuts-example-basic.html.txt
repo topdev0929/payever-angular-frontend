@@ -1,0 +1,6 @@
+<pe-shortcuts
+  [itemsList]="appsList"
+  [itemsPerView]="4"
+  (onLinkClick)="handleLinkClick($event)"
+  >
+</pe-shortcuts>

@@ -1,0 +1,104 @@
+<pe-dialog
+  [baseButtons]="null"
+  [hasCloseIcon]="true"
+  [noMarginBottom]="true">
+  <pe-dialog-content>
+    <div
+      class="dialog-container"
+      peFixFileLinks>
+      <div class="summary-box">
+        <ng-container *ngIf="data.cart?.length">
+          <h4 i18n="@@payment-santander-uk.credit_rates.rate_details_dialog.title_goods">
+            payment-santander-uk.credit_rates.rate_details_dialog.title_goods
+          </h4>
+          <div *ngFor="let item of data.cart">
+            <ng-container
+              *ngTemplateOutlet="rowRef; context: {
+              label: item.name,
+              value: item.price
+            }"></ng-container>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="!data.cart?.length && data.total">
+          <h4 i18n="@@payment-santander-uk.credit_rates.rate_details_dialog.title_total">
+            payment-santander-uk.credit_rates.rate_details_dialog.title_total
+          </h4>
+          <ng-container
+            [ngTemplateOutlet]="rowRef"
+            [ngTemplateOutletContext]="contexts.total">
+          </ng-container>
+        </ng-container>
+
+        <h4
+          class="title-loan"
+          i18n="@@payment-santander-uk.credit_rates.rate_details_dialog.title_loan">
+          payment-santander-uk.credit_rates.rate_details_dialog.title_loan
+        </h4>
+
+        <ng-container
+          [ngTemplateOutlet]="rowRef"
+          [ngTemplateOutletContext]="contexts.totalGoodsPrice">
+        </ng-container>
+
+        <ng-container
+          [ngTemplateOutlet]="rowRef"
+          [ngTemplateOutletContext]="contexts.monthlyPayments">
+        </ng-container>
+
+        <ng-container
+          [ngTemplateOutlet]="rowRef"
+          [ngTemplateOutletContext]="contexts.customerDeposit">
+        </ng-container>
+
+        <ng-container
+          [ngTemplateOutlet]="rowRef"
+          [ngTemplateOutletContext]="contexts.amountCredit">
+        </ng-container>
+
+        <ng-container
+          [ngTemplateOutlet]="rowRef"
+          [ngTemplateOutletContext]="contexts.interestCharges">
+        </ng-container>
+
+        <ng-container
+          [ngTemplateOutlet]="rowRef"
+          [ngTemplateOutletContext]="contexts.totalAmount">
+        </ng-container>
+
+        <ng-container
+          [ngTemplateOutlet]="rowRef"
+          [ngTemplateOutletContext]="contexts.durationAgreement">
+        </ng-container>
+
+        <ng-container
+          [ngTemplateOutlet]="rowRef"
+          [ngTemplateOutletContext]="contexts.fixedRate">
+        </ng-container>
+
+        <ng-container
+          [ngTemplateOutlet]="rowRef"
+          [ngTemplateOutletContext]="contexts.apr">
+        </ng-container>
+      </div>
+
+      <p
+        class="pe-payment-text small-text note-2"
+        [innerHTML]="translations.note2"></p>
+
+      <p
+        class="pe-payment-text small-text last-text"
+        [innerHTML]="translations.note1"></p>
+    </div>
+  </pe-dialog-content>
+</pe-dialog>
+
+<ng-template
+  #rowRef
+  let-label="label"
+  let-value="value">
+  <div class="pull-left pe-payment-line small-text">{{ label }}</div>
+  <div class="pull-right pe-payment-line small-text">
+    <strong>{{ value }}</strong>
+  </div>
+  <div class="clearfix"></div>
+</ng-template>

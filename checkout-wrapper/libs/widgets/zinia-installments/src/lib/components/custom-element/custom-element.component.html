@@ -1,0 +1,38 @@
+<ng-container *ngIf="isReady$ | async">
+  <ng-container *ngIf="type === WidgetTypeEnum.Button">
+    <widget-zinia-installments-button
+      [amount]="amount"
+      [channelSet]="channelSet"
+      [config]="config"
+      [paymentMethod]="paymentMethod"
+      (clicked)="onClicked()"
+      (failed)="onFailed()"></widget-zinia-installments-button>
+  </ng-container>
+  <ng-container *ngIf="type === WidgetTypeEnum.DropdownCalculator">
+    <widget-zinia-installments-dropdown-calculator
+      [amount]="amount"
+      [channelSet]="channelSet"
+      [config]="config"
+      [paymentMethod]="paymentMethod"
+      (clicked)="onClicked()"
+      (failed)="onFailed()"></widget-zinia-installments-dropdown-calculator>
+  </ng-container>
+  <ng-container *ngIf="type === WidgetTypeEnum.Text">
+    <widget-zinia-installments-text
+      [amount]="amount"
+      [channelSet]="channelSet"
+      [config]="config"
+      [paymentMethod]="paymentMethod"
+      (clicked)="onClicked()"
+      (failed)="onFailed()"></widget-zinia-installments-text>
+  </ng-container>
+  <ng-container *ngIf="type === WidgetTypeEnum.TwoFieldsCalculator">
+    <widget-zinia-installments-two-fields-calculator
+      [amount]="amount"
+      [channelSet]="channelSet"
+      [config]="config"
+      [paymentMethod]="paymentMethod"
+      (clicked)="onClicked()"
+      (failed)="onFailed()"></widget-zinia-installments-two-fields-calculator>
+  </ng-container>
+</ng-container>

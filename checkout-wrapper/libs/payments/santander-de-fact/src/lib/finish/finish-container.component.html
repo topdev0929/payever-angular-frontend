@@ -1,0 +1,12 @@
+<santander-de-fact-inquiry-finish
+  [nodeResult]="paymentResponse"
+  [embeddedMode]="embeddedMode"
+  [merchantMode]="merchantMode"
+  [showCloseButton]="showCloseButton"
+  [isDisableChangePayment]="isDisableChangePayment"
+  [isPOS]="isPOS"
+  [isLoading]="!errorMessage && !paymentResponse"
+  [errorMessage]="errorMessage"
+  (changePaymentMethod)="changePayment($event)"
+  (tryAgain)="tryAgain()"
+></santander-de-fact-inquiry-finish>

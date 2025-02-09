@@ -1,0 +1,226 @@
+<div class="status-bar-wrap">
+  <div
+    class="status-bar-wrap__step-item"
+    [class.active]="step >= 1">
+    <div class="circle">1</div>
+    <span
+      i18n="@@payment-santander-de-pos.inquiry.finish.adoption.stepper.credit_check"
+      class="first">
+      payment-santander-de-pos.inquiry.finish.adoption.stepper.credit_check
+    </span>
+  </div>
+  <div class="status-bar-wrap__line"></div>
+  <div
+    class="status-bar-wrap__step-item"
+    [class.active]="step >= 2">
+    <div class="circle">2</div>
+    <span
+      i18n="@@payment-santander-de-pos.inquiry.finish.adoption.stepper.identity_check"
+      class="middle">
+      payment-santander-de-pos.inquiry.finish.adoption.stepper.identity_check
+    </span>
+  </div>
+  <div class="status-bar-wrap__line"></div>
+  <div
+    class="status-bar-wrap__step-item"
+    [class.active]="step === 3">
+    <div class="circle">3</div>
+    <span
+      i18n="@@payment-santander-de-pos.inquiry.finish.adoption.stepper.digital_signature"
+      class="last">
+      payment-santander-de-pos.inquiry.finish.adoption.stepper.digital_signature
+    </span>
+  </div>
+</div>
+<div class="text-box">
+  <ng-container [ngSwitch]="step">
+    <ng-container *ngSwitchCase="1">
+      <ng-container *ngIf="!isInDecision">
+        <p>
+          <svg class="icon icon-64 text-primary"><use xlink:href="#icon-progress-94"></use></svg>
+        </p>
+        <div
+          class="text-box__title mb8 mt30"
+          i18n="@@payment-santander-de-pos.inquiry.finish.adoption.self.note1">
+          payment-santander-de-pos.inquiry.finish.adoption.self.note1
+        </div>
+        <div
+          class="text-box__title"
+          i18n="@@payment-santander-de-pos.inquiry.finish.adoption.self.note2">
+          payment-santander-de-pos.inquiry.finish.adoption.self.note2
+        </div>
+        <div
+          class="text-box__subtitle"
+          i18n="@@payment-santander-de-pos.inquiry.finish.adoption.self.note3">
+          payment-santander-de-pos.inquiry.finish.adoption.self.note3
+        </div>
+        <div
+          class="text-box__alert"
+          i18n="@@payment-santander-de-pos.inquiry.finish.adoption.self.note4">
+          payment-santander-de-pos.inquiry.finish.adoption.self.note4
+        </div>
+        <div
+          class="text-box__subtitle"
+          i18n="@@payment-santander-de-pos.inquiry.finish.adoption.self.note5">
+          payment-santander-de-pos.inquiry.finish.adoption.self.note5
+        </div>
+      </ng-container>
+      <ng-container *ngIf="isInDecision">
+        <p>
+          <svg class="icon icon-64 text-primary"><use xlink:href="#icon-progress-94"></use></svg>
+        </p>
+        <div
+          class="text-box__title mb8 mt30"
+          i18n="@@payment-santander-de-pos.inquiry.finish.adoption.self.note1indecision">
+          payment-santander-de-pos.inquiry.finish.adoption.self.note1indecision
+        </div>
+        <div
+          class="text-box__title"
+          i18n="@@payment-santander-de-pos.inquiry.finish.adoption.self.note2indecision">
+          payment-santander-de-pos.inquiry.finish.adoption.self.note2indecision
+        </div>
+
+        <div
+          class="text-box__subtitle"
+          i18n="@@payment-santander-de-pos.inquiry.finish.adoption.self.note3indecision">
+          payment-santander-de-pos.inquiry.finish.adoption.self.note3indecision
+        </div>
+        <div
+          class="text-box__alert"
+          i18n="@@payment-santander-de-pos.inquiry.finish.adoption.self.note4indecision">
+          payment-santander-de-pos.inquiry.finish.adoption.self.note4indecision
+        </div>
+        <div
+          class="text-box__subtitle"
+          i18n="@@payment-santander-de-pos.inquiry.finish.adoption.self.note5indecision">
+          payment-santander-de-pos.inquiry.finish.adoption.self.note5indecision
+        </div>
+      </ng-container>
+
+      <p
+        *ngIf="errorMessage"
+        style="color: red;"
+        [innerHTML]="errorMessage"></p>
+      <button
+        mat-button
+        [disabled]="updatingProcess$ | async"
+        [disableRipple]="true"
+        class="mat-button-md mat-button-gradient continue-button"
+        (click)="runUpdatePayment()">
+        <pe-progress-button-content [loading]="updatingProcess$ | async">
+          <span i18n="@@payment-santander-de-pos.inquiry.finish.adoption.self.button1">
+            payment-santander-de-pos.inquiry.finish.adoption.self.button1
+          </span>
+        </pe-progress-button-content>
+      </button>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="2">
+      <checkout-sdk-finish-status-icon [status]="'pending'"> </checkout-sdk-finish-status-icon>
+      <p
+        class="large-1"
+        i18n="@@payment-santander-de-pos.inquiry.finish.adoption.self.thanks">
+        payment-santander-de-pos.inquiry.finish.adoption.self.thanks
+      </p>
+      <p
+        class="caption-1"
+        i18n="@@payment-santander-de-pos.inquiry.finish.adoption.self.note6">
+        payment-santander-de-pos.inquiry.finish.adoption.self.note6
+      </p>
+
+      <ng-container *ngIf="isInDecision || isTimeoutInApproved">
+        <p
+          class="large-1 mt30 mb20"
+          i18n="@@payment-santander-de-pos.inquiry.finish.adoption.self.note7">
+          payment-santander-de-pos.inquiry.finish.adoption.self.note7
+        </p>
+        <p
+          class="caption-1 mb0"
+          i18n="@@payment-santander-de-pos.inquiry.finish.adoption.self.note8">
+          payment-santander-de-pos.inquiry.finish.adoption.self.note8
+        </p>
+        <p
+          class="caption-1 mt0"
+          i18n="@@payment-santander-de-pos.inquiry.finish.adoption.self.note9">
+          payment-santander-de-pos.inquiry.finish.adoption.self.note9
+        </p>
+      </ng-container>
+
+      <ng-container *ngIf="!isInDecision && !isTimeoutInApproved">
+        <div class="content">
+          <div class="row mt40">
+            <div class="col-sm-3">
+              <svg class="icon-web-id"><use xlink:href="#icon-web-id"></use></svg>
+            </div>
+            <div class="col-sm-9">
+              <p
+                class="caption-1 text-left mt15"
+                i18n="@@payment-santander-de-pos.inquiry.finish.adoption.self.note10">
+                payment-santander-de-pos.inquiry.finish.adoption.self.note10
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <form
+          novalidate
+          class="form-table">
+          <p
+            *ngIf="errorMessage"
+            style="color: red;"
+            [innerHTML]="errorMessage"></p>
+          <div
+            class="signing-qr"
+            *ngIf="nodeResult.paymentDetails.customerSigningLink">
+            <ui-qr-box [url]="nodeResult.paymentDetails.customerSigningLink"></ui-qr-box>
+          </div>
+          <button
+            mat-button
+            type="button"
+            (click)="onSignNow($event)"
+            [disabled]="updatingProcess$ | async"
+            [disableRipple]="true"
+            class="mat-button-md mat-button-gradient continue-button mb20">
+            <pe-progress-button-content
+              [loading]="updatingProcess$ | async"
+              [spinnerDiameter]="17">
+              <span i18n="@@payment-santander-de-pos.inquiry.finish.adoption.self.button2">
+                payment-santander-de-pos.inquiry.finish.adoption.self.button2
+              </span>
+            </pe-progress-button-content>
+          </button>
+        </form>
+      </ng-container>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="3">
+      <p>
+        <svg class="icon icon-64 text-primary"><use xlink:href="#icon-progress-94"></use></svg>
+      </p>
+      <p
+        class="large-1"
+        i18n="@@payment-santander-de-pos.inquiry.finish.adoption.self.thanks">
+        payment-santander-de-pos.inquiry.finish.adoption.self.thanks
+      </p>
+      <p
+        class="caption-1 mt40"
+        [innerHTML]="selfNote11"></p>
+      <p
+        class="large-1"
+        i18n="@@payment-santander-de-pos.inquiry.finish.adoption.self.note12">
+        payment-santander-de-pos.inquiry.finish.adoption.self.note12
+      </p>
+
+      <p
+        class="caption-1 mt40"
+        i18n="@@payment-santander-de-pos.inquiry.finish.adoption.self.note13">
+        payment-santander-de-pos.inquiry.finish.adoption.self.note13
+      </p>
+      <p
+        class="caption-1"
+        i18n="@@payment-santander-de-pos.inquiry.finish.adoption.self.note14">
+        payment-santander-de-pos.inquiry.finish.adoption.self.note14
+      </p>
+    </ng-container>
+  </ng-container>
+</div>

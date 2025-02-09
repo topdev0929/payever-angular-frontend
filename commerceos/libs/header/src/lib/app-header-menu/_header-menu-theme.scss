@@ -1,0 +1,41 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $primary: map.get($color-config, 'primary');
+  $label-color: map.get($color-config, 'label-color');
+  $confirm: map.get($color-config, 'confirm');
+  $active-button: map.get($color-config, 'active-button');
+  $border: map.get($color-config, 'border');
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $text-color: map.get($color-config, 'text-color');
+
+  pe-header-menu {
+    .header-menu-container {
+      background-color: $secondary-background;
+      border-color: $border;
+      &__header {
+        &-item {
+          .title {
+            color: $text-color;
+          }
+          .cancel-btn {
+            color: $label-color;
+          }
+          .done-btn {
+            color: $confirm;
+          }
+        }
+      }
+      &__content {
+        .menu-item {
+          &__text, &__arrow .arrow-open {
+            color: $text-color;
+          }
+          &:hover {
+            background-color: $active-button;
+          }
+        }
+      }
+    }
+  }
+}

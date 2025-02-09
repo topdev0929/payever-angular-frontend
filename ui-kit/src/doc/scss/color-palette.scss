@@ -1,0 +1,52 @@
+//
+// Color Palette Component
+// ----------------------------
+
+.color-palette {
+
+  pre {
+    margin-top: $grid-unit-y;
+  }
+
+  code {
+    background-color: transparent;
+  }
+
+  @include screen-xs() {
+    margin-bottom: $grid-unit-y * 4;
+  }
+
+  &-item {
+    margin-bottom: $grid-unit-y * 2;
+  }
+
+  &-box {
+    height: $grid-unit-y * 11;
+    text-align: center;
+    line-height: $grid-unit-y * 11;
+    border-radius: $border-radius-base;
+
+
+    @include screen-xs() {
+      height: $grid-unit-y * 5;
+      line-height: $grid-unit-y * 5;
+    }
+
+    &-dark {
+      color: $color-white;
+    }
+
+    &-light {
+      color: $color-dark-gray;
+    }
+
+    &-3rd {
+      height: $grid-unit-y * 6;
+      line-height: $grid-unit-y * 6;
+    }
+  }
+
+  &-description {
+
+  }
+}

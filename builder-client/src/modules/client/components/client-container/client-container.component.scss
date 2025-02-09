@@ -1,0 +1,55 @@
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+@import "~@pe/ui-kit/scss/pe_variables";
+
+::ng-deep .checkout-custom-page {
+  @include payever_transform_translateY(0%);
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  // transition: transform 0.5s ease-in-out; // TODO Disabled for IE
+  z-index: 9999;
+  border-radius: 0 0 $border-radius-base * 2 $border-radius-base * 2;
+
+  ::ng-deep iframe {
+    border-radius: 0 0 $border-radius-base * 2 $border-radius-base * 2;
+    overflow: hidden;
+  }
+
+  &.element-hidden {
+    @include payever_transform_translateY(-250%);
+  }
+
+  @media(min-width: $viewport-breakpoint-ipad + 1) {
+    margin-left: 50%;
+    left: -$viewport-breakpoint-ipad/2;
+    width: $viewport-breakpoint-ipad !important;
+  }
+
+  @media(max-width: $viewport-breakpoint-ipad) {
+    left: 0;
+    width: 100% !important;
+  }
+}
+
+::ng-deep snack-bar-container.mat-snack-bar-container {
+  display: flex;
+
+  pe-snack-bar-content {
+    margin: auto;
+    color: #ffffff;
+  }
+}
+
+.element-hidden {
+  @include payever_transform_translateY(-250%);
+  visibility: hidden;
+}
+
+.cdk-overlay-backdrop {
+  position: fixed !important;
+}
+
+.viewer {
+  display: block;
+  overflow: hidden;
+}

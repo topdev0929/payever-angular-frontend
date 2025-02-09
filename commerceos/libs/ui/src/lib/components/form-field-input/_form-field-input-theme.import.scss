@@ -1,0 +1,10 @@
+@use 'pe_theming' as pet;
+@use './form-field-input-theme' as form_field_input;
+@use './password-tooltip/password-tooltip-modal-theme' as password_tooltip;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include form_field_input.color($color-config);
+  @include password_tooltip.color($color-config);
+}
+

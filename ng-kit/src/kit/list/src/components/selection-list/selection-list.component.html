@@ -1,0 +1,15 @@
+<mat-selection-list #selectionList
+                    [disableRipple]="disableRipple"
+                    [disabled]="disabled"
+                    (selectionChange)="onSelectionChanged($event)"
+>
+  <pe-list-option *ngFor="let option of options"
+                  [checkboxPosition]="option.checkboxPosition"
+                  [disableRipple]="option.disableRipple"
+                  [disabled]="option.disabled"
+                  [selected]="option.selected"
+                  [value]="option.value"
+  >
+    {{ option.label }}
+  </pe-list-option>
+</mat-selection-list>

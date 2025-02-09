@@ -1,0 +1,34 @@
+<div class="pe-example-viewer">
+  <div class="viewer-header">
+    <div class="row">
+      <div class="col-xs-9 viewer-title" [innerHTML]="title"></div>
+      <div class="col-xs-3 text-right" *ngIf="!disableToggle">
+        <a class="example-source-toggle-btn" (click)="toggleSourceCode()">
+          <svg class="icon icon-16"><use xlink:href="#icon-arrow-left-2-16"></use></svg>
+          <svg class="icon icon-16"><use xlink:href="#icon-arrow-right-2-16"></use></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-source" *ngIf="sourceCodeActive">
+    <tabset>
+      <!-- TODO: fix build error -->
+      <!-- <tab heading="TS" [disabled]="!tsExample">
+        <pre *ngIf="tsExample"><code highlight [code]="tsExample" [language]="['ts', 'typescript', 'js', 'javascript']"></code></pre>
+      </tab>
+      
+      <tab heading="HTML" [disabled]="!htmlExample">
+        <pre *ngIf="htmlExample"><code highlight [code]="htmlExample" [language]="['html']"></code></pre>
+      </tab>
+      
+      <tab heading="CSS" [disabled]="!cssExample">
+        <pre *ngIf="cssExample"><code highlight [code]="cssExample" [language]="['css']"></code></pre>
+      </tab> -->
+    </tabset>
+  </div>
+
+  <div class="example-body">
+    <ng-content></ng-content>
+  </div>
+</div>

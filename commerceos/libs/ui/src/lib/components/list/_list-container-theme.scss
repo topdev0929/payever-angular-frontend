@@ -1,0 +1,11 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+
+  .pe-list-container {
+    &__title {
+      color: $text-color;
+    }
+  }
+}

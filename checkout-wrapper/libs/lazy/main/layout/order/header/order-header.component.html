@@ -1,0 +1,31 @@
+<ng-container *ngIf="vm$ | async as vm">
+  <pe-layout-header
+    *ngIf="vm.settings"
+    [hideLogo]="true"
+    [settings]="vm.settings"
+    [fullWidth]="vm.settings.fullWidth">
+    <ng-container col-left>
+      <span
+        class="header-back-to-pay"
+        (click)="toggleOrderEdit(false)">
+        <svg class="icon icon-16">
+          <use xlink:href="#icon-arrow-left-small-16"></use>
+        </svg>
+        &nbsp;
+        <span i18n="@@action.pay"> action.pay </span>
+      </span>
+    </ng-container>
+    <ng-container col-center>
+      <div class="text-center subheading middle-header">
+        <div
+          class="toggle-order"
+          (click)="toggleOrderEdit()">
+          {{ flow.total | currency:flow.currency:'symbol' }}
+          <svg class="icon icon-16 content-opened">
+            <use xlink:href="#icon-arrow-down-small-16"></use>
+          </svg>
+        </div>
+      </div>
+    </ng-container>
+  </pe-layout-header>
+</ng-container>

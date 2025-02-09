@@ -1,0 +1,126 @@
+{
+  "finexp": {
+    "actions": {
+      "edit": "Edit",
+      "show": "Show",
+      "cancel": "Cancel",
+      "close": "Close",
+      "resetSettings": "Reset settings"
+    },
+    "labels": {
+      "settings_for_payments": "Settings for payments",
+      "default": "Default",
+      "alignments": "Alignments",
+      "theme": "Theme"
+    },
+    "channels": {
+      "financeExpress": "Finance Express",
+      "text": "Text",
+      "button": "Button",
+      "dropdownCalculator": "Calculator",
+      "twoFieldsCalculator": "Two Fields Calculator",
+      "settings": {
+        "title": "Settings",
+        "general": "General",
+        "payments": "Payments",
+        "size": "Size",
+        "colors": "Colors",
+        "maxWidth": "Max width",
+        "minWidth": "Min width",
+        "maxHeight": "Max height",
+        "minHeight": "Min height",
+        "maxWidthUnit": "px",
+        "minWidthUnit": "px",
+        "maxHeightUnit": "px",
+        "minHeightUnit": "px",
+        "visibility": "Visibility",
+        "mainText": "Main text",
+        "regularText": "Regular text",
+        "ctaText": "CTA text",
+        "background": "Background",
+        "borders": "Borders",
+        "button": "Button",
+        "fieldBackground": "Field background",
+        "fieldLine": "Field borders",
+        "fieldArrow": "Field arrow",
+        "headerText": "Header text",
+        "limits": {
+          "title": "Limits",
+          "minLimit": "Min limit",
+          "maxLimit": "Max limit"
+        },
+        "ratesOrder": "Rates order",
+        "placements": {
+          "title": "Checkout placement",
+          "rightSidebar": "Right sidebar",
+          "leftSidebar": "Left sidebar",
+          "asModal": "As Modal",
+          "top": "Top"
+        },
+        "successUrl": "Success url",
+        "pendingUrl": "Pending url",
+        "cancelUrl": "Cancel url",
+        "failureUrl": "Failure url",
+        "noticeUrl": "Notice url",
+        "mode": {
+          "none": "None",
+          "calculator": "Overlay",
+          "financeExpress": "Finance Express"
+        },
+        "price": {
+          "min": "Min price",
+          "max": "Max price"
+        },
+        "alignment": {
+          "left": "Left",
+          "center": "Center",
+          "right": "Right"
+        },
+        "theme": {
+          "light": "Light",
+          "dark": "Dark"
+        }
+      },
+      "payments": {
+        "bnpl": "BuyNowPayLater",
+        "santander_installment_no": {
+          "default": "Delbetaling",
+          "bnpl": "Betalingsutsettelse"
+        },
+        "santander_installment_se": {
+          "default": "Delbetala",
+          "bnpl": "Köp nu betel senare"
+        }
+      },
+      "validation": {
+        "errors": {
+          "minValue": "Min limit you have input is not allowed!",
+          "maxValue": "Max limit you have input is not allowed!",
+          "maxAndMinValue": "Max and min limits you have input is not allowed!"
+        }
+      },
+      "generateHtml": {
+        "title": "Text Link HTML",
+        "text": "Generate HTML",
+        "copy": "Copy Code",
+        "copied": "Copied",
+        "getCode": "Get Code",
+        "loadingWidget": "Loading widget..."
+      },
+      "errors": {
+        "cannotSaveSettings": "Cannot save settings",
+        "channelSetNotFound": "Channel set with type \"finance_express\" not found for current checkout",
+        "paymentOptionNotSet": "Payment options not set in current checkout",
+        "cannotGetCalculation": "Cannot get calculations from server",
+        "cannotFetchTokenForSe": "Cannot get token for Santander Installment SE",
+        "cannotFetchPaymentOptions": "Cannot fetch payment options",
+        "inputMaxLength": "Maximum value is {{value}}",
+        "inputMinLength": "Minimal value is {{value}}",
+        "inputWrongValue": "Wrong value",
+        "noPaymentSelected": "No payment options available",
+        "noPaymentsError": "No payments available",
+        "breaksBetweenPaymentLimits": "Not matching limits between payment options"
+      }
+    }
+  }
+}

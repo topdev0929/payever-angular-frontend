@@ -1,0 +1,46 @@
+<ng-container *ngIf="vm$ | async as vm">
+  <pe-layout-header
+    *ngIf="vm.settings"
+    [settings]="vm.settings"
+    [fullWidth]="vm.settings.fullWidth">
+    <ng-container header-logo>
+      <pe-layout-logo [url]="vm.showCustomLogo && vm.settings.logo?.url"> </pe-layout-logo>
+    </ng-container>
+
+    <ng-container col-center>
+      <div
+        *ngIf="vm.showOrderAmount"
+        class="text-center subheading middle-header">
+        <div
+          class="toggle-order"
+          (click)="toggleOrderEdit()">
+          {{ flow.total | currency:flow.currency:'symbol' }}
+          <svg
+            class="icon icon-16"
+            [class.content-opened]="vm.showOrder">
+            <use xlink:href="#icon-arrow-down-small-16"></use>
+          </svg>
+        </div>
+      </div>
+    </ng-container>
+
+    <div
+      *ngIf="params$ | async as params"
+      col-right
+      class="fix-header-col-right">
+      <checkout-main-button-cancel
+        *ngIf="showCancel$ | async"
+        [flow]="flow"
+        [isInIframe]="isInIframe"
+        [isDefault]="!vm.showCustomLogo || isPos"
+        [buttonText]="vm.cancelButtonText">
+      </checkout-main-button-cancel>
+
+      <button-share
+        *ngIf="vm.showShareBag"
+        [customStyles]="!!vm.showCustomLogo"
+        [flow]="flow">
+      </button-share>
+    </div>
+  </pe-layout-header>
+</ng-container>

@@ -1,0 +1,19 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $button: map.get($color-config, 'button');
+  $active-text: map.get($color-config, 'active-text');
+  $overlay-background: map.get($color-config, 'overlay-background');
+
+  .peb-tabs {
+    .tabs {
+      &__wrapper {
+        background-color: $overlay-background;
+      }
+    }
+    .active {
+      background-color: $button;
+      color: $active-text;
+    }
+  }
+}

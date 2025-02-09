@@ -1,0 +1,45 @@
+{
+  "coupons-app": {
+
+    "navigation": {
+      "title": "Coupons"
+    },
+    "sidebar": {
+      "title": "My Coupons"
+    },
+    "grid": {
+      "new-coupon": "New Coupon",
+      "open-coupon": "Open"
+    },
+    "filters": {
+      "labels": {
+        "channel": "Channel",
+        "category": "Category",
+        "price": "Price"
+      },
+      "sort_by": "Sort By",
+      "layout": "Layout",
+      "search": "Search",
+      "filter": "Filter",
+      "contains": "Contains",
+      "does_not_contain": "Does not contain",
+      "apply": "Apply",
+      "action": "Action"
+    },
+    "form": {
+      "title": "Create discount dode"
+    },
+    "navbar": {
+      "list": "List",
+      "grid": "Grid"
+    },
+    "confirmations": {
+      "editing-coupon-title": "Editing Coupon",
+      "editing-coupon-text": "Do you really want to close editing a coupon? Because all data will be lost when unsaved and you will not be able to restore it.",
+      "delete-coupon-title": "Delete Coupon(s)",
+      "delete-coupon-text": "Are you sure you want to delete selected coupouns?",
+      "delete-folder-title": "Delete Folder",
+      "delete-folder-text": "Are you sure you want to delete the folder"
+    }
+  }
+}

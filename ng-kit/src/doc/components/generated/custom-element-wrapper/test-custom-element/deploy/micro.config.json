@@ -1,0 +1,5 @@
+{
+  "code": "ng-kit-test-custom-element",
+  "tag": "<pe-test-custom-element></pe-test-custom-element>",
+  "bootstrapScriptUrl": "${MICRO_URL_FRONTEND_NGKIT}/micro.js?{hash}"
+}

@@ -1,0 +1,22 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $background: map.get($color-config, 'background');
+  $label-color: map.get($color-config, 'label-color');
+  $hover-text: map.get($color-config, 'hover-text');
+  $backdrop-filter-transparent: map.get($color-config, 'backdrop-filter-transparent');
+
+  
+
+  .social-root {
+      &__content,
+      &__header {
+        background-color: $background;
+        backdrop-filter: $backdrop-filter-transparent;
+      }
+
+    pe-title-cell {
+      img {display: none !important}
+    }
+  }
+}

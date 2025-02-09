@@ -1,0 +1,256 @@
+<ui-icons-set></ui-icons-set>
+<ui-icons-activity-tab></ui-icons-activity-tab>
+<ui-icons-apps></ui-icons-apps>
+<ui-icons-banners></ui-icons-banners>
+<ui-icons-builder></ui-icons-builder>
+<ui-icons-cards></ui-icons-cards>
+<ui-icons-categories></ui-icons-categories>
+<ui-icons-dashboard></ui-icons-dashboard>
+<ui-icons-dock></ui-icons-dock>
+<ui-icons-edit-panel></ui-icons-edit-panel>
+<ui-icons-embed></ui-icons-embed>
+<ui-icons-commerceos></ui-icons-commerceos>
+<ui-icons-finance-express></ui-icons-finance-express>
+<ui-icons-marketing></ui-icons-marketing>
+<ui-icons-messenger></ui-icons-messenger>
+<ui-icons-payment></ui-icons-payment>
+<ui-icons-santander-flags></ui-icons-santander-flags>
+<ui-icons-settings></ui-icons-settings>
+<ui-icons-shipping></ui-icons-shipping>
+<ui-icons-social></ui-icons-social>
+<ui-icons-stat></ui-icons-stat>
+<ui-icons-store-builder></ui-icons-store-builder>
+<ui-icons-trust-app></ui-icons-trust-app>
+<ui-images-payment-options></ui-images-payment-options>
+
+<div class="navbar navbar-fixed-top">
+  <header class="row">
+    <div class="col-xs-8 col-sm-4">
+      <a class="toggle-menu hidden-md hidden-lg" (click)="onMenuToggle()"><svg class="icon icon-24">
+          <use xlink:href="#icon-menu-24" /></svg></a>
+      <span id="ui-kit-version">payever UI Kit v 9.0.27</span>
+    </div>
+    <div class="col-xs-4 col-sm-4">
+      <div class="title">
+        <img src="./assets/img/favicon-70.png" width="34" height="34">
+      </div>
+    </div>
+  </header>
+</div>
+<div class="row" [class.menu-is-open]="isMenuOpen">
+  <div class="col-md-3 docsidebar" (click)="closeMenu()">
+    <div class="wrapper">
+      <h4>Base Styles</h4>
+      <ul class="nav nav-sidebar">
+        <li class="title">Colors</li>
+        <li><a [routerLink]="['/colors']" fragment="color-palette">Black Shades</a></li>
+        <li><a [routerLink]="['/colors']" fragment="color-palette-gray">White Shades</a></li>
+        <li><a [routerLink]="['/colors']" fragment="color-primary">Primary</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li class="title">Typography</li>
+        <li><a [routerLink]="['/typography']" fragment="headings">Headings</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li class="title">*Icons</li>
+        <li><a [routerLink]="['/icons']" fragment="svg-usage">SVG usage</a></li>
+        <li><a [routerLink]="['/icons']" fragment="svg-set">SVG icons templates</a></li>
+        <li><a [routerLink]="['/icons']" fragment="applications">Applications</a></li>
+        <li><a [routerLink]="['/icons']" fragment="apps-logos-set">Applications logos</a></li>
+        <li><a [routerLink]="['/icons']" fragment="payment-options-icons">Payment options icons</a></li>
+        <li><a [routerLink]="['/icons']" fragment="dashboard-icons">Dashboard icons</a></li>
+        <li><a [routerLink]="['/icons']" fragment="brand-logos">Logos of brands</a></li>
+        <li><a [routerLink]="['/icons']" fragment="png-set-dashboard-apps">Dashboard app png icons</a></li>
+        <li><a [routerLink]="['/icons']" fragment="png-icons-set">Png Icons sets</a></li>
+        <li><a [routerLink]="['/icons']" fragment="commerceos-icons">Commerceos icons</a></li>
+
+      </ul>
+
+      <h4>Google Angular Material Styles</h4>
+      <ul class="nav nav-sidebar">
+        <li class="title">Form Controls</li>
+        <li><a [routerLink]="['/mat-autocomplete']">Autocomplete</a></li>
+        <li><a [routerLink]="['/mat-input']">Input</a></li>
+        <li><a [routerLink]="['/mat-checkbox']">Checkbox</a></li>
+        <li><a [routerLink]="['/mat-select']">Select</a></li>
+        <li><a [routerLink]="['/mat-textarea']">Textarea</a></li>
+        <li><a [routerLink]="['/mat-radio']">Radio</a></li>
+        <li><a [routerLink]="['/mat-fieldset']">Fieldset</a></li>
+        <li><a [routerLink]="['/mat-slider']">Slider</a></li>
+        <li><a [routerLink]="['/mat-slide-toggle']">Slide Toggle</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li class="title caption-2">Navigation</li>
+        <li><a [routerLink]="['/mat-sidenav']">Sidenav</a></li>
+        <li><a [routerLink]="['/mat-menu']" fragment="tables-default">Menu</a></li>
+        <li><a [routerLink]="['/mat-toolbar']" fragment="tables-default">Toolbar</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li class="title caption-2">Layout</li>
+        <li><a [routerLink]="['/mat-card']" fragment="default">Card</a></li>
+        <li><a [routerLink]="['/mat-divider']" fragment="default">Divider</a></li>
+        <li><a [routerLink]="['/mat-expansion-panel']" fragment="default">Expansion panel</a></li>
+        <li><a [routerLink]="['/mat-grid-list']" fragment="default">Grid List</a></li>
+        <li><a [routerLink]="['/mat-list']" fragment="list">List</a></li>
+        <li><a [routerLink]="['/mat-tabs']" fragment="default">Tabs</a></li>
+        <li><a [routerLink]="['/mat-tree']" fragment="tree">Tree</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li class="title">Buttons & Indicators</li>
+        <li><a [routerLink]="['/mat-button']" fragment="default">Button</a></li>
+        <li><a [routerLink]="['/mat-button-toggle']" fragment="default">Button Toggle</a></li>
+        <li><a [routerLink]="['/mat-badge']" fragment="default">Badge</a></li>
+        <li><a [routerLink]="['/mat-chip']" fragment="default">Chip</a></li>
+        <li><a [routerLink]="['/mat-spinner']" fragment="default">Spinner</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li class="title">Popups & Modals</li>
+        <li><a [routerLink]="['/mat-dialog']">Dialog</a></li>
+        <li><a [routerLink]="['/mat-tooltip']" fragment="tooltip">Tooltip</a></li>
+        <li><a [routerLink]="['/mat-snack-bar']" fragment="snack-bar">Snack Bar</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li class="title">Data table</li>
+        <li><a [routerLink]="['/mat-table']" fragment="tables-default">Tables</a></li>
+      </ul>
+
+      <h4>Bootstrap Styles</h4>
+      <ul class="nav nav-sidebar">
+        <li class="title">Alerts</li>
+        <li><a [routerLink]="['/alerts']" fragment="alert-default">Default</a></li>
+        <li><a [routerLink]="['/alerts']" fragment="alert-dismissable">Dismissable</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li class="title">*Blocks</li>
+        <li><a [routerLink]="['/block']" fragment="block">Default</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li class="title">Buttons</li>
+        <li><a [routerLink]="['/buttons']" fragment="button-tags">Button Tags</a></li>
+        <li><a [routerLink]="['/buttons']" fragment="button-style-variations">Style Variations</a></li>
+        <li><a [routerLink]="['/buttons']" fragment="button-block">Block (Full width)</a></li>
+        <li><a [routerLink]="['/buttons']" fragment="button-rounded">Rounded Buttons</a></li>
+        <li><a [routerLink]="['/buttons']" fragment="button-disabled">Disabled State</a></li>
+        <li><a [routerLink]="['/buttons']" fragment="button-icons">Button With Icons</a></li>
+        <li><a [routerLink]="['/buttons']" fragment="button-glow">Button Glow</a></li>
+        <li><a [routerLink]="['/buttons']" fragment="button-file-input">Button File Input</a></li>
+        <li><a [routerLink]="['/buttons']" fragment="button-social">Social Buttons</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li class="title">Button Groups</li>
+        <li><a [routerLink]="['/button-groups']" fragment="button-group-base">Base Button Groups</a></li>
+        <li><a [routerLink]="['/button-groups']" fragment="button-group-dark">Activated Button Groups</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li class="title">*Dropdowns</li>
+        <li><a [routerLink]="['/dropdowns']" fragment="dropdowns-styles">Styles</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li class="title">Grid</li>
+        <li><a [routerLink]="['/grid']" fragment="default">Default</a></li>
+        <li><a [routerLink]="['/grid']" fragment="bordered">Bordered</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li class="title">*Tables</li>
+        <li><a [routerLink]="['/tables']" fragment="tables-basic-style">Base style</a></li>
+        <li><a [routerLink]="['/tables']" fragment="table-responsive">Responsive table</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li class="title">*Tabs</li>
+        <li><a [routerLink]="['/tabs']" fragment="tabs-default">Default</a></li>
+        <li><a [routerLink]="['/tabs']" fragment="tabs-pills">Pills</a></li>
+        <li><a [routerLink]="['/tabs']" fragment="tabs-stacked">Stacked</a></li>
+        <li><a [routerLink]="['/tabs']" fragment="tabs-united">United</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li class="title">*Typography</li>
+        <li><a [routerLink]="['/typography']" fragment="styles">Headings and body</a></li>
+      </ul>
+
+      <h4>Own payever Styles</h4>
+      <ul class="nav nav-sidebar">
+        <li class="title">Avatars</li>
+        <li><a [routerLink]="['/avatar']" fragment="avatar">Default</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li class="title">*Blocks</li>
+        <li><a [routerLink]="['/block']" fragment="block">Default</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li class="title">*Cards</li>
+        <li><a [routerLink]="['/cards']" fragment="cards">Default</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li class="title">Colors</li>
+        <li><a [routerLink]="['/colors']" fragment="color-palette">Sketch Palette Colors</a></li>
+        <li><a [routerLink]="['/colors']" fragment="color-palette-gray">Color Palette Gray</a></li>
+        <li><a [routerLink]="['/colors']" fragment="color-brands">3-rd Party Colors</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li class="title">*Charts</li>
+        <li><a [routerLink]="['/charts']" fragment="charts">Default</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li class="title">*Dropdowns</li>
+        <li><a [routerLink]="['/dropdowns']" fragment="dropdowns-styles">Styles</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li class="title">*Header</li>
+        <li><a [routerLink]="['/header']" fragment="header">Default</a></li>
+        <li><a [routerLink]="['/header']" fragment="header-sidebar">Sidebar header</a></li>
+        <li><a [routerLink]="['/header']" fragment="header-dark">Dark header</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li class="title">Layout</li>
+        <li><a [routerLink]="['/layout']" fragment="layout-blur-middle">Blur Middle</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li class="title">*Loader</li>
+        <li><a [routerLink]="['/loader']" fragment="spinner-default">Default</a></li>
+        <li><a [routerLink]="['/loader']" fragment="spinner-sizes">Sizes</a></li>
+        <li><a [routerLink]="['/loader']" fragment="spinner-colors">Colors</a></li>
+        <li><a [routerLink]="['/loader']" fragment="spinner-containers">Containers</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li class="title">Number Field</li>
+        <li><a [routerLink]="['/number-field']" fragment="number-field-default">Default</a></li>
+        <li><a [routerLink]="['/number-field']" fragment="number-field-large">Large</a></li>
+        <li><a [routerLink]="['/number-field']" fragment="number-field-rounded">Rounded</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li routerLink="/person" class="title">*Person</li>
+        <li><a [routerLink]="['/person']" fragment="person-avatar">Avatar</a></li>
+        <li><a [routerLink]="['/person']" fragment="person-store-logo">Store logo</a></li>
+        <li><a [routerLink]="['/person']" fragment="person-defaults">Defaults</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li routerLink="/rate" class="title">Rate</li>
+        <li><a [routerLink]="['/rate']" fragment="rate-default">Default</a></li>
+        <li><a [routerLink]="['/rate']" fragment="rate-edit">Edit</a></li>
+        <li><a [routerLink]="['/rate']" fragment="rate-title">Title</a></li>
+        <li><a [routerLink]="['/rate']" fragment="rate-loading">Loading</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li class="title">*Tables</li>
+        <li><a [routerLink]="['/tables']" fragment="tables-basic-style">Base style</a></li>
+        <li><a [routerLink]="['/tables']" fragment="table-responsive">Responsive table</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li class="title">*Tabs</li>
+        <li><a [routerLink]="['/tabs']" fragment="tabs-default">Default</a></li>
+        <li><a [routerLink]="['/tabs']" fragment="tabs-pills">Pills</a></li>
+        <li><a [routerLink]="['/tabs']" fragment="tabs-stacked">Stacked</a></li>
+        <li><a [routerLink]="['/tabs']" fragment="tabs-united">United</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li class="title">*Typography</li>
+        <li><a [routerLink]="['/typography']" fragment="styles">Headings and body</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-sm-12 col-md-9 col-md-offset-3">
+    <router-outlet></router-outlet>
+    <router-outlet name="modal"></router-outlet>
+  </div>
+</div>

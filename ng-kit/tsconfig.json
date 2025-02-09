@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "downlevelIteration": true,
+    "outDir": "./public",
+    "target": "es2015",
+    "allowJs": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
+    "noImplicitAny": true,
+    "skipLibCheck": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "allowSyntheticDefaultImports": true,
+    "types": [
+      "node",
+      "jasmine",
+      "swiper"
+    ],
+    "lib": [
+      "es6",
+      "es2015",
+      "es2017",
+      "dom"
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+<div class="pe-payment-container">
+  <div
+    class="text-danger small"
+    [innerHtml]="errorMessage"></div>
+
+  <form
+    class="form-table"
+    [formGroup]="form">
+    <div class="form-fieldset-new">
+      <mat-form-field class="col-xs-12">
+        <mat-label i18n="@@payment-instant-payment.inquiry.form.senderHolder.label"> Sender holder </mat-label>
+
+        <input
+          matInput
+          formControlName="senderHolder"
+          [readonly]="!!flow.billingAddress"
+          type="text" />
+      </mat-form-field>
+
+      <mat-form-field class="col-xs-12">
+        <mat-label i18n="@@payment-instant-payment.inquiry.form.senderIban.label"> Sender IBAN </mat-label>
+
+        <input
+          matInput
+          formControlName="senderIban"
+          type="text" />
+      </mat-form-field>
+    </div>
+
+    <div class="checkbox-form terms-form">
+      <mat-checkbox
+        formControlName="adsAgreement"
+        analyticFieldName="Ads agreement">
+        <span [innerHTML]="translations.adsAgreement"> Ads agreement </span>
+      </mat-checkbox>
+    </div>
+  </form>
+</div>

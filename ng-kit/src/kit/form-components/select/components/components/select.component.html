@@ -1,0 +1,95 @@
+<mat-form-field [floatLabel]="floatLabel" [hideRequiredMarker]="hideRequiredMarker"
+                [class.mat-form-field-has-prefix]="addonPrepend">
+  <mat-select [attr.pe-qa-select]="controlQaId"
+              [disableOptionCentering]="disableOptionCentering"
+              [disabled]="disabled || readonly"
+              [errorStateMatcher]="errorStateMatcher"
+              [formControl]="formControl"
+              [multiple]="multiple"
+              [panelClass]="panelClass+' pe-bootstrap'"
+              [placeholder]="placeholder"
+              [required]="required"
+              [tabIndex]="tabIndex"
+              (openedChange)="onOpenedChange($event);false"
+              (focus)="onFocus($event)"
+              (blur)="onBlur($event)">
+    <mat-select-trigger *ngIf="singleLineMode" class="select-trigger-hide-overflow">
+      <mat-chip-list class="select-trigger-hide-overflow-chip-list" #chipListContainer>
+        <mat-chip *ngFor="let option of selectedOptions"
+                  class="mat-chip-sm"
+                  [selectable]="false"
+                  [removable]="true"
+                  (removed)="onRemove(option)"
+                  [style.opacity]="getOptionOpacity(option)"
+                  [attr.value]="option"
+                  #chipItem
+        >
+          <div *ngIf="isColorType(option)" class="color-option-preview"
+               [style.background-color]="getOptionColor(option)">
+          </div>
+          <svg class="icon icon-8" matChipRemove *ngIf="!disabled">
+            <use xlink:href="#icon-close-8"></use>
+          </svg>
+        </mat-chip>
+      </mat-chip-list>
+      <div class="select-trigger-hide-overflow-more-postfix">
+        <span>{{moreTextConcat}}</span>
+      </div>
+    </mat-select-trigger>
+    <ng-container *ngIf="optionGroups && optionGroups.length > 0; else optionsFlat">
+      <mat-option [attr.pe-qa-select-item]="controlQaId + '-placeholder'">{{ placeholder }}</mat-option>
+      <mat-optgroup *ngFor="let group of optionGroups" [label]="group.label" [disabled]="group.disabled">
+        <ng-container *ngIf="rawLabels; else standardGroupOption">
+          <mat-option *ngFor="let option of getGroupedItems(group)" [value]="option.value" [attr.pe-qa-select-item]="getOptionQaId(option)"
+            [innerHTML]="translate(option.label) | raw"></mat-option>
+        </ng-container>
+
+        <ng-template #standardGroupOption>
+          <mat-option *ngFor="let option of getGroupedItems(group)"
+            (onSelectionChange)="onSelectChange($event, option.value)" [value]="option.value" [attr.pe-qa-select-item]="getOptionQaId(option)">{{option.label}}
+          </mat-option>
+        </ng-template>
+      </mat-optgroup>
+    </ng-container>
+
+    <ng-template #optionsFlat>
+      <ng-container *ngIf="rawLabels; else standardOption">
+        <mat-option *ngFor="let option of options" (onSelectionChange)="onSelectChange($event, option.value)"
+          [value]="option.value" [innerHTML]="translate(option.label) | raw" [attr.pe-qa-select-item]="getOptionQaId(option)"></mat-option>
+      </ng-container>
+
+      <ng-template #standardOption>
+        <mat-option *ngFor="let option of options"
+                    (onSelectionChange)="onSelectChange($event, option.value)"
+                    [value]="option.value"
+                    [attr.pe-qa-select-item]="getOptionQaId(option)"
+                    [ngClass]="optionClass"
+        >
+          <div class="mat-form-field-flex">
+            <svg *ngIf="option.iconRef" class="icon icon-12">
+              <use [attr.xlink:href]="option.iconRef"></use>
+            </svg>
+            <span *ngIf="option.imgRef">
+              <img class="image-option" [src]="option.imgRef">
+            </span>
+            <div *ngIf="option.hexColor" class="color-option-preview" [style.background-color]="option.hexColor"></div>
+            {{translate(option.label)}}
+          </div>
+        </mat-option>
+        <ng-container *ngIf="addOptionButton; then addOption"></ng-container>
+      </ng-template>
+    </ng-template>
+  </mat-select>
+  <mat-label *ngIf="label">{{label}}</mat-label>
+  <mat-error *ngIf="errorMessage && formControl?.invalid" [style.margin-left.px]="addonPrependOffset">{{errorMessage}}
+  </mat-error>
+  <pe-form-addon matSuffix [addon]="addonAppend" *ngIf="hasAddonAppend"></pe-form-addon>
+  <pe-form-addon matPrefix #addonPrependElem [addon]="addonPrepend" *ngIf="hasAddonPrepend"></pe-form-addon>
+</mat-form-field>
+
+<ng-template #addOption>
+  <divider class="col-xs-12 add-option-divider"></divider>
+  <div (click)="addOptionButton.onClick(formControl)" class="mat-option add-option-button">
+    <span class="mat-option-text">{{addOptionButton.name}}</span>
+  </div>
+</ng-template>

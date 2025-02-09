@@ -1,0 +1,41 @@
+@use 'pe_theming' as pet;
+
+@use './routes/root/next-root-theme.component' as root;
+@use './routes/list/list-theme.component' as list;
+@use './routes/list/components/status/status-theme-component' as status;
+@use './details/components/actions/cancel/cancel-theme.component' as cancel_action;
+@use './details/components/actions/credit-answer/credit-answer-theme.component' as credit_answer;
+@use './details/components/sections/general/general-theme.component' as general_theme;
+@use './details/components/sections/products/products-theme.component' as sections_products;
+@use './details/components/sections/shipping/shipping-theme.component' as sections_shipping;
+@use './details/components/sections/actionable-text/actionable-text-theme.component' as actionable_text;
+@use 'details/components/actions/refund/product-picker/product-picker-theme' as refund_product_picker;
+@use './details/components/actions/shipping-goods/shipping-goods-theme.component' as refund_shipping_goods;
+@use './details/components/actions/upload/image-capture/image-capture-theme.component' as image_capture;
+@use './details/components/actions/verify/verify-theme.component' as verify;
+@use './details/containers/actions-container/actions-container-theme.component' as actions_container;
+@use './shared/styles/details-section-theme' as details_section;
+@use './routes/list/components/channel/channel-theme.component' as channel_icon;
+@use "./details/containers/skeleton/skeleton-theme.component" as detail_skeleton;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+
+  @include root.color($color-config);
+  @include list.color($color-config);
+  @include cancel_action.color($color-config);
+  @include general_theme.color($color-config);
+  @include credit_answer.color($color-config);
+  @include refund_product_picker.color($color-config);
+  @include refund_shipping_goods.color($color-config);
+  @include sections_products.color($color-config);
+  @include details_section.color($color-config);
+  @include sections_shipping.color($color-config);
+  @include image_capture.color($color-config);
+  @include verify.color($color-config);
+  @include actions_container.color($color-config);
+  @include status.color($color-config);
+  @include actionable_text.color($color-config);
+  @include channel_icon.color($color-config);
+  @include detail_skeleton.color($color-config);
+}

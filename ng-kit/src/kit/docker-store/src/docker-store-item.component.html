@@ -1,0 +1,8 @@
+<div class="menu-item">
+  <button type="button" class="btn btn-xl" (click)="onClick()">
+    <svg class="icon icon-48">
+      <use [attr.xlink:href]="dockerItem.iconId"></use>
+    </svg>
+  </button>
+  <span [innerHtml]="dockerItem.title"></span>
+</div>

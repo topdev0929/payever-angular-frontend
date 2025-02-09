@@ -1,0 +1,66 @@
+.active-order-step .payment-footer {
+  display: none;
+}
+
+.mobile .active-order-step .payment-footer {
+  display: flex;
+}
+
+.desktop-checkout-items.with-offset {
+  position: relative;
+  top: -102px;
+  z-index: -1;
+}
+
+.mobile .desktop-checkout-items.with-offset {
+  top: -90px;
+}
+
+.payment-method-terms {
+  line-height: 135%;
+}
+
+.payment-method-terms span {
+  text-decoration: underline;
+}
+
+.features {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+  width: 100%;
+}
+
+.features .feature-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 8px;
+  line-height: 135%;
+}
+
+.mobile .features .feature-item {
+  gap: 5px;
+  font-size: 7px;
+  line-height: 100%;
+}
+
+.feature-item img {
+  width: auto;
+  height: 21px;
+  object-fit: contain;
+}
+
+.mobile .feature-item img {
+  height: 14px;
+}
+
+#payment-method-step .continue-button-wrapper {
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--secondary-200);
+}
+
+.successful-modal .zinia-logo {
+  width: 72px;
+}

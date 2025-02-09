@@ -1,0 +1,16 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+
+span {
+  font-weight: $font-weight-bold;
+  color: $color-white;
+
+  margin: 0 $margin-adjust;
+}
+
+toolbar {
+  margin: 15px;
+}
+
+toolbar-row {
+  border:$border-light-gray-1;
+}

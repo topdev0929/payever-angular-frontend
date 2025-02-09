@@ -1,0 +1,39 @@
+.wrapper {
+  background: #0C6BE1;
+  height: 29px;
+  transition: 0.5s;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+&.hide {
+    bottom: -36px;
+  }
+}
+.message {
+  text-align: center;
+  color: white;
+  font-size: 15px;
+  line-height: 29px;
+}
+
+button.done {
+  position: absolute;
+  right: 5px;
+  top: 3px;
+  bottom: 3px;
+  background: #ffffff57;
+  border: none;
+  font-size: 12px;
+  padding: 0 13px;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  transition: ease-out .5s;
+
+  &:hover {
+    background: #ffffffd6;
+    color: black;
+  }
+}

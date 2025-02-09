@@ -1,0 +1,13 @@
+.desktop-device .wrapper {
+  height: 496px;
+}
+
+.payment-method-step.active {
+  border-bottom: 1px solid var(--secondary-200);
+  padding-bottom: 15px;
+}
+
+.successful-modal .ideal-logo {
+  width: 19px;
+  flex-shrink: 0;
+}

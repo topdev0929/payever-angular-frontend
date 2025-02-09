@@ -1,0 +1,33 @@
+<pe-action-layout
+  titleTranslateKey="transactions.form.signing_link_qr.heading"
+  [submitTitleTranslateKey]="'transactions.actions.close'"
+  [isLoading]="isLoading$ | async"
+  (closeEvent)="close()"
+  (submitEvent)="close()"
+>
+  <div class="action-wrapper">
+    <pe-signing-link-qr-style></pe-signing-link-qr-style>
+    <mat-button-toggle-group
+      *ngIf="isGuarantor$ | async"
+      class="mat-button-toggle-group-volumetric"
+      [value]="SigningLinkQRSectionsEnum.Customer"
+      (valueChange)="toggleSigner($event)">
+      <mat-button-toggle [value]="SigningLinkQRSectionsEnum.Customer">
+        {{ buttonTranslates.customer }}
+      </mat-button-toggle>
+      <mat-button-toggle [value]="SigningLinkQRSectionsEnum.Guarantor">
+        {{ buttonTranslates.guarantor }}
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <div class="qr-wrapper">
+      <div *ngIf="isLoadingQRCode$ | async else qrData" class="loader-wrapper">
+        <mat-spinner class="mat-progress-spinner-black" [strokeWidth]="2" [diameter]="32"></mat-spinner>
+      </div>
+    </div>
+  </div>
+</pe-action-layout>
+
+<ng-template #qrData>
+  <img [src]="sectionQrData$ | async" alt="qr data" />
+</ng-template>

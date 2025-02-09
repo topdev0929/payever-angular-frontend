@@ -1,0 +1,80 @@
+<ng-container *ngIf="activeChat">
+  <div class="chat-room-settings__icon">
+    <img class="chat-room-settings__avatar" *ngIf="activeChat.photo" alt="active chat" [src]="activeChat.photo | mediaUrl:'message'"/>
+    <div *ngIf="!activeChat.photo" class="chat-room-settings__initials">
+      {{ activeChat.title.charAt(0) | uppercase }}
+    </div>
+  </div>
+  <div class="chat-room-settings__action-list">
+    <div *ngFor="let action of actions" class="chat-room-settings__action-item">
+      <div class="chat-room-settings__action-icon" (click)="pushAction(action.action)">
+        <svg>
+          <use attr.xlink:href="{{action.icon}}"></use>
+        </svg>
+      </div>
+      <span>{{ action.action }}</span>
+    </div>
+  </div>
+  <div *ngIf="admins?.length > 0 && canAddMember" class="chat-room-settings__members-wrapper">
+    <div class="chat-room-settings__members-header">
+      <p>{{ 'message-app.channel.settings.admins' | translate}}</p>
+      <div *ngIf="isAdmin">
+        <button
+        class="edit"
+          (click)="addChannelMembers(peMessageChannelMode.Admin)"
+        >{{ 'message-app.sidebar.edit' | translate}}</button>
+        <button class="add-member" (click)="addChannelMembers(peMessageChannelMode.Admin)">{{ admins.length }}<span>+</span></button>
+      </div>
+    </div>
+    <div class="chat-room-settings__members-list">
+      <div
+        *ngFor="let member of admins"
+        class="chat-room-settings__members-item"
+      >
+        <div class="chat-room-settings__member-icon">
+          <img class="chat-room-settings__member-avatar"
+               *ngIf="member.user.userAccount?.logo"
+               [src]="member.user.userAccount?.logo"
+               alt="member avatar"/>
+          <div class="chat-room-settings__member-initials" *ngIf="!member.user.userAccount?.logo">{{ (member.user.userAccount?.firstName||'')[0] | uppercase }}</div>
+        </div>
+        <span>{{ (member.user.userAccount?.firstName || '') + " " + (member.user.userAccount?.lastName || '') }}</span>
+        <div *ngIf='member.lastActivity === "online"' class='chat-room-settings__member-isOnline'>
+          {{ 'message-app.channel.settings.online' | translate}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="subscribers?.length > 0 && canAddMember" class="chat-room-settings__members-wrapper">
+    <div class="chat-room-settings__members-header">
+      <p>{{ 'message-app.channel.settings.subscribers' | translate}}</p>
+      <div>
+        <button class="edit" (click)="pushAction(peMessageChatAction.Add)">{{ 'message-app.sidebar.edit' | translate}}</button>
+        <button class="add-member" (click)="pushAction(peMessageChatAction.Add)">{{ subscribers.length }}<span>+</span></button>
+      </div>
+    </div>
+    <div class="chat-room-settings__members-list">
+      <div
+        *ngFor="let member of subscribers"
+        class="chat-room-settings__members-item"
+      >
+        <div class="chat-room-settings__member-icon">
+          <img class="chat-room-settings__member-avatar"
+               *ngIf="member.user.userAccount?.logo"
+               [src]="member.user.userAccount?.logo"
+               alt="member avatar"/>
+          <div class="chat-room-settings__member-initials" *ngIf="!member.user.userAccount?.logo">{{ (member.user.userAccount?.firstName||'')[0] | uppercase }}</div>
+        </div>
+        <span>{{ (member.user.userAccount?.firstName || '') + " " + (member.user.userAccount?.lastName || '') }}</span>
+        <div *ngIf='member.lastActivity === "online"' class='chat-room-settings__member-isOnline'>
+          {{ 'message-app.channel.settings.online' | translate}}
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #deleteForEveryOneTemplate>
+  <pe-message-delete-for-everyone-template
+  ></pe-message-delete-for-everyone-template>
+</ng-template>

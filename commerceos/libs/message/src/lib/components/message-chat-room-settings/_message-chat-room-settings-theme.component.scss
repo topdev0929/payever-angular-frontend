@@ -1,0 +1,266 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $primary: map.get($color-config, 'primary');
+  $text-color: map.get($color-config, 'text-color');
+  $hover-button: map.get($color-config, 'hover-button');
+  $active-text: map.get($color-config, 'active-text');
+  $separator: map.get($color-config, 'separator');
+  $label-color: map.get($color-config, 'label-color');
+  $background: map.get($color-config, 'background');
+  $button-fill: map.get($color-config, 'button-fill');
+  $row-background: map.get($color-config, 'row-background');
+  $widget-background: map.get($color-config, 'widget-background');
+  $tertiary-button: map.get($color-config, 'tertiary-button');
+  $confirm: map.get($color-config, 'confirm');
+  $gray-button: map.get($color-config, 'gray-button');
+  $warn: map.get($color-config, 'warn');
+  $confirm: map.get($color-config, 'confirm');
+  $success: map.get($color-config, 'success');
+  $secondary: map.get($color-config, 'secondary');
+  $icon-fill-secondary: map.get($color-config, 'icon-fill-secondary');
+  $button-fill: map.get($color-config, 'button-fill');
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $default-avatar-background: map.get($color-config, 'default-avatar-background');
+
+  .chat-room-settings {
+    &__icon {
+      div {
+        color: $text-color;
+      }
+    }
+
+    &__initials {
+      background: $widget-background;
+    }
+
+    &__members-wrapper {
+      background-color: $secondary;
+    }
+
+    &__action-item {
+      div {
+        background-color: $secondary;
+
+        svg {
+          color: $icon-fill-secondary;
+        }
+      }
+
+      span {
+        color: $label-color;
+      }
+    }
+
+    &__members-header {
+      p {
+        color: $text-color;
+      }
+
+      .edit {
+        background-color: $button-fill;
+        color: $active-text;
+      }
+
+      .add-member {
+        background-color: $row-background;
+        color: $text-color;
+        span {
+          background-color: $text-color;
+          color: $primary;
+        }
+      }
+    }
+
+    &__members-item {
+      span {
+        color: $text-color;
+      }
+    }
+
+    &__member-icon {
+      background: $default-avatar-background;
+    }
+
+    &__member-initials {
+      color: $active-text;
+    }
+
+    &__member-isOnline {
+      color: $confirm;
+    }
+  }
+
+  .chat-permission {
+    &__switch {
+      border-bottom: solid 1px $background;
+      background-color: $row-background;
+    }
+
+    &__live {
+      .edit_button {
+        span {
+          color: $confirm;
+        }
+      }
+    }
+
+    &__danger-button {
+      color: $warn;
+      background-color: $gray-button;
+    }
+
+    &_owner {
+      color: $gray-button;
+    }
+  }
+
+  .channel-member-permission {
+    &__item {
+      border-bottom: solid 1px $overlay-background;
+      background-color: $row-background;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    &__danger-button {
+      color: $warn;
+      background-color: $primary;
+    }
+
+    &_owner {
+      color: $text-color;
+    }
+  }
+
+  .additional-channel-settings {
+    &__header {
+      div {
+        span {
+          color: $label-color;
+
+          &.blue {
+            color: $confirm;
+          }
+        }
+      }
+
+      p {
+        color: $text-color;
+      }
+    }
+
+    .additional-channel-settings-main {
+      &__item {
+        background-color: $row-background;
+        border-top: 1px solid $primary;
+      }
+
+      &__label {
+        color: $text-color;
+      }
+
+      &__arrow-right {
+        polygon {
+          fill: $text-color;
+        }
+      }
+    }
+
+    .channel-type {
+      &__type-list {
+        label {
+          background-color: $row-background;
+
+          span {
+            color: $text-color;
+          }
+
+          input:checked ~ .channel-type__checkmark {
+            background-color: $confirm;
+            border-color: $active-text;
+          }
+        }
+      }
+
+      &__checkmark {
+        border: 1px solid $text-color;
+      }
+    }
+
+    .channel-sign {
+      background-color: $row-background;
+    }
+
+    .channel-removed-users {
+      button.text-confirm {
+        color: $warn;
+      }
+
+      &__item {
+        background-color: $row-background;
+        border-bottom: solid 1px $primary;
+      }
+
+      &__info {
+        color: $text-color;
+      }
+
+      &__header-removed-users {
+        background-color: $row-background;
+        border-bottom: solid 1px $primary;
+
+        p {
+          color: $confirm;
+        }
+      }
+
+      &__button {
+        color: $confirm;
+        background-color: $primary;
+      }
+    }
+
+    .channel-permission {
+      span {
+        color: $text-color;
+      }
+    }
+  }
+
+  .peb-form-field-input {
+    background-color: $row-background;
+  }
+
+
+  .invite-link {
+    &__link {
+      background-color: $row-background;
+    }
+
+    &__copy {
+      color: $confirm;
+      background-color: $primary;
+
+      &.success {
+        color: $success;
+      }
+    }
+
+    &__input-disable {
+      color: $label-color;
+    }
+  }
+
+  .peb-form-field-input {
+    overflow: hidden;
+  }
+
+  .chat-permission {
+    .expandable-panel__content{
+      overflow: hidden;
+    }
+  }
+}

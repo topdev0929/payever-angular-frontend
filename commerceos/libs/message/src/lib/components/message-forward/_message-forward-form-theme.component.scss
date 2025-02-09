@@ -1,0 +1,90 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $border: map.get($color-config, 'border');
+  $row-background: map.get($color-config, 'row-background');
+  $default-avatar-background: map.get($color-config, 'default-avatar-background');
+  $confirm: map.get($color-config, 'confirm');
+  $background: map.get($color-config, 'background');
+  $content: map.get($color-config, 'content');
+  $x-button: map.get($color-config, 'x-button');
+  $text-color: map.get($color-config, 'text-color');
+  $active-text: map.get($color-config, 'active-text');
+  $label-color: map.get($color-config, 'label-color');
+  $box-shadow-color: map.get($color-config, 'box-shadow-color');
+  $transparent-color: map.get($color-config, 'transparent-color');
+
+  .messages-forward-search_container {
+    .header {
+      .input-container {
+        background-color: $content;
+
+        .search-icon {
+          color: $label-color;
+        }
+
+        .clear-icon {
+          background-color: $x-button;
+          svg {
+            color: $row-background;
+          }
+        }
+
+        .search-input {
+          background-color: $transparent-color;
+          color: $text-color;
+        }
+      }
+      .cancel-button {
+        background-color: $transparent-color;
+        color: $label-color;
+      }
+    }
+
+    .content {
+      .overflow-hidden {
+        color: $label-color;
+      }
+
+      .search-list-container {
+        .search-items {
+          border-top: 1px solid $background;
+          &:hover {
+            border-top: 1px solid $transparent-color;
+          }
+          .pe-message-chat-room-list {
+            &__initials {
+              background: $default-avatar-background;
+              color: $active-text;
+            }
+          }
+
+          &:hover {
+            background-color: $confirm;
+            color: $active-text;
+
+            .pe-message-chat-room-list {
+              &__title {
+                color: $active-text;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .pe-message-chat-room-list__title {
+    color: $text-color;
+  }
+
+  .forward-header {
+    .cancel-button {
+      color: $label-color;
+    }
+
+    .forward-detail {
+      color: $text-color;
+    }
+  }
+}

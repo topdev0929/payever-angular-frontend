@@ -1,0 +1,42 @@
+<mat-form-field [floatLabel]="floatLabel"
+                [hideRequiredMarker]="hideRequiredMarker"
+                [class.mat-form-field-has-prefix]="addonPrepend">
+  <mat-select [attr.pe-qa-select-country]="controlQaId"
+              [disableOptionCentering]="disableOptionCentering"
+              [disabled]="disabled || readonly"
+              [errorStateMatcher]="errorStateMatcher"
+              [formControl]="formControl"
+              [panelClass]="panelClassFormatted+' pe-bootstrap'"
+              [placeholder]="placeholder"
+              [required]="required"
+              [tabIndex]="tabIndex"
+              (openedChange)="onOpenedChange($event)"
+              (focus)="onFocus($event)"
+              (blur)="onBlur($event)"
+              (selectionChange)="onSelectChange($event)"
+  >
+    <ng-container *ngFor="let option of options">
+      <ng-container [ngSwitch]="option.type">
+        <ng-template *ngSwitchCase="'group'" [ngTemplateOutlet]="groupTemplate" [ngTemplateOutletContext]="{ group: option }"></ng-template>
+        <ng-template *ngSwitchCase="'option'" [ngTemplateOutlet]="optionTemplate" [ngTemplateOutletContext]="{ option: option }"></ng-template>
+      </ng-container>
+    </ng-container>
+
+    <ng-template #groupTemplate let-group="group">
+      <mat-optgroup [label]="group.label" [id]="group.value" [disabled]="group.disabled">
+        <ng-container *ngFor="let item of group.items">
+          <ng-template [ngTemplateOutlet]="optionTemplate" [ngTemplateOutletContext]="{ option: item }"></ng-template>
+        </ng-container>
+      </mat-optgroup>
+    </ng-template>
+
+    <ng-template #optionTemplate let-option="option">
+      <mat-option [value]="option.value" [id]="option.value">{{option.label}}</mat-option>
+    </ng-template>
+  </mat-select>
+
+  <mat-label *ngIf="label">{{label}}</mat-label>
+  <mat-error *ngIf="errorMessage && formControl?.invalid" [style.margin-left.px]="addonPrependOffset">{{errorMessage}}</mat-error>
+  <pe-form-addon matSuffix [addon]="addonAppend" *ngIf="hasAddonAppend"></pe-form-addon>
+  <pe-form-addon matPrefix #addonPrependElem [addon]="addonPrepend" *ngIf="hasAddonPrepend"></pe-form-addon>
+</mat-form-field>

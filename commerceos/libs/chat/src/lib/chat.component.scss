@@ -1,0 +1,330 @@
+@use 'pe_variables.scss' as pe_variables;
+
+@mixin animation-items($mode: '') {
+  transform: translateX(15%);
+  opacity: 0;
+
+  @if $mode == '' {
+    $overDelay: 0.1s;
+    @for $i from 1 through 10 {
+      $delay: 0.2s;
+      @if $i > 3 {
+        $delay: 0.1s;
+      }
+      @if $i > 7 {
+        $delay: 0.0s;
+      }
+      $overDelay: $overDelay + $delay;
+      &:nth-child(#{$i}) {
+        transition: 0.1s all $overDelay ease;
+      }
+    }
+  }
+  @if $mode == 'overlay' {
+    $overDelay: .3s;
+    @for $i from 1 through 18 {
+      $delay: 0s;
+      @if $i > 3 {
+        $delay: 0.05s;
+      }
+      @if $i > 7 {
+        $delay: 0.1s;
+      }
+      $overDelay: $overDelay - $delay;
+      &:nth-last-child(#{$i}) {
+        transition: 0.1s all $overDelay ease;
+      }
+    }
+  }
+
+}
+
+$scroll-bottom-color: #575757;
+
+.pe-chat {
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+
+  & .form {
+    z-index: 100;
+  }
+
+  & .avatar {
+    margin-right: 8px;
+    position: relative;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+
+    &__img {
+      top: 0;
+      left: 0;
+      width: 24px;
+      height: 24px;
+      -o-object-fit: cover;
+      object-fit: cover;
+      z-index: 2;
+      border-radius: 24px;
+      background-size: cover;
+    }
+
+    &__conversation {
+      margin-top: 5px;
+    }
+
+    &__initials {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      position: relative;
+      width: 25px;
+      height: 25px;
+      font-size: 12px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 2px;
+      background-position: center;
+      background-size: cover;
+      border-radius: 50%;
+      z-index: 1;
+
+      svg {
+        height: 8px;
+        width: 8px;
+        margin: 0;
+        transform: scale(1.8);
+      }
+    }
+  }
+
+  .scrollable {
+    display: flex;
+    flex: 1;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 0.5em;
+    }
+
+    -webkit-overflow-scrolling: touch;
+
+    .date-tag {
+      position: absolute;
+      top: 10px;
+      z-index: 9;
+      left: calc(50% - 50px);
+      width: 100px;
+      margin: auto;
+      padding: 7px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1;
+      letter-spacing: normal;
+      word-wrap: break-word;
+      border-radius: 12px;
+
+      &.blur-mode {
+        font-size: 12px;
+        color: #ffffff;
+        border: 1px solid rgba(255,255,255,.1);
+        overflow: hidden;
+        background: rgb(50, 51, 55);
+        box-shadow: 0 0 7px #00000080;
+      }
+    }
+
+    .messages {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: min-content;
+      margin-bottom: 8px;
+      margin-top: 8px;
+      min-height: calc(100% - 16px);
+      position: relative;
+      width: 100%;
+
+      .sticky-date {
+        z-index: 1000;
+      }
+
+      &__container {
+
+        &_scroll-bottom {
+          box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.5);
+          justify-content: center;
+          display: flex;
+          position: absolute;
+          opacity: 0 !important;
+          bottom: 0;
+          right: 20px;
+          font-size: 18px;
+          height: 36px;
+          width: 36px;
+          border: none;
+          outline: none;
+          cursor: pointer;
+          border-radius: 50%;
+          z-index: -1;
+          transition: bottom .1s ease, opacity .1s ease, z-index .1s ease, background-color .2s ease;
+          .mat-icon.icon-16 {
+            width: 26px;
+            height: 36px;
+          }
+
+          &.blur-mode {
+            border: 1px solid #fafafa12;
+            backdrop-filter: blur(65px);
+            background-color: rgb(50, 51, 55);
+          }
+
+          &.show {
+            z-index: 99;
+            opacity: 1 !important;
+            bottom: 10px;
+
+            &:hover {
+              background-color: $scroll-bottom-color;
+            }
+          }
+
+          &_badge {
+            min-width: 20px;
+            line-height: 14px;
+            font-size: 11px;
+            border-radius: 10px;
+            display: block;
+            text-align: center;
+            top: -9px;
+            position: fixed;
+            padding: 3px;
+          }
+        }
+      }
+    }
+
+    .no-messages {
+      margin: 0;
+      align-items: center;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.13;
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      font-size: 15px;
+    }
+  }
+
+  &.show {
+    .scrollable {
+      .messages {
+
+        .invitation {
+          transform: translateY(0%);
+          opacity: 1;
+        }
+
+        &__container,
+        &__container_over-list {
+          display: flex;
+          flex-grow: 1;
+
+          & > *:not([ng-reflect-type="invitation"]) {
+            transform: translateX(0%);
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+.pe-chat-header-autocomplete {
+  backdrop-filter: blur(25px);
+  border-radius: 0 0 8px 8px;
+}
+
+.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper {
+  max-width: 100%;
+}
+
+.unpin-message {
+  display: flex;
+  justify-content: center;
+  height: 39px;
+  font-size: 12px;
+  font-weight: 400;
+
+  .unpin-message-link {
+    margin: auto;
+    cursor: pointer;
+  }
+}
+
+.unpin-message-header {
+  display: flex;
+  height: 40px;
+  padding: 8px 12px;
+  overflow: hidden;
+  font-size: 13px;
+  align-items: center;
+}
+
+@media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+  .unpin-message-header {
+    height: 56px;
+    font-size: 17px;
+  }
+
+  .unpin-message {
+    height: 56px;
+    font-size: 15px;
+  }
+}
+
+.cross-icon {
+  width: 20px;
+  height: 20px;
+
+  @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+    width: 18px;
+    height: 20px;
+    padding-right: 2px;
+  }
+}
+
+.pin-message-header {
+  margin-left: 15px;
+}
+
+.logo-footer {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  .mat-icon {
+    height: 17px;
+    width: 135px;
+  }
+}
+
+.icon-16 {
+  width: 30px;
+  height: 30px;
+}

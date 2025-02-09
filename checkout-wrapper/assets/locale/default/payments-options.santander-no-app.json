@@ -1,0 +1,262 @@
+{
+  "santander-no": {
+    "action": {
+      "continue": "Continue",
+      "close": "Close",
+      "change_payment_method": "Change payment method",
+      "send_inquiry": "Send finance inquiry",
+      "try_again": "Try again",
+      "update_rates": "Update rates",
+      "update_rates_to_continue": "Update rates to continue"
+    },
+    "duration": {
+      "one_month": "{{ count }} month",
+      "count_months": "{{ count }} months"
+    },
+    "boolean": {
+      "yes": "Ja",
+      "no": "Nei"
+    },
+    "credit_rates": {
+      "actions": {
+        "rate_choose_summary": "Choose {{ monthly_amount }} for {{ duration }}",
+        "rate_choose_summary_finance_calc": "{{ monthly_amount }} for {{ duration }}"
+      },
+      "error": {
+        "rate_not_selected": "Please select rate",
+        "rates_list_empty": "No rates available",
+        "cant_request": "Error occurred during requesting rates"
+      },
+
+      "rate_title_pp": "Monthly Payment {{ monthly_amount }}",
+      "rate_line1_pp": "Term: {{ duration }}",
+      "rate_line2_pp": "Credit total: {{ credit_purchase }}",
+      "rate_line3_pp": "Credit price: {{ credit_price }}",
+      "rate_line4_pp": "Effective rate: {{ effective_rate }}",
+
+      "desc_prefix": "Description:",
+      "note_pp": "Part payment / Buy Now - Pay Later requires the signing of a credit agreement with a credit card after credit assessment with the following price example: Eff. interest rate 30.8 %. Kr 20 000 over 12 months cost kr 3 063. In total kr 23 063.",
+      "note_bnpl": "Part payment / Buy Now - Pay Later requires the signing of a credit agreement with a credit card after credit assessment with the following price example: Eff. interest rate 30.8 %. Kr 20 000 over 12 months cost kr 3 063. In total kr 23 063.",
+
+      "type_filter": {
+        "part_payment": "Part Payment",
+        "buy_now_pay_later": "Buy Now - Pay Later"
+      },
+      "rate_param": {
+        "effective_rate": "Effective rate",
+        "description": "Description",
+        "title": "Title",
+        "monthly_amount": "Monthly amount",
+        "duration": "Duration",
+        "credit_purchase": "Credit purchase amount",
+        "credit_price": "Credit price",
+        "credit_purchase_with_currency": "Total kr",
+        "credit_price_with_currency": "Cost kr"
+      }
+    },
+    "inquiry": {
+
+      "finish": {
+        "application_success": {
+          "finish_application": "Finish application",
+          "title": "Order confirmed. Thank you.",
+          "text": "Please sign the loan documents by following the link you will receive by email from Santander to complete your purchase"
+        },
+        "application_pending": {
+          "title": "Your application has been sent to Santander Consumer Bank",
+          "text": "When your application has been processed you will get a response via SMS"
+        },
+        "application_fail": {
+          "title": "Unfortunately, we can not provide you with a loan at this time."
+        }
+      },
+
+      "step": {
+        "rates": {
+          "title": "Payment method"
+        },
+        "additional_info": {
+          "title": "Additional information"
+        },
+        "proof_of_income": {
+          "title": "Proof of income and expenditure"
+        },
+        "section": {
+          "personal": {
+            "title": "Personal information"
+          },
+          "loans": {
+            "title": "Husholdingens gjeld",
+            "section": {
+              "mortgage_loans": {
+                "title": "Bolig- og hyttelån"
+              },
+              "secured_loans": {
+                "title": "Bil-, Båt og andere pantelån"
+              },
+              "student_loans": {
+                "title": "Studielån"
+              }
+            }
+          },
+          "monthly_expences": {
+            "title": "Din andel av andre faste utgifter",
+            "text": "Din andel av månedlig betaling av felleskostnader til borettslag/sameie, skattegjeld, gjeld til arbeidsgiver eller privatpersoner."
+          },
+          "aml": {
+            "title": "Other information"
+          },
+          "credit": {
+            "title": "Information from KreditZ",
+            "description": "To make it as easy as possible for you to document your income and expenses, Santander Consumer Bank has entered into a partnership with the company Kreditz Kreditz obtains information about your income and expenses easily and securely via your bank, and then we create a household budget for you to whom we commit ourselves. Once you have filled in your information at Kreditz, you will be sent back to this application.",
+            "continue": "Continue to KreditZ"
+          }
+        }
+      },
+      "form": {
+        "advertising_accepted": {
+          "details": {
+            "title": "Advertizing accepted"
+          }
+        },
+        "social_security_number": {
+          "label": "Social security number",
+          "placeholder": "Social security number"
+        },
+        "telephone_mobile": {
+          "label": "Mobile phone",
+          "placeholder": "Mobile phone"
+        },
+        "student": {
+          "label": "I am a student (and would like a Student Account)",
+          "placeholder": "I am a student (and would like a Student Account)"
+        },
+        "accepted_credit_check": {
+          "label": "I accept the credit check. <a href=\"https://www.santanderconsumer.no/personvern/\" target=\"_blank\"> For more information click here.</a>",
+          "placeholder": "I accept the credit check. <a href=\"https://www.santanderconsumer.no/personvern/\" target=\"_blank\"> For more information click here.</a>"
+        },
+        "norwegian_citizen": {
+          "label": "Norwegian citizen?",
+          "placeholder": "Norwegian citizen?"
+        },
+        "residential_status": {
+          "label": "Residential status",
+          "placeholder": "Residential status"
+        },
+        "marital_status": {
+          "label": "Marital status",
+          "placeholder": "Marital status"
+        },
+        "professional_status": {
+          "label": "Professional status",
+          "placeholder": "Professional status"
+        },
+        "employer": {
+          "label": "Employer",
+          "placeholder": "Employer"
+        },
+        "employed_since": {
+          "label": "Employed since",
+          "placeholder": "Employed since"
+        },
+        "employment_percent": {
+          "label": "Employment percent",
+          "placeholder": "Employment percent"
+        },
+        "net_monthly_income": {
+          "label": "Monthly income",
+          "placeholder": "Monthly income"
+        },
+        "rent_income": {
+          "label": "Rental income",
+          "placeholder": "Rental income",
+          "tooltip": "Rental income"
+        },
+        "number_of_children": {
+          "label": "Number of children",
+          "placeholder": "Number of children"
+        },
+
+        "total_debt": {
+          "label": "Total debt",
+          "placeholder": "Total debt"
+        },
+
+        "mortgage_loans_count": {
+          "label": "Hvor mange utestående boliglån har du?"
+        },
+        "mortgage_loans_loan_amount": {
+          "label": "Lån {{ index }}: Gjenværende gjeld"
+        },
+        "mortgage_loans_remaining_terms": {
+          "label": "Lån {{ index }}: Gjenværende løpetid i år"
+        },
+        "mortgage_loans_interest_rate": {
+          "label": "Lån {{ index }}: Rente i %"
+        },
+
+        "secured_loans_count": {
+          "label": "Hvor mange utestående pantelån (Bil/Båt/Andere) har du?"
+        },
+        "secured_loans_loan_amount": {
+          "label": "Lån {{ index }}: Gjenværende gjeld"
+        },
+        "secured_loans_remaining_terms": {
+          "label": "Lån {{ index }}: Gjenværende løpetid i år"
+        },
+        "secured_loans_interest_rate": {
+          "label": "Lån {{ index }}: Rente i %"
+        },
+
+        "student_loans_count": {
+          "label": "Hvor mange utestående Studielån har du?"
+        },
+        "student_loans_loan_amount": {
+          "label": "Lån {{ index }}: Gjenværende gjeld"
+        },
+        "student_loans_remaining_terms": {
+          "label": "Lån {{ index }}: Gjenværende løpetid i år"
+        },
+
+        "other_monthly_expences": {
+          "label": "Andre faste utgifter",
+          "placeholder": "Andre faste utgifter",
+          "tooltip": "Din andel av månedlig betaling av felleskostnader til borettslag/sameie, skattegjeld, gjeld til arbeidsgiver eller privatpersoner."
+        },
+        "student_loan": {
+          "label": "Student loan",
+          "placeholder": "Student loan"
+        },
+        "political_exposed_person": {
+          "label": "Political exposed person",
+          "placeholder": "Political exposed person",
+          "tooltip": "Choose yes if you or someone in your immediate family is a politically exposed person.<br>This includes:<br>- State head, Prime Minister / head of state, Minister, Deputy Minister / Deputy Minister<br>- Member of National Assembly<br>- Member of the Supreme Court<br>- Member of higher court statements who make decisions that can only be appealed exceptionally<br>- Member of the Board of Auditors, Court of Auditors<br>- Member of the central bank, Ambassador, Charge d`affaires<br>- Member of administrative, management or controlling body of a state-owned enterprise<br>- Higher ranking military officer<br>- Function in the management of an international organization"
+        },
+        "applied_on_behalf_of_others": {
+          "label": "Applied on behalf of others",
+          "placeholder": "Applied on behalf of others",
+          "tooltip": "Choose \"yes\" if you apply on behalf of someone else."
+        },
+
+        "pay_source": {
+          "label": "Specify how you plan to repay",
+          "placeholder": "Specify how you plan to repay",
+          "tooltip": "Enter the source of credit repayment"
+        },
+        "pay_with_main_income": {
+          "label": "Do you want to repay the credit with regular salary or social security?",
+          "placeholder": "Do you want to repay the credit with regular salary or social security?"
+        },
+        "other_pay_source": {
+          "label": "Uddyb venligst dit svar",
+          "placeholder": "Uddyb venligst dit svar"
+        }
+      }
+    },
+    "selected_rates_details": {
+      "table": {
+        "description": "Selected rates details table"
+      }
+    }
+  }
+}

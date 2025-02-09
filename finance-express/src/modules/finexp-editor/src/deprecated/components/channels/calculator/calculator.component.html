@@ -1,0 +1,128 @@
+<div [ngClass]="{'blurry-box': isGeneratedCode}">
+  <pe-channel-settings-box (clickedButton)="onClickButton($event)"
+                           [boxTitle]="'channels.calculator.name' | translate"
+                           [allowSettingsManualScroll]="allowSettingsManualScroll"
+  >
+    <ng-container settings>
+      <div class="actions-container separated">
+        <div *ngIf="form" class="form-table settings-container" [formGroup]="form" >
+
+          <!-- Text Color -->
+          <div *ngIf="isFieldVisible('textColor')" class="settings-box">
+            <span class="name-setting" translate>channels.calculator.textColor</span>
+            <pe-color-picker class="rectangular-color-picker"
+                             [formControlRef]="form.controls['textColor']"
+            ></pe-color-picker>
+          </div>
+
+          <!-- Button Color -->
+          <div *ngIf="isFieldVisible('buttonColor')" class="settings-box">
+            <span class="name-setting" translate>channels.calculator.buttonColor</span>
+            <pe-color-picker class="rectangular-color-picker"
+                             [formControlRef]="form.controls['buttonColor']"
+            ></pe-color-picker>
+          </div>
+
+          <!-- Link Color -->
+          <div *ngIf="isFieldVisible('linkColor')" class="settings-box">
+            <span class="name-setting" translate>channels.calculator.linkColor</span>
+            <pe-color-picker class="rectangular-color-picker"
+                             [formControlRef]="form.controls['linkColor']"
+            ></pe-color-picker>
+          </div>
+
+          <!-- Frame (Border) Color -->
+          <div *ngIf="isFieldVisible('borderColor')" class="settings-box">
+            <span class="name-setting" translate>channels.calculator.frameColor</span>
+            <pe-color-picker class="rectangular-color-picker"
+                             [formControlRef]="form.controls['borderColor']"
+            ></pe-color-picker>
+          </div>
+
+          <!-- Background color -->
+          <div *ngIf="isFieldVisible('bgColor')" class="settings-box">
+            <span class="name-setting" translate>channels.calculator.backgroundColor</span>
+            <pe-color-picker class="rectangular-color-picker"
+                             [formControlRef]="form.controls['bgColor']"
+            ></pe-color-picker>
+          </div>
+
+          <mat-divider class="settings-divider" [vertical]="true" [class.mat-divider-indented]="true"></mat-divider>
+
+          <!-- Visibility -->
+          <div class="settings-box">
+            <span class="name-setting" translate>channels.calculator.visibility</span>
+            <mat-slide-toggle formControlName="isVisible"
+                              class="mat-slide-toggle-xs"
+            ></mat-slide-toggle>
+          </div>
+
+          <!-- Adaptive -->
+          <div class="settings-box">
+            <span class="name-setting" translate>channels.calculator.adaptive</span>
+            <mat-slide-toggle formControlName="adaptiveDesign"
+                              class="mat-slide-toggle-xs"
+            ></mat-slide-toggle>
+          </div>
+
+          <!-- Size (width) -->
+          <div class="settings-box" [class.hidden]=" !!form.controls['adaptiveDesign'].value ">
+            <span class="name-setting" translate>channels.calculator.size</span>
+            <checkout-channel-input [formControlRef]="form.controls['size']"
+                                    (inputFocus)="setInputFocus($event)"></checkout-channel-input>
+          </div>
+
+          <!-- Order -->
+          <div class="settings-box">
+            <span class="name-setting" translate>channels.calculator.order.title</span>
+            <button class="mat-button-link mat-button-bold mat-button-xs mat-button-width-lg"
+                    mat-button
+                    [matMenuTriggerFor]="menuSort">
+              {{ ('channels.calculator.order.' + form.controls['order'].value) | translate }}
+            </button>
+            <mat-menu #menuSort="matMenu" class="mat-menu-dark">
+              <button mat-menu-item (click)="setFormValue('order', 'asc')">{{ 'channels.calculator.order.asc' | translate }}</button>
+              <button mat-menu-item (click)="setFormValue('order', 'desc')">{{ 'channels.calculator.order.desc' | translate }}</button>
+            </mat-menu>
+          </div>
+
+          <mat-divider class="settings-divider" [vertical]="true" [class.mat-divider-indented]="true"></mat-divider>
+
+          <!-- Checkout overlay -->
+          <div class="settings-box">
+            <span class="name-setting" translate>channels.calculator.checkoutOverlay</span>
+            <mat-slide-toggle [checked]="isCheckoutOverlayControlValue"
+                              class="mat-slide-toggle-xs"
+                              (change)="toggleOverlay('fin_exp', $event.checked)"
+            ></mat-slide-toggle>
+          </div>
+
+          <!-- Calculator + Overlay -->
+          <div class="settings-box">
+            <span class="name-setting" translate>channels.calculator.calculatorPlusOverlay</span>
+            <mat-slide-toggle [checked]="isCalculatorOverlayControlValue"
+                              class="mat-slide-toggle-xs"
+                              (change)="toggleOverlay('fin_calculator', $event.checked)"
+            ></mat-slide-toggle>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container example>
+      <div [class.hidden]="errorMessage || showSpinner" [class.adaptive]="form?.controls['adaptiveDesign']?.value" #preview></div>
+
+      <div [class.hidden]="!errorMessage" class="mat-error">{{ errorMessage | translate }}</div>
+
+      <div *ngIf="showSpinner" class="spinner-container">
+        <div class="spinner-container-spinner">
+          <mat-spinner [diameter]="spinnerDiameter" [strokeWidth]="spinnerWidth" ></mat-spinner>
+        </div>
+      </div>
+    </ng-container>
+  </pe-channel-settings-box>
+</div>
+<checkout-generate-html [generatedHtml]="generatedHtml"
+                        (clickedGeneratedBox)="onClickGeneratedBox($event)"
+                        *ngIf="isGeneratedCode"
+></checkout-generate-html>

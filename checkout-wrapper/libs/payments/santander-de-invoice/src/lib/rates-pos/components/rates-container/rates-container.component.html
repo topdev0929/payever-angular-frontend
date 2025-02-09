@@ -1,0 +1,9 @@
+<div
+  class="pe-payment-container"
+  *ngIf="isThreatMetrixReady$ | async">
+  <santander-invoice-de-rates-form
+    *ngIf="!isSendingPayment"
+    [merchantMode]="merchantMode"
+    (submitted)="onSend($event)">
+  </santander-invoice-de-rates-form>
+</div>

@@ -1,0 +1,89 @@
+<div class="data-grid-toolbar">
+  <ng-content select="[peToolbar]"></ng-content>
+</div>
+
+<div class="data-grid-select">
+  <ng-content select="[peGridSelect]"></ng-content>
+</div>
+
+<ng-content select="[peGridFilters]"></ng-content>
+
+<ng-container *ngIf="!itemsEmpty && !loading">
+  <div class="data-grid-view-grid"
+       [class.with-filters]="filtersPanelActive"
+       [class.data-grid-view-grid-no-pagination]="noPagination"
+       [class.data-grid-view-grid-with-footer]="displayFooter"
+       *ngIf="viewMode === dataViewMode.Grid">
+    <div peScrollHide
+         scrollEndDetection
+         [heightDiff]="infiniteScrollSensitivityPx"
+         (scrollEnd)="onScrollEnd()">
+      <ng-content select="[peGrid]"></ng-content>
+      <div class="data-grid-view-load-more-spinner" *ngIf="infinite && hasMore">
+        <mat-spinner [strokeWidth]="spinerStrokeWidth" [diameter]="spinerDiameter"></mat-spinner>
+      </div>
+    </div>
+  </div>
+
+  <div class="data-grid-view-table"
+       [class.data-grid-view-table-with-filters]="filtersPanelActive"
+       [class.data-grid-view-table-no-pagination]="infinite || noPagination"
+       [class.data-grid-view-grid-with-footer]="displayFooter"
+       *ngIf="viewMode === dataViewMode.List">
+
+    <div *ngIf="!isTouchDevice()"
+         peScrollHide
+         scrollEndDetection
+         #scrollHorizElem
+         [heightDiff]="infiniteScrollSensitivityPx"
+         [class.cursor-pointer]="isScrolling"
+         (pan)="onPan($event)"
+         (panstart)="onPanStart($event)"
+         (panend)="onPanEnd($event)"
+         (scrollEnd)="onScrollEnd()">
+      <ng-container [ngTemplateOutlet]="peTableTemplate"></ng-container>
+    </div>
+
+    <div *ngIf="isTouchDevice()"
+         peScrollHide
+         scrollEndDetection
+         [heightDiff]="infiniteScrollSensitivityPx"
+         (scrollEnd)="onScrollEnd()">
+      <ng-container [ngTemplateOutlet]="peTableTemplate"></ng-container>
+    </div>
+
+  </div>
+</ng-container>
+
+<ng-container *ngIf="!itemsEmpty && loading">
+  <div class="data-grid-view-loading"
+       [class.with-filters]="filtersPanelActive">
+    <mat-spinner [strokeWidth]="spinerStrokeWidth" [diameter]="spinerDiameter"></mat-spinner>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="itemsEmpty">
+  <div class="data-grid-view-empty" [class.with-filters]="filtersPanelActive">
+    <h1 *ngIf="!loading" translate>ng_kit.data_grid.empty_list_text</h1>
+    <h1 *ngIf="loading" class="data-grid-view-loading">
+      <mat-spinner [strokeWidth]="spinerStrokeWidth" [diameter]="spinerDiameter"></mat-spinner>
+      &nbsp;
+      {{ 'ng_kit.data_grid.loading_list' | translate }}
+    </h1>
+  </div>
+</ng-container>
+
+<div class="data-grid-pagination" *ngIf="!infinite">
+  <ng-content select="[pePagination]"></ng-content>
+</div>
+
+<div class="data-grid-footer" *ngIf="displayFooter">
+  <ng-content select="[peGridFooter]"></ng-content>
+</div>
+
+<ng-template #peTableTemplate>
+  <ng-content select="[peTable]"></ng-content>
+  <div class="data-grid-view-load-more-spinner" *ngIf="infinite && hasMore">
+    <mat-spinner [strokeWidth]="spinerStrokeWidth" [diameter]="spinerDiameter"></mat-spinner>
+  </div>
+</ng-template>

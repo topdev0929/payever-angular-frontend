@@ -1,0 +1,11 @@
+<p *ngIf="selected">
+  <span [innerHtml]="selected?.title"></span> &nbsp;
+  <ng-container *ngIf="selectedOption as option">
+    <ng-container *ngIf="option.deliveryTimeDays">
+      <span>{{ deliversTranslation }}</span>,
+    </ng-container>
+  </ng-container>
+  <ng-container *ngIf="flow.deliveryFee">
+    {{ flow.deliveryFee | peCurrency:flow?.currency:'symbol-narrow' }}
+  </ng-container>
+</p>

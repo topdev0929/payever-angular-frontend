@@ -1,0 +1,20 @@
+<pe-action-layout
+  titleTranslateKey="transactions.details.credit_answer.header"
+  [submitTitleTranslateKey]="
+    creditAnswerText ? 'transactions.details.credit_answer.print' : 'transactions.actions.done'
+  "
+  [isLoading]="isLoading$ | async"
+  (closeEvent)="close()"
+  (submitEvent)="print()"
+>
+  <ng-container *ngIf="!isLoading$.value">
+    <peb-form-background>
+      <div *ngIf="creditAnswerText" class="answer-text" [innerHtml]="creditAnswerText"></div>
+    </peb-form-background>
+    <peb-form-background>
+      <div *ngIf="!creditAnswerText" class="note">
+        {{ 'transactions.details.credit_answer.not_available' | translate }}
+      </div>
+    </peb-form-background>
+  </ng-container>
+</pe-action-layout>

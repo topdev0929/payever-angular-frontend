@@ -1,0 +1,8 @@
+@use 'pe_theming' as pet;
+@use './datetime-picker-extended-theme' as datetime_picker_extended;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include datetime_picker_extended.color($color-config);
+}
+

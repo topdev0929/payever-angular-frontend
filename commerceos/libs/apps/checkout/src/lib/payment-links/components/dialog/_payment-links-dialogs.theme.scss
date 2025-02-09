@@ -1,0 +1,115 @@
+@use 'SASS:map';
+@use 'pe_spinner' as pe_spinner;
+
+@mixin color($color-config) {
+  $confirm: map.get($color-config, 'confirm');
+  $label-color: map.get($color-config, 'label-color');
+  $text-color: map.get($color-config, 'text-color');
+  $icon-secondary-background: map.get($color-config, 'icon-secondary-background');
+  $icon-secondary-content: map.get($color-config, 'icon-secondary-content');
+  $row-background: map.get($color-config, 'row-background');
+  $success-text: map.get($color-config, 'success-text');
+  $skeleton: map.get($color-config, 'skeleton');
+
+  .checkout-main-content {
+    .mat-spinner {
+      svg {
+        position: relative !important;
+        circle {
+          stroke: $text-color;
+        }
+      }
+    }
+  }
+
+  .peb-base-button.pe-form-button.copy-link-btn__clicked {
+    color: $success-text;
+  }
+
+  .payment-link-dialog .overlay-widget-container .overlay-widget__content {
+    padding: 0;
+  }
+
+  .payment-link-container {
+    color: $text-color;
+  }
+
+  pe-edit-payment-link #copy-link-btn {
+    color: $confirm;
+  }
+
+  .language-sections-expandable-panel {
+    .expandable-panel {
+      &__body {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+    }
+  }
+
+  .clipboard-copy-content {
+    color: $label-color;
+  }
+
+  #payment-link-info-box {
+    .info-box mat-card {
+      margin-bottom: 0;
+    }
+  }
+
+  .share-item {
+    &__icon {
+      background-color: $row-background;
+    }
+
+    &__label,
+    &__icon {
+      color: $text-color;
+    }
+  }
+
+  .prefill-payment-dialog {
+    .overlay-widget-container {
+      max-width: 80vw;
+      height: 80vh;
+
+      @media (max-width: 480px) {
+        max-width: 100vw;
+        height: 100vh;
+      }
+    }
+  }
+
+  .pe-copy-link__link {
+    .mat-icon {
+      overflow: hidden;
+      width: 16px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+    }
+  }
+  .share-link {
+    .pe-info-box > .info-box .mat-card {
+      width: auto;
+      max-width: unset;
+      border-radius: 0;
+    }
+    &__qr {
+      .pe-info-box-container-fixed.tpm-outer-container .pe-info-box .info-box {
+        .mat-card {
+          .mat-expansion-panel-body {
+            padding: 0;
+          }
+          .mat-expansion-panel-spacing {
+            margin: 0;
+          }
+          .mat-accordion .mat-expansion-panel .mat-expansion-panel-header {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

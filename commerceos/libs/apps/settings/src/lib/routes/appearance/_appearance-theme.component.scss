@@ -1,0 +1,47 @@
+@use "pe_variables" as pe_variables;
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $primary: map.get($color-config, 'primary');
+  $accent-border: map.get($color-config, 'accent-border');
+  $icon-fill: map.get($color-config, 'icon-fill');
+  $background: map.get($color-config, 'background');
+  $label-color: map.get($color-config, 'label-color');
+
+  .appearance {
+    &__title {
+      color: $text-color;
+    }
+    &__wrapper {
+      background-color: $primary;
+      .appearance-item {
+        .item-title {
+          color: $text-color;
+        }
+      }
+    }
+    &__auto {
+      .group__item-right-content__button {
+        color: $text-color;
+      }
+      border-top-color: $background;
+      background-color: $primary;
+    }
+    &-item {
+      .loading-box {
+        border-color: $accent-border;
+        .mat-spinner svg circle {
+          stroke: $icon-fill;
+        }
+      }
+    }
+    @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {      
+      .options-list {
+        .list__item {
+          height: 56px;
+        }
+      }
+    }
+  }
+}

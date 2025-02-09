@@ -1,0 +1,19 @@
+@use 'pe_variables' as pe_variables;
+
+.search-overlay {
+  max-height: calc(100% - 105px);
+  max-width: 436px;
+  width: 100%;
+  border-radius: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @media (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+    max-width: unset;
+    max-height: unset;
+    width: var(--app-width);
+    height: var(--app-height);
+    border-radius: 0;
+  }
+}

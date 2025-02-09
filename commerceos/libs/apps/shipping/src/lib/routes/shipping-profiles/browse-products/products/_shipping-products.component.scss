@@ -1,0 +1,36 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $background: map.get($color-config, 'background');
+  $active-text: map.get($color-config, 'active-text');
+  $label-color: map.get($color-config, 'label-color');
+  $confirm: map.get($color-config, 'confirm');
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $border: map.get($color-config, 'border');
+  $box-shadow-color: map.get($color-config, 'box-shadow-color');
+
+  .shipping-products-overlay {
+
+    .mat-dialog-container {
+      background-color: $overlay-background;
+      backdrop-filter: blur(25px);
+      border: solid 1px $border;
+      box-shadow: 0 5px 20px 0 $box-shadow-color;
+
+      .products-dialog-wrapper {
+
+        &__header {
+          .header-buttons {
+            color: $active-text;
+          }
+          .close-button {
+            background-color: $label-color;
+          }
+          .add-button {
+            background-color: $confirm;
+          }
+        }
+      }
+    }
+  }
+}

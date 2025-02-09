@@ -1,0 +1,33 @@
+{
+  "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../dist/shipping-app",
+  "lib": {
+    "entryFile": "src/index.ts",
+
+    "umdModuleIds": {
+      "lodash": "lodash",
+      "lodash-es": "lodash-es",
+      "@angular/material":  "@angular/material",
+      "@angular/cdk": "@angular/cdk",
+      "@pe/sidebar": "@pe/sidebar",
+      "@pe/data-grid": "@pe/data-grid",
+      "@pe/filters": "@pe/filters",
+      "@pe/ui": "@pe/ui",
+      "@pe/common": "@pe/common",
+      "@pe/i18n": "@pe/i18n",
+      "moment": "moment",
+      "@pe/platform-header": "@pe/platform-header",
+      "@pe/overlay-widget": "@pe/overlay-widget",
+      "@pe/auth": "@pe/auth",
+      "@pe/media": "@pe/media",
+      "apollo-angular": "apollo-angular",
+      "apollo-angular-link-http": "apollo-angular-link-http",
+      "apollo-cache-inmemory": "apollo-cache-inmemory",
+      "graphql-tag": "graphql-tag"
+    }
+  },
+  "assets": [
+    "./assets",
+    "bin"
+  ]
+}

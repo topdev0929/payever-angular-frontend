@@ -1,0 +1,29 @@
+{
+  "name": "payments-choose",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/lazy/sections/payments-choose/src",
+  "prefix": "pe",
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/lazy/sections/payments-choose"],
+      "options": {
+        "jestConfig": "libs/lazy/sections/payments-choose/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/lazy/sections/payments-choose/**/*.ts",
+          "libs/lazy/sections/payments-choose/**/*.html"
+        ]
+      },
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": ["scope:libs", "type:selector"],
+  "implicitDependencies": []
+}

@@ -1,0 +1,74 @@
+@use 'pe_variables' as pe_variables;
+
+.pricing {
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 40px;
+    grid-column-gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  &__row {
+    border-radius: 12px;
+    overflow: hidden;
+    min-width: 200px;
+
+    &__inputs {
+      display: grid;
+      grid-gap: 1px;
+      grid-template-columns: 1fr 0fr;
+      margin-bottom: 1px;
+    }
+
+    &__autocomplete {
+      overflow: hidden;
+      margin-top: 1px;
+    }
+
+    .form-field {
+      div {
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+.main-form-field-input {
+  .suffix {
+    min-width: auto;
+  }
+}
+
+.remove {
+  border-radius: 12px;
+  font-size: 12px;
+  height: 40px;
+  outline: none;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+}
+
+.remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  .mat-icon {
+    width: 16px;
+    height: 18px;
+  }
+}
+
+.label-input-content-wrapper .label-container .label-text {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+@media (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+  .remove,
+  .add {
+    font-size: 14px;
+  }
+}

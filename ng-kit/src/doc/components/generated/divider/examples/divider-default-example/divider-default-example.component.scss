@@ -1,0 +1,26 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+.example-item {
+  margin: $grid-unit-y * 2;
+
+  .list-item {
+    @include pe_flexbox;
+    @include pe_align-items(center);
+
+    background-color: $color-light-gray-3;
+    height: $navbar-height;
+  }
+
+  .horizontal-item {
+    margin: 0;
+
+    span {
+      margin: 0 $grid-unit-y;
+    }
+  }
+
+  span {
+    margin-left: $grid-unit-y * 2;
+  }
+}

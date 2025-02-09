@@ -1,0 +1,6 @@
+<div class="pe-payment-container">
+  <santander-no-invoice-form
+    *ngIf="nodeFormOptions$ | async"
+    (submitted)="onSend($event)">
+  </santander-no-invoice-form>
+</div>

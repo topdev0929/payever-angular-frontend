@@ -1,0 +1,22 @@
+{
+  "extends": [
+    "../tslint.json",
+    "tslint-angular"
+  ],
+  "rules": {
+    "no-inferrable-types": false,
+    "no-unbound-method": [true, "ignore-static"],
+    "directive-selector": [
+      true,
+      "attribute",
+      "checkout-cart",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "checkout-cart",
+      "kebab-case"
+    ]
+  }
+}

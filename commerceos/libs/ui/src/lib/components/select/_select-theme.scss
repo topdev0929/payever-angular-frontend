@@ -1,0 +1,56 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $warn: map.get($color-config, 'warn');
+  $host: map.get($color-config, 'host');
+  $border: map.get($color-config, 'border');
+  $text-color: map.get($color-config, 'text-color');
+  $label-color: map.get($color-config, 'label-color');
+  $row-background: map.get($color-config, 'row-background');
+
+  .input-wrapper,
+  .label-select-wrapper,
+  .full-select-wrapper {
+    .input {
+      .select-text,
+      .select-input-text {
+        color: $text-color;
+        &.select-placeholder {
+          color: $label-color;
+        }
+      }
+
+      &.is-invalid {
+        border-bottom-color: $warn;
+        .label-container .label-text {
+          color: $warn;
+        }
+      }
+
+      .label-container {
+        &.select-disabled .select-text {
+          color: $label-color;
+        }
+      }
+      .dropdown-arrow {
+        color: $text-color;
+      }
+    }
+  }
+
+  .label-select-wrapper {
+    .label-text {
+      color: $label-color;
+    }
+  }
+  .status-select-wrapper {
+    .label-container, .dropdown-arrow {
+      background-color: $host;
+      color: $text-color;
+
+    }
+  }
+  .pe-select-group .pe-group-container {
+    border-bottom-color: $border;
+  }
+}

@@ -1,0 +1,22 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup">
+  <mat-checkbox
+    class="checkbox-field col-xs-12"
+    formControlName="digitalConsent"
+    [analyticsConsent]="analyticConsentEventEnum.MARKETING_CONSENT_GIVEN"
+    analyticFieldName="Digital consent">
+    <span [innerHTML]="translations.digitalConsent"> </span>
+  </mat-checkbox>
+
+  <mat-checkbox
+    class="checkbox-field col-xs-12"
+    formControlName="acceptBusinessTerms"
+    [analyticsConsent]="analyticConsentEventEnum.GENERAL_CONSENT_GIVEN"
+    analyticFieldName="Accept business terms">
+    <span
+      [innerHTML]="translations.acceptBusinessTerms"
+      (click)="onAcceptBusinessTermsClick($event)">
+    </span>
+  </mat-checkbox>
+</form>

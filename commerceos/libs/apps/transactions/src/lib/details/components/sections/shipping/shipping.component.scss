@@ -1,0 +1,13 @@
+@import '../../../../shared/styles/details-section.scss';
+@import '../../../../shared/styles/section-mixin.scss';
+
+.shipping-section {
+  @include section();
+}
+
+.section-info {
+  margin-top: 8px;
+  font-family: Roboto, sans-serif;
+  font-size: 11px;
+  padding-left: 12px;
+}

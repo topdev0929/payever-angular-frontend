@@ -1,0 +1,22 @@
+<label class="checkbox__label">
+  <input 
+    #input 
+    hidden 
+    type="checkbox"
+    (change)="onChange($event.target.checked)"
+  >
+  <div class="checkbox__checkmark">
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10" style="margin: auto">
+      <g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g stroke="#FFF" stroke-width="1.4">
+          <g>
+            <path d="M8.4 14L12.6 18.2 19.6 9.8" transform="translate(-577 -373) translate(570 364)"/>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <span>
+    <ng-content></ng-content>
+  </span>
+</label>

@@ -1,0 +1,82 @@
+<or-action-modal [close$]="close$"
+                 [heading]="'form.upload.heading' | translate"
+                 [buttons]="modalButtons"
+                 [loading]="loading"
+                 class="dark"
+>
+
+  <form novalidate (ngSubmit)="onSubmit()" [formGroup]="form" *ngIf="form !== null">
+    <fieldset>
+
+      <div class="mat-accordion">
+
+        <ng-container *ngIf="!filesToUpload || filesToUpload.length === 0">
+          <div class="mat-expansion-panel mat-expansion-panel-dark">
+            <div class="mat-expansion-panel-header">
+              <div class="mat-content">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <p translate>form.upload.messages.empty_form</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="filesToUpload?.length">
+          <div class="mat-expansion-panel mat-expansion-panel-dark" *ngFor="let fileToUpload of filesToUpload; let i = index">
+            <div class="mat-expansion-panel-header">
+              <div class="mat-content">
+                <div class="row">
+                  <div class="col-xs-5 file-wrapper">
+                    <div class="file-name">{{ fileToUpload.name }}</div>
+                  </div>
+                  <div class="col-xs-6">
+                    <div class="form-table">
+                      <div class="form-fieldset-container transparent round-corners">
+                        <div class="form-fieldset" *ngIf="form.get('documents.' + i + '.uploadType')">
+                          <div class="row">
+                            <div class="col-xs-12 select-column">
+                              <pe-select
+                                 [placeholder]="'form.upload.upload_types.none' | translate"
+                                 [options]="uploadTypes"
+                                 [formControlRef]="form.get('documents.' + i + '.uploadType')"
+                                 [panelClass]="'mat-select-panel-dark'"
+                                 [errorMessage]="getDocTypeErrorMessage()"
+                                 ></pe-select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-xs-1 remove-col">
+                    <button (click)="removeFile(i)" class="mat-button-rounded mat-button-xs padding-xs mat-raised-button mat-muted-light">
+                      <span class="mat-button-wrapper">
+                        <svg class="icon icon-8"><use xlink:href="#icon-close-12"></use></svg>
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+
+    </fieldset>
+
+    <div class="hidden">
+      <input #fileInput
+             type="file"
+             (change)="onChangeFile($event)"
+             class="hidden"
+             formControlName="file"
+             multiple>
+      <input type="submit" #submitTrigger>
+    </div>
+
+  </form>
+</or-action-modal>

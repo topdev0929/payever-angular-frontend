@@ -1,0 +1,13 @@
+<pe-profile-container
+[containerPrivateItem]="containerPrivateItem"
+[containerItems]="containerItems"
+[profileLayout]="profileContainerLayout"
+[isSwitchedOff]="isSwitchedOff"
+(selectItemEvent)="handleSelectedProfileItem($event)"
+(editItemEvent)="handleEditProfileItem($event)"
+[isSwiperMobile]="isSwiperMobile"
+[containerTheme]="'light'"
+[showEditButton]="true"
+[editText]="Edit"
+>
+</pe-profile-container>

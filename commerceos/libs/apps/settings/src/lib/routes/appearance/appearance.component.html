@@ -1,0 +1,30 @@
+<div class="appearance">
+    <form [formGroup]="form">
+        <span class="appearance__title">{{'info_boxes.panels.themes.title' | translate}}</span>
+        <div class="appearance__wrapper" >
+            <div class="appearance__wrapper__content">
+                <div *ngFor="let item of appearanceItems" class="appearance-item">
+                    <div class="item-content">
+                        <img (click)="handleItemClick(item)" [alt]="item.theme" [src]="item.image" >
+                    </div>
+                    <span class="item-title">{{ item.text }}</span>
+                    <div *ngIf="item.isLoading" class="loading-box">
+                        <mat-spinner [strokeWidth]="1.5" [diameter]="19"></mat-spinner>
+                    </div>
+                    <peb-radio #pebRadio [style.display]="item.isLoading ? 'none' : 'block'" [disabled]="isLoading" class="item-radio" name="theme" [checked]="selectedTheme === item.theme"
+                        formControlName="theme" [value]="item.theme">
+                    </peb-radio>
+                </div>
+            </div>
+            <div class="appearance__auto">
+                <label class="group__item-right-content__button">
+                    {{ 'info_boxes.panels.themes.default_computer' | translate }}
+                </label>
+                <peb-button-toggle [disabled]="isLoading" [checked]="isAuto" (changed)="applyAutomaticTheme($event)"></peb-button-toggle>
+            </div>
+        </div>
+    </form>
+    <div class="options-list">
+        <peb-list-info [listData]="optionsList"></peb-list-info>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $primary: map.get($color-config, 'primary');
+  $confirm: map.get($color-config, 'confirm');
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $border: map.get($color-config, 'border');
+  $active-button: map.get($color-config, 'active-button');
+  $badge-button: map.get($color-config, 'badge-button');
+  $gray-background: map.get($color-config, 'gray-background');
+  $active-text: map.get($color-config, 'active-text');
+  $label-color: map.get($color-config, 'label-color');
+  $text-color: map.get($color-config, 'text-color');
+
+  .peb-dashboard {
+    .dashboard-header {
+        color: $text-color;
+        background-color: $primary;
+        &__menu, &__open {
+            background-color: $badge-button;
+            color: $text-color;
+        }
+    }
+    .dashboard-viewer-content { 
+        background-color: $gray-background;
+    }
+  }
+  .shop-mat-menu + .cdk-overlay-connected-position-bounding-box {
+    .cdk-overlay-pane {
+      border-radius: 12px;
+      margin-top: 14px;
+      .mat-menu-panel {
+        background-color: unset;
+        border: solid 1px $border;
+        box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.20);
+        margin-bottom: 0;
+        mask-image: none !important;
+        
+        .shop-panel-header-menu {
+          backdrop-filter: blur(25px);
+          background-color: $secondary-background;
+          &__title {
+            color: $text-color;
+            &-icon {
+              color: $label-color;
+            }
+          }
+          &__item {
+            &:hover {
+              &::before {
+                background-color: $active-button;
+              }
+            }
+            &-content {
+              color: $text-color;
+            }
+          }
+      
+        }
+      }
+    }
+  }
+}

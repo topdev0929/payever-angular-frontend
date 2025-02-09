@@ -1,0 +1,21 @@
+cdk-virtual-scroll-viewport {
+  display: flex;
+  flex-grow: 1;
+  height: 100%;
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &.live-chat {
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+}
+
+:host {
+  display: flex;
+  flex-grow: 1;
+}

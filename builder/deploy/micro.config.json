@@ -1,0 +1,6 @@
+{
+  "code": "builder",
+  "tag": "<app-builder></app-builder>",
+  "url": "/business/{uuid}/shop/{storeUuid}/",
+  "bootstrapScriptUrl": "${MICRO_URL_FRONTEND_BUILDER}/micro.js?{hash}"
+}

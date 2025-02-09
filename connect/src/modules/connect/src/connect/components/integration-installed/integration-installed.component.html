@@ -1,0 +1,18 @@
+<div class="integrations-installed">
+  <svg class="integrations-installed__icon">
+    <use xlink:href="#icon-success-128"></use>
+  </svg>
+  <div class="integrations-installed__title" translate>
+    {{ installed ? 'installation.installed.title' : 'installation.uninstalled.title' }}
+  </div>
+  <div 
+    class="integrations-installed__message"
+    [translate]="{ title: integration.displayOptions.title | translate }"
+  >
+    {{ installed ? 'installation.installed.description' : 'installation.uninstalled.description' }}
+  </div>
+  <div class="integrations-installed__actions">
+    <button *ngIf="installed" class="integrations-installed__button blue" (click)="handleOpen()">{{ 'actions.open' | translate }}</button>
+    <button class="integrations-installed__button gray" (click)="handleClose()">{{ 'actions.close' | translate }}</button>
+  </div>
+</div>

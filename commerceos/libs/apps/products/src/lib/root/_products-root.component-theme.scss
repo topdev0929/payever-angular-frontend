@@ -1,0 +1,42 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $confirm: map.get($color-config, 'confirm');
+  $text-color: map.get($color-config, 'text-color');
+  $background: map.get($color-config, 'background');
+  $row-background: map.get($color-config, 'row-background');
+  $tertiary-button: map.get($color-config, 'tertiary-button');
+
+  cos-products-root {
+    background-color: $background;
+  }
+
+  #products-header {
+    &.short-header {
+      background: $row-background;
+
+      ::ng-deep {
+        .section-left {
+          .section-button {
+            &.active-button {
+              background-color: $tertiary-button !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .products-header,
+  .products-app-content {
+    color: $text-color;
+  }
+
+  .mat-option {
+    &.mat-selected {
+      &.mat-active {
+        background: $confirm !important;
+      }
+    }
+  }
+}

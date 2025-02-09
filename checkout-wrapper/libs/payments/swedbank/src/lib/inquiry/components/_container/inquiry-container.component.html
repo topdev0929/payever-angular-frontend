@@ -1,0 +1,8 @@
+<div class="pe-payment-container">
+  <p
+    class="text-danger"
+    *ngIf="errorMessage"
+    [innerHtml]="errorMessage"></p>
+
+  <swedbank-inquiry-form (submitted)="onSend($event)"> </swedbank-inquiry-form>
+</div>

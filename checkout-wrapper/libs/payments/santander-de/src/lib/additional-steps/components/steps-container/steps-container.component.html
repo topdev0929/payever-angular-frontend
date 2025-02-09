@@ -1,0 +1,11 @@
+<section *ngIf="steps$ | async  as steps">
+  <ng-container *ngIf="{ index: !finished ? selectedIndex : steps.length - 1 } as active">
+    <steps-header
+      [steps]="steps"
+      [selectedIndex]="active.index">
+    </steps-header>
+    <ng-container
+      [ngComponentOutletInjector]="stepsInjector"
+      [ngComponentOutlet]="steps[active.index].component"></ng-container>
+  </ng-container>
+</section>

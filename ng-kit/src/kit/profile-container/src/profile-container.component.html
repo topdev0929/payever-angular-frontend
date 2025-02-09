@@ -1,0 +1,90 @@
+<div class="ui-profile-container"
+  [ngClass]="{'no-pagination': isPaginationHidden, 'no-controls': isControlsHidden,
+    'switched-off': isSwitchedOff, 'inited': this.swiper, 'has-private-item': containerPrivateItem,
+    'theme-dark': containerTheme === 'dark', 'theme-light': containerTheme === 'light', 'profile-mobile': isMobile }">
+  <div class="left arrow" #arrowLeft>
+    <svg class="icon icon-48"><use xlink:href="#icon-arrow-left-48"></use></svg>
+  </div>
+  <div class="right arrow" #arrowRight>
+    <svg class="icon icon-48"><use xlink:href="#icon-arrow-right-48"></use></svg>
+  </div>
+
+  <div class="swiper-container" #swiperContainer>
+    <div class="swiper-wrapper">
+
+      <div class="swiper-slide" *ngIf="containerPrivateItem">
+        <a class="business type-private"
+        [ngClass]="{'active-business': containerPrivateItem.active }"
+          (click)="onItemSelect($event, containerPrivateItem)"
+          >
+          <span class="active-business-icon" *ngIf="containerPrivateItem.active"></span>
+          <span class="img">
+            <span *ngIf="!containerPrivateItem.imagePath" class="img-inner profile-default img-circle profile-default-siluet">
+              <svg class="icon">
+                <use xlink:href="#icon-user-4-128"></use>
+              </svg>
+            </span>
+
+            <span *ngIf="containerPrivateItem.imagePath" class="img-inner">
+              <img src="{{ containerPrivateItem.imagePath }}">
+            </span>
+          </span>
+
+          <span *ngIf="showEditButton" class="edit-item" (click)="onItemEditClick($event, containerPrivateItem)" title="{{ editText }}">
+            <svg class="icon icon-16"><use xlink:href="#icon-settings-2-16"></use></svg>
+          </span>
+        </a>
+        <p class="subheading">{{ containerPrivateItem.title }}</p>
+        <p class="subsubheading">{{ containerPrivateItem.typeText }}</p>
+      </div>
+
+      <div class="swiper-slide" *ngFor="let item of partnerPrivateItem; let last = last" [class.swiper-partner-last]="last && !isMobile">
+        <a class="business type-partner"
+           [ngClass]="{'active-business': item.active, 'business-notify': item.active }"
+           (click)="onItemSelect($event, item)"
+        >
+          <span class="img">
+            <span *ngIf="!item.imagePath" class="img-inner profile-default img-circle profile-default-text">
+              <span class="text">{{ item.abbr }}</span>
+            </span>
+
+            <span *ngIf="item.imagePath" class="img-inner">
+              <img src="{{ item.imagePath }}">
+            </span>
+          </span>
+
+          <span *ngIf="showEditButton" class="edit-item" (click)="onItemEditClick($event, item)" title="{{ editText }}">
+            <svg class="icon icon-16"><use xlink:href="#icon-settings-2-16"></use></svg>
+          </span>
+        </a>
+        <p class="subheading">{{ item.title }}</p>
+        <p class="subsubheading"><svg class="icon icon-16"><use xlink:href="#icon-chain-16"></use></svg>{{ item.typeText }}</p>
+      </div>
+
+      <div class="swiper-slide" *ngFor="let item of containerItems">
+        <a class="business type-business"
+        [ngClass]="{'active-business': item.active, 'business-notify': item.active }"
+          (click)="onItemSelect($event, item)"
+          >
+          <span class="img">
+            <span *ngIf="!item.imagePath" class="img-inner profile-default img-circle profile-default-text">
+              <span class="text">{{ item.abbr }}</span>
+            </span>
+
+            <span *ngIf="item.imagePath" class="img-inner">
+              <img src="{{ item.imagePath }}">
+            </span>
+          </span>
+
+          <span *ngIf="showEditButton" class="edit-item" (click)="onItemEditClick($event, item)" title="{{ editText }}">
+            <svg class="icon icon-16"><use xlink:href="#icon-settings-2-16"></use></svg>
+          </span>
+        </a>
+        <p class="subheading">{{ item.title }}</p>
+        <p class="subsubheading">{{ item.typeText }}</p>
+      </div>
+    </div>
+
+    <div class="swiper-pagination" #swiperPagination></div>
+  </div>
+</div>

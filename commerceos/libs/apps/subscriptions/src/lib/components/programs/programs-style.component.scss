@@ -1,0 +1,28 @@
+@use 'pe_variables' as pe_variables;
+
+pe-builder-app {
+  .mat-drawer-container {
+    .mat-drawer-content {
+      overflow: unset;
+      @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+        pe-subscriptions-programs {
+          .pe-subscriptions-programs-grid {
+            .pe-grid-sidenav_opened.pe-grid-sidenav_embed-mod,
+            .pe-grid-content_embed-mod {
+              padding: 0 16px 16px;
+            }
+            .pe-grid-content__info,
+            .pe-grid-content__toolbar {
+              margin-bottom: 16px;
+              padding: 0 32px;
+            }
+            pe-grid-viewport {
+              margin-right: 0;
+              padding-bottom: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

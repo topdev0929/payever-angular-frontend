@@ -1,0 +1,36 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup">
+  <div class="form-fieldset-new">
+    <mat-form-field class="col-xs-6">
+      <mat-label i18n="@@santander-se.inquiry.form.accommodation_type.label"> Accommodation type </mat-label>
+
+      <mat-select formControlName="accommodationType">
+        <mat-option
+          *ngFor="let option of accommodationTypeOptions$ | async"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-6">
+      <mat-label i18n="@@santander-se.inquiry.form.housing_cost.label"> Household cost </mat-label>
+
+      <input
+        matInput
+        [peInputCurrencyMask]="flow.currency"
+        formControlName="housingCostPerMonth"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12">
+      <mat-label i18n="@@santander-se.inquiry.form.number_of_children.label"> Number of children </mat-label>
+
+      <input
+        matInput
+        formControlName="numberOfChildren"
+        type="number" />
+    </mat-form-field>
+  </div>
+</form>

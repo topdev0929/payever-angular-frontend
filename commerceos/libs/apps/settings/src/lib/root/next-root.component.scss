@@ -1,0 +1,98 @@
+cos-next-root {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  top: 0;
+  height: 100%;
+  overflow: hidden;
+}
+.settings-app {
+  height: 100%;
+}
+
+.snackbar {
+  .snackbar__row {
+    .snackbar__icon {
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}
+
+.email-picker {
+  .picker-container {
+    .picker-container__controls {
+      .input-with-label__button {
+        .peb-text-button {
+          line-height: unset;
+        }
+      }
+    }
+  }
+}
+
+.country-picker {
+  .picker-container {
+    .picker-container__controls {
+      border-bottom: 0;
+    }
+  }
+}
+
+.button-toggle-container {
+  border-bottom: none;
+}
+
+.new-employee-dialog {
+  .overlay-widget-container {
+    .overlay-widget {
+      &__content {
+        padding: 0;
+        overflow-y: auto;
+      }
+    }
+  }
+}
+
+.pe-scrollbar {
+  overflow-y: auto;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+.wallpaper-wrapper {
+  .scrollbar {
+    .grid-view-container {
+      margin-right: 0;
+    }
+  }
+}
+.employees-data-grid {
+  .scrollbar {
+    .grid-view-container {
+      margin-right: 0;
+    }
+  }
+}
+
+.two-column-form-wrapper {
+  .form-group__input {
+    & + .form-group__input.form-left-border {
+      border-left: 0;
+    }
+  }
+}
+
+
+peb-settings {
+  peb-list-info .header h2 {
+    @media (max-width: 720px) {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+@use 'pe_theming' as pet;
+
+@use './root/products-root.component-theme' as products_root;
+@use './products-theme.component' as products_component;
+@use './products-list/components/edit-menu/edit-menu-theme.component' as product_edit_menu;
+@use './products-list/components/import-menu/import-menu-theme.component' as product_import-menu;
+@use './product-editor/containers/editor/editor.component-theme' as product_editor;
+@use './products-list/components/edit-picture/edit-picture-theme.component' as product_list_picture_edit;
+@use './product-editor/components/editor-pictures/editor-pictures-theme.component' as product_editor_pictures;
+@use './product-editor/components/autocomplete/products-autocomplete-theme.component' as product_autocomplete;
+@use './product-editor/components/editor-sections/editor-channels-section/editor-channels-section-theme.component' as product_editor_channels;
+@use './product-editor/components/country-picker/country-picker-theme.component' as product_country_picker;
+@use './product-editor/components/language-picker/language-picker-theme.component' as product_language_picker;
+@use './product-editor/components/editor-sections/editor-inventory-section/editor-inventory-section-theme.component' as product_editor_inventory;
+@use './product-editor/components/editor-sections/editor-pricing-section/editor-pricing-section-theme.component' as product_editor_pricing;
+@use './product-editor/components/variant-editor/variant-editor-theme.component' as product_variant_editor;
+@use './product-editor/components/editor-sections/editor-recommendations-section/editor-recommendations-section-theme.component' as product_editor_recommendations;
+@use './product-editor/components/editor-sections/editor-category-section/editor-category-section-theme.component' as product_editor_category;
+@use './product-editor/components/editor-sections/editor-attributes-section/editor-attributes-section-theme.component' as product_editor_attribute;
+@mixin theme($theme-config) {
+    $color-config: pet.get-color-config-from-theme($theme-config);
+
+    @include products_root.color($color-config);
+    @include products_component.color($color-config);
+    @include product_edit_menu.color($color-config);
+    @include product_editor_pictures.color($color-config);
+    @include product_editor.color($color-config);
+    @include product_editor_pictures.color($color-config);
+    @include product_list_picture_edit.color($color-config);
+    @include product_autocomplete.color($color-config);
+    @include product_editor_channels.color($color-config);
+    @include product_editor_inventory.color($color-config);
+    @include product_editor_pricing.color($color-config);
+    @include product_variant_editor.color($color-config);
+    @include product_import-menu.color($color-config);
+    @include product_editor_recommendations.color($color-config);
+    @include product_country_picker.color($color-config);
+    @include product_language_picker.color($color-config);
+    @include product_editor_category.color($color-config);
+    @include product_editor_attribute.color($color-config);
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../dist/libs/subscriptions",
+  "assets": [
+    "./assets"
+  ],
+  "lib": {
+    "entryFile": "src/index.ts",
+    "umdModuleIds": {
+      "@angular/material":  "@angular/material",
+      "@angular/cdk": "@angular/cdk",
+
+      "@pe/platform-header": "@pe/platform-header",
+      "@pe/auth": "@pe/auth",
+      "@pe/common": "@pe/common",
+      "@pe/data-grid": "@pe/data-grid",
+      "@pe/sidebar": "@pe/sidebar",
+      "@pe/widgets": "@pe/widgets",
+      "@pe/i18n": "@pe/i18n",
+      "@pe/forms": "@pe/forms"
+    }
+  },
+  "whitelistedNonPeerDependencies": [
+    "auth",
+    "angular",
+    "moment",
+    "lodash",
+    "lodash-es",
+    "rxjs",
+    "js-cookie",
+    "@pe/data-grid",
+    "@pe/platform-header",
+    "@pe/sidebar",
+    "@pe/filters"
+  ]
+}

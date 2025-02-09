@@ -1,0 +1,42 @@
+<div class="sidenav sidenav-left peb-sidenav">
+  <div class="sidenav__header">
+    <span class="sidenav__headline">{{ title | translate }}</span>
+    <mat-icon class="sidenav__close" svgIcon="small-close-icon" (click)="closeSidebar()"></mat-icon>
+  </div>
+  <nav class="nav">
+    <ul>
+      <li>
+        <a (click)="open()" routerLink="./dashboard" routerLinkActive="nav__link--active" class="nav__link">
+          <ng-container *ngIf="business$ | async as business">
+            <span class="nav__icon nav__icon--abbr">{{ business | abbreviation }}</span>
+            <span class="nav__text">{{ business }}</span>
+          </ng-container>
+        </a>
+      </li>
+      <li class="edit-nav-item">
+        <a (click)="open()" class="nav__link" routerLink="./edit" routerLinkActive="nav__link--active">
+          <span class="nav__icon">
+            <mat-icon svgIcon="edit" class="nav__mat-icon"></mat-icon>
+          </span>
+          <span>Edit</span>
+        </a>
+      </li>
+      <li>
+        <a (click)="open()" routerLink="./settings" routerLinkActive="nav__link--active" class="nav__link">
+          <span class="nav__icon">
+            <mat-icon svgIcon="settings" class="nav__mat-icon"></mat-icon>
+          </span>
+          <span>Settings</span>
+        </a>
+      </li>
+      <li>
+        <a (click)="open()" routerLink="./themes" routerLinkActive="nav__link--active" class="nav__link">
+          <span class="nav__icon">
+            <mat-icon svgIcon="theme" class="nav__mat-icon"></mat-icon>
+          </span>
+          <span>Themes</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>

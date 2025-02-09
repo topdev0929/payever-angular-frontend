@@ -1,0 +1,12 @@
+<div class="btn-group">
+  <button type="button" class="dropdown-toggle {{ filterBtnClasses }}" data-toggle="dropdown">
+    <svg class="icon icon-16"><use xlink:href="#icon-filters-16"></use></svg>
+    <span>{{ filterName }}</span>
+  </button>
+  <div class="dropdown-menu" role="menu">
+    <ul>
+      <li class="subtitle caption-2">{{ filterTitle }}</li>
+      <li *ngFor="let item of itemsList" role="menuitem"><a href="#" class="dropdown-item" (click)="onItemSelect($event, item)">{{ item.title }}</a></li>
+    </ul>
+  </div>
+</div>

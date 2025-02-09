@@ -1,0 +1,26 @@
+<mat-radio-group class="{{ orientation }}"
+                 [attr.pe-qa-radio-group]="controlQaId"
+                 [class.mat-radio-error]="isErrorState"
+                 [labelPosition]="labelPosition"
+                 [required]="required"
+                 [formControl]="formControl"
+                 (change)="onChanged($event)"
+>
+  <mat-radio-button class="radio-button"
+                    *ngFor="let radioButton of radioButtons; let index = index"
+                    [attr.pe-qa-radio-group]="controlQaId+':'+radioButton.value"
+                    [aria-describedby]="radioButton.ariaDescribedby"
+                    [aria-label]="radioButton.ariaLabel"
+                    [aria-labelledby]="radioButton.ariaLabelledby"
+                    [checked]="radioButton.checked"
+                    [color]="radioButton.color"
+                    [disabled]="radioButton.disabled"
+                    [labelPosition]="radioButton.labelPosition"
+                    [required]="radioButton.required"
+                    [tabIndex]="tabIndex !== null ? (tabIndex + index) : null"
+                    [value]="radioButton.value"
+  >
+    <span [innerHtml]="radioButton.title"></span>
+  </mat-radio-button>
+</mat-radio-group>
+<mat-error *ngIf="errorMessage && isErrorState">{{ errorMessage }}</mat-error>

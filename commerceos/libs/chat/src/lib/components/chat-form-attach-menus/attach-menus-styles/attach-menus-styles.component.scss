@@ -1,0 +1,501 @@
+@use 'pe_variables.scss' as pe_variables;
+@import '~@ctrl/ngx-emoji-mart/picker';
+
+@mixin border-none {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+@mixin overlay-menu {
+  padding: 0 18px 8px;
+  max-height: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  border-radius: 16px 16px 0 0;
+  overflow: hidden;
+}
+
+@mixin overlay-menu-animation {
+  transition: 0.4s max-height ease;
+}
+
+.message-menu {
+  width: 154px !important;
+  margin-bottom: 20px !important;
+  border-radius: 12px !important;
+  -webkit-backdrop-filter: blur(50px) !important;
+  backdrop-filter: blur(50px) !important;
+  padding: 4px !important;
+
+  &__header {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    padding: 8px 16px;
+  }
+
+  &__title {
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+  }
+
+  &__close {
+    &-icon {
+      height: 16px;
+      width: 16px;
+      cursor: pointer;
+    }
+  }
+
+  &__button {
+    display: flex !important;
+    height: 28px !important;
+    line-height: normal !important;
+    width: calc(100% - 16px) !important;
+    font-size: 14px !important;
+    border-radius: 6px;
+    margin: 8px;
+    letter-spacing: normal;
+    padding: 4px 8px !important;
+    align-items: center !important;
+    gap: 8px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      transition: background 0.2s ease;
+    }
+  }
+
+  &__icon {
+    height: 20px;
+    width: 20px;
+    margin-right: 0 !important;
+  }
+}
+
+.attach-menu {
+  @include overlay-menu;
+  @include overlay-menu-animation;
+  backdrop-filter: blur(25px);
+
+  @media (min-width: pe_variables.$viewport-breakpoint-sm-2) {
+    box-shadow: 0px -3px 8px 0 rgb(0 0 0 / 30%);
+  }
+
+  &.show {
+    max-height: 500px;
+  }
+
+  button {
+    @include border-none;
+
+    cursor: pointer;
+
+    &:focus,
+    &:active,
+    &:hover {
+      @include border-none;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 0 14px;
+
+    &__title {
+      line-height: 1.14;
+      font-weight: bold;
+    }
+
+    &~.center {
+      justify-content: center;
+    }
+
+    &~div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 0 8px;
+      padding: 10px;
+      height: 40px;
+      border-radius: 12px;
+      line-height: normal;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: normal;
+      cursor: pointer;
+
+      @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+        height: 56px;
+        font-size: 17px;
+        padding: 10px 16px;
+      }
+
+      &.apps {
+        padding: 0;
+        margin: 0 auto 8px;
+        max-width: 304px;
+        width: 100%;
+        max-height: 114px;
+        height: 100%;
+        overflow: hidden;
+
+        img {
+          object-fit: cover;
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.plus-menu {
+  &__image-preview {
+    height: 100%;
+  }
+
+  @include overlay-menu;
+
+  &.show {
+    max-height: 500px;
+  }
+
+  button {
+    @include border-none;
+
+    cursor: pointer;
+
+    &:focus,
+    &:active,
+    &:hover {
+      @include border-none;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 0 14px;
+
+    .plus-menu__header__send {
+      margin-left: -55px;
+    }
+
+    &__title {
+      flex: 1;
+      padding: 0 55px 0 0;
+      text-align: center;
+      line-height: 1.14;
+      font-weight: bold;
+    }
+
+    &~div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 0 8px;
+      padding: 8px 16px;
+      height: 48px;
+      border-radius: 12px;
+    }
+  }
+
+  @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+    &__header {
+      &~div {
+        height: 56px;
+      }
+
+      &__title {
+        font-size: 17px;
+      }
+    }
+
+    button {
+      font-size: 15px;
+    }
+  }
+
+  & &__drop-photo {
+    height: 104px;
+
+    img {
+      border-radius: 12px;
+    }
+
+    .choose-file-icon {
+      width: 52px;
+      height: 42px;
+    }
+  }
+
+  & &__add-more {
+    font-weight: 500;
+    line-height: 1.14;
+    text-align: center;
+
+    button {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  & &__compress {
+    justify-content: space-between;
+    line-height: 1.14;
+    letter-spacing: normal;
+
+    .button-toggle-container {
+      padding: 0;
+    }
+  }
+
+  & &__text,
+  & &__url {
+    .peb-form-field-input {
+      width: 100%;
+
+      .label-container {
+        padding: 0;
+        margin-right: 8px;
+        height: 48px;
+      }
+
+      .label-text {
+        line-height: 1.14;
+        letter-spacing: normal;
+      }
+
+      input {
+        @include border-none;
+        width: 100%;
+        height: 100%;
+        font-size: 12px;
+        line-height: 1.14;
+        letter-spacing: normal;
+
+        &:focus {
+          @include border-none;
+        }
+      }
+    }
+    &-icon {
+      height: 28px;
+    }
+  }
+
+  & &__dropdown {
+    margin: 0;
+    width: 100%;
+
+    .peb-select {
+      width: 100%;
+
+      .label-container {
+        justify-content: center !important;
+      }
+
+      .select-text {
+        align-items: center;
+        display: flex;
+        font-size: 12px !important;
+      }
+
+      .label-select-wrapper .input {
+        padding-left: 0;
+        font-size: 12px;
+        line-height: 1.14;
+        letter-spacing: normal;
+      }
+
+      .peb-select-option {
+        height: 44px;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+
+.pe-chat-tag-list {
+  @include overlay-menu;
+  @include overlay-menu-animation;
+  padding: 0;
+
+  &.show {
+    max-height: 260px;
+  }
+
+  &__scroll-wrapper {
+    border-radius: 16px 16px 0 0;
+    max-height: 260px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      -webkit-appearance: none;
+      width: 0px;
+    }
+  }
+
+  &__wrapper {
+    width: 100%;
+  }
+
+  &__row {
+    cursor: pointer;
+    display: flex;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 1px;
+
+    &::before {
+      border-radius: 12px;
+      content: "";
+      display: block;
+      top: 0;
+      right: 0px;
+      bottom: 0;
+      left: -6px;
+      z-index: 0;
+    }
+  }
+
+  &__status {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &__notification {
+    width: 12px;
+    height: 12px;
+    color: #7a7a7a;
+  }
+
+  &__integration {
+    height: 12px;
+    margin-left: 4px;
+    width: 12px;
+  }
+}
+
+.pe-drop-box {
+  padding: 0;
+  border-radius: 12px;
+  margin: 12px;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+  display: flex;
+
+  &:last-child {
+    margin-top: 0px !important;
+  }
+
+  &__wrapper {
+    width: 100%;
+  }
+
+}
+
+.drop-box {
+  text-align: center;
+  transition: 0.4s all ease;
+
+  &__wrapper {
+    height: calc(100vh - 200px);
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+  }
+
+  &__icon {
+    fill: none;
+  }
+
+  &__title {
+    padding: 12px;
+    font-size: 32px;
+  }
+}
+
+.emoji-mart {
+  border: 0px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.emoji-mart-bar:first-child {
+  border: 0px;
+}
+
+.emoji-mart-dark {
+  max-width: 100%;
+  height: 100%;
+}
+
+section.emoji-mart-dark {
+  height: 100%;
+}
+
+emoji-mart.emoji-mart {
+  height: calc(100% - 44px);
+}
+
+.emoji-mart-category-label span {
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px !important;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-transform: uppercase;
+}
+
+.emoji-mart-search {
+  display: none;
+}
+
+.emoji-mart-anchors {
+  display: none !important;
+}
+
+.emoji-mart-scroll {
+  height: 100%;
+  padding: 0 1px 6px 10px;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+}
+
+.cdk-overlay-backdrop.pe-chat-menu-backdrop {
+  @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+    height: calc(100% - 226px);
+    width: calc(100% - 32px);
+    margin: 0 auto;
+    position: absolute;
+    top: 113px;
+  }
+}
+
+.emoji-mart-emoji {
+  span {
+    cursor: pointer !important;
+  }
+}

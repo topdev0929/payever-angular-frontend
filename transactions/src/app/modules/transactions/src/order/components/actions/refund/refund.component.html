@@ -1,0 +1,169 @@
+<or-action-modal [close$]="close$"
+                 [heading]="'form.refund.heading' | translate"
+                 [buttons]="modalButtons"
+                 [loading]="loading"
+                 class="dark"
+>
+  <div class="inner-padding" *ngIf="error">
+    <div class="text-danger" [innerHtml]="error"></div>
+  </div>
+  <form novalidate (ngSubmit)="onSubmit()" [formGroup]="form" *ngIf="form !== null">
+    <div class="clearfix transparent-nested">
+      <fieldset [class.active]="form.get('type').value === types[0].toString()">
+        <div class="form-widget form-design pe-bootstrap">
+          <div>
+            <input class="form" value="{{ types[0] }}" id="radio_type_{{ types[0] }}" name="type" formControlName="type" type="radio">
+            <label class="fs-hide" for="radio_type_{{ types[0] }}">
+              {{ 'form.refund.labels.type.full' | translate: {amount:refundTotal|currency:order.transaction.currency} }}
+            </label>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset [class.active]="form.get('type').value === types[1].toString()">
+        <div class="form-widget form-design pe-bootstrap">
+          <div>
+            <input value="{{ types[1] }}" id="radio_type_{{ types[1] }}" name="type" formControlName="type" type="radio">
+            <label for="radio_type_{{ types[1] }}">{{ 'form.refund.labels.type.partial' | translate }}</label>
+          </div>
+        </div>
+        <div class="form-items form-inline">
+
+          <div class="form-table">
+            <fieldset class="transparent-form" style="border: none;">
+              <div class="clearfix">
+                <div class="col-xs-12" [ngClass]="{'has-error': form.get('reason').errors}">
+                  <input type="number"
+                         class="form-control fs-hide"
+                         [attr.max]="refundTotal"
+                         [attr.min]="0"
+                         placeholder="{{ 'form.refund.placeholders.amount' | translate }}"
+                         formControlName="amount">
+                  <label class="fs-hide">
+                    {{ 'form.refund.labels.amount' | translate: {amount:refundTotal|currency:order.transaction.currency} }}
+                  </label>
+                  <span class="error small" [innerHtml]="form.get('reason').errors" *ngIf="form.get('reason').errors"></span>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset [class.active]="form.get('type').value === types[2].toString()" *ngIf="order.cart.available_refund_items.length > 0">
+        <div class="form-widget form-design pe-bootstrap">
+          <div>
+            <input value="{{ types[2] }}" id="radio_type_{{ types[2] }}" name="type" formControlName="type" type="radio" (change)="swapButtons()">
+            <label for="radio_type_{{ types[2] }}">{{ 'form.refund.labels.type.items' | translate }}</label>
+          </div>
+        </div>
+        <div class="form-items" formArrayName="refundItems">
+          <table class="table pe-bootstrap fs-hide">
+            <tr>
+              <td class="white" *ngIf="!isMobile">{{ 'form.refund.products_table.product' | translate }}</td>
+              <td class="white" [ngClass]="{'text-right': isMobile}">{{ 'form.refund.products_table.qty' | translate }}</td>
+              <td class="white text-right">{{ 'form.refund.products_table.subtotal' | translate }}</td>
+            </tr>
+            <tr *ngFor="let item of refundItems.controls; let i=index" [formGroupName]="i">
+              <th class="white" [innerHtml]="order._itemsArray[order.cart.available_refund_items[i].item_uuid].name" ></th>
+              <td>
+                <div class="pe-select">
+                  <mat-form-field>
+                    <mat-select [panelClass]="'mat-select-panel-dark mat-select-dark mat-select-panel-border-radius-lg'"
+                                [formControlName]="'count'"
+                                (change)="swapButtons()">
+                      <mat-option *ngFor="let option of getCountArray(order.cart.available_refund_items[i].count)" [value]="option">
+                        <span [innerHtml]="option"></span>
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <input type="hidden"  formControlName="paymentItemId">
+              </td>
+              <th class="text-right white" [innerHtml]="getItemSubtotal(i)|currency:order.transaction.currency" *ngIf="!isMobile"></th>
+            </tr>
+            <tr>
+              <td class="divider" [attr.colspan]="isMobile ? 2 : 3"></td>
+            </tr>
+            <tr>
+              <td class="text-right white" [attr.colspan]="isMobile ? 1 : 2">{{ 'form.refund.products_table.subtotal' | translate }}</td>
+              <th class="text-right white" [innerHtml]="itemsSubtotal|currency:order.transaction.currency"></th>
+            </tr>
+            <tr *ngIf="deliveryFee > 0 && form.get('refundDeliveryFee').value">
+              <td class="text-right white" [attr.colspan]="isMobile ? 1 : 2">{{ 'form.refund.products_table.delivery_fee' | translate }}</td>
+              <th class="text-right white" [innerHtml]="itemsDeliveryFee|currency:order.transaction.currency"></th>
+            </tr>
+            <tr *ngIf="paymentFee > 0 && form.get('refundPaymentFee').value">
+              <td class="text-right white" [attr.colspan]="isMobile ? 1 : 2">{{ 'form.refund.products_table.payment_fee' | translate }}</td>
+              <th class="text-right white" [innerHtml]="paymentFee|currency:order.transaction.currency"></th>
+            </tr>
+            <tr>
+              <th class="text-right white" [attr.colspan]="isMobile ? 1 : 2">{{ 'form.refund.products_table.total_refund' | translate }}</th>
+              <th class="text-right white" [innerHtml]="amountValue|currency:order.transaction.currency"></th>
+            </tr>
+          </table>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="clearfix transparent-nested fs-hide" *ngIf="
+      !(form.get('type').value === types[1].toString() || order.cart.items.length === 0) ||
+      !(deliveryFee === 0 || form.get('type').value !== types[2].toString()) ||
+      !(paymentFee === 0) ||
+      order._isSantanderDe
+    ">
+      <fieldset>
+        <div class="form-widget form-design" [class.hide]="form.get('type').value === types[1].toString() || order.cart.items.length === 0">
+          <div>
+            <input value="1" id="checkbox_itemsRestocked" name="itemsRestocked" formControlName="itemsRestocked" type="checkbox">
+            <label for="checkbox_itemsRestocked" class="white">{{ 'form.refund.labels.itemsRestocked' | translate }}</label>
+          </div>
+        </div>
+        <div class="form-widget form-design" [class.hide]="deliveryFee === 0 || form.get('type').value !== types[2].toString()">
+          <div>
+            <input value="1" id="checkbox_refundDeliveryFee" name="refundDeliveryFee" formControlName="refundDeliveryFee" type="checkbox">
+            <label for="checkbox_refundDeliveryFee" class="white">{{ 'form.refund.labels.refundDeliveryFee' | translate }}</label>
+          </div>
+        </div>
+        <div class="form-widget form-design" [class.hide]="paymentFee === 0">
+          <div>
+            <input value="1" id="checkbox_refundPaymentFee" name="refundPaymentFee" formControlName="refundPaymentFee" type="checkbox">
+            <label for="checkbox_refundPaymentFee" class="white">{{ 'form.refund.labels.refundPaymentFee' | translate }}</label>
+          </div>
+        </div>
+        <!--
+        <div class="form-widget form-design" *ngIf="order._isSantanderDe">
+          <div>
+            <input value="1" id="checkbox_refundCollectedBySepa" name="refundCollectedBySepa" formControlName="refundCollectedBySepa" type="checkbox">
+            <label for="checkbox_refundCollectedBySepa" class="white">{{ 'form.refund.labels.refundCollectedBySepa' | translate }}</label>
+          </div>
+        </div>
+        -->
+        <div class="form-widget form-design" *ngIf="order._isSantanderDe">
+          <div>
+            <input value="1" id="checkbox_refundGoodsReturned" name="refundGoodsReturned" formControlName="refundGoodsReturned" type="checkbox">
+            <label for="checkbox_refundGoodsReturned" class="white">{{ 'form.refund.labels.refundGoodsReturned' | translate }}</label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="form-table fs-hide">
+      <fieldset class="transparent-form">
+        <div class="clearfix">
+          <div class="col-xs-12">
+            <input class="form-control" id="input_reason" placeholder="{{ 'form.refund.labels.reason' | translate }}" formControlName="reason" type="text">
+            <label for="input_reason">{{ 'form.refund.labels.reason' | translate }}</label>
+          </div>
+          <div class="col-xs-12" *ngIf="order._isSantanderDe" [ngClass]="{'has-error': form.get('refundInvoiceNumber').errors}">
+            <input class="form-control"
+                   type="text"
+                   id="input_refundInvoiceNumber"
+                   placeholder="{{ 'form.refund.labels.refundInvoiceNumber' | translate }}"
+                   formControlName="refundInvoiceNumber">
+            <label for="input_reason">{{ 'form.refund.labels.refundInvoiceNumber' | translate }}</label>
+            <span class="error small" [innerHtml]="form.get('refundInvoiceNumber').errors" *ngIf="form.get('refundInvoiceNumber').errors"></span>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </form>
+</or-action-modal>

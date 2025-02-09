@@ -1,0 +1,1 @@
+export const DEFAULT_DATE_INTERNAL_FORMAT = 'DD.MM.YYYY';

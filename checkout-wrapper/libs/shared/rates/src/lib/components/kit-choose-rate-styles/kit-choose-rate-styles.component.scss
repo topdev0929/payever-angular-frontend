@@ -1,0 +1,44 @@
+@import '../../../../../styles/assets/ui-kit-styles/pe_variables';
+
+.pe-checkout-bootstrap pe-choose-rate {
+  .rates-dropdown-option {
+    .mat-checkbox {
+      padding-top: 0;
+
+      .mat-checkbox-layout {
+        margin-bottom: 0;
+      }
+      .mat-checkbox-inner-container {
+        margin-top: 0;
+        margin-right: 0;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+      .mat-checkbox-frame {
+        border-color: #4f4f51;
+        border-radius: 50%;
+      }
+
+      .mat-checkbox-background {
+        background-color: #4f4f51;
+
+        .mat-checkbox-checkmark-path {
+          stroke-dashoffset: 0;
+          stroke: $color-white-grey-4 !important;
+        }
+      }
+
+      &.mat-checkbox-checked {
+        &.mat-accent {
+          .mat-checkbox-frame {
+            border-color: #2b69f4;
+          }
+
+          .mat-checkbox-background {
+            background-color: #2b69f4;
+          }
+        }
+      }
+    }
+  }
+}

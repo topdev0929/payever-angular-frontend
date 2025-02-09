@@ -1,0 +1,56 @@
+<div
+  class="ui-layout-header"
+  [ngClass]="{'business-header': !!settings.stylesActive}">
+  <div
+    class="col-xs-12 header-wrapper"
+    [ngClass]="{
+      'col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 header-not-full-width': !fullWidth
+    }">
+    <div
+      class="row header-cols">
+      <div
+        class="header-col
+        col-xs-4
+        col-sm-3
+        col-md-4
+        left-area hidden-print
+        ">
+        <ng-container [ngTemplateOutlet]="shouldShowLogoAt('left') ? headerLogo : colLeft"></ng-container>
+      </div>
+      <div
+        class="header-col
+        col-xs-4
+        col-sm-6
+        col-md-4
+        middle-area text-center
+        nowrap
+        ">
+        <ng-container [ngTemplateOutlet]="shouldShowLogoAt('center') ? headerLogo : colCenter"></ng-container>
+      </div>
+      <div
+        class="header-col
+        col-xs-4
+        col-sm-3
+        col-md-4
+        right-area hidden-print
+        nowrap
+        text-right
+        ">
+        <ng-container [ngTemplateOutlet]="shouldShowLogoAt('right') ? headerLogo : colRight"></ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #headerLogo>
+  <ng-content select="[header-logo]"></ng-content>
+</ng-template>
+<ng-template #colLeft>
+  <ng-content select="[col-left]"></ng-content>
+</ng-template>
+<ng-template #colCenter>
+  <ng-content select="[col-center]"></ng-content>
+</ng-template>
+<ng-template #colRight>
+  <ng-content select="[col-right]"></ng-content>
+</ng-template>

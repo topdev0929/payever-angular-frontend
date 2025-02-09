@@ -1,0 +1,35 @@
+<button mat-raised-button (click)="toggleDashboard()">Open Dashboard</button>
+<div class="doc-container-bg" *ngIf="showDashboard">
+  <div>
+    <button mat-raised-button (click)="toggleDashboard()">Close Dashboard</button>
+    <div class="mat-toolbar-blur-container">
+      <div class="mat-toolbar-blur-wrapper">
+        <div class="mat-toolbar-blur-bg-container">
+          <div class="mat-toolbar-blur-bg" style="background-image: url('assets/img/background.jpg');"></div>
+        </div>
+        <mat-toolbar class="mat-toolbar-blur">
+          <mat-nav-list class="mat-list-icons mat-list-icons-vertical mat-list-icons-hover">
+            <ng-template ngFor let-item [ngForOf]="iconsList">
+              <mat-list-item *ngIf="item.count" matBadge="{{item.count}}" matBadgeColor="warn" [class.active]="item.active">
+                <div class="mat-list-item-icon">
+                  <svg class="icon icon-24">
+                    <use [attr.xlink:href]="item.icon"></use>
+                  </svg>
+                </div>
+                <div class="mat-list-item-title">{{ item.title }}</div>
+              </mat-list-item>
+              <mat-list-item *ngIf="!item.count" [class.active]="item.active">
+                <div class="mat-list-item-icon">
+                  <svg class="icon icon-24">
+                    <use [attr.xlink:href]="item.icon"></use>
+                  </svg>
+                </div>
+                <div class="mat-list-item-title">{{ item.title }}</div>
+              </mat-list-item>
+            </ng-template>
+          </mat-nav-list>
+        </mat-toolbar>
+      </div>
+    </div>
+  </div>
+</div>

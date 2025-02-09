@@ -1,0 +1,322 @@
+{
+  "builder-app": {
+    "actions": {
+      "cancel": "Cancel",
+      "close": "Close",
+      "copy_link": "Copy link",
+      "done": "Done",
+      "download": "Download",
+      "edit": "Edit",
+      "get_qr": "QR",
+      "link_copied": "Link copied",
+      "open": "Open",
+      "print": "Print",
+      "error": "Error",
+      "uploading": "Uploading",
+      "ok": "OK",
+      "rename" : "Rename",
+      "edit-text": "Edit Text",
+      "copy": "Copy",
+      "paste": "Paste",
+      "save": "Save",
+      "delete": "Delete",
+      "duplicate": "Duplicate",
+      "add": "Add"
+    },
+    "common": {
+      "value": "Value",
+      "options": "Options",
+      "loading": "Loading"
+    },
+    "dashboard": {
+      "navigation": {
+        "settings": "Settings"
+      },
+      "qr_dialog": {
+        "type": "Type"
+      },
+      "warnings": {
+        "no_plans_to_display": "No any published themes to display"
+      }
+    },
+    "header-menu": {
+      "edit": {
+        "title": "Edit"
+      },
+      "insert":  {
+        "title": "Insert"
+      },
+      "publish": {
+        "title": "Publish"
+      },
+      "view": {
+        "title": "View"
+      },
+      "cannot_share_published_page": "Can't share link for unpublished site"
+    },
+    "delete": {
+      "delete_all_section_error": "You cannot delete all sections",
+      "delete_default_section_error": "You cannot delete a \"Default section\". Please disable default and delete this section.",
+      "delete_single_page_error": "Can't delete single page",
+      "delete_home_page_warning": "Are you sure you want to delete the home page?",
+      "change_default": "Change Default"
+    },
+    "shapes": {
+      "saved_successfully": "Shape saved successfully",
+      "new_shape": "New Shape",
+      "save_shape": "Save Shape"
+    },
+    "media": {
+      "large_file_error": "file is large.",
+      "file_type_error": "file type is invalid."
+    },
+    "color": {
+      "no_color_added": "No colors added",
+      "add_color": "Add color",
+      "hex": "HEX"
+    },
+    "styles": {
+      "radius": "Radius",
+      "opacity": "Opacity"
+    },
+    "layers": {
+      "title": "Layers"
+    },
+    "pages": {
+      "title": "Pages",
+      "edit_master_page": "Edit Master Page",
+      "delete_page": "Delete page",
+      "master_pages": "Master Pages",
+      "yes": "Yes",
+      "no": "No"
+    },
+    "publish": {
+      "title": "Publish",
+      "no_logo": "Logo is unavailable",
+      "add_tags": "Add tags",
+      "review": "Review Changes and Publish",
+      "view_url": "View Published URL",
+      "publishing": "Publishing",
+      "success": "Success",
+      "published": "Your theme has been published.",
+      "draft": "Draft",
+      "currently_published": "Currently published",
+      "no_unpublished_changes": "There are no unpublished changes to review",
+      "return_editor": "Return to editor",
+      "page_deleted": "This page is deleted.",
+      "page_not_published": "This page is not published."
+    },
+    "context_menu": {
+      "group": "Group",
+      "ungroup": "Ungroup",
+      "bring_front": "Bring to front",
+      "send_back": "Send to back",
+      "add_section": "Add section",
+      "clear_styles": "Clear styles"
+    },
+    "forms": {
+      "animation": {
+        "title": "Animation",
+        "trigger": "Trigger",
+        "action": "Action",
+        "preview": "Preview",
+        "timing": "Timing",
+        "fill_mode": "Fill Mode",
+        "delay": "Delay",
+        "duration": "Duration",
+        "iteration": "Iteration",
+        "loop": "Loop Forever",
+        "add_property": "Add Property",
+        "add_keyframe": "Add Keyframe",
+        "keyframe": "Keyframe {{number}}",
+        "add_trigger": "Add Trigger",
+        "remove_trigger": "Remove Trigger",
+        "build_in_effect": "Build In Effect",
+        "animate": "Animate",
+        "animation_tab": "Effect",
+        "interaction_tab": "Interact",
+        "add_effect": "Add Effect",
+        "remove_effect": "Remove Effect"
+      },
+      "auto_resize": {
+        "sync": "Synced Size/Position",
+        "resize_text": "Resize Text Size",
+        "resize_children": "Resize Children"
+      },
+      "backdrop": {
+        "title": "Background Blur"
+      },
+      "background": {
+        "preset": "Preset",
+        "color": "Color",
+        "gradient": "Gradient",
+        "media": "Media",
+        "upload_media": "Upload Media",
+        "change_media": "Change Media",
+        "select_media": "Select Media",
+        "fill": "Fill",
+        "background_position": "Background Position",
+        "no_media": "No media",
+        "image": "Image",
+        "video": "Video",
+        "studio": "payever Studio",
+        "left": "Left",
+        "center": "Center",
+        "right": "Right",
+        "top": "Top",
+        "bottom": "Bottom",
+        "original_size": "Original Size",
+        "stretch": "Stretch",
+        "tile": "Tile",
+        "scale_fill": "Scale to Fill",
+        "scale_fit": "Scale to Fit",
+        "media_fill_color": "Media Fill Color",
+        "angle": "Angle"
+      },
+      "blur": {
+        "title": "Blur"
+      },
+      "radius": {
+        "title": "Radius"
+      },
+      "dimensions": {
+        "constrain_proportions": "Constrain proportions",
+        "auto_sync_enabled": "auto sync size/position is enabled",
+        "text_editor_enabled": "cannot change height for text"
+      },
+      "function": {
+        "title": "Function",
+        "remove": "Remove function"
+      },
+      "border": {
+        "title": "Border",
+        "color": "Border color",
+        "border_width": "Border width",
+        "fill": "Fill",
+        "style": "Style",
+        "width": "width"
+      },
+      "layout": {
+        "cols": "Cols",
+        "rows": "Rows",
+        "type": "Layout Type",
+        "columns": "Columns",
+        "position": "Layout Position",
+        "auto_position": "Auto Position"
+      },
+      "language": {
+        "add": "Add",
+        "add_language": "Add New Language",
+        "default": "Default Language",
+        "editor_language": "Editor Language"
+      },
+      "overflow": {
+        "clip_content": "Clip Content"
+      },
+      "page": {
+        "home": "Home page",
+        "name": "Page name",
+        "type": "Page type",
+        "link": "Page link",
+        "master": "Master page",
+        "parent": "Parent"
+      },
+      "position": {
+        "type": "Position Type",
+        "content_align":"Content Alignment"
+      },
+      "restrict_access": {
+        "title": "Restrict Access",
+        "restrict_access_to_page": "Restrict access to the page",
+        "type": "Type",
+        "password": "Password",
+        "specific_customers": "Specific customers",
+        "specific_groups": "Specific groups of customers"
+      },
+      "section": {
+        "default": "Default",
+        "size": "Section size",
+        "position": "Section position",
+        "full_width": "Full Width",
+        "device_auto_adjust": "Device Auto Adjust"
+      },
+      "seo": {
+        "title": "Title",
+        "url": "SEO Url",
+        "change_front_page_error": "You can't change front page url",
+        "url_occupied": "Url is occupied.",
+        "description": "Description",
+        "show_search": "Show in search results",
+        "canonical_url": "Canonical URL",
+        "markup_data": "Markup Data",
+        "custom_meta_tags": "Custom Meta Tags"
+      },
+      "shadow": {
+        "title": "Shadow",
+        "blur": "Blur",
+        "offset": "Offset",
+        "opacity": "Opacity",
+        "angle": "Angle"
+      },
+      "text": {
+        "font": "Font",
+        "color": "Color",
+        "size": "Size",
+        "alignment": "Alignment",
+        "auto-width": "Auto Width",
+        "text_style": "Text Styles",
+        "font_family": "Font Family"
+      },
+      "video": {
+        "sound": "Sound",
+        "controls": "Controls",
+        "autoplay": "Autoplay",
+        "loop": "Loop"
+      }
+    },
+    "main_editor": {
+      "favicon_hint": "Favicon appears next to the title in your browser tab.",
+      "favicon_recommend": "Recommended size: 32 x 32 px",
+      "confirm": "Are you sure?",
+      "close_confirm": "Do you really want to close this window? Because all data will be lost when unsaved and you will not be able to restore it.",
+      "yes": "Yes",
+      "no": "No",
+      "language": "Language",
+      "select_another_file": "Select another file",
+      "select_pages_and_import": "Select the pages and click import",
+      "select_file_and_import": "Select the file and click import",
+      "select_file_to_see_pages": "Click on a file to see the list of pages",
+      "import_all_pages": "Import all pages",
+      "importing": "Importing",
+      "import_as_theme": "Import as a theme",
+      "import_pages": "Import {{pageNumber}} pages",
+      "remove_script": "Remove script",
+      "edit_master_page": "Edit Master Page"
+    },
+    "sidebar": {
+      "link": "Link",
+      "full_height": "Full Height",
+      "add_section": "Add section",
+      "style": "Style",
+      "text": "Text",
+      "image": "Image",
+      "video": "Video",
+      "arrange": "Arrange",
+      "section": "Section"
+    },
+    "toolbar": {
+      "screen": "Screen",
+      "customize": "Customize",
+      "name": "Name",
+      "padding": "Padding",
+      "min_screen_size": "Min Screen Size",
+      "screen_size": "Screen Size",
+      "insert": "Insert",
+      "zoom": "Zoom",
+      "fit": "Fit"
+    },
+    "viewer": {
+      "apply_import": "Apply import"
+    }
+  }
+}

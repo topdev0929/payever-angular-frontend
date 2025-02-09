@@ -1,0 +1,8 @@
+@use 'pe_theming' as pet;
+@use './logo-picker-theme' as logo_picker;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include logo_picker.color($color-config);
+}
+

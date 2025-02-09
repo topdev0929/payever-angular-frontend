@@ -1,0 +1,28 @@
+<checkout-sdk-finish-wrapper
+  [buttons]="buttons"
+  [errorMessage]="errorMessage"
+  [iframeCallbackUrl]="getIframeCallbackUrl()"
+  [isLoading]="isLoading"
+  [isChangingPaymentMethod]="isChangingPaymentMethod"
+  (close)="onClose()">
+
+  <ng-container *ngIf="payment">
+    <ng-container [ngSwitch]="true">
+      <ng-container *ngSwitchCase="isStatusSuccess()">
+        <checkout-sdk-finish-status-icon [status]="'success'"></checkout-sdk-finish-status-icon>
+        <div class="h3">Success title</div>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="isStatusPending()">
+        <checkout-sdk-finish-status-icon [status]="'pending'"></checkout-sdk-finish-status-icon>
+        <div class="h3">Pending title</div>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="isStatusFail()">
+        <checkout-sdk-finish-status-icon [status]="'fail'"></checkout-sdk-finish-status-icon>
+        <div class="h3">Fail title</div>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+
+</checkout-sdk-finish-wrapper>

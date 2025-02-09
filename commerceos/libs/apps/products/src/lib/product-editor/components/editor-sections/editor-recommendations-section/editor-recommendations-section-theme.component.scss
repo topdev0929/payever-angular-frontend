@@ -1,0 +1,35 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $row-background: map.get($color-config, 'row-background');
+  $warn: map.get($color-config, 'warn');
+  $text-color: map.get($color-config, 'text-color');
+  $primary: map.get($color-config, 'primary');
+
+  .allow-recommendations {
+    background-color: $row-background;
+
+    .recommendation {
+      &__placeholder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(to bottom, #ededf4, #aeb0b7 98%);
+
+        svg {
+          color: $primary;
+        }
+      }
+
+      &__name {
+        span {
+          color: $text-color;
+        }
+      }
+
+      button {
+        color: $warn;
+      }
+    }
+  }
+}

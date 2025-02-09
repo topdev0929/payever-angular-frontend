@@ -1,0 +1,17 @@
+<form
+  *ngIf="mode === 'Edit'"
+  class="form-table"
+  [formGroup]="formGroup">
+  <employment-form
+    *ngIf="formGroup.get('employmentForm').enabled"
+    formControlName="employmentForm"></employment-form>
+
+  <income-form formControlName="incomeForm"></income-form>
+
+  <checkout-sdk-continue-button
+    class="button-continue"
+    [text]="translations.buttonText"
+    [loading]="loading$ | async"
+    (clicked)="onContinue()">
+  </checkout-sdk-continue-button>
+</form>

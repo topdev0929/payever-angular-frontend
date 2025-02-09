@@ -1,0 +1,12 @@
+<ng-container *ngIf="vm$ | async as vm">
+  <pe-checkout-widget
+    [channelset]="vm.channelSet"
+    [type]="vm.type"
+    [amount]="vm.amount"
+    [cart]="vm.cart | json"
+    [theme]="vm.theme"
+    [paymentmethod]="vm.paymentMethod"
+    [isdebugmode]="vm.isDebugMode"
+    [config]="vm.config"
+  ></pe-checkout-widget>
+</ng-container>

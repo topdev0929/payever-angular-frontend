@@ -1,0 +1,47 @@
+.slide-toggle {
+
+  &__label {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+
+    input:checked ~ .slide-toggle__bar {
+      background-color: #0087ff;
+    }
+    
+    input:checked ~ .slide-toggle__bar .slide-toggle__thumb {
+      transform: translateX(1em);
+    }
+    
+    span {
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 1.25em;
+      line-height: 1.1;
+    }
+  }
+
+  &__bar {
+    display: block;
+    height: 1.75em;
+    width: 2.75em;
+
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 0.875em;
+    box-sizing: border-box;
+    padding: 0.1875em;
+    position: relative;
+
+    transition: all 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  &__thumb {
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0.1875em 0.3125em 0 rgba(17, 17, 17, 0.6);
+    height: 1.375em;
+    position: absolute;
+    width: 1.375em;
+  
+    transition: all 200ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+}

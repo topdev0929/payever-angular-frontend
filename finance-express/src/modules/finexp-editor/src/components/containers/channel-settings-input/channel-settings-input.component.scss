@@ -1,0 +1,27 @@
+@import '~@pe/ui-kit/scss/pe_variables.scss';
+@import '~@pe/ui-kit/scss/mixins/pe_mixins.scss';
+
+:host {
+  @include pe_flexbox;
+  @include pe_flex-direction(column);
+
+  .input-settings {
+    max-width: 96px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid transparent;
+    border-radius: 5px;
+    margin-left: $padding-base-horizontal / 2;
+    font-size: $font-size-micro-1;
+    padding: 0 $padding-base-horizontal;
+    height: $grid-unit-y * 2;
+    color: #ffffff;
+
+    &:focus {
+      outline: none;
+    }
+
+    &.error {
+      border: 1px solid $color-red;
+    }
+  }
+}

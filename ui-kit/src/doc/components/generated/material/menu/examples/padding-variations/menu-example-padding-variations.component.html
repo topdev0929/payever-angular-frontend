@@ -1,0 +1,31 @@
+<h4>Small</h4>
+
+<button mat-button [matMenuTriggerFor]="menu1">Menu</button>
+<mat-menu #menu1="matMenu">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+
+<h4>Large</h4>
+
+<button mat-button [matMenuTriggerFor]="menu2">Menu</button>
+<mat-menu #menu2="matMenu" class="mat-menu-padding-lg">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+
+<h4>Top</h4>
+
+<button mat-button [matMenuTriggerFor]="menu3">Menu</button>
+<mat-menu #menu3="matMenu" class="mat-menu-padding-top">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+
+<h4>Around</h4>
+
+<button mat-button [matMenuTriggerFor]="menu4">Menu</button>
+<mat-menu #menu4="matMenu" class="mat-menu-padding-around">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>

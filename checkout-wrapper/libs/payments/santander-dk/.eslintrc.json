@@ -1,0 +1,13 @@
+{
+  "extends": ["../../../.eslintrc.json"],
+  "ignorePatterns": ["!**/*"],
+  "overrides": [],
+  "rules": {
+    "@nx/enforce-module-boundaries": [
+      "error",
+      {
+        "allow": ["@pe/checkout/santander-dk/shared"]
+      }
+    ]
+  }
+}

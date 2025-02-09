@@ -1,0 +1,11 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $host: map.get($color-config, 'host');
+
+  .color-palette  {
+    .colors-grid label {
+        color: $host;
+    }
+  }
+}

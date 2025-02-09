@@ -1,0 +1,172 @@
+{
+  "ng_kit": {
+    "forms": {
+      "error": {
+        "validator": {
+          "required": "{{fieldName}} is required",
+          "required_full": "This field is required",
+          "expired": "Value expired",
+          "pattern": "{{fieldName}} doesn't match required pattern",
+          "phone": "{{fieldName}} must be a real phone number",
+          "phone_country": "{{fieldName}} requires Country to be filled",
+          "minlength": "{{fieldName}} is too short",
+          "minlength_with_number": "{{fieldName}} is too short. Minimial length is {{length}}",
+          "maxlength": "{{fieldName}} is too long",
+          "maxlength_with_number": "{{fieldName}} is too long. Maximum length is {{length}}",
+          "datepicker": {
+            "min": "{{fieldName}} should be greater than {{min}}",
+            "max": "{{fieldName}} should be less than {{max}}"
+          },
+          "password":  {
+            "title":"Your password must have:",
+            "min_characters":"{{minCharacters}} or more characters",
+            "case_type": "Upper and lowercase letters",
+            "digit": "At least one number",
+            "special_character": "At least one special character"
+          },
+          "email": "E-mail is not correct",
+          "match": "Please select correct value"
+        },
+        "image_picker": {
+          "max_size": "Maximum image size is {{size}}",
+          "wrong_type": "Invalid file type"
+        },
+        "unknown_error": "{{fieldName}} is not correct",
+        "unknown_error_full": "This field is not correct"
+      },
+      "labels": {
+        "yes": "Yes",
+        "no": "No",
+        "password_forgot_link": "Forgot your password"
+      },
+      "optional": "(optional)"
+    },
+    "dialog": {
+      "action_buttons": {
+        "confirm": "Confirm",
+        "cancel": "Cancel",
+        "save": "Save",
+        "close": "Close",
+        "no": "No",
+        "yes": "Yes",
+        "add": "Add"
+      }
+    },
+    "data_grid": {
+      "empty_list_text": "The list is empty",
+      "loading_list": "Loading list",
+      "search_bar": {
+        "add_button": "Add",
+        "placeholder": "Search"
+      },
+      "select_bar": {
+        "items_count_selected": "{{ itemsLength }} items selected",
+        "buttons": {
+          "select_all": "select all",
+          "unselect": "unselect"
+        }
+      },
+      "view_switcher": {
+        "buttons": {
+          "grid": "Grid",
+          "table": "Table"
+        }
+      },
+      "condition": "Condition",
+      "filter": {
+        "condition": {
+          "is": "Is",
+          "isIn": "Is in",
+          "isNot": "Is not",
+          "isNotIn": "Is not in",
+          "isDate": "Is date",
+          "isNotDate": "Is not date",
+          "startsWith": "Starts with",
+          "endsWith": "Ends with",
+          "contains": "Contains",
+          "doesNotContain": "Does not contain",
+          "greaterThan": "Greater than",
+          "lessThan": "Less than",
+          "between": "Between",
+          "afterDate": "After date",
+          "beforeDate": "Before date",
+          "betweenDates": "Between dates"
+        },
+        "actions": {
+          "add": "Add",
+          "apply": "Apply"
+        },
+        "labels": {
+          "and": "and"
+        },
+        "placeholders": {
+          "date": "Date",
+          "from": "From",
+          "to": "To",
+          "fromDate": "From date",
+          "toDate": "To date"
+        }
+      },
+      "filters": {
+        "is": "is",
+        "isNot": "is not",
+        "isDate": "is",
+        "isNotDate": "is not",
+        "startsWith": "starts with",
+        "endsWith": "ends with",
+        "contains": "contains",
+        "doesNotContain": "does not contain",
+        "greaterThan": "greater than",
+        "lessThan": "less than",
+        "between": "between",
+        "afterDate": "after",
+        "beforeDate": "before",
+        "betweenDates": "between"
+      },
+      "pagination": {
+        "items_per_page": "Items per page:",
+        "range": "{{range}} of {{total}}"
+      }
+    },
+    "image_scroller": {
+      "upload_message_text": "You have no images yet.",
+      "upload_question_text": "Would you like to add one?",
+      "upload_button_text": "Add image",
+      "upload_thumbnail_text": "Add image",
+      "uploading": "Uploading...",
+      "uploading_with_progress": "Uploading {{ progress }}%",
+      "done": "Done"
+    },
+    "rate": {
+      "no_rate_selected": "Please select the rate",
+      "open_rates_button": "More",
+      "rate_summary": "{{ monthlyRate }}/mo. for {{ duration }} months"
+    },
+    "welcome_screen_component": {
+      "start_button": "Start Now"
+    },
+    "continents": {
+      "AF": "Africa",
+      "AN": "Antarctica",
+      "AS": "Asia",
+      "EU": "Europe",
+      "NA": "North America",
+      "OC": "Oceania",
+      "SA": "South America"
+    },
+    "toolbar": {
+      "close": "Close",
+      "back": "Back",
+      "cancel": "Cancel",
+      "save": "Save"
+    },
+    "tooltips": {
+      "toolbar": {
+        "close": "Close (esc)",
+        "back": "Back (esc)",
+        "cancel": "Cancel (esc)",
+        "save": "Save (esc)"
+      }
+    }
+  }
+}

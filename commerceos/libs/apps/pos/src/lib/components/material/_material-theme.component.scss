@@ -1,0 +1,49 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $active-text: map.get($color-config, 'active-text');
+  $label-color: map.get($color-config, 'label-color');
+  $divider: map.get($color-config, 'divider');
+  $border: map.get($color-config, 'border');
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $x-button: map.get($color-config, 'x-button');
+  $confirm: map.get($color-config, 'confirm');
+  $tertiary-button: map.get($color-config, 'tertiary-button');
+  $box-shadow-color: map.get($color-config, 'box-shadow-color');
+  $hover-button: map.get($color-config, 'hover-button');
+
+  .mat-menu-panel.dashboard__menu {
+    color: $text-color;
+    border: 1px solid $border;
+    background-color: $secondary-background !important;
+    box-shadow: 0 5px 20px 0 $box-shadow-color;
+
+    .dashboard__menu-header {
+      color: $text-color;
+    }
+
+    .mat-menu-item {
+      color: $text-color;
+
+      svg {
+        color: $x-button;
+      }
+
+      &:hover {
+        color: $active-text;
+        background-color: $confirm;
+
+        svg {
+          color: $active-text;
+        }
+      }
+    }
+  }
+
+  .overlay-widget .third-party-root-form-container-pos .form-table .form-fieldset .row > [class*=col]:not(:last-child) {
+    border-bottom: 1px solid $transparent-color !important;
+  }
+}

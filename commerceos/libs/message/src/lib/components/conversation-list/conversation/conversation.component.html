@@ -1,0 +1,86 @@
+<div
+  *ngIf="conversation"
+  longpressevent
+  class="pe-grid-conversation"
+  [class.live-chat]="isLiveChat"
+  [class.blur-mode]="colors.blurValue"
+  [style.background-color]="!colors.blurValue ? colors.accent : 'transparent'"
+  [class.pe-grid-conversation_active]="isConversationActive && !isMobile && !isLiveChat"
+  (click)="setConversationAsActive()"
+  (longPress)="openContextMenuItem($event)"
+>
+  <div class="pe-grid-conversation__logo">
+    <img *ngIf="conversation.photo" [src]="conversation.photo | mediaUrl:'message'" loading="lazy" alt="conversation"/>
+    <div *ngIf="!conversation.photo" class="pe-grid-conversation__abbreviation">
+      {{ conversation.title.charAt(0) | uppercase }}
+    </div>
+  </div>
+  <div class="pe-grid-conversation__content">
+    <div class="pe-grid-conversation__header">
+      <span class="pe-grid-conversation__title">{{ item.title }}</span>
+      <span *ngIf="!isLiveChat" class="pe-grid-conversation__time">{{datePreview}}</span>
+    </div>
+    <div class="pe-grid-conversation__description">
+      <div *ngIf="!typingMembers || !typingMembers.length" class="pe-grid-conversation__description-preview">
+        <svg class="pe-grid-conversation__description-icon" *ngIf="messagePreview?.isFile">
+          <use xlink:href="#icon-file-14"></use>
+        </svg>
+        <span class="pe-grid-conversation__description-message" *ngIf="!messagePreview?.isFile">
+          {{messagePreview?.content}}
+        </span>
+        <span class="pe-grid-conversation__last-message">
+          <div
+            *ngIf="conversation.integrationName !== 'email'; else emailSubject"
+            [innerHTML]="conversation.lastMessage"
+          ></div>
+        </span>
+      </div>
+
+      <pe-chat-typing-dots
+        class="pe-grid-conversation__last-message"
+        *ngIf="typingMembers && typingMembers.length"
+        [userTyping]="typingMembers"
+        [messageAppColor]="colors.accent"
+      >
+      </pe-chat-typing-dots>
+
+      <div *ngIf="!isLiveChat" class="pe-grid-conversation__info">
+        <span
+          *ngIf="conversation.showTag"
+          class="pe-grid-conversation__tag"
+          [style.background-color]="conversation.accentColor"
+        >
+          <svg class="icon icon-18">
+            <use [attr.xlink:href]="'#icon-at-sign'"></use>
+          </svg>
+        </span>
+        <ng-container *ngIf="conversation.unreadCount as number; else privateChannel">
+          <span
+            *ngIf="number > 0"
+            class="pe-grid-conversation__unread-messages"
+            [style.background-color]="conversation.accentColor"
+          >
+            {{ number < 100 ? number : '99+' }}
+          </span>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #emailSubject>
+  <div>{{ item.description }}</div>
+</ng-template>
+
+<ng-template #privateChannel>
+  <span *ngIf="conversation.isPrivateChannel" class="pe-grid-conversation__private-chat">
+    <svg class="icon icon-16">
+      <use [attr.xlink:href]="'#icon-lock'"></use>
+    </svg>
+  </span>
+</ng-template>
+
+<ng-template #deleteForEveryOneTemplate>
+  <pe-message-delete-for-everyone-template
+  ></pe-message-delete-for-everyone-template>
+</ng-template>

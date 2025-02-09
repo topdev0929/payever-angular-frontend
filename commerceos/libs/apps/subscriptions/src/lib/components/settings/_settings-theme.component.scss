@@ -1,0 +1,23 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $label-color: map.get($color-config, 'label-color');
+  $primary: map.get($color-config, 'primary');
+  $active-text: map.get($color-config, 'active-text');
+
+  .pe-subscription-settings {
+    .pe-list-container {
+      &__content {
+        .form-background-wrapper {
+          background-color: $primary;
+        }
+        .pe-list-section {
+          &__item-icon {
+            background-color: $label-color;
+            color: $active-text;
+          }
+        }
+      }
+    }
+  }
+}

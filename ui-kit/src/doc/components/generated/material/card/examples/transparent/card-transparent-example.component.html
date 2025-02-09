@@ -1,0 +1,972 @@
+<mat-card class="mat-card-transparent">
+  <div class="layout-blur-middle-bg">
+    <div class="layout-blur-middle-blur" style="background-image: url('assets/img/background.jpg');"></div>
+  </div>
+  <mat-card-header>
+    <mat-card-subtitle>Payever Business</mat-card-subtitle>
+    <button mat-button [class.mat-button-link]="true" [class.mat-card-title]="true">Native Union Inc.<svg class="icon icon-16"><use xlink:href="#icon-arrow-down-16"></use></svg></button>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-accordion>
+      <mat-expansion-panel [class.mat-expansion-panel-dark]="true">
+        <mat-expansion-panel-header collapsedHeight="{{collapseHeight}}" expandedHeight="{{collapseHeight}}">
+          <div class="mat-panel-icon">
+            <svg class="icon icon-16">
+              <use xlink:href="#icon-apps-pos"></use>
+            </svg>
+          </div>
+          <mat-panel-title>
+            Point of Sale
+          </mat-panel-title>
+          <div class="mat-expansion-panel-spacer"></div>
+          <mat-chip class="mat-chip-sm">6</mat-chip>
+        </mat-expansion-panel-header>
+
+        <mat-list class="mat-list-transparent">
+          <ng-container *ngFor="let vegetable of vegetableList">
+            <mat-list-item class="mat-list-item-no-padding-left">
+              {{ vegetable }}
+              <div class="mat-list-item-content-addon-prepend">
+                <svg class="icon icon-8">
+                  <use xlink:href="#icon-n-indicator-16"></use>
+                </svg>
+              </div>
+              <div class="mat-list-spacer"></div>
+              <button mat-raised-button [class.mat-button-rounded]="true" [class.mat-button-xs]="true" color="muted-light">
+                Open
+              </button>
+              <button mat-raised-button [class.mat-button-rounded]="true" [class.mat-button-xs]="true" [class.mat-list-item-close]="true" color="muted-light">
+                <svg class="icon icon-8"><use xlink:href="#icon-close-12"></use></svg>
+              </button>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </ng-container>
+        </mat-list>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false"
+                           [class.mat-expansion-panel-dark]="true">
+        <mat-expansion-panel-header collapsedHeight="{{collapseHeight}}" expandedHeight="{{collapseHeight}}">
+          <div class="mat-panel-icon">
+            <div class="mat-badge mat-badge-warn mat-badge-independent">
+              <span class="mat-badge-content">10</span>
+            </div>
+          </div>
+          <mat-panel-title>
+            Products
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list class="mat-list-transparent mat-list-transparent-bold">
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col">
+                Terminal Nmae
+              </div>
+              <div class="mat-list-item-col">
+                <div class="mat-list-item-subtitle">
+                  Native Union Inc.
+                </div>
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col">
+                6 digit password
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col">
+                Languages
+              </div>
+              <div class="mat-list-item-col">
+                <div class="mat-list-item-subtitle">
+                  English (Default)
+                </div>
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col-2">
+                Universally Unique Identifier of Business (UUID) Universally Unique Identifier of Business (UUID)
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col-2">
+                Twillo SMS
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+        </mat-list>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false"
+                           [class.mat-expansion-panel-dark]="true">
+        <mat-expansion-panel-header collapsedHeight="{{collapseHeight}}" expandedHeight="{{collapseHeight}}">
+          <div class="mat-panel-icon">
+            <svg class="icon icon-16"><use xlink:href="#icon-apps-marketing"></use></svg>
+          </div>
+          <mat-panel-title>
+            Marketing
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list class="mat-list-transparent">
+          <ng-container *ngFor="let vegetable of vegetableList">
+            <mat-list-item class="mat-list-item-no-padding-left">
+              {{ vegetable }}
+              <div class="mat-list-item-content-addon-prepend">
+                <svg class="icon icon-8"><use xlink:href="#icon-n-indicator-16"></use></svg>
+              </div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </ng-container>
+        </mat-list>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false"
+                           [class.mat-expansion-panel-dark]="true"
+                           [class.mat-expansion-panel-no-arrow]="true">
+        <mat-expansion-panel-header collapsedHeight="{{collapseHeight}}" expandedHeight="{{collapseHeight}}">
+          <div class="mat-panel-icon">
+            <svg class="icon icon-16"><use xlink:href="#icon-apps-messenger"></use></svg>
+          </div>
+          <mat-panel-title>
+            Messenger
+          </mat-panel-title>
+          <div class="mat-expansion-panel-spacer"></div>
+          <button mat-raised-button [class.mat-button-rounded]="true" [class.mat-button-xs]="true" color="muted-light">
+            Open
+          </button>
+        </mat-expansion-panel-header>
+
+        <mat-list class="mat-list-transparent mat-list-transparent-bold">
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col">
+                Terminal Nmae
+              </div>
+              <div class="mat-list-item-col">
+                <div class="mat-list-item-subtitle">
+                  Native Union Inc.
+                </div>
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col">
+                6 digit password
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col">
+                Languages
+              </div>
+              <div class="mat-list-item-col">
+                <div class="mat-list-item-subtitle">
+                  English (Default)
+                </div>
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col-2">
+                Universally Unique Identifier of Business (UUID)
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col-2">
+                Twillo SMS
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+        </mat-list>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false"
+                           [class.mat-expansion-panel-dark]="true">
+        <mat-expansion-panel-header collapsedHeight="{{collapseHeight}}" expandedHeight="{{collapseHeight}}">
+          <div class="mat-panel-icon">
+            <svg class="icon icon-16"><use xlink:href="#icon-apps-coupons"></use></svg>
+          </div>
+          <mat-panel-title>
+            Coupons
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list class="mat-list-transparent">
+          <ng-container *ngFor="let vegetable of vegetableList">
+            <mat-list-item class="mat-list-item-no-padding-left">
+              {{ vegetable }}
+              <div class="mat-list-item-content-addon-prepend">
+                <svg class="icon icon-8"><use xlink:href="#icon-n-indicator-16"></use></svg>
+              </div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </ng-container>
+        </mat-list>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false"
+                           [class.mat-expansion-panel-dark]="true">
+        <mat-expansion-panel-header collapsedHeight="{{collapseHeight}}" expandedHeight="{{collapseHeight}}">
+          <div class="mat-panel-icon">
+            <svg class="icon icon-16"><use xlink:href="#icon-apps-settings"></use></svg>
+          </div>
+          <mat-panel-title>
+            Settings
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list class="mat-list-transparent">
+          <ng-container *ngFor="let vegetable of vegetableList">
+            <mat-list-item class="mat-list-item-no-padding-left">
+              {{ vegetable }}
+              <div class="mat-list-item-content-addon-prepend">
+                <svg class="icon icon-8"><use xlink:href="#icon-n-indicator-16"></use></svg>
+              </div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </ng-container>
+        </mat-list>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false"
+                           [class.mat-expansion-panel-dark]="true">
+        <mat-expansion-panel-header collapsedHeight="{{collapseHeight}}" expandedHeight="{{collapseHeight}}">
+          <div class="mat-panel-icon">
+            <svg class="icon icon-16"><use xlink:href="#icon-apps-payments"></use></svg>
+          </div>
+          <mat-panel-title>
+            Payments
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list class="mat-list-transparent">
+          <ng-container *ngFor="let vegetable of vegetableList">
+            <mat-list-item class="mat-list-item-no-padding-left">
+              {{ vegetable }}
+              <div class="mat-list-item-content-addon-prepend">
+                <svg class="icon icon-8"><use xlink:href="#icon-n-indicator-16"></use></svg>
+              </div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </ng-container>
+        </mat-list>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>Contact Payever</button>
+    <button mat-button>Leave Feedback</button>
+  </mat-card-actions>
+</mat-card>
+
+<h4>With Avatar</h4>
+<mat-card class="mat-card-transparent mat-card-transparent-avatar">
+  <div class="layout-blur-middle-bg">
+    <div class="layout-blur-middle-blur" style="background-image: url('assets/img/background.jpg');"></div>
+  </div>
+  <mat-card-header>
+    <div mat-card-avatar></div>
+    <div class="mat-card-header-text">
+      <mat-card-title>Native Union Inc.</mat-card-title>
+      <div class="mat-card-header-actions">
+        <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true">Cancel</button>
+        <mat-divider [vertical]="true" [class.mat-divider-indented]="true"></mat-divider>
+        <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true">Save</button>
+      </div>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false"
+                           [class.mat-expansion-panel-dark]="true">
+        <mat-expansion-panel-header collapsedHeight="{{collapseHeight}}" expandedHeight="{{collapseHeight}}">
+          <div class="mat-panel-icon">
+            <div class="mat-badge mat-badge-warn mat-badge-independent">
+              <span class="mat-badge-content">10</span>
+            </div>
+          </div>
+          <mat-panel-title>
+            Products
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list class="mat-list-transparent mat-list-transparent-bold">
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col">
+                Terminal Nmae
+              </div>
+              <div class="mat-list-item-col">
+                <div class="mat-list-item-subtitle">
+                  Native Union Inc.
+                </div>
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col">
+                6 digit password
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col">
+                Languages
+              </div>
+              <div class="mat-list-item-col">
+                <div class="mat-list-item-subtitle">
+                  English (Default)
+                </div>
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col-2">
+                Universally Unique Identifier of Business (UUID) Universally Unique Identifier of Business (UUID)
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col-2">
+                Twillo SMS
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+        </mat-list>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false"
+                           [class.mat-expansion-panel-dark]="true">
+        <mat-expansion-panel-header collapsedHeight="{{collapseHeight}}" expandedHeight="{{collapseHeight}}">
+          <div class="mat-panel-icon">
+            <svg class="icon icon-16"><use xlink:href="#icon-apps-marketing"></use></svg>
+          </div>
+          <mat-panel-title>
+            Marketing
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list class="mat-list-transparent">
+          <ng-container *ngFor="let vegetable of vegetableList">
+            <mat-list-item class="mat-list-item-no-padding-left">
+              {{ vegetable }}
+              <div class="mat-list-item-content-addon-prepend">
+                <svg class="icon icon-8"><use xlink:href="#icon-n-indicator-16"></use></svg>
+              </div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </ng-container>
+        </mat-list>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false"
+                           [class.mat-expansion-panel-dark]="true"
+                           [class.mat-expansion-panel-no-arrow]="true">
+        <mat-expansion-panel-header collapsedHeight="{{collapseHeight}}" expandedHeight="{{collapseHeight}}">
+          <div class="mat-panel-icon">
+            <svg class="icon icon-16"><use xlink:href="#icon-apps-messenger"></use></svg>
+          </div>
+          <mat-panel-title>
+            Messenger
+          </mat-panel-title>
+          <div class="mat-expansion-panel-spacer"></div>
+          <button mat-raised-button [class.mat-button-rounded]="true" [class.mat-button-xs]="true" color="muted-light">
+            Open
+          </button>
+        </mat-expansion-panel-header>
+
+        <mat-list class="mat-list-transparent mat-list-transparent-bold">
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col">
+                Terminal Nmae
+              </div>
+              <div class="mat-list-item-col">
+                <div class="mat-list-item-subtitle">
+                  Native Union Inc.
+                </div>
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col">
+                6 digit password
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col">
+                Languages
+              </div>
+              <div class="mat-list-item-col">
+                <div class="mat-list-item-subtitle">
+                  English (Default)
+                </div>
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col-2">
+                Universally Unique Identifier of Business (UUID)
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col-2">
+                Twillo SMS
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+        </mat-list>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false"
+                           [class.mat-expansion-panel-dark]="true">
+        <mat-expansion-panel-header collapsedHeight="{{collapseHeight}}" expandedHeight="{{collapseHeight}}">
+          <div class="mat-panel-icon">
+            <svg class="icon icon-16"><use xlink:href="#icon-apps-coupons"></use></svg>
+          </div>
+          <mat-panel-title>
+            Coupons
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list class="mat-list-transparent">
+          <ng-container *ngFor="let vegetable of vegetableList">
+            <mat-list-item class="mat-list-item-no-padding-left">
+              {{ vegetable }}
+              <div class="mat-list-item-content-addon-prepend">
+                <svg class="icon icon-8"><use xlink:href="#icon-n-indicator-16"></use></svg>
+              </div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </ng-container>
+        </mat-list>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>Contact Payever</button>
+    <button mat-button>Leave Feedback</button>
+  </mat-card-actions>
+</mat-card>
+
+<h4>With Buttons in Header</h4>
+<mat-card class="mat-card-transparent mat-card-transparent">
+  <div class="layout-blur-middle-bg">
+    <div class="layout-blur-middle-blur" style="background-image: url('assets/img/background.jpg');"></div>
+  </div>
+  <mat-card-header>
+    <div class="mat-card-header-text">
+      <mat-card-title>Native Union Inc.</mat-card-title>
+      <div class="mat-card-header-actions">
+        <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true">Edit</button>
+        <mat-divider [vertical]="true" [class.mat-divider-indented]="true"></mat-divider>
+        <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true">Switch Checkout</button>
+      </div>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false"
+                           [class.mat-expansion-panel-dark]="true">
+        <mat-expansion-panel-header collapsedHeight="{{collapseHeight}}" expandedHeight="{{collapseHeight}}">
+          <div class="mat-panel-icon">
+            <div class="mat-badge mat-badge-warn mat-badge-independent">
+              <span class="mat-badge-content">10</span>
+            </div>
+          </div>
+          <mat-panel-title>
+            Products
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list class="mat-list-transparent mat-list-transparent-bold">
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col">
+                Terminal Nmae
+              </div>
+              <div class="mat-list-item-col">
+                <div class="mat-list-item-subtitle">
+                  Native Union Inc.
+                </div>
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col">
+                6 digit password
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col">
+                Languages
+              </div>
+              <div class="mat-list-item-col">
+                <div class="mat-list-item-subtitle">
+                  English (Default)
+                </div>
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col-2">
+                Universally Unique Identifier of Business (UUID) Universally Unique Identifier of Business (UUID)
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col-2">
+                Twillo SMS
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+        </mat-list>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false"
+                           [class.mat-expansion-panel-dark]="true">
+        <mat-expansion-panel-header collapsedHeight="{{collapseHeight}}" expandedHeight="{{collapseHeight}}">
+          <div class="mat-panel-icon">
+            <svg class="icon icon-16"><use xlink:href="#icon-apps-marketing"></use></svg>
+          </div>
+          <mat-panel-title>
+            Marketing
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list class="mat-list-transparent">
+          <ng-container *ngFor="let vegetable of vegetableList">
+            <mat-list-item class="mat-list-item-no-padding-left">
+              {{ vegetable }}
+              <div class="mat-list-item-content-addon-prepend">
+                <svg class="icon icon-8"><use xlink:href="#icon-n-indicator-16"></use></svg>
+              </div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </ng-container>
+        </mat-list>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false"
+                           [class.mat-expansion-panel-dark]="true"
+                           [class.mat-expansion-panel-no-arrow]="true">
+        <mat-expansion-panel-header collapsedHeight="{{collapseHeight}}" expandedHeight="{{collapseHeight}}">
+          <div class="mat-panel-icon">
+            <svg class="icon icon-16"><use xlink:href="#icon-apps-messenger"></use></svg>
+          </div>
+          <mat-panel-title>
+            Messenger
+          </mat-panel-title>
+          <div class="mat-expansion-panel-spacer"></div>
+          <button mat-raised-button [class.mat-button-rounded]="true" [class.mat-button-xs]="true" color="muted-light">
+            Open
+          </button>
+        </mat-expansion-panel-header>
+
+        <mat-list class="mat-list-transparent mat-list-transparent-bold">
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col">
+                Terminal Nmae
+              </div>
+              <div class="mat-list-item-col">
+                <div class="mat-list-item-subtitle">
+                  Native Union Inc.
+                </div>
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col">
+                6 digit password
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col">
+                Languages
+              </div>
+              <div class="mat-list-item-col">
+                <div class="mat-list-item-subtitle">
+                  English (Default)
+                </div>
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col-2">
+                Universally Unique Identifier of Business (UUID)
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col-2">
+                Twillo SMS
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+        </mat-list>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false"
+                           [class.mat-expansion-panel-dark]="true">
+        <mat-expansion-panel-header collapsedHeight="{{collapseHeight}}" expandedHeight="{{collapseHeight}}">
+          <div class="mat-panel-icon">
+            <svg class="icon icon-16"><use xlink:href="#icon-apps-coupons"></use></svg>
+          </div>
+          <mat-panel-title>
+            Coupons
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list class="mat-list-transparent">
+          <ng-container *ngFor="let vegetable of vegetableList">
+            <mat-list-item class="mat-list-item-no-padding-left">
+              {{ vegetable }}
+              <div class="mat-list-item-content-addon-prepend">
+                <svg class="icon icon-8"><use xlink:href="#icon-n-indicator-16"></use></svg>
+              </div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </ng-container>
+        </mat-list>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>Contact Payever</button>
+    <button mat-button>Leave Feedback</button>
+  </mat-card-actions>
+</mat-card>
+
+<h4>Login</h4>
+<mat-card class="mat-card-transparent mat-card-transparent-avatar mat-card-transparent-font-size-sm">
+  <div class="layout-blur-middle-bg">
+    <div class="layout-blur-middle-blur" style="background-image: url('assets/img/background.jpg');"></div>
+  </div>
+  <mat-card-header>
+    <div mat-card-avatar></div>
+    <div class="mat-card-header-text">
+      <mat-card-title>Native Union Inc.</mat-card-title>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false"
+                           [class.mat-expansion-panel-dark]="true">
+        <mat-expansion-panel-header collapsedHeight="{{collapseHeight}}" expandedHeight="{{collapseHeight}}">
+          <div class="mat-panel-icon">
+            <svg class="icon icon-16"><use xlink:href="#icon-user-4-32"></use></svg>
+          </div>
+          <mat-panel-title>
+            Login existing E-mail and Password
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list class="mat-list-transparent">
+          <ng-container *ngFor="let vegetable of vegetableList">
+            <mat-list-item class="mat-list-item-no-padding-left">
+              {{ vegetable }}
+              <div class="mat-list-item-content-addon-prepend">
+                <svg class="icon icon-8"><use xlink:href="#icon-n-indicator-16"></use></svg>
+              </div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </ng-container>
+        </mat-list>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false"
+                           [class.mat-expansion-panel-dark]="true">
+        <mat-expansion-panel-header collapsedHeight="{{collapseHeight}}" expandedHeight="{{collapseHeight}}">
+          <div class="mat-panel-icon">
+            <svg class="icon icon-16"><use xlink:href="#icon-user-4-32"></use></svg>
+          </div>
+          <mat-panel-title>
+            Login with Social Media
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list class="mat-list-transparent">
+          <mat-list-item class="mat-list-item-no-padding-left">
+            Sign in with Google
+          </mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item class="mat-list-item-no-padding-left">
+            Sign in with Facebook
+          </mat-list-item>
+        </mat-list>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false"
+                           [class.mat-expansion-panel-dark]="true">
+        <mat-expansion-panel-header collapsedHeight="{{collapseHeight}}" expandedHeight="{{collapseHeight}}">
+          <div class="mat-panel-icon">
+            <svg class="icon icon-16"><use xlink:href="#icon-apps-messenger"></use></svg>
+          </div>
+          <mat-panel-title>
+            Forgot Password
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-list class="mat-list-transparent mat-list-transparent-bold">
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col">
+                Terminal Nmae
+              </div>
+              <div class="mat-list-item-col">
+                <div class="mat-list-item-subtitle">
+                  Native Union Inc.
+                </div>
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col">
+                6 digit password
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col">
+                Languages
+              </div>
+              <div class="mat-list-item-col">
+                <div class="mat-list-item-subtitle">
+                  English (Default)
+                </div>
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col-2">
+                Universally Unique Identifier of Business (UUID)
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="mat-list-item-flex">
+              <div class="mat-list-item-col-2">
+                Twillo SMS
+              </div>
+              <div class="mat-list-item-col text-right">
+                <button mat-button [class.mat-button-link]="true" [class.mat-button-no-padding]="true" [class.mat-button-sm]="true">Edit</button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+        </mat-list>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>Contact Payever</button>
+    <button mat-button>Leave Feedback</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,19 @@
+<div class="auth-code-wrapper">
+  <ng-container *ngFor="let control of digitFormArray.controls; index as i">
+    <div class="digit-wrapper">
+      <input
+        #input
+        [value]="control.value"
+        [peAutoFocus]="(currentActive$ | async) === i"
+        [type]="type"
+        [formControl]="digitFormArray.controls[i]"
+        (input)="onValueChange(input.value, i)"
+        (focus)="onFocus(i)"
+        (keydown)="onKeyDown($event)"
+        [autocomplete]="i === 0 ? autocomplete : 'off'"
+        [attr.inputmode]="inputMode"
+      />
+    </div>
+  </ng-container>
+</div>
+

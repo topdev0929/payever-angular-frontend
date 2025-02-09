@@ -1,0 +1,10 @@
+<table *ngIf="details?.length > 0"
+  role="presentation"
+  [attr.aria-describedby]="translations.tableDescription" >
+  <tr *ngFor="let row of rows">
+    <ng-container *ngFor="let col of row">
+      <td class="title" [innerHTML]="col.title"></td>
+      <td class="value" [innerHTML]="col.value"></td>
+    </ng-container>
+  </tr>
+</table>

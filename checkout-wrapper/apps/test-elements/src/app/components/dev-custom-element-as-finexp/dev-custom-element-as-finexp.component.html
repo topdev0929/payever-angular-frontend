@@ -1,0 +1,85 @@
+<div
+  class="pe-checkout-bootstrap"
+  style="padding-bottom: 88px;">
+  <div style="margin-bottom: 33px;">
+    <div>
+      Channel set id:
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Channel set id"
+        [(ngModel)]="channelSetId"
+        name="channelSetId" />
+    </div>
+
+    <br />
+    <button
+      type="button"
+      class="btn btn-primary btn-lg"
+      (click)="toggleShow()">
+      Show / Hide
+    </button>
+
+    <params
+      [defaultParams]="defaultParams"
+      (onUpdateFlow)="updateFlow()"
+      (onUpdateSettings)="updateSettings()"
+      (onOpenOrderStep)="openOrderStep()"
+      (onUpdateSteps)="updateSteps()"
+      (paramsChanged)="paramsChanged($event)"
+      (disableLocaleDetectionChanged)="disableLocaleDetection = $event"></params>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="reCreateFlow()">
+          Re create flow
+        </button>
+      </div>
+    </div>
+
+    <h4>Last incoming events</h4>
+    <ul>
+      <li *ngFor="let event of lastEvents">{{ event.event }}: {{ event.value | json }}</li>
+    </ul>
+
+    <p>params | json {{ params | json }}</p>
+    <div
+      *ngIf="channelSetId && params"
+      [class.hidden]="!isShowing"
+      style="z-index: 199999; width: 100%; max-width: 450px; border-left: 1px #e0e2e3 solid; top: 0; right: 0; bottom: 0; left: auto; position: fixed; background: #ffffff;">
+      <div style="position: relative; border-bottom: 1px #e0e2e3 solid; height: 51px;">
+        <span
+          style="margin: 0 50px; font-size: 18px; line-height: 30px; padding: 10px 0; display: block; text-align: center;"
+          >Finance Express</span
+        >
+        <span
+          (click)="toggleShow()"
+          style="position: absolute; right: 0; top: 0; width: 50px; height: 50px; line-height: 50px; font-size: 30px; cursor: pointer;"
+          >×</span
+        >
+      </div>
+      <div style="position: absolute; top: 51px; right: 0; bottom: 0; left: 0;">
+        <pe-checkout-wrapper-by-channel-set-id
+          [attr.devdate]="'2020-09-09'"
+          [attr.openorderstep]="openOrderStep$ | async | json"
+          [attr.recreateflow]="reCreateFlow$ | async | json"
+          [attr.updateflow]="updateFlow$ | async | json"
+          [attr.updatesettings]="updateSettings$ | async | json"
+          [attr.updatesteps]="updateSteps$ | async | json"
+          [attr.params]="params | json"
+          [attr.createflowparams]="createFlowParams | json"
+          [attr.disablelocaledetection]="disableLocaleDetection | json"
+          [attr.fixedposition]="true | json"
+          (eventemitted)="onEventEmitted($event)"
+          (layoutshown)="onLayoutShown()"
+          (flowcloned)="onFlowCloned($event)">
+        </pe-checkout-wrapper-by-channel-set-id>
+      </div>
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<form novalidate [formGroup]="demoForm" (ngSubmit)="onSubmit()">
+  <h4>Default</h4>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <mat-checkbox color="accent">
+        I'm a checkbox
+      </mat-checkbox>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <mat-checkbox
+        [disabled]="true">
+        I'm a disabled checkbox
+      </mat-checkbox>
+    </div>
+  </div>
+  <h4>Small</h4>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <mat-checkbox class="mat-checkbox-small">
+        I'm a checkbox
+      </mat-checkbox>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <mat-checkbox class="mat-checkbox-small"
+                    [disabled]="true">
+        I'm a disabled checkbox
+      </mat-checkbox>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,39 @@
+{
+  "name": "@pe/finexp-app",
+  "version": "0.0.85",
+  "description": "Payever Finance Express app",
+  "repository": "https://gitlab.devpayever.com/frontend/finance-express",
+  "license": "UNLICENSED",
+  "bin": {
+    "pe-i18n-cosf-prepare-finexp-app": "./bin/i18n-cosf-prepare.js"
+  },
+  "peerDependencies": {
+    "@angular/common": "x",
+    "@angular/core": "x",
+    "tslib": "^1.10.0",
+    "@angular/material": "x",
+    "@angular/cdk": "x",
+    "angular-resize-event": "x",
+    "moment": "x",
+    "lodash-es": "x",
+    "@auth0/angular-jwt": "x",
+    "ngx-color-picker": "x",
+    "angular2-text-mask": "x",
+    "iban": "x",
+    "is-touch-device": "^1.0.1",
+    "text-mask-addons": "^3.8.0",
+    "ngx-webstorage": "5.0.0",
+    "ngx-clipboard": "^13.0.1",
+
+    "@pe/platform-header": "x",
+    "@pe/data-grid": "x",
+    "@pe/media": "x",
+    "@pe/common": "x",
+    "@pe/forms": "x",
+    "@pe/forms-core": "x",
+    "@pe/auth": "x",
+    "@pe/app-switcher": "x",
+    "@pe/connect-app": "x"
+  }
+
+}

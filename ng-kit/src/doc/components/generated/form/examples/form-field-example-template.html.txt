@@ -1,0 +1,13 @@
+<pe-form-field>
+  <input matInput placeholder="Input">
+</pe-form-field>
+
+<pe-form-field>
+  <textarea matInput placeholder="Textarea"></textarea>
+</pe-form-field>
+
+<pe-form-field>
+  <mat-select placeholder="Select">
+    <mat-option value="option">Option</mat-option>
+  </mat-select>
+</pe-form-field>

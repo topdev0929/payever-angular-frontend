@@ -1,0 +1,107 @@
+@import "~swiper/dist/css/swiper.min";
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+$profile_container_arrow_z_index: 1040;
+
+.ui-app-container {
+  transition: opacity $animation-duration-slide-out_mobile ease;
+  position: relative;
+  opacity: 0;
+  &.no-pagination {
+    padding-top: 0;
+    .swiper-pagination {
+      display: none;
+    }
+  }
+  &.no-controls {
+    .arrow {
+      display: none;
+    }
+  }
+  &.inited {
+    @include payever_transition(opacity, $animation-duration-slide-out_mobile);
+    opacity: 1;
+  }
+  .swiper-container {
+    position: static;
+    margin: 0 auto;
+    width: 90%;
+    max-width: $viewport-breakpoint-sm-3;
+    @include payever_transition();
+    @media(max-width: $viewport-breakpoint-xs-2) {
+      width: 96%;
+    }
+  }
+  .swiper-wrapper {
+    text-align:center;
+    font-size: 0;
+    margin: 0 auto;
+    @include break(sm_1) {
+      margin-top: 49px;
+    }
+  }
+  .arrow {
+    position: absolute;
+    top: 50%;
+    opacity: .4;
+    cursor: pointer;
+    @include payever_transform_translate(0, -50%);
+    z-index: $profile_container_arrow_z_index;
+    display: none;
+    &.left {
+      left: $margin_adjust * 4;
+      @include break(sm_3) {
+        left: $pe_hgrid_gutter;
+      }
+    }
+    &.right {
+      right: $margin_adjust * 4;
+      @include break(sm_3) {
+        right: $pe_hgrid_gutter;
+      }
+    }
+    svg {
+      color: $color-white;
+    }
+    &:hover {
+      opacity: .3;
+    }
+    @include break(sm_1) {
+      display: block;
+    }
+
+    &.swiper-button-disabled {
+      display: none !important;
+    }
+  }
+  .swiper-pagination {
+    position: static;
+  }
+  .app {
+    text-align: center;
+    vertical-align: bottom;
+    a {
+      cursor: pointer;
+      display: inline-block;
+      font-size: 14px;
+      text-decoration: none;
+      margin-bottom: $pe_vgrid_height*2;
+      span {
+        display: block;
+        &.app-icon-container {
+          margin-bottom: $pe_vgrid_height;
+          .icon-db {
+            margin: 0 auto;
+          }
+        }
+        &.title {
+          text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.4);
+          color: #f7f7f7;
+          line-height: 18px;
+          -webkit-font-smoothing: antialiased;
+        }
+      }
+    }
+  }
+}

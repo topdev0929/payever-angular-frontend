@@ -1,0 +1,24 @@
+:host{
+  display: flex;
+}
+.container {
+  width: 100%;    
+}
+.overlay-widget-container .overlay-widget__content {
+  padding: 0 12px 12px;
+}
+::ng-deep {    
+  .form-background-wrapper{
+    margin-top: 0
+  }
+}
+.content {
+  font-family: Roboto;
+  font-size: 11px;
+  font-weight: normal;
+  letter-spacing: normal;
+  color: #7a7a7a;
+  margin-top: 8px;
+  margin-left: 11px;
+}
+

@@ -1,0 +1,45 @@
+@import '../../../../../../../shared/styles/assets/ui-kit-styles/pe_variables';
+@import '../../../../../../../shared/styles/assets/mixins';
+
+@media (min-width: $viewport-breakpoint-sm-1) {
+  .dialog-container {
+    min-width: 300px;
+
+    h4 {
+      margin-top: 0;
+      color: hsla(0, 0%, 7%, 0.85);
+      font-family: Roboto, sans-serif;
+      font-size: 18px;
+      font-weight: 300;
+    }
+
+    .title-loan {
+      margin-top: 12px;
+    }
+
+    .summary-box {
+      max-width: 300px;
+      font-size: 14px;
+
+      .pull-right {
+        font-weight: 500;
+
+        &::after {
+          display: block;
+          content: '';
+          clear: both;
+        }
+      }
+    }
+
+    p {
+      margin-top: 8px;
+      font-size: 12px;
+      color: $color-grey-1;
+
+      &.note-2 {
+        margin-top: 12px;
+      }
+    }
+  }
+}

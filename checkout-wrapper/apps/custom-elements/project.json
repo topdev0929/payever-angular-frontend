@@ -1,0 +1,146 @@
+{
+  "name": "custom-elements",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/custom-elements/src",
+  "prefix": "pe",
+  "i18n": {
+    "sourceLocale": "translate-interpolation",
+    "locales": {
+      "en": {
+        "translation": "./assets/ng-locale/translation-bundle-en.json"
+      },
+      "de": {
+        "translation": "./assets/ng-locale/translation-bundle-de.json"
+      },
+      "es": {
+        "translation": "./assets/ng-locale/translation-bundle-es.json"
+      },
+      "no": {
+        "translation": "./assets/ng-locale/translation-bundle-no.json"
+      },
+      "da": {
+        "translation": "./assets/ng-locale/translation-bundle-da.json"
+      },
+      "sv": {
+        "translation": "./assets/ng-locale/translation-bundle-sv.json"
+      },
+      "nl": {
+        "translation": "./assets/ng-locale/translation-bundle-nl.json"
+      },
+      "fr": {
+        "translation": "./assets/ng-locale/translation-bundle-fr.json"
+      }
+    }
+  },
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "customWebpackConfig": {
+          "path": "apps/custom-elements/webpack.config.ts"
+        },
+        "outputPath": "dist/checkout-main-ce",
+        "index": "apps/custom-elements/src/index.html",
+        "main": "apps/custom-elements/src/main.ts",
+        "polyfills": "apps/custom-elements/src/polyfills.ts",
+        "tsConfig": "apps/custom-elements/tsconfig.app.json",
+        "assets": [
+          "apps/custom-elements/src/favicon.ico",
+          "apps/custom-elements/src/assets",
+          {
+            "glob": "**/*",
+            "input": "libs/lazy/web-components/skeleton",
+            "output": "skeleton/"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/payments/santander-no/assets",
+            "output": "assets/"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/payments/santander-de-invoice/assets",
+            "output": "assets/"
+          }
+        ],
+        "scripts": [
+          {
+            "input": "libs/lazy/web-components/skeleton/loader.js",
+            "inject": false,
+            "bundleName": "skeleton-loader"
+          }
+        ],
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/shared/styles/assets"]
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "3500kb",
+              "maximumError": "4mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "1200kb",
+              "maximumError": "1400kb"
+            }
+          ],
+          "outputHashing": "all",
+          "sourceMap": true,
+          "i18nMissingTranslation": "ignore",
+          "localize": ["en", "de", "es", "no", "da", "sv", "nl", "fr"]
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true,
+          "localize": ["en"]
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nx/angular:webpack-dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "custom-elements:build:production"
+        },
+        "development": {
+          "browserTarget": "custom-elements:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "custom-elements:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/custom-elements/src/**/*.ts", "apps/custom-elements/src/**/*.html"]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/custom-elements"],
+      "options": {
+        "jestConfig": "apps/custom-elements/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["scope:apps"],
+  "implicitDependencies": []
+}

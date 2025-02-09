@@ -1,0 +1,27 @@
+<div class="ui-sidebar-overlay"
+     *ngIf="configurationInternal.style === 'transparent' && classes['in']"
+     (click)="closeSidebar()"></div>
+<div [ngClass]="classesString + ' ui-sidebar-wrapper'"
+     [style.top]="configurationInternal.marginTop"
+     [style.z-index]="configurationInternal.zIndex"
+     [style.right]="configurationInternal.marginRight"
+     [style.margin-right]="marginRight"
+     [style.bottom]="configurationInternal.marginBottom"
+     [style.padding-left]="configurationInternal.containerPaddingLeft"
+     [style.padding-right]="configurationInternal.containerPaddingRight"
+     [style.width]="configurationInternal.width">
+  <div class="ui-sidebar-container ui-sidebar-bg">
+    <div #scrollElement
+         class="scroll-container"
+         (click)="handleOutsideContentClick($event)"
+         peScrollHide>
+      <button class="btn btn-default btn-xs btn-link ui-sidebar-close" type="button" (click)="toggleSidebar()"
+              *ngIf="configurationInternal.showCloseBtn && (configurationInternal.style === 'transparent')">
+        <svg class="icon icon-16"><use xlink:href="#icon-trashcan-16"></use></svg>
+      </button>
+      <button class="btn btn-default ui-sidebar-close" (click)="toggleSidebar()"
+              *ngIf="configurationInternal.showCloseBtn && (configurationInternal.style === 'default' || configurationInternal.style === 'fixed')"></button>
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

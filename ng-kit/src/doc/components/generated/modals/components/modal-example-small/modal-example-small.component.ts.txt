@@ -1,0 +1,55 @@
+import { Component, ViewChild } from "@angular/core";
+import { Router, ActivatedRoute } from '@angular/router';
+import { Subject } from 'rxjs/Subject';
+
+import { UiModalButtonListInterface } from '../../../../../../kit/ui-modal';
+
+@Component({
+  templateUrl: 'modal-example-small.component.html',
+})
+export class ModalExampleSmallComponent {
+
+  private hider: Subject<boolean> = new Subject();
+
+  private loading = false;
+  private bodyZeroPadding = false;
+  private backgroundStyle = {};
+  private backgroundImage = require('../../../../../assets/img/background_jpg_ed4f73.jpg');
+
+  private buttons: UiModalButtonListInterface = {
+    'close': {
+      title: 'Close me',
+    },
+    'testl': {
+      title: 'Test loading',
+      click: () => this.loading = true,
+      classes: 'btn-primary btn-link'
+    },
+    'testb': {
+      title: 'Test background',
+      click: () => {
+        this.backgroundStyle = {'background': 'url(' + this.backgroundImage + ')'};
+      },
+      classes: 'btn-primary btn-link'
+    },
+    'testz': {
+      title: 'Test bodyZeroPadding',
+      click: () => this.bodyZeroPadding = true,
+      classes: 'btn-primary btn-link'
+    }
+  };
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+  ) {
+  }
+
+  private back() {
+    this.router.navigate(['../..'], {relativeTo: this.route});
+  }
+
+  private hide() {
+    this.hider.next(true);
+  }
+}

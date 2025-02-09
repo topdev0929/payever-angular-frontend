@@ -1,0 +1,59 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $confirm: map.get($color-config, 'confirm');
+  $content: map.get($color-config, 'content');
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $background: map.get($color-config, 'background');
+  $text-color: map.get($color-config, 'text-color');
+  $active-text: map.get($color-config, 'active-text');
+  $box-shadow-color: map.get($color-config, 'box-shadow-color');
+  $border: map.get($color-config, 'border');
+  $active-button: map.get($color-config, 'active-button');
+
+  .message-settings-menu {
+    background-color: $secondary-background;
+    border: 1px solid $border;
+    box-shadow: 0 5px 20px 0 $box-shadow-color;
+
+    &__header {
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .title {
+        color: $text-color;
+      }
+    }
+
+    &__item {
+      &:hover {
+        background-color: $active-button;
+
+        span {
+          color: $text-color;
+        }
+      }
+
+      svg {
+        color: $text-color;
+      }
+
+      span {
+        color: $text-color;
+      }
+    }
+  }
+
+  .appearance-widget-panel {
+    .expandable-panel__header {
+      color: $text-color;
+      background-color: $content;
+    }
+  }
+
+  .cos-message-root {
+    background-color: $background;
+  }
+}

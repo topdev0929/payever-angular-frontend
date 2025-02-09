@@ -1,0 +1,27 @@
+<or-action-modal [close$]="close$"
+                 [heading]="'form.capture.heading' | translate"
+                 [buttons]="modalButtons"
+                 [loading]="loading"
+                 class="dark"
+>
+  <div class="inner-padding" *ngIf="error">
+    <div class="text-danger" [innerHtml]="error"></div>
+  </div>
+  <form novalidate [formGroup]="form" *ngIf="form">
+    <div class="form-table">
+      <fieldset class="transparent-form">
+        <div class="clearfix">
+          <div class="col-xs-12" [ngClass]="{'has-error': form.get('amount').errors}">
+            <input class="form-control fs-hide"
+                   type="number"
+                   id="input_amount_capture"
+                   placeholder="{{ 'form.capture.labels.amount' | translate }}"
+                   formControlName="amount">
+            <label for="input_amount_capture">{{ 'form.capture.labels.amount' | translate }}</label>
+            <span class="error small" [innerHtml]="form.get('amount').errors" *ngIf="form.get('amount').errors"></span>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </form>
+</or-action-modal>

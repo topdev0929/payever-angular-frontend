@@ -1,0 +1,5 @@
+.pe-checkout-bootstrap {
+  .label {
+    @include label-variant($label-success-bg);
+  }
+}

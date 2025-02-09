@@ -1,0 +1,27 @@
+<button type="button" mat-button (click)="snav.toggle()">Toggle</button>
+<div class="doc-container-black">
+  <mat-sidenav-container class="example-sidenav-container">
+    <mat-sidenav #snav position="end" class="col-xs-5 mat-sidenav-dark">
+      <button mat-button (click)="snav.toggle()"
+              class="mat-sidenav-first-el mat-button mat-button-bold mat-button-no-padding mat-sidenav-header-left">
+        <svg class="icon icon-16">
+          <use xlink:href="#icon-arrow-left-small-16"></use>
+        </svg>
+        <span>Back</span>
+      </button>
+      <h3> No paddings for middle elements </h3>
+      <div class="mat-sidenav-paddings-short">
+        <mat-list class="mat-sidenav-list">
+          <mat-list-item class="mat-list-item-border" role="listitem">
+            <mat-slide-toggle class="mat-slide-toggle-width-between" labelPosition="before">Text
+            </mat-slide-toggle>
+          </mat-list-item>
+        </mat-list>
+        <div class="mat-sidenav-text-section">SECTION NAME</div>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <p style="color: #b9b9b9" *ngFor="let content of fillerContent">{{content}}</p>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

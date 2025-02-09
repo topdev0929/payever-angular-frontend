@@ -1,0 +1,8 @@
+@use 'pe_theming' as pet;
+@use './button-toggle-theme' as button_toggle;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include button_toggle.color($color-config);
+}
+

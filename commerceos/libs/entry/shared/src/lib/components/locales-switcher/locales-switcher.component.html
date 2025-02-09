@@ -1,0 +1,10 @@
+<cos-locales-switcher-style></cos-locales-switcher-style>
+<button *ngIf="currentLocale" class="locales-switcher-button" (click)="openOverlay()">
+  <span class="name">
+    {{ currentLocale.name }}
+    <svg height="12" width="6">
+      <use xlink:href="#icon-ui-arrow-open"></use>
+    </svg>
+  </span>
+  <span class="code">{{ currentLocale.code | uppercase }}</span>
+</button>

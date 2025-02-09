@@ -1,0 +1,12 @@
+<p>bank_interest of selected rate: {{ currentRate?.bank_interest }}</p>
+<pe-choose-rate [initialRateId]="uploadedRates[0].id"
+                [isLoading]="isLoading"
+                [rates]="uploadedRates"
+                [previewAsSingleLine]="isAsSingleLine"
+                (rateSelected)="onRateSelected($event)"
+></pe-choose-rate>
+<hr>
+<button (click)="toggleLoading()" class="btn btn-default btn-lg">Toggle loading</button>
+<button (click)="toggleLines()" class="btn btn-default btn-lg">Toggle lines</button>
+<button (click)="toggleAsSingleLine()" class="btn btn-default btn-lg">Toggle as single line</button>
+<div style="min-height: 40px;"></div>

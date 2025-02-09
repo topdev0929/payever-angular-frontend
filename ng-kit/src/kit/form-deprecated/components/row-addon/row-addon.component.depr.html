@@ -1,0 +1,7 @@
+<button [type]="addon.btnType ? addon.btnType : 'button'" *ngIf="addon.button && !!addon.text" class="btn btn-inline btn-link btn-{{ addon.button }}" (click)="onClickAddon($event)" [innerHtml]="addon.text"></button>
+<button [type]="addon.btnType ? addon.btnType : 'button'" *ngIf="addon.button && !!addon.iconId" class="btn btn-inline btn-icon btn-link btn-{{ addon.button }}" (click)="onClickAddon($event)">
+  <svg [attr.class]="iconClass"><use [attr.xmlns:xlink]="'http://www.w3.org/1999/xlink'" [attr.xlink:href]="iconId"></use></svg>
+</button>
+<svg *ngIf="!addon.button && !!addon.iconId" [attr.class]="iconClass">
+  <use [attr.xmlns:xlink]="'http://www.w3.org/1999/xlink'" [attr.xlink:href]="iconId"></use>
+</svg>

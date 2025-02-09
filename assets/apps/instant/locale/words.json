@@ -1,0 +1,42 @@
+{
+  "PaymentCheckmarkInfo": {
+    "english": "By clicking on the button below you initiate a transfer of your personal data to Santander Consumer Bank AG for the purpose of carrying out the payment. For more information, see the Santander <span>data policy</span>. for Santander instant payments/ With ticking this box, the customers agrees to receive <span>marketing communication</span> from Santander. This consent is voluntary and may be revoked at any time.",
+    "germany": "Das Anklicken des unten stehenden Buttons löst eine Übermittlung Ihrer personenbezogenen Daten an die Santander Conusmer Bank AG zur Durchführung einer Direktüberweisung aus. Nähere Informationene finden Sie in den <span>Datenschutzhinweisen</span> der Santander zur Direktüberweisung. Der Kunde ist mit <span>werblicher Kommunikation</span> durch die Santander einverstanden. Die Erteilung dieser Einwillung ist freiwilling und kann jederzeit widerrufen warden."
+  },
+  "PaymentMethodContinueButton": {
+    "english": "Continue",
+    "germany": "Weiter zur Bezahlung"
+  },
+  "TermsLine1": {
+    "english": "By clicking <b>Continue</b> you agree with the <br class='mobile-br'> <span>terms of service of payever</span>.",
+    "germany": "Mit dem Klick auf <b>Weiter zur Bezahlung</b> Stimmen Sie den <br class='mobile-br'> <span>AGB der payever GmbH</span> zu."
+  },
+  "TermsLine2": {
+    "english": "By clicking <b>Continue</b> you agree with the following policies",
+    "germany": "By clicking <b>Weiter zur Bezahlung</b> you agree with the following policies"
+  },
+  "Login Testbank": {
+    "english": "Login Testbank - Germany",
+    "germany": "Einloggen bei Testbank - Deutshland"
+  },
+  "BankAccountModalSubTitle": {
+    "english": "Enter any data as login credentials. Please see our API documentation for special test options.",
+    "germany": "Sie können beliebige Login-Daten verwenden. Spezielle Test-Optionen finden Sie in der API-Dokumentation."
+  },
+  "accountNumber": {
+    "english": "Account number",
+    "germany": "Kontonummer"
+  },
+  "loginBank": {
+    "english": "Login Bank",
+    "germany": "Login bei Bank"
+  },
+  "Enter iTAN": {
+    "english": "Enter iTAN",
+    "germany": "iTAN - Eingabe"
+  },
+  "Enter iTAN attempt": {
+    "english": "Enter any data as TAN. Enter WRONG to force a failed TAN attempt.",
+    "germany": "Sie können beliebige Daten eingeben. Geben Sie WRONG ein um einen TAN-Fehlversuch zu erzeugen."
+  }
+}

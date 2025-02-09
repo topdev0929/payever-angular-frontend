@@ -1,0 +1,134 @@
+::ng-deep {
+  @import 'node_modules/@angular/cdk/overlay';
+  @include cdk-overlay();
+}
+
+@font-face {
+  font-family: 'Graphik Web';
+  src: url('https://cdn.getivy.de/static/Graphik-Semibold-Web.woff2') format('woff2'),
+    url('https://cdn.getivy.de/static/Graphik-Semibold-Web.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: 'Graphik Web';
+  src: url('https://cdn.getivy.de/static/Graphik-Regular-Web.woff2') format('woff2'),
+    url('https://cdn.getivy.de/static/Graphik-Regular-Web.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+.ivy-checkout-button {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  background-color: transparent;
+  box-sizing: border-box;
+  position: relative;
+  border: none;
+  outline: none;
+  margin-top: 12px;
+  padding: 0;
+  height: 40px;
+  white-space: normal !important;
+
+  .checkout-button {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .checkout-main-button {
+    width: 100%;
+    background-color: rgb(16, 185, 129);
+
+    .main-text {
+      display: flex;
+      align-items: center;
+    }
+
+    &:hover {
+      filter: brightness(1.2);
+    }
+  }
+
+  .checkout-side-button {
+    height: 100%;
+    width: 57px;
+    border: 1px solid rgb(226, 226, 226);
+    overflow: hidden;
+  }
+}
+
+.ivy-checkout-button:hover {
+  border: none;
+}
+
+.bank-img {
+  max-height: 24px;
+  padding: 5px 0;
+  margin-left: 8px;
+}
+
+// BANK_SELECTION
+
+.open-bank-selection {
+  position: relative;
+  bottom: 173px;
+  animation: 12s cubic-bezier(0.85, 0, 0.15, 1) 0.5s infinite normal none running slider;
+  width: calc(100% - 20px);
+
+  .bank-img {
+    margin-left: 0px;
+  }
+}
+
+@keyframes slider {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(39px);
+  }
+  20% {
+    transform: translateY(78px);
+  }
+  30% {
+    transform: translateY(117px);
+  }
+  40% {
+    transform: translateY(156px);
+  }
+  50% {
+    transform: translateY(194px);
+  }
+  60% {
+    transform: translateY(232px);
+  }
+  70% {
+    transform: translateY(270px);
+  }
+  80% {
+    transform: translateY(310px);
+  }
+  90% {
+    transform: translateY(347px);
+  }
+  100% {
+    transform: translateY(386px);
+  }
+}
+
+.spinner {
+  stroke: white;
+}

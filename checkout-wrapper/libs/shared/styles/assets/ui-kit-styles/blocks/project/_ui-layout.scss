@@ -1,0 +1,315 @@
+.pe-checkout-bootstrap {
+  .ui-layout-content-main {
+    height: 100%;
+  }
+
+  .ui-layout-toolbar {
+    .row {
+      @include pe_flexbox();
+      @include pe_align-items(center);
+      height: 100%;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .toggle-sidebar {
+      display: inline-block;
+      @media (min-width: $viewport-breakpoint-ipad + 1px) {
+        display: none;
+      }
+    }
+  }
+
+  .ui-layout-app {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    .inner-wrap {
+      background-color: rgba(white, 0.5);
+      position: absolute;
+      top: $pe_vgrid_height * 2;
+      right: $pe_hgrid_gutter;
+      left: $pe_hgrid_gutter;
+      bottom: $pe_vgrid_height * 2;
+      border-radius: $border-radius-base * 2;
+      overflow: hidden;
+      @media (max-width: $viewport-breakpoint-ipad) {
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        border-radius: 0;
+      }
+    }
+
+    .layout-app-bg {
+      .inner-bg {
+        position: absolute;
+        top: -$pe_vgrid_height * 2;
+        right: -$pe_hgrid_gutter;
+        left: -$pe_hgrid_gutter;
+        bottom: -$pe_vgrid_height * 2;
+        background-size: cover;
+        background-position: center;
+        filter: blur(30px);
+      }
+
+      .inner-bg-overlay {
+        display: block;
+        position: absolute;
+        background: $color-white;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+      }
+    }
+
+    &.fill-viewport {
+      .inner-wrap {
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        border-radius: 0;
+        background-color: #f7f7f7;
+      }
+
+      .layout-app-bg {
+        display: none;
+      }
+    }
+
+    &.fixed-position-view.static-block-view {
+      .inner-wrap .ui-layout-content-main {
+        position: absolute;
+        overflow-y: auto;
+        top: $grid-unit-y * 5;
+        height: calc(100% - #{$grid-unit-y * 5});
+      }
+    }
+
+    &.static-block-view {
+      position: static;
+      .inner-wrap {
+        position: static;
+        overflow: initial;
+        .ui-layout-content-main {
+          position: static;
+          overflow-x: visible; // Fix for IE
+          overflow-y: visible; // Fix for IE
+        }
+        .layout-app-body {
+          position: static;
+          padding: 0;
+        }
+        background-color: $color-white;
+        border-radius: 0;
+      }
+
+      .layout-app-bg {
+        display: none;
+      }
+    }
+
+    &.has-solid-background {
+      .inner-wrap {
+        background-color: $color-white;
+      }
+    }
+
+    .layout-app-header {
+      position: relative;
+      border-bottom: $border-light-gray-2;
+      border-color: var(--checkout-business-header-border-color, $color-light-gray-2-rgba);
+      height: var(--checkout-business-header-height, $pe_vgrid_height * 5);
+      line-height: var(--checkout-business-header-height - 1, $pe_vgrid_height * 5 - 1);
+      background-color: var(--checkout-business-header-background-color, $color-white);
+
+      @media (max-width: $viewport-breakpoint-ipad) {
+        & + .modal-body {
+          max-height: calc(100vh - #{$pe_vgrid_height * 10});
+        }
+      }
+      &.no-border {
+        border: 0;
+        line-height: var(--checkout-business-header-height, $pe_vgrid_height * 5);
+      }
+      &.transparent {
+        background-color: $color-white-opacity-7;
+      }
+    }
+
+    .layout-app-body {
+      padding: $pe_vgrid_height * 2 $pe_hgrid_gutter;
+      @include payever_absolute();
+      @media (max-width: $viewport-breakpoint-ipad) {
+        padding: $pe_vgrid_height $pe_hgrid_gutter * 0.5;
+        max-height: 100vh;
+        overflow: auto;
+      }
+      &.no-padding {
+        padding: 0;
+      }
+    }
+
+    .layout-app-header + .layout-app-body.business-header-margin {
+      top: $pe_vgrid_height * 10;
+    }
+  }
+
+  .ui-layout-content {
+    .ui-layout-content-main {
+      @include payever_absolute();
+      padding-top: 0 !important;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      background-color: $color-white-opacity-9;
+      @include payever_transition();
+      &.transparent {
+        background-color: $color-white-opacity-7;
+      }
+      &.collapsed {
+        bottom: auto;
+      }
+      &.light-grey {
+        color: var(--checkout-page-text-secondary-color, $color-grey-2);
+        background-color: var(--checkout-page-background-color, $color-white);
+      }
+      &.no-scroll {
+        overflow-y: hidden;
+      }
+      &-inner {
+        padding: $pe_vgrid_height $pe_hgrid_gutter;
+      }
+
+      .caution-container {
+        font-size: $font-size-small;
+        line-height: $line-height-small;
+        background: $color-red-1;
+        color: $color-white;
+        padding: $pe_vgrid_height * 0.5 $pe_hgrid_gutter;
+
+        .caution-row {
+          display: flex;
+          align-items: center;
+        }
+        .caution-icon {
+          margin-top: 0 !important;
+          min-width: 16px;
+          height: 13px;
+        }
+
+        .caution-text {
+          font-size: 12px;
+        }
+      }
+    }
+    .ui-layout-content-sidebar {
+      background-color: $color-white-opacity-9;
+      position: absolute;
+      width: $sidebar-width-large;
+      max-width: 100%;
+      right: -$sidebar-width-large;
+      top: 0;
+      bottom: 0;
+      @include payever_transition(right, $animation-duration-slide-in_mobile, $animation-effect-ease-out);
+      @include break(ipad) {
+        right: 0;
+      }
+      &.transparent {
+        background-color: $color-white-opacity-8;
+      }
+    }
+    &.has-sidebar {
+      @include payever_absolute();
+      overflow: hidden;
+      .ui-layout-content-main {
+        @include break(ipad) {
+          right: $sidebar-width-large;
+        }
+      }
+    }
+
+    &.sidebar-open {
+      .ui-layout-content-sidebar {
+        right: 0;
+        background-color: $color-white;
+      }
+    }
+
+    &.no-padding {
+      .ui-layout-content-main {
+        padding: 0;
+      }
+    }
+  }
+
+  .ui-layout-header {
+    padding: 0 9px;
+
+    .payever-logo {
+      width: ceil($grid-unit-x * 9);
+      max-width: 95%;
+      height: auto !important;
+    }
+
+    &.is-not-transparent {
+      background-color: rgba($color-white, 0.5);
+    }
+
+    .middle-area {
+      @include pe_flexbox();
+      @include pe_justify_content(center);
+      @include pe_align_items(center);
+      white-space: nowrap;
+    }
+
+    .btn-back {
+      .icon {
+        margin-top: 0;
+        margin-bottom: $grid-unit-y * 0.5;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .ui-layout-footer {
+    &.is-not-transparent {
+      background-color: rgba($color-white, 0.5);
+    }
+
+    .middle-area {
+      @include pe_flexbox();
+      @include pe_justify_content(center);
+      @include pe_align_items(center);
+      white-space: nowrap;
+    }
+  }
+
+  .ui-layout-page {
+    height: 100%;
+
+    .navbar-fixed-top + .content {
+      padding-top: $pe_vgrid_height * 5;
+    }
+
+    &.layout-centered {
+      .content {
+        display: table;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        .inner-wrap {
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup"
+  analyticsForm>
+  <personal-form formControlName="personalForm"></personal-form>
+  <exposed-person-form formControlName="exposedPersonForm"></exposed-person-form>
+  <finance-details-form formControlName="financeDetailsForm"></finance-details-form>
+
+  <div
+    class="final-step-button"
+    finalStepButton>
+    <checkout-sdk-continue-button
+      i18n-text="@@santander-se.action.send_inquiry"
+      text="santander-se.action.send_inquiry"
+      (clicked)="onSubmit()">
+    </checkout-sdk-continue-button>
+  </div>
+</form>
+
+<ng-container *ngIf="params$ | async as params">
+  <santander-se-shared-finish
+    *ngIf="isSendingPayment$ | async"
+    [embeddedMode]="params.embeddedMode"
+    [merchantMode]="params.merchantMode"
+    [isLoading]="true"></santander-se-shared-finish>
+</ng-container>

@@ -1,0 +1,31 @@
+<button
+  *ngIf="isAdmin"
+  mat-button
+  class="add-new mat-raised-button mat-button-xs mat-muted-light mat-button-rounded mat-button mat-button-base mat-muted-white"
+  (click)="onCreateTemplate()"
+>
+  <mat-progress-spinner
+    *ngIf="isCreating$ | async; else addThemeText"
+    diameter="13"
+    mode="indeterminate"
+  ></mat-progress-spinner>
+
+  <ng-template #addThemeText>
+    {{ 'theme.theme_container.add_theme' | translate }}
+  </ng-template>
+</button>
+
+<!-- <div *ngFor="let group of groupedTemplates$ | async"> -->
+  <!-- <span class="industry-header">{{ group.industry }}</span> -->
+  <div class="list">
+    <ng-container *ngFor="let theme of themes$ | async; trackBy: trackByThemeId">
+      <pe-builder-theme-card
+        [theme]="theme"
+        [actionsToHide]="actionsToHide$ | async"
+        [loading]="(loadingTheme$ | async) === theme.id"
+        (install)="onInstalled($event)"
+        (edit)="onEdited($event)"
+      ></pe-builder-theme-card>
+    </ng-container>
+  </div>
+<!-- </div> -->

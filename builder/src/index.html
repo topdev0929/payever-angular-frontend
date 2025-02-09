@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="ie=edge" http-equiv="x-ua-compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="HandheldFriendly" content="true">
+  <title>Builder</title>
+  <base href="/">
+  <style>
+    /* TODO temp, make via ng-kit */
+    checkout-root .ui-layout-app {
+      background-color: transparent !important;
+    }
+
+    checkout-root .ui-layout-app .inner-wrap {
+      background-color: #ffffff !important;
+      border-top-left-radius: 0px !important;
+      border-top-right-radius: 0px !important;
+      top: 0px !important;
+      bottom: 0px !important;
+      right: 0px !important;
+      left: 0px !important;
+    }
+    checkout-root .loader-container.loader-fixed {
+      position: absolute !important;
+      background-color: transparent !important;
+    }
+    .pac-container {
+      z-index: 2000 !important;
+    }
+    body.pe-bootstrap div.dropdown-menu.datepicker-dropdown {
+      z-index: 2000 !important;
+    }
+  </style>
+</head>
+<body class="pe-bootstrap">
+
+  <!-- Platform part for testing -->
+  <div id="os-background-wrap" class="platform-background-wrap"
+       style="background-image: url('/assets/ui-kit/images/commerseos-background-mini.jpg');"></div>
+  <div id="os-background"
+       class="platform-background"
+       style="display: none; background-image: url('/assets/ui-kit/images/default-background.jpg');"
+       data-background-low="/assets/ui-kit/images/default-background.jpg"
+       data-background-original="/assets/ui-kit/images/commerseos-background.jpg"
+       data-background-default="/assets/ui-kit/images/commerseos-background.jpg"
+  ></div>
+
+  <div id="os-global-loader" class="platform-global-loader in">
+    <div class="loader_48 loader-white"></div>
+  </div>
+  <div id="os-app-appearance-container" class="platform-app-appearance-container"
+       style="background-image: url('/assets/ui-kit/images/default-background.jpg');"></div>
+  <div>
+    <div id="os-app-appearance-title" class="platform-app-appearance-title"></div>
+  </div>
+
+  <app-builder></app-builder>
+
+</body>
+</html>

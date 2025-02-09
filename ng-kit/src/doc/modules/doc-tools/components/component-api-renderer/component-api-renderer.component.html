@@ -1,0 +1,115 @@
+<ng-container *ngIf="hasComponentData === true">
+  <h3>API reference for {{ className }}</h3>
+  
+  <p *ngIf="selector">Selector: <code>{{ selector }}</code></p>
+
+  <ng-template [ngIf]="properties?.length || accessors?.length">
+    <h4>Properties & Accessors</h4>
+
+    <table class="docs-api-properties-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <ng-template ngFor let-property [ngForOf]="properties">
+          <tr>
+            <td>
+              <ng-template ngFor let-decorator [ngForOf]="property.decorators">
+                <div class="docs-api-input-marker">{{ getPropertyDecoratorFormatted(decorator) }}</div>
+              </ng-template>
+              <p class="docs-api-property-name">
+                <code>
+                  <span class="text-warning" *ngIf="property.flags.isStatic">static </span>
+                  {{ property.name }}: {{ getPropertyTypeFormatted(property.type) }}
+                </code>
+              </p>
+            </td>
+            <td>
+              <p>{{ property?.comment?.shortText }}</p>
+            </td>
+          </tr>
+        </ng-template>
+
+        <ng-template ngFor let-accessor [ngForOf]="accessors">
+          <!-- Setter -->
+          <tr *ngIf="accessor.setSignature">
+            <td>
+              <ng-template ngFor let-decorator [ngForOf]="accessor.decorators">
+                <div class="docs-api-input-marker">{{ getPropertyDecoratorFormatted(decorator) }}</div>
+              </ng-template>
+              <p class="docs-api-property-name">
+                <span class="text-warning" *ngIf="accessor.flags.isStatic">static </span>
+                <code>
+                  <span class="text-warning">set </span> 
+                  {{ accessor.name }}({{ getAccessorTypeFormatted(accessor.setSignature) }})
+                </code>
+              </p>
+            </td>
+            <td>
+              <p>{{ accessor.setSignature.comment?.shortText }}</p>
+            </td>
+          </tr>
+
+          <!-- Getter -->
+          <tr *ngIf="accessor.getSignature">
+            <td>
+              <p class="docs-api-property-name">
+                <code>
+                  <span class="text-warning" *ngIf="accessor.flags.isStatic">static </span>
+                  <span class="text-warning">get </span> 
+                  {{ accessor.name }}(): {{ accessor.getSignature.type?.name || 'void' }} </code>
+              </p>
+            </td>
+            <td>
+              <p *ngIf="accessor.getSignature.comment?.shortText !== accessor.setSignature?.comment?.shortText">
+                {{ accessor.getSignature.comment?.shortText }}
+              </p>
+            </td>
+          </tr>
+        </ng-template>
+      </tbody>
+    </table>
+  </ng-template>
+
+  <ng-template [ngIf]="methods?.length">
+    <h4>Methods</h4>
+
+    <table class="docs-api-properties-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <ng-template ngFor let-method [ngForOf]="methods">
+          <tr>
+            <td>
+              <p class="docs-api-property-name">
+                <code>
+                  <span class="text-warning" *ngIf="method.flags.isStatic">static</span>
+                  {{ method.name }}{{ getMethodParamsTypeFormatted(method.signatures) }}: {{ getMethodTypeFormatted(method.signatures) }}
+                </code>
+              </p>
+            </td>
+            <td>
+              <p>{{ method?.comment?.shortText }}</p>
+            </td>
+          </tr>
+        </ng-template>
+      </tbody>
+    </table>
+  </ng-template>
+</ng-container>
+
+<ng-container *ngIf="hasComponentData === false">
+  <h3>
+    API reference not found for path 
+    <code>{{ path }}</code>
+  </h3>
+</ng-container>

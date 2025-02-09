@@ -1,0 +1,13 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $content: map.get($color-config, 'content');
+  $confirm: map.get($color-config, 'confirm');
+
+  .plugin-main-wrap-container__api-keys{
+    .add-button {
+        background-color: $content;
+        color: $confirm;
+    }
+  }
+}

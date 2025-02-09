@@ -1,0 +1,58 @@
+<div *ngIf="paymentTitle"><strong [innerHTML]="paymentTitle"></strong></div>
+
+<ng-container *ngIf="selectedRate$ | async as selectedRate">
+  <div class="clearfix">
+    <span class="text-secondary" i18n="@@santander-dk.credit_rates.rate_param.monthly_payment">
+      santander-dk.credit_rates.rate_param.monthly_payment
+    </span>:
+    <span [innerHTML]="selectedRate.result.monthlyPayment | peCurrency:currency"></span>
+  </div>
+  <div class="clearfix">
+    <span class="text-secondary" i18n="@@santander-dk.credit_rates.rate_param.effective_interest">
+      santander-dk.credit_rates.rate_param.effective_interest
+    </span>:
+    <span [innerHTML]="selectedRate.parameters.effectiveInterest/100 | percent:'1.0-2'"></span>
+  </div>
+  <div class="clearfix">
+    <span class="text-secondary" i18n="@@santander-dk.credit_rates.rate_param.establishment_fee">
+      santander-dk.credit_rates.rate_param.establishment_fee
+    </span>:
+    <span [innerHTML]="selectedRate.parameters.establishmentFee | peCurrency:currency"></span>
+  </div>
+  <div class="clearfix">
+    <span class="text-secondary">
+      {{ (translations$ | async)?.freeTypeText }}
+    </span>:
+    <span>{{ (translations$ | async)?.paymentFreeText }}</span>
+  </div>
+  <div class="clearfix">
+    <span class="text-secondary" i18n="@@santander-dk.credit_rates.rate_param.payment_duration">
+      santander-dk.credit_rates.rate_param.payment_duration
+    </span>:
+    <span>
+      {{
+      getPaymentPeriod(selectedRate) === 1
+        ? (translations$ | async)?.paymentPeriodMonthText
+        : (translations$ | async)?.paymentPeriodMonthsText
+      }}
+    </span>
+  </div>
+  <div class="clearfix">
+    <span class="text-secondary" i18n="@@santander-dk.credit_rates.rate_param.annually_procent">
+      santander-dk.credit_rates.rate_param.annually_procent
+    </span>:
+    <span [innerHTML]="selectedRate.result?.annuallyProcent/100 | percent:'1.0-2'"></span>
+  </div>
+  <div class="clearfix">
+    <span class="text-secondary" i18n="@@santander-dk.credit_rates.rate_param.total_cost">
+      santander-dk.credit_rates.rate_param.total_cost
+    </span>:
+    <span [innerHTML]="selectedRate.result.totalCost | peCurrency:currency"></span>
+  </div>
+  <div class="clearfix">
+    <span class="text-secondary" i18n="@@santander-dk.credit_rates.rate_param.total_loan_amount">
+      santander-dk.credit_rates.rate_param.total_loan_amount
+    </span>:
+    <span [innerHTML]="selectedRate.result.totalLoanAmount | peCurrency:currency"></span>
+  </div>
+</ng-container>

@@ -1,0 +1,17 @@
+@use 'pe_theming' as pet;
+@use './components/widget-wrapper/widget-wrapper-theme.component' as widget_wrapper;
+@use './components/detailed-numbers/detailed-numbers-theme.component' as detailed_number;
+@use './components/two-columns/two-columns-theme.component' as two_columns;
+@use './components/percentage/percentage-theme.component' as percentage;
+@use './components/simple-numbers/simple-numbers-theme.component' as simple_numbers;
+@use './components/line-graph/line-graph-theme.component' as line_graph;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include widget_wrapper.color($color-config);
+  @include detailed_number.color($color-config);
+  @include two_columns.color($color-config);
+  @include percentage.color($color-config);
+  @include simple_numbers.color($color-config);
+  @include line_graph.color($color-config);
+}

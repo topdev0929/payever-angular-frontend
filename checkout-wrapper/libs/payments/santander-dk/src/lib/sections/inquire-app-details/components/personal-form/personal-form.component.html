@@ -1,0 +1,231 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup">
+  <div class="form-fieldset-new">
+    <mat-form-field class="col-xs-12">
+      <mat-label i18n="@@santander-dk.inquiry.form.phone_number.label"> Phone </mat-label>
+
+      <input
+        matInput
+        formControlName="phoneNumber"
+        peInputMask
+        [mask]="phoneMask"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-dk.inquiry.form.email_address.label"> Email </mat-label>
+
+      <input
+        matInput
+        formControlName="emailAddress"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-dk.inquiry.form.confirm_email.label"> Confirm Email </mat-label>
+
+      <input
+        matInput
+        formControlName="_confirmEmail"
+        type="text"
+        (paste)="onPaste($event)" />
+    </mat-form-field>
+  </div>
+
+  <div class="product-consent">
+    <pe-payment-text type="html">
+      <span [innerHTML]="productConsentTranslations.agreeText"></span>
+      <a
+        class="product-consent-action"
+        (click)="showProductConsentOptOut()"
+        [innerHTML]="productConsentTranslations.action"></a>
+    </pe-payment-text>
+    <mat-checkbox
+      *ngIf="formGroup.get('productConsentOptOut').enabled"
+      formControlName="productConsentOptOut"
+      [analyticsConsent]="analyticConsentEventEnum.MARKETING_CONSENT_GIVEN"
+      analyticFieldName="Product consent">
+      <span [innerHTML]="productConsentTranslations.label"> </span>
+    </mat-checkbox>
+  </div>
+
+  <div class="form-fieldset-new">
+    <mat-form-field class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-dk.inquiry.form.marital_status.label"> Marital status </mat-label>
+
+      <mat-select formControlName="maritalStatus">
+        <mat-option
+          *ngFor="let option of maritalStatusOptions$ | async"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-dk.inquiry.form.citizenship.label"> Citizenship </mat-label>
+
+      <mat-select formControlName="citizenship">
+        <mat-option
+          *ngFor="let option of citizenshipOptions$ | async"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('_householdExpenses').enabled"
+      [class]="formGroup.get('_householdExpenses').value
+        ? 'col-xs-12 col-sm-6'
+        : 'col-xs-12'">
+      <mat-label i18n="@@santander-dk.inquiry.form.household_expenses.label"> Household expenses </mat-label>
+
+      <mat-select formControlName="_householdExpenses">
+        <mat-option
+          *ngFor="let option of booleanOptions"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('householdBudgetPercentage').enabled"
+      class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-dk.inquiry.form.household_budget_percentage.label">
+        Household budget percentage
+      </mat-label>
+
+      <input
+        matInput
+        formControlName="householdBudgetPercentage"
+        type="text" />
+      <span matSuffix>%</span>
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('residencePermitNumber').enabled"
+      class="col-xs-12">
+      <mat-label i18n="@@santander-dk.inquiry.form.residence_permit_number.label"> Residence permit number </mat-label>
+
+      <input
+        matInput
+        formControlName="residencePermitNumber"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('residencePermitType').enabled"
+      class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-dk.inquiry.form.residence_permit_type.label"> Residence permit type </mat-label>
+
+      <mat-select formControlName="residencePermitType">
+        <mat-option
+          *ngFor="let option of residencePermitTypeOptions$ | async"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('residencePermitDate').enabled"
+      longDateFormat
+      class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-dk.inquiry.form.residence_permit_date.label"> Residence permit date </mat-label>
+
+      <input
+        matInput
+        peDatePickerMask="fullDate"
+        formControlName="residencePermitDate"
+        type="text"
+        [min]="pastDateConstraints.min"
+        [max]="pastDateConstraints.max"
+        [matDatepicker]="residencePermitDateDp" />
+
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="residencePermitDateDp">
+        <svg
+          matDatepickerToggleIcon
+          class="icon icon-16">
+          <use xlink:href="#icon-calendar-16"></use>
+        </svg>
+      </mat-datepicker-toggle>
+      <mat-datepicker
+        #residencePermitDateDp
+        startView="multi-year">
+      </mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-dk.inquiry.form.employment_type.label"> Emplyoment type </mat-label>
+
+      <mat-select formControlName="employmentType">
+        <mat-option
+          *ngFor="let option of employmentTypeOptions$ | async"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field
+      longDateFormat
+      class="col-xs-12 col-sm-6">
+      <mat-label> {{ translations.employedSince }} </mat-label>
+
+      <input
+        matInput
+        peDatePickerMask="fullDate"
+        formControlName="employedSince"
+        type="text"
+        [min]="pastDateConstraints.min"
+        [max]="pastDateConstraints.max"
+        [matDatepicker]="employedSinceDp" />
+
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="employedSinceDp">
+        <svg
+          matDatepickerToggleIcon
+          class="icon icon-16">
+          <use xlink:href="#icon-calendar-16"></use>
+        </svg>
+      </mat-datepicker-toggle>
+      <mat-datepicker
+        #employedSinceDp
+        startView="multi-year">
+      </mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-dk.inquiry.form.residential_type.label"> Residential type </mat-label>
+
+      <mat-select formControlName="residentialType">
+        <mat-option
+          *ngFor="let option of residentialTypeOptions$ | async"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-dk.inquiry.form.current_year_debt.label"> Current year debt </mat-label>
+
+      <span
+        matPrefix
+        #prefix>
+        {{ currency | peCurrencySymbol }}
+      </span>
+      <input
+        matInput
+        formControlName="currentYearDebt"
+        [peInputCurrencyMask]="currency"
+        type="text" />
+    </mat-form-field>
+  </div>
+</form>

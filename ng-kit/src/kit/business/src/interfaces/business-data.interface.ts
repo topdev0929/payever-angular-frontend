@@ -1,0 +1,50 @@
+import { BankAccountInterface } from './bank-account.interface';
+import { BusinessAddressInterface } from './business-address.interface';
+
+export interface BusinessDataInterface {
+  address?: BusinessAddressInterface;
+  alternative_emails?: string[];
+  annual_sales_value?: string;
+  avg_order_value?: string;
+  bank_account?: BankAccountInterface;
+  business_area?: string;
+  cart_software?: string;
+  chief_name?: string;
+  chief_title?: string;
+  commercial_register_excerpt_filename?: string;
+  commercial_register_number?: string;
+  commercial_register_number_available?: string | number;
+  company_name?: string;
+  created_at?: string;
+  csp_allowed_hosts?: string[];
+  currency?: string;
+  founding_year?: number;
+  hidden?: boolean;
+  id?: number;
+  legal_form?: string;
+  logo?: string;
+  name?: string;
+  owner_name?: string;
+  owner_email?: string;
+  payment_option_last_status?: string;
+  payment_option_last_update?: string;
+  products_count?: number;
+  profile?: {
+    id: number;
+    is_following?: boolean;
+  };
+  profile_id?: number;
+  registered?: boolean;
+  sector?: string;
+  slug?: string;
+  small_business?: boolean;
+  staff_comment?: string;
+  tax_id?: string;
+  tax_id_available?: string | number;
+  tax_number?: string;
+  updated_at?: string;
+  url?: string;
+  use_alternative_emails?: boolean;
+  uuid?: string;
+  wallpaper?: string;
+}

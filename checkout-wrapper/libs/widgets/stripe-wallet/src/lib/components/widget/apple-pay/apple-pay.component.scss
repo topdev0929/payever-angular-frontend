@@ -1,0 +1,39 @@
+:host {
+  display: grid;
+  width: 100%;
+}
+
+.button {
+  background-origin: content-box;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: 0px;
+  border-radius: 4px;
+  cursor: pointer;
+  min-height: 40px;
+  padding: 10px 24px 10px;
+
+  &:disabled {
+    background-color: lighten(#000, 40%);
+  }
+
+  justify-self: var(--alignment);
+
+  &.dark {
+    background-color: #000;
+
+    .mat-spinner {
+      stroke: #fff;
+    }
+  }
+
+  &.light {
+    background-color: #fff;
+    border: 1px solid black;
+
+    .mat-spinner {
+      stroke: #000;
+    }
+  }
+}

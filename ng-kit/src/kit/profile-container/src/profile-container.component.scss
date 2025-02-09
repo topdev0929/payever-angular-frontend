@@ -1,0 +1,320 @@
+@import "~swiper/dist/css/swiper.min";
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+$profile_container_arrow_z_index: 1040;
+
+.ui-profile-container {
+  transition: opacity $animation-duration-slide-out_mobile ease;
+  position: relative;
+  padding-top: $pe_vgrid_height * 2; // to have equal height due to pagination
+  opacity: 0;
+
+  &.no-pagination {
+    padding-top: 0;
+    .swiper-pagination {
+      display: none;
+    }
+
+    .swiper-wrapper {
+      justify-content: center;
+    }
+  }
+
+  &.no-controls {
+    .arrow {
+      display: none;
+    }
+  }
+
+  .swiper-container {
+    position: static;
+    margin: 0 auto;
+    width: 90%;
+    max-width: $viewport-breakpoint-sm-3;
+    @include payever_transition();
+
+    @include break(xs_2) {
+      width: 95%;
+    }
+    @include break(sm_1) {
+      width: 80%;
+    }
+    @include break(sm_3) {
+      width: 70%;
+    }
+  }
+
+  .swiper-wrapper {
+    text-align:center;
+    font-size: 0;
+    margin-bottom: $pe_vgrid_height;
+    @include break(sm_1) {
+      margin-top: 49px;
+    }
+  }
+
+  $container_item_height: 148px;
+  $container_item_height_mobile: 100px;
+
+  .swiper-slide {
+    padding: 0 $pe_hgrid_gutter / 2;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    margin-bottom: $margin_adjust * 8;
+    @include break(xs_2) {
+      margin-bottom: 0;
+    }
+  }
+
+  &.has-private-item .swiper-slide:first-child, .swiper-partner-last {
+    $line_spacing: 12px;
+      &:after {
+        content: '';
+        display: block;
+        width: 1px;
+        background-color: $color-white;
+        opacity: .2;
+        position: absolute;
+        right: 0;
+        top: $line_spacing;
+        height: $container_item_height_mobile - $line_spacing * 2;
+        @include break(sm_1) {
+          height: $container_item_height - $line_spacing * 2;
+        }
+      }
+
+  }
+
+
+  // container item
+  .business {
+    display: block;
+    position: relative;
+    width: 100%;
+    max-width: $container_item_height_mobile;
+    margin: 0 auto;
+    cursor: pointer;
+    border-radius: $icon-border-radius;
+    background-color: rgba($color-justblack, 0);
+    @include payever_transition();
+    @include break(sm_1) {
+      max-width: $container_item_height;
+    }
+
+    &.active-business {
+      @include break(sm_1) {
+        background-color: rgba($color-justblack, 0.2);
+      }
+    }
+
+    &.business-notify:after {
+      content: '';
+      display: block;
+      position: absolute;
+      background-color: $color-red;
+      border-radius: 50%;
+      width: $icon-size-24;
+      height: $icon-size-24;
+      top: 18px;
+      right: 18px;
+      z-index: 1;
+    }
+
+    .img { // refactor
+      display: block;
+      position: relative;
+      width: 100%;
+      padding-top: 100%;
+      .img-inner {
+        overflow: hidden;
+        border-radius: 50%;
+        position: absolute;
+        background-color: $color-light-gray-2;
+        top: $margin_adjust * 4;
+        left: $margin_adjust * 4;
+        right: $margin_adjust * 4;
+        bottom: $margin_adjust * 4;
+        display: flex;
+        justify-content: center;
+        &.profile-default {
+          background: rgba($color-white, .3);
+        }
+        img {
+          width: 100%;
+          height: auto;
+          align-self: center;
+        }
+        svg {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate3d(-50%, -50%, 0);
+          margin-left: 0;
+          margin-top: 0;
+          color: $color-white;
+          opacity: .7;
+        }
+      }
+    }
+
+    .edit-item {
+      position: absolute;
+      color: $color-white;
+      background-color: rgba($color-dark-gray, .75);
+      border-radius: 100%;
+      width: $icon-size-24 + 2;
+      height: $icon-size-24 + 2;
+      top: 17px;
+      left: 17px;
+      opacity: 1;
+      display: none;
+      .icon-16 {
+        position: absolute;
+        top: ($icon-size-24 + 2 - $icon-size-16)/2;
+        left: ($icon-size-24 + 2 - $icon-size-16)/2;
+        opacity: .75;
+      }
+      &:hover {
+        background-color: rgba($color-dark-gray, 1);
+        .icon {
+          opacity: 1;
+        }
+      }
+    }
+    &:hover {
+      background-color: rgba($color-justblack, .1);
+      .edit-item {
+        display: block;
+      }
+    }
+  }
+
+  .subheading {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: $color-white;
+    margin-top: 0;
+    -webkit-font-smoothing: antialiased;
+    margin-bottom: 5px;
+    @include break(xs_2) {
+      margin-top: $margin_adjust * 2;
+    }
+  }
+
+  .subsubheading {
+    color: rgba(255,255,255,.3);
+    font-size: 11px;
+    -webkit-font-smoothing: antialiased;
+    text-transform: uppercase;
+    letter-spacing: .75px;
+    .icon {
+      margin-bottom: 2px;
+      margin-right: 2px;
+    }
+  }
+
+  .arrow {
+    position: absolute;
+    top: 50%;
+    opacity: .4;
+    cursor: pointer;
+    @include payever_transform_translate(0, -50%);
+    z-index: $profile_container_arrow_z_index;
+    display: none;
+    &.left {
+      left: $margin_adjust * 4;
+      @include break(sm_3) {
+        left: $pe_hgrid_gutter;
+      }
+    }
+    &.right {
+      right: $margin_adjust * 4;
+      @include break(sm_3) {
+        right: $pe_hgrid_gutter;
+      }
+    }
+    svg {
+      color: $color-white;
+    }
+    &:hover {
+      opacity: .3;
+    }
+    @include break(sm_1) {
+      display: block;
+    }
+
+    &.swiper-button-disabled {
+      display: none !important;
+    }
+  }
+
+  .swiper-pagination {
+    position: static;
+  }
+
+  &.inited {
+    @include payever_transition(opacity, $animation-duration-slide-out_mobile);
+    opacity: 1;
+  }
+
+  &.switched-off {
+    @include payever_transition(opacity, $animation-duration-slide-out_mobile);
+    opacity: 0;
+    .swiper-slide {
+      .img-inner {
+        @include payever_transition(transform, $animation-duration-slide-out_mobile);
+        @include payever_transform_scale(0.3, 0.3);
+      }
+
+      .profile-default {
+        @include payever_transition(transform, $animation-duration-slide-out_mobile);
+        @include payever_transform_scale(0.3, 0.3);
+      }
+    }
+  }
+  &.profile-mobile {
+    .business {
+      .edit-item {
+        display: block;
+        width: 36px;
+        height: 36px;
+        top: 12px;
+        left: 12px;
+        .icon-16 {
+          top: 10px;
+          left: 10px;
+        }
+      }
+    }
+  }
+}
+
+.ui-profile-container {
+  &.theme-dark {
+    .subheading {
+      color: $color-dark-gray;
+    }
+
+    .arrow {
+      svg {
+        color: $color-gray_2;
+      }
+    }
+    .business {
+      .img {
+        .img-inner {
+          &.profile-default {
+            background: rgba($color-gray_2, .3);
+          }
+        }
+
+        .profile-default-text {
+          color: $color-white;
+        }
+      }
+    }
+  }
+}

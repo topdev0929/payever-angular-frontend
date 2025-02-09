@@ -1,0 +1,126 @@
+:host {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1000;
+  .backdrop {
+    background-color: unset;
+  }
+}
+
+.overlay {
+
+  &__body {
+    padding: 0 12px;
+    max-height: 89vh;
+    overflow: overlay;
+    form {
+      overflow: unset !important;
+    }
+    .expandable-panel {
+      display: block;
+      margin-top: 16px;
+      margin-left: -12px;
+      margin-right: -12px;
+    }
+
+    &-messages {
+      display: block;
+      margin-top: 8px;
+    }
+  }
+}
+
+.option {
+  &__list {
+    display: grid;
+    grid-row-gap: 16px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+
+    .cdk-drag-placeholder {
+      opacity: 0;
+    }
+
+    .cdk-drag-animating,
+    .cdk-drop-list-dragging .options-container {
+      transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+    }
+  }
+
+  &__item {
+    display: grid;
+    grid-column-gap: 8px;
+    grid-template-columns: 40px auto 40px;
+
+    & > div {
+      align-items: center;
+      display: flex;
+    }
+  }
+
+  &__handle,
+  &__fields,
+  &__remove {
+    border-radius: 12px;
+  }
+
+  &__handle,
+  &__remove {
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    outline: none;
+    padding: 0;
+    width: 40px;
+  }
+
+  &__add {
+    border-radius: 12px;
+    height: 40px;
+    font-family: Roboto, sans-serif;
+    font-size: 12px;
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    outline: none;
+  }
+}
+
+.variant {
+
+  &__fields {
+    border-radius: 12px;
+    display: grid;
+    grid-gap: 1px;
+    overflow: hidden;
+
+    &-button-toggle {
+      padding: 2px 4px;
+    }
+  }
+
+  &__sale {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    &-form-field-input {
+      width: 100%;
+    }
+  }
+
+  &__sku-barcode {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1px;
+  }
+}

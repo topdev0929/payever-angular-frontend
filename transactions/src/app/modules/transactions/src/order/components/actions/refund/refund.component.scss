@@ -1,0 +1,152 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+
+form {
+  // & > .form-widget.form-design {
+  //   margin-bottom: $pe_vgrid_height;
+  // }
+  & > .clearfix:first-child {
+    border-radius: 12px 12px 0 0;
+  }
+  & > .clearfix {
+    display: block;
+    margin: 0; // 0 0 $pe_vgrid_height*2;
+    padding: 0;
+    min-width: 0;
+    border-radius: 0;
+    overflow-x: hidden;
+    box-shadow: none; // inset 0 0 0 1px $color-light-gray-1;
+    fieldset {
+      border-width: 1px;
+      border-style: solid;
+      border-color: transparent $color-light-gray-1 $color-light-gray-1 transparent;
+      padding: ($pe_vgrid_height*1.5) ($pe_hgrid_gutter/2) 0 ($pe_hgrid_gutter/2);
+      position: relative;
+      min-height: $pe_vgrid_height*5;
+      float: left;
+      width: 100%;
+      .form-items {
+        display: none;
+        padding: ($pe_vgrid_height/4) 0 ($pe_vgrid_height*1.5) 0;
+        input[type="number"].form-control {
+          width: $pe_hgrid_gutter*5.5;
+        }
+        label {
+          font-weight: normal;
+        }
+        .col-xs-12 {
+          border-radius: $border-radius-large;
+        }
+      }
+      &.active {
+        .form-items {
+          display: block;
+        }
+      }
+    }
+    select.form-control {
+      min-width: $pe_hgrid_gutter*2;
+    }
+  }
+}
+.table {
+  th,
+  td {
+    width: 40%;
+    padding-top: $pe_vgrid_height/2;
+    padding-bottom: $pe_vgrid_height/2;
+    vertical-align: middle;
+    &.divider {
+      padding: $pe_vgrid_height 0;
+    }
+  }
+  margin-bottom: 0;
+}
+
+#input_reason {
+  color: $color-secondary-0;
+  padding-left: 14px;
+
+  &::placeholder {
+    color: $color-secondary-8;
+  }
+}
+
+#input_reason + label {
+  left: 14px;
+}
+
+/*
+.no-bottom-border-radius {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-bottom: 0;
+}*/
+
+@media (max-width: $viewport-breakpoint-sm-2 - 1) {
+  form > .clearfix fieldset {
+    .form-items {
+      padding-left: 0;
+      label {
+        padding-left: 0;
+        padding-top: 0;// $pe_vgrid_height;
+      }
+    }
+    select.form-control {
+      padding-left: 0;
+    }
+  }
+  .table tr {
+    th,
+    td {
+      padding-left: $pe_hgrid_gutter/2;
+      padding-right: $pe_hgrid_gutter/2;
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+.table {
+  width: 100%;
+}
+
+.table tr {
+  th,
+  td {
+    border: none;
+    max-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.form-table {
+  border-radius: 0;
+  fieldset {
+    margin-bottom: 0;
+  }
+}
+
+/// For mat-select
+:host ::ng-deep .mat-form-field-underline {
+  background-color: $color-secondary-5;
+}
+:host ::ng-deep .mat-select-value {
+  color: $color-secondary-8;
+}
+:host ::ng-deep .mat-select-arrow:before {
+  background: none;
+}
+
+:host ::ng-deep .mat-card {
+  background: $color-primary-8 !important;
+
+  .mat-card-content {
+    background: transparent;
+  }
+}

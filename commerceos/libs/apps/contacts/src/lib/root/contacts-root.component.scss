@@ -1,0 +1,18 @@
+.contacts-root {
+  height: 100%;
+  
+  &__header {
+    height: 60px;
+
+    .header-container {
+      height: 60px;
+      padding: 16px 22px;
+    }
+  }
+
+  &__content {
+    height: calc(100% - 60px);
+    position: absolute;
+    width: 100%;
+  }
+}

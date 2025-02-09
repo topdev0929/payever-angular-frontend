@@ -1,0 +1,11 @@
+<div
+  class="stripe-wallet-wrapper"
+  [style.minWidth.px]="config.minWidth">
+  <ng-container *ngIf="config$ | async as config">
+    <ng-container *ngComponentOutlet="
+        config.component;
+        injector: config.injector
+      ">
+    </ng-container>
+  </ng-container>
+</div>

@@ -1,0 +1,41 @@
+<form
+  *ngIf="formGroup"
+  class="form-table"
+  [formGroup]="formGroup">
+  <div class="form-fieldset-new">
+    <mat-form-field class="col-xs-12">
+      <mat-label i18n="@@checkout_address_edit.form.email.label"> Email </mat-label>
+      <input
+        matInput
+        formControlName="email"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-4">
+      <mat-label i18n="@@checkout_address_edit.form.salutation.label"> Salutation </mat-label>
+      <mat-select formControlName="salutation">
+        <mat-option
+          *ngFor="let salutation of salutationOptions"
+          [value]="salutation.value">
+          {{ salutation.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-4">
+      <mat-label i18n="@@checkout_address_edit.form.first_name.label"> First Name </mat-label>
+      <input
+        matInput
+        formControlName="firstName"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-4">
+      <mat-label i18n="@@checkout_address_edit.form.last_name.label"> Last Name </mat-label>
+      <input
+        matInput
+        formControlName="lastName"
+        type="text" />
+    </mat-form-field>
+  </div>
+</form>

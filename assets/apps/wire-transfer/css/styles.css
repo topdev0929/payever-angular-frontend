@@ -1,0 +1,21 @@
+.active-order-step .payment-footer {
+  display: none;
+}
+
+.active-order-step .mobile .payment-footer {
+  display: flex;
+}
+
+.desktop-checkout-items.with-offset {
+  position: relative;
+  top: -98px;
+  z-index: -1;
+}
+
+.mobile .desktop-checkout-items.with-offset {
+  top: -60px;
+}
+
+.successful-modal .prepayment-logo {
+  width: 16px;
+}

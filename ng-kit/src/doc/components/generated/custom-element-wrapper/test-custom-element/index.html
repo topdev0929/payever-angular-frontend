@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Test page</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <script type="text/javascript" src="https://payevertest.azureedge.net/js/polyfills.js"></script>
+  <script type="text/javascript" src="https://payevertest.azureedge.net/js/pe-static.js"></script>
+</head>
+<body class="pe-bootstrap">
+  <checkout-address-app-root>
+    <div class="loader_48"></div>
+  </checkout-address-app-root>
+
+  <script>
+      (function() {
+          PayeverStatic.IconLoader.loadIcons([
+            'set',
+            'shipping',
+            'dashboard'
+          ]);
+      })()
+  </script>
+</body>
+</html>

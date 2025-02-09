@@ -1,0 +1,35 @@
+{
+  "santander-fact-de-finexp-widget": {
+    "common": {
+      "rate_param": {
+        "duration": "Laufzeit",
+        "monthly_rate": "Monatsrate",
+
+        "last_rate": "Letzte Rate",
+        "annual_percentage_rate": "Effektiver Jahreszins",
+        "total_interest": "Zinsen",
+        "total": "Gesamtbetrag",
+        "nominal_interest_rate": "Sollzins fest p.a."
+      },
+      "month": {
+        "one": "{{ count }} Monat",
+        "many": "{{ count }} Monate"
+      },
+      "rate_title": "{{ monthly_rate_with_currency }}/mo. for {{ duration_with_months }}",
+      "header_text": "In Raten bezahlen",
+      "header_text_extended": "Ratenkauf",
+      "introduction_text": "Wänlen Sie als Zahlungsart den Santander Ratenkauf aus und bestätigen Sie Ihre Bestellung. Danach können Sie Ihre Wunsch-Rate und die passende Laufzeit auswählen. Schicken Sie nun den Antrag ab. Schon nach wenigen Sekunden erfahren Sie, ob Ihr Antrag vorläufig genehmigt wurde.<br>Bei einer vorläufigen Genehmigung wird Innen ein Button “Antrag abschließen” angezeigt, der Sie zu unserem digitalen Vertragscenter weiterleitet. Befolgen Sie die dortigen Anweisungen zur Gänze (i.d.R. ist eine Identitätsbestätigung via Videochat oder Post-Ident erforderlich, bei der Abholung im Ladengeschäft entfällt dies zu Gunsten einer Ausweisprüfung vor Ort durch das Ladenpersonal). Nach Versand oder Abholung der Ware beginnt der<br>monatliche Einzug der Raten per Lastschrift-Verfahren.\n\nBitte haben Sie Verständnis, dass der Ratenkauf nur von Privatpersonen genutzt werden kann, und dass bei einer Bestellung per Santander Ratenkauf weder Gutschriften verrechnet noch von der Rechnungsadresse abweichende Lieferadressen angeben werden können.",
+      "credit_details_text": "Die letzte Rate kann abweichen. Bonität vorausgesetzt. Diese Angaben stellen zugleich\ndas 2/3 Beispiel gemäß § 6a Abs. 4 PAngV dar.<br>Anbieter: {{info}}",
+      "show_checkout_wrapper": "Checkout with finance express",
+      "show_more_info": "Further information"
+    },
+    "button": {
+    },
+    "dropdown-calculator": {
+    },
+    "text": {
+    },
+    "two-fields-calculator": {
+    }
+  }
+}

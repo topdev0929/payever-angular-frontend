@@ -1,0 +1,7 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $scrollbar: map.get($color-config, 'scrollbar');
+  $scrollbar-thumb: map.get($color-config, 'scrollbar-thumb');
+  $scrollbar-thumb-hover: map.get($color-config, 'scrollbar-thumb-hover');
+}

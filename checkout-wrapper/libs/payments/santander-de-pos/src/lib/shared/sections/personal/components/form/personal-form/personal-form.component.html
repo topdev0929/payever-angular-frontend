@@ -1,0 +1,241 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup">
+  <div class="form-fieldset-new">
+    <mat-form-field
+      *ngIf="formGroup.get('personalDateOfBirth').enabled"
+      longDateFormat
+      class="col-xs-6">
+      <mat-label>{{translations[personType].personalDateOfBirth}}</mat-label>
+
+      <input
+        matInput
+        peDatePickerMask="fullDate"
+        formControlName="personalDateOfBirth"
+        type="text"
+        [min]="adultDateConstraints.min"
+        [max]="adultDateConstraints.max"
+        [matDatepicker]="personalDateOfBirthDp" />
+
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="personalDateOfBirthDp">
+        <svg
+          matDatepickerToggleIcon
+          class="icon icon-16">
+          <use xlink:href="#icon-calendar-16"></use>
+        </svg>
+      </mat-datepicker-toggle>
+      <mat-datepicker
+        #personalDateOfBirthDp
+        startView="multi-year">
+      </mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('profession').enabled"
+      class="col-xs-6">
+      <mat-label>{{translations[personType].profession}}</mat-label>
+
+      <mat-select formControlName="profession">
+        <mat-option
+          *ngFor="let option of options.professions"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12 col-sm-6">
+      <mat-label>{{translations[personType].addressMobilePhoneNumber}}</mat-label>
+
+      <input
+        matInput
+        peInputMask
+        formControlName="addressMobilePhoneNumber"
+        type="text"
+        [mask]="phoneMask" />
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12 col-sm-6">
+      <mat-label>{{translations[personType].addressPhoneNumber}}</mat-label>
+
+      <input
+        matInput
+        peInputMask
+        formControlName="addressPhoneNumber"
+        type="text"
+        [mask]="phoneMask" />
+    </mat-form-field>
+
+    <mat-form-field
+      shortDateFormat
+      class="col-xs-12">
+      <mat-label>{{translations[personType].addressResidentSince}}</mat-label>
+
+      <input
+        matInput
+        peDatePickerMask="shortDate"
+        formControlName="addressResidentSince"
+        type="text"
+        [min]="pastDateConstraints.min"
+        [max]="pastDateConstraints.max"
+        [matDatepicker]="addressResidentSinceDp" />
+
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="addressResidentSinceDp">
+        <svg
+          matDatepickerToggleIcon
+          class="icon icon-16">
+          <use xlink:href="#icon-calendar-16"></use>
+        </svg>
+      </mat-datepicker-toggle>
+      <mat-datepicker
+        #addressResidentSinceDp
+        startView="multi-year"
+        (monthSelected)="selectAddressResidentSince($event, addressResidentSinceDp)">
+      </mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12">
+      <mat-label>{{translations[personType].identificationNumber}}</mat-label>
+
+      <input
+        matInput
+        formControlName="identificationNumber"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12">
+      <mat-label>{{translations[personType].identificationPlaceOfIssue}}</mat-label>
+
+      <input
+        matInput
+        formControlName="identificationPlaceOfIssue"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field
+      longDateFormat
+      class="col-xs-12">
+      <mat-label>{{translations[personType].identificationDateOfIssue}}</mat-label>
+
+      <input
+        matInput
+        peDatePickerMask="fullDate"
+        formControlName="identificationDateOfIssue"
+        type="text"
+        [min]="pastOrTodayDateConstraints.min"
+        [max]="pastOrTodayDateConstraints.max"
+        [matDatepicker]="identificationDateOfIssueDp" />
+
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="identificationDateOfIssueDp">
+        <svg
+          matDatepickerToggleIcon
+          class="icon icon-16">
+          <use xlink:href="#icon-calendar-16"></use>
+        </svg>
+      </mat-datepicker-toggle>
+      <mat-datepicker
+        #identificationDateOfIssueDp
+        startView="multi-year">
+      </mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field
+      longDateFormat
+      class="col-xs-12">
+      <mat-label>{{translations[personType].identificationDateOfExpiry}}</mat-label>
+
+      <input
+        matInput
+        peDatePickerMask="fullDate"
+        formControlName="identificationDateOfExpiry"
+        type="text"
+        [min]="futureDateConstraints.min"
+        [max]="futureDateConstraints.max"
+        [matDatepicker]="identificationDateOfExpiryDp" />
+
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="identificationDateOfExpiryDp">
+        <svg
+          matDatepickerToggleIcon
+          class="icon icon-16">
+          <use xlink:href="#icon-calendar-16"></use>
+        </svg>
+      </mat-datepicker-toggle>
+      <mat-datepicker
+        #identificationDateOfExpiryDp
+        startView="multi-year">
+      </mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12">
+      <mat-label>{{translations[personType].identificationIssuingAuthority}}</mat-label>
+
+      <input
+        matInput
+        formControlName="identificationIssuingAuthority"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field
+      class="col-xs-12"
+      *ngIf="formGroup.get('numberOfChildren').enabled">
+      <mat-label>{{translations[personType].numberOfChildren}}</mat-label>
+
+      <input
+        matInput
+        peInputMask
+        formControlName="numberOfChildren"
+        type="text"
+        [mask]="numberMask" />
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12">
+      <mat-label>{{translations[personType].personalMaritalStatus}}</mat-label>
+
+      <mat-select formControlName="personalMaritalStatus">
+        <mat-option
+          *ngFor="let option of options.maritalStatuses"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12">
+      <mat-label>{{translations[personType].personalNationality}}</mat-label>
+
+      <mat-select formControlName="personalNationality">
+        <mat-option
+          *ngFor="let option of options.nationalities"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12">
+      <mat-label>{{translations[personType].personalPlaceOfBirth}}</mat-label>
+
+      <input
+        matInput
+        formControlName="personalPlaceOfBirth"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12">
+      <mat-label>{{translations[personType].personalBirthName}}</mat-label>
+
+      <input
+        matInput
+        formControlName="personalBirthName"
+        type="text" />
+    </mat-form-field>
+  </div>
+</form>

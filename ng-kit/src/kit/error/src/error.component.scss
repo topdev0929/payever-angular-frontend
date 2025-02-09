@@ -1,0 +1,21 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+.ui-error {
+  height: 100%;
+  width: 100%;
+
+  &-box {
+    text-align: center;
+
+    top: 50%;
+    position: absolute;
+    @include payever_transform_translate(0, -50%);
+    right: 0;
+    left: 0;
+  }
+
+  &-desc {
+    margin-bottom: $pe_vgrid_height * 2;
+  }
+}

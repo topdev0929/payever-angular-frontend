@@ -1,0 +1,11 @@
+@use 'pe_theming' as pet;
+@use 'toolbar-theme.component' as toolbar;
+@use './filter-form/filter-form-theme.component' as toolbar_filter;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @if $color-config != null {
+    @include toolbar.color($color-config);
+    @include toolbar_filter.color($color-config);
+  }
+}

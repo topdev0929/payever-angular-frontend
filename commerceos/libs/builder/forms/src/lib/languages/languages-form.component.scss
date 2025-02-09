@@ -1,0 +1,36 @@
+@import "../../../../styles/src/lib/styles/variables";
+
+:host {
+  display: block;
+  height: 100%;
+  overflow-y: scroll;
+  padding-bottom: 10px
+}
+
+.peb-base-button.pe-form-button.confirm {
+  margin-top: 5px
+}
+
+.form {
+
+  &__row, &__row_border {
+    span {
+      display: block;
+      font-size: 11px;
+      text-transform: capitalize;
+    }
+  }
+
+  &__row_border {
+    margin-top: 16px;
+  }
+}
+
+.languages-list {
+  display: grid;
+  row-gap: 15px;
+}
+
+.form {
+  padding: 12px;
+}

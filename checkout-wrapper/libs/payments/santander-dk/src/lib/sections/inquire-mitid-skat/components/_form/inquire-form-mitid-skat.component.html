@@ -1,0 +1,18 @@
+<div
+  *ngIf="mode === modeEnum.View"
+  i18n="@@santander-dk.inquiry.step.mitid_skat.summary">
+  santander-dk.inquiry.step.mitid_skat.summary
+</div>
+
+<form
+  *ngIf="mode === modeEnum.Edit"
+  [formGroup]="formGroup">
+  <mit-id-step formControlName="mitIdForm"> </mit-id-step>
+
+  <skat-id-step formControlName="skatIdForm"> </skat-id-step>
+
+  <bank-consent-step
+    formControlName="bankConsentForm"
+    (submitted)="onSubmit()">
+  </bank-consent-step>
+</form>

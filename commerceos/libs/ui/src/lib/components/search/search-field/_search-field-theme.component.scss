@@ -1,0 +1,25 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $row-background: map.get($color-config, 'row-background');
+  $background: map.get($color-config, 'background');
+  $active-text: map.get($color-config, 'active-text');
+  $hover-button: map.get($color-config, 'hover-button');
+  $text-color: map.get($color-config, 'text-color');
+
+  .pe-search-panel {
+    background-color: $row-background;
+    &__option {
+      color: $text-color;
+
+      &:hover {
+        background-color: $hover-button;
+        color: $active-text;
+      }
+
+      &:not(:last-child) {
+        border-bottom: 1px solid $background;
+      }
+    }
+  }
+}

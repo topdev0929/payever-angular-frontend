@@ -1,0 +1,21 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+    $primary: map.get($color-config, primary);
+    $skeleton: map.get($color-config, skeleton);
+  
+    pe-grid-list-skeleton {
+        .grid-skeleton-container {
+          &.mobile {
+            background-color: $primary;
+          }
+          .grid-skeleton-item {
+            background: $primary;
+            div:empty {
+              background-color: $skeleton;
+            }
+          }
+        }
+      }
+  }
+  

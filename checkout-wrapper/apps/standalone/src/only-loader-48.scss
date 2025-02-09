@@ -1,0 +1,12 @@
+@import '../../../libs/styles/assets/ui-kit-styles/pe_variables';
+@import '../../../libs/styles/assets/ui-kit-styles/mixins/pe_mixins.scss';
+
+// For header with logo
+@import '../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
+@import '../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/grid';
+@import '../../../libs/shared/styles/assets/ui-kit-styles/blocks/project/_ui-layout.scss';
+
+@include loader_basis(loader);
+.loader {
+  @include loader(48);
+}

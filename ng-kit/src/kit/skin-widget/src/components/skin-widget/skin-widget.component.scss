@@ -1,0 +1,21 @@
+.wallpapers-wrapper {
+  .wallpapers {
+    .wallpapers-container {
+      position: relative;
+
+      & > .loader_32 {
+        display: none;
+      }
+
+      &.loading {
+        .content {
+          visibility: hidden;
+        }
+
+        & > .loader_32 {
+          display: block;
+        }
+      }
+    }
+  }
+}

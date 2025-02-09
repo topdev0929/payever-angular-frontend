@@ -1,0 +1,13 @@
+<button
+  mat-raised-button
+  color="muted-light"
+  [class.mat-button-xxs]="true"
+  [class.mat-button-no-width]="true"
+  [class.mat-button-menu]="true"
+  [class.mat-button-small-padding]="true"
+  (click)="clicked = !clicked"
+>
+  <span>Delete</span>
+  <svg *ngIf="!clicked" class="icon icon-16"><use xlink:href="#icon-arrow-down-small-16"></use></svg>
+  <svg *ngIf="clicked" class="icon icon-16"><use xlink:href="#icon-arrow-up-small-16"></use></svg>
+</button>

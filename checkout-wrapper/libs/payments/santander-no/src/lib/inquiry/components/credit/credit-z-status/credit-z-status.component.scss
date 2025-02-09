@@ -1,0 +1,16 @@
+@import '../../../../../../../../shared/styles/assets/ui-kit-styles/pe_variables';
+
+.status-wrap {
+  display: flex;
+  flex-direction: row;
+  .icon-wrap {
+    display: inline-block;
+    float: left;
+    margin-right: 12px;
+    margin-bottom: 12px;
+  }
+}
+
+.faded {
+  opacity: 0.5;
+}

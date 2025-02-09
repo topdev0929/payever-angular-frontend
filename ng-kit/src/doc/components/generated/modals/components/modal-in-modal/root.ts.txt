@@ -1,0 +1,14 @@
+@Component({
+  templateUrl: 'root.component.html',
+})
+export class RootComponent {
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+  ) {
+  }
+
+  private gotoFirst() {
+    this.router.navigate(['first'], {relativeTo: this.route});
+  }
+}

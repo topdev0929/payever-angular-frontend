@@ -1,0 +1,96 @@
+@mixin base-input-picker-controls {
+  height: 44px;
+  display: flex;
+  flex-direction: row;
+
+  @media (max-width: 720px) {
+    height: 56px;
+  }
+
+  .input-with-label {
+    display: inherit;
+    flex-direction: column;
+    flex: 1;
+
+    &.is-invalid {
+      position: relative;
+      transition: border-bottom 500ms;
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 1px;
+        width: 100%;
+      }
+
+      .label-text {
+        transition: color 500ms;
+        white-space: nowrap;
+      }
+    }
+
+    span {
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      display: inline-flex;
+      transform-origin: top left;
+      align-items: center;
+      @media (max-width: 720px) {
+        font-size: 12px;
+      }
+    }
+
+    input {
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      height: 16px;
+      border: 0;
+      outline: 0;
+      @media (max-width: 720px) {
+        height: 20px;
+        padding: 0;
+        font-size: 17px;
+      }
+    }
+
+    .button-container {
+      display: inherit;
+      flex-direction: row;
+      flex: 0.4;
+      align-items: center;
+      justify-content: flex-end;
+      .peb-text-button {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@mixin check-container {
+  width: 16px;
+  height: 16px;
+  position: relative;
+
+  .check {
+    position: absolute;
+    width: 8px;
+    height: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 5px;
+    left: 4px;
+  }
+
+  .check-background {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+
+

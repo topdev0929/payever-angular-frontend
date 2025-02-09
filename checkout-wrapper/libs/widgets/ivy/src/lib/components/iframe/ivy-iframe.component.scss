@@ -1,0 +1,15 @@
+:host {
+  display: block;
+  position: relative;
+}
+
+.iframe {
+  width: 100%;
+  min-width: 280px;
+  max-width: 375px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 16px;
+  background-color: rgb(255, 255, 255);
+  height: 343px;
+  border: 0;
+  border-radius: 16px;
+}

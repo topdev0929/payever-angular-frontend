@@ -1,0 +1,13 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $spinner: map.get($color-config, spinner);
+
+  .mat-spinner {
+    svg {
+      circle {
+        stroke: $spinner;
+      }
+    }
+  }
+}

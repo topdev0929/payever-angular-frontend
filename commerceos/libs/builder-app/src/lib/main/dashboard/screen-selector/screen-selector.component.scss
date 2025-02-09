@@ -1,0 +1,86 @@
+@use "pe_variables" as pe_variables;
+
+.screens-selector-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  gap: 6px;
+
+  span {
+    font-size: 12px;
+  }
+}
+
+mat-icon {
+  width: 18px;
+}
+
+::ng-deep {
+  .mat-menu-panel.screens-selector {
+    min-width: 170px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .screens-selector {
+    border-radius: 12px;
+    padding: 0 8px 8px;
+    font-family: Roboto, sans-serif;
+    margin-bottom: 0;
+
+    .mat-menu-content {
+      padding: 0;
+    }
+
+    &__header {
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      mat-icon {
+        width: 20px;
+        height: 20px;
+        transition: color 0.2s;
+        cursor: pointer;
+        margin-left: 5px;
+      }
+    }
+
+    &__body {
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      &__item {
+        display: flex;
+        padding: 6px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        padding: 8px;
+        border-radius: 7px;
+        height: 32px;
+        font-size: 16px;
+        font-weight: 400;
+        transition: background-color 0.2s, color 0.2s;
+
+        label {
+          font-size: 14px;
+          font-weight: 500;
+          cursor: pointer;
+          padding: 10px;
+          @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+            font-size: 16px;
+          }
+        }
+
+        mat-icon {
+          width: 14px;
+        }
+      }
+    }
+  }
+}

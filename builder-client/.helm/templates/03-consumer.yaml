@@ -1,0 +1,83 @@
+{{ $chartName := .Chart.Name }}
+{{ $values := .Values }}
+{{ $appName := printf "%s-consumer" $chartName }}
+{{ $urlMapConfigName:= printf "micro-url-map" }}
+
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: {{ $appName }}
+  namespace: {{ $values.namespace }}
+
+  labels:
+    app: {{ $appName }}
+    tier: frontend
+    type: consumer
+
+  annotations:
+    "werf.io/set-replicas-only-on-creation": "true"
+
+spec:
+  replicas: {{ $values.replicas.consumer }}
+
+  strategy:
+    type: RollingUpdate
+
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+
+  selector:
+    matchLabels:
+      app: {{ $appName }}
+
+  template:
+    metadata:
+      labels:
+        app: {{ $appName }}
+        tier: frontend
+        type: consumer
+
+      annotations:
+        seccomp.security.alpha.kubernetes.io/pod: 'runtime/default'
+
+    spec:
+      priorityClassName: {{ $values.priorityClass }}
+
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: node_worker
+                operator: Exists
+
+      imagePullSecrets:
+        - name: {{ $values.image.pullSecretName }}
+
+      containers:
+        - name: consumer
+          image: {{ $values.image.dist }}
+          imagePullPolicy: IfNotPresent
+          command: [ "/bin/bash", "-c", "/payever/deploy/consumer.sh" ]
+
+          lifecycle:
+            preStop:
+              exec:
+                command: ["sleep", "15"]
+
+          resources:
+{{ toYaml $values.resources | indent 12 }}
+
+          envFrom:
+            - configMapRef:
+                name: {{ $chartName }}
+            - configMapRef:
+                name: {{ $urlMapConfigName }}
+            - secretRef:
+                name: {{ $chartName }}
+
+          env:
+            - name: KUBERNETES_DEPLOYED
+              value: "{{ now }}"

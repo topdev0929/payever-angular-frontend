@@ -1,0 +1,29 @@
+@import "../../../../../../../../../../shared/styles/assets/ui-kit-styles/pe_variables";
+@import "../../../../../../../../../../shared/styles/assets/ui-kit-styles/mixins/pe_mixins.scss";
+
+.pe-se-file-picker-wrap {
+  &__tabs {
+    display: flex;
+    justify-content: center;
+  }
+
+  .file-picker-files-area {
+    padding: 0 24px;
+    margin: 15px 0;
+  }
+
+  .buttons-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .button-line {
+      position: relative;
+      width: 100%;
+      max-width: 284px;
+      &:not(:first-child) {
+        margin-top: 13px;
+      }
+    }
+  }
+}

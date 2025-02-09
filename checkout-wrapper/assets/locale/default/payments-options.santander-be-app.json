@@ -1,0 +1,24 @@
+{
+  "payment-santander-be": {
+    "errors": {
+      "unknown": "Unknown error",
+      "redirect_empty": "The redirect url is empty in backend response"
+    },
+    "actions": {
+      "redirect_to_santander_be": "Redirect to Santander",
+      "change_payment_method": "Please, select another payment method"
+    },
+    "inquiry": {
+      "finish": {
+        "processing": {
+          "title": "Request can take a few minutes. Please do not click away",
+          "text": "We are processing your payment"
+        },
+        "labels": {
+          "total": "Total"
+        }
+      }
+    }
+  }
+
+}

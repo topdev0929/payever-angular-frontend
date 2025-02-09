@@ -1,0 +1,13 @@
+<div
+  peFileDrop
+  class="file-picker-drop-area"
+  [class.is-dragging]="isDragging"
+  (onFileOver)="onFileOver($event)"
+  (onFileDrop)="onFileDrop($event)"
+  (click)="fileSelector.click()"
+>
+  <mat-icon class="placeholder-icon" svgIcon="files-placeholder"></mat-icon>
+  <p>{{ translationsScope + '.labels.drag_title' | translate }}</p>
+</div>
+
+<input #fileSelector class="hidden" type="file" accept=".pdf" (change)="onPickFile($event)" />

@@ -1,0 +1,81 @@
+
+<button class="btn btn-primary btn-vmargin sidebar-notification-opener" type="button" (click)="toggleSidebar()">
+  Open / Close transparent sidebar
+</button>
+<div class="sidebar-container">
+  <div class="row">
+    <div class="col-xs-12">
+      <pe-sidebar-layout [sidebarConfiguration]="sidebarConfiguration"
+                         [sidebarOpened]="isSidebarOpen"
+                         (onSidebarOpened)="onSidebarOpened()"
+                         (onSidebarClosed)="onSidebarClosed()"
+      >
+        <div sidebar-content>
+          <div class="sidebar-layout transparent">
+            <div class="sidebar-header">
+              Sidebar Header
+            </div>
+            <div class="sidebar-body">
+              <div class="sidebar-block">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+              </div>
+              <div class="sidebar-block">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                <div class="sidebar-inner-block-wo-padding">
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                </div>
+              </div>
+              <accordion>
+                <div class="sidebar-block">
+                  <accordion-group #group1 [panelClass]="'sidebar-accordion-group'">
+                    <div accordion-heading>
+                      Accordion header
+                      <svg class="icon icon-16 pull-right">
+                        <use *ngIf="!group1?.isOpen" xlink:href="#icon-arrow-right-2-16"></use>
+                        <use *ngIf="group1?.isOpen" xlink:href="#icon-arrow-up-16"></use>
+                      </svg>
+                    </div>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                  </accordion-group>
+                </div>
+                <div class="sidebar-block">
+                  <accordion-group #group2 [panelClass]="'sidebar-accordion-group'">
+                    <div accordion-heading>
+                      Accordion header
+                      <svg class="icon icon-16 pull-right">
+                        <use *ngIf="!group2?.isOpen" xlink:href="#icon-arrow-right-2-16"></use>
+                        <use *ngIf="group2?.isOpen" xlink:href="#icon-arrow-up-16"></use>
+                      </svg>
+                    </div>
+                    <div class="sidebar-inner-block-wo-padding">
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    </div>
+                  </accordion-group>
+                </div>
+              </accordion>
+            </div>
+            <div class="sidebar-footer">
+              <div class="btn-group btn-group-sidebar" role="group">
+                <button type="button" class="btn btn-sidebar-transparent">Left</button>
+                <button type="button" class="btn btn-sidebar-transparent">Middle</button>
+                <button type="button" class="btn btn-sidebar-transparent">Right</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div main-content>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae nisl placerat, finibus nisl faucibus, posuere lacus.
+          Donec sollicitudin ante ante, et tempus justo varius id. Sed molestie elit eu lacus tincidunt sagittis. Aliquam erat volutpat.
+          Sed nec risus in dui lobortis tincidunt vitae quis sem. In finibus nisl in erat ornare, molestie pretium nulla imperdiet.
+          Fusce neque augue, ullamcorper in congue quis, bibendum et lorem. Proin at interdum nulla. Nullam pellentesque ante iaculis quam pharetra, nec tincidunt felis mattis. Nulla et velit purus. Vivamus pharetra convallis blandit. Quisque lacus ex, tempus non magna eget, mattis semper nisi. Nunc feugiat congue venenatis. Maecenas ut viverra nisi. Fusce eget vestibulum leo. Sed sed sem consectetur, pulvinar felis ac, scelerisque dui.
+        </div>
+      </pe-sidebar-layout>
+    </div>
+  </div>
+</div>
+
+
+
+
+

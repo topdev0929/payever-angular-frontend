@@ -1,0 +1,23 @@
+{
+  "payment-stripe-wallet": {
+    "actions": {
+      "change_payment_method": "Please, select another payment method",
+      "pay": "Pay"
+    },
+    "inquiry": {
+      "finish": {
+        "wallet": {
+          "title": "Wallet information",
+          "text": "We are waiting for your wallet information"
+        },
+        "processing": {
+          "title": "Request can take a few minutes. Please do not click away",
+          "text": "We are processing your payment"
+        },
+        "labels": {
+          "total": "Total"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.active-order-step .payment-footer {
+  display: none;
+}
+
+.active-order-step .mobile .payment-footer {
+  display: flex;
+}
+
+.desktop-checkout-items.with-offset {
+  position: relative;
+  top: -98px;
+  z-index: -1;
+}
+
+.successful-modal .apple-pay-logo {
+  width: 38px;
+  height: 16px;
+  object-fit: contain;
+}

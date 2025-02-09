@@ -1,0 +1,27 @@
+<pe-studio-upload-options-styles></pe-studio-upload-options-styles>
+<div class="studio-options-dialog">
+  <div class="studio-options-dialog__title">
+    Upload media
+  </div>
+  <div class="studio-options-dialog__options">
+    <button *ngFor="let option of options"
+      class="studio-options-dialog__options-button"
+      (click)="option.action()">
+      {{ option.title }}
+    </button>
+    <button
+      class="studio-options-dialog__options-button button-cancel"
+      (click)="cancel()">
+      Cancel
+    </button>
+  </div>
+</div>
+
+<input
+  #fileSelector
+  accept="image/*,video/*, .js, .glb"
+  type="file"
+  style="display: none"
+  multiple
+  (change)="uploadMedia($event)"
+/>

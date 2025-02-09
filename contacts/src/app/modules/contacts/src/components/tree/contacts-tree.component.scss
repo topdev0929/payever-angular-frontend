@@ -1,0 +1,94 @@
+.sidebar-tree {
+  background-color: inherit;
+  color: #ffffff;
+
+  &__node {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    margin-bottom: 3px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.86;
+    letter-spacing: normal;
+    overflow: hidden;
+    width: 100%;
+    cursor: pointer;
+    padding: 6px 8px;
+    height: 42px;
+    box-sizing: border-box;
+
+    &:hover {
+      background-color: hsla(0, 0%, 100%, 0.05);
+      border-radius: 7px;
+    }
+
+    &--active {
+      background-color: #0371e2;
+      border-radius: 7px;
+
+      &:hover {
+        background-color: #0371e2;
+      }
+    }
+
+    &.cdk-drop-list-dragging {
+      background-color: #0371e2;
+      border-radius: 7px;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    box-sizing: border-box;
+    color: #ffffff;
+    font-size: 14px;
+    padding: 5px;
+    outline: none;
+    border: solid 1px #0091df;
+    background-color: rgba(0, 145, 223, 0.1);
+  }
+
+  &__toggle-button {
+    height: 32px;
+    width: 32px;
+    line-height: 32px;
+    margin-left: -10px;
+    background: transparent;
+    border: 0;
+    outline: 0;
+  }
+
+  &__node-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #ffffff;
+  }
+
+  &__node-image {
+    overflow: hidden;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+
+  &__node-img {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__nested-node {
+    margin-left: 1em;
+  }
+
+  &__nested-invisible {
+    display: none;
+  }
+}

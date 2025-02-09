@@ -1,0 +1,31 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $row-background: map.get($color-config, 'row-background');
+  $button: map.get($color-config, 'button');
+  $filter-invert-dark: map.get($color-config, 'filter-invert-dark');
+  $text-color: map.get($color-config, 'text-color');
+
+  pe-add-rule {
+    .add-rule {
+      &__actions-title {
+        color: $text-color;
+      }
+    }
+    .chips-container {
+      .chips-data {
+        .chip {
+          color: $text-color;
+
+          &__close-icon {
+            svg {
+              use {
+                filter: $filter-invert-dark;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

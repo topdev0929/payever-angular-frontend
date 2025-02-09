@@ -1,0 +1,116 @@
+@use "pe_variables" as pe_variables;
+@import "../../../../../../assets/variables";
+
+.cdk-overlay-backdrop.connect-modal + .cdk-global-overlay-wrapper {
+  .payment-main-wrap-container {
+    min-width: 100%;
+    padding: 0;
+
+
+    .pe-info-box {
+      width: 100%;
+      padding: 0;
+
+      .info-box {
+        .mat-card {
+          border-radius: 0;
+        }
+      }
+    }
+
+    .mat-expansion-panel-header-title-no-logo.text-centered {
+      width: 100%;
+      margin: 0;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+
+      .add-button {
+        font-family: Roboto, sans-serif;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 1.33;
+        background-color: rgba(0, 0, 0, 0);
+        color: #0091df;
+      }
+    }
+
+    .connection-variant-disconnect, .connection-variant-delete {
+      &.mat-raised-button.mat-button-base {
+        background-color: rgba(0, 0, 0, 0);
+        font-size: 12px;
+        margin-top: 0;
+        position: relative !important;
+        right: 0 !important;
+        margin-left: 8px;
+        margin-right: 8px;
+      }
+    }
+
+    .mat-list-item-col.sections-step-buttons {
+      .mat-raised-button {
+        font-size: 12px;
+        line-height: 1.33;
+        background-color: rgba(0, 0, 0, 0);
+      }
+
+      .icon.icon-16 {
+        color: $regular-text-color;
+        background-color: rgba(0, 0, 0, 0);
+        height: 12px;
+        width: 12px;
+      }
+    }
+
+    .key {
+      &-info__title {
+        color: $regular-text-color;
+        font-size: 12px;
+        font-weight: 300;
+        line-height: 1.33;
+        font-family: Roboto, sans-serif;
+      }
+
+      &-value {
+        .btn-copy {
+          font-size: 12px;
+          line-height: 1.33;
+          background-color: rgba(0, 0, 0, 0);
+          color: #0091df;
+          border: none;
+          -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+          &:focus {
+            background-color: rgba(0, 0, 0, 0);
+            outline: none;
+            border: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            text-underline: none;
+          }
+        }
+      }
+    }
+  }
+
+  .payment-add-connection-variant-container {
+    margin: 16px 12px;
+  }
+
+  mat-error {
+    color: #FF0000;
+  }
+
+  @media (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+    main {
+      height: 100%;
+      payment-main-wrap {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        .payment-main-wrap-container {
+          flex: 1;
+        }
+      }
+    }
+  }
+}

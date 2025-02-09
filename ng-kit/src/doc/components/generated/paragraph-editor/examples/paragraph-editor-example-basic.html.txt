@@ -1,0 +1,7 @@
+<pe-paragraph-editor
+    [isEditorActive]="true"
+    [finishButtonName]="'Done'"
+    [onContentUpdate]="onContentChanged"
+    (onEditorClosed)="onEditorClosed()">
+    <p>some text</p>
+</pe-paragraph-editor>

@@ -1,0 +1,24 @@
+:host {
+  font-family: Roboto, sans-serif;
+  display: grid;
+  grid-gap: 0.75em;
+}
+
+.text {
+  &__main-title {
+    font-weight: 500;
+    font-size: 44px;
+    margin-bottom: 0.5em;
+  }
+
+  &__second-title {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  &__third-title {
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+

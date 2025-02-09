@@ -1,0 +1,10 @@
+{
+  "code": "coupons",
+  "dashboardInfo": {
+    "title": "dashboard.apps.coupons",
+    "icon": "#icon-apps-coupons"
+  },
+  "tag": "<coupons-root></coupons-root>",
+  "url": "/business/{uuid}/coupons",
+  "bootstrapScriptUrl": "https://coupons-frontend.devpayever.com/micro.{hash}.js"
+}

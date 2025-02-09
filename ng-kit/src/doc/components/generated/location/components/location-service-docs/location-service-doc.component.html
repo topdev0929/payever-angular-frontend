@@ -1,0 +1,24 @@
+<doc-content-viewer [settings]="settings"></doc-content-viewer>
+
+<ng-template #overview>
+  <p>
+    Provides wrapper for <code>window.location</code>,
+    which can be easy overriden with 
+    <a href="#/modules/location/location-service-stub">
+      <code>LocationStubService</code>
+    </a>
+    in tests (see examples).
+  </p>
+
+  <p>
+    The main reasons to use it that we cannot use Angular's builtin
+    <a href="https://angular.io/api/common/Location">
+      Location Service
+    </a>
+    because of <code>baseHref</code> limitation in our SPAs.
+  </p>
+</ng-template>
+
+<ng-template #exampleLocationServiceInUse>
+  <doc-example-location-service-in-use></doc-example-location-service-in-use>
+</ng-template>

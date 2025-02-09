@@ -1,0 +1,63 @@
+:host{
+  display: flex;
+}
+.container {
+  width: 100%;    
+}
+.overlay-widget-container .overlay-widget__content {
+  padding: 0 12px 12px;
+}
+.element-body-wrap .no-margin{
+  margin: 0;
+} 
+::ng-deep {    
+  .form-background-wrapper{
+    margin-top: 16px;
+  }
+}
+.upload-item-wrap {
+  width: 100%;
+  height: 40px;
+  background-color: #111111;
+  border-radius: 12px;
+  display: flex;
+  margin-top: 16px;
+  .left-part {
+      width: 75%;
+      display: inline-flex;
+      align-items: center;
+      img {            
+          margin-left: 9px;
+      }
+      span {
+          margin-left: 9px;
+          font-weight: 500;
+          font-size: 12px;
+          color: #ffffff;
+      }
+  }
+  .right-part {
+      width: 25%;
+      min-width: 100px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 0 12px 12px 0;
+      background-color: #1c1d1e;
+      span {
+          margin-left: 20px;
+          color: #0091df;
+          font-size: 12px;
+          cursor: pointer;
+      }
+  }  
+}
+.content {
+  font-family: Roboto;
+  font-size: 11px;
+  font-weight: normal;
+  letter-spacing: normal;
+  color: #7a7a7a;
+  margin-top: 8px;
+  margin-left: 11px;
+}
+

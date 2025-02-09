@@ -1,0 +1,162 @@
+<form
+  *ngIf="paymentOptions$ | async as options"
+  class="form-table"
+  [formGroup]="formGroup">
+  <div 
+    class="h5"
+    i18n="@@santander-de.inquiry.step.income.title">Income</div>
+  <div class="form-fieldset-new">
+    <mat-form-field
+      [class]="
+      guarantorInSameHousehold
+        ? 'col-xs-12'
+        : 'col-xs-12 col-sm-6'
+      ">
+      <mat-label i18n="@@santander-de.inquiry.form.customer.netIncome.label"> Net income </mat-label>
+
+      <span
+        #netIncomePrefix
+        matPrefix>
+        {{ currency | peCurrencySymbol }}
+      </span>
+
+      <input
+        matInput
+        [peInputCurrencyMask]="currency"
+        formControlName="netIncome"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('netIncomePartner').enabled"
+      class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-de.inquiry.form.customer.netIncomePartner.label"> Partner income </mat-label>
+
+      <span
+        #netIncomePartnerPrefix
+        matPrefix>
+        {{ currency | peCurrencySymbol }}
+      </span>
+
+      <input
+        matInput
+        [peInputCurrencyMask]="currency"
+        formControlName="netIncomePartner"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('otherIncome').enabled"
+      class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-de.inquiry.form.customer.otherIncome.label"> Other income </mat-label>
+
+      <span
+        #otherIncomePrefix
+        matPrefix>
+        {{ currency | peCurrencySymbol }}
+      </span>
+
+      <input
+        matInput
+        [peInputCurrencyMask]="currency"
+        formControlName="otherIncome"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('sortOfIncome').enabled"
+      class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-de.inquiry.form.customer.sortOfIncome.label"> Sort of income </mat-label>
+
+      <input
+        matInput
+        peInputMask
+        formControlName="sortOfIncome"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('rentalIncome').enabled"
+      [class]="
+      formGroup.get('sortOfIncome').enabled
+        ? 'col-xs-12'
+        : 'col-xs-12 col-sm-6'
+      ">
+      <mat-label i18n="@@santander-de.inquiry.form.customer.rentalIncome.label"> Rental income </mat-label>
+
+      <span
+        #rentalIncomePrefix
+        matPrefix>
+        {{ currency | peCurrencySymbol }}
+      </span>
+
+      <input
+        matInput
+        [peInputCurrencyMask]="currency"
+        formControlName="rentalIncome"
+        type="text" />
+    </mat-form-field>
+  </div>
+
+  <div
+    class="h5"
+    i18n="@@santander-de.inquiry.step.expenses.title"
+    *ngIf="!guarantorInSameHousehold">
+    Expenses
+  </div>
+  <div class="form-fieldset-new">
+    <mat-form-field
+      *ngIf="formGroup.get('incomeResidence').enabled"
+      class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-de.inquiry.form.customer.incomeResidence.label"> Income residence </mat-label>
+
+      <mat-select formControlName="incomeResidence">
+        <mat-option
+          *ngFor="let option of options.residentialTypes"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('housingCosts').enabled"
+      class="col-xs-12 col-sm-6">
+      <mat-label>
+        {{ translations.housingCosts }}
+      </mat-label>
+
+      <span
+        #housingCostsPrefix
+        matPrefix>
+        {{ currency | peCurrencySymbol }}
+      </span>
+
+      <input
+        matInput
+        [peInputCurrencyMask]="currency"
+        formControlName="housingCosts"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('monthlyMaintenancePayments').enabled"
+      class="col-xs-12">
+      <mat-label i18n="@@santander-de.inquiry.form.customer.monthlyMaintenancePayments.label">
+        Maintenance payments
+      </mat-label>
+
+      <span
+        #monthlyMaintenancePaymentsPrefix
+        matPrefix>
+        {{ currency | peCurrencySymbol }}
+      </span>
+
+      <input
+        matInput
+        [peInputCurrencyMask]="currency"
+        formControlName="monthlyMaintenancePayments"
+        type="text" />
+    </mat-form-field>
+  </div>
+</form>

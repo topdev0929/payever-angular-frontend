@@ -1,0 +1,98 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $background: map.get($color-config, 'background');
+  $backdrop-filter-transparent: map.get($color-config, 'backdrop-filter-transparent');
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $border: map.get($color-config, 'border');
+  $box-shadow-color: map.get($color-config, 'box-shadow-color');
+  $text-color: map.get($color-config, 'text-color');
+  $gray-button: map.get($color-config, 'gray-button');
+  $active-text: map.get($color-config, 'active-text');
+  $select-button: map.get($color-config, 'select-button');
+  $row-background: map.get($color-config, 'row-background');
+  $label-color: map.get($color-config, 'label-color');
+  $confirm: map.get($color-config, 'confirm');
+  $transparent-color: map.get($color-config, 'transparent-color');
+
+  .studio-details-modal {
+    background-color: $overlay-background;
+    backdrop-filter: blur(25px);
+    border: solid 1px $border;
+    box-shadow: 0 5px 20px 0 $box-shadow-color;
+
+    .cancel {
+      color: $label-color;
+    }
+    .save {
+      color: $confirm;
+    }
+
+    .modal-header-preview {
+      color: $text-color;
+      h3 {
+        color: $text-color;
+      }
+    }
+
+    .studio-details-modal__container {
+      .heading, p {
+        color: $text-color;
+      }
+
+      .accept-btn,
+      .dashboard {
+        color: $text-color;
+      }
+
+      .accept-btn {
+        background-color: $confirm;
+      }
+
+      .dashboard {
+        background-color: $label-color;
+      }
+    }
+
+    .image-upload__image {
+      > div:nth-child(1) {
+        background-color: $row-background;
+      }
+
+      .media-uploader {
+        background-color: $select-button;
+        .upload-media {
+          color: $text-color;
+        }
+      }
+    }
+
+    .form {
+      background-color: $row-background;
+      label {
+        color: $label-color;
+      }
+
+      .single-field {
+        border-bottom: 1px solid $background;
+      }
+
+      .form-row {
+        border-bottom: 1px solid $background;
+        & > *:nth-child(1) {
+          border-right: 1px solid $background;
+        }
+        .half {
+          border-color: $background;
+        }
+      }
+      input {
+        background-color: $transparent-color;
+        &[type='text']:disabled {
+          color: $text-color;
+        }
+      }
+    }
+  }
+
+}

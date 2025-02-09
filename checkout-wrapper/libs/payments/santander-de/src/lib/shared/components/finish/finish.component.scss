@@ -1,0 +1,54 @@
+$secondary-text-color: #7b7b7b;
+
+.checkout-de-finish-wrapper {
+  .signing-qr {
+    margin-bottom: 20px;
+  }
+
+  .wrapper-success-link {
+    .checkout-sdk-finish-modal-mode-container {
+      .bg-container {
+        .valign {
+          top: 0;
+          transform: none;
+          -webkit-transform: none;
+        }
+      }
+    }
+  }
+
+  .pending-status,
+  .finish-success {
+    .large-1 {
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0 4em;
+    }
+
+    .caption-1 {
+      margin: 1.5em 5em;
+      text-align: center;
+      color: #7b7b7b;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .details-block {
+      padding: 0;
+    }
+  }
+
+  .text-secondary.finish-description {
+    color: $secondary-text-color;
+
+    &.timer {
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 0.4px;
+
+      strong {
+        color: black;
+      }
+    }
+  }
+}

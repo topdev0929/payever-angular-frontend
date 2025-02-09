@@ -1,0 +1,20 @@
+<pe-text-editor-toolbar
+  #editorToolbar
+  [newTabText]="'text_settings.open_new_tab' | translate"
+  [linkToText]="'text_settings.link_to' | translate"
+  [linkPlaceholder]="'text_settings.enter_url' | translate"
+  [fontFamilyText]="'text_settings.font_family' | translate"
+  [links]="links"
+  [fontFamilies]="fontFamilies"
+  (actionClicked)="toggleToolbarAction($event)"
+  (setLink)="onSetLink($event)"
+></pe-text-editor-toolbar>
+
+<!-- <mat-checkbox
+  class="mat-white widget-toggle"
+  labelPosition="before"
+  [checked]="getTextFromSlug$ | async"
+  (change)="onChangedGetTextFromSlug($event.checked)"
+>
+  <span class="widget-toggle-label">Put Category Title</span>
+</mat-checkbox> -->

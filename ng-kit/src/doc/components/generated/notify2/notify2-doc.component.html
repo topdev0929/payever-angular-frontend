@@ -1,0 +1,40 @@
+<div class="chapter">
+    <h2>Notify 2</h2>
+    <div id="notify-new" class="main-block">
+        <h3>New style</h3>
+        <div class="doc-block">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="notify2-container">
+                        <div class="notify2-list">
+                            <pe-notification2
+                                class="notify2"
+                                iconN="assets/img/my_stores.png"
+                                titleN="Title of notification"
+                                descriptionN="Description of notification Description of notification Description of notification"
+                                openText="Open"
+                                openURL="/path/to"
+                                [settings]="false"
+                                (onSettings)="switchToNotifications()"></pe-notification2>
+                            <pe-notification2
+                                class="notify2 up"
+                                iconN="assets/img/pos.png"
+                                titleN="Title of notification"
+                                descriptionN="Description of notification"
+                                openText="Open"
+                                openURL="/path/to"
+                                skipText="Skip"></pe-notification2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p> </p>
+            <div class="row">
+                <div class="col-xs-12">
+                    <pre><code class="typescript">{{ exampleTs2 | code }}</code></pre>
+                    <pre><code class="html" [innerHTML]="exampleHtml | code"></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+
+:host {
+  display: block;
+  align-items: center;
+}
+
+.widget-toggle {
+  width: auto;
+  height: $mat-slide-toggle-thumb-height-lg;
+
+  &-label {
+    position: relative;
+    color: $color-white-grey-4;
+    font-size: $font-size-micro-1;
+  }
+}

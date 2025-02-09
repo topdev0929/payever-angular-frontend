@@ -1,0 +1,106 @@
+@use 'SASS:map';
+@use "pe_variables" as pe_variables;
+
+@mixin color($color-config) {
+  $background: map.get($color-config, 'background');
+  $confirm: map.get($color-config, 'confirm');
+  $border: map.get($color-config, 'border');
+  $select-button: map.get($color-config, 'select-button');
+  $box-shadow-color: map.get($color-config, 'box-shadow-color');
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $label-color: map.get($color-config, 'label-color');
+  $text-color: map.get($color-config, 'text-color');
+  $spinner-background: map.get($color-config, 'spinner-background');
+  $transparent-color: map.get($color-config, 'transparent-color');
+
+  .transactions-app {
+
+    .transactions-root {
+      background-color: $background;
+      backdrop-filter: blur(25px);
+    }
+
+    .backdrop {
+      background-color: $spinner-background;
+    }
+
+    .overlay {
+      color: $text-color;
+      backdrop-filter: blur(25px);
+      background-color: $overlay-background;
+      box-shadow: 0 5px 20px 0 $box-shadow-color;
+      border: 1px solid $border;
+      @media (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+        border: none;
+      }
+
+      &__title {
+        color: $text-color;
+      }
+
+      &__button {
+        color: $confirm;
+
+        &_grey {
+          color: $label-color;
+        }
+        &_loading {
+          color: $label-color;
+        }
+      }
+
+      &__body {
+        .mat-expansion-panel {
+          &-header,
+          &-header:focus {
+            background-color: $select-button;
+            transition: opacity 0.3s;
+
+            &:hover {
+              background-color: $select-button;
+              opacity: 0.9;
+            }
+
+            &-title {
+              color: $text-color;
+            }
+          }
+        }
+
+        .form-background-wrapper {
+          peb-button-toggle {
+            .button-toggle-container {
+              .toggle-checked.toggle-disabled {
+                .button-toggle-slider {
+                  background: $label-color;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .pe-transactions-overlay-backdrop {
+      background-color: $spinner-background;
+    }
+
+    .pe-transactions-overlay-panel {
+      background-color: $overlay-background;
+      box-shadow:  0 5px 20px 0 $box-shadow-color;
+    }
+
+    pe-verify-action,
+    pe-shipping-goods-transaction {
+      peb-checkbox {
+        &.verify-checkbox .checkbox-label-aria {
+          .peb-checkbox-wrapper {
+            .label-text {
+              color: $text-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup">
+  <rate-edit-list
+    (selected)="onRateSelected($event)"
+    formControlName="ratesForm"></rate-edit-list>
+  <details-form formControlName="detailsForm"></details-form>
+  <terms-form formControlName="termsForm"></terms-form>
+  <protection-form
+    *ngIf="this.formGroup.get('protectionForm').enabled"
+    [embedMode]="true"
+    [ratesData]="incomeService.ratesData$ | async"
+    formControlName="protectionForm"></protection-form>
+</form>

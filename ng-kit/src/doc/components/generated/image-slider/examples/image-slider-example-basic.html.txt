@@ -1,0 +1,9 @@
+<pe-image-slider
+  [images]="images"
+  [showThumbs]="false"
+  [usePagination]="true"
+  [height]="'300px'"
+  [width]="'100%'"
+  [fitToHeight]="false"
+  [fitToWidth]="true" >
+</pe-image-slider>

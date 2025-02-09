@@ -1,0 +1,122 @@
+<div class="chapter">
+  <h2>CheckboxComponent</h2>
+  <div class="main-block">
+    <tabset>
+      <tab heading="Overview">
+        <h3>Import FormModule</h3>
+        <pre><code class="typescript" [innerHTML]="'import { FormModule } from \'@pe/ng-kit/modules/form\';'"></code></pre>
+        <p>&nbsp;</p>
+        <example-viewer
+          title="Basic Example"
+          >
+          <div class="row">
+            <div class="col-xs-12">
+              <form novalidate [formGroup]="demoForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                  <div class="col-xs-6">
+                    <pe-checkbox
+                      [label]="'Sample Checkbox'"
+                      [indeterminate]="false"
+                      [disabled]="false"
+                      [labelPosition]="'before'"
+                      [name]="'checkbox'"
+                      [required]="'required'"
+                      [formControlRef]="demoForm.get('checkbox')"
+                      >
+                    </pe-checkbox>
+                    <br>
+                    <pe-checkbox
+                      [label]="'Sample checkbox 2'"
+                      [indeterminate]="false"
+                      [disabled]="false"
+                      [labelPosition]="'after'"
+                      [name]="'checkbox2'"
+                      [required]="'required'"
+                      [formGroup]="demoForm"
+                      [formControlRef]="demoForm.get('checkbox2')"
+                      >
+                    </pe-checkbox>
+                    <br>
+                    <pe-checkbox
+                      [label]="'Sample checkbox 3'"
+                      [indeterminate]="false"
+                      [disabled]="true"
+                      [labelPosition]="'before'"
+                      [name]="'checkbox3'"
+                      [required]="'required'"
+                      [formGroup]="demoForm"
+                      [formControlRef]="demoForm.get('checkbox3')"
+                      >
+                    </pe-checkbox>
+                  </div>
+                  <div class="col-xs-6">
+
+                  </div>
+                </div>
+                <button class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+        </example-viewer>
+      </tab>
+      <tab heading="API">
+        <component-api-renderer [path]="'form-components/checkbox/components/checkbox/checkbox.component'"></component-api-renderer>
+      </tab>
+      <tab heading="Examples">
+        <example-viewer
+          title="Basic Example"
+          >
+          <div class="row">
+            <div class="col-xs-12">
+              <form novalidate [formGroup]="demoForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                  <div class="col-xs-6">
+                    <pe-checkbox
+                      [label]="'Sample Checkbox'"
+                      [indeterminate]="false"
+                      [disabled]="false"
+                      [labelPosition]="'before'"
+                      [name]="'checkbox'"
+                      [required]="'required'"
+                      [formGroup]="demoForm"
+                      [formControlRef]="demoForm.get('checkbox')"
+                      >
+                    </pe-checkbox>
+                    <br>
+                    <pe-checkbox
+                      [label]="'Sample checkbox 2'"
+                      [indeterminate]="false"
+                      [disabled]="false"
+                      [labelPosition]="'after'"
+                      [name]="'checkbox2'"
+                      [required]="'required'"
+                      [formGroup]="demoForm"
+                      [formControlRef]="demoForm.get('checkbox2')"
+                      >
+                    </pe-checkbox>
+                    <br>
+                    <pe-checkbox
+                      [label]="'Sample checkbox 3'"
+                      [indeterminate]="false"
+                      [disabled]="true"
+                      [labelPosition]="'before'"
+                      [name]="'checkbox3'"
+                      [required]="'required'"
+                      [formGroup]="demoForm"
+                      [formControlRef]="demoForm.get('checkbox3')"
+                      >
+                    </pe-checkbox>
+                  </div>
+                  <div class="col-xs-6">
+
+                  </div>
+                </div>
+                <button class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+        </example-viewer>
+      </tab>
+    </tabset>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+<pe-action-layout
+  titleTranslateKey="transactions.form.claim.heading"
+  submitTitleTranslateKey="transactions.form.claim.actions.claim"
+  [isLoading]="isLoading$ | async"
+  [disableDoneBtn]="(enableClaim$ | async) === false"
+  (closeEvent)="close()"
+  (submitEvent)="sendClaim()"
+>
+<form [formGroup]="form">
+  <pe-claim-pick-file (filePicked)="onFileChange($event)"></pe-claim-pick-file>
+
+  <peb-messages *ngIf="errorMessage" [message]="errorMessage"></peb-messages>
+
+  <div class="documents-wrap">
+    <ng-container formArrayName="claimDocuments">
+      <ng-container *ngFor="let document of documentsControl.controls; let i = index">
+        <div class="documents-wrap__item" [formGroup]="document">
+          <div class="placeholder">
+            <mat-icon
+              *ngIf="!document.get('isUpload').value else uploadIcon"
+              class="image"
+              svgIcon="image-placeholder"
+            ></mat-icon>
+            <ng-template #uploadIcon>
+              <svg class="uploaded-icon">
+                <use
+                  [attr.xmlns:xlink]="'http://www.w3.org/1999/xlink'"
+                  xlink:href="#icon-success-36"
+                ></use>
+              </svg>
+            </ng-template>
+          </div>
+          <peb-form-background>
+            <div class="two-column-form-wrapper">
+              <peb-form-field-input
+                appearance="label"
+                [isFieldInvalid]="document.get('fileName').invalid || document.get('_hasError').value"
+                [errorMessage]="translationsScope + '.errors.name_is_long' | translate"
+              >
+                <input type="text" pebInput formControlName="fileName" />
+              </peb-form-field-input>
+              <peb-select
+                selectType="label"
+                [label]="translationsScope + '.labels.document_type' | translate"
+                formControlName="documentType"
+                [isFieldInvalid]="isSubmitted && document.get('documentType')?.invalid"
+                [errorMessage]="translationsScope + '.errors.required' | translate"
+              >
+                <peb-select-option *ngFor="let option of documentTypes" [value]="option.value" [label]="option.label">
+                </peb-select-option>
+              </peb-select>
+            </div>
+          </peb-form-background>
+          <button class="remove-btn" type="button" (click)="onDeleteFile(i)">
+            <mat-icon svgIcon="remove-icon"></mat-icon>
+          </button>
+        </div>
+      </ng-container>
+
+      <button type="button"
+        *ngIf="documentsControl.controls?.length"
+        [disabled]="disableUpload$ | async"
+        mat-button
+        class="button upload-button"
+        (click)="onSubmit()"
+      >
+        <span class=wrap-content>
+          {{ 'transactions.form.claim.actions.verify' | translate }}
+        </span>
+      </button>
+    </ng-container>
+  </div>
+</form>
+</pe-action-layout>

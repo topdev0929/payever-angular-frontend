@@ -1,0 +1,317 @@
+<h4>Custom element inputs</h4>
+<div class="row">
+  <div class="col-xs-12">
+    <label
+      ><input
+        type="checkbox"
+        [(ngModel)]="disableLocaleDetection"
+        (change)="onChanged()" />
+      Disable locale detection and change on load</label
+    >
+    <br />
+    <button
+      type="button"
+      class="btn btn-sm btn-primary"
+      (click)="setLocaleToStorage('en')">
+      Set local storage lang to EN
+    </button>
+    &nbsp;
+    <button
+      type="button"
+      class="btn btn-sm btn-primary"
+      (click)="setLocaleToStorage('de')">
+      Set local storage lang to DE
+    </button>
+    &nbsp;
+  </div>
+</div>
+
+<h4>Params</h4>
+<div class="row">
+  <div class="col-xs-3">
+    <label
+      ><input
+        type="checkbox"
+        [(ngModel)]="embeddedMode"
+        (change)="onChanged()" />
+      embeddedMode</label
+    >
+  </div>
+  <div class="col-xs-3">
+    <label
+      ><input
+        type="checkbox"
+        [(ngModel)]="clientMode"
+        (change)="onChanged()" />
+      clientMode</label
+    >
+  </div>
+  <div class="col-xs-3">
+    <label
+      ><input
+        type="checkbox"
+        [(ngModel)]="forceUseCard"
+        (change)="onChanged()" />
+      forceUseCard</label
+    >
+  </div>
+  <div class="col-xs-3">
+    <label
+      ><input
+        type="checkbox"
+        [(ngModel)]="forceNoPaddings"
+        (change)="onChanged()" />
+      forceNoPaddings</label
+    >
+  </div>
+  <div class="col-xs-3">
+    <label
+      ><input
+        type="checkbox"
+        [(ngModel)]="forceFullScreen"
+        (change)="onChanged()" />
+      forceFullScreen</label
+    >
+  </div>
+  <div class="col-xs-3">
+    <label
+      ><input
+        type="checkbox"
+        [(ngModel)]="merchantMode"
+        (change)="onChanged()" />
+      merchantMode</label
+    >
+  </div>
+  <div class="col-xs-3">
+    <label
+      ><input
+        type="checkbox"
+        [(ngModel)]="forceNoSnackBarNotifications"
+        (change)="onChanged()" />
+      forceNoSnackBarNotifications</label
+    >
+  </div>
+  <div class="col-xs-3">
+    <label
+      ><input
+        type="checkbox"
+        [(ngModel)]="showQRSwitcher"
+        (change)="onChanged()" />
+      showQRSwitcher</label
+    >
+  </div>
+  <div class="col-xs-3">
+    <label
+      ><input
+        type="checkbox"
+        [(ngModel)]="showCreateCart"
+        (change)="onChanged()" />
+      showCreateCart</label
+    >
+  </div>
+  <div class="col-xs-3">
+    <label
+      ><input
+        type="checkbox"
+        [(ngModel)]="forceNoScroll"
+        (change)="onChanged()" />
+      forceNoScroll</label
+    >
+  </div>
+  <div class="col-xs-3">
+    <label
+      ><input
+        type="checkbox"
+        [(ngModel)]="forcePhoneRequired"
+        (change)="onChanged()" />
+      forcePhoneRequired</label
+    >
+  </div>
+  <div class="col-xs-3">
+    <label
+      ><input
+        type="checkbox"
+        [(ngModel)]="forceCodeForPhoneRequired"
+        (change)="onChanged()" />
+      forceCodeForPhoneRequired</label
+    >
+  </div>
+  <div class="col-xs-3">
+    <label
+      ><input
+        type="checkbox"
+        [(ngModel)]="forceNoCloseButton"
+        (change)="onChanged()" />
+      forceNoCloseButton</label
+    >
+  </div>
+  <div class="col-xs-3">
+    <label
+      ><input
+        type="checkbox"
+        [(ngModel)]="forceShowBusinessHeader"
+        (change)="onChanged()" />
+      forceShowBusinessHeader</label
+    >
+  </div>
+  <div class="col-xs-3">
+    <label
+      ><input
+        type="checkbox"
+        [(ngModel)]="forceShowOrderStep"
+        (change)="onChanged()" />
+      forceShowOrderStep</label
+    >
+  </div>
+  <div class="col-xs-3">
+    <label
+      ><input
+        type="checkbox"
+        [(ngModel)]="generatePaymentCode"
+        (change)="onChanged()" />
+      generatePaymentCode</label
+    >
+  </div>
+  <div class="col-xs-3">
+    <label
+      ><input
+        type="checkbox"
+        [(ngModel)]="forceNoOrder"
+        (change)="onChanged()" />
+      forceNoOrder</label
+    >
+  </div>
+  <div class="col-xs-3">
+    <label
+      ><input
+        type="checkbox"
+        [(ngModel)]="forceNoHeader"
+        (change)="onChanged()" />
+      forceNoHeader</label
+    >
+  </div>
+  <div class="col-xs-3">
+    <label
+      ><input
+        type="checkbox"
+        [(ngModel)]="forceNoSendToDevice"
+        (change)="onChanged()" />
+      forceNoSendToDevice</label
+    >
+  </div>
+  <div class="col-xs-3">
+    <label
+      ><input
+        type="checkbox"
+        [(ngModel)]="forceHideReference"
+        (change)="onChanged()" />
+      forceHideReference</label
+    >
+  </div>
+  <div class="col-xs-3">
+    <label
+      ><input
+        type="checkbox"
+        [(ngModel)]="layoutWithPaddings"
+        (change)="onChanged()" />
+      layoutWithPaddings</label
+    >
+  </div>
+  <div class="col-xs-3">
+    <label
+      ><input
+        type="checkbox"
+        [(ngModel)]="cancelButtonText"
+        (change)="onChanged()" />
+      cancelButtonText</label
+    >
+  </div>
+
+  <div class="col-xs-3">
+    <label
+      ><input
+        type="checkbox"
+        [(ngModel)]="flash_bag"
+        (change)="onChanged()" />
+      flash_bag</label
+    >
+  </div>
+  <div class="col-xs-3">
+    <label
+      ><input
+        type="checkbox"
+        [(ngModel)]="editMode"
+        (change)="onChanged()" />
+      editMode</label
+    >
+  </div>
+  <div class="col-xs-3">
+    <label
+      ><input
+        type="checkbox"
+        [(ngModel)]="setDemo"
+        (change)="onChanged()" />
+      setDemo</label
+    >
+  </div>
+  <div class="col-xs-3">
+    <label
+      ><input
+        type="checkbox"
+        [(ngModel)]="showOrderAmount"
+        (change)="onChanged()" />
+      showOrderAmount</label
+    >
+  </div>
+</div>
+<p>
+  params: <small>{{ params | json }}</small>
+</p>
+
+<h4>Events</h4>
+<div class="row">
+  <div class="col-xs-12">
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="updateFlow()">
+      Update flow
+    </button>
+    &nbsp;
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="updateSettings()">
+      Update settings
+    </button>
+    &nbsp;
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="updateSteps()">
+      Update steps
+    </button>
+    &nbsp;
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="openOrderStep()">
+      Open order step
+    </button>
+    &nbsp;
+    <button
+      type="button"
+      class="btn btn-default"
+      (click)="emitResetToOrderAndUpdate()">
+      Reset step and update (postMessage)
+    </button>
+    &nbsp;
+    <button
+      type="button"
+      class="btn btn-default"
+      (click)="saveFlowToStorage()">
+      Save flow to storage
+    </button>
+    &nbsp;
+  </div>
+</div>

@@ -1,0 +1,16 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $active-text: map.get($color-config, 'active-text');
+  $x-button: map.get($color-config, 'x-button');
+
+  peb-angle-picker {
+    .circle {
+      background-color: $x-button;
+      border-color: $x-button;
+      &__thumb {
+        background-color: $active-text;
+      }
+    }
+  }
+}

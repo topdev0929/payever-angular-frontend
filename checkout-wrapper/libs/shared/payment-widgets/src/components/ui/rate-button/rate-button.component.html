@@ -1,0 +1,25 @@
+<div (resized)="onElementResized($event)">
+  <finexp-ui-loading-rates *ngIf="isLoading"></finexp-ui-loading-rates>
+  <div
+    *ngIf="!isLoading && rate"
+    class="rate-button"
+    [class.rate-button-small]="isSmallSize"
+    [style.color]="mainTextColor"
+    [style.background]="buttonColor">
+    <ng-content></ng-content>
+  </div>
+  <finexp-ui-selected-rate-details
+    [config]="config"
+    [forceDefaultStyles]="forceDefaultStyles"
+    [details]="rate.details"
+    *ngIf="!rate?.isOneLine && isShowSelectedRateDetails && rate && !isLoading"></finexp-ui-selected-rate-details>
+  <finexp-ui-selected-rate-details-line
+    [config]="config"
+    [forceDefaultStyles]="forceDefaultStyles"
+    [details]="rate.details"
+    *ngIf="rate?.isOneLine && isShowSelectedRateDetails && rate && !isLoading"></finexp-ui-selected-rate-details-line>
+
+  <finexp-ui-rate-error *ngIf="!rate && !error && !isLoading">No rates available</finexp-ui-rate-error>
+
+  <finexp-ui-rate-error *ngIf="error">{{ error }}</finexp-ui-rate-error>
+</div>

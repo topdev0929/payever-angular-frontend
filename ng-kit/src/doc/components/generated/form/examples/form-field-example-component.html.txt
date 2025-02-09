@@ -1,0 +1,9 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'pe-form-field',
+  templateUrl: 'form-field.component.html'
+})
+export class FormFieldComponent {
+
+}

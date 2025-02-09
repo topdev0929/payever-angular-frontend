@@ -1,0 +1,23 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $text-color: map.get($color-config, 'text-color');
+  $border: map.get($color-config, 'border');
+  $gray-button: map.get($color-config, 'gray-button');
+
+  .peb-dialog {
+    background-color: $secondary-background;
+    color: $text-color;
+    border: solid 1px $border;
+    &__title {
+      color: $text-color;
+    }
+    &__close.mat-icon {
+      color: $gray-button;
+      &:hover {
+        color: $text-color;
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+<div class="ui-dashboard-menu">
+  <ul>
+    <li *ngFor="let item of menuItems; let last = last" [class.ui-db-text]="item.title">
+      <span class="ui-dashboard-menu-item" (click)="onItemSelect($event, item)">
+        <span class="ui-dashboard-menu-title" *ngIf="item.title">{{ item.title }}</span>
+        <span class="ui-dashboard-menu-icon" *ngIf="item.iconId">
+          <span class="ui-dashboard-menu-icon-notification" *ngIf="item.iconNotificationId && (item.iconNotificationCount > 0)">
+            <svg class="icon"><use [attr.xlink:href]="item.iconNotificationId"></use></svg>
+          </span><span class="ui-dashboard-menu-icon" *ngIf="item.iconId">
+            <svg class="icon icon-24"><use [attr.xlink:href]="item.iconId"></use></svg>
+          </span><span class="ui-dashboard-menu-counter" *ngIf="(item.iconNotificationCount > 0) && (item.iconNotificationCount <= 99)"
+                [innerHtml]="item.iconNotificationCount">
+          </span><span class="ui-dashboard-menu-counter" *ngIf="item.iconNotificationCount > 99">99+</span>
+        </span>
+        <span class="ui-dashboard-menu-avatar" *ngIf="item.imagePath"
+              [style.background-image]="getBackground(item.imagePath)"></span>
+        <span class="ui-dashboard-menu-avatar" *ngIf="item.abbr"><span>{{ item.abbr }}</span></span>
+      </span>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,23 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $border: map.get($color-config, 'border');
+  $success: map.get($color-config, 'success');
+  $label-color: map.get($color-config, 'label-color');
+
+  .statistics-widgets-simple-numbers {
+    .simple-numbers {
+      &__title,
+      &__main {
+        color: $text-color;
+      }
+      &__period {
+        color: $label-color;
+      }
+      &__profit {
+        color: $success;
+      }
+    }
+  }
+}

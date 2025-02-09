@@ -1,0 +1,37 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $text-color: map.get($color-config, 'text-color');
+  $confirm: map.get($color-config, 'confirm');
+  $button: map.get($color-config, 'button');
+  $hover-icon: map.get($color-config, 'hover-icon');
+  $primary: map.get($color-config, 'primary');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $select-button: map.get($color-config, 'select-button');
+  $border: map.get($color-config, 'border');
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $label-color: map.get($color-config, 'label-color');
+  $active-text: map.get($color-config, 'active-text');
+  $gray-button: map.get($color-config, 'gray-button');
+
+  peb-editor-right-sidebar {
+    .sidebar {
+      &__button {
+        background-color: $overlay-background;
+        span {
+          color: $text-color;
+        }
+        &_active {
+          background-color: $button;
+          svg g g {
+            fill: $active-text;
+          }
+          span {
+            color: $active-text;
+          }
+        }
+      }
+    }
+  }
+}

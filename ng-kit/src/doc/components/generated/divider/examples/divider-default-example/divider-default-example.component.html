@@ -1,0 +1,25 @@
+<h3>Line divider</h3>
+<div class="example-item">
+  <div *ngFor="let item of listItems; last as lastItem">
+    <div class="list-item">
+        <span>{{item}}</span>
+    </div>
+    <divider *ngIf="!lastItem"></divider>
+  </div>
+</div>
+<h3>Line divider with inset</h3>
+<div class="example-item">
+  <div *ngFor="let item of listItems; last as lastItem">
+    <div class="list-item">
+      <span>{{item}}</span>
+    </div>
+    <divider [inset]="true" *ngIf="!lastItem"></divider>
+  </div>
+</div>
+<h3>Horizontal divider</h3>
+<div class="example-item">
+  <span *ngFor="let item of listItems; last as lastItem" class="horizontal-item">
+    <span>{{item}}</span>
+    <divider [vertical]="true" *ngIf="!lastItem"></divider>
+  </span>
+</div>

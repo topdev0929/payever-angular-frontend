@@ -1,0 +1,20 @@
+<form [formGroup]="backdropFilterForm">
+  <div class="group__row">
+    <label class="group__label">{{ 'builder-app.forms.backdrop.title' | translate }}</label>
+    <peb-slide-toggle formControlName="enabled"></peb-slide-toggle>
+  </div>
+
+  <ng-container *ngIf="backdropFilterForm.value.enabled">
+    <div class="group__row">
+      <div class="group__col combined-input-range">
+        <label class="group__label">{{ 'builder-app.common.value' | translate }}</label>
+        <peb-number-input
+          [min]="0"
+          [max]="100"
+          formControlName="value"
+          units="px"
+        ></peb-number-input>
+      </div>
+    </div>
+  </ng-container>
+</form>

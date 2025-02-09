@@ -1,0 +1,46 @@
+<div class="text-center toggle-group-wrapper">
+  <mat-button-toggle-group
+    class="mat-button-toggle-group-volumetric mat-button-toggle-group-volumetric-force-white-theme"
+    [value]="selectedToggle"
+    (valueChange)="toggleChanged($event)">
+    <mat-button-toggle
+      [value]="RateToggleType.PartPayment"
+      i18n="@@santander-se.credit_rates.type_filter.part_payment">
+      santander-se.credit_rates.type_filter.part_payment
+    </mat-button-toggle>
+    <mat-button-toggle
+      [value]="RateToggleType.BuyNowPayLater"
+      i18n="@@santander-se.credit_rates.type_filter.buy_now_pay_later">
+      santander-se.credit_rates.type_filter.buy_now_pay_later
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+
+<div
+  *ngIf="transformedRates?.length === 0
+  && (isLoadingRates$ | async) !== true"
+  class="title-2"
+  i18n="@@santander-se.credit_rates.error.rates_list_empty">
+  santander-se.credit_rates.error.rates_list_empty
+</div>
+
+<form class="form-table">
+  <checkout-sdk-choose-rate
+    *ngIf="transformedRates?.length > 0 || (isLoadingRates$ | async)"
+    [trackFlowId]="flowId"
+    [trackPaymentMethod]="paymentMethod"
+    [rates]="transformedRates"
+    [selectedExtraDurations]="selectedExtraDurations"
+    [isLoading]="(isLoadingRates$ | async) && transformedRates?.length === 0"
+    [initialRateId]="makeRateId(this.selectedRate)"
+    [doSelectRate]="doSelectRate$"
+    (rateSelected)="rateSelected($event)"
+    (toggleExtraDuration)="toggleRatesInStorage($event)">
+  </checkout-sdk-choose-rate>
+
+  <checkout-sdk-santander-de-selected-rate-details
+    *ngIf="selectedRate"
+    [details]="details"
+    [isManyColumnsDisabled]="true">
+  </checkout-sdk-santander-de-selected-rate-details>
+</form>

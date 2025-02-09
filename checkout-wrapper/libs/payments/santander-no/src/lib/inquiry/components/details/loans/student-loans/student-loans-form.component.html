@@ -1,0 +1,62 @@
+<form
+  *ngIf="formGroup.enabled"
+  [formGroup]="formGroup">
+  <div
+    class="h5 h5-subtitle"
+    i18n="@@santander-no.inquiry.step.section.loans.section.student_loans.title">
+    santander-no.inquiry.step.section.loans.section.student_loans.title
+  </div>
+  <div class="form-fieldset-new">
+    <mat-form-field class="col-xs-12">
+      <mat-label i18n="@@santander-no.inquiry.form.student_loans_count.label"> Student loans count </mat-label>
+
+      <input
+        matInput
+        peInputMask
+        formControlName="_count"
+        type="text"
+        [mask]="maxMaskFn" />
+    </mat-form-field>
+  </div>
+
+  <div class="form-fieldset-new">
+    <ng-container formArrayName="loans">
+      <ng-container
+        *ngFor="
+          let loan of loansArray;
+          let i = index;
+          trackBy: trackByIdx
+        "
+        [formGroup]="loan">
+        <ng-container>
+          <mat-form-field class="col-sm-6 col-xs-12">
+            <mat-label>
+              {{translateMemo(i+1).loanAmount}}
+            </mat-label>
+
+            <span
+              matPrefix
+              #prefix
+              >{{ currency | peCurrencySymbol }}
+            </span>
+            <input
+              matInput
+              [peInputCurrencyMask]="currency"
+              type="text"
+              formControlName="loanAmount" />
+          </mat-form-field>
+
+          <mat-form-field class="col-sm-6 col-xs-12">
+            <mat-label>
+              {{translateMemo(i+1).remainingTerms}}
+            </mat-label>
+            <input
+              matInput
+              type="number"
+              formControlName="remainingTerms" />
+          </mat-form-field>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
+</form>

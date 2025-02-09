@@ -1,0 +1,45 @@
+<div class="mat-toolbar-blur-container">
+  <div class="mat-toolbar-blur-wrapper">
+    <div class="mat-toolbar-blur-bg-container">
+      <div class="mat-toolbar-blur-bg"
+           [style.background-image]="'url(' + background + ')'"
+      ></div>
+    </div>
+    <mat-toolbar class="mat-toolbar-blur" [class.mat-toolbar-blur-swiper]="isMobile$ | async">
+      <mat-nav-list class="mat-list-icons mat-list-icons-vertical mat-list-icons-hover"
+      [class.swiper-container]="isMobile$ | async"
+      >
+`        <div class="swiper-helper" [class.swiper-wrapper]="isMobile$ | async">
+          <ng-template ngFor let-item [ngForOf]="items">
+            <mat-list-item *ngIf="item.count"
+                           (click)="onSelect(item)"
+                           matBadge="{{item.count}}"
+                           matBadgeColor="warn"
+                           [class.active]="item.active"
+                           [class.swiper-slide]="isMobile$ | async"
+            >
+              <div class="mat-list-item-icon">
+                <svg class="icon icon-24">
+                  <use [attr.xlink:href]="item.icon"></use>
+                </svg>
+              </div>
+              <div class="mat-list-item-title">{{ item.title }}</div>
+            </mat-list-item>
+            <mat-list-item *ngIf="!item.count"
+                           (click)="onSelect(item)"
+                           [class.active]="item.active"
+                           [class.swiper-slide]="isMobile$ | async"
+            >
+              <div class="mat-list-item-icon">
+                <svg class="icon icon-24">
+                  <use [attr.xlink:href]="item.icon"></use>
+                </svg>
+              </div>
+              <div class="mat-list-item-title">{{ item.title }}</div>
+            </mat-list-item>
+          </ng-template>
+        </div>
+      </mat-nav-list>
+    </mat-toolbar>
+  </div>
+</div>

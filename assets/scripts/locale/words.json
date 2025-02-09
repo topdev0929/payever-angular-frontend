@@ -1,0 +1,194 @@
+{
+  "LanguageSwitch": {
+    "english": "English",
+    "germany": "Deutsch"
+  },
+  "Select your bank": {
+    "english": "Select your Bank",
+    "germany": "Wählen Sie Ihre Bank"
+  },
+  "Date of Birth": {
+    "english": "Date of Birth",
+    "germany": "Geburtsdatum"
+  },
+  "Account": {
+    "english": "Account",
+    "germany": "Konto"
+  },
+  "BILLING & SHIPPING": {
+    "english": "BILLING & SHIPPING",
+    "germany": "VERSAND"
+  },
+  "PAYMENT": {
+    "english": "PAYMENT",
+    "germany": "ZAHLART"
+  },
+  "Phone": {
+    "english": "Phone",
+    "germany": "Telefonnummer"
+  },
+  "PhoneOptional": {
+    "english": "Phone (Optional)",
+    "germany": "Telefon (Optional)"
+  },
+  "PhoneShort": {
+    "english": "Phone",
+    "germany": "Telefon"
+  },
+  "Email": {
+    "english": "Email",
+    "germany": "Email"
+  },
+  "Address": {
+    "english": "Address",
+    "germany": "Adresse"
+  },
+  "Continue": {
+    "english": "Continue",
+    "germany": "Weiter"
+  },
+  "Company": {
+    "english": "Company",
+    "germany": "Firma"
+  },
+  "Salutation": {
+    "english": "Salutation",
+    "germany": "Anrede"
+  },
+  "Mr": {
+    "english": "Mr.",
+    "germany": "Herr"
+  },
+  "FirstName": {
+    "english": "First Name",
+    "germany": "Vorname"
+  },
+  "LastName": {
+    "english": "Last Name",
+    "germany": "Nachname"
+  },
+  "Country": {
+    "english": "Country",
+    "germany": "Land"
+  },
+  "City": {
+    "english": "City",
+    "germany": "Stadt"
+  },
+  "StreetAndNumber": {
+    "english": "Street and number",
+    "germany": "Straße und Hausnummer"
+  },
+  "PostCode": {
+    "english": "Post Code",
+    "germany": "PLZ"
+  },
+  "FullName": {
+    "english": "Full Name",
+    "germany": "Vollständiger Name"
+  },
+  "Search": {
+    "english": "Search",
+    "germany": "Suchen"
+  },
+  "ORDER": {
+    "english": "ORDER",
+    "germany": "BESTELLUNG"
+  },
+  "Subtotal": {
+    "english": "Subtotal",
+    "germany": "Zwischensumme"
+  },
+  "Payment Cost": {
+    "english": "Payment Cost",
+    "germany": "Kosten für Zahlart"
+  },
+  "Shipping": {
+    "english": "Shipping",
+    "germany": "Versand"
+  },
+  "Transaction Successful": {
+    "english": "Transaction Successful",
+    "germany": "Transaktion erfolgreich"
+  },
+  "Transaction ID": {
+    "english": "Transaction ID",
+    "germany": "Transaktions-ID"
+  },
+  "TOTAL": {
+    "english": "TOTAL",
+    "germany": "Gesamt"
+  },
+  "Date": {
+    "english": "Date",
+    "germany": "Datum"
+  },
+  "Product Name": {
+    "english": "Product Name",
+    "germany": "Produktname"
+  },
+  "QTY": {
+    "english": "QTY",
+    "germany": "Mg."
+  },
+  "Price": {
+    "english": "Price",
+    "germany": "Preis"
+  },
+  "Payment Method": {
+    "english": "Payment",
+    "germany": "Zahlungsart"
+  },
+  "March": {
+    "english": "March",
+    "germany": "März"
+  },
+  "Pay": {
+    "english": "Pay",
+    "germany": "Bezahlen"
+  },
+  "Back": {
+    "english": "Back",
+    "germany": "Zurück"
+  },
+  "Privacy": {
+    "english": "Privacy",
+    "germany": "Datenschutzerklärung"
+  },
+  "TermsOfService": {
+    "english": "Terms of Service",
+    "germany": "Nutzungsbedigungen"
+  },
+  "Imprint": {
+    "english": "Imprint",
+    "germany": "Impressum"
+  },
+  "Language": {
+    "english": "Language",
+    "germany": "Sprache"
+  },
+  "Device": {
+    "english": "Device",
+    "germany": "Gerät"
+  },
+  "Style": {
+    "english": "Style",
+    "germany": "Stil"
+  },
+  "Technology": {
+    "english": "Technology",
+    "germany": "Technologie"
+  },
+  "Car": {
+    "english": "Car",
+    "germany": "Automobil"
+  },
+  "Industry": {
+    "english": "Industry",
+    "germany": "Industrie"
+  },
+  "Font": {
+    "english": "Font",
+    "germany": "Schriftart"
+  }
+}

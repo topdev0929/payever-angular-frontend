@@ -1,0 +1,20 @@
+<div class="ui-notification-item" [ngClass]="{'standalone': isStandalone, 'is-clickable': config?.isClickable, 'in': inClassShown}" (click)="onClick()">
+  <div class="content-wrap">
+    <div *ngIf="config?.iconId" class="ui-notification-item-icon">
+      <svg [ngClass]="'icon-'+ config.iconSize"><use [attr.xlink:href]="config?.iconId"></use></svg>
+    </div>
+    <div class="ui-notification-item-text">
+      <div class="ui-notification-item-subtitle" [innerHTML]="config.subtitle"></div>
+      <div class="ui-notification-item-title" [innerHTML]="config.title"></div>
+      <div class="ui-notification-item-desc" [innerHTML]="config.message"></div>
+    </div>
+  </div>
+  <span class="ui-notification-item-toolbar">
+    <span *ngIf="config?.isNotViewed" class="ui-notification-item-status status-not-viewed"></span>
+    <span *ngIf="config?.createdDate" class="ui-notification-item-date" [innerHTML]="config?.createdDate"></span>
+    <span *ngIf="!config?.hideCloseBtn" class="btn-close" (click)="onCloseClick($event)">
+      <svg *ngIf="!isStandalone" class="icon icon-16"><use xlink:href="#icon-x-with-padding-16"></use></svg>
+      <svg *ngIf="isStandalone" class="icon icon-24"><use xlink:href="#icon-x-round-white-cross-24"></use></svg>
+    </span>
+  </span>
+</div>

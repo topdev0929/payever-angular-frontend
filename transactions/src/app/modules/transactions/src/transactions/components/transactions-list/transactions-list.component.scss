@@ -1,0 +1,222 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+@media (max-width: $viewport-breakpoint-md-1) {
+  .payment-customer-merchant {
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 130px;
+    white-space: nowrap;
+  }
+}
+
+.payment-type-title, .uuid-title {
+  &.desktop {
+    display: block;
+    @media (max-width: $viewport-breakpoint-ipad-pro) {
+      display: none;
+    }
+  }
+  &.tablet {
+    display: none;
+    @media (max-width: $viewport-breakpoint-ipad-pro) {
+      display: block;
+
+      svg {
+        margin-top: -4px;
+      }
+    }
+  }
+}
+
+// fix for IE vertical align
+:host ::ng-deep {
+  .uuid-title {
+    .mat-button-wrapper {
+      display: inline-block;
+      text-decoration: underline;
+    }
+  }
+
+  .data-grid-toolbar {
+    .filter-block {
+      .mat-menu-trigger {
+        font-size: 16px;
+        font-weight: normal;
+      }
+    }
+  }
+}
+.uuid-cell {
+  .uuid-title {
+    // fix for Firefox 65
+    display: inline-block;
+
+    $link-color: $color-secondary;
+
+    font-size: $font-size-regular-2;
+    text-decoration: underline;
+    color: $link-color;
+    &:hover {
+      color: $link-color;
+    }
+  }
+}
+
+.products-toolbar-right {
+  margin-right: -12px;
+  
+  @media (min-width: 720px) {
+    margin-right: 24px;
+  }
+
+  ::ng-deep.mat-button-icon {
+    min-width: 18px;
+  }
+}
+
+.sticky-cell {
+  background-color: $color-solid-header-3;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+@media (max-width: $viewport-breakpoint-ipad-pro) {
+  .payment-name, .channel-name {
+    display: none;
+  }
+
+  .uuid-cell {
+    // text-align: right;
+  }
+
+  ::ng-deep pe-data-grid-column-switcher {
+    display: none;
+  }
+}
+
+.embedded-mode {
+  .payment-name, .channel-name {
+    display: none;
+  }
+
+  .payment-type-title, .uuid-title {
+    &.desktop {
+      display: none;
+    }
+
+    &.tablet {
+      display: block;
+    }
+  }
+
+  .uuid-title {
+    &.tablet {
+      // text-align: right;
+      margin-right: -8px;
+    }
+  }
+}
+
+.status {
+  color: $color-white;
+  position: relative;
+  border-radius: 4px;
+  width: 114px;
+  padding: 4px 6px;
+  display: block;
+  text-align: center;
+  font-weight: 500;
+  .status-loading-container {
+    border-radius: 4px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  &.status-red {
+    background-color: $color-status-red;
+  }
+
+  &.status-yellow {
+    background-color: $color-status-yellow;
+  }
+
+  &.status-green {
+    background-color: $color-status-green;
+  }
+}
+
+// @TODO move to ui-kit?
+@media (max-width: $viewport-breakpoint-ipad-pro) {
+  ::ng-deep .mat-sort-header-container {
+    .mat-sort-header-arrow {
+      display: none;
+    }
+
+    &.mat-sort-header-sorted {
+      .mat-sort-header-arrow {
+        display: block;
+      }
+    }
+  }
+}
+
+.transactions-table-row {
+  background-color: $color-transactions-table-row;
+  cursor: pointer;
+  &:hover {
+    background-color: $color-transactions-table-row-hover;
+  }
+}
+
+:host:ng-deep {
+  pe-data-grid-layout {
+    .data-grid-toolbar {
+      background-color: $color-transactions-datagrid-toolbar;
+    }
+  }
+}
+
+pe-table-cell {
+  font-weight: 400;
+}
+
+.transactions-grid-footer {
+  text-align: center;
+  padding-top: 22px;
+  font-size: 18px;
+  color: white;
+}
+
+:host ::ng-deep {
+  .data-grid-view-table {
+    height: calc(100% - 99px) !important;
+
+    @media (min-width: 720px) {
+      height: calc(100% - 76px) !important;
+    }
+  }
+  .data-grid-view-table.data-grid-view-table-with-filters {
+    height: calc(100% - 143px) !important;
+
+    @media (min-width: 720px) {
+      height: calc(100% - 119px) !important;
+    }
+  }
+  .data-grid-view-table {
+    .pe-table .mat-header-cell {
+      background: $color-transactions-datagrid-toolbar;
+    }
+
+    .pe-table .mat-header-cell,
+    .pe-table .mat-cell,
+    .pe-table .mat-footer-cell {
+      white-space: nowrap;
+    }
+  }
+}

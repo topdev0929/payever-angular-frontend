@@ -1,0 +1,15 @@
+@use 'pe_theming' as pet;
+@use './root/next-statistics-root-theme.component' as root;
+@use './overlay/overlay-theme.import' as overlay;
+@use './widgets/widgets-theme.import' as widgets;
+@use './material/material-theme.component' as material;
+@use './misc/components/statistics-field/statistics-field-theme.component' as statistics_field;
+
+@mixin theme($theme-config) {
+  @include overlay.theme($theme-config);
+  @include widgets.theme($theme-config);
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include root.color($color-config);
+  @include material.color($color-config);
+  @include statistics_field.color($color-config);
+}

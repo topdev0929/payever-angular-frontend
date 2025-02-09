@@ -1,0 +1,338 @@
+<ng-template #printModalTpl>
+  <div *ngIf="printImageUrl" class="print-background">
+    <img [src]="printImageUrl">
+  </div>
+</ng-template>
+
+<ng-container *ngIf="$translationsReady | async">
+
+  <div class="tpm-outer-container pe-info-box-container-fixed">
+
+    <pe-info-box *ngIf="!printImageUrl && settings?.type ==='info-box'"
+                 [transparent]="true"
+                 [title]="settings.title"
+                 [roundBorder]="true"
+                 [notFullwidthOnMobile]="true"
+                 [withPadding]="false"
+                 [withHeader]="withHeader"
+                 [withFooter]="infoBoxSettings?.operations"
+                 [fixed]="false"
+                 [class.pe-info-box-with-footer]="infoBoxSettings?.operations"
+                 (onClose)="handleClose()"
+                 class="tpm-add-number" >
+      <ng-container content>
+
+        <!-- ACCORDION -->
+        <mat-accordion *ngIf="infoBoxSettings?.contentType === 'accordion'">
+          <ng-content select="[before-accordion]"></ng-content>
+
+          <mat-expansion-panel *ngFor="let panel of infoBoxSettings?.content.accordion; let i = index;"
+                               #accordionPanel
+                               [class.mat-expansion-panel-dark]="true"
+                               [class.mat-expansion-panel-no-border-radius]="true"
+                               [expanded]="i === getExpandedIndex()"
+                               [disabled]="panel.disabled"
+                               [hideToggle]="true">
+
+            <!-- Accordion title -->
+            <mat-expansion-panel-header class="mat-expansion-panel-header-light mat-expansion-panel-header-no-logo"
+                                        collapsedHeight="55px"
+                                        expandedHeight="55px"
+                                        [ngStyle]="panel.disabled && {'cursor': 'default'}">
+              <div *ngIf="panel.icon" class="mat-panel-icon" [ngStyle]="panel.disabled && {'opacity': '0.25'}">
+                <svg class="icon icon-16">
+                  <use [attr.xlink:href]="panel.icon"></use>
+                </svg>
+              </div>
+              <mat-panel-title [ngStyle]="panel.disabled && {'opacity': '0.25'}">{{ translate(panel.title) }}</mat-panel-title>
+              <mat-panel-description *ngIf="!panel.hideToggle">
+                <svg>
+                  <use [attr.xlink:href]="accordionPanel.expanded ? '#icon-minus-big-16' : '#icon-plus-big-16'"></use>
+                </svg>
+              </mat-panel-description>
+
+              <ng-container *ngIf="panel.headerButton">
+                <div class="mat-expansion-panel-spacer"></div>
+                <div class="mat-list-item-col text-right sections-step-buttons">
+                  <button mat-raised-button
+                          class="tpm-btn-1"
+                          [class.mat-button-rounded]="true"
+                          [class.mat-button-xs]="true"
+                          color="muted-light"
+                          (click)="performOperation(panel.headerButton, panel.fieldset)">
+                    <pe-progress-button-content [loading]="isOperationLoading(panel.headerButton)"
+                                                [spinnerDiameter]="14"
+                                                [spinnerStrokeWidth]="2">
+                      {{ translate(panel.headerButton.text) }} <span [innerHtml]="btnDebug('L')"></span>
+                    </pe-progress-button-content>
+                  </button>
+                </div>
+              </ng-container>
+            </mat-expansion-panel-header>
+
+            <div *ngIf="panel?.fieldset && panel?.fieldsetCaption" class="fieldset-caption">
+              <div [ngClass]="panel.fieldsetCaption?.classes">
+                {{ translate(panel.fieldsetCaption.text) }}
+              </div>
+            </div>
+
+            <!-- Rows with data inside accordion (at top) -->
+            <ng-container *ngIf="panel.data && panel.data.length && panel.dataOnTop">
+              <ng-container *ngTemplateOutlet="accordionData; context:{panel: panel}"></ng-container>
+            </ng-container>
+
+            <!-- Form inside accordion -->
+            <pe-third-party-form #infoBoxGeneratorForm="infoBoxGeneratorForm"
+                                 [operation]="panel?.operation"
+                                 [fieldset]="panel?.fieldset"
+                                 [fieldsetData]="prepareFieldsetData(panel?.fieldsetData)"
+                                 [loading]="formLoading"
+                                 [nestedElements]="panel?.nestedElements"
+                                 [isSubmitted]="isSubmitted"
+                                 (change)="onFormChange($event, panel?.fieldset, panel?.operation)"
+                                 (submit)="onFormSubmit($event, panel?.fieldset, panel?.operation)">
+            </pe-third-party-form>
+
+            <!-- Rows with data inside accordion (at bottom) -->
+            <ng-container *ngIf="panel.data && panel.data.length && !panel.dataOnTop">
+              <ng-container *ngTemplateOutlet="accordionData; context:{panel: panel}"></ng-container>
+            </ng-container>
+
+            <!-- Actions in the bottom of accordion panel -->
+            <ng-container *ngIf="panel.data && panel.operation">
+
+              <!--
+              <div *ngIf="panel.data && panel.operation" class="tpm-collection">
+              <button mat-button
+                      type="button"
+                      [class.mat-button-link]="true"
+                      [class.mat-button-no-padding]="true"
+                      [class.hover]="true"
+                      (click)="performOperation(panel.operation, panel.fieldset)"
+              >
+                <pe-progress-button-content [loading]="isOperationLoading(panel.operation)"
+                                            [spinnerDiameter]="20"
+                                            [spinnerStrokeWidth]="2" >
+                  {{ panel.operation.text }} <span [innerHtml]="btnDebug('D1')"></span>
+                </pe-progress-button-content>
+              </button>
+              -->
+              <button mat-raised-button
+                      type="button"
+                      class="mat-button-block tpm-btn-3"
+                      (click)="performOperation(panel.operation, panel.fieldset)"
+              >
+                <pe-progress-button-content [loading]="isOperationLoading(panel.operation)"
+                                            [spinnerDiameter]="26"
+                                            [spinnerStrokeWidth]="2"
+                >
+                  {{ translate(panel.operation.text) }} <span [innerHtml]="btnDebug('D2')"></span>
+                </pe-progress-button-content>
+              </button>
+            </ng-container>
+            <ng-container *ngIf="panel.data && panel.operations">
+              <div [class.operations-display-flex]="panel.operationsDisplayFlex">
+                <ng-container *ngFor="let operation of panel.operations">
+                  <button mat-raised-button
+                          type="button"
+                          class="mat-button-block tpm-btn-4"
+                          [ngClass]="operation.classes"
+                          (click)="panelSubmitOperation(infoBoxGeneratorForm, operation, panel.fieldset)"
+                  >
+                    <pe-progress-button-content [loading]="isOperationLoading(operation)"
+                                                [spinnerDiameter]="26"
+                                                [spinnerStrokeWidth]="2"
+                    >
+                      <div style="display: flex;">
+                        <div *ngIf="operation.icon">
+                          <svg class="icon icon-16">
+                            <use [attr.xlink:href]="operation.icon"></use>
+                          </svg>
+                          &nbsp;
+                        </div>
+                        {{ translate(operation.text) }} <span [innerHtml]="btnDebug('D3')"></span>
+                      </div>
+                    </pe-progress-button-content>
+                  </button>
+                </ng-container>
+              </div>
+            </ng-container>
+          </mat-expansion-panel>
+
+          <ng-content select="[after-accordion]"></ng-content>
+        </mat-accordion>
+
+        <!-- View without accordion -->
+        <ng-container *ngIf="infoBoxSettings?.contentType !== 'accordion'">
+
+          <!-- Header with some text-->
+          <div *ngIf="infoBoxSettings?.content?.html?.innerHtml" class="tpm-status">
+            {{ translate(infoBoxSettings.content.html.innerHtml) }}
+            <svg class="icon icon-16 status-icon" *ngIf="infoBoxSettings.content.html.icon">
+              <use [attr.xlink:href]="infoBoxSettings.content.html.icon"></use>
+            </svg>
+          </div>
+
+          <!-- Body with some text-->
+          <div *ngIf="infoBoxSettings?.content?.html?.bodyImg && (imgAsInline(infoBoxSettings.content.html.bodyImg) | async)" class="body-image">
+            <img [src]="imgAsInline(infoBoxSettings.content.html.bodyImg) | async">
+          </div>
+
+          <!-- Form -->
+          <pe-third-party-form *ngIf="showForm"
+                                      #infoBoxGeneratorForm="infoBoxGeneratorForm"
+                                      [fieldset]="fieldset"
+                                      [fieldsetData]="fieldsetData"
+                                      (change)="onFormChange($event, fieldset)"
+                                      (submit)="onFormSubmit($event, fieldset)">
+          </pe-third-party-form>
+
+          <!-- Rows with data -->
+          <mat-list *ngIf="infoBoxSettings?.content?.data && infoBoxSettings.content.data.length" class="mat-list-transparent">
+            <ng-container *ngFor="let collection of infoBoxSettings.content.data">
+              <mat-list-item [class.mat-list-item-single-image]="collection?.length === 1 && (collection[0].type === listCellTypes.Image || collection[0].type === listCellTypes.Iframe)">
+                <div class="mat-list-item-flex">
+                  <div *ngFor="let item of collection; let last = last"
+                       class="mat-list-item-col"
+                       [class.mat-list-item-icon]="item.type === listCellTypes.Icon"
+                       [class.mat-list-item-flex]="last && item.type === listCellTypes.Button"
+                       [class.mat-list-item-flex-right]="last && item.type === listCellTypes.Button"
+                  >
+                    <ng-container [ngSwitch]="item.type">
+                      <div *ngSwitchCase="listCellTypes.Text" [ngClass]="item.classes">
+                        {{ translate(item.value) }}
+                      </div>
+                      <div *ngSwitchCase="listCellTypes.Icon" [ngClass]="item.classes">
+                        <svg>
+                          <use [attr.xlink:href]="item.value"></use>
+                        </svg>
+                      </div>
+                      <div *ngSwitchCase="listCellTypes.Image" [ngClass]="item.classes">
+                        <img [src]="imgAsInline(item.value) | async">
+                      </div>
+                      <div *ngSwitchCase="listCellTypes.Iframe" [ngClass]="item.classes">
+                        <iframe [src]="safeUrl(item.value)"
+                                frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" seamless vspace="0"></iframe>
+                      </div>
+                      <div *ngSwitchCase="listCellTypes.Button" class="button-col text-right">
+                        <button type="button" [ngClass]="item.classes"
+                                class="tpm-btn-5"
+                                [class.mat-button-rounded]="item.rounded"
+                                [class.mat-button-xs]="item.size === 'xs'"
+                                [class.mat-button-sm]="item.size === 'sm'"
+                                [class.mat-button-md]="item.size === 'md'"
+                                [class.mat-button-lg]="item.size === 'lg'"
+                                [class.mat-button-xl]="item.size === 'xl'"
+                                [color]="item.color"
+                                (click)="performOperation(item, fieldset)"
+                                mat-raised-button >
+                          <pe-progress-button-content [loading]="isOperationLoading(item)"
+                                                      [spinnerDiameter]="13"
+                                                      [spinnerStrokeWidth]="1">
+                            {{ translate(item.text || item.value) }} <span [innerHtml]="btnDebug('E')"></span>
+                          </pe-progress-button-content>
+                        </button>
+                      </div>
+                    </ng-container>
+                  </div>
+                </div>
+
+              </mat-list-item>
+              <mat-divider></mat-divider>
+            </ng-container>
+          </mat-list>
+        </ng-container>
+      </ng-container>
+
+      <!-- Bottom actions for non-accordion -->
+      <ng-container footer *ngIf="infoBoxSettings?.operations">
+        <button *ngFor="let action of infoBoxSettings?.operations"
+                mat-button
+                type="button"
+                class="tpm-btn-6 mat-button-block"
+                [ngClass]="action.classes"
+                [color]="action.color"
+                [disabled]="action.isSubmit && form?.invalid"
+                [class.mat-button-no-padding]="!action.hasPaddings"
+                [class.mat-button-link]="true"
+                (click)="performOperation(action, fieldset)" >
+          <pe-progress-button-content [loading]="isOperationLoading(action)"
+                                      [spinnerDiameter]="26"
+                                      [spinnerStrokeWidth]="2">
+            {{ translate(action.text) }} <span [innerHtml]="btnDebug('F')"></span>
+          </pe-progress-button-content>
+        </button>
+      </ng-container>
+    </pe-info-box>
+  </div>
+</ng-container>
+
+<ng-template #accordionData
+             let-panel="panel">
+  <mat-list class="mat-list-transparent">
+    <ng-container *ngFor="let row of panel.data;">
+      <mat-list-item [class.mat-list-item-single-image]="row?.length === 1 && (row[0].type === listCellTypes.Image || row[0].type === listCellTypes.Iframe)">
+        <div class="mat-list-item-flex">
+          <div *ngFor="let cell of row; let lastCell = last"
+               [class.mat-list-item-col]="cell.type !== listCellTypes.Button"
+               [class.mat-list-item-col-tpm-button]="cell.type === listCellTypes.Button"
+               [class.mat-list-item-col-tpm-button-last]="cell.type === listCellTypes.Button && lastCell"
+               [class.mat-list-item-flex]="lastCell && (cell.type === listCellTypes.Button || cell.type === listCellTypes.Toggle)"
+               [class.mat-list-item-flex-right]="lastCell && (cell.type === listCellTypes.Button || cell.type === listCellTypes.Toggle)"
+          >
+            <ng-container [ngSwitch]="cell.type">
+              <div *ngSwitchCase="listCellTypes.Text" [ngClass]="cell.classes" class="text-nowrap">
+                {{ translate(cell.value) }}
+              </div>
+              <div *ngSwitchCase="listCellTypes.Image" [ngClass]="cell.classes">
+                <img [src]="imgAsInline(cell.value) | async">
+              </div>
+              <div *ngSwitchCase="listCellTypes.Iframe" [ngClass]="cell.classes">
+                <iframe [src]="safeUrl(cell.value)"
+                        frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" seamless vspace="0"></iframe>
+              </div>
+              <div *ngSwitchCase="listCellTypes.Toggle" class="button-col text-right height-100-percent width-100-percent">
+                <!--
+                <pe-progress-button-content [loading]="isOperationLoading(cell)"
+                                            [spinnerDiameter]="13"
+                                            [spinnerStrokeWidth]="1" >
+                </pe-progress-button-content>
+                -->
+                <mat-slide-toggle #element
+                                  [checked]="cell?.value"
+                                  [aria-label]="cell?.text"
+                                  [labelPosition]="cell?.labelPosition"
+                                  [class.mat-label-space-between]="cell?.fullWidth"
+                                  (change)="cell?.actionOn
+                                    ? performToggleOperation(element, cell, panel?.fieldset)
+                                    : performToggleButtonOperation(element, cell, panel?.fieldset)"
+                                  class="mat-slide-toggle-flex width-100-percent"
+                >
+                  <span *ngIf="cell?.text">{{ translate(cell?.text) }}</span>
+                </mat-slide-toggle>
+
+              </div>
+              <div *ngSwitchCase="listCellTypes.Button" class="button-col text-right">
+                <button type="button" class="tpm-btn-2" [ngClass]="cell.classes" [class.mat-button-rounded]="cell.rounded"
+                        [class.mat-button-xs]="cell.size === 'xs'" [class.mat-button-sm]="cell.size === 'sm'"
+                        [class.mat-button-md]="cell.size === 'md'" [class.mat-button-lg]="cell.size === 'lg'"
+                        [class.mat-button-xl]="cell.size === 'xl'" [color]="cell.color"
+                        (click)="performOperation(cell, panel.fieldset)"
+                        mat-raised-button>
+                  <pe-progress-button-content [loading]="isOperationLoading(cell)"
+                                              [spinnerDiameter]="13"
+                                              [spinnerStrokeWidth]="1" >
+                    {{ translate(cell.text || cell.value) }} <span [innerHtml]="btnDebug('C')"></span>
+                  </pe-progress-button-content>
+                </button>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-divider></mat-divider> <!-- hack to show  mat-divider inside last row -->
+    </ng-container>
+  </mat-list>
+</ng-template>

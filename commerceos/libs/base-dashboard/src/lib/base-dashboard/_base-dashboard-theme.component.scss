@@ -1,0 +1,16 @@
+@use 'SASS:map';
+@use "pe_variables" as pe_variables;
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $active-text: map.get($color-config, 'active-text');
+
+  .dashboard-content-wrapper {
+    .demo-greeting {
+      color: $text-color;
+      @media (max-width: pe_variables.$viewport-breakpoint-sm-2){
+        color: rgba($active-text, 0.85);
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+<div class="data-grid-filters" *ngIf="(visibleFilters$ | async).length">
+  <mat-chip-list>
+    <ng-container *ngFor="let filter of visibleFilters$ | async">
+      <mat-chip *ngIf="getFilterSchema(filter)"
+                class="mat-chip-sm mat-chip-auto-width"
+                [disableRipple]="true"
+                [removable]="true"
+                (removed)="remove(filter)"
+      >
+        <span>{{ getFilterSchema(filter).fieldLabel | translate }} {{ 'ng_kit.data_grid.filters.' + filter.condition | translate }}:&nbsp;</span>
+        <ng-container [ngSwitch]="getFilterSchema(filter).type">
+          <span *ngSwitchCase="'select'">{{getFilterValueSelectLabel(filter) }}</span>
+          <span *ngSwitchCase="'number'">
+            <ng-container [ngSwitch]="filter.condition">
+              <span *ngSwitchCase="'between'">{{ filter.value.from }} {{ 'ng_kit.data_grid.filter.labels.and' | translate }} {{ filter.value.to }}</span>
+              <span *ngSwitchDefault>{{ filter.value }}</span>
+            </ng-container>
+          </span>
+          <span *ngSwitchCase="'date'">
+            <ng-container [ngSwitch]="filter.condition">
+              <span *ngSwitchCase="'betweenDates'">{{ filter.value.dateFrom | date:'shortDate' }} {{ 'ng_kit.data_grid.filter.labels.and' | translate }} {{ filter.value.dateTo | date:'shortDate' }}</span>
+              <span *ngSwitchDefault>{{ filter.value | date:'shortDate' }}</span>
+            </ng-container>
+          </span>
+          <span *ngSwitchDefault>{{ filter.value }}</span>
+        </ng-container>
+        <mat-icon matChipRemove>
+          <svg class="icon icon-8">
+            <use xlink:href="#icon-close-8"></use>
+          </svg>
+        </mat-icon>
+      </mat-chip>
+    </ng-container>
+
+  </mat-chip-list>
+</div>

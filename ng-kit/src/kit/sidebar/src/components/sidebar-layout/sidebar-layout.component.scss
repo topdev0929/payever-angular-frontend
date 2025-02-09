@@ -1,0 +1,31 @@
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+@import "~@pe/ui-kit/scss/pe_variables";
+
+:host {
+  display: block;
+  @include payever_absolute();
+  .content {
+    @include payever_absolute();
+    .sidebar-content-wrapper {
+      @include payever_absolute();
+      padding: $pe_vgrid_height $pe_hgrid_gutter;
+      overflow-y: auto;
+    }
+    .sidebar-before {
+      width: 100%;
+      @include payever_transition(width, $animation-duration-slide-in);
+      &.full-screen {
+        @include payever_absolute();
+        .wrapper {
+          height: 100%;
+          overflow-y: auto;
+        }
+      }
+    }
+    &.sidebar-open {
+      .sidebar-before {
+        width: calc(100% - #{$sidebar_width_extra_large});
+      }
+    }
+  }
+}

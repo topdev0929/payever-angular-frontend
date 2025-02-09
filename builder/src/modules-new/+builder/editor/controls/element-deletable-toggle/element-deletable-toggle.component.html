@@ -1,0 +1,9 @@
+<mat-checkbox
+  class="mat-white widget-toggle"
+  labelPosition="before"
+  [checked]="checked$ | async"
+  (change)="onChanged($event.checked)"
+  pe-qa-builder="deletable-toggle"
+>
+  <span class="widget-toggle-label">Default</span>
+</mat-checkbox>

@@ -1,0 +1,10 @@
+<ng-template #container></ng-template>
+
+<checkout-sdk-continue-button
+  class="button-continue"
+  i18n-text="@@action.continue"
+  text="action.continue"
+  [loading]="(isLoading$ | async) || (isFetching$ | async)"
+  [disabled]="(isDisabled$ | async) || ((isFetching$ | async) && (isCartNotEmpty$ | async) !== true)"
+  (clicked)="onContinue()">
+</checkout-sdk-continue-button>

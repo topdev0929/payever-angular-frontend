@@ -1,0 +1,79 @@
+<div *ngIf="paymentTranslations$ | async"><strong [innerHTML]="paymentTranslations$ | async"></strong></div>
+
+<div
+  class="clearfix monthly-rate"
+  *ngIf="rateData?.monthlyPayment as monthlyPayment">
+  <span class="text-secondary">{{ (translations$ | async)?.subsequentInstalment }}</span
+  >:
+  <span
+    class="text-primary"
+    [innerHTML]="monthlyPayment | peCurrency:currency"></span>
+</div>
+
+<div
+  class="clearfix"
+  *ngIf="rateData?.duration as duration">
+  <span class="text-secondary">{{ (translations$ | async)?.duration }}</span
+  >:
+  <span class="text-primary">{{ (translations$ | async)?.durationValueFormatted }}</span>
+</div>
+
+<div
+  class="clearfix"
+  *ngIf="rateData?.totalCreditCost as totalCreditCost">
+  <span class="text-secondary">{{ (translations$ | async)?.totalLoan }}</span
+  >:
+  <span
+    class="text-primary"
+    [innerHTML]="totalCreditCost | peCurrency:currency"></span>
+</div>
+
+<div
+  class="clearfix"
+  *ngIf="formData?.detailsForm?.commodityGroup as cg">
+  <span class="text-secondary">{{ makeFormKey('commodityGroup') }}</span
+  >:
+  <span
+    class="text-primary"
+    [innerHTML]="cg | peTranslatedFormOptionsLabel:formOptions?.commodityGroups:makeFormKey('commodityGroup')"></span>
+</div>
+
+<div
+  class="clearfix"
+  *ngIf="formData?.detailsForm?.condition as con">
+  <span class="text-secondary">{{ makeFormKey('condition') }}</span
+  >:
+  <span
+    class="text-primary"
+    [innerHTML]="getConditionTitle(con)"></span>
+</div>
+
+<div
+  class="clearfix"
+  *ngIf="formData?.detailsForm?.customer?.personalDateOfBirth as personalDateOfBirth">
+  <span class="text-secondary">{{ makeFormKey('customer.personalDateOfBirth') }}</span
+  >:
+  <span
+    class="text-primary"
+    [innerHTML]="formatDateMemo(personalDateOfBirth)"></span>
+</div>
+
+<div
+  class="clearfix"
+  *ngIf="formData?.detailsForm?.customer?.profession as pr">
+  <span class="text-secondary">{{ makeFormKey('customer.profession') }}</span
+  >:
+  <span
+    class="text-primary"
+    [innerHTML]="pr | peTranslatedFormOptionsLabel:formOptions?.professions:makeFormKey('customer.profession')"></span>
+</div>
+
+<div
+  class="clearfix"
+  *ngIf="formData?.detailsForm?.downPayment as downPayment">
+  <span class="text-secondary">{{ makeFormKey('downPayment') }}</span
+  >:
+  <span
+    class="text-primary"
+    [innerHTML]="downPayment | peCurrency:currency"></span>
+</div>

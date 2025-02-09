@@ -1,0 +1,73 @@
+:host {
+  color: #ffffff;
+  overflow: auto;
+}
+
+.content {
+  display: flex;
+}
+
+.data-grid {
+  &__add-item {
+    background-color: rgba(0, 0, 0, .3);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    margin: 10px;
+    flex-basis: calc(31.7%);
+    height: auto;
+    min-height: 300px;
+    background-image: linear-gradient(to bottom, #ededf4, #aeb0b7 98%);
+    display: flex;
+  }
+
+  &__image {
+    height: 90px;
+    width: 90px;
+    margin: auto;
+    background-position: center;
+  }
+
+  &__buttons {
+    display: flex;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+  }
+
+  &__button {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    color: #fff;
+    background-color: rgba(0,0,0,.5);
+    padding: 13px 0;
+    flex-basis: auto;
+    flex-grow: 1;
+  }
+}
+
+@media (max-width: 1600px) {
+  .data-grid__add-item {
+    flex-basis: calc(25% - 20px);
+  }
+}
+
+@media (max-width: 1440px) {
+  .data-grid__add-item {
+    flex-basis: calc(33% - 20px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .data-grid__add-item {
+    flex-basis: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .data-grid__add-item {
+    flex-basis: calc(100% - 20px);
+  }
+}

@@ -1,0 +1,106 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $label-color: map.get($color-config, 'label-color');
+  $text-color: map.get($color-config, 'text-color');
+  $hover-button: map.get($color-config, 'hover-button');
+  $extra-bg-color: map.get($color-config, 'extra-bg-color');
+  $active-text: map.get($color-config, 'active-text');
+  $label-color: map.get($color-config, 'label-color');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $default-avatar-background: map.get($color-config, 'default-avatar-background');
+
+  .pe-grid-conversation {
+    &__logo,
+    &__tag,
+    &__unread-messages {
+      color: $active-text;
+    }
+
+    &__title {
+      color: $text-color;
+    }
+
+    &__abbreviation {
+      background: $default-avatar-background;
+    }
+
+    &__description,
+    &__last-message,
+    &__last-message div {
+      color: $label-color;
+    }
+
+    &__tag svg,
+    &__unread-messages {
+      background: $hover-button;
+    }
+
+    &__private-chat .icon,
+    &__time {
+      color: $label-color;
+    }
+
+    &_active {
+      background-color: $hover-button;
+      border: 1px solid $hover-button;
+
+      .pe-grid-conversation {
+        &__last-message,
+        &__last-message div,
+        &__private-chat .icon,
+        &__time,
+        &__title,
+        &__description {
+          color: $active-text;
+        }
+
+        &__tag {
+          color: $active-text;
+
+          svg {
+            background-color: $hover-button;
+          }
+        }
+
+        &__unread-messages {
+          color: $hover-button;
+          background: $active-text;
+        }
+      }
+    }
+
+    &-empty-list {
+      color: $text-color;
+    }
+  }
+
+  .messages-search-bar {
+    &.live-chat {
+      peb-form-field-input {
+        .input-content-wrapper_search {
+          background: $transparent-color;
+
+          .label-container,
+          .reset {
+            background: $transparent-color;
+          }
+          .label-container {
+            .search {
+              color: $label-color;
+            }
+          }
+        }
+      }
+    }
+
+    peb-form-field-input {
+      .input-content-wrapper_search {
+        .label-container,
+        .reset {
+          background: $extra-bg-color;
+        }
+      }
+    }
+  }
+}

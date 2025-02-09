@@ -1,0 +1,16 @@
+{
+  "code": "checkout",
+  "dashboardInfo": {
+    "title": "dashboard.apps.checkout",
+    "icon": "icon-commerceos-checkout-32.png"
+  },
+  "access": {
+    "business": {
+      "url": "/business/{uuid}/checkout",
+      "defaultInstalled": true,
+      "isDefault": true
+    }
+  },
+  "tag": "<checkout-root></checkout-root>",
+  "bootstrapScriptUrl": "${MICRO_URL_FRONTEND_CHECKOUT}/micro.js?{hash}"
+}

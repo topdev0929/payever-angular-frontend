@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="62" height="51" viewBox="0 0 62 51">
+    <defs>
+        <linearGradient id="toj90n8pha" x1="201.624%" x2="8.016%" y1="-181.779%" y2="118.206%">
+            <stop offset="0%" stop-color="#D764A5"/>
+            <stop offset="100%" stop-color="#E7534C"/>
+        </linearGradient>
+        <linearGradient id="b3yufiwlbb" x1="317.665%" x2="-718.304%" y1="-230.627%" y2="272.701%">
+            <stop offset="0%" stop-color="#D764A5"/>
+            <stop offset="100%" stop-color="#E7534C"/>
+        </linearGradient>
+        <linearGradient id="eapqyvu1bc" x1="317.665%" x2="-718.304%" y1="-230.695%" y2="272.754%">
+            <stop offset="0%" stop-color="#D764A5"/>
+            <stop offset="100%" stop-color="#E7534C"/>
+        </linearGradient>
+        <linearGradient id="b573bj8zzd" x1="317.665%" x2="-718.304%" y1="47.18%" y2="52.238%">
+            <stop offset="0%" stop-color="#D764A5"/>
+            <stop offset="100%" stop-color="#E7534C"/>
+        </linearGradient>
+        <linearGradient id="41yge42lle" x1="221.476%" x2="50%" y1="-52.484%" y2="206.706%">
+            <stop offset="0%" stop-color="#D764A5"/>
+            <stop offset="100%" stop-color="#E7534C"/>
+        </linearGradient>
+        <linearGradient id="78ga8vfcjg" x1="75.737%" x2="5.894%" y1="-14.893%" y2="136.294%">
+            <stop offset="0%" stop-color="#D764A5"/>
+            <stop offset="100%" stop-color="#E7534C"/>
+        </linearGradient>
+        <path id="bqlw4jr76f" d="M0.175 0.055L28.111 0.055 28.111 38.992 0.175 38.992z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g>
+                <g>
+                    <g>
+                        <g>
+                            <path fill="url(#toj90n8pha)" d="M21.52 36.476c-.386-.815-.404-1.757-.049-2.585.335-.783-.177-1.67-1.023-1.761-3.063-.332-6.467-.546-10.268-.656-.715-.02-1.308.553-1.308 1.269v1.744c0 .466.103.925.303 1.346l6.132 12.947c.52 1.099 1.628 1.8 2.843 1.8h5.08c2.309 0 3.83-2.406 2.842-4.493l-4.552-9.61z" transform="translate(-653 -255) translate(463 171) translate(39 78) translate(150) translate(1.938 5.813)"/>
+                            <path stroke="url(#b3yufiwlbb)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.001" d="M50.639 30.332L56.047 33.25" transform="translate(-653 -255) translate(463 171) translate(39 78) translate(150) translate(1.938 5.813)"/>
+                            <path stroke="url(#eapqyvu1bc)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.001" d="M50.639 9.155L56.047 6.237" transform="translate(-653 -255) translate(463 171) translate(39 78) translate(150) translate(1.938 5.813)"/>
+                            <path stroke="url(#b573bj8zzd)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.001" d="M53.432 19.743L59.888 19.743" transform="translate(-653 -255) translate(463 171) translate(39 78) translate(150) translate(1.938 5.813)"/>
+                            <path fill="url(#41yge42lle)" d="M20.079 9.296c-4.244.437-9.068.655-14.574.693-1 .007-1.808.82-1.808 1.82v3.15H1.815C.813 14.96 0 15.772 0 16.775v6.086c0 1.003.813 1.815 1.815 1.815h1.882v3.151c0 1 .808 1.813 1.808 1.82 5.506.038 10.33.255 14.574.693V9.296z" transform="translate(-653 -255) translate(463 171) translate(39 78) translate(150) translate(1.938 5.813)"/>
+                            <g transform="translate(-653 -255) translate(463 171) translate(39 78) translate(150) translate(1.938 5.813) translate(22 .294)">
+                                <mask id="cpm0js1oih" fill="#fff">
+                                    <use xlink:href="#bqlw4jr76f"/>
+                                </mask>
+                                <path fill="url(#78ga8vfcjg)" d="M24.156 13.8V1.873c0-1.603-1.916-2.414-3.08-1.312C16.407 4.985 9.911 7.527.175 8.759v21.53c9.736 1.231 16.232 3.773 20.901 8.196 1.164 1.103 3.08.291 3.08-1.312v-11.95c2.31-.872 3.955-3.096 3.955-5.712 0-2.614-1.646-4.84-3.955-5.712" mask="url(#cpm0js1oih)"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

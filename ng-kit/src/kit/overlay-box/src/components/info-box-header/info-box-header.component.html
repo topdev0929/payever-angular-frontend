@@ -1,0 +1,19 @@
+<mat-list class="mat-list-transparent">
+  <mat-list-item class="mat-list-item">
+    <div class="mat-list-item-flex">
+      <mat-card-title>
+        <svg *ngIf="icon" class="icon icon-32"><use [attr.xlink:href]="icon"></use></svg>
+        {{ title }}
+      </mat-card-title>
+      <button
+        *ngIf="hasButton"
+        mat-icon-button
+        (click)="onButtonClick.emit()"
+        [class.mat-button-link]="true"
+        [class.mat-card-title]="true"
+        [class.mat-button-absolute]="isAbsoluteButton">
+        <svg class="icon icon-24"><use xlink:href="#icon-x-24"></use></svg>
+      </button>
+    </div>
+  </mat-list-item>
+</mat-list>

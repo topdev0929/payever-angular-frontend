@@ -1,0 +1,15 @@
+<!-- Must be type button or we get double submit in FF -->
+<checkout-sdk-continue-button-styles></checkout-sdk-continue-button-styles>
+<button
+  mat-button
+  [type]="type"
+  [class.mat-button-dark]="darkMode"
+  [class.mat-button-gradient]="!darkMode"
+  class="mat-button-lg"
+  [tabindex]="tabIndex"
+  [disabled]="loading || disabled"
+  (click)="onClicked()">
+  <pe-progress-button-content [loading]="loading">
+    <span [innerHtml]="text"></span>
+  </pe-progress-button-content>
+</button>

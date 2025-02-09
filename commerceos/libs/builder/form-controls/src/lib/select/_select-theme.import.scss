@@ -1,0 +1,9 @@
+@use 'pe_theming' as pet;
+@use './select-theme.component' as select;
+@use './option-list-theme.component' as option_list;
+
+@mixin theme($theme-config) {
+    $color-config: pet.get-color-config-from-theme($theme-config);
+    @include select.color($color-config);
+    @include option_list.color($color-config);
+}

@@ -1,0 +1,89 @@
+<finexp-ui-rate-dropdown-style></finexp-ui-rate-dropdown-style>
+<div (resized)="onElementResized($event)">
+  <finexp-ui-loading-rates *ngIf="isLoading"></finexp-ui-loading-rates>
+  <div
+    *ngIf="!isLoading && rates?.length > 0"
+    class="rate-dropdown"
+    [style.color]="mainTextColor"
+    [style.background]="fieldBackgroundColor"
+    [style.border-color]="fieldLineColor">
+    <div
+      [matMenuTriggerFor]="menuPlacement"
+      (menuOpened)="onOpened()"
+      (menuClosed)="onClosed()">
+      <mat-menu
+        #menuPlacement="matMenu"
+        xPosition="before"
+        yPosition="below"
+        backdropClass="pe-widget-rate-drop-down-menu">
+        <finexp-ui-shadow-root-wrapper>
+          <div
+            class="dropdown-list"
+            [class.dropdown-list-half-width]="useMultiTitle">
+            <div
+              class="dropdown-list-item"
+              [class.dropdown-list-item-small]="isSmallSize"
+              [class.selected]="rate.value === selectedRate.value"
+              (click)="selectRate(rate)"
+              *ngFor="let rate of rates"
+              [innerHTML]="rate.listTitle"></div>
+          </div>
+        </finexp-ui-shadow-root-wrapper>
+      </mat-menu>
+
+      <div
+        *ngIf="!useMultiTitle"
+        class="single-title"
+        [class.single-title-small]="isSmallSize"
+        [innerHTML]="selectedRate.selectedTitle"
+        (resized)="onTitleResized($event)"></div>
+      <div
+        class="multi-title"
+        *ngIf="useMultiTitle">
+        <div
+          class="multi-title-col"
+          [class.multi-title-col-small]="isSmallSize"
+          [style.border-color]="fieldLineColor"
+          *ngFor="let col of selectedRateMultiTitles; let i = index;"
+          (resized)="selectedRateMultiTitles.length === (i + 1) ? onTitleResized($event) : 0">
+          <span
+            class="multi-title-col-label"
+            [innerHTML]="col.label"></span>
+          <br />
+          <span
+            class="multi-title-col-text"
+            [innerHTML]="col.text"></span>
+        </div>
+      </div>
+      <div
+        class="dropdown-button"
+        [style.background]="fieldLineColor">
+        <svg
+          [style.color]="fieldArrowColor"
+          preserveAspectRatio="xMidYMin slice"
+          viewBox="0 0 16 16">
+          <polygon
+            fill="currentColor"
+            points="1.32408,4.48132 8,10.2029 14.6747,4.48132 15.3244,5.23963 8.32482,11.2399 8.00118,11.5187 7.67518,11.2399 0.674443,5.23963 "></polygon>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <finexp-ui-selected-rate-details
+    [config]="config"
+    [forceDefaultStyles]="forceDefaultStyles"
+    [details]="selectedRate.details"
+    *ngIf="!selectedRate?.isOneLine && isShowSelectedRateDetails && selectedRate && !isLoading"></finexp-ui-selected-rate-details>
+  <finexp-ui-selected-rate-details-line
+    [config]="config"
+    [forceDefaultStyles]="forceDefaultStyles"
+    [details]="selectedRate.details"
+    *ngIf="selectedRate?.isOneLine && isShowSelectedRateDetails && selectedRate && !isLoading"></finexp-ui-selected-rate-details-line>
+
+  <finexp-ui-rate-error *ngIf="rates && rates.length === 0 && !error && !isLoading"
+    >No rates available</finexp-ui-rate-error
+  >
+
+  <finexp-ui-rate-error *ngIf="error">{{ error }}</finexp-ui-rate-error>
+</div>

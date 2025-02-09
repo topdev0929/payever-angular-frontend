@@ -1,0 +1,10 @@
+<div class="pe-payment-container">
+  <santander-no-rates-form
+    [hidden]="isSendingPayment"
+    [extraDuration]="extraDuration"
+    (selectRate)="onSelectRate($event)"
+    (ratesLoading)="onLoading.next($event)"
+    (ratesLoadingError)="onRatesLoadingError($event)"
+    (submitted)="onSubmitted($event)">
+  </santander-no-rates-form>
+</div>

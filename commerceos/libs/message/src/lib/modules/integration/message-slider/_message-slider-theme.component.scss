@@ -1,0 +1,53 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $confirm: map.get($color-config, 'confirm');
+  $x-button: map.get($color-config, 'x-button');
+  $secondary: map.get($color-config, 'secondary');
+  $text-color: map.get($color-config, 'text-color');
+  $active-text: map.get($color-config, 'active-text');
+  $label-color: map.get($color-config, 'label-color');
+  $row-background: map.get($color-config, 'row-background');
+  $box-shadow-color: map.get($color-config, 'box-shadow-color');
+  $transparent-color: map.get($color-config, 'transparent-color');
+
+  .pe-message-slider {
+
+    &__label {
+      color: $label-color;
+    }
+
+    &__container {
+      background-color: $row-background;
+    }
+
+    &__slider {
+      .mat-slider-thumb {
+        border-color: $active-text;
+        background-color: $active-text;
+        box-shadow: 0 0 4px $box-shadow-color;
+      }
+
+      .mat-slider-track-wrapper {
+        background-color: $x-button;
+      }
+
+      .mat-slider-track-fill {
+        background-color: $confirm;
+      }
+    }
+
+    &__value-set {
+      background-color: $secondary;
+    }
+
+    &__value {
+      color: $text-color;
+      background-color: $transparent-color;
+    }
+
+    &__unit {
+      color: $label-color;
+    }
+  }
+}

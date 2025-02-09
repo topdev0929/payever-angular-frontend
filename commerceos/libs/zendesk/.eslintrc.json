@@ -1,0 +1,17 @@
+{
+  "extends": "../../.eslintrc.json",
+  "ignorePatterns": ["!**/*"],
+  "rules": {},
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "rules": {
+        "no-underscore-dangle": ["error", { "allowAfterThis": true, "allow": [
+          "_id",
+          "_l",
+          "__karma__"
+        ] }]
+      }
+    }
+  ]
+}

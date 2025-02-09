@@ -1,0 +1,81 @@
+@import '../../../../../../../shared/styles/assets/imports';
+
+.alert {
+  @include pe_flexbox();
+  svg {
+    @include pe_flex-shrink(0);
+  }
+  span {
+    padding-left: $pe_hgrid_gutter;
+  }
+}
+
+.no-payment-body-paddings {
+  margin-left: -$pe_hgrid_gutter + 8px;
+  margin-right: -$pe_hgrid_gutter + 8px;
+  margin-bottom: -12px !important;
+}
+
+@media (max-width: $viewport-breakpoint-ipad) {
+  .no-payment-body-paddings {
+    margin-left: -$pe_hgrid_gutter * 0.5 + 8px;
+    margin-right: -$pe_hgrid_gutter * 0.5 + 8px;
+    margin-bottom: -6px !important;
+  }
+}
+
+.form-design {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: $viewport-breakpoint-sm-1) {
+  .payment-title {
+    font-size: 90%;
+    padding-left: 28px;
+    order: 1;
+  }
+
+  .small {
+    font-size: 12px;
+  }
+}
+
+.help-text {
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: justify;
+}
+
+.div-table-payment-option {
+  .payment-option-cash,
+  .payment-option-sofort,
+  .payment-option-paypal,
+  .payment-option-instant_payment,
+  .payment-option-santander_installment_nl,
+  .payment-option-santander_installment_fi,
+  .payment-option-swedbank_creditcard,
+  .payment-option-swedbank_invoice {
+    label {
+      // TODO This should be 0 for all payments. Payment micros should add top margin inside their custom elements if they have content
+      margin-bottom: 0;
+    }
+  }
+  .payment-option-not-ready label {
+    margin-bottom: 0;
+  }
+}
+
+.remember-me-checkbox {
+  @include pe_flexbox();
+
+  label[for] {
+    margin-top: 3px;
+  }
+}
+
+.tooltip {
+  cursor: pointer;
+}

@@ -1,0 +1,23 @@
+<div class="pe-widget-social-table" class="flex">
+  <div class="icons">
+    <div *ngFor="let item of widget.data" (click)="clickItem($event, item)">
+      <ng-container *ngIf="item.title">
+        <div class="post-container">
+          <div class="buttons__logo" *ngIf="!item.imgSrc && !item.icon">
+            <mat-spinner class="widget__spinner mat-progress-spinner-light" *ngIf="item.loading" [strokeWidth]="2" [diameter]="26"></mat-spinner>
+            <h2>
+              {{ item.title | abbreviation }}
+            </h2>
+          </div>
+          <div class="buttons__logo" *ngIf="item.imgSrc">
+            <img [src]="item.imgSrc | mediaUrl:'images'" alt="button content" />
+          </div>
+          <div class="icons__title">{{item?.title}}</div>
+        </div>
+      </ng-container>
+    </div>
+    <div *ngIf="!widget.data?.length">
+      {{ (widget.noDataTitle | loadTranslate | async) || 'No data' }}
+    </div>
+  </div>
+</div>

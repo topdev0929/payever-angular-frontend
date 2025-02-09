@@ -1,0 +1,102 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $text-color: map.get($color-config, 'text-color');
+  $filter-invert-light: map.get($color-config, 'filter-invert-light');
+  $content: map.get($color-config, 'content');
+  $row-background: map.get($color-config, 'row-background');
+  $button: map.get($color-config, 'button');
+  $active-text: map.get($color-config, 'active-text');
+  $label-color: map.get($color-config, 'label-color');
+  $confirm: map.get($color-config, 'confirm');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $divider: map.get($color-config, 'divider');
+  $select-button: map.get($color-config, 'select-button');
+
+  .peb-datetime-picker-extended-wrapper {
+    background-color: $secondary-background;
+    .peb-datepicker-actions {
+      color: $active-text;
+      .checkbox-background {
+        background-color: $select-button;
+      }
+      &__apply {
+        background-color: $confirm;
+      }
+      &__cancel {
+        background-color: $label-color;
+      }
+    }
+    .peb-datepicker-calendar {
+      &__calendar {
+        .peb-start-end {
+          background-color: $content;
+          &__date {
+            .date-label{
+              color: $label-color;
+            }
+            .date-value{
+              color: $text-color;
+              &.no-value{
+                color: $label-color;
+              }
+            }
+          }
+        }
+      }
+      &__filters{
+        .filter-button{
+          background-color: $content;
+          color: $text-color;
+        }
+      }
+    }
+
+    &__header-title {
+      color: $text-color;
+    }
+    &__header-icon {
+      filter: $filter-invert-light;
+    }
+    .mat-calendar {
+      &-header {
+        background-color: $content;
+        border-bottom-color: $divider;
+      }
+      &-content {
+        background-color: $row-background;
+      }
+      &-period-button,
+      &-previous-button,
+      &-next-button,
+      &-table-header,
+      &-body-selected {
+        background-color: $transparent-color;
+        color: $text-color;
+      }
+      &-table-header {
+        border-bottom-color: $divider;
+      }
+      &-body-cell-content {
+        color: $text-color;
+      }
+      &-body-selected {
+        background-color: $button;
+        color: $active-text;
+      }
+      &-body-disabled {
+        .mat-calendar-body-cell-content {
+          color: $label-color;
+        }
+      }
+      &-previous-button[disabled],
+      &-next-button[disabled] {
+        color: $label-color;
+      }
+      &-body-in-range:before {
+        background: $divider;
+      }
+    }
+  }
+}

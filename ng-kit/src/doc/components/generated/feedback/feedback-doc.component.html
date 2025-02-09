@@ -1,0 +1,53 @@
+<div class="chapter">
+  <h2>FeedbackComponent</h2>
+  <div class="main-block">
+    <tabset>
+      <tab heading="Overview">
+        <h3>Import FeedbackModule</h3>
+        <pre><code class="typescript" [innerHTML]="'import {FeedbackModule } from \'@pe/ng-kit/modules/feedback\';'"></code></pre>
+        <p>&nbsp;</p>
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          >
+          <pe-feedback
+            [feedbackId] = "'feedback'"
+            [value] = ""
+            [maxLength] = "10000"
+            [minHeight] = "74"
+            [maxHeight] = "162"
+            [placeholderText] = "'Please enter your feedback'"
+            [autoFocus] = "false"
+            (feedbackValueChange) = "handleFeedbackValue($event)"
+          ></pe-feedback>
+        </example-viewer>
+
+      </tab>
+      <tab heading="API">
+        <component-api-renderer [path]="'feedback/feedback.component'"></component-api-renderer>
+      </tab>
+      <tab heading="Examples">
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          >
+          <pe-feedback
+            [feedbackId] = "'feedback'"
+            [value] = ""
+            [maxLength] = "10000"
+            [minHeight] = "74"
+            [maxHeight] = "162"
+            [placeholderText] = "'Please enter your feedback'"
+            [autoFocus] = "false"
+            (feedbackValueChange) = "handleFeedbackValue($event)"
+          ></pe-feedback>
+        </example-viewer>
+      </tab>
+      <tab heading="README">
+        <doc-viewer documentUrl="/assets/module-guides/feedback/feedback.html"></doc-viewer>
+      </tab>
+    </tabset>
+  </div>
+</div>
+
+

@@ -1,0 +1,49 @@
+@import "./../../panels/page-container.scss";
+
+.overlay-widget .pe-info-box-container-fixed.language-content {
+  width: 100%;
+  min-height: fit-content;
+
+  .default-error-message {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .pe-info-box {
+    min-width: 100%;
+    padding: 0;
+
+    .content-wrapper {
+      .default-toggle {
+        height: unset;
+      }
+
+      .mat-list-transparent .mat-list-item-flex .mat-list-item-col.default-block {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        flex-wrap: nowrap;
+
+        .mat-list-item-subtitle {
+          font-size: 14px;
+          line-height: 1.33;
+          text-align: right;
+          margin-right: 12px;
+        }
+
+        .set-as-default-button {
+          font-family: Roboto, sans-serif;
+          font-size: 12px;
+          line-height: 1.33;
+          text-align: right;
+          padding: 0;
+          width: fit-content;
+          margin-right: 12px;
+        }
+      }
+    }
+  }
+}

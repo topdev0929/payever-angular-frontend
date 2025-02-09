@@ -1,0 +1,90 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+    $primary: map.get($color-config, 'primary');
+    $text-color: map.get($color-config, 'text-color');
+    $hover-button: map.get($color-config, 'hover-button');
+    $active-text: map.get($color-config, 'active-text');
+    $separator: map.get($color-config, 'separator');
+    $label-color: map.get($color-config, 'label-color');
+    $card: map.get($color-config, 'card');
+
+    .pe-chat-message {
+        .message-container {
+            color: $label-color;
+            background-color: $primary;
+
+            &.sticky-date-container {
+                background-color: $separator;
+                color: $active-text;
+            }
+
+            &.sticky-event-container {
+                background-color: $separator;
+                color: $active-text;
+            }
+
+            &_selected {
+                background-color: $separator;
+                border-color: $separator;
+            }
+        }
+
+        .date-separator {
+            color: $active-text;
+        }
+
+        &.message-person {
+
+            &__message-pinned > svg > path {
+                fill: $label-color;
+            }
+
+            &__time,
+            &__edited,
+            time {
+                color: $label-color;
+            }
+        }
+
+        .link-message {
+            &__title {
+                color: $text-color;
+            }
+
+            &__content {
+                color: $text-color;
+
+                &>a {
+                    color: $hover-button;
+                }
+            }
+
+            &__dash {
+                background-color: $hover-button;
+            }
+        }
+
+        .invitation {
+            .mat-icon > svg > path {
+                stroke: $text-color;
+            }
+
+            &__content {
+                color: $label-color;
+            }
+        }
+
+        .toast {
+            &__content {
+                color: $text-color;
+            }
+        }
+
+        .navigate-to {
+            &__content {
+                color: $text-color;
+            }
+        }
+    }
+}

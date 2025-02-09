@@ -1,0 +1,8 @@
+@use 'pe_theming' as pet;
+@use './uploader-theme.component' as uploader;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include uploader.color($color-config);
+}
+

@@ -1,0 +1,7 @@
+<div [ngStyle]="styles">
+  <ng-container *pebRender="element; template: elementTemplateRef"></ng-container>
+
+  <ng-template #elementTemplateRef let-element>
+    <peb-element class="shape" [pebStyle]="element?.style?.host" [def]="element" [container]="renderContainer"></peb-element>
+  </ng-template>
+</div>

@@ -1,0 +1,13 @@
+<sofort-shared-finish
+  *ngIf="showFinish$ | async"
+  [embeddedMode]="embeddedMode"
+  [merchantMode]="merchantMode"
+  [asSinglePayment]="asSinglePayment"
+  [nodeResult]="paymentResponse"
+  [showCloseButton]="showCloseButton"
+  [isLoading]="!paymentResponse && !errorMessage"
+  (cleanUp)="cleanUp()"
+  (close)="close()"
+  (closeButtonClicked)="close()"
+  (tryAgain)="tryAgain()"
+  (changePaymentMethod)="changePayment($event)"></sofort-shared-finish>

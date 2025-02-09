@@ -1,0 +1,89 @@
+<checkout-sdk-finish-status-icon [status]="'success'">
+</checkout-sdk-finish-status-icon>
+<br>
+
+<p class="large-1" *ngIf="title === true" i18n="@@checkout_sdk.finish_status_success.title">
+  checkout_sdk.finish_status_success.title
+</p>
+<p class="large-1" *ngIf="title && title !== true" [innerHtml]="title"></p>
+
+<p class="caption-1" *ngIf="text === true" i18n="@@checkout_sdk.finish_status_success.text">
+  checkout_sdk.finish_status_success.text
+</p>
+<p class="caption-1" *ngIf="text && text !== true" [innerHtml]="text"></p>
+
+<p class="text-secondary"
+  *ngIf="applicationNumber">
+  {{ translations?.applicationNumber }}
+</p>
+
+<p class="text-secondary"
+  *ngIf="transactionNumber">
+  <span [innerHTML]="translations?.transactionNumber"></span>
+</p>
+
+<div class="row details-block">
+  <div *ngIf="total && currency" class="col-xs-12">
+    <span class="text-secondary pull-left"
+      i18n="@@checkout_sdk.finish_status_success.details.total">
+      checkout_sdk.finish_status_success.details.total
+    </span>
+    <span class="pull-right"><span [outerHTML]="total | peCurrency:currency"></span></span>
+  </div>
+  <div *ngIf="storeName" class="col-xs-12">
+    <span class="text-secondary pull-left"
+      i18n="@@checkout_sdk.finish_status_success.details.store_name">
+      checkout_sdk.finish_status_success.details.store_name
+    </span>
+    <span class="pull-right">{{ storeName }}</span>
+  </div>
+  <div *ngIf="createdAtAsString" class="col-xs-12">
+    <span class="text-secondary pull-left"
+      i18n="@@checkout_sdk.finish_status_success.details.created">
+      checkout_sdk.finish_status_success.details.created
+    </span>
+    <span class="pull-right">{{ createdAtAsString }}</span>
+  </div>
+  <div *ngIf="billingAddressName" class="col-xs-12">
+    <span class="text-secondary pull-left"
+      i18n="@@checkout_sdk.finish_status_success.details.name">
+      checkout_sdk.finish_status_success.details.name
+    </span>
+    <span class="pull-right">{{ billingAddressName }}</span>
+  </div>
+</div>
+
+<p *ngIf="signingCenterLink">
+  <a [href]="signingCenterLink"
+     target="_blank"
+     mat-button
+     class="mat-button-gradient"
+     i18n="@@checkout_sdk.finish_status_success.print_docs">
+    checkout_sdk.finish_status_success.print_docs
+  </a>
+</p>
+
+<p *ngIf="transactionLink">
+  {{ translations?.transactionDetails }}
+</p>
+
+<p *ngIf="contractUrl">
+  <a class="btn btn-primary" [href]="contractUrl" target="_blank"
+    i18n="@@checkout_sdk.finish_status_success.download_contract">
+    checkout_sdk.finish_status_success.download_contract</a>
+</p>
+<payment-external-code *ngIf="flowId && (showExternalCode$ | async)" [flowId]="flowId"></payment-external-code>
+
+<ng-content></ng-content>
+
+<div class="order-number-wrap" *ngIf="orderId">
+  <div class="text-secondary"
+    i18n="@@checkout_sdk.default_receipt.finish.labels.order_number">
+      checkout_sdk.default_receipt.finish.labels.order_number</div>
+  <div>{{ orderId }}</div>
+</div>
+
+<p class="large-1 mt40"
+  *ngIf="isPosPayment && merchantText"
+  [innerHTML]="merchantText"
+></p>

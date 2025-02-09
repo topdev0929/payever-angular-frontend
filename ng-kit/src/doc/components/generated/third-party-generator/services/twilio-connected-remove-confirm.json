@@ -1,0 +1,21 @@
+{
+  "form": {
+    "title": "",
+    "type": "confirm",
+    "connected": true,
+    "confirmContent": {
+      "text": "That you want to remove number?",
+      "title": "Are you sure?",
+      "operations": [
+        {
+          "action": "start",
+          "text": "No"
+        },
+        {
+          "action": "twillio-phone-remove",
+          "text": "Yes"
+        }
+      ]
+    }
+  }
+}

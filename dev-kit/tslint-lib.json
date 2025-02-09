@@ -1,0 +1,6 @@
+{
+  "extends": [ "@pe/frontend-dev-kit/tslint" ],
+  "rules": {
+    "no-implicit-dependencies": false
+  }
+}

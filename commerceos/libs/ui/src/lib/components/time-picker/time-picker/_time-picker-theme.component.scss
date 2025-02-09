@@ -1,0 +1,58 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $border: map.get($color-config, 'border');
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $label-color: map.get($color-config, 'label-color');
+  $active-text: map.get($color-config, 'active-text');
+  $row-background: map.get($color-config, 'row-background');
+  $text-color: map.get($color-config, 'text-color');
+  $button: map.get($color-config, 'button');
+  $content: map.get($color-config, 'content');
+  $confirm: map.get($color-config, 'confirm');
+  $skeleton: map.get($color-config, 'skeleton');
+
+  .time-picker-wrapper {
+    .time-picker {
+        background-color: $overlay-background;
+        border-color: $border;
+      &__selected-time,
+      &__selected-ampm {
+        color: $label-color;
+        div.selected {
+          color: $text-color;
+        }
+      }
+      &__clock {
+        background: $row-background;
+        > .hours-minutes {
+          color: $text-color;
+          &[disabled] {
+            color: $label-color;
+          }
+        }
+      }
+      &__hour-input,
+      &__minute-input {
+        color: $text-color;
+        background-color: $content;
+      }
+      &__footer {
+        .peb-ref-dialog-close {
+          background: $confirm;
+          color: $active-text;
+        }
+      }
+
+      &__hour.selected:hover .time-picker__hour-input,
+      &__hour.selected:active .time-picker__hour-input,
+      &__hour.selected .time-picker__hour-input:focus,
+      &__minute.selected:hover .time-picker__minute-input,
+      &__minute.selected:active .time-picker__minute-input,
+      &__minute.selected .time-picker__minute-input:focus {
+        background: rgba($skeleton, 0.4);
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+<section class="themes">
+  <h1>Themes</h1>
+
+
+
+</section>
+<section class="shops">
+  <h1>Fixtures</h1>
+
+  <span *ngIf="!(fixtures$|async)">Loading...</span>
+
+  <div
+    *ngIf="fixtures$|async as fixtures"
+    class="button-group button-group--vertical"
+  >
+    <a
+      *ngFor="let fixture of fixtures"
+      class="button"
+      [routerLink]="['viewer', 'fixtures', fixture]"
+      (click)="onNavigationClick()"
+    >
+        {{ fixture }}
+    </a>
+  </div>
+</section>

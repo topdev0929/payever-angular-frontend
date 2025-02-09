@@ -1,0 +1,141 @@
+<div class="col-xs-12">
+  <p class="row small text text-danger" *ngIf="commonError">{{ commonError }}<br><br></p>
+  <form novalidate (ngSubmit)="onSubmit()" *ngIf="(flow$ | async) as flow">
+    <button #submitTrigger id="submitButton" name="submitButton" type="submit" class="native-submit"></button>
+
+    <!--
+    <mat-progress-spinner
+      *ngIf="isPreparingData$ | async"
+      class="preparing-data-spinner"
+      [strokeWidth]="2"
+      [diameter]="64"
+      [mode]="'indeterminate'"
+      [value]="50">
+    </mat-progress-spinner>
+    -->
+
+    <div class="row order-row">
+      <div class="col-xs-7 order-col-first">
+        <span class="text-secondary" [innerHTML]="'checkout_cart_edit.form.label.product' | translate"></span>
+      </div>
+      <div class="col-xs-2 col-sm-3 text-right">
+        <span class="text-secondary" [innerHTML]="'checkout_cart_edit.form.label.qty' | translate"></span>
+      </div>
+      <div class="col-xs-3 col-sm-2 text-right order-col-last">
+        <span class="text-secondary" [innerHTML]="'checkout_cart_edit.form.label.price' | translate"></span>
+      </div>
+    </div>
+    <div>
+      <div *ngIf="!(cart$ | async)?.length" class="row order-row">
+        <div class="col-sm-12 order-col-first h5">
+          {{ 'checkout_cart_edit.error.card_is_empty' | translate }}
+        </div>
+      </div>
+      <ng-container *ngIf="(cart$ | async)?.length">
+        <ng-container *ngFor="let item of (cart$ | async); let i=index">
+          <div class="row order-row" [class.order-row-error]="!!productsErrors[item.uuid]">
+            <div class="col-xs-1 text-center order-col-first">
+              <div class="valign-container">
+                <span class="delete-control" [style.opacity]="(isPreparingData$ | async) ? 0 : 1.0" (click)="deleteItem(item)">
+                  <svg class="icon icon-16"><use xlink:href="#icon-x-solid-24"></use></svg>
+                </span>
+              </div>
+            </div>
+            <div class="col-xs-3 image-col text-center">
+              <div class="valign-container">
+                <img *ngIf="isURL(item.image)" [attr.src]="item.image"/>
+              </div>
+            </div>
+            <div class="col-xs-3">
+              <div class="text-left description-block" [class.valign-container-top]="item._optionsAsLine" [class.valign-container]="!item._optionsAsLine">
+                {{ item.name }}
+              </div>
+              <div *ngIf="item._optionsAsLine" class="text-left description-block valign-half-container-bottom micro-2">
+                {{ item._optionsAsLine }}
+              </div>
+            </div>
+            <div class="col-xs-2 col-sm-3 text-right">
+              <div class="valign-container hidden-xs" [style.opacity]="(isPreparingData$ | async) ? 0 : 1.0">
+                <pe-counter [value]="item.quantity"
+                            [readOnly]="isPreparingData$ | async"
+                            (counterValueChange)="onCounterValueChange(item, $event)"></pe-counter>
+              </div>
+              <div class="valign-container visible-xs select-qty-wrap" [style.opacity]="(isPreparingData$ | async) ? 0 : 1.0">
+                <mat-select [disabled]="isPreparingData$ | async"
+                            [value]="item.quantity"
+                            (selectionChange)="onCounterValueChange(item, $event.value)">
+                  <mat-option *ngFor="let option of numberOptions" [value]="option">{{option}}</mat-option>
+                </mat-select>
+              </div>
+            </div>
+            <div class="col-xs-3 col-sm-2 text-right order-col-last">
+              <div class="valign-container">
+                {{ item.price | currency:flow?.currency:'symbol' }}
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+    <ng-container *ngIf="(cart$ | async)?.length">
+      <div class="row order-row">
+        <div class="col-xs-9 col-sm-10 text-right order-col-first summary-row">
+          <span class="text-secondary" [innerHTML]="'checkout_cart_edit.form.label.subtotal' | translate"></span>
+        </div>
+        <div class="col-xs-3 col-sm-2 text-right order-col-last">
+          <span [innerHTML]="(subtotal$ | async) | currency:flow?.currency:'symbol'"></span>
+        </div>
+      </div>
+      <div class="row order-row" *ngIf="flow?.shipping_options?.length > 0">
+        <ng-container *ngFor="let shippingOption of flow?.shipping_options; let i=index">
+          <div class="col-xs-10 text-right order-col-first">
+            <span [innerHtml]="shippingOption.name"></span>
+          </div>
+          <div class="form-design form-widget text-right col-xs-3 col-sm-2 text-right order-col-last">
+            <input type="radio" [id]="uuid+'-shipping_option-'+i" [value]="shippingOption.id" (change)="onShippingChange($event)">
+            <label [for]="uuid+'-shipping_option-'+i" [innerHtml]="(shippingOption.price || 0) | currency:flow?.currency:'symbol'"></label>
+          </div>
+        </ng-container>
+      </div>
+      <div class="row order-row summary-row" *ngIf="flow?.shipping_options?.length == 0 && (shippingPrice$ | async)">
+        <div class="col-xs-9 col-sm-10 text-right order-col-first">
+          <span class="text-secondary" [innerHTML]="'checkout_cart_edit.form.label.shipping' | translate"></span>
+        </div>
+        <div class="col-xs-3 col-sm-2 text-right order-col-last">
+          <span [innerHTML]="(shippingPrice$ | async) | currency:flow?.currency:'symbol':'1.2-2'"></span>
+        </div>
+      </div>
+      <div class="row order-row summary-row" *ngIf="flow?.tax_value">
+        <div class="col-xs-9 col-sm-10 text-right order-col-first">
+          <span class="text-secondary" [innerHTML]="'checkout_cart_edit.form.label.tax' | translate"></span>
+        </div>
+        <div class="col-xs-3 col-sm-2 text-right order-col-last">
+          <span [innerHTML]="(taxValue$ | async) | currency:flow?.currency:'symbol':'1.2-2'"></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-9 col-sm-10 text-right order-col-first font-weight-bold summary-row">
+          <span *ngIf="isShop$ | async" [innerHTML]="'checkout_cart_edit.form.label.shop_total' | translate"></span>
+          <span *ngIf="!(isShop$ | async)" [innerHTML]="'checkout_cart_edit.form.label.total' | translate"></span>
+        </div>
+        <div class="col-xs-3 col-sm-2 text-right order-col-last font-weight-bold summary-row">
+          <span [innerHTML]="(orderTotal$ | async) | currency:flow?.currency:'symbol'"></span>
+        </div>
+      </div>
+    </ng-container>
+    <!--
+    <div class="row order-actions">
+      <div class="col-xs-12 text-right order-col-first order-col-last">
+        <checkout-sdk-continue-button
+          class="button-continue"
+          [text]="submitText || ('amount.action.continue' | translate)"
+          [loading]="loading"
+          [disabled]="!isCartNotEmpty()"
+          (clicked)="onSubmit()">
+        </checkout-sdk-continue-button>
+      </div>
+    </div>
+    -->
+  </form>
+</div>
+<div class="clearfix"></div>

@@ -1,0 +1,12 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $skeleton: map.get($color-config, skeleton);
+  pe-skeleton-header {
+    .skeleton-container {
+      [class$='skeleton'] {
+        background-color: $skeleton;
+      }
+    }
+  }
+}

@@ -1,0 +1,88 @@
+:host {
+  display: block;
+  height: 100%;
+  backdrop-filter: blur(500px);
+  background-color: #00000075;
+}
+
+.controls {
+  display: flex;
+  padding: 15px;
+
+  &__control {
+    white-space: nowrap;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 500;
+    text-align: center;
+    color: #ffffff;
+    border: 0;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 60px;
+    height: 50px;
+    cursor: pointer;
+
+    &--back-icon {
+      width: auto;
+      padding-right: 15px;
+
+      svg {
+        margin: 5px;
+        margin-right: 10px;
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+.spinner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000c7;
+  backdrop-filter: blur(50px);
+
+  &::before {
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    border-top-color: #f5f5f5;
+    animation: spin 1s ease-in-out infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+}
+
+.frame-wrapper {
+  display: flex;
+  width: 100vw;
+  height: calc(100vh - 80px);
+  align-items: center;
+  justify-content: center;
+
+  pe-builder-preview-device-frame {
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+  }
+
+  pe-viewer {
+    overflow-y: scroll;
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "sourceFolder": "./scss/",
+  "destinationFolder": "./dist/assets",
+  "stylesheets": [{
+    "source": "pe_style.scss",
+    "destination": "pe_style.css"
+  }]
+}

@@ -1,0 +1,62 @@
+.simple-numbers {
+  &__top {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__title {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &__period {
+    margin-top: 7px;
+    font-size: 11px;
+    line-height: normal;
+  }
+  &__main {
+    margin-top: 16px;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: normal;
+  }
+  &__profit {
+    font-size: 11px;
+    font-weight: 500;
+    margin-top: 18px;
+    line-height: 14px;
+    line-height: normal;
+  }
+}
+
+.done-btn {
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+:host {
+  &.small {
+    .simple-numbers__title {
+      font-size: 12px;
+    }
+  }
+  font-family: 'Roboto', sans-serif;
+
+  &.large {
+    .simple-numbers {
+      &__main {
+        margin-top: 55px;
+        font-size: 72px;
+        font-weight: 400;
+      }
+      &__profit {
+        font-size: 16px;
+        font-weight: 500;
+        margin-top: 75px;
+      }
+    }
+  }
+}

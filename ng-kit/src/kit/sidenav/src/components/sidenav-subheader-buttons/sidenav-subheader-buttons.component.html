@@ -1,0 +1,7 @@
+<div class="mat-sidenav-toggle-buttons">
+  <button [disabled]="button.disabled" mat-button *ngFor="let button of buttons" (click)="button.onClick()"
+          class="mat-button-xs mat-button-bold mat-sidenav-button-double"
+          [class.mat-sidenav-button-double-active]="activeButton === button.title">
+    <span>{{button.title}}</span>
+  </button>
+</div>

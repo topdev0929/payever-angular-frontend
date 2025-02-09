@@ -1,0 +1,54 @@
+<div
+  *ngIf="vm$ | async as vm"
+  class="ui-layout-footer"
+  [class.hidden]="embedFinish">
+  <div class="border-top">
+    <div class="row footer-cols middle-area">
+      <div class="logo-wrapper">
+        <svg class="logo-checkout">
+          <use xlink:href="#icon-payever-checkout-logo"></use>
+        </svg>
+      </div>
+    </div>
+    <div class="row footer-cols">
+      <div class="hidden-print">
+        <span i18n="@@layout.footer.copyright"> © payever GmbH </span>
+      </div>
+      <div class="text-decoration-none hidden-print">
+        <a
+          target="_blank"
+          [href]="translations.imprintHref"
+          i18n="@@layout.footer.links.imprint_link">
+          layout.footer.links.imprint_link
+        </a>
+      </div>
+      <div class="text-decoration-none hidden-print">
+        <a
+          target="_blank"
+          [href]="translations.agreementHref"
+          i18n="@@layout.footer.links.agreement_link">
+          layout.footer.links.agreement_link
+        </a>
+      </div>
+      <div class="text-decoration-none hidden-print">
+        <a
+          target="_blank"
+          [href]="translations.protectionHref"
+          i18n="@@layout.footer.links.protection_link">
+          layout.footer.links.protection_link
+        </a>
+      </div>
+    </div>
+    <div
+      class="row middle-area cancel-btn"
+      *ngIf="showCancel">
+      <checkout-main-button-cancel
+        cancel
+        [flow]="flow"
+        [isInIframe]="asCustomElement"
+        [isDefault]="vm.isDefault"
+        [buttonText]="vm.cancelButtonText">
+      </checkout-main-button-cancel>
+    </div>
+  </div>
+</div>

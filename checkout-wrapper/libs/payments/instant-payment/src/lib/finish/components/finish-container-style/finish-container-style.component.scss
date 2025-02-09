@@ -1,0 +1,111 @@
+@import '../../../../../../../shared/styles/assets/ui-kit-styles/pe_variables';
+@import 'bootstrap-sass/assets/stylesheets/bootstrap/mixins/buttons';
+
+.wizard-container-wrapper #XS2A-Form {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 100%;
+
+  .xs2a-dialog {
+    margin: 0;
+    min-width: 30%;
+    max-width: 30%;
+  }
+  .xs2a-form-line {
+    margin-bottom: 0.2rem;
+  }
+  .xs2a-align-indent {
+    margin-left: 37%;
+  }
+  .xs2a-form-line.xs2a-checkbox {
+    input {
+      margin-right: 6px;
+      margin-top: 3px;
+    }
+  }
+  .xs2a-form-line.xs2a-text {
+    flex-direction: row;
+
+    input {
+      padding: 0.4rem 0.75rem;
+    }
+
+    input[type='password'] {
+      padding-left: 0.75rem;
+      background: var(--xs2a-input-bg);
+    }
+  }
+  .xs2a-form-line.xs2a-text,
+  .xs2a-form-line.xs2a-description {
+    label {
+      width: 37%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    input,
+    select {
+      width: 60%;
+      border: 1px solid #bbbbbb;
+    }
+    button {
+      border: 1px solid $color-grey-7;
+      margin-right: 7px;
+      font-weight: 400;
+      @include button-variant($color-white, $color-black, $color-black);
+      @include button-size(0, $grid-unit-x, 13px, $btn-height-sm-without-borders, $border-radius-base);
+    }
+  }
+  .xs2a-description {
+    padding-left: calc(37% + 1em);
+    font-size: 12px;
+  }
+  .xs2a-logo {
+    display: none !important;
+  }
+  .xs2a-error {
+    color: #f9f9f9;
+  }
+
+  @media (max-width: $screen-xs) {
+    .xs2a-align-indent {
+      margin-left: 0;
+
+      img {
+        object-fit: contain;
+        width: 100%;
+      }
+    }
+
+    .xs2a-description {
+      padding-left: 0.5em;
+    }
+
+    .xs2a-form-line.xs2a-text {
+      flex-direction: column;
+
+      label {
+        width: 100%;
+      }
+      input,
+      select {
+        width: 100%;
+      }
+    }
+
+    .xs2a-form-line label {
+      width: 100%;
+    }
+
+    .xs2a-captcha {
+      .xs2a-container,
+      #XS2A-CAPTCHA {
+        width: 100%;
+      }
+    }
+  }
+}

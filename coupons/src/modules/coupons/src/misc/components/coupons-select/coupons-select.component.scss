@@ -1,0 +1,46 @@
+:host {
+  width: 100%;
+}
+
+.mat-select-value {
+  color: #ffffff;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.mat-select-arrow {
+  width: 0.625em;
+  height: 0.625em;
+  border-top: 0.125em solid white;
+  border-right: 0.125em solid white;
+  border-left: none;
+  transform: rotate(135deg);
+  margin: -1em 0.125em 0;
+  visibility: visible;
+}
+
+.pe-coupons-select-panel{
+  background-color: red;
+
+  .mat-option {
+    border-radius: 0;
+
+    &:first-child {
+      border-radius: 7px 7px 0 0;
+    }
+
+    &:last-child {
+      border-radius: 0 0 7px 7px;
+    }
+  }
+}
+
+.mat-select {
+  background-color: transparent;
+  box-sizing: border-box;
+  font-weight: 500;
+}
+
+.mat-select-trigger {
+  top: 2px;
+}

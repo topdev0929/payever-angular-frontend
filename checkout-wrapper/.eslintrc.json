@@ -1,0 +1,210 @@
+{
+  "root": true,
+  "ignorePatterns": ["dist", "node_modules", "dist-libs", "**/*.spec.*"],
+  "plugins": ["@typescript-eslint", "@angular-eslint/eslint-plugin", "@nx", "import", "unused-imports"],
+  "extends": ["plugin:@angular-eslint/recommended", "plugin:import/typescript"],
+  "settings": {
+    "import/internal-regex": "^@pe/",
+    "import/parsers": {
+      "@typescript-eslint/parser": ["^.ts", "^.js"]
+    },
+    "import/extensions": [".js", ".ts"]
+  },
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "extends": ["plugin:@nx/typescript"],
+      "rules": {
+        "comma-dangle": "off",
+        "keyword-spacing": [
+          "error",
+          {
+            "before": true
+          }
+        ],
+        "no-unreachable": "error",
+        "@typescript-eslint/comma-dangle": [
+          "error",
+          {
+            "arrays": "always-multiline",
+            "objects": "always-multiline",
+            "imports": "always-multiline",
+            "exports": "always-multiline",
+            "functions": "ignore",
+            "enums": "ignore"
+          }
+        ],
+        "@typescript-eslint/explicit-member-accessibility": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/no-parameter-properties": "off",
+        "@nx/enforce-module-boundaries": [
+          "error",
+          {
+            "depConstraints": [
+              {
+                "sourceTag": "scope:apps",
+                "onlyDependOnLibsWithTags": ["scope:libs"]
+              },
+              {
+                "sourceTag": "scope:libs",
+                "onlyDependOnLibsWithTags": ["scope:libs"]
+              },
+              {
+                "sourceTag": "type:selector",
+                "onlyDependOnLibsWithTags": ["type:feature", "type:utils", "type:types", "type:data-access", "type:ui"]
+              },
+              {
+                "sourceTag": "type:feature",
+                "onlyDependOnLibsWithTags": [
+                  "type:form-utils",
+                  "type:utils",
+                  "type:data-access",
+                  "type:types",
+                  "type:ui",
+                  "type:finexp-utils"
+                ]
+              },
+              {
+                "sourceTag": "type:utils",
+                "onlyDependOnLibsWithTags": ["scope:libs", "type:types"]
+              },
+              {
+                "sourceTag": "type:form-utils",
+                "onlyDependOnLibsWithTags": ["scope:libs", "type:types"]
+              },
+              {
+                "sourceTag": "type:finexp-apps",
+                "onlyDependOnLibsWithTags": ["scope:libs", "type:finexp-utils"]
+              }
+            ]
+          }
+        ],
+        "import/order": [
+          "error",
+          {
+            "groups": ["builtin", "external", "internal", "parent", "sibling", "index", "object"],
+            "newlines-between": "always",
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": true
+            }
+          }
+        ],
+        "object-curly-spacing": ["error", "always"],
+        "template-curly-spacing": ["error", "never"],
+        "curly": ["error"],
+        "padding-line-between-statements": [
+          "error",
+          {
+            "blankLine": "always",
+            "prev": "*",
+            "next": "return"
+          }
+        ],
+        "lines-between-class-members": [
+          "error",
+          "always",
+          {
+            "exceptAfterSingleLine": true
+          }
+        ],
+        "import/extensions": "off",
+        "max-len": [
+          "error",
+          {
+            "code": 120,
+            "ignoreTemplateLiterals": true
+          }
+        ],
+        "key-spacing": [
+          "error",
+          {
+            "afterColon": true
+          }
+        ],
+        "arrow-spacing": ["error"],
+        "no-multi-spaces": ["error"],
+        "comma-spacing": ["error"],
+        "import/prefer-default-export": "off",
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          {
+            "args": "none",
+            "ignoreRestSiblings": true
+          }
+        ],
+        "unused-imports/no-unused-imports": "error",
+        "unused-imports/no-unused-vars": [
+          "warn",
+          {
+            "ignoreRestSiblings": true
+          }
+        ],
+        "no-useless-constructor": "off",
+        "@typescript-eslint/no-useless-constructor": ["error"],
+        "arrow-parens": [
+          "error",
+          "as-needed",
+          {
+            "requireForBlockBody": true
+          }
+        ],
+        "@angular-eslint/component-class-suffix": [
+          "error",
+          {
+            "suffixes": [
+              "Component",
+              "Route",
+              "Dialog",
+              "Maker",
+              "Form",
+              "Sidebar",
+              "Editor",
+              "Element",
+              "Tool",
+              "ElementUi",
+              "Renderer",
+              "Input",
+              "Control",
+              "Viewer"
+            ]
+          }
+        ],
+        "@angular-eslint/directive-class-suffix": [
+          "error",
+          {
+            "suffixes": ["Directive", "Slot", "Tree", "Element", "Tool"]
+          }
+        ],
+        "@angular-eslint/no-output-on-prefix": ["warn"],
+        "@angular-eslint/no-output-native": ["warn"],
+        "@angular-eslint/no-output-rename": ["warn"],
+        "@angular-eslint/no-input-rename": ["warn"],
+        "semi": [
+          "error",
+          "always",
+          {
+            "omitLastInOneLineBlock": true
+          }
+        ],
+        "no-extra-semi": ["error"],
+        "arrow-body-style": ["error", "as-needed"],
+        "quotes": ["error", "single"],
+        "no-console": "error",
+        "no-empty": [
+          "error",
+          {
+            "allowEmptyCatch": true
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.html"],
+      "extends": ["plugin:@nx/angular-template"],
+      "rules": {}
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+<santander-dk-rates-info-table
+  *ngIf="flow && nodeFormOptions$ | async"
+  [flowId]="flow.id"
+  [paymentMethod]="paymentMethod"
+  [total]="flow.total"
+  [currency]="flow.currency"
+  [paymentTitle]="paymentTitle"
+  [initialData]="initialData$ | async"></santander-dk-rates-info-table>

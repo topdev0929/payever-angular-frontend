@@ -1,0 +1,11 @@
+<div class="row margin-bottom22">
+  <div class="col-xs-12">
+    <button (click)="show()" class="btn btn-primary">Show it!</button>
+    &nbsp;
+    <button (click)="hide()" class="btn btn-default">Hide it!</button>
+    <hr>
+    <p>Showing now: {{ isShowing$ | async }}</p>
+  </div>
+</div>
+
+<pe-icons-set></pe-icons-set>

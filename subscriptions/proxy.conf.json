@@ -1,0 +1,9 @@
+{
+  "/users-api/*": {
+    "target": "https://users.test.devpayever.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {"^/users-api" : ""}
+  }
+}

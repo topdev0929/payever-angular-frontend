@@ -1,0 +1,70 @@
+@import '../../../../../../../shared/styles/assets/ui-kit-styles/pe_variables.scss';
+
+:host {
+  .header {
+    display: flex;
+  }
+
+  .dark-text {
+    color: $color-grey-1;
+  }
+
+
+  .top-text-1 {
+    .h2 {
+      margin: 0;
+    }
+
+    .caption-1 {
+      font-weight: bold;
+    }
+  }
+
+  .top-text-1,
+  .top-text-2 {
+    margin-bottom: 42px;
+
+    p {
+      text-align: center;
+    }
+  }
+
+  .uploading-spinner {
+    display: flex;
+    justify-content: center;
+    margin: 29px;
+  }
+
+  .action-wrapper {
+    display: flex;
+    justify-content: space-around;
+    gap: 12px;
+  }
+
+  .action-card {
+    width: 270px;
+    border-radius: 6px;
+    text-align: center;
+    border: 2px solid #8e8e93;
+    padding: 12px;
+    cursor: pointer;
+  }
+
+  .skip-button {
+    p {
+      margin: 6px;
+    }
+
+    margin: 6px;
+    margin-top: 24px;
+  }
+
+  a {
+    cursor: pointer;
+    color: $link-color;
+
+    &:hover {
+      color: $link-hover-color;
+    }
+  }
+}

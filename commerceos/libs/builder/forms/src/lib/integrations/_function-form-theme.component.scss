@@ -1,0 +1,12 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $text-color: map.get($color-config, 'text-color');
+  $label-color: map.get($color-config, 'label-color');
+
+  .function-form__button {
+    background-color: $overlay-background;
+    color: $text-color;
+  }
+}

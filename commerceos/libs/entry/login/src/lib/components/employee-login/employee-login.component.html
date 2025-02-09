@@ -1,0 +1,25 @@
+<entry-layout [hideLogo]="false" [entryLogo]="getIndustryIcon()">
+  <ng-container *ngIf="(notification$ | async) as notification; else login">
+    <entry-shared-employee-notification
+      [title]="notification.title"
+      [description]="notification.description"
+      [businessId]="businessId$ | async"
+    ></entry-shared-employee-notification>
+  </ng-container>
+
+  <ng-template #login>
+    <ng-container content *ngIf="!(notification$ | async)">
+      <div class="login-header">{{ 'forms.login.header' | translate }}</div>
+      <entry-login
+        [withoutRegister]="true"
+        [withoutForgot]="true"
+        [employee]="true"
+        [businessId]="businessId$ | async"
+        (successLogin)="onSuccessLogin($event)"
+        (secondFactorCode)="onSecondFactorCode()"
+        (register)="onRegister()"
+      >
+      </entry-login>
+    </ng-container>
+  </ng-template>
+</entry-layout>

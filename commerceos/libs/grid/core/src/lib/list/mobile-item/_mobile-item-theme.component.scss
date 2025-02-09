@@ -1,0 +1,20 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+    $text-color: map.get($color-config, text-color);
+    $primary: map.get($color-config, primary);
+    $background: map.get($color-config, background);
+  
+    pe-grid-mobile-item {
+        .mobile-row-wrap {
+          background: $primary;
+          &__content {
+            border-bottom-color: $background;
+            .grid-table-body-cell {
+              color: $text-color;
+            }
+          }
+        }
+      }
+  }
+  

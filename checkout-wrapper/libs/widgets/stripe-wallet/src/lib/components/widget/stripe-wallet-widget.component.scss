@@ -1,0 +1,13 @@
+::ng-deep {
+  .stripe-wallet-mat-snack-bar-container-fixed {
+    position: fixed;
+    top: 0;
+  }
+}
+
+.stripe-wallet-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}

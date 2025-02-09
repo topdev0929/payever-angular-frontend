@@ -1,0 +1,12 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+.ui-payments-options-list {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  .item {
+    display: inline-block;
+    margin: 0 $margin_adjust;
+  }
+}

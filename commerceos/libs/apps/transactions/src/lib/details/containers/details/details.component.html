@@ -1,0 +1,44 @@
+<div class="backdrop" (click)="close()"></div>
+<div class="overlay">
+  <div class="overlay__header">
+    <button class="overlay__button overlay__button_grey"
+    (click)="close()">{{'transactions.actions.cancel' | translate}}</button>
+    <span class="overlay__title">{{'transactions.order_details' | translate}}</span>
+    <button class="overlay__button" (click)="done()">{{'transactions.actions.done' | translate}}</button>
+  </div>
+  <div class="overlay__body">
+    <ng-container *ngIf="(detailService.isReady$ | async) && order; else skeleton">
+        <div class="details-container">
+          <pe-actions-list (refresh)="onRefresh()"></pe-actions-list>
+          <pe-actionable-text-section *ngIf="order" ></pe-actionable-text-section>
+          <pe-general-section @fadeInAnimation></pe-general-section>
+        </div>
+        <ng-container *ngFor="let key of sectionsService.sectionKeys; trackBy: trackByFn">
+          <mat-expansion-panel @fadeInAnimation class="mat-expansion-panel-dark" hideToggle [expanded]="activeSection === key"
+          (opened)="setStep(key)" (closed)="removeStep(key)" *ngIf="isSectionShow(key)">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="section-title">
+              {{'transactions.sections.' + key + '.title' | translate}}
+              <span class="subtitle" *ngIf="detailService.sectionsSubTitles$ | async as sectionsSubTitles">
+                {{sectionsSubTitles[key] | ifHidden}}
+              </span>
+            </mat-panel-title>
+            <svg class="icon icon_plus" height="12" width="12">
+              <use xlink:href="#icon-plus-softy-16"></use>
+            </svg>
+            <svg class="icon icon_minus" height="12" width="12">
+              <use xlink:href="#icon-minus-softy-16"></use>
+            </svg>
+          </mat-expansion-panel-header>
+          <ng-template [ngComponentOutlet]="sectionComponents[key]"></ng-template>
+        </mat-expansion-panel>
+        </ng-container>
+    </ng-container>
+  </div>
+</div>
+
+<ng-template #skeleton>
+  <pe-transactions-details-skeleton></pe-transactions-details-skeleton>
+</ng-template>
+
+<router-outlet name="actions"></router-outlet>

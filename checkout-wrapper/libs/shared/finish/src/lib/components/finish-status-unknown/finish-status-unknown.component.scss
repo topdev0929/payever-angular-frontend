@@ -1,0 +1,13 @@
+@import "../../../../../styles/assets/ui-kit-styles/pe_variables";
+
+.order-number-wrap {
+  margin-top: $grid-unit-y * 1;
+  word-break: break-word;
+}
+
+.status-debug {
+  margin-top: 42px;
+  margin-bottom: -12px;
+  color: #b2b2b2;
+  font-size: 12px;
+}

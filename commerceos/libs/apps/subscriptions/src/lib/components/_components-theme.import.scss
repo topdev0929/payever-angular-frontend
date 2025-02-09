@@ -1,0 +1,9 @@
+@use 'pe_theming' as pet;
+@use './connect/connect-theme.component' as connect;
+@use './settings/settings-theme.component' as settings;
+
+@mixin theme($theme-config) {
+    $color-config: pet.get-color-config-from-theme($theme-config);
+    @include connect.color($color-config);
+    @include settings.color($color-config);
+}

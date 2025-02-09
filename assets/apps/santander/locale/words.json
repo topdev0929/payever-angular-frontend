@@ -1,0 +1,494 @@
+{
+  "PERSONAL_INFORMATION": {
+    "english": "PERSONAL INFORMATION",
+    "germany": "PERSÖNLICHE ANGABEN"
+  },
+  "ADDITIONAL_INFORMATION": {
+    "english": "ADDITIONAL INFORMATION",
+    "germany": "WEITERE ANGABEN"
+  },
+  "MORE_INFORMATION": {
+    "english": "MORE INFORMATION",
+    "germany": "MEHR INFORMATIONEN"
+  },
+  "INCOME_EXPENSES": {
+    "english": "INCOME & EXPENSES",
+    "germany": "EINNAHMEN & AUSGABEN"
+  },
+  "borrowingRate": {
+    "english": "Borrowing Rate",
+    "germany": "Sollzins (p.a., fest)"
+  },
+  "bankInterest": {
+    "english": "Bank interest",
+    "germany": "Zinsen"
+  },
+  "firstRateOn": {
+    "english": "First rate on",
+    "germany": "Erste Rate am"
+  },
+  "annualRate": {
+    "english": "Annual Rate",
+    "germany": "Eff. Jahreszins"
+  },
+  "bankInterestNext": {
+    "english": "Bank interest",
+    "germany": "Gesamt"
+  },
+  "santanderPaymentSummaryInfo": {
+    "english": "The above example is also the 2/3 example in accordance with Section 6a (4) PAngV. The lender is Santander Consumer Bank AG, Santander-Platz 1, 41061 Mönchengladbach, Germany, last installment may vary. Creditworthiness assumed.",
+    "germany": "Obiges Beispiel bildet zugleich das 2/3-Beispiel nach § 6a Abs. 4 PAngV. Darlehensgeber ist die Santander Consumer Bank AG, Santander-Plats 1, 41061 Mönchen-Gladbach. Letzte Rate kann jeweils abweichen. Bonität vorausgesetzt."
+  },
+  "santanderInstallments": {
+    "english": "Santander Installments",
+    "germany": "Santander Ratenkredit"
+  },
+  "santanderSelectGroup": {
+    "english": "339,83€/month. for 6 months ",
+    "germany": "339,83€/Monat für 6 Monate"
+  },
+  "dueDate": {
+    "english": "Due Date",
+    "germany": "Fälligkeitsdatum"
+  },
+  "santander1STofEachMonth": {
+    "english": "1st of each month",
+    "germany": "&nbsp;1.&nbsp;des Monats"
+  },
+  "santanderPaymentCheckmarkInfo": {
+    "english": "I give my consent to obtain information from credit bureau services, especially <span>Schufa</span>",
+    "germany": "Der (die) Kreditnehmer willigen ein, zukünftig von Santander <span>beraten und informiert</span> zu werden."
+  },
+  "santanderPaymentTerms": {
+    "english": "Continuing the credit request beyond this point triggers data transmission and data collection for the purpose of credit checks (e.g. Schufa) wear.",
+    "germany": "Das Fortfahren der Kreditanfrage über diesen Punkt hinaus löst eine Datenübermittlung und Datenerfassung zum Zwecke der Bonitätsprüfung (z.B. Schufa) aus."
+  },
+  "santanderPaymentStepButton": {
+    "english": "Choose  €339,83 for 6 months",
+    "germany": "€339,83/Monat für 6 Monate wählen"
+  },
+  "Nationality": {
+    "english": "Nationality",
+    "germany": "Nationalität"
+  },
+  "materialStatus": {
+    "english": "Material Status",
+    "germany": "Familienstand"
+  },
+  "Married": {
+    "english": "Married",
+    "germany": "Verheiratet"
+  },
+  "Employment": {
+    "english": "Employment",
+    "germany": "Beschäftigung"
+  },
+  "addressResidenceSince": {
+    "english": "Address residence since",
+    "germany": "Wohnsitz seit"
+  },
+  "birthName": {
+    "english": "Birth name",
+    "germany": "Geburtsname"
+  },
+  "PlaceOfBirth": {
+    "english": "Place of birth",
+    "germany": "Geburtsort"
+  },
+  "PhoneFull": {
+    "english": "Phone",
+    "germany": "Festnetznummer"
+  },
+  "cellPhone": {
+    "english": "Cell Phone",
+    "germany": "Handynummer"
+  },
+  "TypeOfGuarantorRelation": {
+    "english": "Type of guarantor relation",
+    "germany": "Art der Bürgschaft Beziehung"
+  },
+  "employmentDetails": {
+    "english": "Employment details",
+    "germany": "Beschäftigungsverhältnis"
+  },
+  "Employer": {
+    "english": "Employer",
+    "germany": "Arbeitgeber"
+  },
+  "employedSince": {
+    "english": "Employed since",
+    "germany": "Beschäftigt seit"
+  },
+  "employmentLimited": {
+    "english": "Employment limited",
+    "germany": "Beschäftigung befristet"
+  },
+  "Income": {
+    "english": "Income",
+    "germany": "Einkommen"
+  },
+  "MonthlySalary": {
+    "english": "Monthly Salary",
+    "germany": "Monatliches Nettoeinkommen"
+  },
+  "PartnerIncome": {
+    "english": "Partner Income",
+    "germany": "Nettoeinkommen Partner"
+  },
+  "OtherIncome": {
+    "english": "Other Income",
+    "germany": "Sonstige Einnahmen"
+  },
+  "RentalIncome": {
+    "english": "Rental Income",
+    "germany": "Mieteinnahmen"
+  },
+  "Expenses": {
+    "english": "Expenses",
+    "germany": "Ausgaben"
+  },
+  "TypeOfResidence": {
+    "english": "Type of Residence",
+    "germany": "Wohnart"
+  },
+  "monthlyRent": {
+    "english": "Monthly rent",
+    "germany": "Monatliche Miete"
+  },
+  "MonthlyMaintenancePayments": {
+    "english": "Monthly maintenance payments",
+    "germany": "Monatliche Unterhaltszahlungen"
+  },
+  "bankAccount": {
+    "english": "Bank account",
+    "germany": "Bankverbindung"
+  },
+  "installmentPlanInsurance": {
+    "english": "Installment plan insurance",
+    "germany": "Ratenschetzversicherung"
+  },
+  "santanderInsureContenText": {
+    "english": "Would you like to insure yourself with our worry-free package for just 0,00€/month?",
+    "germany": "Möchten Sie sich für mit unserem <span><b>Sorgenfrei-Paket</b></span> absichern für nur 0,00 €/monatlich?"
+  },
+  "caseOfDeath": {
+    "english": "Case of death",
+    "germany": "Todesfall"
+  },
+  "inabilityToWork": {
+    "english": "Inability to work",
+    "germany": "Arbeitsunfähigkeit"
+  },
+  "YesBookWorryFreePackage": {
+    "english": "Yes, book the worry-free package!",
+    "germany": "Ja, Sorgenfrei-Paket buchen!"
+  },
+  "NoThankYou": {
+    "english": "No, thank you!",
+    "germany": "Nein, danke!"
+  },
+  "santanderCheckItemContentText1": {
+    "english": "Selecting this option will result in the following changes to your previously selected installment payment:",
+    "germany": "Durch Wahl dieser Option ergeben sich folgende Änderungen für Ihre zuvor gewählte Ratenzahlung:"
+  },
+  "santanderCheckItemContentText2": {
+    "english": "Monthly installment payment: 22,16 € instead of 22,16 €",
+    "germany": "Monatliche Ratenzahlung: 22,16 €  statt 22,16 €"
+  },
+  "santanderCheckItemContentText3": {
+    "english": "Total amount of loan: 133,00 €  instead of 133,00 €",
+    "germany": "Kreditbetrag insgesamt: 133,00 € statt 133,00 €"
+  },
+  "santanderCheckItemContentText4": {
+    "english": "Last installment: 22,20 € instead of 22,20 €",
+    "germany": "Letzte Rate: 22,20 € statt 22,20 €"
+  },
+  "sendFinanceInquiry": {
+    "english": "Send finance inquiry",
+    "germany": "Finanzierungsanfrage senden"
+  },
+  "creditCheck": {
+    "english": "Credit check",
+    "germany": "Kreditprüfung"
+  },
+  "Identification": {
+    "english": "Identification",
+    "germany": "Identifizierung"
+  },
+  "Signature": {
+    "english": "Signature",
+    "germany": "Unterschrift"
+  },
+  "goodNews": {
+    "english": "Good News:",
+    "germany": "Gute Nachrichten:"
+  },
+  "yourLoanRequestHasBeenApproved": {
+    "english": "Your loan request has been approved",
+    "germany": "Ihre Kreditanfrage wurde genehmigt"
+  },
+  "whatsNext": {
+    "english": "What’s next?",
+    "germany": "Wie geht es jetzt weiter?"
+  },
+  "santanderNextStepInfo": {
+    "english": "In the next step, we must verify your identity. You can choose from different options for this.",
+    "germany": "Im nächsten Schritt müssen wir Ihre Identität verifizieren. Sie können hierfür aus unterschiedlichen Möglichkeiten wählen."
+  },
+  "videoChat": {
+    "english": "Video chat",
+    "germany": "Video chat"
+  },
+  "AccountID": {
+    "english": "Account ID",
+    "germany": "Konto-Ident"
+  },
+  "santanderVideoChatInfo": {
+    "english": "you transfer a symbolic amount of one cent via your online banking to prove your identity through your bank.",
+    "germany": "Sie überweisen über ihr Online-Banking einen symbolischen Betrag von einem Cent, um Ihre Identität über ihre Bank nachzuweisen."
+  },
+  "santanderAccountIDInfo": {
+    "english": "An employee of our partner WebID will identify you via video chat (Mon-Fri 7:00-10:00)",
+    "germany": "Ein Mitarbeiter unseres Partner WebID identifiziert Sie per Video-Chat (Mon-Fri 7:00-10:00)"
+  },
+  "santanderIdentifyLater": {
+    "english": "Skip",
+    "germany": "Später identifizieren"
+  },
+  "santanderModalFooterInfo": {
+    "english": "We will be happy to send you an email with a link to the Santander contract center where you can initiate a video ident or download a Post-ident cuopon.",
+    "germany": "Gerne senden wir ihnen eine EMail mit  Link zum Santander Vertragscenter, indem Sie einen <b>Video-ident</b> anstoßen order einen <b>Post-ident</b> Cuopon herunterladend können."
+  },
+  "santanderModalFinalStepInfo1": {
+    "english": "The Bank will shortly send the retailer the final approval of your loan, and retailer will ship the goods you ordered. If contrary to expectations, a query arises about your application, the Bank will contact you.",
+    "germany": "Die Bank wird dem Händler in Kürze die endgültige Genehmigung Ihres Kredits übermitteln, und der Händler wird die von Ihnen bestellte Ware versenden. Sollte anders als erwartet eine Frage zu Ihrem Antrag aufkommen, wird sich die Bank mit Ihnen in Verbindung setzen."
+  },
+  "santanderModalFinalStepInfo2": {
+    "english": "Click the button below to return to the shop and complete your order.",
+    "germany": "Klicken Sie den unteren Button, um zum Shop zurückzukehren und damit Ihre Bestellung abzuschließen."
+  },
+  "CompleteOrderInShop": {
+    "english": "Complete the order in the shop",
+    "germany": "Bestellung im Shop abschließen"
+  },
+  "Redirect to Santander": {
+    "english": "Redirect to Santander",
+    "germany": "Weiter zu Santander"
+  },
+  "InstallmentAtTerms": {
+    "english": "By clicking <b>Redirect to Santander</b> you agree with the <br class='mobile-br'> <span>terms of service of payever</span>",
+    "germany": "Mit dem Klick auf <b>Weiter zu Santander</b> Stimmen Sie den <br class='mobile-br'> <span>AGB der payever GmbH</span> zu."
+  },
+  "Bank Search by Name or BIC:": {
+    "english": "Bank Search by Name or BIC:",
+    "germany": "Banksuche nach Namen oder BIC"
+  },
+  "OrSelectFromBelowBanks": {
+    "english": "Or Select from the Below Banks:",
+    "germany": "Oder wählen Sie aus den unten stehenden Banken"
+  },
+  "EnterCustomInstallments": {
+    "english": "Enter custom installments",
+    "germany": "Wunschrate eingeben (optional)"
+  },
+  "AnnualFixedInterest": {
+    "english": "Annual fixed interest",
+    "germany": "Sollzins fest p.a"
+  },
+  "InterestAndFees": {
+    "english": "Interest & fees",
+    "germany": "Zinsen"
+  },
+  "EffAnnualInterest": {
+    "english": "Eff. annual interest",
+    "germany": "Eff. Jahreszins"
+  },
+  "SumTotal": {
+    "english": "Total",
+    "germany": "Gesamtbetrag"
+  },
+  "CommodityGroup": {
+    "english": "Commodity group",
+    "germany": "Warengruppe"
+  },
+  "CreditType": {
+    "english": "Credit type",
+    "germany": "Kreditart"
+  },
+  "FinancingProgram": {
+    "english": "Financing program",
+    "germany": "Finanzierungsprogramm"
+  },
+  "DateOfBirthLow": {
+    "english": "Date of birth",
+    "germany": "Geburtsdatum"
+  },
+  "Profession": {
+    "english": "Profession",
+    "germany": "Beschäftigung"
+  },
+  "Employee": {
+    "english": "Employee",
+    "germany": "Angestellter"
+  },
+  "WeekOfDelivery": {
+    "english": "Week of delivery",
+    "germany": "Lieferwoche"
+  },
+  "ThisWeek": {
+    "english": "This week",
+    "germany": "Diese Woche"
+  },
+  "StandardFinancing": {
+    "english": "Standard financing",
+    "germany": "Standardfinanzierung"
+  },
+  "Program": {
+    "english": "Program",
+    "germany": "Programm"
+  },
+  "DueDateLow": {
+    "english": "Due date",
+    "germany": "Fälligkeitsdatum"
+  },
+  "AdditionalBorrower": {
+    "english": "Additional borrower",
+    "germany": "Zweiter Darlehensnehmer"
+  },
+  "DownPayment": {
+    "english": "Down payment",
+    "germany": "Anzahlung"
+  },
+  "Unemployment": {
+    "english": "Unemployment",
+    "germany": "Arbeitsunfähigkeit"
+  },
+  "CellphoneNumber": {
+    "english": "Phone",
+    "germany": "Mobilnummer"
+  },
+  "LandlinePhoneOptional": {
+    "english": "Landline Phone (optional)",
+    "germany": "Festnetznummer (optional)"
+  },
+  "CurrentAddressSince": {
+    "english": "Current address since",
+    "germany": "Aktuller Wohnsitz seit"
+  },
+  "IdentificationNumber": {
+    "english": "Identification number",
+    "germany": "Ausweisnummer"
+  },
+  "IDIssuedInCity": {
+    "english": "ID issued in (city)",
+    "germany": "Ausstellungsort"
+  },
+  "IDIssuedOnDate": {
+    "english": "ID issued on (date)",
+    "germany": "Ausstellungsdatum"
+  },
+  "IDExpiresOnDate": {
+    "english": "ID expires on (date)",
+    "germany": "Ablaufdatum"
+  },
+  "IDIssuedByAuthority": {
+    "english": "ID issued by (authority)",
+    "germany": "Ausstellende Behörde"
+  },
+  "NumberOfChildrenInHousehold": {
+    "english": "Number of children in the household",
+    "germany": "Anzahl Kinder im Haushalt"
+  },
+  "MaterialStatusLow": {
+    "english": "Material status",
+    "germany": "Familienstand"
+  },
+  "NameOfBirthOptional": {
+    "english": "Name of birth (optional)",
+    "germany": "Geburtsname (wenn vohanden)"
+  },
+  "BankAccountCapitalize": {
+    "english": "Bank Account",
+    "germany": "Bankverbindung"
+  },
+  "NetIncome": {
+    "english": "Net Income",
+    "germany": "Nettoeinkommen"
+  },
+  "SpouseIncomeOptional": {
+    "english": "Spouse income (optional)",
+    "germany": "Einkommen des Partners (optional)"
+  },
+  "OtherIncomeOptional": {
+    "english": "Other income (optional)",
+    "germany": "Sonstiges Einkommen (optional)"
+  },
+  "RentalIncomeOptional": {
+    "english": "Rental income (optional)",
+    "germany": "Mieteinnahmen (optional)"
+  },
+  "MonthlyMaintenancePaymentsOptional": {
+    "english": "Monthly maintenance  payments (optional)",
+    "germany": "22 Unterhaltszahlungen (optional)"
+  },
+  "CompanyEmployer": {
+    "english": "Employer",
+    "germany": "Unternehmen/ Arbeitgeber"
+  },
+  "EmployedHereSince": {
+    "english": "Employed since",
+    "germany": "Hier beschäftigt seit"
+  },
+  "SubmitApplication": {
+    "english": "Submit application",
+    "germany": "Kreditanfrage absenden"
+  },
+  "santanderPoSSelectGroup": {
+    "english": "342,43 €/month for 6 months",
+    "germany": "339,83 €/Monat über 6 Monate"
+  },
+  "santanderPoSPaymentSummaryInfo": {
+    "english": "Last installment may differ in each case. Creditworthiness assumed. The lender is Santander Consumer Bank AG, Santander-Platz 1, 41061 Mönchengladbach. The above example also constitutes the 2/3 example pursuant to Section 6a (4) PAngV.",
+    "germany": "Letzte Rate kann jeweils abweichen. Bonität vorausgesetzt. Darlehensgeber ist die Santander Consumer Bank AG, Santander Platz 1, 41061 Mönchegladbach. Die vorstehenden Angaben bilden zugleich das 2/3-Beispiel nach §  6a Abs. 4 PAngV"
+  },
+  "santanderPoSPaymentSummaryInfoNote": {
+    "english": "Note: A second borrower often increases the chances of approval and is recommended for example for students/ apprentices, housewives/ househusbands, temporary or marginal/ part-time employees.1",
+    "germany": "Hinweis: Ein zweiter Darlehensnehmer erhöht oft die Chancen auf eine Genehmigung und empfiehlt sich z.B. bei Studenten/Auszubildenden, Hausfrau/Hausmann, befristet order geringfügig/ in Teilzeit Beschäftigten. 1"
+  },
+  "santanderPoSPaymentCheckbox1": {
+    "english": "The borrower(s) act(s) for their/ its own account",
+    "germany": "Der/die Darlehensnehmer handelt/handeln auf eigene Rechnung."
+  },
+  "santanderPoSPaymentCheckbox2": {
+    "english": "The customer(s) is/are willing to be <span>consulted and informed</span> by Santander in the future.",
+    "germany": "Der (die) Kreditnehmer willigen ein, zukünftig von Santander <span>beraten und informiert</span> zu werden."
+  },
+  "santanderPoSPaymentCheckbox3": {
+    "english": "I hereby confirm that I have provided the borrower(s) with the relevant <span>data protection notice</span> (the credit application triggers data transmission and data collection for the purpose of a credit check).",
+    "germany": "Ich bestätige hiermit, dem/den Darlehensnehmer (n) die entsprechenden <span>Datenschutzhinweise</span> ausgehändigt zu haben (die Kreditanfrage löst eine Datenübermittlung und Datenerfassung zum Zwecke der Bonitätsprüfung aus)."
+  },
+  "santanderPoSPaymentCheckbox4": {
+    "english": "I confirm that the customers agree with the webID terms & conditions for digital signing.",
+    "germany": "Der/die Darlehensnehmer wurde/n darüber informiert, dass die ditale Vertragsunterzeichnung von WebID durchgeführt wird und zusätzliche Bedingungen von WebID gelten."
+  },
+  "santanderPoSPaymentCheckbox5": {
+    "english": "The customer agrees that hi/her personal data may be forwarded to third parties for the processing of his/her  insurance contract with CNP Santander Insurance Life DAC and/or CNP Santander Insurance Europe DAC and releases the insurer(s) from their obligations with regard to data protected under Section 203 of the German Criminal Code (StGB). Details can be found <span>here</span>",
+    "germany": "Der Kunde willigt ein, dass für die Bearbeitung seines Versicherungsvertrags mit der CNP Santander Insurance Life DAC und/oder der CNP Santander Insurance Europe DAC seine personenbezogenen Daten an Dritte weitergeleitet werden können und entbindet den/die Versicherer von seinen/ihren Pflichten im Hinblick auf die nach § 203 StGB geschützten Daten. Einzelheiten finden Sie <span>hier</span>"
+  },
+  "InstallmentProtectionInsurance": {
+    "english": "Installment protection insurance",
+    "germany": "Rantenschutzversicherung"
+  },
+  "santanderPoSInsureContenText": {
+    "english": "Would you like to insure yourself with our <span>worry-free package</span> for just 3,78 €/month?",
+    "germany": "Möchten Sie sich für mit unserem <span><b>Sorgenfrei-Paket</b></span> absichern für nur 0,00 €/month?"
+  },
+  "santanderPoSPaymentButton": {
+    "english": "Choose 342,43 € for 6 months",
+    "germany": "339,83 € über 6 Monate wählen"
+  },
+  "santanderPoSPaymentTerms": {
+    "english": "By clicking <b>Choose 342,43 € for 6 months</b> <br class='mobile-br'> you agree with the following policies",
+    "germany": "Mit dem Klick auf <b>339,83 € über 6 Monate wählen</b> <br class='mobile-br'> Stimmen Sie den<span>AGB der payever GmbH</span> zu."
+  }
+}

@@ -1,0 +1,18 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $row-background: map.get($color-config, 'row-background');
+  $text-color: map.get($color-config, 'text-color');
+  $label-color: map.get($color-config, 'label-color');
+
+  .pe-text-editor {
+    background-color: $row-background;
+    color: $text-color;
+    >label {
+      color: $label-color;
+    }
+    .placeholder-element{
+      color: $label-color;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+<pe-dialog
+  [baseButtons]="null"
+  [noMarginBottom]="true"
+  [hasCloseIcon]="true">
+  <pe-dialog-content>
+    <div
+      class="dialog-container"
+      peFixFileLinks>
+      <div
+        [class.hidden]="!data.title"
+        class="dialog-title large-1"
+        [style.margin-bottom.px]="6"
+        [innerHtml]="data.title"></div>
+      <p
+        class="dialog-text"
+        [innerHtml]="data.text"></p>
+    </div>
+  </pe-dialog-content>
+</pe-dialog>

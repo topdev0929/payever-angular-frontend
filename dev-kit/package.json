@@ -1,0 +1,19 @@
+{
+  "name": "@pe/frontend-dev-kit",
+  "version": "0.1.7",
+  "description": "Payever frontend dev kit",
+  "homepage": "https://gitlab.devpayever.com/frontend/dev-kit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@gitlab.devpayever.com:10022/frontend/dev-kit.git"
+  },
+  "dependencies": {
+    "codelyzer": "^5.2.0",
+    "prettier": "^1.19.1",
+    "tslint": "^5.20.0"
+  }
+}

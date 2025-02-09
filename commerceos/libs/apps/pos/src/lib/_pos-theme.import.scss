@@ -1,0 +1,19 @@
+@use 'pe_theming' as pet;
+@use './root/next-root-theme.component' as root;
+@use './routes/dashboard/pos-dashboard-theme.component' as dashboard;
+@use './routes/settings/pos-settings-theme.component' as setting;
+@use './routes/connect/pos-connect-theme.component' as connect;
+@use './components/material/material-theme.component' as material_component;
+@use './components/product-list/product-list-theme.component' as product_list;
+@use './components/qr-print/qr-print-theme.component' as qr_modal;
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+
+  @include root.color($color-config);
+  @include dashboard.color($color-config);
+  @include material_component.color($color-config);
+  @include setting.color($color-config);
+  @include connect.color($color-config);
+  @include product_list.color($color-config);
+  @include qr_modal.color($color-config);
+}

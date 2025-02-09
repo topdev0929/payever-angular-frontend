@@ -1,0 +1,7 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+
+.app-container-example-wrap {
+    background-image: linear-gradient(135deg, #3095b6, #9a5193);
+    min-height: $pe_vgrid_height * 20;
+    position: relative;
+}

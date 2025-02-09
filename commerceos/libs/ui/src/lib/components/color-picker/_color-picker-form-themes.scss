@@ -1,0 +1,29 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $content: map.get($color-config, 'content');
+  $border: map.get($color-config, 'border');
+  $background: map.get($color-config, 'background');
+  $input-button-background: map.get($color-config, 'input-button-background');
+  $text-color: map.get($color-config, 'text-color');
+  $hover-button: map.get($color-config, 'hover-button');
+  $label-color: map.get($color-config, 'label-color');
+
+    .color-picker-form {
+      &__color {
+        background-color: $content;
+        border: solid 1px $border;
+      }
+      &__label {
+        color: $text-color;
+      }
+      &__button-container {
+        background-color: $input-button-background;
+        color: $hover-button;
+        border-left: solid 1px $background;
+      }
+      &-menu__icon {
+        color: $label-color;
+      }
+    }
+}

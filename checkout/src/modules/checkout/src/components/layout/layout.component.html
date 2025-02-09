@@ -1,0 +1,60 @@
+<div
+  class="checkout-container"
+  [class.light-checkout-theme]="theme === 'light'"
+  [class.transparent-checkout-theme]="theme === 'transparent'">
+
+  <div class="checkout-main">
+    <pe-data-grid
+      *ngIf="theme"
+      [filters]="[]"
+      [theme]="theme"
+      [displayNavbar]="false"
+      [displayGrid]="false"
+      [displayFilters]="true"
+      [isShowGridItemInfo]="false">
+      <pe-sidebar-filters-wrapper>
+        <pe-sidebar-header
+          [title]="translateService.translate('info_boxes.checkoutAppName')"
+          (closeSidebar)="toggleSidebar()">
+        </pe-sidebar-header>
+        <pe-sidebar-filter-wrapper
+          [title]="'Navigation'"
+          [expandable]="true"
+          [editable]="false"
+          [active]="false">
+          <pe-tree-sidebar-filter
+            #sidebarFilter
+            [allowToggle]="false"
+            [tree]="treeData"
+            [formControl]="formGroup.get('tree')"
+          >
+            <ng-template #nodeImageTemplate treeFilterImageTemplate let-node="node">
+              <div
+                *ngIf="node.id === '0' && (!currentCheckout?.logo || checkoutIconLoadingError)"
+                class="checkout-sidebar__checkout-abbreviation">
+                {{currentCheckout?.name | abbreviation}}
+              </div>
+              <img
+                *ngIf="node.id === '0' && currentCheckout?.logo && !checkoutIconLoadingError"
+                class="checkout-sidebar__checkout-icon"
+                [src]="currentCheckout.logo"
+                (error)="checkoutIconLoadingError = true">
+              <svg *ngIf="node.id !== '0'" class="checkout-sidebar__filter-icon">
+                <use [attr.xlink:href]="getFilterIcon(node)"></use>
+              </svg>
+            </ng-template>
+          </pe-tree-sidebar-filter>
+        </pe-sidebar-filter-wrapper>
+        <pe-sidebar-footer-wrapper></pe-sidebar-footer-wrapper>
+      </pe-sidebar-filters-wrapper>
+
+      <div dataGridBodySlot class="checkout-content">
+        <div
+          class="checkout-content__wrapper"
+          [class.transform]="activeRouteFilter?.data?.transform">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </pe-data-grid>
+  </div>
+</div>

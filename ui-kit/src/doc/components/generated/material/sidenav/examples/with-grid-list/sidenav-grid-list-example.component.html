@@ -1,0 +1,87 @@
+<button type="button" mat-button (click)="snav.toggle()">Toggle</button>
+<div class="doc-container-black">
+  <mat-sidenav-container class="example-sidenav-container">
+    <mat-sidenav #snav position="start" class="col-xs-5 mat-sidenav-dark mat-sidenav-fit-content">
+      <button mat-button (click)="snav.toggle()"
+              class="mat-sidenav-first-el mat-button mat-button-bold mat-button-no-padding mat-sidenav-header-left">
+        <svg class="icon icon-16">
+          <use xlink:href="#icon-arrow-left-small-16"></use>
+        </svg>
+        <span>Navigation</span>
+      </button>
+      <h3> Channels </h3>
+      <div class="mat-sidenav-indents">
+        <div class="form-table">
+          <div class="form-fieldset dark">
+            <div class="row">
+              <div class="col-xs-12">
+                <mat-form-field>
+                  <input matInput placeholder="Label">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mat-sidenav-indents">
+        <mat-grid-list gutterSize="20px" cols="2" rowHeight="1:1.28">
+          <mat-grid-tile>
+            <mat-card class="mat-sidenav-card">
+              <button mat-icon-button class="mat-button-link mat-button-no-padding mat-sidenav-close-button">
+                <mat-icon>
+                  <svg class="icon icon-24 mat-sidenav-grey">
+                    <use xlink:href="#icon-x-round-white-cross-24"></use>
+                  </svg>
+                </mat-icon>
+              </button>
+              <img mat-card-image src="https://picsum.photos/600/600/?image=849">
+              <mat-card-footer>Lore ipsum</mat-card-footer>
+            </mat-card>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-card class="mat-sidenav-card mat-sidenav-grey">
+              <button mat-icon-button class="mat-button-link mat-button-no-padding mat-sidenav-close-button">
+                <mat-icon>
+                  <svg class="icon icon-24 mat-sidenav-grey">
+                    <use xlink:href="#icon-x-round-white-cross-24"></use>
+                  </svg>
+                </mat-icon>
+              </button>
+              <img mat-card-image src="https://picsum.photos/600/600/?image=1063" alt="Photo of a Shiba Inu">
+              <mat-card-footer>Lore ipsum</mat-card-footer>
+            </mat-card>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-card class="mat-sidenav-card mat-sidenav-grey">
+              <button mat-icon-button class="mat-button-link mat-button-no-padding mat-sidenav-close-button">
+                <mat-icon>
+                  <svg class="icon icon-24 mat-sidenav-grey">
+                    <use xlink:href="#icon-x-round-white-cross-24"></use>
+                  </svg>
+                </mat-icon>
+              </button>
+              <img mat-card-image src="https://picsum.photos/600/600/?image=58" alt="Photo of a Shiba Inu">
+              <mat-card-footer>Lore ipsum</mat-card-footer>
+            </mat-card>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-card class="mat-sidenav-card mat-sidenav-grey">
+              <button mat-icon-button class="mat-button-link mat-button-no-padding mat-sidenav-close-button">
+                <mat-icon>
+                  <svg class="icon icon-24 mat-sidenav-grey">
+                    <use xlink:href="#icon-x-round-white-cross-24"></use>
+                  </svg>
+                </mat-icon>
+              </button>
+              <img mat-card-image src="https://picsum.photos/600/600/?image=946" alt="Photo of a Shiba Inu">
+              <mat-card-footer>Lore ipsum</mat-card-footer>
+            </mat-card>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <p style="color: transparent" *ngFor="let content of fillerContent">{{content}}</p>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

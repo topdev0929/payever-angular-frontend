@@ -1,0 +1,329 @@
+<div id="contacts-list" class="data-grid-wrap">
+  <contacts-assets></contacts-assets>
+
+  <div class="loader" *ngIf="isLoading">
+    <mat-spinner [strokeWidth]="2" [diameter]="26"></mat-spinner>
+  </div>
+
+  <div hidden>
+    <input
+      #csvFileInput
+      type="file"
+      class="file-input"
+      accept="text/plain, .csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+      (change)="importFile($event)"
+    />
+
+    <input
+      #xmlFileInput
+      type="file"
+      class="file-input"
+      accept="text/xml"
+      (change)="importFile($event)"
+    />
+  </div>
+
+  <pe-data-grid
+    [items]="gridItems$ | async"
+    [totalCount]="totalCount"
+    [filters]="[]"
+    [filterItems]="contactsListService.searchFilters"
+    [searchItems]="contactsListService.searchItems"
+    [displayNavbar]="true"
+    [theme]="theme"
+    [defaultLayout]="viewMode"
+    [dataListOptions]="dataGridListOptions"
+    [navbarLeftPaneButtons]="navbarLeftPaneButtons"
+    [isShowGridItemInfo]="true"
+    [sortByActions]="contactsListService.sortByActions"
+    (searchRemove)="contactsListService.onSearchRemove($event)"
+    (searchChanged)="contactsListService.onSearchChanged($event)"
+    [multipleSelectedActions]="multipleSelectedActions"
+    [selectedItems]="selectedItems"
+    (multipleSelectedItemsChanged)="onSelectedItemsChanged($event)"
+    (layoutTypeChanged)="onChangeView($event)"
+    (gridContentContextMenu)="onGridContentContextMenu($event)"
+    (scrollEvent)="scrollOnBottom($event)"
+  >
+    <pe-data-grid-item
+      *ngIf="viewMode === gridMode"
+      [item]="addNewItem"
+      [theme]="theme"
+      [selectable]="false"
+      [isShowGridItemInfo]="false"
+      [actions]="addNewItem.actions"
+    >
+      <div class="add-new">
+        <svg xmlns="http://www.w3.org/2000/svg" width="58" height="58" viewBox="0 0 58 58">
+          <defs>
+            <linearGradient id="f98673j0ca" x1="50%" x2="48.333%" y1="0%" y2="107.889%">
+              <stop offset="0%" stop-color="#007DFE"/>
+              <stop offset="100%" stop-color="#005CBB"/>
+            </linearGradient>
+          </defs>
+          <g fill="none" fill-rule="evenodd">
+            <g fill="url(#f98673j0ca)" fill-rule="nonzero" transform="translate(-384 -229)">
+              <path d="M152.778 105.778h-22.556V83.222c0-1.78-1.442-3.222-3.222-3.222s-3.222 1.443-3.222 3.222v22.556h-22.556c-1.78 0-3.222 1.442-3.222 3.222s1.443 3.222 3.222 3.222h22.556v22.556c0 1.78 1.442 3.222 3.222 3.222s3.222-1.443 3.222-3.222v-22.556h22.556c1.78 0 3.222-1.442 3.222-3.222s-1.443-3.222-3.222-3.222z" transform="translate(286 149)"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </pe-data-grid-item>
+
+    <pe-data-grid-item
+      *ngFor="let item of gridItems$ | async"
+      [item]="item"
+      [theme]="theme"
+      [selectable]="true"
+      [labels]="item.labels"
+      [actions]="item.actions"
+      (contextmenu)="openContextMenu($event, item, contextMenu)"
+    >
+    </pe-data-grid-item>
+
+    <pe-sidebar-filters-wrapper>
+      <pe-sidebar-header
+        title="Contacts"
+        (closeSidebar)="toggleSidebar()"
+        [allowClose]="false"
+      >
+      </pe-sidebar-header>
+
+      <pe-sidebar-filter-wrapper
+        *ngFor="let category of categories; let i = index"
+        [title]="category.title"
+        [expandable]="true"
+        [editable]="false"
+        [expanded]="category.expanded"
+        [editMode]="category.editMode"
+        [active]="category.active"
+        (headerClick)="onHeaderClick(i)"
+      >
+        <peb-contacts-tree
+          [tree]="category.tree"
+          (renameNode)="onCreateFolder($event)"
+        >
+        </peb-contacts-tree>
+      </pe-sidebar-filter-wrapper>
+
+      <pe-sidebar-filter-wrapper
+        title="Type"
+        [expandable]="true"
+        [editable]="false"
+        [active]="false"
+      >
+        <pe-tree-sidebar-filter
+          [tree]="typesFilterTree"
+          [formControl]="contactsListService.typesFilterControl"
+          [multiple]="true"
+        >
+        </pe-tree-sidebar-filter>
+      </pe-sidebar-filter-wrapper>
+
+      <pe-sidebar-footer-wrapper>
+        <pe-menu-sidebar-footer
+          [menuData]="sidebarFooterData"
+        ></pe-menu-sidebar-footer>
+      </pe-sidebar-footer-wrapper>
+    </pe-sidebar-filters-wrapper>
+  </pe-data-grid>
+
+  <div class="import">
+    <div style="flex-grow: 0.5"></div>
+    <div
+      class="button"
+      #menuTrigger="matMenuTrigger"
+      [mat-menu-trigger-for]="leftPaneButtonMenu"
+      (menuClosed)="onMenuClosed()"
+    >
+      Import
+    </div>
+    <div style="width: 46px"></div>
+    <div></div>
+    <mat-menu
+      #leftPaneButtonMenu="matMenu"
+      backdropClass="lib-contacts__import-mat-menu"
+    >
+      <div id="import-menu">
+        <div class="menu">
+          <div class="menu-header" (click)="$event.stopPropagation()">
+            <div class="menu-header__title">Import</div>
+            <div class="icon-close">
+              <mat-icon svgIcon="close" (click)="menuTrigger.closeMenu()"></mat-icon>              
+            </div>            
+          </div>
+          <button class="menu__button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+            >
+              <g fill="none" fill-rule="evenodd">
+                <g>
+                  <g>
+                    <g
+                      transform="translate(-725 -156) translate(709 94) translate(16 62)"
+                    >
+                      <rect width="20" height="20" fill="#86868B" rx="5" />
+                      <g fill="#FFF" fill-rule="nonzero">
+                        <path
+                          d="M8.552 0c.349 0 .757.117 1.072.25l.149.069c.325.159.65.238.976.318.244.16.407.398.57.557 0 .16.163.319.244.638.082.318.082.955 0 1.513l-.042.26c-.085.478-.202.934-.202.934l.163-.08.042.074c.048.095.12.272.12.484l-.206.774c-.023.09-.038.158-.038.181 0 .08 0 .399-.162.478-.082.08-.245.08-.326.24-.081.158-.163 1.114-.244 1.273l-.09.17c-.091.165-.224.376-.398.547v.21c.008.489.058 1.337.407 1.542.406.239.976.318 1.79.398.564.11 1.01.297 1.286.428l.474.234c.29.15.763.433 1.008.851l.237.403c.2.369.332.792.332 1.907l-.233.01c-.912.031-3.852.048-6.848.057.25-.6.388-1.26.388-1.952 0-1.965-1.113-3.67-2.742-4.52-.093-.15-.17-.352-.17-.603l-.066-.432c-.059-.357-.118-.625-.177-.683l-.1-.088c-.101-.09-.226-.22-.226-.39 0-.239-.244-.796-.244-.955 0-.16-.081-.478 0-.638.081-.08.244-.08.244-.08-.081-.238-.163-.875-.244-1.273 0-.398-.081-.876 0-1.115.081-.319.244-.797.407-.956.163.08.407 0 .407 0l.488-.478c.163-.159.733-.318.977-.318S8.063 0 8.552 0z"
+                          transform="translate(2.143 2.143)"
+                        />
+                        <path
+                          d="M3.929 8.84c2.17 0 3.928 1.758 3.928 3.928s-1.759 3.928-3.928 3.928C1.759 16.696 0 14.938 0 12.768s1.759-3.929 3.929-3.929zm.654 1.309h-1.31v1.964H1.31v1.31l1.964-.001v1.965h1.31l-.001-1.965h1.965v-1.309H4.583v-1.964z"
+                          transform="translate(2.143 2.143)"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </svg>
+
+            <div>
+              <span>Contact</span>
+            </div>
+          </button>
+          <button class="menu__button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+            >
+              <g fill="none" fill-rule="evenodd">
+                <g>
+                  <g>
+                    <g
+                      transform="translate(-725 -156) translate(709 94) translate(16 62)"
+                    >
+                      <rect width="20" height="20" fill="#86868B" rx="5" />
+                      <g fill="#FFF" fill-rule="nonzero">
+                        <path
+                          d="M8.552 0c.349 0 .757.117 1.072.25l.149.069c.325.159.65.238.976.318.244.16.407.398.57.557 0 .16.163.319.244.638.082.318.082.955 0 1.513l-.042.26c-.085.478-.202.934-.202.934l.163-.08.042.074c.048.095.12.272.12.484l-.206.774c-.023.09-.038.158-.038.181 0 .08 0 .399-.162.478-.082.08-.245.08-.326.24-.081.158-.163 1.114-.244 1.273l-.09.17c-.091.165-.224.376-.398.547v.21c.008.489.058 1.337.407 1.542.406.239.976.318 1.79.398.564.11 1.01.297 1.286.428l.474.234c.29.15.763.433 1.008.851l.237.403c.2.369.332.792.332 1.907l-.233.01c-.912.031-3.852.048-6.848.057.25-.6.388-1.26.388-1.952 0-1.965-1.113-3.67-2.742-4.52-.093-.15-.17-.352-.17-.603l-.066-.432c-.059-.357-.118-.625-.177-.683l-.1-.088c-.101-.09-.226-.22-.226-.39 0-.239-.244-.796-.244-.955 0-.16-.081-.478 0-.638.081-.08.244-.08.244-.08-.081-.238-.163-.875-.244-1.273 0-.398-.081-.876 0-1.115.081-.319.244-.797.407-.956.163.08.407 0 .407 0l.488-.478c.163-.159.733-.318.977-.318S8.063 0 8.552 0z"
+                          transform="translate(2.143 2.143)"
+                        />
+                        <path
+                          d="M3.929 8.84c2.17 0 3.928 1.758 3.928 3.928s-1.759 3.928-3.928 3.928C1.759 16.696 0 14.938 0 12.768s1.759-3.929 3.929-3.929zm.654 1.309h-1.31v1.964H1.31v1.31l1.964-.001v1.965h1.31l-.001-1.965h1.965v-1.309H4.583v-1.964z"
+                          transform="translate(2.143 2.143)"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </svg>
+
+            <div>
+              <span>Group</span>
+            </div>
+          </button>
+          <button class="menu__button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+            >
+              <defs>
+                <path
+                  id="f1mo2y563a"
+                  d="M0.26 0.237L6.333 0.237 6.333 2.1 0.26 2.1z"
+                />
+                <path
+                  id="pr6uplwmzc"
+                  d="M0 0.257L13.846 0.257 13.846 4.271 0 4.271z"
+                />
+                <path
+                  id="fz4be868he"
+                  d="M0 0.014L13.846 0.014 13.846 5.275 0 5.275z"
+                />
+              </defs>
+              <g fill="none" fill-rule="evenodd">
+                <g>
+                  <g>
+                    <g
+                      transform="translate(-725 -238) translate(709 94) translate(16 144)"
+                    >
+                      <rect width="20" height="20" fill="#86868B" rx="5" />
+                      <g>
+                        <g transform="translate(3 3) translate(3.626 .092)">
+                          <mask id="ta0gv1tfmb" fill="#fff">
+                            <use xlink:href="#f1mo2y563a" />
+                          </mask>
+                          <path
+                            fill="#FFF"
+                            d="M5.552 1.86v-.452c0-.215-.174-.39-.39-.39H1.435c-.215-.001-.39.171-.392.386v.455c0 .132-.106.24-.238.24H.501c-.133 0-.24-.107-.24-.24v-.451C.261.76.786.238 1.433.238H5.16c.646 0 1.171.523 1.173 1.17v.451c0 .133-.108.24-.24.24h-.3c-.134 0-.241-.107-.241-.24"
+                            mask="url(#ta0gv1tfmb)"
+                          />
+                        </g>
+                        <g transform="translate(3 3) translate(0 2.4)">
+                          <mask id="elmqj4fm9d" fill="#fff">
+                            <use xlink:href="#pr6uplwmzc" />
+                          </mask>
+                          <path
+                            fill="#FFF"
+                            d="M.966 3.808c3.944.618 7.96.618 11.904 0l.139-.023c.486-.076.843-.497.837-.99V.95c-.016-.387-.334-.692-.722-.692H.722C.33.257.01.57 0 .963v1.846c-.006.492.351.913.837.989l.13.01z"
+                            mask="url(#elmqj4fm9d)"
+                          />
+                        </g>
+                        <g transform="translate(3 3) translate(0 6.686)">
+                          <mask id="88m5077suf" fill="#fff">
+                            <use xlink:href="#fz4be868he" />
+                          </mask>
+                          <path
+                            fill="#FFF"
+                            d="M12.96.102C11.357.383 9.737.55 8.112.603c-.137.006-.252.109-.273.244-.049.46-.455.8-.917.765-.463.05-.88-.286-.928-.75L5.994.851C5.97.71 5.85.608 5.71.603 4.088.55 2.472.381.874.103L.33.015C.17-.004.022.111.002.271L0 .307v3.956c-.002.557.448 1.01 1.005 1.012H12.834c.555.001 1.007-.445 1.012-1V.32c0-.162-.132-.293-.294-.293l-.036.002-.557.073z"
+                            mask="url(#88m5077suf)"
+                          />
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </svg>
+
+            <div>
+              <span>Business</span>
+            </div>
+          </button>
+          <button class="menu__button">
+            <svg width="20" height="20" viewBox="0 0 20 20">
+              <g fill="none" fill-rule="evenodd">
+                <g
+                  transform="translate(-728 -240) translate(712 96) translate(16 144)"
+                >
+                  <rect width="20" height="20" fill="#86868B" rx="5" />
+                  <g fill="#FFF">
+                    <path
+                      d="M9.965 14.76H1.891c-.648-.002-1.175-.53-1.175-1.178V1.894c0-.648.528-1.176 1.175-1.178h5.17V2.46c0 1.153.938 2.091 2.091 2.091h1.991v9.03c0 .65-.528 1.179-1.178 1.179zm1.143-10.968c.004.01.006.03.01.043H9.151c-.758 0-1.375-.617-1.375-1.375V.73c.05.006.083.013.1.019l3.231 3.043zm.517-.497L8.36.219C8.177.037 7.877 0 7.453 0H1.89C.848.003 0 .852 0 1.894v11.688c0 1.042.848 1.891 1.89 1.894h8.075c1.045 0 1.894-.85 1.894-1.894V4.3c0-.437-.016-.788-.234-1.005z"
+                      transform="translate(4.286 2.143)"
+                    />
+                    <path
+                      fill-rule="nonzero"
+                      d="M2.648 9.702l.52-.947.519.947h.647L3.527 8.34 4.314 7h-.64l-.507.931L2.661 7h-.64l.786 1.34L2 9.702h.648zm2.523 0v-.739L5.115 7.69l.728 2.012h.382l.73-2.014-.057 1.275v.739h.559V7h-.731l-.69 1.96L5.342 7h-.728v2.702h.557zm4.51 0v-.448H8.5V7h-.557v2.702h1.739z"
+                      transform="translate(4.286 2.143)"
+                    />
+                  </g>
+                </g>
+              </g>
+            </svg>
+            <div>
+              <span>Download CSV</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </mat-menu>
+  </div>
+</div>
+<ng-template #contextMenu>
+  <peb-contacts-context-menu
+    [actions]="contextActions"
+    (close)="closeContextMenu()"
+  ></peb-contacts-context-menu>
+</ng-template>

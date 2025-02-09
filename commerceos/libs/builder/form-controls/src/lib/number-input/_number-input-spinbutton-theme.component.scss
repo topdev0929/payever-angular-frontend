@@ -1,0 +1,30 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $text-color: map.get($color-config, 'text-color');
+  $confirm: map.get($color-config, 'confirm');
+  $active-text: map.get($color-config, 'active-text');
+  $label-color: map.get($color-config, 'label-color');
+
+  peb-number-input-spinbutton {
+    .button {
+      background-color: $overlay-background;
+      color: $text-color;
+      &:disabled {
+        background-color: $label-color;
+      }
+      &:not([disabled]):active,
+      &:not([disabled]):focus {
+        background-color: $confirm;
+        color: $active-text
+      }
+    }
+    .input-value {
+        background-color: $overlay-background;
+        input {
+            background-color: $overlay-background;    
+        }
+    }
+  }
+}

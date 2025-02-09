@@ -1,0 +1,21 @@
+<button mat-button
+        class="mat-default mat-button-icon menu-switcher-button"
+        [matMenuTriggerFor]="menu"
+>
+  <svg class="icon icon-16 icon-view"><use xlink:href="#icon-viewmode-24"></use></svg>
+  <svg *ngIf="isShowArrow" class="icon icon-16"><use xlink:href="#icon-arrow-down-small-16"></use></svg>
+</button>
+<mat-menu panelClass="pe-bootstrap" class="mat-menu-dark" #menu="matMenu">
+  <ng-template matMenuContent>
+    <span *ngIf="title" class="mat-menu-filter-caption">{{ title }}</span>
+    <button mat-menu-item
+            class="column-switcher-menu-item"
+            *ngFor="let column of shownColumns"
+            (click)="onColumnClick(column)">
+      <span class="column-title">{{ column.title }}</span>
+      <mat-icon *ngIf="column.isActive">
+        <svg class="icon icon-16 pull-right"><use xlink:href="#icon-check2-16"></use></svg>
+      </mat-icon>
+    </button>
+  </ng-template>
+</mat-menu>

@@ -1,0 +1,73 @@
+<pe-grid
+  [embedMod]="true"
+>
+  <pe-grid-sidenav
+    [closeOnResize]="closeOnResize"
+    [isOpenOnMobile]="false"
+    (menuItemSelected)="conversationListMenuSelected($event)"
+    [showSidenavHeader]="false"
+    [sidenavMenu]="conversationListMenu"
+    [sidenavName]="sidenavName"
+    [messagesExtraSidebar]="true"
+    [mobileView]="isEmbedChat || isLiveChat"
+    [class.live-chat]="isLiveChat"
+    [style.background-color]="isLiveChat ? colors.bgChat : ''"
+    (bottomReached)="bottomReached()"
+  >
+    <pe-message-conversation-search searchConversation
+      (filter)="filterConversationList($event)"
+      [isLoading]="isLoading$ | async"
+      [mobileView]="isEmbedChat || isLiveChat"
+      [isLiveChat]="isLiveChat"
+      [style.color]="blurMode ? '#fff' : ''"
+    ></pe-message-conversation-search>
+    <pe-message-conversation-empty-list emptyConversationList
+      *ngIf="isEmpty$ | async"
+      [isLoading]="isLoading$ | async"
+      [isLiveChat]="isLiveChat"
+      [style.color]="blurMode ? '#fff' : ''"
+    ></pe-message-conversation-empty-list>
+    <pe-message-conversation-list
+      [conversationList]="conversations$ | async"
+      [isLiveChat]="isLiveChat"
+      [isLoading]="isLoading$ | async"
+    >
+      <ng-template let-item="item">
+          <pe-message-conversation
+            [isConversationActive]="item._id === peMessageAppService.selectedChannel?._id"
+            (actionClick)="actionClick($event)"
+            [item]="item"
+            [isLiveChat]="isLiveChat"
+            [itemContextMenu]="conversationContextMenu"
+            (moveToFolder)="addConversationToFolder($event)"
+            [typingMembers]="getTypingMembers(item)"
+          ></pe-message-conversation>
+       </ng-template>
+    </pe-message-conversation-list>
+  </pe-grid-sidenav>
+  <pe-grid-content
+    [showMobileFooter]="false"
+    [showMobileTitle]="true"
+    [sidenavName]="sidenavName"
+    [mobileView]="isEmbedChat || isLiveChat"
+    [class.live-chat]="isLiveChat"
+  >
+    <div class="pe-message-chat-room-element">
+      <pe-message-chat-room
+        [isEmbedChat]="isEmbedChat"
+        [isLiveChat]="isLiveChat"
+        [mobileView]="mobileView"
+        [colors]="colors"
+      ></pe-message-chat-room>
+    </div>
+  </pe-grid-content>
+</pe-grid>
+
+<ng-template #deleteForEveryOneTemplate>
+  <pe-message-delete-for-everyone-template
+  ></pe-message-delete-for-everyone-template>
+</ng-template>
+
+<ng-template #skeleton>
+
+</ng-template>

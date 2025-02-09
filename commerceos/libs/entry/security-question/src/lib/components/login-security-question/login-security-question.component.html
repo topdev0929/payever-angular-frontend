@@ -1,0 +1,57 @@
+<pe-security-question-styles></pe-security-question-styles>
+<entry-layout [hideLanguageSwitcher]="false">
+  <div class="login-security-question__container">
+    <p class="login-security-question__title">{{ 'forms.login.security_question.title' | translate }}</p>
+    <p class="login-security-question__description">{{ 'forms.login.security_question.description' | translate }}</p>
+
+    <div class="error-message-wrapper">
+      <peb-messages *ngIf="errorMessage" [message]="errorMessage"></peb-messages>
+    </div>
+
+    <form *ngIf="secretForm" class="login-security-question__form" [formGroup]="secretForm" (ngSubmit)="onSubmit()" #myFrom="ngForm">
+      <peb-form-background>
+        <peb-form-field-input
+          label="{{ securityQuestion$ | async }}"
+          appearance="label"
+          [animated]="true"
+        >
+          <input
+            type="text"
+            pebInput
+            formControlName="answer"
+          />
+        </peb-form-field-input>
+      </peb-form-background>
+      <div class="pe-recaptcha-wrap-wrap">
+        <div *ngIf="secretForm.get('recaptchaToken')" class="pe-recaptcha-wrap">
+          <pe-recaptcha [size]="'normal'" [theme]="'dark'" (verified)="onReCaptchaVerified($event)"></pe-recaptcha>
+        </div>
+      </div>
+      <button
+        class="login-security-question__button"
+        type="submit"
+        [disabled]="isLoading$ | async"
+      >
+        <pe-progress-button-content
+          class="mat-progress-spinner-light"
+          [loading]="isLoading$ | async"
+        >
+          {{'forms.login.security_question.submit_answer' | translate}}
+        </pe-progress-button-content>
+      </button>
+      <button
+        class="login-security-question__button login-security-question__button_gray"
+        [class.visibility-hidden]="busy$ | async"
+        type="button"
+        (click)="onCancel()"
+      >
+        <pe-progress-button-content
+          class="mat-progress-spinner-light"
+          [loading]="busySendCode$ | async"
+        >
+          {{'forms.login.security_question.cancel' | translate}}
+        </pe-progress-button-content>
+      </button>
+    </form>
+  </div>
+</entry-layout>

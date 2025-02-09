@@ -1,0 +1,23 @@
+.desktop-checkout-items.with-offset {
+  position: relative;
+  top: -102px;
+  z-index: -1;
+}
+
+.content-with-hint {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+}
+
+.hint-content {
+  line-height: 135%;
+  font-size: 9px;
+  font-weight: 500;
+}
+
+.content-with-hint .hint-icon {
+  width: 15px;
+  height: 15px;
+}

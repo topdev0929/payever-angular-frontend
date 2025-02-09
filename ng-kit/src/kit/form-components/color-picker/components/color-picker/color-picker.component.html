@@ -1,0 +1,41 @@
+<div class="colorpicker-wrapper colorpicker-wrapper-light" [class.colorpicker-wrapper-label-after]="cpPosition !== ColorPickerAlign.Right">
+  <span [class.text-danger]="errorMessage && isErrorState" [innerHtml]="label"></span>
+  <div class="dropdown dropdown-alternate" [class.complex]="complex">
+    <button aria-expanded="true"
+            #limitedPanelTrigger
+            mat-button
+            [matMenuTriggerFor]="menu"
+            aria-haspopup="true"
+            class="btn btn-default btn-colorpicker btn-colorpicker-panel dropdown-toggle"
+            type="button"
+            [style.background-color]="formControl.value"
+            [attr.pe-qa-color-picker]="controlQaId"
+            (click)="setPickerInputLimits()"
+    ></button>
+
+    <mat-menu [attr.overlapTrigger]="false"
+              [attr.xPosition]="cpPosition !== ColorPickerAlign.Right ? 'after' : 'before'"
+              panelClass="pe-bootstrap" class="mat-menu-dark mat-menu-fit-content mat-menu-no-padding mat-menu-pe-colorpicker"
+              #menu="matMenu"
+              yPosition="below"
+    >
+      <ng-template matMenuContent>
+        <div #peColorPicker>
+          <span *ngIf="!isRefreshing"
+                [colorPicker]="initialColor()"
+                [cpToggle]="true"
+                [cpDialogDisplay]="'inline'"
+                [cpAlphaChannel]="cpAlphaChannel"
+                [cpOutputFormat]="cpOutputFormat"
+                [cpPresetColors]="complex ? colors : []"
+                [style.background]="color"
+                (colorPickerOpen)="colorPickerOpened($event)"
+                (colorPickerClose)="colorPickerClosed($event)"
+                (colorPickerChange)="colorPickerChanged($event)">
+          </span>
+        </div>
+      </ng-template>
+    </mat-menu>
+
+  </div>
+</div>

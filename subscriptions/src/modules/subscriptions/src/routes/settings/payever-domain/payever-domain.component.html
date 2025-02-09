@@ -1,0 +1,25 @@
+<div class="container" [ngClass]="config.theme">
+  <div style="margin-bottom: 11px">
+    <peb-form-background>
+      <peb-form-field-input label="Domain" appearance="label">
+        <input [ngModel]="domainConfig.domainName" (ngModelChange)="validateDomain($event)" />
+        <div class="suffix">
+          <p>.payever.subscriptions</p>
+        </div>
+      </peb-form-field-input>
+    </peb-form-background>
+  </div>
+
+  <peb-form-background>
+    <peb-form-field-input appearance="label">
+      <input disabled [ngModel]="domainConfig.creationDate | date: 'longDate'" />
+    </peb-form-field-input>
+    <peb-form-field-input label="Provider" appearance="label">
+      <input [(ngModel)]="domainConfig.provider" disabled pebInput placeholder="Enter Provider" />
+    </peb-form-field-input>
+  </peb-form-background>
+
+  <div style="margin-top: 16px" *ngIf="errorMsg">
+    <peb-messages [showIcon]="false" [message]="errorMsg"></peb-messages>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $confirm: map.get($color-config, 'confirm');
+  $text-color: map.get($color-config, 'text-color');
+  $label-color: map.get($color-config, 'label-color');
+  $filter-invert-light: map.get($color-config, 'filter-invert-light');
+
+  peb-background-form {
+    .image {
+        &__container {
+            background-color: $overlay-background;
+        }
+        span {
+            color: $confirm;
+            &.disabled {
+                color: $label-color;
+            }
+        }
+    }
+    .sizes {
+        &__icon {
+            filter: $filter-invert-light;
+        }
+        span {
+            color: $text-color;
+        }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+<div class="search-bar">
+  <button mat-button
+          class="mat-default mat-button-icon mat-button-fit-content"
+          [matMenuTriggerFor]="menu"
+  >
+    <svg class="icon icon-16"><use xlink:href="#icon-search-16"></use></svg>
+  </button>
+</div>
+<mat-menu #menu="matMenu" panelClass="pe-bootstrap" class="mat-menu-dark mat-menu-panel-data-grid">
+  <ng-template matMenuContent>
+    <div class="data-grid-search">
+      <form class="form-table">
+        <div class="form-fieldset-container transparent round-corners">
+          <div class="form-fieldset form-fieldset-no-margin">
+            <div class="row">
+              <div class="col-xs-12" (click)="$event.stopPropagation()">
+                <div class="pe-input">
+                  <mat-form-field>
+                    <input matInput
+                          #inputSearch
+                           [placeholder]="'ng_kit.data_grid.search_bar.placeholder' | translate"
+                           [(ngModel)]="input"
+                           (click)="$event.stopPropagation()"
+                           name="search"
+                           type="text"
+                    >
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button mat-button
+                type="submit"
+                (click)="onSearch()"
+                class="mat-default mat-button-link mat-button-no-width"
+                [disabled]="!input && !previewValue"
+                translate
+        >ng_kit.data_grid.search_bar.add_button</button>
+      </form>
+    </div>
+  </ng-template>
+</mat-menu>

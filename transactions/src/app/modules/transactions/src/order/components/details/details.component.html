@@ -1,0 +1,473 @@
+<ng-container *ngIf="order">
+
+  <mat-accordion class="mat-accordion-xl mat-accordion-xl-full-width app-orders-details">
+
+    <!-- Product info panel -->
+    <mat-expansion-panel hideToggle
+                 class="mat-expansion-panel-dark no-border-radius"
+                 [disabled]="order.cart?.items?.length < 2"
+    >
+      <mat-expansion-panel-header
+              [collapsedHeight]="isMobile ? '150px' : '120px'"
+              [expandedHeight]="isMobile ? '150px' : '120px'"
+              class="mat-expansion-panel-header-md mat-expansion-panel-header-no-icons-left mat-expansion-panel-header-padding-md overflow-visible order-overview"
+      >
+        <div class="hidden-mobile main-product-desktop">
+          <div class="main-product-image-desktop fs-hide">
+            <div class="item-image" [class.multiple]="order.cart.items?.length > 1">
+              <img *ngIf="order.cart.items && order.cart.items[0]?.thumbnail" [attr.src]="order.cart.items[0].thumbnail"/>
+              <div *ngIf="!order.cart.items || !order.cart.items[0]?.thumbnail" class="image-placeholder">
+                <svg class="icon icon-48">
+                  <use [attr.xlink:href]="'#icon-images-128'"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="main-product-info main-product-info-desktop dark" [class.main-product-info-with-variant]="!!order.cart?.items[0]?.options && order.cart?.items?.length === 1">
+            <div class="main-product-info-title main-product-info-desktop-title fs-hide">
+              <ng-container [ngSwitch]="order.cart?.items?.length">
+                <div class="pe-truncate-text" *ngSwitchCase="0">#{{ order.transaction.original_id}}</div>
+                <ng-container *ngSwitchCase="1">
+                  <div class="pe-truncate-text">{{ order.cart.items[0].name }}</div>
+                  <div *ngIf="!!order.cart.items[0].options" class="pe-truncate-text small-2">{{ makeVariantTitle(order.cart.items[0]) }}</div>
+                </ng-container>
+                <div class="pe-truncate-text" *ngSwitchDefault>{{ 'details.overview.products_number' | translate: {count: order?.cart?.items?.length} }}</div>
+              </ng-container>
+            </div>
+            <div class="main-product-info-amount fs-hide">{{ order.transaction.total - order.transaction.amount_refunded | currency:order.transaction.currency }}</div>
+            <div class="main-product-info-status status-color-{{ order._statusColor || '' }}">{{ order.status.general | translate}}</div>
+          </div>
+          <div class="hidden-mobile actions-desktop-wrap">
+            <or-actions-list class="actions-desktop"
+                             [class.last-on-right]="order.cart?.items?.length <= 1"
+                             [order]="order"
+                             (refresh)="getData()"
+            ></or-actions-list>
+            <ng-container *ngIf="order.cart?.items?.length > 1">
+              <svg class="icon icon-16 icon-plus">
+                <use xlink:href="#icon-plus-softy-16"></use>
+              </svg>
+              <svg class="icon icon-16 icon-minus">
+                <use xlink:href="#icon-minus-softy-16"></use>
+              </svg>
+            </ng-container>
+          </div>
+        </div>
+
+        <div class="info-panel-mobile visible-mobile">
+          <ng-container>
+            <div class="flex-column fs-hide">
+              <div class="item-image" [class.multiple]="order.cart?.items?.length > 1">
+                <img *ngIf="order.cart.items && order.cart.items[0]?.thumbnail" [attr.src]="order.cart.items[0].thumbnail"/>
+                <div *ngIf="!order.cart.items || !order.cart.items[0]?.thumbnail" class="image-placeholder">
+                  <svg class="icon icon-48">
+                    <use [attr.xlink:href]="'#icon-images-128'"></use>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          <div class="flex-column main-product-info dark" [class.main-product-info-with-variant]="!!order.cart?.items[0]?.options && order.cart?.items?.length === 1">
+            <div class="main-product-info-title fs-hide">
+              <ng-container [ngSwitch]="order.cart?.items?.length">
+                <div class="pe-truncate-text" *ngSwitchCase="0">#{{ order.transaction.original_id}}</div>
+                <ng-container *ngSwitchCase="1">
+                  <div class="pe-truncate-text">{{ order.cart.items[0].name }}</div>
+                  <div *ngIf="!!order.cart.items[0].options" class="pe-truncate-text small-2">{{ makeVariantTitle(order.cart.items[0]) }}</div>
+                </ng-container>
+                <div class="pe-truncate-text" *ngSwitchDefault>{{ 'details.overview.products_number' | translate: {count: order?.cart?.items?.length} }}</div>
+              </ng-container>
+            </div>
+            <div class="main-product-info-amount fs-hide">{{ order.transaction.total - order.transaction.amount_refunded | currency:order.transaction.currency }}</div>
+            <div class="main-product-info-status status-color-{{ order._statusColor || '' }}">{{ order.status.general | translate}}</div>
+            <or-actions-list class="actions-desktop"
+                             [class.last-on-right]="order.cart?.items?.length <= 1"
+                             [order]="order"
+                             (refresh)="getData()"
+                             ></or-actions-list>
+              <ng-container *ngIf="order.cart?.items?.length > 1">
+                <svg class="icon icon-16 icon-plus">
+                  <use xlink:href="#icon-plus-softy-16"></use>
+                </svg>
+                <svg class="icon icon-16 icon-minus">
+                  <use xlink:href="#icon-minus-softy-16"></use>
+                </svg>
+              </ng-container>
+          </div>
+        </div>
+
+      </mat-expansion-panel-header>
+
+      <mat-list class="mat-list-transparent products-list fs-hide">
+        <ng-container *ngFor="let item of order.cart.items">
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="description product-info">
+              <div class="item-image item-image-small product-info-image">
+                <img *ngIf="item.thumbnail" [attr.src]="item.thumbnail"/>
+                <div *ngIf="!item.thumbnail" class="image-placeholder">
+                  <svg class="icon icon-32">
+                    <use [attr.xlink:href]="'#icon-images-128'"></use>
+                  </svg>
+                </div>
+              </div>
+              <div class="mat-list-item-subtitle mat-list-item-subtitle-xs product-info-title dark">
+                <span *ngIf="item.quantity > 1" class="regular-1">{{ item.quantity }}&nbsp;x&nbsp;</span><span class="highlight">{{ item.name }}</span>
+                <span *ngIf="item?.options?.length" class="small"><br>{{ makeVariantTitle(item) }}</span>&nbsp;
+              </div>
+              <div class="mat-list-item-subtitle mat-list-item-subtitle-xs product-info-price">
+                <span class="highlight">{{ ((+item.price)*(+item.quantity)) | currency:order.transaction.currency }}</span>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+        </ng-container>
+        <ng-container *ngFor="let refundItem of order._refundItems">
+          <mat-list-item class="mat-list-item-no-padding-left">
+            <div class="description product-info">
+              <div class="mat-list-item-subtitle mat-list-item-subtitle-xs product-info-title">
+                <span class="highlight" [innerHtml]="'details.items.refunded' | translate: {name: order._itemsArray[refundItem.item_uuid].name}"></span>&nbsp;
+                <span [innerHtml]="'-'+refundItem.count"></span>&nbsp;
+              </div>
+              <div class="mat-list-item-subtitle mat-list-item-subtitle-xs product-info-price">
+                <span class="highlight" [innerHtml]="'-'+((+order._itemsArray[refundItem.item_uuid].price)*(+refundItem.count)) | currency:order.transaction.currency"></span>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+        </ng-container>
+        <!-- <ng-container *ngIf="order.refundFixedAmount > 0"> -->
+          <!-- <mat-list-item class="mat-list-item-no-padding-left"> -->
+            <!-- <div class="description"> -->
+              <!-- <div class="mat-list-item-subtitle mat-list-item-subtitle-xs"> -->
+                <!-- <span class="highlight" [innerHtml]="'details.items.refundedAmount' | translate"></span> -->
+                <!-- <span class="highlight" [innerHtml]="'-'+order.refundFixedAmount | currency:order.transaction.currency"></span> -->
+              <!-- </div> -->
+            <!-- </div> -->
+          <!-- </mat-list-item> -->
+          <!-- <mat-divider></mat-divider> -->
+        <!-- </ng-container> -->
+      </mat-list>
+    </mat-expansion-panel>
+
+    <!-- Order info panel -->
+    <mat-expansion-panel hideToggle
+                         class="mat-expansion-panel-dark"
+                         [disabled]="false"
+    >
+      <mat-expansion-panel-header
+              collapsedHeight="120px"
+              expandedHeight="120px"
+              class="mat-expansion-panel-header-md mat-expansion-panel-header-padding-md"
+              [class.mat-expansion-panel-header-no-icons-left]="isMobile"
+      >
+        <div class="mat-panel-icon">
+          <svg class="icon icon-24 hidden-mobile">
+            <use [attr.xlink:href]="'#icon-order-info'"></use>
+          </svg>
+        </div>
+        <mat-panel-title>{{ 'details.order.header' | translate }}</mat-panel-title>
+        <mat-panel-description class="mat-panel-description-no-margin">
+          <span class="pe-truncate-text">
+            <svg class="icon icon-24 text-icon">
+              <use [attr.xlink:href]="getChannelIconId(order.channel.name)"></use>
+            </svg>
+            <span class="transactions-text-larger">{{ 'channels.' + order.channel.name | translate }}</span>
+          </span>
+          <div class="pe-truncate-text fs-hide">{{ 'details.order.payeverId' | translate }}: {{ order.transaction.original_id }}</div>
+        </mat-panel-description>
+        <svg class="icon icon-16 icon-plus">
+          <use xlink:href="#icon-plus-softy-16"></use>
+        </svg>
+        <svg class="icon icon-16 icon-minus">
+          <use xlink:href="#icon-minus-softy-16"></use>
+        </svg>
+      </mat-expansion-panel-header>
+
+      <mat-list class="mat-list-transparent">
+        <mat-list-item class="mat-list-item-no-padding-left fs-hide">
+          <div class="data-layout">
+            <ng-template [ngTemplateOutlet]="dataRow" [ngTemplateOutletContext]="{ label: 'details.order.payeverId', value: order.transaction.original_id}"></ng-template>
+            <ng-template *ngIf="order._santanderApplicationNo" [ngTemplateOutlet]="dataRow" [ngTemplateOutletContext]="{ label: 'details.order.santanderApplicationId', value: order._santanderApplicationNo}"></ng-template>
+            <ng-template *ngIf="order._applicationNo" [ngTemplateOutlet]="dataRow" [ngTemplateOutletContext]="{ label: 'details.order.applicationNo', value: order._applicationNo}"></ng-template>
+            <ng-template *ngIf="order._panId" [ngTemplateOutlet]="dataRow" [ngTemplateOutletContext]="{ label: 'details.order.panId', value: order._panId}"></ng-template>
+            <ng-template *ngIf="order.details?.order?.finance_id" [ngTemplateOutlet]="dataRow" [ngTemplateOutletContext]="{ label: 'details.order.paymentId', value: order.details?.order?.finance_id}"></ng-template>
+            <ng-template *ngIf="order.details?.order?.reference" [ngTemplateOutlet]="dataRow" [ngTemplateOutletContext]="{ label: 'details.order.reference', value: order.details?.order?.reference}"></ng-template>
+          </div>
+        </mat-list-item>
+      </mat-list>
+
+    </mat-expansion-panel>
+
+    <!-- Shipping address -->
+    <mat-expansion-panel *ngIf="order.shipping.address || order.shipping.method_name"
+                         hideToggle
+                         class="mat-expansion-panel-dark"
+                         [disabled]="false"
+    >
+      <mat-expansion-panel-header
+              collapsedHeight="120px"
+              expandedHeight="120px"
+              class="mat-expansion-panel-header-md mat-expansion-panel-header-padding-md"
+              [class.mat-expansion-panel-header-no-icons-left]="isMobile"
+      >
+        <div class="mat-panel-icon">
+          <svg class="icon icon-24 hidden-mobile">
+            <use [attr.xlink:href]="'#icon-shipping'"></use>
+          </svg>
+        </div>
+        <mat-panel-title>{{ 'details.shipping.header' | translate }}</mat-panel-title>
+        <mat-panel-description class="mat-panel-description-no-margin">
+          <span [innerHtml]="order.shipping.method_name ? order.shipping.method_name.toUpperCase() : shippingAddressName"></span>
+        </mat-panel-description>
+        <svg class="icon icon-16 icon-plus">
+          <use xlink:href="#icon-plus-softy-16"></use>
+        </svg>
+        <svg class="icon icon-16 icon-minus">
+          <use xlink:href="#icon-minus-softy-16"></use>
+        </svg>
+      </mat-expansion-panel-header>
+      <mat-list class="mat-list-transparent fs-hide">
+        <mat-list-item class="mat-list-item-no-padding-left">
+          <div class="data-layout">
+            <ng-container *ngIf="order.shipping.method_name">
+              <ng-template [ngTemplateOutlet]="dataRow" [ngTemplateOutletContext]="{ label: 'details.shipping.carrier', value: order.shipping.method_name.toUpperCase()}"></ng-template>
+            </ng-container>
+            <ng-container *ngIf="order.shipping.address">
+              <ng-template [ngTemplateOutlet]="dataRow" [ngTemplateOutletContext]="{ label: 'details.shipping.name', value: shippingAddressName}"></ng-template>
+              <ng-template [ngTemplateOutlet]="dataRow" [ngTemplateOutletContext]="{ label: 'details.shipping.email', value: order.shipping.address.email}"></ng-template>
+              <ng-template [ngTemplateOutlet]="dataRow" [ngTemplateOutletContext]="{ label: 'details.shipping.address', value: shippingAddress}"></ng-template>
+            </ng-container>
+            <ng-container *ngIf="!order.shipping.address">
+              <ng-template [ngTemplateOutlet]="dataRow" [ngTemplateOutletContext]="{ value: ('details.shipping.same_as_billing' | translate)}"></ng-template>
+            </ng-container>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </mat-expansion-panel>
+
+    <!-- Billing address -->
+    <mat-expansion-panel *ngIf="order.billing_address"
+                         hideToggle
+                         class="mat-expansion-panel-dark"
+                         [disabled]="false"
+    >
+      <mat-expansion-panel-header
+              collapsedHeight="120px"
+              expandedHeight="120px"
+              class="mat-expansion-panel-header-md mat-expansion-panel-header-padding-md"
+              [class.mat-expansion-panel-header-no-icons-left]="isMobile"
+      >
+        <div class="mat-panel-icon">
+          <svg class="icon icon-24 hidden-mobile icon-billing hidden-mobile">
+            <use [attr.xlink:href]="'#icon-billing'"></use>
+          </svg>
+        </div>
+        <mat-panel-title>{{ 'details.billing.header' | translate }}</mat-panel-title>
+        <mat-panel-description class="mat-panel-description-no-margin fs-hide">
+          <span [innerHtml]="billingAddressName"></span>
+        </mat-panel-description>
+        <svg class="icon icon-16 icon-plus">
+          <use xlink:href="#icon-plus-softy-16"></use>
+        </svg>
+        <svg class="icon icon-16 icon-minus">
+          <use xlink:href="#icon-minus-softy-16"></use>
+        </svg>
+      </mat-expansion-panel-header>
+      <mat-list class="mat-list-transparent fs-hide">
+        <mat-list-item class="mat-list-item-no-padding-left">
+          <div class="data-layout">
+            <ng-template [ngTemplateOutlet]="dataRow" [ngTemplateOutletContext]="{ label: 'details.billing.name', value: billingAddressName}"></ng-template>
+            <ng-template [ngTemplateOutlet]="dataRow" [ngTemplateOutletContext]="{ label: 'details.billing.email', value: order.billing_address?.email}"></ng-template>
+            <ng-template [ngTemplateOutlet]="dataRow" [ngTemplateOutletContext]="{ label: 'details.billing.address', value: billingAddress}"></ng-template>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </mat-expansion-panel>
+
+    <!-- Payment -->
+    <mat-expansion-panel *ngIf="order.billing_address"
+                         hideToggle
+                         class="mat-expansion-panel-dark"
+                         [disabled]="false"
+    >
+      <mat-expansion-panel-header
+              collapsedHeight="120px"
+              expandedHeight="120px"
+              class="mat-expansion-panel-header-md mat-expansion-panel-header-padding-md"
+              [class.mat-expansion-panel-header-no-icons-left]="isMobile"
+      >
+        <div class="mat-panel-icon">
+          <svg class="icon icon-24 hidden-mobile">
+            <use [attr.xlink:href]="'#icon-credit-cards-24-sm'"></use>
+          </svg>
+        </div>
+        <mat-panel-title>{{ 'details.payment.header' | translate }}</mat-panel-title>
+        <mat-panel-description class="mat-panel-description-no-margin">
+          <span class="pe-truncate-text">
+            <svg class="icon icon-24 text-icon">
+              <use [attr.xlink:href]="getPaymentMethodIconId(order.payment_option.type)"></use>
+            </svg>
+            <span class="transactions-text-larger">{{ getPaymentMethodName(order.payment_option.type) }}</span>
+          </span>
+        </mat-panel-description>
+        <svg class="icon icon-16 icon-plus">
+          <use xlink:href="#icon-plus-softy-16"></use>
+        </svg>
+        <svg class="icon icon-16 icon-minus">
+          <use xlink:href="#icon-minus-softy-16"></use>
+        </svg>
+      </mat-expansion-panel-header>
+      <mat-list class="mat-list-transparent">
+        <mat-list-item class="mat-list-item-no-padding-left">
+          <div class="data-layout fs-hide">
+            <ng-template [ngTemplateOutlet]="dataRow" [ngTemplateOutletContext]="{ label: 'details.payment.type', value: getPaymentMethodName(order.payment_option.type)}"></ng-template>
+            <ng-template *ngIf="order.details?.order?.iban" [ngTemplateOutlet]="dataRow" [ngTemplateOutletContext]="{ label: 'details.payment.iban', value: order.details?.order?.iban}"></ng-template>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </mat-expansion-panel>
+
+    <!-- Timeline -->
+    <mat-expansion-panel hideToggle
+                         class="mat-expansion-panel-dark"
+                         [disabled]="!order.history.length"
+    >
+      <mat-expansion-panel-header
+              collapsedHeight="120px"
+              expandedHeight="120px"
+              class="mat-expansion-panel-header-md mat-expansion-panel-header-padding-md"
+              [class.mat-expansion-panel-header-no-icons-left]="isMobile"
+      >
+        <div class="mat-panel-icon icon-timeline">
+          <svg class="icon icon-24 hidden-mobile">
+            <use [attr.xlink:href]="'#icon-timeline'"></use>
+          </svg>
+        </div>
+        <mat-panel-title>{{ 'details.history.header' | translate }}</mat-panel-title>
+        <mat-panel-description></mat-panel-description>
+
+        <ng-container *ngIf="order.history.length">
+          <svg class="icon icon-16 icon-plus">
+            <use xlink:href="#icon-plus-softy-16"></use>
+          </svg>
+          <svg class="icon icon-16 icon-minus">
+            <use xlink:href="#icon-minus-softy-16"></use>
+          </svg>
+        </ng-container>
+
+      </mat-expansion-panel-header>
+      <mat-list class="mat-list-transparent">
+        <mat-list-item class="mat-list-item-no-padding-left">
+          <div class="data-layout">
+            <ng-container *ngFor="let historyItem of order.history">
+              <div class="description fs-hide">
+                <div class="mat-list-item-subtitle mat-list-item-subtitle-xs">
+                  <span class="">{{ historyItem.created_at | date:dateTimeFormat }}</span>&nbsp;
+                  <ng-container [ngSwitch]="historyItem.action">
+                    <span *ngSwitchCase="'changeamount'"
+                          class="highlight"
+                          [innerHtml]="('details.history.action.'+historyItem.action) | translate: {amount: historyItem.amount | currency:order.transaction.currency}"></span>
+                    <span *ngSwitchCase="'change_amount'"
+                          class="highlight"
+                          [innerHtml]="('details.history.action.'+historyItem.action) | translate: {amount: historyItem.amount | currency:order.transaction.currency}"></span>
+                    <ng-container *ngSwitchCase="'upload'">
+                      <ng-container *ngIf="historyItem?.custom_data?.upload || historyItem?.upload_items">
+                        <span *ngFor="let uploadData of (historyItem?.custom_data?.upload || historyItem?.upload_items)"
+                              class="highlight"
+                              [innerHtml]="('details.history.action.'+historyItem.action) | translate: {upload_type: getTranslatedUploadType(uploadData.type)}"
+                        ></span>
+                      </ng-container>
+                      <ng-container *ngIf="!(historyItem?.custom_data?.upload || historyItem?.upload_items)">
+                        <span class="highlight"
+                              [innerHtml]="('details.history.action.'+historyItem.action) | translate: {upload_type: ('form.upload.upload_types.unknown' | translate)}"
+                        ></span>
+                      </ng-container>
+                    </ng-container>
+                    <span *ngSwitchCase="'statuschanged'"
+                          class="highlight"
+                          [innerHtml]="('details.history.action.'+historyItem.action) | translate: {payment_status: historyItem.payment_status | translate}"></span>
+                    <ng-container *ngSwitchCase="'refund'">
+                      <ng-container *ngIf="historyItem.refund_items.length > 0">
+                        <br>
+                        <ng-container *ngFor="let refundItem of historyItem.refund_items">
+                          <span class="highlight"
+                                    [innerHtml]="('details.history.action.'+historyItem.action+'.items') | translate: {
+                             count: refundItem.count,
+                             item: order._itemsArray[refundItem.item_uuid].name
+                           }"></span>
+                          <br>
+                        </ng-container>
+                      </ng-container>
+                      <span *ngIf="historyItem.refund_items.length === 0"
+                            class="highlight"
+                            [innerHtml]="('details.history.action.'+historyItem.action+'.amount') | translate: {
+                         amount: historyItem.amount | currency:order.transaction.currency
+                       }"></span>
+                    </ng-container>
+                    <span *ngSwitchCase="'capture'"
+                          class="highlight"
+                          [innerHtml]="historyItem.amount ? ('details.history.action.capture_with_amount' | translate: {
+                             amount: historyItem.amount | currency:order.transaction.currency
+                           }) : ('details.history.action.capture' | translate)"></span>
+                    <span *ngSwitchCase="'application_updated'"
+                          class="highlight"
+                          [innerHtml]="('details.history.action.application_updated' | translate) + (historyItem.reason ? ': '+historyItem.reason : '')"></span>
+                    <ng-container *ngSwitchCase="'edit'">
+                      <span *ngIf="historyItem.amount"
+                            class="highlight"
+                            [innerHtml]="'details.history.action.change_amount' | translate:{amount: historyItem.amount | currency:order.transaction.currency}"></span>
+                      <span *ngIf="historyItem.reference"
+                            class="highlight"
+                            [innerHtml]="'details.history.action.change_reference' | translate:{reference: historyItem.reference}"></span>
+                      <span *ngIf="!historyItem.amount && !historyItem.reference"
+                            class="highlight"
+                            [innerHtml]="'details.history.action.edit' | translate"></span>
+                    </ng-container>
+                    <span *ngSwitchDefault
+                          class="highlight"
+                          [innerHtml]="('details.history.action.'+historyItem.action) | translate"></span>
+                  </ng-container>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </mat-expansion-panel>
+
+    <!-- Totals -->
+    <mat-expansion-panel hideToggle
+                         class="mat-expansion-panel-dark totals"
+                         [disabled]="true"
+    >
+      <mat-expansion-panel-header
+              collapsedHeight="{{ order.transaction.amount_refunded > 0 && order.shipping.delivery_fee > 0 ? '160px' : '120px' }}"
+              expandedHeight="{{ order.transaction.amount_refunded > 0 && order.shipping.delivery_fee > 0 ? '160px' : '120px' }}"
+              class="mat-expansion-panel-header-md mat-expansion-panel-header-no-icons-left mat-expansion-panel-header-padding-md"
+      >
+        <div class="totals-col totals-col-left">
+          <div class="total-row" translate>details.totals.subtotal</div>
+          <div class="total-row" *ngIf="order.transaction.amount_refunded > 0" translate>details.totals.refunded</div>
+          <div class="total-row" *ngIf="order.shipping.delivery_fee > 0" translate>details.totals.delivery_fee</div>
+          <div class="total-row" translate>details.totals.total_incl_tax</div>
+        </div>
+
+        <div class="totals-col totals-col-right fs-hide">
+          <div class="total-row">{{ order.transaction.amount | currency:order.transaction.currency }}</div>
+          <div class="total-row" *ngIf="order.transaction.amount_refunded > 0">{{ -order.transaction.amount_refunded | currency:order.transaction.currency }}</div>
+          <div class="total-row" *ngIf="order.shipping.delivery_fee > 0" translate>{{ order.shipping.delivery_fee | currency:order.transaction.currency }}</div>
+          <div class="total-row">{{ order.transaction.total | currency:order.transaction.currency }}</div>
+        </div>
+
+      </mat-expansion-panel-header>
+    </mat-expansion-panel>
+
+  </mat-accordion>
+</ng-container>
+
+<router-outlet></router-outlet>
+
+<ng-template #dataRow let-label="label" let-value="value">
+  <div class="mat-list-item-subtitle mat-list-item-subtitle-xs"><span *ngIf="label">{{ label | translate}}: </span><span *ngIf="value" class="highlight">{{ value }}</span></div>
+</ng-template>

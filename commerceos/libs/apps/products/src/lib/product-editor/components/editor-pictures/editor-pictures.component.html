@@ -1,0 +1,79 @@
+<div
+  peFileDrop
+  [class.container__dragging]="isDragging"
+  (onFileOver)="onFileOver($event)"
+  (onFileDrop)="onFileDrop($event)"
+>
+
+  <div class="picture-wrapper" [style.minHeight]="!pictures.length || loading ? '213px' : 'auto'">
+    <ng-container *ngIf="!loading">
+      <svg *ngIf="isDragging || pictures.length === 0"  width="102" height="86" viewBox="0 0 102 86" fill="none">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M25.0308 16.08H91.5788C93.7848 16.0803 95.9004 16.9567 97.4602 18.5166C99.0201 20.0764 99.8965 22.192 99.8968 24.398V73.27L83.9258 57.298C83.4779 56.8459 82.9454 56.4864 82.3585 56.2402C81.7717 55.9939 81.1421 55.8657 80.5057 55.8628C79.8693 55.86 79.2386 55.9825 78.6496 56.2234C78.0606 56.4643 77.5248 56.819 77.0728 57.267L77.0428 57.298L71.5928 62.726C70.683 63.6404 69.4475 64.1564 68.1576 64.1607C66.8676 64.165 65.6287 63.6573 64.7128 62.749L64.6888 62.726L50.1328 48.168C49.6825 47.7147 49.1473 47.3545 48.5577 47.108C47.9682 46.8616 47.3359 46.7337 46.6969 46.7316C46.0579 46.7296 45.4248 46.8535 44.8337 47.0961C44.2425 47.3388 43.705 47.6956 43.2518 48.146L43.2288 48.168L16.7128 74.476V24.356C16.7239 22.1572 17.6052 20.0523 19.1639 18.5014C20.7226 16.9506 22.832 16.08 25.0308 16.08ZM91.5788 14H25.0308C19.2888 14 14.6328 18.655 14.6328 24.398V75.515C14.6328 81.257 19.2888 85.913 25.0308 85.913H91.5788C97.3228 85.913 101.977 81.257 101.977 75.515V24.357C101.953 18.63 97.3058 14 91.5788 14Z" fill="black"  fill-opacity="0.1"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M67.7858 25.315C68.7736 25.3034 69.7539 25.488 70.6698 25.8579C71.5858 26.2279 72.4192 26.776 73.1219 27.4703C73.8245 28.1647 74.3824 28.9916 74.7632 29.9031C75.144 30.8146 75.3401 31.7926 75.3402 32.7805C75.3404 33.7683 75.1445 34.7464 74.7639 35.658C74.3834 36.5696 73.8257 37.3966 73.1233 38.0912C72.4208 38.7857 71.5875 39.334 70.6717 39.7042C69.7558 40.0744 68.7756 40.2593 67.7878 40.248C65.8226 40.2255 63.9454 39.4291 62.5635 38.0315C61.1816 36.6339 60.4065 34.7479 60.4063 32.7825C60.406 30.817 61.1806 28.9308 62.5621 27.5328C63.9436 26.1349 65.8206 25.338 67.7858 25.315Z" fill="black"  fill-opacity="0.1"/>
+        <path d="M75.923 0.5C81.393 0.5 85.953 4.413 86.98 9.611H84.58C83.626 5.821 80.28 2.996 76.256 2.847L75.922 2.841H11.272C6.45 2.841 2.518 6.684 2.346 11.495L2.34 11.825V61.74C2.34 66.351 5.795 70.15 10.24 70.664V73.017C4.615 72.506 0.184 67.84 0.006 62.1L0 61.74V11.825C0 5.691 4.853 0.695 10.914 0.506L11.272 0.5H75.923Z" fill="black" fill-opacity="0.1"/>
+      </svg>
+      <div *ngIf="pictures.length === 0 && !isDragging">
+        <p translate>drag_and_drop_images</p>
+      </div>
+      <img  *ngIf="pictures.length > 0 && !isDragging" [src]="previewImageUrl" alt='main picture' class="picture-main">
+    </ng-container>
+
+    <div *ngIf="isDragging" (click)="isDragging=false">
+      <p translate>you_can_drop_image</p>
+    </div>
+
+    <mat-progress-spinner
+      *ngIf="loading"
+      style="stroke: rgba(0, 0, 0, .2) !important"
+      [strokeWidth]="2"
+      [diameter]="64"
+      [value]="uploadProgress"
+      [mode]="'determinate'"
+    ></mat-progress-spinner>
+  </div>
+
+  <input type="file" (change)="onFileChange($event)" #pictureUploader multiple>
+
+  <div
+    *ngIf="pictures.length > 0"
+    class="picture-list"
+    cdkDropListGroup
+  >
+    <ng-container *ngFor="let img of pictures;let i=index">
+      <div
+        cdkDropList
+        cdkDropListOrientation="horizontal"
+        [cdkDropListData]="{img:img,index:i}"
+        (cdkDropListDropped)="drop($event)"
+      >
+        <div
+          class="picture-item"
+          cdkDrag
+          cdkDragBoundary=".picture-list"
+          (click)="changePreview(img)"
+        >
+          <div *cdkDragPlaceholder></div>
+          <div class="picture-image" [class.main]="img === pictures[0]">
+            <img class="drag-handler" [loadImage]="img | mediaUrl:'products':'thumbnail'" alt="product thumbnail" />
+            <div class="picture-delete-image" (click)="deleteImage(img)">
+              <svg height="10" width="10">
+                <use xlink:href="#icon-close-bold-12"></use>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <button
+      type="button"
+      class="picture-add-button"
+      (click)="pictureUploader.click()"
+    >
+      <svg width="29" height="24" viewBox="0 0 29 24">
+        <path d="M561.548 437c1.901 0 3.444 1.545 3.452 3.456v17.074c0 1.916-1.545 3.47-3.452 3.47h-22.096c-1.906 0-3.452-1.554-3.452-3.47v-17.06c0-1.917 1.546-3.47 3.452-3.47zm0 .694h-22.096c-1.52 0-2.754 1.234-2.762 2.762v16.727l8.804-8.78.008-.008c.633-.632 1.655-.628 2.284.008l4.834 4.858.007.008c.633.632 1.656.628 2.285-.008l1.81-1.811.01-.01c.63-.63 1.65-.624 2.275.01l5.303 5.33v-16.31c0-1.533-1.237-2.776-2.762-2.776zm-7.9 3.082c1.37 0 2.48 1.115 2.48 2.491 0 1.376-1.11 2.492-2.48 2.492-1.368 0-2.479-1.116-2.479-2.492s1.11-2.491 2.48-2.491z" transform="translate(-536 -437)"/>
+      </svg>
+    </button>
+  </div>
+
+  <button class="button" pe-form-button color="confirm" (click)="pictureUploader.click()">{{ 'add_media' | translate }}</button>
+</div>

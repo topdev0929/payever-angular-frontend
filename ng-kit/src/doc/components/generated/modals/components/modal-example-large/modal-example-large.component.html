@@ -1,0 +1,16 @@
+<pe-modal
+  #modal
+  [baseViewConfig]="'large'"
+  [viewConfig]="{classes: {modalBody : bodyZeroPadding ? 'zero-padding' : ''}}"
+  [doHide]="hider"
+  (onClose)="back()"
+  [showLoading]="loading">
+
+  <h2>H2 Header</h2>
+  <p>One fine body…</p>
+
+  <button (click)="loading = true" class="btn btn-lg btn-primary btn-link" type="button">Test loading</button>
+  <button (click)="bodyZeroPadding = true" class="btn btn-lg btn-primary btn-link" type="button">Test bodyZeroPadding</button>
+
+</pe-modal>
+<pe-icons-set></pe-icons-set>

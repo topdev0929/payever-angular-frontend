@@ -1,0 +1,9 @@
+<div class="pe-payment-container">
+  <santander-uk-shared-form
+    [extraDuration]="extraDuration"
+    (selectRate)="onSelectRate($event)"
+    (ratesLoading)="ratesLoading.emit($event)"
+    (ratesLoadingError)="onRatesLoadingError($event)"
+    (submitted)="onSend($event)">
+  </santander-uk-shared-form>
+</div>

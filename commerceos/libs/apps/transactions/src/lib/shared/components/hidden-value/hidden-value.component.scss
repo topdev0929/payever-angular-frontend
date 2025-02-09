@@ -1,0 +1,25 @@
+.hidden-value-wrap {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+
+  svg {
+    margin-right: 5px;
+    width: 10px;
+    height: 10px;
+
+    &.list-size-icon {
+      width: 13px;
+      height: 13px;
+    }
+  }
+
+  &.light, &.transparent {
+    color: rgba(122, 122, 122, 0.48);
+  }
+
+
+  &.dark {
+    color: #48484A;
+  }
+}

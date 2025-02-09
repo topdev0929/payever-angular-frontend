@@ -1,0 +1,47 @@
+@use 'SASS:map';
+@use "pe_variables" as pe_variables;
+
+@mixin color($color-config) {
+  $secondary: map.get($color-config, secondary);
+  $warn: map.get($color-config, warn);
+  $row-background: map.get($color-config, row-background);
+
+  pe-toolbar-filter {
+    .input-wrapper input {
+      color: #7a7a7a;
+  
+      &.loading {
+        color: rgba(0, 0, 0, 0);
+  
+        &::placeholder {
+          color: rgba(0, 0, 0, 0);
+        }
+      }
+  
+      &::placeholder {
+        color: #7a7a7a;
+      }
+    }
+
+    .input-wrapper.has-error {
+      input {
+        color: $warn;
+        &::placeholder {
+          color: $warn;
+        }
+      }
+
+      &::after {
+        background-color: $warn;
+      }
+    }
+
+    input {
+      background-color: $secondary;
+
+      @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+        background-color: $row-background;
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+<div class="peb-dialog peb-screen-dialog">
+  <div class="peb-dialog__header">
+    <div class="peb-dialog__title">
+      {{ 'builder-app.toolbar.screen' | translate }}
+    </div>
+    <mat-icon class="peb-dialog__close" svgIcon="button-close" pebOverlayClose></mat-icon>
+  </div>
+  <div class="peb-dialog__body">
+    <div
+      class="screen__item"
+      *ngFor="let option of options$ | async"
+      [class.active]="option.active"
+      (click)="setScreen(option.screen)"
+      pebOverlayClose
+    >
+      <span class="screen__icon">
+        <mat-icon [svgIcon]="option.screen.icon"></mat-icon>
+      </span>
+      <span class="screen__title">{{ option.screen.title }}</span>
+    </div>
+
+    <div 
+      class="screen__item" 
+      (click)="openScreensDialog()" 
+      pebOverlayClose
+    >
+      <span class="screen__icon">
+        <mat-icon svgIcon="pending"></mat-icon>
+      </span>
+      <span class="screen__title">
+        {{ 'builder-app.toolbar.customize' | translate }}
+      </span>
+    </div>
+  </div>
+</div>

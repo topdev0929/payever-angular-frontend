@@ -1,0 +1,65 @@
+.line-graph {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  &__name {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__profit {
+    margin-left: 2px;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: normal;
+  }
+  &__chart {
+    display: block;
+    height: 57px;
+    overflow: hidden;
+    margin: 0 -20px;
+  }
+  &__number {
+    font-size: 32px;
+    height: 32px;
+    line-height: normal;
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: nowrap;
+  }
+  &__period {
+    font-size: 11px;
+    margin-top: 4px;
+    line-height: normal;
+  }
+}
+
+:host {
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  &.small {
+    .line-graph__name {
+      font-size: 12px;
+    }
+  }
+  &.large {
+    .line-graph {
+      &__chart {
+        height: 205px;
+      }
+    }
+  }
+}

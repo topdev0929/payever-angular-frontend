@@ -1,0 +1,39 @@
+<mat-card>
+  <button
+    type="button"
+    mat-button
+    class="mat-button
+    mat-button-no-padding
+    mat-button-link
+    mat-button-xs
+    mat-dialog-close-icon
+  "
+    (click)="onSkip()">
+    <svg class="icon icon-16"><use xlink:href="#icon-close-16"></use></svg>
+  </button>
+  <mat-card-content>
+    <div class="header">
+      <p class="header-title">{{ data.header.title }}</p>
+      <p class="header-subtitle">{{ data.header.subtitle }}</p>
+    </div>
+    <p>{{ data.requirementsTitle }}</p>
+    <div class="requirements-list">
+      <div
+        *ngFor="let requirement of data.requirements"
+        class="requirements-list__item">
+        <svg class="requirements-list__icon icon icon-16">
+          <use xlink:href="#icon-checkbox-checked-24"></use>
+        </svg>
+        <span>{{requirement}}</span>
+      </div>
+    </div>
+    <button
+      mat-button
+      (click)="onClicked()"
+      target="_blank"
+      mat-button
+      class="mat-button-gradient action-button">
+      {{ data.confirmBtnText }}
+    </button>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,47 @@
+<div class="form-table">
+  <div class="doc-container doc-container-black">
+    <div class="form-table">
+      <div class="form-fieldset form-fieldset-horizontal dark">
+        <div class="row">
+          <div class="col-xs-2">
+            <mat-form-field>
+              <input placeholder="Text" matInput>
+            </mat-form-field>
+          </div>
+          <div class="col-xs-2">
+            <mat-form-field>
+              <mat-select placeholder="Font" disableOptionCentering panelClass="mat-select-dark mat-select-horizontal">
+                <mat-option value="option">Helvetica Neue</mat-option>
+                <mat-option value="option-1">Option 1</mat-option>
+                <mat-option value="option-2">Option 2</mat-option>
+                <mat-option value="option-3">Option 3</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-xs-4">
+            <mat-form-field>
+              <input matInput>
+            </mat-form-field>
+          </div>
+
+          <div class="col-xs-1">
+            <mat-checkbox
+              [(ngModel)]="agreeWithTerms"
+              [(indeterminate)]="indeterminate"
+              [labelPosition]="'before'"
+              [disabled]="false">
+              Agree with terms
+            </mat-checkbox>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3 pe-textarea">
+            <mat-form-field>
+              <textarea matInput placeholder="Leave a comment"></textarea>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

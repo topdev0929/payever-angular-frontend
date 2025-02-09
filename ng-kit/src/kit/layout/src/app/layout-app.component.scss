@@ -1,0 +1,7 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+.business-header {  // TODO Move to ui-kit
+  display: flex;
+  align-items: center;
+}

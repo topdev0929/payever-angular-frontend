@@ -1,0 +1,18 @@
+<pe-load-micro [micro]="'cart'" [isShowLoader]="true">
+  <checkout-cart-edit
+    *ngIf="flow && flowSettings"
+    [attr.flow]="flow | json"
+    [attr.flowSettings]="flowSettings | json"
+    (loading)="isLoading = !!$event.detail"
+    (serviceReady)="onServiceReady($event)">
+  </checkout-cart-edit>
+  <button mat-button
+          type="button"
+          class="mat-button-lg btn-block"
+          [disabled]="isLoading"
+          (click)="onClose()">
+    <pe-progress-button-content [loading]="isLoading">
+      <span translate>actions.close</span>
+    </pe-progress-button-content>
+  </button>
+</pe-load-micro>

@@ -1,0 +1,139 @@
+@import 'bootstrap-sass/assets/stylesheets/bootstrap/_variables';
+@import 'bootstrap-sass/assets/stylesheets/bootstrap/_mixins';
+
+@import '../../../../../../../shared/styles/assets/ui-kit-styles/pe_variables';
+@import '../../../../../../../shared/styles/assets/ui-kit-styles/mixins/pe_mixins.scss';
+
+:host {
+  display: block;
+  padding-bottom: 22px;
+}
+
+:host ::ng-deep {
+  .pe-counter {
+    display: inline-block;
+    .counter-container {
+      margin-top: -5px;
+    }
+  }
+
+  @media (max-width: $screen-xs) {
+    .pe-counter {
+      .counter-container {
+        width: 77px;
+        input {
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
+.cart-details {
+  table {
+    width: 100%;
+    tr {
+      td,
+      th {
+        padding: 22px 15px;
+      }
+      td:first-child,
+      th:first-child {
+        padding-left: 0;
+      }
+      @media (max-width: $screen-xs) {
+        td,
+        th {
+          padding: 11px 6px;
+        }
+        td:first-child,
+        th:first-child {
+          padding-left: 0;
+        }
+        font-size: 12px;
+      }
+    }
+
+    td.cell-remove,
+    td.cell-preview,
+    td.cell-counter,
+    td.cell-price,
+    th.cell-remove,
+    th.cell-preview,
+    th.cell-counter,
+    th.cell-price {
+      width: 1%;
+      .old-price {
+        position: relative;
+        opacity: 60%;
+      }
+      .old-price::after {
+        border-bottom: 1px solid var(--checkout-page-text-primary-color, $color-grey-1);
+        opacity: 40%;
+        content: '';
+        left: 0;
+        line-height: 1em;
+        margin-top: calc(-1px);
+        position: absolute;
+        right: 0;
+        top: 50%;
+      }
+    }
+    td.cell-description,
+    th.cell-description {
+      position: relative !important;
+      .cell-description-inner {
+        position: absolute !important;
+        left: 0;
+        right: 0;
+        top: calc(50% - 10px);
+        padding: inherit;
+        padding-top: 0;
+        padding-bottom: 0;
+        .description-block {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+    }
+    tr.row-block td,
+    tr.row-block th {
+      border-bottom: 1px solid var(--checkout-page-line-color, #dfdfdf);
+    }
+    tr.row-summary {
+      td:first-child,
+      th:first-child {
+        text-transform: uppercase;
+      }
+      &.row-summary-total {
+        font-weight: bold;
+      }
+    }
+  }
+  .preview {
+    max-width: 128px;
+    max-height: 66px;
+  }
+  .select-qty-wrap {
+    min-width: 42px;
+    font-size: 14px;
+
+    ::ng-deep .mat-select-value {
+      color: var(--checkout-page-text-primary-color, $color-grey-2);
+      text-align: right;
+      padding-right: 8px;
+    }
+    ::ng-deep .mat-select-arrow:before {
+      color: var(--checkout-page-text-primary-color, $color-grey-2);
+      opacity: 0.5 !important;
+      top: 10px !important;
+    }
+  }
+  .delete-control:hover {
+    cursor: pointer;
+  }
+  .order-row-error {
+    color: $color-red;
+  }
+}

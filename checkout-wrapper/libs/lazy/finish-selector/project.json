@@ -1,0 +1,25 @@
+{
+  "name": "finish-selector",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/lazy/finish-selector/src",
+  "prefix": "pe",
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/lazy/finish-selector"],
+      "options": {
+        "jestConfig": "libs/lazy/finish-selector/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/lazy/finish-selector/src/**/*.ts", "libs/lazy/finish-selector/src/**/*.html"]
+      },
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": ["scope:libs", "type:selector"]
+}

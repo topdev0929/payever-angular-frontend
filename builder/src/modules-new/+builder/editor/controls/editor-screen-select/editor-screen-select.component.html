@@ -1,0 +1,11 @@
+<pe-builder-navbar-top-button
+  class="button"
+  bottomLabel="Screen"
+  [icon]="iconForScreen(editor.screen$ | async)"
+  [hasDropdownMenu]="true"
+>
+  <pe-builder-navbar-button-icons-menu
+    [items]="menuInput"
+    (changed)="onScreenSelected($event)"
+  ></pe-builder-navbar-button-icons-menu>
+</pe-builder-navbar-top-button>

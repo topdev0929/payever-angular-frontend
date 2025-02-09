@@ -1,0 +1,8 @@
+<div class="color-panel">
+  <div *ngFor="let color of colors" class="color-panel-item"
+    [style.background-color]="color"
+    (click)="onColorChosen(color)"
+  ></div>
+
+  <div class="panel-label">Shape styles</div>
+</div>

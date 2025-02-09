@@ -1,0 +1,131 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+/**
+ * @TODO author - Alexander Andreev. Sort out this hacks.
+ */
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.pe-micro-container {
+  // TODO This is copy-paste from commerceis, should be removed
+  $header-height: $grid-unit-y * 2 + $padding-xs-vertical * 4;
+
+  @include full_screen();
+
+  &.below-platform-header {
+    top: $header-height;
+    transform: translateZ(0);
+  }
+
+  &.below-platform-subheader {
+    top: $header-height * 2;
+    transform: translateZ(0);
+  }
+}
+
+::ng-deep .transactions-valigned-modal {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+// TODO: temporary fix for the datapicker dropdown in orders app
+::ng-deep .pe-bootstrap div.dropdown-menu.datepicker-dropdown {
+  z-index: 2100 !important;
+}
+
+::ng-deep .pe-bootstrap {
+
+  .form-widget.form-design input[type="checkbox"]:not(.switcher):checked + label:before {
+    background-color: transparent;
+  }
+
+  .form-widget.form-design input[type=radio]:checked+label:before {
+    filter: $color-invert-filter;
+  }
+
+  .form-table {
+
+    fieldset.transparent-form {
+      // border-radius: 12px;
+      border-radius: 0;
+      box-shadow: none;
+
+      [class*=col] {
+        border-color: transparent;
+        background-clip: padding-box;
+        border-width: 0 1px 1px 0;
+      }
+
+      input::placeholder, textarea::placeholder {
+        color: $color-secondary-8;
+      }
+
+      input, select, textarea {
+        color: $color-secondary-0;
+      }
+
+      label {
+        color: $color-secondary-8 !important;
+        &::before {
+          background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiP…A2MSwxNC4wMjk4IDE1LjAzMDEsNy40ODA4MSAxMy41MTk1LDUuOTcwMjQgIi8+PC9zdmc+IA==) center center no-repeat transparent;
+          border-color: white;
+        }
+      }
+    }
+  }
+
+  .transparent-nested {
+    label {
+      color: $color-secondary-0;
+    }
+  }
+
+  .white {
+    color: $color-secondary-0;
+
+    label {
+      &::before {
+        border-color: rgba(255,255,255,.75) !important;
+        background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiP…A2MSwxNC4wMjk4IDE1LjAzMDEsNy40ODA4MSAxMy41MTk1LDUuOTcwMjQgIi8+PC9zdmc+IA==) center center no-repeat transparent;
+        border-color: white;
+      }
+    }
+  }
+}
+
+::ng-deep .mat-tooltip-panel {
+  display: none !important;
+}
+
+::ng-deep .pe-bootstrap .datepicker table tr td span.active.active {
+  background: rgba(17,17,17,.85);
+  color: white;
+
+  &:hover {
+    background: #111 !important;
+  }
+}
+
+::ng-deep .pe-bootstrap .datepicker table tbody tr td.day.active {
+  color: white;
+
+  &:before {
+    background-color: rgba(17,17,17,.85);
+  }
+
+  &:hover {
+    &:before {
+      background: #111 !important;
+    }
+  }
+}
+
+::ng-deep .pe-bootstrap .datepicker table thead th.datepicker-switch:hover {
+  color: rgba(17,17,17,.85);
+}

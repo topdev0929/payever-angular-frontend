@@ -1,0 +1,18 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $warn: map.get($color-config, 'warn');
+
+  .pricing {
+    .remove {
+      color: $warn;
+    }
+    &__wrapper {
+      pe-search {
+        .cdk-focused .label-input-content-wrapper::after {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

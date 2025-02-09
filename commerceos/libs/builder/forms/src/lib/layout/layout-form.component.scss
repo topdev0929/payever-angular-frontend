@@ -1,0 +1,61 @@
+@import '../../../../styles/src/lib/styles/_sidebars.scss';
+
+.form__row {
+  margin-bottom: 12px;
+  margin-top: 0;
+
+  span {
+    font-size: 12px;
+  }
+}
+
+.accordion-title {
+  display: flex;
+  gap: 6px;
+
+  span {
+    font-size: 12px;
+    flex: 1;
+  }
+
+  mat-icon {
+    width: 18px;
+    cursor: pointer;
+  }
+
+  mat-icon[svgIcon='plus'] {
+    width: 12px;
+  }
+}
+
+.value-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s linear;
+
+  &--open {
+    max-height: unset;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+
+    peb-size-input {
+      width: 100px;
+    }
+
+    mat-icon {
+      width: 18px;
+      color: #ff4b4b;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}

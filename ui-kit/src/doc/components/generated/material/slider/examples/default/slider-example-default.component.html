@@ -1,0 +1,22 @@
+<h4>Slider</h4>
+
+<div  class="slider-wrapper">
+  <div class="slider-wrapper-value">{{sliderDefaultValue}} seg</div>
+  <mat-slider min="0" max="100" step="1" [ngModel]="sliderDefaultValue" (input)="sliderDefaultValue = $event.value"></mat-slider>
+</div>
+
+<h4>Slider with description</h4>
+
+<div>
+  <p>Description</p>
+  <div class="slider-wrapper">
+    <div class="slider-wrapper-value">{{sliderWithDescriptionValue}}</div>
+    <mat-slider min="0" max="100" step="1" [ngModel]="sliderWithDescriptionValue" (input)="sliderWithDescriptionValue = $event.value"></mat-slider>
+  </div>
+</div>
+
+<h4>Disabled slider</h4>
+
+<div>
+  <mat-slider min="0" max="100" step="1" value="35" disabled></mat-slider>
+</div>

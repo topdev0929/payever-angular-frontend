@@ -1,0 +1,17 @@
+@import '../../../../../shared/styles/assets/ui-kit-styles/pe_variables.scss';
+@import '../../../../../shared/styles/assets/ui-kit-styles/mixins/pe_mixins.scss';
+
+.qr-share-form {
+  display: flex;
+  flex-direction: column;
+  font-size: $font-size-large-3;
+  width: 120%;
+  margin-left: -10%;
+  padding: $grid-unit-y * 2 8px 8px;
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+}

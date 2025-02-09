@@ -1,0 +1,126 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $primary: map.get($color-config, 'primary');
+  $text-color: map.get($color-config, 'text-color');
+  $hover-button: map.get($color-config, 'hover-button');
+  $active-text: map.get($color-config, 'active-text');
+  $background: map.get($color-config, 'background');
+  $separator: map.get($color-config, 'separator');
+  $divider: map.get($color-config, 'divider');
+  $secondary: map.get($color-config, 'secondary');
+  $box-shadow-color: map.get($color-config, 'box-shadow-color');
+  $icon-background: map.get($color-config, 'icon-background');
+  $dropdown-panel: map.get($color-config, 'dropdown-panel');
+  $extra-bg-color: map.get($color-config, 'extra-bg-color');
+  $big-button-text: map.get($color-config, 'big-button-text');
+  $label-color: map.get($color-config, 'label-color');
+  $default-avatar-background: map.get($color-config, 'default-avatar-background');
+
+
+  .pe-chat {
+    background-color: $extra-bg-color;
+
+    .header {
+      background-color: $primary;
+      color: $text-color;
+    }
+
+    & .avatar {
+      &__initials {
+        color: $active-text;
+        background-image: $default-avatar-background;
+      }
+    }
+
+    .scrollable {
+      .date-tag {
+        background-color: $separator;
+        color: $active-text;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: transparent;
+      }
+
+      &:hover::-webkit-scrollbar-thumb {
+        background: transparent
+      }
+    }
+
+    .messages {
+      &__container {
+        &_scroll-bottom {
+          background-color: $primary;
+          color: $text-color;
+          box-shadow: 0 0 7px 0 $box-shadow-color;
+        }
+
+        &_badge {
+          background-color: $hover-button;
+          color: $active-text;
+        }
+      }
+    }
+
+    .pe-chat-message-text {
+      color: $text-color;
+    }
+
+    .pe-chat-form {
+
+      .row {
+        background-color: $primary;
+      }
+
+      .form-field {
+        background-color: $extra-bg-color;
+
+        input {
+          color: $text-color;
+        }
+      }
+    }
+  }
+
+  .pe-chat-header-autocomplete {
+    background-color: $dropdown-panel;
+  }
+
+  .unpin-message {
+    background: $icon-background;
+  }
+
+  .unpin-message-header {
+    background: $primary ;
+    color: $label-color;
+  }
+
+  .cross-icon {
+    color: $text-color;
+  }
+
+  .pin-message-header {
+    color: $text-color;
+  }
+
+  .typing-dots {
+    background: $text-color;
+  }
+
+  .message-attachment-loader {
+    &__loading {
+      background-color: $secondary;
+    }
+  }
+
+  .logo-footer {
+    border-top: 1px solid $extra-bg-color;
+    background-color: $primary;
+
+    svg {
+      color: $label-color;
+    }
+  }
+
+}

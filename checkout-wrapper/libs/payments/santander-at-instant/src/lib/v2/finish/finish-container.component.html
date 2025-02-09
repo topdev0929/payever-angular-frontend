@@ -1,0 +1,14 @@
+<pe-santander-at-finish-view
+  [errorMessage]="errorMessage"
+  [embeddedMode]="embeddedMode"
+  [merchantMode]="merchantMode"
+  [asSinglePayment]="asSinglePayment"
+  [nodeResult]="paymentResponse"
+  [showCloseButton]="showCloseButton"
+  [isLoading]="!paymentResponse && !errorMessage"
+  (cleanUp)="cleanUp()"
+  (close)="close()"
+  (tryAgain)="tryAgain()"
+  (closeButtonClicked)="close()"
+  (changePaymentMethod)="changePayment($event)">
+</pe-santander-at-finish-view>

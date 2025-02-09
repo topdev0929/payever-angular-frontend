@@ -1,0 +1,9 @@
+@use 'pe_theming' as pet;
+@use './confirm-action-dialog-theme.component' as confirm_action_dialog;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @if $color-config != null {
+    @include confirm_action_dialog.color($color-config);
+  }
+}

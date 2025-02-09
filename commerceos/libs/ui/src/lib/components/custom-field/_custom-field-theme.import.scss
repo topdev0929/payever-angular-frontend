@@ -1,0 +1,8 @@
+@use 'pe_theming' as pet;
+@use './custom-field-component/custom-field-theme.component' as custom_field;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include custom_field.color($color-config);
+}
+

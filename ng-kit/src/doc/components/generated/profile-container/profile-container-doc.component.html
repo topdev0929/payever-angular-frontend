@@ -1,0 +1,62 @@
+<div class="chapter">
+  <h2>ProfileContainerComponent</h2>
+  <div class="main-block">
+    <tabset>
+      <tab heading="Overview">
+        <h3>Import ProfileContainerModule</h3>
+        <pre><code class="typescript" [innerHTML]="'import {ProfileContainerModule } from \'@pe/ng-kit/modules/profile-container\';'"></code></pre>
+        <p>&nbsp;</p>
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          [tsExample]="tsExample"
+          >
+          <div class="profile-container-example-wrap">
+            <pe-profile-container
+              [containerPrivateItem]="containerPrivateItem"
+              [containerItems]="containerItems"
+              [profileLayout]="profileContainerLayout"
+              [isSwitchedOff]="isSwitchedOff"
+              (selectItemEvent)="handleSelectedProfileItem($event)"
+              (editItemEvent)="handleEditProfileItem($event)"
+              [isSwiperMobile]="isSwiperMobile"
+              [containerTheme]="'light'"
+              [showEditButton]="true"
+              [editText]="true"
+              >
+            </pe-profile-container>
+          </div>
+        </example-viewer>
+      </tab>
+      <tab heading="API">
+        <component-api-renderer [path]="'profile-container/src/profile-container.component'"></component-api-renderer>
+      </tab>
+      <tab heading="Examples">
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          [tsExample]="tsExample"
+          >
+          <div class="profile-container-example-wrap">
+            <pe-profile-container
+              [containerPrivateItem]="containerPrivateItem"
+              [containerItems]="containerItems"
+              [profileLayout]="profileContainerLayout"
+              [isSwitchedOff]="isSwitchedOff"
+              (selectItemEvent)="handleSelectedProfileItem($event)"
+              (editItemEvent)="handleEditProfileItem($event)"
+              [isSwiperMobile]="isSwiperMobile"
+              [containerTheme]="'light'"
+              [showEditButton]="true"
+              [editText]="true"
+              >
+            </pe-profile-container>
+          </div>
+        </example-viewer>
+      </tab>
+      <tab heading="README">
+        <doc-viewer documentUrl="/assets/module-guides/profile-container/profile-container.html"></doc-viewer>
+      </tab>
+    </tabset>
+  </div>
+</div>

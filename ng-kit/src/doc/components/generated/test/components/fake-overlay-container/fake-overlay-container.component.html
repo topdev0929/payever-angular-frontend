@@ -1,0 +1,13 @@
+<doc-content-viewer [settings]="settings"></doc-content-viewer>
+
+<ng-template #overview>
+  <p>
+    Some <code>angular/material</code> uses <code>OverlayContainer</code> from <code>@angular/cdk/overlay</code>.
+    And lookup for rendered HTML inside material overlays via global
+    <code>document.querySelector()</code> isn't good practice.
+  </p>
+
+  <p>
+    Instead we can provide own overlay container stub and perform queries inside.
+  </p>
+</ng-template>

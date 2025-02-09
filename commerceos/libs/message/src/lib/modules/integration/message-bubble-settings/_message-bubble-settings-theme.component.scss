@@ -1,0 +1,74 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+    $success: map.get($color-config, 'success');
+    $content: map.get($color-config, 'content');
+    $hover-menu-item: map.get($color-config, 'hover-menu-item');
+    $tertiary-background: map.get($color-config, 'tertiary-background');
+    $overlay-background: map.get($color-config, 'overlay-background');
+    $label-color: map.get($color-config, 'label-color');
+    $text-color: map.get($color-config, 'text-color');
+    $text-button: map.get($color-config, 'text-button');
+    $row-background: map.get($color-config, 'row-background');
+    $transparent-color: map.get($color-config, 'transparent-color');
+
+    .bubble-theme {
+
+        &__nav {
+          color: $text-color;
+          background-color: $content;
+        }
+
+        &__nav-item {
+          &.active {
+            background-color: $hover-menu-item;
+          }
+        }
+
+        &__show-button {
+          background-color: $row-background;
+        }
+
+        &__label {
+          color: $label-color;
+        }
+
+        &__dropdown {
+          background-color: $row-background;
+
+          .peb-select {
+
+            .label-select-wrapper .input {
+              color: $text-color;
+
+              .label-text {
+                color: $text-color;
+              }
+            }
+          }
+        }
+
+        &__set-logo {
+          color: $text-color;
+          background-color: $tertiary-background;
+        }
+
+        &__choose-logo {
+          background-color: $row-background;
+        }
+
+        &__text {
+          background-color: $row-background;
+        }
+
+        &__colors {
+          background-color: $row-background;
+
+        }
+
+        &__text-color-picker .color-picker-form__container {
+          border-top: 1px solid $overlay-background;
+        }
+      }
+
+}

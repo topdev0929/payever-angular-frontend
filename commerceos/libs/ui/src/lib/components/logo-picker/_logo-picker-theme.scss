@@ -1,0 +1,67 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $active-text: map.get($color-config, 'active-text');
+  $spinner: map.get($color-config, 'spinner');
+  $row-background: map.get($color-config, 'row-background');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $label-color: map.get($color-config, 'label-color');
+  $filter-invert-light: map.get($color-config, 'filter-invert-light');
+  $border: map.get($color-config, 'border');
+  $icon-fill: map.get($color-config, 'icon-fill');
+
+  .logo-picker-wrapper {
+    .image {
+      &__spinner {
+        .mat-progress-spinner circle,
+        .mat-spinner circle {
+          stroke: $spinner;
+        }
+      }
+      .delete-logo {
+        background-color: $transparent-color;
+        svg {
+          color: $label-color;
+        }
+      }
+      &__background {
+        .no-image {
+          &-text {
+            color: $active-text;
+          }
+          &-logo {
+            background-color: $active-text;
+          }
+        }
+      }
+    }
+    .picker-button {
+      background-color: $row-background;
+      span {
+        color: $text-color;
+      }
+      &__label {
+        color: $text-color;
+      }
+      &__icon {
+        path {
+          fill: $icon-fill;
+        }
+      }
+    }
+    .picker-select {
+      background-color: $row-background;
+      &__text,
+      &__icon-wrapper {
+        color: $text-color;
+      }
+      &__icon {
+        color: $icon-fill;
+      }
+      &__icon-wrapper {
+        border-left-color: $border;
+      }
+    }
+  }
+}

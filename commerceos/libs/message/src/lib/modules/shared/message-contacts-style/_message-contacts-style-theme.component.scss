@@ -1,0 +1,35 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $background: map.get($color-config, 'background');
+  $border: map.get($color-config, 'border');
+  $big-button-text: map.get($color-config, 'big-button-text');
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $active-text: map.get($color-config, 'active-text');
+  $text-color: map.get($color-config, 'text-color');
+  $button-fill: map.get($color-config, 'button-fill');
+  $scrollbar: map.get($color-config, 'scrollbar');
+  $gray-button: map.get($color-config, 'gray-button');
+  $extra-bg-color: map.get($color-config, 'extra-bg-color');
+
+  .message-contacts-dialog-wrapper {
+    background-color: $overlay-background;
+    backdrop-filter: blur(25px) !important;
+    border: solid 1px $border;
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.20);
+
+    &__header {
+      .add-button {
+        background-color: $button-fill;
+        color: $active-text;
+      }
+      .close-button {
+        background-color: $gray-button;
+        color: $big-button-text;
+      }
+    }
+  }
+  .message-products-backdrop {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}

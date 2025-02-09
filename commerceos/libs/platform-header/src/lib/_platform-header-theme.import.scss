@@ -1,0 +1,25 @@
+@use 'pe_theming' as pet;
+@use './root/platform-header-theme.component' as platform_header;
+@use './root/dashboard-platform-header/dashboard-platform-header-theme.component' as dashboard_platform_header;
+@use './components/business-switcher/business-switcher-theme.component' as business_switcher;
+@use './components/main-menu/main-menu-theme.component' as main_menu;
+@use './components/main-menu/menu-panel-theme.component' as menu_panel;
+@use './components/messages/messages-theme.component' as messages;
+@use './components/search/search-theme.component' as search;
+@use './components/skeleton/skeleton-theme.component' as skeleton;
+@use './components/user-avatar/user-avatar-theme.component' as user_avatar;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @if $color-config != null {
+    @include platform_header.color($color-config);
+    @include dashboard_platform_header.color($color-config);
+    @include business_switcher.color($color-config);
+    @include main_menu.color($color-config);
+    @include menu_panel.color($color-config);
+    @include messages.color($color-config);
+    @include search.color($color-config);
+    @include skeleton.color($color-config);
+    @include user_avatar.color($color-config);
+  }
+}

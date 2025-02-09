@@ -1,0 +1,100 @@
+@use 'pe_spinner' as pe_spinner;
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $primary: map.get($color-config, 'primary');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $confirm: map.get($color-config, 'confirm');
+  $accent: map.get($color-config, 'accent');
+  $accent-border: map.get($color-config, 'accent-border');
+  $button: map.get($color-config, 'button');
+  $background: map.get($color-config, 'background');
+  $hover-button: map.get($color-config, 'hover-button');
+  $active-text: map.get($color-config, 'active-text');
+  $secondary: map.get($color-config, 'secondary');
+  $grid-item-background: map.get($color-config, 'grid-item-background');
+  $accent-fill: map.get($color-config, 'accent-fill');
+  $badge-button: map.get($color-config, 'badge-button');
+  $image-placeholder: map.get($color-config, 'image-placeholder');
+  $grid-item-background: map.get($color-config, 'grid-item-background');
+
+    .pe-grid-item {
+      &__footer-container {
+        background-color: $primary;
+      }
+      &__more {
+        background-color: $button;
+        color: $active-text;
+        .mat-progress-spinner {
+          stroke: $active-text !important;
+        }
+      }
+
+      &__checkbox {
+        background-color: rgba($accent, 0.25);
+        border-color: $active-text;
+        &_active {
+          background-color: $confirm;
+          stroke: $active-text;
+        }
+      }
+
+      &__text {
+        background: $image-placeholder;
+      }
+      &__image {
+        &-wrapper {
+          background-color: $background;
+          &.need-placeholder {
+            background: $image-placeholder;
+          }
+        }
+        &.folder {
+          background: $grid-item-background;
+          .pe-grid-item__image-wrapper {
+            background: $transparent-color
+          }
+        }
+        .mat-spinner {
+          @include pe_spinner.mat_spinner();
+          svg {
+            position: relative !important;
+            circle {
+              stroke: #ffffff;
+            }
+          }
+        }
+      }
+
+      &__footer-action {
+        .pe-grid-item__badge {
+          color: $accent-fill;
+        }
+      }
+
+      &__footer, &__footer-action {
+        color: $text-color;
+
+        .pe-grid-item__button {
+          background-color: $hover-button;
+          color: $active-text !important;
+          .mat-progress-spinner {
+            stroke: $active-text !important;
+          }
+          &_big-list {
+            color: $text-color;
+          }
+        }
+        .pe-grid-item__badge {
+          background-color: $badge-button;
+          color: $text-color;
+          stroke: $text-color;
+        }
+      }
+      &__badge {
+        background-color: $badge-button;
+        color: $text-color;
+      }
+    }
+}

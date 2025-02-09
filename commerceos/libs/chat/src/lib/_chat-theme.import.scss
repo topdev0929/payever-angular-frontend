@@ -1,0 +1,28 @@
+@use 'pe_theming' as pet;
+@use './chat-theme-component' as root;
+@use './components/chat-header/chat-header-theme.component' as chat_header;
+@use './components/chat-message-header/chat-message-header-theme.component' as chat_message_header;
+@use './components/chat-message/chat-message-theme.component' as chat_message;
+@use './components/chat-message-text/chat-message-text-theme.component' as chat_message_text;
+@use './components/chat-form/chat-form-theme.component' as chat_form;
+@use './components/chat-header-tag/chat-header-tag-styles-theme.component' as chat_header_tag;
+@use './components/chat-forward-menu/chat-forward-menu-theme.component' as chat_forward_menu;
+@use './components/chat-forward-sender/chat-forward-sender-theme.component' as chat_forward_sender;
+@use './components/chat-form/chat-form-emoji-picker/chat-form-emoji-picker-theme.component' as chat_form_emoji_picker;
+@use './components/chat-form-attach-menus/attach-menus-styles/attach-menus-styles-theme.component' as chat_form_attach_menus;
+
+
+@mixin theme($theme-config) {
+    $color-config: pet.get-color-config-from-theme($theme-config);
+    @include root.color($color-config);
+    @include chat_header.color($color-config);
+    @include chat_message_header.color($color-config);
+    @include chat_message.color($color-config);
+    @include chat_message_text.color($color-config);
+    @include chat_form.color($color-config);
+    @include chat_form_attach_menus.color($color-config);
+    @include chat_header_tag.color($color-config);
+    @include chat_forward_menu.color($color-config);
+    @include chat_forward_sender.color($color-config);
+    @include chat_form_emoji_picker.color($color-config);
+}

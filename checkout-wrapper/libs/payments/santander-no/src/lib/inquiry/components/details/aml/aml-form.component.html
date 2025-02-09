@@ -1,0 +1,94 @@
+<form
+  *ngIf="formGroup.enabled"
+  [formGroup]="formGroup">
+  <div
+    class="h5"
+    i18n="@@santander-no.inquiry.step.section.aml.title">
+    santander-no.inquiry.step.section.aml.title
+  </div>
+
+  <div class="form-fieldset-new">
+    <mat-form-field class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-no.inquiry.form.political_exposed_person.label">
+        Politically exposed person?
+      </mat-label>
+
+      <mat-select formControlName="politicalExposedPerson">
+        <mat-option
+          *ngFor="let option of booleanOptions"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+
+      <svg
+        matSuffix
+        class="icon icon-24"
+        [tooltip]="translations.politicalExposedPerson.tooltip">
+        <use
+          [attr.xmlns:xlink]="'http://www.w3.org/1999/xlink'"
+          [attr.xlink:href]="'#icon-help-24'"></use>
+      </svg>
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-no.inquiry.form.applied_on_behalf_of_others.label">
+        Applied on behalf of others
+      </mat-label>
+
+      <mat-select formControlName="appliedOnBehalfOfOthers">
+        <mat-option
+          *ngFor="let option of booleanOptions"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+
+      <svg
+        matSuffix
+        class="icon icon-24"
+        [tooltip]="translations.appliedOnBehalfOfOthers.tooltip">
+        <use
+          [attr.xmlns:xlink]="'http://www.w3.org/1999/xlink'"
+          [attr.xlink:href]="'#icon-help-24'"></use>
+      </svg>
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12">
+      <mat-label i18n="@@santander-no.inquiry.form.pay_with_main_income.label"> Pay with main income </mat-label>
+
+      <mat-select formControlName="payWithMainIncome">
+        <mat-option
+          *ngFor="let option of booleanOptions"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('paySource').enabled"
+      class="col-xs-12">
+      <mat-label i18n="@@santander-no.inquiry.form.pay_source.label"> Pay source </mat-label>
+
+      <mat-select formControlName="paySource">
+        <mat-option
+          *ngFor="let option of paySourceOptions$ | async"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('otherPaySource').enabled"
+      class="col-xs-12">
+      <mat-label i18n="@@santander-no.inquiry.form.other_pay_source.label"> Other Pay source </mat-label>
+
+      <input
+        matInput
+        formControlName="otherPaySource"
+        type="text" />
+    </mat-form-field>
+  </div>
+</form>

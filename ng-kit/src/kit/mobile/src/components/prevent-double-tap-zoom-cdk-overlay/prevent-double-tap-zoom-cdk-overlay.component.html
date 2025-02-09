@@ -1,0 +1,5 @@
+<ng-template ngFor let-handledContainer [ngForOf]="handledContainersArray$ | async">
+  <div pePreventDoubleTapZoom
+       [pePreventDoubleTapZoomSelector]="handledContainer.selector">
+  </div>
+</ng-template>

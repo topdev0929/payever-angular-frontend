@@ -1,0 +1,3 @@
+<pe-button-toggle-group [buttons]="buttons" [formControlRef]="formControl" (valueChange)="onChanged($event)"></pe-button-toggle-group>
+
+<p *ngIf="formControl.value">Current value: {{ formControl.value }}</p>

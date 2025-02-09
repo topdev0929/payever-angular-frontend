@@ -1,0 +1,258 @@
+<div class="chapter">
+  <h2>Modals</h2>
+  <div id="modals-small" class="main-block">
+    <h3>Small</h3>
+    <div class="doc-block">
+      <tabset>
+        <tab heading="View">
+          <div class="row margin-bottom22">
+            <div class="col-xs-12">
+              <p>Use <code html-entities="true">[baseViewConfig]="'small'"</code> to apply.</p>
+            </div>
+            <div class="col-xs-12">
+              <button type="button" class="btn btn-primary btn-lg" (click)="showExampleModalSmall()">
+                Launch small modal
+              </button>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Template">
+          <div class="row margin-bottom22">
+            <div class="col-xs-12">
+              <pre><code class="html" [innerHTML]="modalExampleSmallHtml | code"></code></pre>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Component">
+          <div class="row margin-bottom22">
+            <div class="col-xs-12">
+              <pre><code class="typescript" html-entities="true" [innerHTML]="modalExampleSmallTs | code"></code></pre>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+
+  <div id="modals-confirm" class="main-block">
+    <h3>Confirm</h3>
+    <div class="doc-block">
+      <tabset>
+        <tab heading="View">
+          <div class="row margin-bottom22">
+            <div class="col-xs-12">
+              <p>Use <code html-entities="true">[baseViewConfig]="'confirm'"</code> to apply.</p>
+            </div>
+            <div class="col-xs-12">
+              <button type="button" class="btn btn-primary btn-lg" (click)="showExampleModalConfirm()">
+                Launch confirm modal
+              </button>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Template">
+          <div class="row margin-bottom22">
+            <div class="col-xs-12">
+              <pre><code class="html" html-entities="true" [innerHTML]="modalExampleConfirmHtml | code"></code></pre>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Component">
+          <div class="row margin-bottom22">
+            <div class="col-xs-12">
+              <pre><code class="typescript" html-entities="true"
+                         [innerHTML]="modalExampleConfirmTs | code"></code></pre>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+
+  <div id="modals-notify" class="main-block">
+    <h3>Notification</h3>
+    <div class="doc-block">
+      <tabset>
+        <tab heading="View">
+          <div class="row margin-bottom22">
+            <div class="col-xs-12">
+              <p>Use <code html-entities="true">[baseViewConfig]="'notificationWarning'"</code> to apply.</p>
+            </div>
+            <div class="col-xs-12">
+              <button type="button" class="btn btn-primary btn-lg" (click)="showExampleModalNotificationWarning()">
+                Launch notification warning modal
+              </button>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Template">
+          <div class="row margin-bottom22">
+            <div class="col-xs-12">
+              <pre><code class="html" html-entities="true"
+                         [innerHTML]="modalExampleNotificationWarningHtml | code"></code></pre>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Component">
+          <div class="row margin-bottom22">
+            <div class="col-xs-12">
+              <pre><code class="typescript" html-entities="true"
+                         [innerHTML]="modalExampleNotificationWarningTs | code"></code></pre>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+
+  <div id="modals-fullscreen" class="main-block">
+    <h3>Fullscreen</h3>
+    <div class="doc-block">
+      <tabset>
+        <tab heading="View">
+          <div class="row margin-bottom22">
+            <div class="col-xs-12">
+              <p>
+                Use <code html-entities="true">[baseViewConfig]="'large'"</code> to apply.
+                To add header content use <code>'header'</code> attribute.
+              </p>
+            </div>
+            <div class="col-xs-12">
+              <button type="button" class="btn btn-primary btn-lg btn-vmargin" (click)="showExampleModalLarge()">
+                Large modal
+              </button>
+              <button type="button" class="btn btn-primary btn-lg btn-vmargin"
+                      (click)="showExampleModalLargeDefaultHeader()">
+                Default header
+              </button>
+              <button type="button" class="btn btn-primary btn-lg btn-vmargin"
+                      (click)="showExampleModalLargeBlueHeader()">
+                Blue header
+              </button>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Template">
+          <div class="row margin-bottom22">
+            <div class="col-xs-12">
+              <pre><code class="html" html-entities="true" [innerHTML]="modalExampleLargeBlueHeaderHtml | code"></code></pre>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Component">
+          <div class="row margin-bottom22">
+            <div class="col-xs-12">
+              <pre><code class="typescript" html-entities="true"
+                         [innerHTML]="modalExampleLargeBlueHeaderTs | code"></code></pre>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+
+  <div id="modals-angular" class="main-block">
+    <h3>AngularJS modals</h3>
+    <div class="doc-block">
+      <div class="row">
+        <div class="col-xs-12">
+          <p>
+            The main idea is to create route for modal and wrap page content by
+            <code>{{ exampleTag }}</code>.
+            After that regular page become to look like a modal. Full documentation is
+            <a href="https://gitlab.devpayever.com/frontend/ui-kit/tree/master/modules/ui-modal"
+               target="_blank">here</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="doc-block">
+      <tabset>
+        <tab heading="Modal over content">
+          <div class="row margin-bottom22">
+            <div class="col-xs-12">
+              To make modal always appear over the page content, use <code>children</code> to declare page with modal
+              component in routes.
+              Also in following example <code>ListComponent</code> must have <code>{{ routerOutletTag }}</code> in
+              template.
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <pre><code class="typescript" html-entities="true"
+                         [innerHTML]="exampleModalOverContentRoutes | code"></code></pre>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Modal over modal">
+          <div class="row margin-bottom22">
+            <div class="col-xs-12">
+              To make one modal appear over another modal you should put <code>{{ routerOutletTag }}</code> in the end
+              of bottom modal template but out of <code>{{ exampleTag }}</code>.
+            </div>
+          </div>
+          <div class="row margin-bottom22">
+            <div class="col-xs-12">
+              Following simplified example demonstrates modal over content and modal over modal implementation.
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <strong>routes.ts</strong>
+              <pre><code class="typescript" html-entities="true"
+                         [innerHTML]="modalExampleOverModalRoutesTs | code"></code></pre>
+              <p></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <strong>root.component.ts</strong>
+              <pre><code class="typescript" html-entities="true"
+                         [innerHTML]="modalExampleOverModalRootTs | code"></code></pre>
+              <p></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <strong>root.component.html</strong>
+              <pre><code class="html" html-entities="true"
+                         [innerHTML]="modalExampleOverModalRootHtml | code"></code></pre>
+              <p></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <strong>first.component.ts</strong>
+              <pre><code class="typescript" html-entities="true"
+                         [innerHTML]="modalExampleOverModalFirstTs | code"></code></pre>
+              <p></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <strong>first.component.html</strong>
+              <pre><code class="html" html-entities="true"
+                         [innerHTML]="modalExampleOverModalFirstHtml | code"></code></pre>
+              <p></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <strong>second.component.ts</strong>
+              <pre><code class="typescript" html-entities="true"
+                         [innerHTML]="modalExampleOverModalSecondTs | code"></code></pre>
+              <p></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <strong>second.component.html</strong>
+              <pre><code class="html" html-entities="true" [innerHTML]="modalExampleOverModalSecondHtml | code"></code></pre>
+              <p></p>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+</div>

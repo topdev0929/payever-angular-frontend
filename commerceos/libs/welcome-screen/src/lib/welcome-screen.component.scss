@@ -1,0 +1,106 @@
+@import 'pe_screen_variables.scss';
+
+.welcome-screen {
+  font-family: Roboto, sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 260px;
+  border-radius: 10px;
+  -webkit-backdrop-filter: blur(25px);
+  backdrop-filter: blur(25px);
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.5);
+  border-width: 1px;
+  border-style: solid;
+  padding: 32px 16px;
+}
+
+.welcome-screen-content {
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-screen-image {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 16px;
+
+  &:not(.commerceos) {
+    max-width: 86px;
+    max-height: 86px;
+    height: 55px;
+    width: 55px;
+  }
+
+  &.commerceos {
+    height: 32px;
+    width: 128px;
+  }
+}
+
+.welcome-screen-content-title {
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.welcome-screen-content-description {
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  text-align: center;
+  line-height: normal;
+}
+
+.welcome-screen-content-button {
+  text-align: center;
+  border: none;
+  padding: 8px 0;
+  margin-bottom: 8px;
+  width: 100%;
+  height: 36px;
+  border-radius: 6px;
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.21;
+  overflow: hidden;
+  position: relative;
+  ::ng-deep mat-spinner {
+    margin: auto;
+  }
+  &__dashboard {
+    background-image: none;
+  }
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.welcome-screen-content-aclaration {
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 10px;
+  line-height: 14px;
+  max-width: 100%;
+
+  ::ng-deep a {
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  ::ng-deep span {
+    text-transform: capitalize;
+  }
+}

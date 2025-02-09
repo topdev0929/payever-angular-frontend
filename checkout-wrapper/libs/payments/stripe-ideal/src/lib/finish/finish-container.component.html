@@ -1,0 +1,24 @@
+<p
+  class="text text-danger"
+  *ngIf="stripeError">
+  {{ stripeError }}
+</p>
+
+<stripe-ideal-shared-finish
+  [showCloseButton]="showCloseButton"
+  [isDisableChangePayment]="isDisableChangePayment"
+  [nodeResult]="paymentResponse"
+  [isLoading]="((!paymentResponse && !stripeError) || isLoading) && !errorMessage"
+  [isCheckStatusTimeout]="isCheckStatusTimeout"
+  [errorMessage]="errorMessage"
+  [template]="template"
+  (cleanUp)="cleanUp()"
+  (close)="close()"
+  (tryAgain)="tryAgain()"
+  (changePaymentMethod)="changePayment($event)"></stripe-ideal-shared-finish>
+
+<ng-template #template>
+  <div
+    id="ideal-bank-element-finish"
+    class="hidden"></div>
+</ng-template>

@@ -1,0 +1,18 @@
+<div class="sidenav sidenav-left peb-sidenav">
+  <div class="sidenav__header">
+    <span class="sidenav__headline">{{ 'subscriptions-app.title' | translate }}</span>
+    <mat-icon class="sidenav__close" svgIcon="small-close-icon" (click)="closeSidebar()"></mat-icon>
+  </div>
+  <nav class="nav">
+    <ul>
+      <li [ngClass]="item.class" [class.disabled]="item.disabled" *ngFor="let item of sidebarItems">
+        <a (click)="open()" routerLink="./{{item.link}}" class="nav__link" routerLinkActive="nav__link--active">
+          <span class="nav__icon">
+            <mat-icon [svgIcon]="item.icon" class="nav__mat-icon"></mat-icon>
+          </span>
+          <span>{{item.name | translate}}</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>

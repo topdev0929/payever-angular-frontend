@@ -1,0 +1,18 @@
+<div class="ui-layout-app"
+  [ngClass]="{
+    'fill-viewport': fullView,
+    'static-block-view': staticBlockView,
+    'fixed-position-view': fixedPositionView,
+    'layout-with-paddings': layoutWithPaddings
+  }">
+  <div class="inner-wrap">
+    <div class="layout-app-content">
+      <div class="layout-app-header light-grey">
+        <ng-content select="[header]"></ng-content>
+      </div>
+      <div class="layout-app-body">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

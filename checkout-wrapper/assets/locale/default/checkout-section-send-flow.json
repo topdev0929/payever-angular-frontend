@@ -1,0 +1,25 @@
+{
+  "checkout_send_flow": {
+    "errors": {
+      "phone_must_start_with_plus": "Phone number must start with '+'",
+      "one_field_required": "At least one of the fields required",
+      "from_phone_not_configured": "Terminal \"from\" phone number value is not configured. Please try again later"
+    },
+    "form": {
+      "phoneTo": {
+        "placeholder": "Mobile number",
+        "placeholder_optional": "Mobile number",
+        "label": "Mobile number"
+      },
+      "email": {
+        "placeholder": "E-Mail Address",
+        "placeholder_optional": "E-Mail Address",
+        "label": "E-Mail Address"
+      }
+    },
+    "finish": {
+      "header": "Message has been sent",
+      "caption": "Thank you! We have sent you a SMS/E-mail. Please continue from there."
+    }
+  }
+}

@@ -1,0 +1,167 @@
+<form [formGroup]="form" class="form" (change)="onSubmit()">
+  <peb-editor-sidebar-tabs>
+    <peb-editor-sidebar-tab
+      [title]="'builder-app.forms.background.preset' | translate"
+      [active]="activeTab === PebSecondaryTab.Preset"
+      *ngIf="!isImageContext && tabs[PebSecondaryTab.Preset]"
+    >
+      <peb-fill-preset [control]="form.controls.color" (colorSelected)="onSubmit()"></peb-fill-preset>
+    </peb-editor-sidebar-tab>
+
+    <peb-editor-sidebar-tab
+      [title]="'builder-app.forms.background.color' | translate"
+      [active]="activeTab === PebSecondaryTab.Color"
+      *ngIf="!isImageContext && tabs[PebSecondaryTab.Color]"
+    >
+      <peb-picker formControlName="color" (change)="onSubmit()"></peb-picker>
+    </peb-editor-sidebar-tab>
+
+    <peb-editor-sidebar-tab
+      [title]="'builder-app.forms.background.gradient' | translate"
+      [active]="activeTab === PebSecondaryTab.Gradient"
+      *ngIf="!isImageContext && tabs[PebSecondaryTab.Gradient]"
+    >
+    <peb-gradient-form [formGroup]="gradientForm"></peb-gradient-form>
+    </peb-editor-sidebar-tab>
+
+    <peb-editor-sidebar-tab
+      [title]="'builder-app.forms.background.media' | translate"
+      [active]="activeTab === PebSecondaryTab.Media"
+      *ngIf="tabs[PebSecondaryTab.Media]"
+    >
+      <div class="type">
+        <peb-select 
+          formControlName="mediaType"
+          [options]="mediaTypes"
+          [label]="'builder-app.forms.background.upload_media' | translate"
+        ></peb-select>
+      </div>
+
+      <div class="image" [class.image_hidden]="form.value.mediaType === mediaType.None">
+        <div class="image__container">
+          <div *ngIf="bgImageLoading$ | async" class="spinner"></div>
+          <div
+            class="image__thumbnail"
+            *ngIf="thumbnail$ | async as thumbnail"
+            [style.background-image]="'url(' + thumbnail + ')'"
+          ></div>
+          <input
+            #bgImageInput
+            hidden
+            type="file"
+            accept="image/jpeg,image/png,image/gif,image/svg+xml"
+            (change)="changeBgInputHandler($event)"
+          />
+          <input
+            #videoInput
+            type="file"
+            accept="video/mp4,video/x-m4v,video/*"
+            hidden
+            (change)="changeVideoInputHandler($event)"
+          />
+          <div
+            *ngIf="getFillTitle() as title"
+            class="image__container image__container--has-media"
+          >{{ title}}</div>
+        </div>
+
+        <span (click)="changeMedia()" [class.disabled]="bgImageLoading$ | async">
+          <ng-container *ngIf="form.value.bgImage; else uploadMedia">
+            {{ 'builder-app.forms.background.change_media' | translate }}
+          </ng-container>
+          <ng-template #uploadMedia>{{ 'builder-app.forms.background.select_media' | translate }}</ng-template>
+        </span>
+      </div>
+
+      <ng-container
+        *ngIf="form.value.mediaType === mediaType.Image || form.value.type === fillType.Image"
+        formGroupName="image"
+      >
+        <div class="sizes">
+          <ul>
+            <li
+              *ngFor="let item of imageFillModes$ | async"
+              (click)="clickImageFillMode(item)"
+              [class.active]="form.value.image?.fillMode === item.value"
+            >
+              <div class="sizes__icon">
+                  <mat-icon [svgIcon]="item.icon" class="nav__mat-icon"></mat-icon>
+              </div>
+              <span>{{ item.name }}</span>
+              <mat-icon class="sizes__applied" svgIcon="checkmark-blue"></mat-icon>
+            </li>
+          </ul>
+        </div>
+
+        <ng-container *ngIf="[fillMode.Original, fillMode.Tile].includes(form.value.image?.fillMode)">
+          <div title="Scale" class="combined-input-range">
+            <label title="Scale" class="label">Scale</label>
+            <peb-size-input
+              [min]="0"
+              [precision]="2"
+              formControlName="scale"
+              [units]="units$ | async"
+            ></peb-size-input>
+          </div>
+        </ng-container>
+
+        <div class="form__row_border">
+          <div class="group__row">
+            <label class="group__label">
+              {{ 'builder-app.forms.background.fill' | translate }}
+            </label>
+            <div class="peb-fill" (click)="showBackgroundForm()">
+              <div class="peb-fill__thumbnail" [ngStyle]="imageBackground$ | async"></div>
+              <mat-icon
+                svgIcon="arrow"
+                class="sidebar__icon sidebar__icon__arrow sidebar__icon__arrow--fill"
+              ></mat-icon>
+            </div>
+          </div>
+        </div>
+
+        <div class="form__row_border">
+          <div class="group__row">
+            <label class="group__label">
+              {{ 'builder-app.forms.background.background_position' | translate }}
+            </label>
+          </div>
+          <div class="group__row position-selector">
+            <peb-select formControlName="positionX" [options]="imagePositionXModes"></peb-select>
+            <peb-select formControlName="positionY" [options]="imagePositionYModes"></peb-select>
+          </div>
+          <div class="group__row">
+            <peb-slide-toggle formControlName="fixed">Fixed Attachment</peb-slide-toggle>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container
+        *ngIf="form.value.mediaType === mediaType.Video || form.value.type === fillType.Video"
+        formGroupName="video"
+      >
+        <div class="sizes">
+          <ul>
+            <li *ngFor="let item of videoFillModes$ | async" (click)="clickVideoFillMode(item)"
+              [class.active]="form.value.video?.fillMode === item.value">
+              <div class="sizes__icon">
+                <mat-icon [svgIcon]="item.icon" class="_mat-icon"></mat-icon>
+              </div>
+              <span>{{ item.name }}</span>
+              <svg class="sizes__applied" width="16" height="12" viewBox="0 0 16 12">
+                <g fill="none" fill-rule="evenodd">
+                  <g fill="#0371E2" fill-rule="nonzero">
+                    <path
+                      d="M1326.939 250c-.205-.001-.4-.085-.543-.233l-4.17-4.24c-.301-.304-.301-.798-.001-1.102.3-.305.787-.305 1.087 0l3.627 3.688 9.75-9.885c.193-.197.476-.274.741-.201.266.072.473.282.544.55.07.27-.005.557-.2.754l-10.276 10.436c-.147.152-.35.236-.559.233z"
+                      transform="translate(-1322 -238)" />
+                  </g>
+                </g>
+              </svg>
+            </li>
+          </ul>
+        </div>
+      </ng-container>
+
+    </peb-editor-sidebar-tab>
+  </peb-editor-sidebar-tabs>
+</form>

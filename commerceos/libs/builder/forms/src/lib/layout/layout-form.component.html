@@ -1,0 +1,46 @@
+<form class="form" [formGroup]="form">
+  <div class="group__row">
+    <label class="group__label">
+      {{ 'builder-app.forms.layout.type' | translate }}
+    </label>
+  </div>
+  <div class="group__row">
+    <peb-select [options]="layoutTypes" formControlName="type"></peb-select>
+  </div>
+
+  <ng-container *ngIf="form.value.type === layoutType.Grid">
+    <div class="accordion-title">
+      <span>{{ 'builder-app.forms.layout.columns' | translate }}</span>
+      <mat-icon svgIcon="plus" (click)="addColumn()"></mat-icon>
+      <mat-icon [svgIcon]="showColumns ? 'collapse' : 'expand'" (click)="showColumns = !showColumns"></mat-icon>
+    </div>
+
+    <div class="value-container" [class.value-container--open]="showColumns">
+      <ng-container formArrayName="columns">
+        <ng-container *ngFor="let columnForm of columns.controls; let i = index" [formGroup]="columnForm">
+          <div class="value-container__row">
+            <peb-size-input formControlName="value" [units]="units" precision="2"></peb-size-input>
+            <mat-icon title="remove" *ngIf="columns.length > 1" svgIcon="delete" (click)="removeColumn(i)"></mat-icon>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+
+    <div class="accordion-title">
+      <span>{{ 'builder-app.forms.layout.rows' | translate }}</span>
+      <mat-icon svgIcon="plus" (click)="addRow()"></mat-icon>
+      <mat-icon [svgIcon]="showRows ? 'collapse' : 'expand'" (click)="showRows = !showRows"></mat-icon>
+    </div>
+
+    <div class="value-container" [class.value-container--open]="showRows">
+      <ng-container formArrayName="rows">
+        <ng-container *ngFor="let rowForm of rows.controls; let i = index" [formGroup]="rowForm">
+          <div class="value-container__row">
+            <peb-size-input formControlName="value" [units]="units" precision="2"></peb-size-input>
+            <mat-icon title="remove" *ngIf="rows.length > 1" svgIcon="delete" (click)="removeRow(i)"></mat-icon>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </ng-container>
+</form>

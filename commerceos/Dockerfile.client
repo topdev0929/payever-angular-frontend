@@ -1,0 +1,52 @@
+ARG BUILD_NODE_IMAGE
+ARG PROD_NODE_IMAGE
+
+FROM $BUILD_NODE_IMAGE AS build
+
+ARG NAMESPACE
+ENV NAMESPACE=$NAMESPACE
+
+COPY package.json package-lock.json .npmrc /payever/
+COPY ./decorate-angular-cli.js /payever/
+COPY ./apps/peb-client/src/environments/environment.prod.ts /payever/src/environments/
+# COPY ./apps/peb-client/src/environments/env.$NAMESPACE.ts /payever/src/environments/env.$NAMESPACE
+COPY ./apps/peb-client/src/environments/env.$NAMESPACE.ts /payever/env.$NAMESPACE
+RUN echo "npm version=> $(npm --version)"
+RUN npm config set cache /.npm-cache
+RUN npm config set legacy-peer-deps true
+RUN echo "Path to npm cache2=> $(npm get cache)"
+RUN cd /payever && npm ci || FAILED=true; if [ $FAILED ]; then rm -rf node_modules; rm -rf package-lock.json; npm cache clean --force && npm i && npm ci; fi
+
+COPY . /payever
+COPY ./deploy/env.json /payever/env.json
+RUN sed -i "s/microenvironment/$NAMESPACE/g" /payever/src/environments/environment.prod.ts
+RUN sed -i "s/microenvironment/$NAMESPACE/g" /payever/apps/peb-client/src/environments/environment.prod.ts
+
+# changed to nx
+RUN cd /payever && npm i && npm run build:ssr
+
+FROM $PROD_NODE_IMAGE
+
+WORKDIR /payever
+RUN apk update --no-cache && apk add --no-cache curl
+RUN apk add libc6-compat
+
+RUN set -ex \
+    && curl -L -o azcopy.tar.gz \
+    https://azcopyvnext.azureedge.net/release20211027/azcopy_linux_amd64_10.13.0.tar.gz \
+    && tar -xf azcopy.tar.gz --strip-components=1 \
+    && rm -f azcopy.tar.gz \
+    && cp azcopy /usr/local/bin \
+    && cp azcopy /usr/bin
+
+ARG CI_COMMIT_SHA
+COPY --from=build /payever/node_modules ./node_modules
+COPY --from=build /payever/dist ./dist
+COPY --from=build /payever/deploy/ ./deploy
+COPY --from=build /payever/env.* ./
+COPY --from=build /payever/env.* /payever/apps/peb-client/src/environments/
+COPY --from=build /payever/src/environments/environment.prod.ts ./
+COPY --from=build /payever/src/environments/environment.prod.ts /payever/apps/peb-client/src/environments/environment.prod.ts
+
+RUN chmod +x ./deploy/*
+RUN mkdir -p /payever/dist/server/api && echo $CI_COMMIT_SHA && echo $CI_COMMIT_SHA > /payever/dist/server/api/status

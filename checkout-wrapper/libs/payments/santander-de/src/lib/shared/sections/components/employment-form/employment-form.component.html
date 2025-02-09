@@ -1,0 +1,181 @@
+<form
+  class="form-table"
+  *ngIf="translations$ | async as translations"
+  [formGroup]="formGroup">
+  <div class="h5">
+    {{ translations.title }}
+  </div>
+  <div class="form-fieldset-new">
+    <ng-container
+      *ngIf="freelancerForm.enabled"
+      formGroupName="freelancer">
+      <mat-form-field
+        shortDateFormat
+        class="col-xs-12 col-sm-6">
+        <mat-label i18n="@@santander-de.inquiry.form.customer.freelancerEmployedSince.label">
+          Freelancer employed since
+        </mat-label>
+
+        <input
+          matInput
+          peDatePickerMask="shortDate"
+          formControlName="freelancerEmployedSince"
+          type="text"
+          [min]="pastDateConstraints.min"
+          [max]="pastDateConstraints.max"
+          [matDatepicker]="freelancerEmployedSinceDp" />
+
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="freelancerEmployedSinceDp">
+          <svg
+            matDatepickerToggleIcon
+            class="icon icon-16">
+            <use xlink:href="#icon-calendar-16"></use>
+          </svg>
+        </mat-datepicker-toggle>
+        <mat-datepicker
+          #freelancerEmployedSinceDp
+          startView="multi-year">
+        </mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="col-xs-6">
+        <mat-label i18n="@@santander-de.inquiry.form.customer.freelancerCompanyName.label">
+          Freelancer company name
+        </mat-label>
+
+        <input
+          matInput
+          formControlName="freelancerCompanyName"
+          type="text" />
+      </mat-form-field>
+    </ng-container>
+
+    <mat-form-field
+      *ngIf="formGroup.get('employer').enabled"
+      class="col-xs-6">
+      <mat-label>
+        {{ translations.employer.label }}
+      </mat-label>
+
+      <input
+        matInput
+        formControlName="employer"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('employedSince').enabled"
+      shortDateFormat
+      class="col-xs-6">
+      <mat-label>
+        {{ translations.employedSince.label }}
+      </mat-label>
+
+      <input
+        matInput
+        peDatePickerMask="shortDate"
+        formControlName="employedSince"
+        type="text"
+        [min]="pastDateConstraints.min"
+        [max]="pastDateConstraints.max"
+        [matDatepicker]="employedSinceDp" />
+
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="employedSinceDp">
+        <svg
+          matDatepickerToggleIcon
+          class="icon icon-16">
+          <use xlink:href="#icon-calendar-16"></use>
+        </svg>
+      </mat-datepicker-toggle>
+      <mat-datepicker
+        #employedSinceDp
+        startView="multi-year">
+      </mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('prevEmployer').enabled"
+      class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-de.inquiry.form.customer.prevEmployer.label"> Previous employer </mat-label>
+
+      <input
+        matInput
+        formControlName="prevEmployer"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('prevEmployedSince').enabled"
+      shortDateFormat
+      class="col-xs-6">
+      <mat-label i18n="@@santander-de.inquiry.form.customer.prevEmployedSince.label">
+        Previously employed since
+      </mat-label>
+
+      <input
+        matInput
+        peDatePickerMask="shortDate"
+        formControlName="prevEmployedSince"
+        type="text"
+        [min]="pastDateConstraints.min"
+        [max]="pastDateConstraints.max"
+        [matDatepicker]="prevEmployedSinceDp" />
+
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="prevEmployedSinceDp">
+        <svg
+          matDatepickerToggleIcon
+          class="icon icon-16">
+          <use xlink:href="#icon-calendar-16"></use>
+        </svg>
+      </mat-datepicker-toggle>
+      <mat-datepicker
+        #prevEmployedSinceDp
+        startView="multi-year">
+      </mat-datepicker>
+    </mat-form-field>
+
+    <mat-checkbox
+      *ngIf="formGroup.get('employmentLimited').enabled"
+      formControlName="employmentLimited"
+      analyticFieldName="Employment limited"
+      [class]="formGroup.get('employmentLimited').value ? 'col-xs-6' : 'col-xs-12'">
+      <span [innerHTML]="translations.employmentLimited"></span>
+    </mat-checkbox>
+
+    <mat-form-field
+      *ngIf="formGroup.get('employedUntil').enabled"
+      shortDateFormat
+      class="col-xs-6">
+      <mat-label i18n="@@santander-de.inquiry.form.customer.employedUntil.label"> Employed until </mat-label>
+
+      <input
+        matInput
+        peDatePickerMask="shortDate"
+        formControlName="employedUntil"
+        type="text"
+        [min]="futureDateConstraints.min"
+        [max]="futureDateConstraints.max"
+        [matDatepicker]="employedUntilDp" />
+
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="employedUntilDp">
+        <svg
+          matDatepickerToggleIcon
+          class="icon icon-16">
+          <use xlink:href="#icon-calendar-16"></use>
+        </svg>
+      </mat-datepicker-toggle>
+      <mat-datepicker
+        #employedUntilDp
+        startView="multi-year">
+      </mat-datepicker>
+    </mat-form-field>
+  </div>
+</form>

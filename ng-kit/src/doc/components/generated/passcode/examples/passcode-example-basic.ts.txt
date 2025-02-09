@@ -1,0 +1,20 @@
+constructor( private passcodeService: PasscodeService, private spotlightService: SpotlightService ){}
+
+toggleBuzz() {
+  
+  this.passcodeService.buzz();
+}
+
+handleOnDial(passcode: number[]) {
+  
+}
+
+handleOnCancel() {
+  
+  this.spotlightService.closeSpotlight();
+}
+
+handleOnSave(): void {
+  
+  this.spotlightService.closeSpotlight();
+}

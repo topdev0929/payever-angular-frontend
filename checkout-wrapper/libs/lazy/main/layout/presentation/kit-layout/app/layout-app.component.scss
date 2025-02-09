@@ -1,0 +1,13 @@
+.layout-app-header + .layout-app-body {
+  top: var(--checkout-business-header-height, 55px);
+}
+
+.layout-app-footer {
+  display: flex;
+  align-items: center;
+
+  color: var(--checkout-page-text-secondary-color, rgba(17, 17, 17, 0.6));
+  background-color: #f7f7f7;
+  background-color: var(--checkout-page-background-color, #ffffff);
+}
+

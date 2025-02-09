@@ -1,0 +1,9 @@
+<ng-template #modalContent>
+  <mat-dialog-content>
+    <h2 i18n="@@error_flow_finished.header">error_flow_finished.header</h2>
+    <p i18n="@@error_flow_finished.text">error_flow_finished.text</p>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end" *ngIf="(returnButton$ | async) as button">
+    <button mat-button type="button" (click)="button.click()">{{ button.title }}</button>
+  </mat-dialog-actions>
+</ng-template>

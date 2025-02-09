@@ -1,0 +1,17 @@
+@import "../interactions-form-edit.component.scss";
+
+.function-form__button {
+  font-size: 12px;
+  padding: 4px 5px 4px 8px;
+  border-radius: 6px;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 28px;
+
+  .sidebar__icon__arrow{
+    height: 4px;
+  }
+}

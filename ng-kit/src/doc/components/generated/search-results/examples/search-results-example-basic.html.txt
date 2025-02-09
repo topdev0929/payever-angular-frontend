@@ -1,0 +1,1 @@
+<pe-search-results [searchResults]="searchResults" isIconsHidden="true"></pe-search-results>

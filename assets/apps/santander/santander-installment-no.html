@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en" id="html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santander Installment NO</title>
+    <link rel="stylesheet" href="../../css/shared.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/installment-no.css">
+</head>
+
+<body data-payment-demo="SantanderInstallmentNO">
+    <div id="main-container" class="main-container active-order-step">
+        <div id="main-content" class="main-content">
+            <div class="content-wrapper">
+                <div class="body">
+                    <div class="desktop-device">
+                        <div id="device-main-border" class="border">
+                            <div id="device-main-wrapper" class="wrapper">
+                                <div id="checkout-header" class="desktop-header">
+                                    <div class="desktop-header-inner">
+                                        <img id="form-logo" src="../../assets/payever-logo.svg" alt="">
+                                    </div>
+                                </div>
+                                <div id="checkout-items" class="desktop-checkout-items">
+                                    <div class="payment-wrapper">
+                                        <div id="order-step-header" class="item-header active">
+                                            <div class="payment-label">ORDER</div>
+                                            <img src="../../assets/arrow.svg" alt="">
+                                        </div>
+                                        <div id="order-step" class="step order-step active">
+                                            <div class="step-content">
+                                                <table class="products-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <td class="total">
+                                                                TOTAL
+                                                            </td>
+                                                            <td class="quantity">
+                                                                QTY
+                                                            </td>
+                                                            <td class="price">
+                                                                Price
+                                                            </td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="product-info">
+                                                                    <div class="button-remove">
+                                                                        <img src="../../assets/remove-light.svg" alt="Item">
+                                                                    </div>                                          
+                                                                    <img class="product-media product-img" src="../../assets/drone-camera.png" alt="">
+                                                                    <div class="product-name">
+                                                                        Drone Camera
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="quantity-input">
+                                                                    <div class="control decrease">
+                                                                        <img src="../../assets/minus.svg" alt="Minus">
+                                                                    </div>
+                                                                    <div class="value">
+                                                                        1
+                                                                    </div>
+                                                                    <div class="control increase">
+                                                                        <img src="../../assets/plus.svg" alt="Plus">
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="product-price"><span class="price-text">23.839,00</span>&nbspkr</div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="price-info-line">
+                                                    <div>Subtotal</div>
+                                                    <div><span class="price-text">23.839,00</span>&nbspkr</div>
+                                                </div>
+                                                <div class="price-info-line total">
+                                                    <div>Total</div>
+                                                    <div class="lower-case">
+                                                        <span class="price-text">23.839,00</span>&nbspkr
+                                                    </div>
+                                                </div>
+                                                <div class="continue-button-wrapper">
+                                                    <div id="step-1-click" class="clickable animate-once">
+                                                        <div></div>
+                                                    </div>
+                                                    <div class="set-corner set-color continue-button">
+                                                        Continue
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="account-step-header" class="item-header">
+                                            <div class="item-header-info">
+                                                <div class="payment-label">Account</div>
+                                                <div id="account-step-selected-data" class="selected-step-data">
+                                                    max.mustermann@mail.com
+                                                </div>
+                                            </div>
+                                            <img src="../../assets/arrow.svg" alt="">
+                                        </div>
+                                        <div id="account-step" class="step account-step">
+                                            <div class="step-content">
+                                                <div class="form-group">
+                                                    <div class="form-field">
+                                                        <div class="inner">
+                                                            <div class="label">Email</div>
+                                                            <div class="value">max.mustermann@mail.com</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-field form-field-address">
+                                                        <div class="inner">
+                                                            <div class="icon">
+                                                                <img src="../../assets/globe.svg" alt="">
+                                                            </div>
+                                                            <div class="field-data">
+                                                                <div class="label">Address</div>
+                                                                <div class="value">
+                                                                    <span class="desktop-view-value">Rödingsmarkt 20, 20459 Hamburg, Germany</span>
+                                                                    <span class="mobile-view-value">Rödingsmarkt 20, 20459 Hamburg, Ger...</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="continue-button-wrapper top-spacing-medium">
+                                                    <div id="step-2-click" class="clickable">
+                                                        <div></div>
+                                                    </div>
+                                                    <div class="set-corner set-color continue-button">Continue</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="shipping-step-header" class="item-header">
+                                            <div class="item-header-info">
+                                                <div class="payment-label">BILLING &amp; SHIPPING</div>
+                                                <div id="shipping-step-selected-data" class="selected-step-data">
+                                                    <div>Mr. Max Mustermann</div>
+                                                    <div>Rödingsmarkt 20</div>
+                                                    <div>20459 Hamburg, Germany</div>
+                                                </div>
+                                            </div>
+                                            <img src="../../assets/arrow.svg" alt="">
+                                        </div>
+                                        <div id="shipping-step" class="step shipping-step">
+                                            <div class="step-content">
+                                                <div class="form-group">
+                                                    <div class="form-field">
+                                                        <div class="inner">
+                                                            <div class="label">Company</div>
+                                                            <div class="value">payever</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-field">
+                                                        <div class="inner">
+                                                            <div class="label">Email</div>
+                                                            <div class="value">max.mustermann@mail.com</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="inline-fields-group">
+                                                        <div class="form-field salutation-field">
+                                                            <div class="inner">
+                                                                <div class="label">Salutation</div>
+                                                                <div class="value">Mr.</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-field">
+                                                            <div class="inner">
+                                                                <div class="label">First Name</div>
+                                                                <div class="value">Max</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-field">
+                                                            <div class="inner">
+                                                                <div class="label">Last Name</div>
+                                                                <div class="value">Mustermann</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-field form-field-address">
+                                                        <div class="inner">
+                                                            <div class="icon">
+                                                                <img src="../../assets/globe.svg" alt="">
+                                                            </div>
+                                                            <div class="field-data">
+                                                                <div class="label">Address</div>
+                                                                <div class="value">
+                                                                    <span class="desktop-view-value">Rödingsmarkt 20, 20459 Hamburg, Germany</span>
+                                                                    <span class="mobile-view-value">Rödingsmarkt 20, 20459 Hamburg, Ger...</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="inline-fields-group">
+                                                        <div class="form-field form-field-select">
+                                                            <div class="inner">
+                                                                <div class="field-data">
+                                                                    <div class="label">Country</div>
+                                                                    <div class="value">Germany</div>
+                                                                </div>
+                                                                <div class="caret">
+                                                                    <img src="../../assets/dropdown-light.svg" alt="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-field">
+                                                            <div class="inner">
+                                                                <div class="label">City</div>
+                                                                <div class="value">Hamburg</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="inline-fields-group">
+                                                        <div class="form-field">
+                                                            <div class="inner">
+                                                                <div class="label">Street and number</div>
+                                                                <div class="value">Rödingsmarkt 20</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-field post-code-field">
+                                                            <div class="inner">
+                                                                <div class="label">Post Code</div>
+                                                                <div class="value">20459</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-field">
+                                                        <div class="inner">
+                                                            <div class="label">Phone (Optional)</div>
+                                                            <div class="value">+49 40 999969820</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="continue-button-wrapper top-spacing-medium">
+                                                    <div id="step-3-click" class="clickable">
+                                                        <div></div>
+                                                    </div>
+                                                    <div class="set-corner set-color continue-button">Continue</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="payment-method-step-header" class="item-header">
+                                            <div class="item-header-info">
+                                                <div class="payment-label">PAYMENT</div>
+                                            </div>
+                                            <img src="../../assets/arrow.svg" alt="">
+                                        </div>
+                                        <div id="payment-method-step" class="step payment-method-step">
+                                            <div class="step-content">
+                                                <div class="payment-methods">
+                                                    <div class="payment-method in-column">
+                                                        <div class="method">
+                                                            <div class="info">
+                                                                <img src="../../assets/checkout-checkmark-icon.svg" alt="">
+                                                                <span>Santander Installments</span>
+                                                            </div>
+                                                            <div class="assets">
+                                                                <img class="santander-icon" src="../../assets/santander-full-logo.svg" alt="Santander">
+                                                            </div>
+                                                        </div>
+                                                        <div class="content">
+                                                            <div class="tab-contols-group">
+                                                                <div class="tab-control active">Part Payment</div>
+                                                                <div class="tab-control">Buy Now - Pay Later</div>
+                                                            </div>
+                                                            <div class="select-group">
+                                                                <div class="select-group-inner">
+                                                                    <div class="select-group-assets">
+                                                                        <div class="value">
+                                                                            <div>Monthly Payment 2.010,00 kr</div>
+                                                                            <div class="sub-value">
+                                                                                Total credit <span class="price-with-fee-text">24.999,024</span> kr
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="select-group-control">
+                                                                      <img src="../../assets/dropdown-arrow-light.svg" alt="">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="payment-summary-info">
+                                                                <div class="payment-summary-col">
+                                                                    <div class="payment-summary-item">
+                                                                        <span>Startup fee</span>
+                                                                        <span class="val">2.010,00 kr</span>
+                                                                    </div>
+                                                                    <div class="payment-summary-item">
+                                                                        <span>Billing fee</span>
+                                                                        <span class="val">30,00 kr</span>
+                                                                    </div>
+                                                                    <div class="payment-summary-item">
+                                                                        <span>Terms on month</span>
+                                                                        <span class="val">12 months</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="payment-summary-col">
+                                                                    <div class="payment-summary-item">
+                                                                        <span>Interest rate</span>
+                                                                        <span class="val">0 %</span>
+                                                                    </div>
+                                                                    <div class="payment-summary-item">
+                                                                        <span>Total cost</span>
+                                                                        <span class="val">24.999,024 kr</span>
+                                                                    </div>
+                                                                    <div class="payment-summary-item">
+                                                                        <span>Effective interest</span>
+                                                                        <span class="val">3.52 %</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="inline-fields-group mobile-in-column">
+                                                                    <div class="form-field">
+                                                                        <div class="inner">
+                                                                            <div class="label">Social security number</div>
+                                                                            <div class="value">123456</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-field">
+                                                                        <div class="inner">
+                                                                            <div class="label">Phone</div>
+                                                                            <div class="value">+49 40 999969820</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="checkmark-group">
+                                                                <div id="checkmark-input" class="checkmark checked">
+                                                                    <img src="../../assets/checkmark-checked.svg" alt="">
+                                                                </div>
+                                                                <div class="checkmark-info">
+                                                                    Yes, I accept <span>Santander Consumer Bank Conditions*</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="payment-method">
+                                                        <div class="method">
+                                                            <div class="info">
+                                                                <div class="checkout-checkmark"></div>
+                                                                <span>Trustly</span>
+                                                            </div>
+                                                            <div class="assets">
+                                                                <img class="trustly-icon" src="../../assets/trustly-logo.svg" alt="Trustly">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="payment-method">
+                                                        <div class="method">
+                                                            <div class="info">
+                                                                <div class="checkout-checkmark"></div>
+                                                                <span>Swish</span>
+                                                            </div>
+                                                            <div class="assets">
+                                                                <img class="swish-icon" src="../../assets/swish-logo.png" alt="swish">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="payment-method">
+                                                        <div class="method">
+                                                            <div class="info">
+                                                                <div class="checkout-checkmark"></div>
+                                                                <span>PayPal 0,35 kr + 1.9%</span>
+                                                            </div>
+                                                            <div class="assets">
+                                                                <img class="paypal-icon" src="../../assets/paypal-logo.svg" alt="PayPal">
+                                                            </div>
+                                                        </div>
+                                                    </div>                                   
+                                                </div>
+                                                <div class="continue-button-wrapper top-spacing-medium">
+                                                    <div id="step-5-click" class="clickable animate-once">
+                                                        <div></div>
+                                                    </div>
+                                                    <div class="set-corner set-color continue-button">
+                                                        Choose 2.010,00 kr for 6 months
+                                                    </div>
+                                                </div>
+                                                <div class="step-terms bottom-spacing-medium">
+                                                    <div>By clicking <b>Choose 2.010,00 kr for 6 months</b> you agree with the <span>terms of service of payever</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="additional-information-step-header" class="item-header">
+                                            <div class="item-header-info">
+                                                <div class="payment-label">ADDITIONAL INFORMATION</div>
+                                            </div>
+                                            <img src="../../assets/arrow.svg" alt="">
+                                        </div>
+                                        <div id="additional-information-step" class="step additional-information-step">
+                                            <div class="step-content">
+                                                <div class="form-with-title-group">
+                                                    <div class="form-column-with-title">
+                                                        <div class="form-title">Personal information</div>
+                                                        <div class="form-group">
+                                                            <div class="inline-fields-group mobile-in-column">
+                                                                <div class="form-field form-field-select">
+                                                                    <div class="inner">
+                                                                        <div class="field-data">
+                                                                            <div class="label">Norwegian citizen?</div>
+                                                                            <div class="value">Yes</div>
+                                                                        </div>
+                                                                        <div class="caret">
+                                                                            <img src="../../assets/dropdown-light.svg" alt="">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-field form-field-select">
+                                                                    <div class="inner">
+                                                                        <div class="field-data">
+                                                                            <div class="label">Residential Status</div>
+                                                                            <div class="value">Housing association</div>
+                                                                        </div>
+                                                                        <div class="caret">
+                                                                            <img src="../../assets/dropdown-light.svg" alt="">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="inline-fields-group mobile-in-column">
+                                                                <div class="form-field form-field-select">
+                                                                    <div class="inner">
+                                                                        <div class="field-data">
+                                                                            <div class="label">Martial Status</div>
+                                                                            <div class="value">Married</div>
+                                                                        </div>
+                                                                        <div class="caret">
+                                                                            <img src="../../assets/dropdown-light.svg" alt="">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-field form-field-select">
+                                                                    <div class="inner">
+                                                                        <div class="field-data">
+                                                                            <div class="label">Professional status</div>
+                                                                            <div class="value">Full time employee</div>
+                                                                        </div>
+                                                                        <div class="caret">
+                                                                            <img src="../../assets/dropdown-light.svg" alt="">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="inline-fields-group mobile-in-column">
+                                                                <div class="form-field form-field-currency">
+                                                                    <div class="inner">
+                                                                        <div class="currency-sign"> 
+                                                                            kr
+                                                                        </div>
+                                                                        <div class="field-data">
+                                                                            <div class="label">Monthly income</div>
+                                                                            <div class="value">40,000</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-field form-field-currency">
+                                                                    <div class="inner">
+                                                                        <div class="currency-sign"> 
+                                                                            kr
+                                                                        </div>
+                                                                        <div class="field-data">
+                                                                            <div class="label">Rental income</div>
+                                                                            <div class="value">2,000</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="assets">
+                                                                        <div class="hint">
+                                                                            <img src="../../assets/exclamation-mark-light-gray-icon.svg" alt="">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-field">
+                                                                <div class="inner">
+                                                                    <div class="label">Number of children in the household</div>
+                                                                    <div class="value">0</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-title">
+                                                        Household information
+                                                    </div>
+                                                    <div class="form-column-with-title">
+                                                        <div class="form-title">
+                                                            Household Home and cottage loans
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="form-field">
+                                                                <div class="inner">
+                                                                    <div class="label">How many mortgages do you have?</div>
+                                                                    <div class="value">0</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-column-with-title">
+                                                        <div class="form-title">Household Car/Boat/Motorcycle loan</div>
+                                                        <div class="form-group">
+                                                            <div class="form-field">
+                                                                <div class="inner">
+                                                                    <div class="label">How many mortgages (Car/Boat/MC) do you have?</div>
+                                                                    <div class="value">0</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-column-with-title">
+                                                        <div class="form-title">Household Student Loan</div>
+                                                        <div class="form-group">
+                                                            <div class="form-field">
+                                                                <div class="inner">
+                                                                    <div class="label">How many student loans do you have?</div>
+                                                                    <div class="value">0</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-title">
+                                                        Your share of other fixed expenses
+                                                    </div>
+                                                    <div class="form-column-with-title">
+                                                        <div class="form-title">
+                                                            Your share of monthly payment of common costs to housing cooperatives, tax debts, debts to employers or private individuals.
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="form-field form-field-currency">
+                                                                <div class="inner">
+                                                                    <div class="currency-sign"> 
+                                                                        kr
+                                                                    </div>
+                                                                    <div class="field-data">
+                                                                        <div class="label">Other fixed expenses per month</div>
+                                                                        <div class="value">05/2014</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-column-with-title">
+                                                        <div class="form-title">Compliance information</div>
+                                                        <div class="form-group">
+                                                            <div class="inline-fields-group mobile-in-column">
+                                                                <div class="form-field form-field-select">
+                                                                    <div class="inner">
+                                                                        <div class="field-data">
+                                                                            <div class="label">Political exposes person</div>
+                                                                            <div class="value">None</div>
+                                                                        </div>
+                                                                        <div class="assets">
+                                                                            <div class="caret">
+                                                                                <img src="../../assets/dropdown-light.svg" alt="">
+                                                                            </div>
+                                                                            <div class="hint">
+                                                                                <img src="../../assets/exclamation-mark-light-gray-icon.svg" alt="">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-field form-field-select">
+                                                                    <div class="inner">
+                                                                        <div class="field-data">
+                                                                            <div class="label">Applied on behalf of others</div>
+                                                                            <div class="value">No</div>
+                                                                        </div>
+                                                                        <div class="assets">
+                                                                            <div class="caret">
+                                                                                <img src="../../assets/dropdown-light.svg" alt="">
+                                                                            </div>
+                                                                            <div class="hint">
+                                                                                <img src="../../assets/exclamation-mark-light-gray-icon.svg" alt="">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-field">
+                                                                <div class="inner">
+                                                                    <div class="label">Do you want to repay the credit with ordinary salary or social security?</div>
+                                                                    <div class="value">Yes</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="continue-button-wrapper">
+                                                    <div id="step-7-click" class="clickable animate-once">
+                                                        <div></div>
+                                                    </div>
+                                                    <div class="set-corner set-color continue-button">
+                                                        Continue
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>    
+                                        <div class="payment-summary">
+                                            <div>
+                                                ORDER
+                                            </div>
+                                            <div id="right-order-details" class="right">
+                                                <div class="details-text">
+                                                    <div>Subtotal</div>
+                                                    <div>Payment Cost</div>
+                                                    <div>Shipping</div>
+                                                    <div class="total-value">
+                                                        TOTAL
+                                                    </div>
+                                                </div>
+                                                <div class="details-text right">
+                                                    <div>
+                                                        <div class="price-with-fee-text">23.839,00</div>&nbspkr
+                                                    </div>
+                                                    <div>0,00 kr</div>
+                                                    <div>0,00 kr</div>
+                                                    <div>
+                                                        <b class="price-with-fee-text">23.839,00</b>&nbspkr
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="payment-footer">
+                                            <div class="logo">
+                                                <img src="../../assets/footer-logo.svg" alt="Logo">
+                                            </div>
+                                            <nav>
+                                                <ul>
+                                                    <li>
+                                                        © payever GmbH
+                                                    </li>
+                                                    <li>
+                                                        Imprint
+                                                    </li>
+                                                    <li>
+                                                        Terms of Service
+                                                    </li>
+                                                    <li>
+                                                        Privacy
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="transaction-successful-modal" class="success-modal">
+                                    <div id="transaction-successful-wrapper" class="set-corner successful-modal rounded">
+                                        <img class="successful-icon" src="../../assets/checkmark-green.svg" alt="">
+                                        <div class="label-wrapper">
+                                            <div class="header">Transaction Successful</div>
+                                            <div class="sub-header">
+                                                <div>Transaction ID</div>:#14141414
+                                            </div>
+                                        </div>
+                                        <div class="item-wrapper">
+                                            <div class="line"></div>
+                                        </div>
+                                        <div class="item-wrapper">
+                                            <div>
+                                                <div class="label">Phone</div>
+                                                <div class="label-data">+49 124 567 8910</div>
+                                            </div>
+                                            <div>
+                                                <div class="label">Full Name</div>
+                                                <div class="label-data">Max Mustermann</div>
+                                            </div>
+                                        </div>
+                                        <div class="item-wrapper">
+                                            <div>
+                                                <div class="label">Date</div>
+                                                <div class="label-data label-without-space">
+                                                    <span>March</span>, 18 2024
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item-wrapper">
+                                            <div>
+                                                <div class="label">Product Name</div>
+                                                <div class="product-name label-data">Drone Camera</div>
+                                            </div>
+                                            <div>
+                                                <div class="label">QTY</div>
+                                                <div class="label-data">x1</div>
+                                            </div>
+                                            <div>
+                                                <div class="label">Price</div>
+                                                <div class="label-data green-text">
+                                                    <b class="price-text">23.839,00</b> kr
+                                                </div>
+                                            </div>
+                                            <img class="product-img" src="../../assets/drone-camera.png" alt="">
+                                        </div>
+                                        <div class="item-wrapper grey-wrapper">
+                                            <div>
+                                                <div class="label">Payment Method</div>
+                                                <div class="label-data">Santander Installments</div>
+                                            </div>
+                                            <img class="santander-logo" src="../../assets/santander-full-logo.svg" alt="">
+                                        </div>
+                                        <div class="item-wrapper">
+                                            <div>
+                                                <div class="label">Subtotal</div>
+                                                <div class="label-data">
+                                                    <div class="price-text">23.839,00</div>kr
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item-wrapper">
+                                            <div>
+                                                <div class="label">Payment Cost</div>
+                                                <div class="label-data">0,00 kr</div>
+                                            </div>
+                                        </div>
+                                        <div class="item-wrapper">
+                                            <div>
+                                                <div class="label">Shipping</div>
+                                                <div class="label-data">0,00 kr</div>
+                                            </div>
+                                        </div>
+                                        <div class="item-wrapper">
+                                            <div>
+                                                <div class="label">
+                                                    <b>TOTAL</b>
+                                                </div>
+                                                <div class="green-text label-data">
+                                                    <div class="price-with-fee-text">23.839,00</div> kr
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="modal-backdrop" class="modal-backdrop"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-buttons">
+                        <div id="back-button" class="arrow-buttons disable" >
+                            <img name="back" src="../../assets/chevron.left.circle.fill.svg" alt="">
+                        </div>
+                        <ul id="step-spots" class="step-spots"></ul>
+                     
+                        <div id="forward-button" class="arrow-buttons" >
+                            <img name="forward" src="../../assets/chevron.right.circle.fill.svg" alt="">
+                        </div>
+                        <div class="auto-play-icon" >
+                            <img id="autoplay-button" src="../../assets/pause.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <ul class="tool-bar">
+                    <li class="item-bar">
+                        <div data-text="language-radio" class="tool-bar-pill-label item-wrapper left">
+                            <img src="../../assets/globe-icon.svg" alt="">
+                            <div class="label language-text" data-text="Language">Sprache</div>
+                        </div>
+                        <div id="language-toolbar-item" data-index="0" class="tool-bar-item item-wrapper right">
+                            <img id="language-flag" src="../../assets/germany-icon.svg" alt="">
+                            <div id="language-label">Germany</div>
+                            <img src="../../assets/dropdown-icon.svg" alt="">
+                        </div>
+                        <ul data-text="language-radio" class="dropdown-tool-bar dropdown-items">
+                            <li class="item">
+                                <div class="left">
+                                    <img src="../../assets/germany-icon.svg" alt="">
+                                    <div>Germany</div>
+                                </div>
+                                <img name="language" data-text="germany" class="language-radio active right" src="../../assets/checkmark-blue-icon.svg" alt="">
+                            </li>
+                            <li class="item">
+                                <div class="left">
+                                    <img src="../../assets/english-icon.svg" alt="">
+                                    <div>English</div>
+                                </div>
+                                <img name="language" data-text="english" class="language-radio right" src="../../assets/checkoff-icon.svg" alt="">
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="item-bar">
+                        <div data-text="device-radio" class="tool-bar-pill-label item-wrapper left">
+                            <img src="../../assets/devices-icon.svg" alt="">
+                            <div class="label device-text" data-text="Device">Gerät</div>
+                        </div>
+                        <div id="device-toolbar-item" data-index="1" class="tool-bar-item item-wrapper">
+                            <div id="device-label">Desktop</div>
+                            <img src="../../assets/dropdown-icon.svg" alt="">
+                        </div>
+                        <ul data-text="device-radio" class="dropdown-tool-bar dropdown-items">
+                            <li>
+                                <div class="left">
+                                    <img src="../../assets/desktop-icon.svg" alt="">
+                                    <div>Desktop</div>
+                                </div>
+                                <img  name="device" data-text="Desktop" id="desktop-device" class="device-radio right" src="../../assets/checkoff-icon.svg" alt="">
+                            </li>
+                            <li>
+                                <div class="left">
+                                    <img src="../../assets/phone-icon.svg" alt="">
+                                    <div>Mobile</div>
+                                </div>
+                                <img name="device" data-text="mobile" id="mobile-device" class="device-radio right" src="../../assets/checkoff-icon.svg" alt="">
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="item-bar">
+                        <div class="tool-bar-pill-label item-wrapper left">
+                            <img src="../../assets/bag-icon.svg" alt="">
+                            <div class="label industry-text" data-text="Industry">Industrie</div>
+                        </div>
+                        <div id="industry-toolbar-item" data-index="2" class="tool-bar-item item-wrapper">
+                            <div id="industry-label" class="technology-text" data-text="Technology">Technologie</div>
+                            <img src="../../assets/dropdown-icon.svg" alt="">
+                        </div>
+                        <ul id="industry-dropdown" data-text="industry-radio" class="dropdown-tool-bar dropdown-items">
+                            <li>
+                                <div class="left">
+                                    <div class="technology-text-2" data-text="Technology">Technologie</div>
+                                </div>
+                                <img name="industry" data-text="Technology" class="industry-radio active right" src="../../assets/checkmark-blue-icon.svg" alt="">
+                            </li>
+                            <li>
+                                <div class="left">
+                                    <div class="car-text" data-text="Car">Automobil</div>
+                                </div>
+                                <img name="industry" data-text="Car" class="industry-radio right" src="../../assets/checkoff-icon.svg" alt="">
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="item-bar" data-name="style" >
+                        <div class="tool-bar-pill-label item-wrapper left">
+                            <img src="../../assets/paintpalette-icon.svg" alt="">
+                            <div class="label style-text" data-text="Style">Stil</div>
+                        </div>
+                        <label id="color-toolbar-item" data-index="3" class="item-wrapper tool-bar-item">
+                            <div class="item-color">
+                                <input type="color" name="" value="#3E8FF4" id="input-color">
+                            </div>
+                            <div class="color-text" data-text="Color">Farben</div>
+                            <img src="../../assets/dropdown-black-icon.svg" alt="">
+                        </label>
+                        <div id="corner-toolbar-item" data-index="3" class="item-wrapper tool-bar-item">
+                            <img id="corner-img" src="../../assets/rounded-corner-icon.svg" alt="">
+                            Corner
+                            <img src="../../assets/dropdown-black-icon.svg" alt="">
+                        </div>
+                        <ul id="corner-dropdown" data-text="corner-radio" class="dropdown-tool-bar dropdown-items">
+                            <li>
+                                <div class="left">
+                                    <img src="../../assets/sharp-corner-icon.svg" alt="">
+                                    <div>Sharp</div>
+                                </div>
+                                <img name="corner" data-text="sharp"  class="corner-radio right" src="../../assets/checkoff-icon.svg" alt="">
+                            </li>
+                            <li>
+                                <div class="left">
+                                    <img src="../../assets/rounded-corner-icon.svg" alt="">
+                                    <div>Rounded</div>
+                                </div>
+                                <img name="corner" data-text="rounded" class="corner-radio right active" src="../../assets/checkmark-blue-icon.svg" alt="">
+                            </li>
+                            <li>
+                                <div class="left">
+                                    <img src="../../assets/pill-corner-icon.svg" alt="">
+                                    <div>Pill</div>
+                                </div>
+                                <img name="corner" data-text="pill" class="corner-radio right" src="../../assets/checkoff-icon.svg" alt="">
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="item-bar">
+                        <div class="tool-bar-pill-label item-wrapper left">
+                            <img src="../../assets/textformat-icon.svg" alt="">
+                            <div class="label font-text" data-text="Font">Font</div>
+                        </div>
+                        <div id="font-toolbar-item" data-index="4" class="tool-bar-item item-wrapper">
+                            <div id="font-label">Roboto</div>
+                            <img src="../../assets/dropdown-icon.svg" alt="">
+                        </div>
+                        <ul data-text="font-radio"  class="dropdown-tool-bar dropdown-items">
+                            <li>
+                                <div class="left">
+                                    <div class="roboto-font">Roboto</div>
+                                </div>
+                                <img name="font" data-text="Roboto" class="font-radio active right" src="../../assets/checkmark-blue-icon.svg" alt="">
+                            </li>
+                            <li>
+                                <div class="left">
+                                    <div class="Inter-font">Inter</div>
+                                </div>
+                                <img name="font" data-text="Inter" class="font-radio right" src="../../assets/checkoff-icon.svg" alt="">
+                            </li>
+                            <li>
+                                <div class="left">
+                                    <div class="montserrat-font">Montserrat</div>
+                                </div>
+                                <img name="font" data-text="Montserrat" class="font-radio right" src="../../assets/checkoff-icon.svg" alt="">
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="item-bar">
+                        <div class="tool-bar-pill-label item-wrapper left">
+                            <img src="../../assets/logo.svg" alt="">
+                            <div class="label font-text" data-text="Font">Logo</div>
+                        </div>
+                        <div id="font-toolbar-item" data-index="5" class="tool-bar-item item-wrapper">
+                            <div id="logo-label">payever</div>
+                            <img src="../../assets/dropdown-icon.svg" alt="">
+                            <input type="file" style="display: none;" id="logo-uploader">
+                        </div>
+                        <ul data-text="logo-radio"  class="dropdown-tool-bar dropdown-items">
+                            <li>
+                                <div class="left">
+                                    <div>payever</div>
+                                </div>
+                                <img name="logo" data-text="payever" id="payever-logo" class="logo-radio active right" src="../../assets/checkmark-blue-icon.svg" alt="">
+                            </li>
+                            <li>
+                                <div class="left">
+                                    <div>Custom logo</div>
+                                </div>
+                                <label for="logo-uploader">
+                                    <img name="logo" data-text="custom" class="logo-radio right" src="../../assets/checkoff-icon.svg" alt="">
+                                </label>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="../../demo.js"></script>
+</body>
+</html>

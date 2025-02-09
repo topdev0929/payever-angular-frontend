@@ -1,0 +1,50 @@
+@use 'pe_variables.scss' as pe_variables;
+@import '../settings';
+
+.group {
+  &__item {
+    display: flex;
+    transition: background 0.2s;
+    text-decoration: none;
+    position: relative;
+    vertical-align: middle;
+  }
+  &__icon-wrapper {
+    display: flex;
+  }
+}
+
+.group__item-right-content {
+  min-width: 50px;
+  display: flex;
+}
+
+.page-shipping {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.content-top {
+  align-items: center;
+}
+
+@media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+  .group {
+    &__item {
+      height: 56px;
+    }
+    &__icon-wrapper {
+      height: 100%;
+      margin-right: 12px;
+      margin-top: 0;
+      align-items: center;
+    }
+  }
+  .content-center {
+    align-items: center;
+  }
+  .content-top {
+    align-items: center;
+  }
+}

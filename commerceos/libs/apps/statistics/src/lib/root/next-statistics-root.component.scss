@@ -1,0 +1,60 @@
+
+
+.statistics-root {
+  &__content {
+    max-height: calc(100% - 56px);
+    height: 100%;
+    overflow: hidden;
+  }
+  .form-background-wrapper{
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  .label-input-content-wrapper .label-container .label-text {
+    color: #7a7a7a;
+  }
+
+  .label-input-content-wrapper .label-container .input-field input {
+    background-color: rgba(0, 0, 0, 0);
+    color: #ffffff;
+  }
+
+  .label-select-wrapper .label-text, .label-select-wrapper .select-text {
+    color: #7a7a7a;
+  }
+
+  .section-button {
+    &.left-section-button {
+      .white-space {
+        display: unset !important;
+      }
+    }
+  }
+
+  .wider-overlay {
+    .overlay-widget-container {
+      max-width: 480px;
+    }
+  }
+
+  .remove-overlay-content-padding {
+    .overlay-widget__content {
+      padding: 0;
+    }
+  }
+}
+
+.pe-statistics-widget-overlay {
+  .overlay-widget-container > div .overlay-widget__content {
+    padding: 0;
+  }
+}
+
+cos-next-statistics-root {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  top: 0;
+  height: 100%;
+  overflow: hidden;
+}

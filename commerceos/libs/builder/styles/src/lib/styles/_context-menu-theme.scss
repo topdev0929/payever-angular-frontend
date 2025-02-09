@@ -1,0 +1,42 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $warn: map.get($color-config, 'warn');
+  $border: map.get($color-config, 'border');
+  $active-button: map.get($color-config, 'active-button');
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $label-color: map.get($color-config, 'label-color');
+  $active-text: map.get($color-config, 'active-text');
+
+  .peb-context-menu + .cdk-overlay-connected-position-bounding-box {
+    .menu {
+      color: $text-color;
+      background-color: $secondary-background;
+      border: solid 1px $border;
+      
+      &__headline {
+        color: $text-color;
+      }
+
+      &__item {
+        &--disabled {
+          color: $label-color;
+        }
+
+        &:hover:not(.menu__item_disabled) {
+          background-color: $active-button;
+        }
+
+        &--danger {
+          color: $warn;
+
+          &:hover:not(.menu__item_disabled) {
+            color: $active-text;
+            background-color: $warn;
+          }
+        }
+      }
+    }
+  }
+}

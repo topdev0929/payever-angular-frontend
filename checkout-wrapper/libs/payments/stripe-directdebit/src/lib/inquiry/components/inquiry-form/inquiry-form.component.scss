@@ -1,0 +1,9 @@
+@import "../../../../../../../shared/styles/assets/ui-kit-styles/pe_variables";
+
+.pe-payment-text {
+  margin-top: -3px;
+
+  & > p {
+    margin-bottom: 0 !important;
+  }
+}

@@ -1,0 +1,246 @@
+@import "../../../assets/variable";
+$background-skeleton: #444;
+
+:host {
+  font-family: Roboto, sans-serif;
+  justify-content: center;
+  height: calc(100% - 2.5em);
+  color: #fff;
+  overflow: auto;
+  background-color: $background-skeleton;
+  -webkit-backdrop-filter: blur(50px);
+  backdrop-filter: blur(50px);
+}
+
+pe-data-grid {
+  height: 92%;
+}
+
+pe-sidebar-header {
+  display: block;
+  cursor: pointer;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.campaign-grid {
+  display: flex;
+  height: 100%;
+
+  &__list {
+    margin: 1.8125em;
+    margin-right: 1em;
+    width: 100%;
+    max-height: 90%;
+    overflow-y: auto;
+  }
+}
+
+
+.coupon {
+  &__container {
+    display: flex;
+    width: 100%;
+
+    &.orange {
+      background-image: linear-gradient(to bottom, #fe9f04, #fa7421);
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    &.gray {
+      align-items: center;
+      background-image: linear-gradient(to bottom, #ededf4, #aeb0b7 98%);
+      justify-content: center;
+    }
+
+
+  }
+
+  &__image {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+
+    span {
+      font-size: 1.75em;
+      text-align: center;
+      font-weight: bold;
+    }
+  }
+
+  &__info {
+    background-color: #2b2c2d;
+    padding: 0.6875em 0.75em 0.4375em;
+  }
+
+  &__title {
+    color: #ffffff;
+    font-size: 0.875em;
+    font-weight: 500;
+  }
+
+  &__description {
+    font-size: 0.75em;
+    font-weight: normal;
+    line-height: 1;
+    margin-top: 0.1875em;
+    min-height: 2.0625em;
+  }
+}
+
+.light {
+  .coupon {
+    &__info {
+      background-color: #ffffff;
+      padding: 0.6875em 0.75em 0.4375em;
+    }
+
+    &__title {
+      font-size: 1em;
+      color: #000;
+    }
+
+    &__description {
+      color: #000;
+    }
+  }
+}
+
+.connect-context-menu {
+  backdrop-filter: blur(50px);
+  background-color: $content-background-color;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+  min-width: 252px;
+  padding-bottom: 1em;
+
+  &__header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 16px 8px;
+  }
+
+  &__title {
+    color: $regular-text-color;
+    cursor: default;
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  &__close {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: 0 0;
+    border: none;
+    cursor: pointer;
+    height: 20px;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    width: 20px;
+  }
+
+  &__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 8px;
+
+    &-item {
+      align-items: center;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      margin-top: 12px;
+      position: relative;
+      padding: 4px 8px;
+
+      &-label {
+        font-family: Roboto, sans-serif;
+        font-size: 16px;
+        line-height: 1.25;
+        color: $regular-text-color;
+      }
+
+      &-menu-trigger {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+      }
+
+      &.red {
+        span {
+          color: #eb4653;
+        }
+
+        &:hover {
+          background-color: #eb4653;
+
+          span {
+            color: white;
+          }
+        }
+      }
+
+      &:hover {
+        background-color: #0371e2;
+      }
+    }
+  }
+
+  &_light {
+    background-color: $content-light-background-color;
+
+    .connect-context-menu__title {
+      color: $regular-light-text-color;
+    }
+
+    li span {
+      color: $regular-light-text-color;
+    }
+  }
+
+  &_transparent {
+    background-color: $content-transparent-background-color;
+  }
+}
+
+.sidebar-item {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 15px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.86;
+  letter-spacing: normal;
+  color: #fff;
+  overflow: hidden;
+  cursor: pointer;
+  padding:9px;
+  margin-bottom: 3px;
+  &:not(.active):hover {
+    background-color: hsla(0, 0%, 100%, 0.05);
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .coupon {
+    &__image {
+      span {
+        font-size: 1em;
+      }
+    }
+  }
+}

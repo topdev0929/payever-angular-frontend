@@ -1,0 +1,161 @@
+.flex-active {
+  .pe-chat-message-text {
+    .text {
+      margin-left: 0px !important;
+    }
+  }
+}
+
+.pe-link-text {
+
+  color: unset;
+
+  div {
+    padding: 5px 2px 1px 16px;
+    margin-top: 6px;
+    margin-right: 12px;
+    border-radius: 4px;
+  }
+
+  h3 {
+    margin: unset;
+  }
+
+  h5 {
+    margin: unset;
+  }
+
+  p {
+    margin: 4px 0px;
+    font-size: 13px;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.pe-chat-message-text {
+  width: 100%;
+
+  &.live-chat {
+    .text-message {
+      .text-message__content {
+        max-width: 175px;
+      }
+    }
+
+    .text {
+      width: calc(100% - 8px);
+    }
+  }
+
+  .text {
+    margin: 2px 0 0 32px;
+    width: calc(100% - 70px);
+    font-size: 14px;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.14;
+    letter-spacing: normal;
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+
+
+    a {
+      word-wrap: break-word;
+      word-break: break-all;
+    }
+  }
+
+  //sign can be putting in message HTML
+  .sign {
+    margin: 2px 0 0 8px;
+    font-size: 10px;
+    font-weight: 400;
+    word-wrap: break-word;
+  }
+
+  .text-message {
+    display: flex;
+    position: relative;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    border-radius: 12px;
+    cursor: pointer;
+
+
+    &__title {
+      margin: 4px 0;
+      font-weight: 500;
+    }
+
+    &__detail {
+      margin: 0 0 0 10px;
+      position: relative;
+    }
+
+    &__dash {
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 2px;
+      height: 100%;
+      border-radius: 2px;
+
+      &.blur-mode {
+        background: #fff;
+      }
+    }
+
+    &__content {
+      margin: 0;
+      width: 240px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  }
+
+  .text-preview {
+    margin: 4px 0 0 8px;
+    height: 28px;
+    width: 28px;
+    border-radius: 2px;
+    background-position: center;
+    background-size: cover;
+  }
+
+  @media all and (max-width: 728px) {
+    .text-message {
+      &__title {
+        margin: 4px 0 1px 0;
+      }
+
+      &__detail {
+        margin: 8px 0 0 8px;
+      }
+    }
+
+    .text-preview {
+      margin: 8px 0 0 0;
+      width: auto;
+      max-width: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+      .text {
+        width: calc(100% - 20px) !important;
+      }
+
+  }
+}
+

@@ -1,0 +1,74 @@
+@use "pe_variables" as pe_variables;
+@import "../../../../../../assets/variables";
+
+.cdk-overlay-backdrop.connect-modal + .cdk-global-overlay-wrapper {
+  .plugin-main-wrap-container {
+    min-width: 100%;
+    padding: 0;
+
+
+    .pe-info-box {
+      width: 100%;
+      padding: 0;
+
+      .info-box {
+        .mat-card {
+          border-radius: 0;
+        }
+      }
+    }
+
+    &__api-keys {
+      .add-button {
+        height: 40px;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        border-radius: 12px;
+        font-family: Roboto, sans-serif;
+        font-size: 14px;
+        text-align: center;
+        cursor: pointer;
+        @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+          height: 56px;
+          font-size: 16px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+  @media (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+    main-api {
+      height: 100%;
+      .plugin-main-wrap-container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+
+  .plugin-main-wrap {
+    @media (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+      flex: 1;
+    }
+    .mat-card-content {
+      max-height: 60vh;
+      @media (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+        max-height: unset;
+      }
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      //need for safari 10.1+
+      @media not all and (min-resolution:.001dpcm)
+      { @supports (-webkit-appearance:none) {
+        margin-right: -4px;
+        overflow: scroll;
+        overflow-x: hidden;
+      }}
+    }
+  }
+}

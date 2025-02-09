@@ -1,0 +1,212 @@
+@import '~@angular/cdk/overlay-prebuilt.css';
+@import '~@pe/ui/theming/theming';
+@import '~@pe/ui/theming/all-theme';
+
+$theme-dark: peb-theme-choose('dark');
+$theme-light: peb-theme-choose('light');
+$theme-transparent: peb-theme-choose('transparent');
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: local('Open Sans Regular'), local('Open Sans-Regular'),
+  url('../../node_modules/typeface-open-sans/files/open-sans-latin-400.woff2') format('woff2'),
+    /* Super Modern Browsers */
+  url('../../node_modules/typeface-open-sans/files/open-sans-latin-400.woff') format('woff'); /* Modern Browsers */
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background: #444849;
+}
+
+body {
+  font-size: 13px;
+  font-family: 'Open Sans', sans-serif;
+
+  &.dark {
+    @include peb-theme($theme-dark);
+
+    .cdk-overlay-pane {
+      margin-top: 0;
+      @include peb-theme($theme-dark);
+
+      .last {
+        .label-input-content-wrapper {
+          border-bottom: 0 !important;
+        }
+
+        .peb-checkbox-wrapper {
+          border-bottom: 0 !important;
+        }
+
+        .label-select-wrapper {
+          border-bottom: 0 !important;
+        }
+      }
+    }
+    .peb-select-options-container {
+      box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.5);
+      margin-bottom: 4px;
+
+      peb-select-option {
+        font-size: 12px;
+        background-color: rgba(36, 39, 46, 0.85);
+        color: #fff;
+
+        &:hover {
+          background-color: #0371e2;
+        }
+
+        &.selected {
+          background-color: #0371e2;
+
+          &.active {
+            background-color: #0371e2;
+          }
+        }
+
+        &:first-of-type {
+          border-top-left-radius: 12px;
+
+          &.selected {
+            border-top-left-radius: 12px;
+          }
+
+          &:hover {
+            border-top-left-radius: 12px;
+          }
+        }
+      }
+
+      &::-webkit-scrollbar {
+        background-color: #1c1d1e;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: #111111;
+      }
+    }
+  }
+
+  &.light {
+    @include peb-theme($theme-light);
+
+    .cdk-overlay-pane {
+      margin-top: 0;
+      @include peb-theme($theme-light);
+
+      .last {
+        .label-input-content-wrapper {
+          border-bottom: 0 !important;
+        }
+
+        .peb-checkbox-wrapper {
+          border-bottom: 0 !important;
+        }
+
+        .label-select-wrapper {
+          border-bottom: 0 !important;
+        }
+      }
+    }
+  }
+
+  &.transparent {
+    @include peb-theme($theme-transparent);
+
+    .cdk-overlay-pane {
+      margin-top: 0;
+      @include peb-theme($theme-transparent);
+
+      .last {
+        .label-input-content-wrapper {
+          border-bottom: 0 !important;
+        }
+
+        .peb-checkbox-wrapper {
+          border-bottom: 0 !important;
+        }
+
+        .label-select-wrapper {
+          border-bottom: 0 !important;
+        }
+      }
+    }
+  }
+
+  &.wider-overlay {
+    .overlay-widget-container {
+      max-width: 480px;
+    }
+  }
+
+  &.remove-overlay-content-padding {
+    .overlay-widget__content {
+      padding: 0;
+    }
+  }
+}
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+
+select,
+input,
+textarea {
+  font-family: 'Roboto', sans-serif;
+}
+
+.icon-10 {
+  width: 10px;
+  height: 10px;
+}
+
+.icon-16 {
+  width: 16px;
+  height: 16px;
+}
+
+.min-h-100 {
+  min-height: 100% !important;
+  height: 100%;
+}
+
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.search-overlay {
+  width: 436px;
+  height: 250px;
+  backdrop-filter: blur(50px);
+  border-radius: 20px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.5);
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  &.dark {
+    background-color: rgba(36, 39, 46, 0.85);
+    color: white;
+  }
+  &.light {
+    background-color: hsla(0, 0%, 100%, 0.7);
+    color: black;
+    .search-list-container,
+    .input-container {
+      background-color: white !important;
+    }
+  }
+  &.transparent {
+    background-color: rgba(36, 39, 46, 0.3);
+    color: white;
+  }
+}
+

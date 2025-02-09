@@ -1,0 +1,22 @@
+
+.cdk-overlay-container {
+  .cdk-overlay-pane {
+    .peb-select-options-container {
+      .security-question-option {
+
+        &:last-child {
+          border-bottom: 0;
+        }
+
+        span {
+          white-space: normal;
+          overflow: unset;
+          line-height: normal;
+        }
+      }
+    }
+  }
+}
+
+
+

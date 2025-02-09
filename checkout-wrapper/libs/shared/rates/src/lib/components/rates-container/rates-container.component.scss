@@ -1,0 +1,20 @@
+@import "../../../../../styles/assets/ui-kit-styles/pe_variables";
+
+:host {
+  display: block;
+  // min height of loader
+  min-height: 10 * $grid-unit-y;
+  box-shadow: none; // Do not remove
+
+  &.empty {
+    min-height: 20px;
+  }
+
+  .loader-container {
+    z-index: 1;
+  }
+
+  .error-container {
+    padding: 4 * $grid-unit-y  0;
+  }
+}

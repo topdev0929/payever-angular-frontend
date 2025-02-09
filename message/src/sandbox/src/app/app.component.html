@@ -1,0 +1,12 @@
+<pe-new-platform-header></pe-new-platform-header>
+<router-outlet></router-outlet>
+
+<ng-template #settingsMenu>
+  <div class="settings-menu">
+    <span class="settings-menu__title">Settings</span>
+    <div class="settings-menu__item" *ngFor="let item of settingsMenuItems" (click)="this.settingsMenuOverlayRef.dispose(); item.onClick();">
+      <svg><use [attr.xlink:href]="item.icon"></use></svg>
+      <span>{{ item.title }}</span>
+    </div>
+  </div>
+</ng-template>

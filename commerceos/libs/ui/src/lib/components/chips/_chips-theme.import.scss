@@ -1,0 +1,10 @@
+@use 'pe_theming' as pet;
+@use './chips-theme' as chips;
+@use './chip-theme' as chip;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include chips.color($color-config);
+  @include chip.color($color-config);
+}
+

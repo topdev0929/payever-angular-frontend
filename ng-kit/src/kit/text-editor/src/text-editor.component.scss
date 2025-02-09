@@ -1,0 +1,33 @@
+:host {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: block;
+  > div {
+    height: 100%;
+    width: 100%;
+    word-break: break-all;
+
+    &.active:hover {
+      cursor: text;
+    }
+
+    p, ul, ol {
+      margin: 0;
+    }
+  }
+  .outline-none {
+    outline: none !important;
+  }
+  .outline {
+    outline: -webkit-focus-ring-color auto 1px;
+    padding: 2px;
+  }
+  .selectionLayer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

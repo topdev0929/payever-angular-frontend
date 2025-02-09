@@ -1,0 +1,10 @@
+@use 'pe_theming' as pet;
+@use './product-picker-theme' as product_picker;
+@use './product-picker-autocomplete-panel-theme' as product_picker_autocomplete_panel;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include product_picker.color($color-config);
+  @include product_picker_autocomplete_panel.color($color-config); 
+}
+

@@ -1,0 +1,109 @@
+<div
+  *ngIf="personalFormValue?.addressResidentSince as addressResidentSince"
+  class="clearfix">
+  <span class="text-secondary">{{ makeFormKey(personType + '.addressResidentSince') }}</span
+  >:
+  <span
+    class="text-primary"
+    [innerHTML]="formatDateMemo(addressResidentSince)"></span>
+</div>
+
+<div
+  *ngIf="personalFormValue?.addressPhoneNumber as addressPhoneNumber"
+  class="clearfix">
+  <span class="text-secondary">{{ makeFormKey(personType + '.addressPhoneNumber') }}</span
+  >:
+  <span
+    class="text-primary"
+    [innerHTML]="addressPhoneNumber"></span>
+</div>
+
+<div
+  *ngIf="personalFormValue?.identificationNumber as identificationNumber"
+  class="clearfix">
+  <span class="text-secondary">{{ makeFormKey(personType + '.identificationNumber') }}</span
+  >:
+  <span
+    class="text-primary"
+    [innerHTML]="identificationNumber | peMaskLeft"></span>
+</div>
+
+<div
+  *ngIf="personalFormValue?.identificationPlaceOfIssue as identificationPlaceOfIssue"
+  class="clearfix">
+  <span class="text-secondary">{{ makeFormKey(personType + '.identificationPlaceOfIssue') }}</span
+  >:
+  <span
+    class="text-primary"
+    [innerHTML]="identificationPlaceOfIssue"></span>
+</div>
+
+<div
+  *ngIf="personalFormValue?.identificationDateOfIssue as identificationDateOfIssue"
+  class="clearfix">
+  <span class="text-secondary">{{ makeFormKey(personType + '.identificationDateOfIssue') }}</span
+  >:
+  <span
+    class="text-primary"
+    [innerHTML]="formatDateMemo(identificationDateOfIssue)"></span>
+</div>
+
+<div
+  *ngIf="personalFormValue?.identificationDateOfExpiry as identificationDateOfExpiry"
+  class="clearfix">
+  <span class="text-secondary">{{ makeFormKey(personType + '.identificationDateOfExpiry') }}</span
+  >:
+  <span
+    class="text-primary"
+    [innerHTML]="formatDateMemo(identificationDateOfExpiry)"></span>
+</div>
+
+<div
+  *ngIf="personalFormValue?.identificationIssuingAuthority as identificationIssuingAuthority"
+  class="clearfix">
+  <span class="text-secondary">{{ makeFormKey(personType + '.identificationIssuingAuthority') }}</span
+  >:
+  <span
+    class="text-primary"
+    [innerHTML]="identificationIssuingAuthority"></span>
+</div>
+
+<div
+  *ngIf="personalFormValue?.numberOfChildren as numberOfChildren"
+  class="clearfix">
+  <span class="text-secondary">{{ makeFormKey(personType + '.numberOfChildren') }}</span
+  >:
+  <span
+    class="text-primary"
+    [innerHTML]="numberOfChildren"></span>
+</div>
+
+<div
+  class="clearfix"
+  *ngIf="personalFormValue?.personalMaritalStatus as pms">
+  <span class="text-secondary">{{ makeFormKey(personType + '.personalMaritalStatus') }}</span
+  >:
+  <span
+    class="text-primary"
+    [innerHTML]="pms | peTranslatedFormOptionsLabel:formOptions?.maritalStatuses:makeFormKey(personType + '.personalMaritalStatus')"></span>
+</div>
+
+<div
+  class="clearfix"
+  *ngIf="personalFormValue?.personalNationality as pn">
+  <span class="text-secondary">{{ makeFormKey(personType + '.personalNationality') }}</span
+  >:
+  <span
+    class="text-primary"
+    [innerHTML]="pn | peTranslatedFormOptionsLabel:formOptions?.nationalities:makeFormKey(personType + '.personalNationality')"></span>
+</div>
+
+<div
+  *ngIf="personalFormValue?.personalPlaceOfBirth as personalPlaceOfBirth"
+  class="clearfix">
+  <span class="text-secondary">{{ makeFormKey(personType + '.personalPlaceOfBirth') }}</span
+  >:
+  <span
+    class="text-primary"
+    [innerHTML]="personalPlaceOfBirth"></span>
+</div>

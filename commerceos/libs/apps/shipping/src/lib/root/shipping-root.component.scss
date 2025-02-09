@@ -1,0 +1,22 @@
+.shipping-root {
+  position: fixed;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.shipping-root {
+
+  .shipping-container {
+    height: calc(100% - 56px);
+    overflow: auto;
+    .mat-select-value {
+      font-size: unset;
+    }
+  }
+}
+
+.item {
+  filter: blur();
+}

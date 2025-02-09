@@ -1,0 +1,160 @@
+<div class="chapter">
+  <h2>AddressService</h2>
+  <div class="main-block">
+    <tabset>
+      <tab heading="Overview">
+        <h3>Import AddressModule</h3>
+        <pre><code class="typescript" [innerHTML]="'import { AddressModule } from \'@pe/ng-kit/modules/address\';'"></code></pre>
+        <p>&nbsp;</p>
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          [tsExample]="tsExample"
+          >
+          <div class="row">
+            <div class="col-xs-12">
+              <form novalidate [formGroup]="addressForm">
+                <div class="row">
+                  <div class="col-sm-2 form-group">
+                    <div class="form-widget form-design labeled">
+                      <select class="form-control" id="addressForm_salutation" formControlName="salutation">
+                        <option value="">Salutation</option>
+                        <option value="SALUTATION_MR">Mr</option>
+                        <option value="SALUTATION_MRS">Mrs</option>
+                      </select>
+                      <label for="addressForm_salutation">Salutation</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-5 form-group">
+                    <div class="form-widget form-design labeled">
+                      <input class="form-control" type="text" id="addressForm_first_name" placeholder="First name" formControlName="first_name">
+                      <label for="addressForm_first_name">First name</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-5 form-group">
+                    <div class="form-widget form-design labeled">
+                      <input class="form-control" type="text" id="addressForm_last_name" placeholder="Last name" formControlName="last_name">
+                      <label for="addressForm_last_name">Last name</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-4 form-group">
+                    <div class="form-widget form-design labeled">
+                      <select class="form-control" id="addressForm_country" formControlName="country">
+                        <option value="">Country</option>
+                        <option [value]="item.code" *ngFor="let item of preferredCountriesArray" [innerHtml]="item.name"></option>
+                        <option disabled>-----</option>
+                        <option [value]="item.code" *ngFor="let item of countriesArray" [innerHtml]="item.name"></option>
+                      </select>
+                      <label for="addressForm_country">Country</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 form-group">
+                    <div class="form-widget form-design labeled">
+                      <input class="form-control" type="text" id="addressForm_city" placeholder="City" formControlName="city">
+                      <label for="addressForm_city">City</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 form-group">
+                    <div class="form-widget form-design labeled">
+                      <input class="form-control" type="text" id="addressForm_zip_code" placeholder="Zip code" formControlName="zip_code">
+                      <label for="addressForm_zip_code">Zip code</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 form-group">
+                    <div class="form-widget form-design labeled">
+                      <input class="form-control" type="text" id="addressForm_street" placeholder="Street" formControlName="street">
+                      <label for="addressForm_street">Street</label>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <p><b>Name String:</b> {{ nameString }}</p>
+              <p><b>Address String:</b> {{ addressString }}</p>
+            </div>
+          </div>
+        </example-viewer>
+      </tab>
+      <tab heading="API">
+        <component-api-renderer [path]="'address/src/services/address.service'"></component-api-renderer>
+      </tab>
+      <tab heading="Examples">
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          [tsExample]="tsExample"
+          >
+          <div class="row">
+            <div class="col-xs-12">
+              <form novalidate [formGroup]="addressForm">
+                <div class="row">
+                  <div class="col-sm-2 form-group">
+                    <div class="form-widget form-design labeled">
+                      <select class="form-control" id="addressForm_salutation" formControlName="salutation">
+                        <option value="">Salutation</option>
+                        <option value="SALUTATION_MR">Mr</option>
+                        <option value="SALUTATION_MRS">Mrs</option>
+                      </select>
+                      <label for="addressForm_salutation">Salutation</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-5 form-group">
+                    <div class="form-widget form-design labeled">
+                      <input class="form-control" type="text" id="addressForm_first_name" placeholder="First name" formControlName="first_name">
+                      <label for="addressForm_first_name">First name</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-5 form-group">
+                    <div class="form-widget form-design labeled">
+                      <input class="form-control" type="text" id="addressForm_last_name" placeholder="Last name" formControlName="last_name">
+                      <label for="addressForm_last_name">Last name</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-4 form-group">
+                    <div class="form-widget form-design labeled">
+                      <select class="form-control" id="addressForm_country" formControlName="country">
+                        <option value="">Country</option>
+                        <option [value]="item.code" *ngFor="let item of preferredCountriesArray" [innerHtml]="item.name"></option>
+                        <option disabled>-----</option>
+                        <option [value]="item.code" *ngFor="let item of countriesArray" [innerHtml]="item.name"></option>
+                      </select>
+                      <label for="addressForm_country">Country</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 form-group">
+                    <div class="form-widget form-design labeled">
+                      <input class="form-control" type="text" id="addressForm_city" placeholder="City" formControlName="city">
+                      <label for="addressForm_city">City</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 form-group">
+                    <div class="form-widget form-design labeled">
+                      <input class="form-control" type="text" id="addressForm_zip_code" placeholder="Zip code" formControlName="zip_code">
+                      <label for="addressForm_zip_code">Zip code</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 form-group">
+                    <div class="form-widget form-design labeled">
+                      <input class="form-control" type="text" id="addressForm_street" placeholder="Street" formControlName="street">
+                      <label for="addressForm_street">Street</label>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <p><b>Name String:</b> {{ nameString }}</p>
+              <p><b>Address String:</b> {{ addressString }}</p>
+            </div>
+          </div>
+        </example-viewer>
+      </tab>
+      <tab heading="README">
+        <doc-viewer documentUrl="/assets/module-guides/address/address.html"></doc-viewer>
+      </tab>
+    </tabset>
+  </div>
+</div>
+
+

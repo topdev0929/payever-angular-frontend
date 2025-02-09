@@ -1,0 +1,8 @@
+@import "../../../../../../../../node_modules/@pe/ui-kit/scss/pe_variables";
+@import "../../../../../../../../node_modules/@pe/ui-kit/scss/mixins/pe_mixins";
+
+.payever-bubble-preview {
+  @include payever_transform_translate($grid-unit-x * 13, $grid-unit-y * 10); // it is needed to show widget inside modal
+  margin: $grid-unit-y * 5 0;
+  position: relative;
+}

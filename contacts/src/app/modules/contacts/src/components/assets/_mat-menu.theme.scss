@@ -1,0 +1,31 @@
+$secondary-blue: #0371e2;
+
+.cdk-overlay-container {
+  .mat-menu-panel.dark-mode {
+    background-color: #1c1d1e;
+    padding: 0;
+    margin-bottom: 0;
+    min-height: unset;
+
+    &.status-menu {
+      position: absolute;
+      left: -65px;
+      width: 170px;
+
+      .mat-menu-item {
+        padding: 0 12px;
+      }
+    }
+
+    .mat-menu-content {
+      padding: 0;
+    }
+
+    .mat-menu-item {
+      padding: 0 24px;
+    }
+    .mat-menu-item:hover {
+      background-color: $secondary-blue;
+    }
+  }
+}

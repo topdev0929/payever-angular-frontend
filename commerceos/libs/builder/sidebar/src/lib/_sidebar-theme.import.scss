@@ -1,0 +1,11 @@
+@use 'pe_theming' as pet;
+@use './shape/shape-theme.sidebar' as shape;
+@use './right-sidebar/right-sidebar-theme.component' as right_sidebar;
+@use './section/section-theme.sidebar' as section;
+
+@mixin theme($theme-config) {
+    $color-config: pet.get-color-config-from-theme($theme-config);
+    @include shape.color($color-config);
+    @include right_sidebar.color($color-config);
+    @include section.color($color-config);
+}

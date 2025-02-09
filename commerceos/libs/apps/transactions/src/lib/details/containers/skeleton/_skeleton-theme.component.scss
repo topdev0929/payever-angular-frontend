@@ -1,0 +1,14 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $skeleton: map.get($color-config, 'skeleton');
+
+  .pe-transaction-detail-skeleton {
+    &-actions-item-image,
+    &-actions-item-text,
+    &-general-item,
+    &-rows-item-text {
+      background-color: $skeleton;
+    }
+  }
+}

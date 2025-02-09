@@ -1,0 +1,26 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+
+$unit: 8px;
+$padding-left: $unit * 3;
+
+.add-new {
+  display: block;
+  margin-left: $padding-left;
+  min-width: $grid-unit-y * 9;
+}
+
+.list {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 15px;
+  grid-row-gap: 0px;
+
+  @media(max-width: 1200px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media(max-width: 900px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

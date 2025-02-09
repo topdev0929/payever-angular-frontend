@@ -1,0 +1,89 @@
+<div class="screens peb-screens-dialog">
+  <div class="screens__header">
+    <button mat-button class="screens__header__button--cancel" (click)="close()">
+      {{ 'builder-app.actions.cancel' | translate }}
+    </button>
+    <div class="screens__header__title">Customize Breakpoints</div>
+    <button mat-button class="screens__header__button--submit" (click)="submit()">
+      {{ 'builder-app.actions.done' | translate }}
+    </button>
+  </div>
+  <div class="screens__container">
+    <div class="screens__list" [formGroup]="formGroup">
+      <ng-container formArrayName="screens">
+        <ng-container *ngFor="let screenForm of screens.controls; let index = index">
+          <div class="screens__list__row"
+          [class.screens__list__row--single-row]="screens.controls.length === 1"
+          [formGroupName]="index"
+          [style.order]="index">
+            <div class="screens__list__row__icon">
+              <mat-icon [svgIcon]="screenForm.value.icon"></mat-icon>
+            </div>
+
+            <div class="screens__list__row__form">
+              <div class="screens__list__row__form__cell">
+                <div class="screens__list__row__form__cell__form-field">
+                  <label>{{ 'builder-app.toolbar.name' | translate }}</label>
+                  <input name="title" formControlName="title" />
+                </div>
+              </div>
+
+              <div class="screens__list__row__form__cell">
+                <div class="screens__list__row__form__cell__form-field">
+                  <label>{{ 'builder-app.toolbar.padding' | translate }}</label>
+                  <input type="number" inputmode="numeric" formControlName="padding" />
+                </div>
+                <span class="screens__list__row__form__form-field__suffix">px</span>
+              </div>
+
+              <div class="screens__list__row__form__cell" *ngIf="screens.controls.length > 1">
+                <div class="screens__list__row__form__cell__form-field">
+                  <label>{{ 'builder-app.toolbar.min_screen_size' | translate }}</label>
+                  <input
+                    type="number"
+                    inputmode="numeric"
+                    formControlName="width"
+                    [min]="minScreenWidth"
+                    (blur)="widthChanged(screenForm)"
+                  />
+                </div>
+                <span class="screens__list__row__form__form-field__suffix">px</span>
+              </div>
+
+              <div
+                *ngIf="screens.controls.length === 1"
+                class="screens__list__row__form__cell screens__list__row__form__cell--read-only"
+              >
+                <div class="screens__list__row__form__cell__form-field">
+                  <label>{{ 'builder-app.toolbar.screen_size' | translate }}</label>
+                  <input
+                    type="text"
+                    [value]="'All screen size'"
+                    [readOnly]="true"
+                    min="minScreenWidth"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="screens__list__row__actions" *ngIf="screens.controls.length > 1">
+              <button
+                mat-icon-button
+                class="screens__list__row__actions__button--delete"
+                (click)="deleteBreakpoint(index)"
+              >
+                <mat-icon svgIcon="delete"></mat-icon>
+              </button>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="screens__actions">
+    <button pe-form-button color="confirm" (click)="addBreakpoint()">
+      <span>Add breakpoint</span>
+    </button>
+  </div>
+</div>

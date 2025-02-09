@@ -1,0 +1,16 @@
+@import "../../../../../../../shared/styles/assets/ui-kit-styles/pe_variables";
+
+:host {
+  display: block;
+}
+
+.upper-text {
+  padding-left: $grid-unit-x;
+  padding-right: $grid-unit-x;
+}
+
+.wizard-container-wrapper {
+  padding-top: 24px;
+  display: flex;
+  justify-content: center;
+}

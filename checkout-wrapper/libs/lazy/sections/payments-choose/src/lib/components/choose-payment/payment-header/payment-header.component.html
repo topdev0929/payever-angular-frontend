@@ -1,0 +1,24 @@
+<div class="form-design form-widget"
+  [class.payment-option-not-ready]="!ready"
+  [ngClass]="'payment-option-'+paymentOption.paymentMethod">
+  <input type="radio"
+        class="pe-checkout-wrapper-choose-payment-checkbox"
+        [name]="'payment-' + paymentOption.paymentMethod"
+        [id]="'radio-paymentOption-' + paymentOption.id"
+        [value]="paymentOption.paymentMethod"
+        [checked]="paymentOption.id === selectedPayment.id"
+        [disabled]="disabled"
+        (change)="paymentChanged(paymentOption)">
+  <label class="show payment-title" [for]="'radio-paymentOption-' + paymentOption.id">
+    {{ paymentOption.label }}
+    <payment-fee *ngIf="showFee" [flow]="flow" [option]="paymentOption"></payment-fee>
+  </label>
+
+  <ng-container *ngIf="logoSettings$ | async as logoSettings">
+    <ui-payment-logo
+      [paymentMethod]="paymentOption.paymentMethod"
+      [className]="logoSettings.className"
+      [isSmall]="logoSettings.isSmall">
+    </ui-payment-logo>
+  </ng-container>
+</div>

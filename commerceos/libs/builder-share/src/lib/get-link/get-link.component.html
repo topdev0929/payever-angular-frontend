@@ -1,0 +1,19 @@
+<pe-builder-share-styles></pe-builder-share-styles>
+
+<div class="get-link peb-get-link">
+  <div *ngIf="link$ | async" class="get-link__social">
+    <div *ngFor="let item of socialMediaOptions" class="get-link__social-item" [class.disabled]="item.disabled"
+      (click)="setValue(item)">
+      <div class="get-link__social-item-wrapper">
+        <mat-icon [svgIcon]="item.alt" class="get-link__social-item-wrapper-icon"></mat-icon>
+      </div>
+      <label class="get-link__social-item-label">{{ item.name | translate }}</label>
+    </div>
+  </div>
+  <div class="get-link__wrapper">
+    <div class="get-link__content">
+      <div class="get-link__label">Embed link</div>
+      <div class="get-link__value">{{ link$ | async }}</div>
+    </div>
+  </div>
+</div>

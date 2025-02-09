@@ -1,0 +1,21 @@
+@use 'pe_theming' as pet;
+@use './rules/rules-theme.component' as rules;
+@use './components/rule-list-item/rule-list-item-theme.component' as rule_list_item;
+@use './components/add-rule/add-rule-theme.component' as add_rule;
+@use './components/add-rule/rule-action-form/rule-action-form-theme.component' as rule_action_form;
+@use './components/add-rule/rule-action-list/rule-action-list-theme.component' as rule_action_list;
+@use './components/add-rule/rule-actions/rule-actions-theme.component' as rule_actions;
+@use './components/add-rule/actions/rule-action-email/rule-action-email-theme.component' as rule_action_email;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @if $color-config != null {
+    @include rules.color($color-config);
+    @include rule_list_item.color($color-config);
+    @include add_rule.color($color-config);
+    @include rule_action_form.color($color-config);
+    @include rule_action_email.color($color-config);
+    @include rule_action_list.color($color-config);
+    @include rule_actions.color($color-config);
+  }
+}

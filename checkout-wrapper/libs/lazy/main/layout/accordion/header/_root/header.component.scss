@@ -1,0 +1,54 @@
+@import '../../../../../../shared/styles/assets/imports';
+
+:host {
+  // To fix align that came from shop
+  text-align: left;
+
+  color: $color-secondary-9;
+  height: 100%;
+}
+
+svg {
+  @include payever_transition();
+
+  &.content-opened {
+    @include payever_transform_rotate(180deg);
+  }
+}
+
+.header-back-to-pay {
+  cursor: pointer;
+  .icon {
+    margin-top: -$grid-unit-y * 0.3333;
+  }
+}
+
+@media all and (-ms-high-contrast: none) {
+  // For IE
+  .middle-header {
+    margin-top: 11px;
+  }
+}
+
+.fix-header-col-left,
+.fix-header-col-right {
+  // For new payments widgets when wrapper appears on right side
+  height: 54px;
+  display: flex;
+  align-items: center;
+}
+.fix-header-col-left {
+  justify-content: flex-start;
+}
+.fix-header-col-right {
+  justify-content: flex-end;
+  gap: $grid-unit-x;
+}
+
+.toggle-order {
+  display: flex;
+  height: 54px;
+  align-items: center;
+  cursor: pointer;
+  font-size: 12px;
+}

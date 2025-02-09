@@ -1,0 +1,57 @@
+<div (click)="$event.stopPropagation()">
+  <div class="seo-toggle-container">
+    <button (click)="selectGeneral()" class="seo-toggle" [class.seo-toggle-focused]="isGeneral">General</button>
+
+    <button (click)="selectAdvanced()" class="seo-toggle" [class.seo-toggle-focused]="!isGeneral">Advanced</button>
+  </div>
+
+  <ng-container *ngIf="isGeneral; then general; else advanced"></ng-container>
+</div>
+
+<ng-template #general>
+  <form novalidate class="seo" [formGroup]="form" *ngIf="form">
+    <pe-form-fieldset
+      [fields]="formScheme.fieldsets['seoInput']"
+      [formGroup]="form"
+      formStyle="dark"
+      orientation="horizontal"
+    >
+      <!--<input type="text"-->
+      <!--class="form-control seo-input"-->
+      <!--placeholder="Title"-->
+      <!--formControlName="title"-->
+      <!--floatPlaceholder="never"-->
+      <!--&gt;-->
+      <!--<input type="text"-->
+      <!--class="form-control seo-input"-->
+      <!--placeholder="placeholder"-->
+      <!--formControlName="slug">-->
+      <!--<textarea-->
+      <!--type="text"-->
+      <!--class="seo-area"-->
+      <!--placeholder="placeholder"-->
+      <!--formControlName="description">-->
+      <!--</textarea>-->
+      <!--<input type="text"-->
+      <!--class="form-control seo-input"-->
+      <!--placeholder="placeholder"-->
+      <!--formControlName="showInSearchResults">-->
+    </pe-form-fieldset>
+  </form>
+</ng-template>
+
+<ng-template #advanced>
+  <form novalidate class="seo" [formGroup]="form" *ngIf="form">
+    <pe-form-fieldset
+      [fields]="formScheme.fieldsets['advanced']"
+      [formGroup]="form"
+      [formStyle]="'dark'"
+      [orientation]="'horizontal'"
+    >
+      <input type="text" class="form-control seo-input" placeholder="Title" formControlName="canonical" />
+      <textarea type="text" class="form-control seo-input" placeholder="placeholder" formControlName="markup">
+      </textarea>
+      <textarea type="text" class="seo-area" placeholder="placeholder" formControlName="tags"> </textarea>
+    </pe-form-fieldset>
+  </form>
+</ng-template>

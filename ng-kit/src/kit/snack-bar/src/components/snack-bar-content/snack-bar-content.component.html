@@ -1,0 +1,22 @@
+<span class="snack-bar-content-close-icon"
+      *ngIf="data.showClose">
+  <svg class="snackbar-icon icon icon-24"
+       (click)="close()">
+    <use [attr.xmlns:xlink]="'http://www.w3.org/1999/xlink'"
+         [attr.xlink:href]="'#icon-x-solid-24'">
+    </use>
+  </svg>
+</span>
+
+<ng-container *ngIf="data.iconId">
+  <svg class="snackbar-icon"
+       [ngClass]="iconClass"
+       [style.min-width.px]="data.iconSize || defaultIconSize">
+    <use [attr.xmlns:xlink]="'http://www.w3.org/1999/xlink'"
+         [attr.xlink:href]="'#' + data.iconId">
+    </use>
+  </svg>&nbsp;
+</ng-container>
+
+<span [class.snack-bar-content-icon]="data.showClose || data.iconId"
+      [innerHTML]="data.content"></span>

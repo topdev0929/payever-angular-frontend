@@ -1,0 +1,27 @@
+<ng-container *ngIf="setFilter$ | async"></ng-container>
+<div class="messages-search-bar" *ngIf="!isLoading; else searchBarSkeleton"
+  [class.search-conversation-wrapper]="mobileView"
+  [class.live-chat]="isLiveChat">
+  <peb-form-field-input
+    [animated]="false"
+    appearance="search"
+    [formGroup]="searchFilter"
+    [label]="'message-app.sidebar.search' | translate"
+  >
+    <svg searchIcon class="search">
+      <use xlink:href="#icon-search-18"></use>
+    </svg>
+    <input #filter
+           formControlName="filter"
+           [placeholder]="messageSearchBarLabel"
+           type="text"
+    />
+    <div *ngIf="filter.value && !mobileView" class="reset">
+      <mat-icon svgIcon="small-close-icon" (click)="resetFilter()"></mat-icon>
+    </div>
+  </peb-form-field-input>
+</div>
+
+<ng-template #searchBarSkeleton>
+  <div class="messages-search-bar-skeleton"></div>
+</ng-template>

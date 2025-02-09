@@ -1,0 +1,45 @@
+@use "pe_variables" as pe_variables;
+@use 'SASS:map';
+
+@mixin color($color-config) {
+$row-background: map.get($color-config, 'row-background');
+$confirm: map.get($color-config, 'confirm');
+$warn: map.get($color-config, 'warn');
+$active-text: map.get($color-config, 'active-text');
+$background: map.get($color-config, 'background');
+$background: map.get($color-config, 'background');
+$text-color: map.get($color-config, 'text-color');
+$input-button-background: map.get($color-config, 'input-button-background');
+
+  .scp-settings {
+    .mat-list-item-flex {
+        background-color: $input-button-background;
+        border-bottom-color: $background;
+        .csp-settings-input {
+            background-color: $row-background;
+            border-right-color: $background;
+        }
+        .csp-form-table_submit-button {
+            background-color: $input-button-background;
+            color: $confirm;
+        }
+        .mat-list-item-col {
+            .pe-truncate-text {
+                color: $text-color;
+            }
+            button {
+                color: $warn;
+            }
+        }
+    }
+  }
+  @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {      
+    .overlay-widget .scp-settings.pe-info-box-container-fixed pe-info-box.pe-info-box .info-box .mat-card-content .content-wrapper mat-list.mat-list .mat-list-item .mat-list-item-content {
+      height: 56px !important;
+    }
+  }
+  .scp-validation {
+    background-color: $warn;
+    color: $active-text;
+  }
+}

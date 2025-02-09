@@ -1,0 +1,115 @@
+<form
+  *ngIf="vm$ | async as vm"
+  #ngForm="ngForm"
+  [formGroup]="formGroup"
+  analyticsForm>
+  <ng-container formArrayName="products">
+    <div
+      class="product-row"
+      *ngFor="
+        let formGroup of rows;
+        let i = index;
+        let firstItem = first;
+        let lastItem = last;
+        trackBy: trackByFn;
+      ">
+      <div class="product-row__button">
+        <button
+          *ngIf="!(firstItem && lastItem)"
+          class="delete-row"
+          type="button"
+          (click)="removeItem(i)">
+          <svg class="icon icon-16">
+            <use xlink:href="#icon-x-solid-24"></use>
+          </svg>
+        </button>
+      </div>
+
+      <div
+        class="form-table"
+        [formGroup]="formGroup">
+        <mat-form-field class="form-fieldset-new col-xs-7">
+          <mat-label i18n="@@order.products.name"> Name </mat-label>
+          <input
+            matInput
+            formControlName="name"
+            type="text" />
+        </mat-form-field>
+        <mat-form-field class="form-fieldset-new col-xs-4">
+          <mat-label i18n="@@order.products.price"> Price </mat-label>
+          <span
+            matPrefix
+            #prefix
+            >{{ vm.currency | peCurrencySymbol }}</span
+          >
+          <input
+            matInput
+            [peInputCurrencyMask]="vm.currency"
+            formControlName="price"
+            type="text" />
+        </mat-form-field>
+
+        <mat-form-field class="form-fieldset-new col-xs-7">
+          <mat-label i18n="@@order.products.category"> Category </mat-label>
+          <mat-select
+            [disabled]="!isCategoryEnabled"
+            formControlName="category">
+            <mat-option
+              *ngFor="let category of categories$ | async"
+              [value]="category">
+              {{ category.label }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="form-fieldset-new col-xs-4">
+          <mat-label i18n="@@order.products.quantity"> Quantity </mat-label>
+          <mat-select formControlName="quantity">
+            <mat-option
+              *ngFor="let quantity of numberOptions"
+              [value]="quantity">
+              {{ quantity }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </ng-container>
+  <div class="info">
+    <div class="button-wrapper">
+      <button
+        type="button"
+        class="add-row"
+        (click)="addItem()">
+        <span i18n="@@order.products.add_new_product"> Add new product </span>
+      </button>
+    </div>
+    <div class="row-summary subtotal">
+      <div
+        class="label"
+        i18n="@@order.products.subtotal">
+        Subtotal
+      </div>
+      <div class="price">
+        <span [innerHTML]="vm.total | peCurrency:vm.currency:'symbol'"> </span>
+      </div>
+    </div>
+    <div class="row-summary">
+      <div
+        class="label"
+        i18n="@@order.products.total">
+        Total
+      </div>
+      <div class="price">
+        <span [innerHTML]="vm.total | peCurrency:vm.currency:'symbol'"> </span>
+      </div>
+    </div>
+  </div>
+
+  <checkout-sdk-continue-button
+    class="button-continue"
+    [text]="submitText"
+    [loading]="vm.loading"
+    [disabled]="vm.loading"
+    (clicked)="submit()">
+  </checkout-sdk-continue-button>
+</form>

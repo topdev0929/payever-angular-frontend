@@ -1,0 +1,33 @@
+<mat-form-field [floatLabel]="floatLabel"
+                [hideRequiredMarker]="hideRequiredMarker"
+                [class.mat-form-field-has-prefix]="hasAddonPrepend">
+  <div class="mat-input-with-addon-inline-prepend-wrapper">
+    <pe-form-addon-inline-prepend [addon]="addonPrepend" *ngIf="hasAddonInlinePrepend"></pe-form-addon-inline-prepend>
+    <input type="text"
+           matInput
+           [attr.pe-qa-autocomplete]="controlQaId"
+           [attr.aria-label]="ariaLabel"
+           [attr.tabindex]="tabIndex"
+           [formControl]="formControl"
+           [errorStateMatcher]="errorStateMatcher"
+           [matAutocomplete]="autocomplete"
+           [placeholder]="placeholder"
+           [readonly]="disabled || readonly"
+           [required]="required"
+           [peBlockCopyPaste]="blockCopyPaste"
+           (focus)="onFocus($event)"
+           (blur)="onBlur($event)">
+    <mat-autocomplete #autocomplete="matAutocomplete"
+                      [autoActiveFirstOption]="autoActiveFirstOption"
+                      [class]="classList"
+                      [displayWith]="getDisplayWithCallback()"
+                      (optionSelected)="onOptionSelected($event)">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{ getDisplayOptionValue(option) }}
+      </mat-option>
+    </mat-autocomplete>
+  </div>
+  <mat-error *ngIf="errorMessage && formControl?.invalid" [style.margin-left.px]="addonPrependOffset">{{ errorMessage }}</mat-error>
+  <pe-form-addon matSuffix [addon]="addonAppend" *ngIf="hasAddonAppend"></pe-form-addon>
+  <pe-form-addon matPrefix #addonPrependElem [addon]="addonPrepend" *ngIf="hasAddonPrepend"></pe-form-addon>
+</mat-form-field>

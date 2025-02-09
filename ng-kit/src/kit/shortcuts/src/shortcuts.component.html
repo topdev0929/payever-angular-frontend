@@ -1,0 +1,45 @@
+<div class="ui-shortcuts">
+  <div *ngIf="!isDetailsView" class="ui-shortcuts-view-main">
+    <div class="text-center-wrap">
+      <a class="btn-scroll btn-up" *ngIf="hasPrev" (click)="scrollPrev()">
+        <svg class="icon icon-32 icon-chevron icon-chevron-up"><use xlink:href="#icon-chevron"></use></svg>
+      </a>
+    </div>
+
+    <div class="ui-shortcuts-list">
+      <div *ngFor="let item of itemsInViewport" class="item" (click)="showDetails(item)">
+        <div class="item-icon">
+          <img *ngIf="item.iconPng" [src]="item.iconPng" class="icon-32">
+        </div>
+        <div class="item-headline">
+          <p class="item-title subheading" [innerHTML]="item.title"></p>
+          <p class="item-desc text-secondary small" [innerHTML]="item.desc"></p>
+        </div>
+        <a class="item-btn" title="click for more">
+          <svg class="icon icon-16"><use xlink:href="#icon-arrow-right-2-16"></use></svg>
+        </a>
+      </div>
+    </div>
+    <div class="text-center-wrap">
+      <a class="btn-scroll btn-down" *ngIf="hasNext" (click)="scrollNext()">
+        <svg class="icon icon-32 icon-chevron"><use xlink:href="#icon-chevron"></use></svg>
+      </a>
+    </div>
+  </div>
+
+  <div *ngIf="isDetailsView" class="ui-shortcuts-view-details">
+    <div class="current-item">
+      <a class="btn-back" (click)="backToListView()"><svg class="icon icon-16"><use xlink:href="#icon-arrow-left-16"></use></svg></a>
+      <div class="item-icon">
+        <img *ngIf="currentItem.iconPng" [src]="currentItem.iconPng" class="icon-32">
+      </div>
+      <h4 class="item-title" [innerHTML]="currentItem.title"></h4>
+    </div>
+    <div class="ui-shortcuts-links-list">
+      <div class="item" *ngFor="let link of currentItem.links" class="item" (click)="handleLinkClick(link)">
+        <span [innerHTML]="link.title"></span>
+        <svg class="icon icon-16"><use xlink:href="#icon-arrow-right-small-16"></use></svg>
+      </div>
+    </div>
+  </div>
+</div>

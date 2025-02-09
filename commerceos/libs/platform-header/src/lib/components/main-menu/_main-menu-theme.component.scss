@@ -1,0 +1,13 @@
+@use "pe_variables" as pe_variables;
+@use 'SASS:map';
+
+@mixin color($color-config) {
+    $hover-icon: map.get($color-config, 'hover-icon');
+    @media (min-width: pe_variables.$viewport-breakpoint-sm-2) {
+      pe-main-menu  {
+        &:hover {
+          background-color: $hover-icon;
+        }
+      }
+    }
+  }

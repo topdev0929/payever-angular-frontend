@@ -1,0 +1,35 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $primary: map.get($color-config, 'primary');
+  $border: map.get($color-config, 'border');
+  $background: map.get($color-config, 'background');
+  $confirm: map.get($color-config, 'confirm');
+  $text-color: map.get($color-config, 'text-color');
+  $primary: map.get($color-config, 'primary');
+  $row-background: map.get($color-config, 'row-background');
+  $x-button: map.get($color-config, 'x-button');
+
+  .social-settings__section__content {
+    &-item {
+      background-color: $row-background;
+
+        .item-content {
+          color: $text-color;
+
+          .item-actions {
+            border-top: 1px solid $background;
+          }
+
+          .item-icon {
+            color: $x-button;
+          }
+        }
+
+        .integration-config {
+          color: $confirm;
+        }
+      }
+    }
+  }
+

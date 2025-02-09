@@ -1,0 +1,33 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $border: map.get($color-config, 'border');
+  $success: map.get($color-config, 'success');
+  $label-color: map.get($color-config, 'label-color');
+
+  .statistics-widgets-two-columns {
+    .two-columns {
+      &__title {
+        color: $text-color;
+      }
+      &__currency {
+        color: $label-color;
+      }
+      &__body {
+        .feature {
+          &__label,
+          &__value {
+            color: $text-color;
+          }
+          &__label {
+            border-bottom-color: $border;
+          }
+        }
+      }
+      &__profit {
+        color: $success;
+      }
+    }
+  }
+}

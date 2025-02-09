@@ -1,0 +1,15 @@
+<pe-modal
+  #modal
+  [baseViewConfig]="'notificationWarning'"
+  [viewConfig]="{classes: {modalBody : bodyZeroPadding ? 'zero-padding' : ''}}"
+  [doHide]="hider"
+  (onClose)="back()"
+  [showLoading]="loading"
+  [baseButtons]="'close'"
+  [buttons]="buttons">
+
+  <p class="text-center">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
+  <p class="text-center"><svg class="icon icon-64"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-disconnected-64"></use></svg></p>
+
+</pe-modal>
+<pe-icons-set></pe-icons-set>

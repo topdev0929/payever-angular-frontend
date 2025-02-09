@@ -1,0 +1,66 @@
+:host {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+}
+
+.element {
+  display: block;
+  position: relative;
+}
+
+.shape {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+}
+
+.video {
+  height: 100%;
+  width: 100%;
+  object-fit: inherit;
+  object-position: inherit;
+  left: 0;
+  top: 0;
+}
+
+.svg-fill {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.ql-container, .ql-editor {
+  justify-content: inherit;
+}
+
+.select {
+  align-items: center;
+  background-color: unset;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNSA4Ij48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGcgZmlsbC1ydWxlPSJub256ZXJvIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS41Ij48cGF0aCBkPSJNMTA2MyA0MDNMMTA1Ni41IDQwOSAxMDU2LjUgNDA5IDEwNTAgNDAzIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTA0OSAtNDAyKSBtYXRyaXgoLTEgMCAwIDEgMjExMyAwKSIvPjwvZz48L2c+PC9zdmc+);
+  background-position-x: calc(100% - 16px);
+  background-position-y: 50%;
+  background-repeat: no-repeat;
+  background-size: 15px;
+  border-radius: unset;
+  border-style: unset;
+  display: flex;
+  font-size: 15px;
+  margin: 0;
+  min-width: 100%;
+  min-height: 100%;
+  outline: unset;
+  padding: 8px 47px 8px 16px;
+}
+
+.select__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

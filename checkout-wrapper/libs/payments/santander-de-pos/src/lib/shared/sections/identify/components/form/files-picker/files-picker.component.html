@@ -1,0 +1,85 @@
+<div
+  class="pe-se-file-picker-wrap"
+  [class.text-danger]="errorMessage">
+  <p
+    style="color: red;"
+    [innerHTML]="errorMessage"></p>
+
+  <div class="pe-se-file-picker-wrap__tabs">
+    <mat-button-toggle-group
+      class="mat-button-toggle-group-volumetric mat-button-toggle-group-volumetric-force-white-theme"
+      [value]="selectedIdentification"
+      (valueChange)="toggleDocumentType($event)">
+      <mat-button-toggle
+        *ngFor="let identification of identifications"
+        [value]="identification.value">
+        {{identification.label}}
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  <div class="file-picker-files-area">
+    <div class="text-center buttons-wrap">
+      <ng-container
+        [ngTemplateOutlet]="uploadButton"
+        [ngTemplateOutletContext]="buttonFrontCtx"></ng-container>
+      <ng-container *ngIf="(isOnlyFrontSize$ | async) === false">
+        <ng-container
+          [ngTemplateOutlet]="uploadButton"
+          [ngTemplateOutletContext]="buttonBackCtx"></ng-container>
+      </ng-container>
+    </div>
+  </div>
+
+  <ng-container *ngIf="isOtherDocuments$ | async">
+    <p
+      class="pe-payment-text small-text"
+      i18n="@@payment-santander-de-pos.inquiry.filePicker.pleaseProvideAdditionalDocs">
+      payment-santander-de-pos.inquiry.filePicker.pleaseProvideAdditionalDocs
+    </p>
+
+    <div class="pe-se-file-picker-wrap__tabs">
+      <mat-button-toggle-group
+        class="mat-button-toggle-group-volumetric mat-button-toggle-group-volumetric-force-white-theme"
+        [value]="docOtherType ?? otherTypes[0].value"
+        (valueChange)="toggleOtherTypeSubject$.next($event)">
+        <mat-button-toggle
+          *ngFor="let other of otherTypes"
+          [value]="other.value">
+          {{other.label}}
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+
+    <div class="file-picker-files-area">
+      <div class="text-center buttons-wrap">
+        <ng-container
+          [ngTemplateOutlet]="uploadButton"
+          [ngTemplateOutletContext]="buttonOtherFrontCtx"></ng-container>
+        <ng-container *ngIf="(isOtherOnlyFrontSize$ | async) === false">
+          <ng-container
+            [ngTemplateOutlet]="uploadButton"
+            [ngTemplateOutletContext]="buttonOtherBackCtx"></ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<ng-template
+  #uploadButton
+  let-ctx
+  let-label="label"
+  let-sideType="sideType"
+  let-documentType="documentType">
+  <div class="button-line">
+    <image-capture
+      [isFilePicked]="isPickedFile(sideType, documentType)"
+      [title]="isPickedFile(sideType, documentType) ? imageCaptureTitle : label"
+      [documentType]="sideType + documentType"
+      [analyticId]="analyticId"
+      (fileRemove)="onFileRemove(sideType, documentType)"
+      (errorTriggered)="onErrorTriggered($event)"
+      (filePicked)="onFilePickedBase64(sideType, $event, documentType)"></image-capture>
+  </div>
+</ng-template>

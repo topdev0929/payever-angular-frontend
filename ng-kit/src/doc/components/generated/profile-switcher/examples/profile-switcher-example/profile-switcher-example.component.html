@@ -1,0 +1,12 @@
+<pe-profile-switcher [list]="list"
+                     [listTitle]="'All terminals'"
+                     [personalProfileCardConfig]="personalProfileCardConfig"
+                     [profileCardConfig]="profileCardConfig"
+                     [showTopSwitcher]="true"
+                     [showBusinessCardLoader]="true"
+                     [showPersonalCardLoader]="true"
+                     [listItemWithLoader]="list[0].uuid"
+                     (onProfileCardClick)="onProfileCardClick()"
+                     (openPersonalProfile)="openPersonalProfile()"
+                     (onProfileFromListClick)="onProfileFromListClick($event)"
+></pe-profile-switcher>

@@ -1,0 +1,15 @@
+@import '../../../../../../../shared/styles/assets/ui-kit-styles/pe_variables';
+
+.checkbox-container {
+  margin: $grid-unit-y 0 0 $grid-unit-y;
+}
+
+.hidden-legend {
+  display: none;
+}
+
+.different-address-fieldset {
+  padding: 0;
+  border: 0;
+  box-shadow: none !important;
+}

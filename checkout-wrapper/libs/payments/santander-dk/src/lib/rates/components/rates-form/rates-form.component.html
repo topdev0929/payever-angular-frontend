@@ -1,0 +1,32 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup"
+  analyticsForm>
+  <santander-dk-rates-edit-list
+    formControlName="ratesForm"
+    [flowId]="flow.id"
+    [paymentMethod]="paymentMethod"
+    [connectionId]="flow.connectionId"
+    [total]="flow.total"
+    [currency]="flow.currency"
+    [extraDuration]="flow.extra?.duration"
+    (selected)="onProductOrRateSelected($event)"
+    (fetchingRates)="ratesLoading.emit($event)"
+    (productPanelOpened)="productPanelOpened.emit($event)">
+  </santander-dk-rates-edit-list>
+
+  <pe-payment-text
+    *ngIf="selectedRateTitle$ | async as selectedRateTitle"
+    type="text">
+    <span [innerHTML]="selectedRateTitle"></span>
+  </pe-payment-text>
+
+  <pe-payment-text type="text">
+    <strong [innerHTML]="translations.subscribeToOffersTitle"> </strong>
+  </pe-payment-text>
+  <pe-payment-text type="text">
+    <span [innerHTML]="translations.subscribeToOffersText"> </span>
+  </pe-payment-text>
+
+  <terms-form formControlName="termsForm"> </terms-form>
+</form>

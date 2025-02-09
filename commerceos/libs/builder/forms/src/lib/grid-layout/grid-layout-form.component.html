@@ -1,0 +1,18 @@
+<form [formGroup]="form">
+  <div class="group__row">
+    <label>{{ 'builder-app.forms.layout.cols' | translate }}</label>
+    <peb-number-input-spinbutton
+      formControlName="cols"
+      [min]="1"
+      [max]="26"
+    ></peb-number-input-spinbutton>
+  </div>
+  <div class="group__row">
+    <label>{{ 'builder-app.forms.layout.rows' | translate }}</label>
+    <peb-number-input-spinbutton
+      formControlName="rows"
+      [min]="1"
+      [max]="64"
+    ></peb-number-input-spinbutton>
+  </div>
+</form>

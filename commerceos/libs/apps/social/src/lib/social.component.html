@@ -1,0 +1,30 @@
+<div
+  *ngIf="getChannelsSets$ | async"
+  class="nav-content"
+>
+  <pe-grid>
+    <pe-grid-sidenav #sideNav
+      [disableSkeleton]="true"
+      [isOpenOnMobile]="!!selectFolder"
+      [sidenavTitle]="'social-app.title' | translate"
+    >
+      <pe-folders
+        (clickedFolder)="onFolderClick($event)"
+        [disableSkeleton]="true"
+        [selectFolder]="selectFolder"
+        [folders]="sidebarTree"
+        (selectedFolder)="navigateTo($event)"
+        [sideNav]="sideNav"
+      ></pe-folders>
+    </pe-grid-sidenav>
+    <pe-grid-content
+      [mobileTitle]="mobileTitle$ | async"
+      [showMobileTitle]="showMobileTitle$ | async"
+      [showMobileFooter]="false"
+    >
+      <div style="position: relative; height: 100%; width: 100%">
+        <router-outlet></router-outlet>
+      </div>
+    </pe-grid-content>
+  </pe-grid>
+</div>

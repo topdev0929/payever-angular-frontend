@@ -1,0 +1,30 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+    $x-button: map.get($color-config, 'x-button');
+    $text-color: map.get($color-config, 'text-color');
+    $confirm: map.get($color-config, 'confirm');
+    $primary: map.get($color-config, 'primary');
+    $border: map.get($color-config, 'border');
+
+    .message-subscription-list {
+        .icon {
+            color: $text-color;
+        }
+
+        .link {
+            color: $confirm;
+            border-bottom: 1px solid $border;
+        }
+
+        .install-connection {
+            color: $confirm;
+            background-color: $primary;
+        }
+        .peb-button-toggle {
+            .button-toggle-container {
+                padding: 8px 12px 8px 0;
+              }
+        }
+    }
+}

@@ -1,0 +1,103 @@
+//
+// Typography mixins
+// --------------------------------------------------
+
+// Font Large
+// -----------------------
+
+@mixin font-large-1($dark-theme: false) {
+  font-family: $font-family-base;
+  font-size: $font-size-large-1;
+  font-weight: $font-weight-regular;
+  color: $color-secondary;
+  line-height: 140%;
+}
+
+@mixin font-large-2($dark-theme: false) {
+  font-family: $font-family-base;
+  font-size: $font-size-large-2;
+  font-weight: $font-weight-medium;
+  color: var(--checkout-page-text-primary-color, $color-grey-2);
+  line-height: 130%;
+}
+
+@mixin font-large-3($dark-theme: false) {
+  font-family: $font-family-base;
+  font-size: $font-size-large-3;
+  font-weight: $font-weight-medium;
+  color: $color-secondary;
+  line-height: 130%;
+}
+
+// Font Regular
+// -----------------------
+
+@mixin font-regular-1($dark-theme: false) {
+  font-family: $font-family-base;
+  font-size: $font-size-regular-1;
+  font-weight: $font-weight-light;
+  color: $color-secondary; // $color-secondary-0;
+  @media (max-width: $viewport-breakpoint-sm-1 - 1) {
+    font-size: $font-size-regular-1 - 2px;
+  }
+  line-height: 130%;
+}
+
+@mixin font-regular-2($dark-theme: false) {
+  font-family: $font-family-base;
+  font-size: $font-size-regular-2;
+  font-weight: $font-weight-light;
+  color: $color-secondary;
+  @media (max-width: $viewport-breakpoint-sm-1 - 1) {
+    font-size: $font-size-regular-2 - 2px;
+  }
+  line-height: 130%;
+}
+
+@mixin font-regular-3($dark-theme: false) {
+  font-family: $font-family-base;
+  font-size: $font-size-regular-3;
+  font-weight: $font-weight-regular;
+  color: $color-secondary;
+  @media (max-width: $viewport-breakpoint-sm-1 - 1) {
+    font-size: $font-size-regular-3 - 2px;
+  }
+  line-height: 130%;
+}
+
+// Font Small
+// -----------------------
+
+@mixin font-small-1($dark-theme: false) {
+  font-family: $font-family-base;
+  font-size: $font-size-small;
+  font-weight: $font-weight-light;
+  color: $color-secondary;
+  line-height: 130%;
+}
+
+@mixin font-small-2($dark-theme: false) {
+  font-family: $font-family-base;
+  font-size: $font-size-small;
+  font-weight: $font-weight-regular;
+  line-height: 130%;
+}
+
+// Font Micro
+// -----------------------
+
+@mixin font-micro-1($dark-theme: false) {
+  font-family: $font-family-base;
+  font-size: $font-size-micro-1;
+  font-weight: $font-weight-light;
+  color: $color-secondary;
+  line-height: 130%;
+}
+
+@mixin font-micro-2($dark-theme: false) {
+  font-family: $font-family-base;
+  font-size: $font-size-micro-2;
+  font-weight: $font-weight-regular;
+  color: $color-secondary;
+  line-height: 130%;
+}

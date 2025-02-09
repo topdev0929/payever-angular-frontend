@@ -1,0 +1,1178 @@
+{
+  "action": {
+    "cancel": "Cancel",
+    "close": "Close",
+    "change_payment_method": "Change payment method",
+    "continue": "Continue",
+    "edit": "Edit",
+    "pay": "Pay",
+    "return_to_store": "Back to the store",
+    "return_to_pos": "Back to the terminal",
+    "save": "Save",
+    "select": "Select",
+    "send_inquiry": "Send finance inquiry",
+    "skip": "Skip",
+    "toggle": "Toggle",
+    "clear": "Clear",
+    "try_again": "Try again"
+  },
+  "label": {
+    "yes": "Yes",
+    "no": "No"
+  },
+  "payment_methods": {
+    "psa_b2b_bnpl": "Allianz Psa",
+    "bfs_b2b_bnpl": "Allianz Bfs",
+    "allianz_trade_b2b_bnpl": "Allianz",
+    "hsbc": "HSBC",
+    "sofort":"SOFORT Banking",
+    "invoice":"Invoice",
+    "ivy":"Ivy",
+    "cash":"Wire Transfer",
+    "paymill_directdebit":"Direct Debit",
+    "paymill_creditcard":"Paymill Credit Card",
+    "paypal":"PayPal",
+    "stripe":"Credit Card",
+    "instant_payment": "Instant payment",
+    "santander_at_instant": "Santander Instant AT",
+    "santander_installment":"Santander Installments",
+    "santander_pos_installment":"POS Santander Installments",
+    "santander_installment_no":"Santander Installments Norway",
+    "santander_pos_installment_no":"POS Santander Installments Norway",
+    "santander_invoice_no":"Santander Invoice Norway",
+    "santander_pos_invoice_no":"POS Santander Invoice Norway",
+    "santander_pos_installment_at":"POS Santander Installments Austria",
+    "santander_pos_installment_dk":"POS Santander Installments Denmark",
+    "santander_installment_at":"Santander Installments Austria",
+    "santander_installment_be":"Santander Installments Belgium",
+    "santander_installment_dk":"Santander Installments Denmark",
+    "santander_installment_se":"Santander Installments Sweden",
+    "santander_installment_nl":"Santander Installments Netherlands",
+    "santander_installment_uk":"Santander Installments United Kingdom",
+    "santander_installment_fi":"Santander Installments Finland",
+    "santander_pos_installment_fi":"POS Santander Installments Finland",
+    "santander_pos_installment_uk":"POS Santander Installments United Kingdom",
+    "payex_faktura":"PayEx Invoice",
+    "santander_ccp_installment":"Santander DE Comfort card plus",
+    "payex_creditcard":"PayEx Credit Card",
+    "swedbank_creditcard":"Swedbank Credit Card",
+    "swedbank_invoice":"Swedbank Invoice",
+    "swedbank_vipps":"Vipps",
+    "swedbank_trustly":"Trustly",
+    "swedbank_mobile_pay":"Mobile Pay",
+    "swedbank_swish":"Swish",
+    "stripe_directdebit":"Stripe DirectDebit",
+    "santander_invoice_de":"Santander DE Invoice",
+    "santander_pos_invoice_de":"POS Santander DE Invoice",
+    "santander_pos_installment_se":"POS Santander Installments Sweden",
+    "santander_factoring_de":"Santander Factoring",
+    "santander_pos_factoring_de":"POS Santander Factoring",
+    "apple_pay":"Apple Pay",
+    "google_pay":"Google Pay",
+    "zinia_bnpl":"Zinia BNPL",
+    "zinia_installment":"Zinia Instalment",
+    "zinia_slice_three":"Zinia Slice In Three",
+    "zinia_bnpl_de": "Zinia BNPL DE",
+    "zinia_pos_de": "Zinia POS DE",
+    "zinia_slice_three_de": "Zinia Slice In Three DE",
+    "zinia_installment_de": "Zinia Instalment DE",
+    "zinia_pos": "Zinia POS",
+    "ideal": "iDEAL"
+  },
+  "layout": {
+    "test_mode_warning": "Caution. Your checkout is in test mode. You just can test but there will be no regulat transactions. In order to have real transactions please switch your checkout to live.",
+    "panel": {
+      "amount": {
+        "title": "Amount",
+        "description": "Configure your amount"
+      },
+      "coupons": {
+        "title": "Coupon",
+        "description": "Apply your coupon"
+      },
+      "user": {
+        "title": "Account",
+        "description": "Login or fill your email"
+      },
+      "address":  {
+        "title": "Billing & Shipping",
+        "description": "Add your billing and shipping addres"
+      },
+      "payment": {
+        "title": "Payment",
+        "description": "Your payment option"
+      },
+      "choose_payment": {
+        "title": "Select payment",
+        "description": "Select your payment method"
+      },
+      "shipping": {
+        "title": "Shipping",
+        "description": "Your shipping method"
+      },
+      "express_choose_payment": {
+        "title": "Select rate",
+        "description": "Select your credit rate"
+      },
+      "express_payment": {
+        "title": "Payment",
+        "description": "Your payment option"
+      },
+      "payment_no_choose": {
+        "title": "Payment",
+        "description": "Payment option"
+      },
+      "send_to_device": {
+        "title": "Send to device",
+        "description": "Send to device"
+      },
+      "qr": {
+        "title": "QR",
+        "description": "QR"
+      },
+      "order": {
+        "title": "Order",
+        "description": "Order"
+      },
+      "choosePayment": {
+        "title": "Choose payment",
+        "description": "Choose payment option"
+      },
+      "editPayment": {
+        "title": "Edit payment",
+        "description": "Edit payment option"
+      }
+    },
+    "footer": {
+      "copyright": "© payever GmbH",
+      "links": {
+        "imprint_link": "Impressum",
+        "copyright_href": "https://getpayever.com",
+        "imprint_href": "https://getpayever.com",
+        "agreement_link": "Nutzungsbedingungen",
+        "agreement_href": "https://getpayever.com/terms",
+        "protection_link": "Datenschutzerklärung",
+        "protection_href": "https://getpayever.com",
+        "payever_href": "https://getpayever.com",
+        "mailto_support_link": "Support",
+        "mailto_support_href": "mailto:support@getpayever.com"
+      },
+      "action": {
+        "cancel": " Abbrechen und zurück zu {{ checkoutName }}"
+      }
+    }
+  },
+  "amount": {
+    "action": {
+      "continue": "Next step"
+    },
+    "form": {
+      "amount": {
+        "label": "Amount",
+        "placeholder": "Amount"
+      },
+      "reference": {
+        "label": "Reference",
+        "placeholder": "Reference"
+      }
+    },
+    "errors": {
+      "amount": "Please save amount in order to get link"
+    }
+  },
+  "order": {
+    "switcher": {
+      "amount": "Type Amount",
+      "cart": "Check Cart",
+      "qr": "QR Code Scan",
+      "create_cart": "Create Cart"
+    },
+    "products": {
+      "name": "Item Name",
+      "category": "Category",
+      "price": "Price",
+      "quantity": "Quantity",
+      "total": "Total",
+      "subtotal": "Subtotal",
+      "add_new_product": "Add another item"
+    }
+  },
+  "address": {
+    "suggest_your_email": "Is it your email?"
+  },
+  "boolean": {
+    "yes": "Yes",
+    "no": "No"
+  },
+  "duration": {
+    "month": "month",
+    "months": "months",
+    "count_months": "{{ count }} months"
+  },
+  "express_init": {
+    "demo_warning_modal": {
+      "title": "Can't process checkout",
+      "text": "You are in demo mode and can't continue checkout"
+    },
+    "fin_calc_warning_modal": {
+      "title": "Can't process checkout",
+      "text": "You are in Fincance Calculator and can't continue checkout"
+    }
+  },
+  "custom_agreement": {
+    "line": "By clicking {{ button }} you agree with the following policies<br>>{{ links }}",
+    "link_titles": {
+      "terms_and_service": "Terms & Service",
+      "privacy_statement": "Privacy Statement",
+      "refund_policy": "Refund Policy",
+      "shipping_policy": "Shipping Policy"
+    }
+  },
+  "payment": {
+    "agreement": "By clicking {{ button }} you agree with the {{ link }} with an obligation to pay and confirm the acknowledgement of the {{ cookieLink }}",
+    "agreement_link": "terms of service of payever",
+    "agreement_href": "https://getpayever.com/terms",
+    "cookie_policy": "Cookie Policy",
+    "cookie_policy_href": "https://getpayever.com/about/privacy",
+    "error": {
+      "cant_load_micro": "Not possible to load micro. Please check connection and reload page.",
+      "cant_load_form_options": "Not possible to load form options. Please check connection and reload page.",
+      "no_payment_options": "This merchant does not offer any payment types. That can happen when payment amount does not match any payment options of the current shop."
+    },
+    "form": {
+      "label": {
+        "remember_me": "Do you want to signup to <a href='https://mein.payever.de' target='_blank'>payever</a>?"
+      }
+    },
+    "header": {
+      "chose_payment": "Payment method"
+    },
+    "tooltip": {
+      "remember_me": "We store your information in your device so you can buy faster next time you buy in a store using payever"
+    }
+  },
+  "payment_status": {
+    "STATUS_NEW": "New",
+    "STATUS_IN_PROCESS": "In progress",
+    "STATUS_ACCEPTED": "Accepted",
+    "STATUS_PAID": "Paid",
+    "STATUS_DECLINED": "Declined",
+    "STATUS_REFUNDED": "Refunded",
+    "STATUS_FAILED": "Failed",
+    "STATUS_CANCELLED": "Cancelled",
+    "STATUS_INVOICE_CANCELLATION": "Cancelled",
+    "STATUS_INVOICE_INCOLLECTION": "Collection",
+    "STATUS_INVOICE_LATEPAYMENT": "Late payment",
+    "STATUS_INVOICE_REMINDER": "Reminder",
+    "STATUS_SANTANDER_IN_PROGRESS": "In progress",
+    "STATUS_SANTANDER_IN_PROCESS": "In process",
+    "STATUS_SANTANDER_DECLINED": "Declined",
+    "STATUS_SANTANDER_APPROVED": "Approved",
+    "STATUS_SANTANDER_APPROVED_WITH_REQUIREMENTS": "Approved with requirements",
+    "STATUS_SANTANDER_DEFERRED": "Deferred",
+    "STATUS_SANTANDER_CANCELLED": "Cancelled",
+    "STATUS_SANTANDER_AUTOMATIC_DECLINE": "Automatically declined",
+    "STATUS_SANTANDER_IN_DECISION": "In decision",
+    "STATUS_SANTANDER_DECISION_NEXT_WORKING_DAY": "Decision in the next working day",
+    "STATUS_SANTANDER_IN_CANCELLATION": "In cancellation",
+    "STATUS_SANTANDER_ACCOUNT_OPENED": "Account opened",
+    "STATUS_SANTANDER_CANCELLED_ANOTHER": "Cancelled",
+    "STATUS_SANTANDER_SHOP_TEMPORARY_APPROVED": "Temporarily approved"
+  },
+  "salutation": {
+    "SALUTATION_MR": "Mr",
+    "SALUTATION_MRS": "Mrs"
+  },
+  "credit_rates": {
+    "calculate_rates": "Calculate rates"
+  },
+  "santander_installment_se": {
+    "action": {
+      "choose_credit": "Choose {{total}} for {{duration}}",
+      "choose_credit_finance_calc": "{{total}} for {{duration}}",
+      "pay_part": "Part Payment",
+      "pay_later": "Buy Now - Pay Later",
+      "transaction_link": "transaction details"
+    },
+    "credit_rates": {
+      "amount_pay_part": "Monthly payment {{amount}}",
+      "amount_pay_later": "Pay {{total}}<br>in {{month}}",
+      "annual_fee": "Annual fee",
+      "billing_fee": "Billing fee",
+      "duration": "Terms on month",
+      "effective_interest": "Effective interest",
+      "monthly_cost": "Monthly payment",
+      "months": "Terms on month",
+      "months_value": "{{duration}} {{label}}",
+      "startup_fee": "Startup fee",
+      "terms_and_conditions_link": "Santander Consumer Bank Conditions",
+      "total_cost": "Total cost"
+    },
+    "finish": {
+      "approved_details": "Verify your identification now",
+      "processing": "We are processing your application",
+      "processing_details": "Verification can take a few minutes. Please do not click away",
+      "transaction_details": "See {{transactionLink}} for missing steps of this application",
+      "pre_approved": "Open BankID app in your mobile to sign contract",
+      "pre_approved_ex": "After signature, wait for this page to update, don&apos;t reload or click away."
+    },
+    "form": {
+      "error": {
+        "accept_conditions": "You need to accept this",
+        "employed_from": "Enter correct date of employed",
+        "employed_to": "Enter correct date of end of employed",
+        "employment_type": "Select your employment",
+        "phone_number": "Enter correct phone number",
+        "social_security_number": "Enter correct social security number",
+        "taxable_income": "Enter your monthly salary before tax"
+      },
+      "label": {
+        "accept_conditions": "Yes, I accept",
+        "employed_from": "Employed since",
+        "employed_to": "Employment limited until",
+        "employment_type": "Employment",
+        "phone_number": "Mobile phone",
+        "social_security_number": "Social security number",
+        "taxable_income": "Monthly salary before tax"
+      },
+      "placeholder": {
+        "employed_from": "Employed since",
+        "employed_to": "Employment limited until",
+        "employment_type": "Employment...",
+        "phone_number": "Mobile phone",
+        "social_security_number": "Social security number",
+        "taxable_income": "Monthly salary before tax"
+      }
+    },
+    "header": {
+      "app_details": "Application Details",
+      "approved": "Loan temporarily approved",
+      "credit_rate": "Payment method",
+      "failed": "Unfortunately, we can not provide you with a loan at this time. Please, select another payment method.",
+      "terms_and_conditions": "SANTANDER CONSUMER BANK CONDITIONS",
+      "pre_approved": "Your application has been pre-approved"
+    },
+    "terms_and_conditions": {
+      "additional_conditions_pdf": "Additional conditions (PDF)",
+      "credit_info_pdf": "Standard European Consumer Credit Information (PDF)",
+      "terms_and_conditions_pdf": "Term and Conditions (PDF)",
+      "text": "<p>I länkarna till nedan finns villkoren du accepterar när du är i kontakt med oss. För att ansöka om betalning måste du uppnå Santander Consumer Banks basala krav. Dessa är</p> <ol> <li>Du är över 18 år gammal</li> <li>Du har fast inkomst</li> <li>Du har en inkomst som överstiger SEK 80 000 per år</li> <li>Du har inga skulder</li> </ol> <h4>Kreditupplysning</h4> <p>När du ansöker om lån gör vi en kreditupplysning, vi samlar kreditdata från UC.</p> Vi kommer att hantera er personliga data enligt vår <a href='https://sf.santanderconsumer.se/Infosidor/Personuppgiftspolicy/' target='_blank'>Integritetspolicy</a>."
+    }
+  },
+  "santander_invoice_de": {
+    "action": {
+      "pay": "Pay",
+      "try_reload": "Try reload"
+    },
+    "form": {
+      "error": {
+        "birthday": "Enter correct birth date",
+        "advertising_accepted": "You need to accept this",
+        "conditions_accepted": "You need to accept this"
+      },
+      "label": {
+        "salutation": "Salutation",
+        "first_name": "First name",
+        "last_name": "Last name",
+        "birthday": "Birthday",
+        "advertising_accepted": "Ja, ich bin damit einverstanden, dass meine Daten an die Santander Consumer Bank AG („Santander“) weitergegeben werden. Die Santander darf diese Daten gerne dazu nutzen, um mich über Produkte der Santander zu informieren. Natürlich kann ich meine Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen. Ausführliche Informationen zu dieser Einwilligung sowie die Möglichkeit zum Widerruf finde ich <a target='_blank' href='https://www.santander.de/applications/rechnungskauf/werbewiderspruch/'>hier</a>.",
+        "conditions_accepted": "Ich willige in die Übermittlung meiner personenbezogenen Daten an die Santander Consumer Bank AG gemäß den näheren Bestimmungen des beigefügten <a target='_blank' href='https://www.santander.de/applications/rechnungskauf/datenschutzbestimmungen/'>Einwilligungserklärungstextes</a> sowie an die darin genannten Auskunfteien und in die Durchführung einer automatisierten Entscheidung ein.<br>Nähere Informationen finden Sie in den <a target='_blank' href='https://www.santander.de/applications/rechnungskauf/datenschutzbestimmungen/'>Datenschutzhinweisen</a> der Santander für den Rechnungs-/Ratenkauf."
+      },
+      "placeholder": {
+        "birthday": "Birthday",
+        "salutation": "Salutation",
+        "first_name": "First name",
+        "last_name": "Last name"
+      }
+    },
+    "promo": {
+      "text1": "Pay after<br>Delivery",
+      "text2": "Pay just what<br>you keep",
+      "text3": "Pause<br>payments"
+    },
+    "finish": {
+      "application_number": "Application number is <strong>{{applicationNumber}}</strong>",
+      "header": {
+        "success": "Your payment was successfully processed",
+        "failed": "Unfortunately, we can not accept your payment",
+        "unknown_status": "Unknown status of order",
+        "request_error": "Error occurred during inquire request",
+        "processing": "We are processing your application"
+      },
+      "details": {
+        "processing": "Verification can take a few minutes. Please do not click away",
+        "unknown_status": "Unfortunately, server has returned unknown status of order"
+      },
+      "label": {
+        "id": "ID",
+        "total": "Total",
+        "store_name": "Store name",
+        "created": "Created",
+        "name": "Name"
+      },
+      "change_payment_method": "Please, select another payment method",
+      "transaction_link": "transaction details",
+      "transaction_details": "See {{transactionLink}} for missing steps of this application"
+    }
+  },
+  "santander_installment_dk": {
+    "action": {
+      "choose_credit_option": "Choose {{total}} for {{duration}} months",
+      "choose_credit_option_finance_calc": "{{total}} for {{duration}} months",
+      "login_with_nemid": "Login with NemID",
+      "send_application": "Send ansøgning",
+      "try_again": "Try again"
+    },
+    "errors": {
+      "debtor_data_fetch": "Error occured while fetching debtor data. Please reload page.",
+      "nemid_error": "We could not get data from NemId",
+      "skat_error": "We could not get data from SKAT"
+    },
+    "finish": {
+      "we_processing_your_app": {
+        "text": "We are processing your application",
+        "description": "It can take up to 3 minutes. Please do not click away"
+      },
+      "opening_hours": {
+        "title": "Opening Hours",
+        "monday": {
+          "title": "Monday",
+          "hours": "10-20"
+        },
+        "tuesday": {
+          "title": "Tuesday",
+          "hours": "10-20"
+        },
+        "wednesday": {
+          "title": "Wednesday",
+          "hours": "10-20"
+        },
+        "thursday": {
+          "title": "Thursday",
+          "hours": "10-20"
+        },
+        "friday": {
+          "title": "Friday",
+          "hours": "10-20"
+        },
+        "saturday": {
+          "title": "Saturday",
+          "hours": "10-18"
+        },
+        "sunday": {
+          "title": "Sunday",
+          "hours": "10-17"
+        }
+      },
+      "loan_has_been_sent_santander": {
+        "header": "Your loan has been sent to Santander consumer bank",
+        "text": "In order to complete your loan, you will be contacted by <br>Santander Consumer Bank on the stated email address",
+        "text_ex": "For questions and inquiries contact our customer service at <br>tel. 70 23 09 03"
+      },
+      "app_no": "Application",
+      "cant_provide_loan": {
+        "part1": "Unfortunately, we can not provide you with a loan at this time.",
+        "part2": "another payment method"
+      },
+      "cant_provide_loan_app_no": "Application failed",
+      "order_confirmed": {
+        "header": "Order confirmed",
+        "header2": "Order confirmed. Thank you.",
+        "text": "Sign the loan documents to complete purchase",
+        "text_when_no_sign_contract_url": "Please sign the loan documents by following the link you will receive by email from Santander to complete your purchase"
+      }
+    },
+    "headers": {
+      "loading_data": "We are loading data. Please wait.",
+      "select_your_product": "Select your product",
+      "error_occured_try_again": "Error occured. Please try again"
+    },
+    "labels": {
+      "monthly_rate": "Monthly rate",
+      "variable_interest": "Variable interest",
+      "establishment_fee": "Establishment fee",
+      "account_fee": "Account fee",
+      "terms": "Terms",
+      "annually_percent": "Annually percent",
+      "total_loan_amount": "Total loan amount",
+      "total_cost": "Total cost {{ amount }}",
+      "amount_per_month": "{{ amount }} Pr. Måned",
+      "get_offers_via_sms_email": {
+        "title": "Should we contact you with offers and information about the opportunities and benefits you have as a customer?",
+        "desc": "Subscribe to our newsletters and keep up-to-date with news, offers and competitions from Santander Consumer Bank and our Partners. If you click on \"Yes, please,\" you allow the Santander Consumer Bank to contact you by email and text with our newsletters as well as offers of our products consisting of car loans, consumer loans, savings, sales finance, insurance and credit cards. Of course, you can always sign up again.",
+        "part1": "Receive offers via sms or email",
+        "part2": "give concent"
+      },
+      "accept_business_terms": {
+        "part1": "I agree with",
+        "part2": "terms and conditions"
+      },
+      "payment_free_duration": "Payment free duration",
+      "payment_duration": "Payment period",
+      "interest_free_duration": "Interest free duration",
+      "confirm_with_nemid": {
+        "header": "Confirm with NemID",
+        "text": "By logging in with NemID and social security number, you create a secure connection, so you can get approved your loan easily, quickly and safely."
+      },
+      "give_consent_skatdk_with_nemid": {
+        "header": "Give consent to SKAT.dk with your NemID",
+        "text": "We will redirect you to SKAT&apos;s homepage, where you via NemID will grant the approval that SKAT can share your annual tax return and salary information with us. We will only get access to information needed for this loan application."
+      }
+    },
+    "fee_icluded_in_cals_funds_returned_days": {
+      "part1": "Account fee {{fee}}",
+      "part2": "is included in all calculations <br>Funds can be returned within 14 days"
+    },
+    "form": {
+      "error": {
+        "accept_conditions": "You need to accept this",
+        "accept_business_terms": "You must agree with conditions above",
+        "application_details": {
+          "confirm_email": "Field should not be empty",
+          "confirm_email_not_match": "Confirmation email do not match",
+          "email": "Field should not be empty",
+          "phone_number": "Field should not be empty",
+          "phone_number_cannot_start_with_0": "Phone number cannot start with 0",
+          "citizenship_type": "Field should not be empty",
+          "marital_status": "Field should not be empty",
+          "residence_permit_number": "Field should not be empty",
+          "residence_permit_type": "Field should not be empty",
+          "residence_permit_date": "Field should not be empty",
+          "number_of_children": "Field should not be empty",
+          "number_of_cars": "Field should not be empty",
+          "employment_type": "Field should not be empty",
+          "employed_since": "Field should not be empty",
+          "residential_type": "Field should not be empty"
+        },
+        "bank_details": {
+          "bank_registration_number": "Field should not be empty",
+          "bank_registration_number_length": "Length should be {{ length }} symbols",
+          "bank_account_number": "Field should not be empty",
+          "bank_account_number_length": "Length should be {{ minLength }}-{{ maxLength }} symbols",
+          "e_card": "Field should not be empty"
+        },
+        "cpr_details": {
+          "first_name": "Field should not be empty",
+          "last_name": "Field should not be empty",
+          "social_security_number": "Field should not be empty",
+          "city": "Field should not be empty",
+          "address": "Field should not be empty",
+          "postal_code": "Field should not be empty"
+        },
+        "finance_details": {
+          "monthly_salary_before_tax": "Field should not be empty",
+          "total_debt": "Field should not be empty"
+        }
+      },
+      "application_details": {
+        "form_name": "Application details",
+        "phone_number": "Phone number",
+        "email_address": "Email address",
+        "confirm_email": "Repeat email address",
+        "marital_status": {
+          "title": "Marital status",
+          "placeholder": "Marital status..."
+        },
+        "citizenship_type": {
+          "title": "Citizenship type",
+          "placeholder": "Citizenship type..."
+        },
+        "residence_permit_number": "Residence permit number",
+        "residence_permit_type": {
+          "title": "Residence permit type",
+          "placeholder": "Residence permit type..."
+        },
+        "residence_permit_date": "Residence permit date",
+        "children_living_home": "Number of children at home",
+        "cars_household": "Number of cars at household",
+        "employment_type": {
+          "title": "Employment type",
+          "placeholder": "Employment type..."
+        },
+        "employed_since": "Employed since",
+        "residential_type": {
+          "title": "Residential type",
+          "placeholder": "Residential type..."
+        }
+      },
+      "bank_details": {
+        "form_name": "Bank details",
+        "bank_registration_number": "Bank registration number",
+        "bank_account_number": "Bank account number",
+        "e_card": "I have a Visa card"
+      },
+      "cpr_details": {
+        "form_name": "CPR details",
+        "first_name": "First name",
+        "last_name": "Last name",
+        "social_security_number": "Social security number",
+        "city": "City",
+        "address": "Street and number",
+        "postal_code": "Postal code"
+      },
+      "finance_details": {
+        "form_name": "Finance details",
+        "monthly_salary_before_tax": "Monthly salary",
+        "total_debt": "Total debt",
+        "insurance_for_unemployment": "I am member of an unemployment insurance"
+      },
+      "safe_forsikring": {
+        "form_name": "SAFE Forsikring",
+        "wants_safe_insurance": "Tilføg SAFE til mit lån",
+        "wants_safe_insurance_description": "SAFE er en forsikring som sikrer, at dit lån bliver betalt, hvis du bliver ufrivilligt arbejdsløs eller uarbejdsdygtig pga. sygdom eller ulykke. SAFE giver tryghed til dig og din familie.  <br/><br/>\nDu kan læse mere om SAFE <a href='https://www.santanderconsumer.dk/_layouts/15/scbdk.cards.branding/assets/documents/Betingelser%20SAFE%20L%C3%A5nesikring.pdf' target=\"_blank\">her</a>. <br/><br/> Forsikringspræmien udgør {{ percent }}% af den månedlige finansieringsydelse, der dags dato udgør {{ monthly }} kr. Forsikringspræmien opkræves månedligt samtidig med ydelsen for din finansiering, og reguleres såfremt lånets øvrige betingelser ændres.  <br/> Vær opmærksom på at for selvstændige dækker forsikringen hospitalsindlæggelse, uarbejdsdygtighed og dødsfald.",
+        "insurance_conditions_accepted": {
+          "title": "Jeg accepterer betingelserne for SAFE",
+          "label": "Ja, jeg har læst og accepterer <a href='https://www.santanderconsumer.dk/_layouts/15/scbdk.cards.branding/assets/documents/Betingelser%20SAFE%20L%C3%A5nesikring.pdf' target=\"_blank\">betingelserne for SAFE</a>",
+          "description": "Jeg er indforstået med, at sygdom eller personskade som jeg har, eller burde have haft kendskab til ved forsikringens etablering og som jeg senere anmelder, ikke er dækket af forsikringen. Jeg er indforstået med, at hvis jeg har eller burde have haft kendskab til kommende arbejdsløshed, kan disse tilfælde ikke senere føre til krav om forsikringsdækning. Jeg er indforstået med, at arbejdsløshed efter tidsbegrænset ansættelse eller fleksjob ikke er omfattet af SAFE. SAFE træder i kraft, hvis dit lån bliver bevilget og startdatoen på forsikringen vil være den samme dag, som lånet bliver udbetalt til dig. Du skal være opmærksom på, at der for dækning af arbejdsløshed er en kvalifikationsperiode på 180 dage og for uarbejdsdygtighed en kvalifikationsperiode på 30 dage."
+        }
+      }
+    },
+    "header": {
+      "credit_rate": "Payment method"
+    },
+    "no_credit_options_for_product": "Sorry but no options available for selected product",
+    "help_text": "If you repay your loan before the installment period of {{ duration_months }} month(s) expires, it only costs the startup fee: {{ startup_fee }}. There must always be a maturity of min. 12 months after the repayment period. When redeeming before time, contact the customer service of Santander Consumer Bank.",
+    "terms_and_conditions": "<p>I hereby give my consent to Santander being able to obtain information about my potential loans and credits from the banks and financing companies who are affiliated with KreditStatus. This information may only be used to evaluate my creditworthiness regarding this application with Santander.</p> <p>Santander has the right to gather the following information about my existing loans and credits via KreditStatus: identification information, type of loan, principal amount of loan/credit max, formation time, and the current balance.</p> <p>Information about which banks and financing companies that have access to gather information about my credit arrangements from KreditStatus is always available on www.kreditstatus.dk</p> <p>I am an adult and I hereby confirm that the information I have stated is correct and in accordance with the truth.</p> <p>I understand that during the processing of this application there will be made a creditworthiness investigation, and that during this investigation information about my economic conditions with credit information bureaus may be exchanged, and that the gathered information will be registered and processed.</p> <p> I understand that Santander can choose to refuse to grant a loan, if the given information is incorrect, or if Santander in connection with credit approval receives information that impacts the rating.</p> <p>Regardless of whether a customer relationship will be formed or not, all information stated in the application will be saved by Santander for at least 1 year.</p> <p> I accept that a possible rejection will not be explained to me, unless it happens on the basis of a search in a database (for example RKI/debtors ledger).</p> <p> I am aware that information will form a basis for Santander meeting the requirement in the Credit Agreement Act § 7c on the assessment of me being able to repay the lent amount.</p> <p> Santander can, after you have sent your application, contact you via phone, text message or email to hear if you have any questions regarding the application, our products, etc.</p>",
+    "concent": "If you click on &quot;Yes&quot;, you give Santander Consumer Bank permission to contact you with news, offers of our products, contests and information about the opportunities and benefits for you as a customer. Of course, you can opt out again at any time."
+  },
+  "santander_installment_no": {
+    "action": {
+      "choose_credit": "Choose {{monthly_amount}} for {{duration_months}} Months",
+      "choose_credit_finance_calc": "{{monthly_amount}} for {{duration_months}} Months",
+      "choose_fixed_amount": "Part Payment",
+      "choose_float_amount": "Buy Now - Pay Later",
+      "try_reload": "Try reload",
+      "fill_more_info": "Return to form"
+    },
+    "credit_rates": {
+      "monthly_amount": "Monthly rate",
+      "credit_purchase": "Credit price",
+      "credit_duration_in_months": "Term",
+      "effective_rate_doc": "Effective rate",
+      "no_credit_options": "No credit options available",
+      "docs_url_fixed_amount": "Delbetaling / Betalingsutsettelse forutsetter inngåelse av kredittavtale med kredittkort etter kredittvurdering med følgende priseksempel: <a target='_blank' href='{{ fileUrl }}'>Eff. rente 30,4 %, kr 20 000 o/12 mnd, kostnad kr 3 022, totalt kr 23 022</a>",
+      "docs_url_float_amount": "Delbetaling / Betalingsutsettelse forutsetter inngåelse av kredittavtale med kredittkort etter kredittvurdering med følgende priseksempel: <a target='_blank' href='{{ fileUrl }}'>Eff. rente 30,4 %, kr 20 000 o/12 mnd, kostnad kr 3 022, totalt kr 23 022</a>"
+    },
+    "finish": {
+      "application_number": "Application number is <strong>{{applicationNumber}}</strong>",
+      "header": {
+        "success": "Order confirmed",
+        "pending": "Your application has been sent to Santander Consumer Bank",
+        "failed": "Unfortunately, we can not provide you with a loan at this time",
+        "need_more_info": "Additional information required",
+        "unknown_status": "Unknown status of order",
+        "request_error": "Error occurred during inquire request",
+        "processing": "We are processing your application"
+      },
+      "details": {
+        "success": "Please sign the loan documents by following the link you will receive by email from Santander to complete your purchase",
+        "pending": "When your application has been processed you will get a response via SMS",
+        "need_more_info": "Please return back to the form and fill additional information",
+        "processing": "Verification can take a few minutes. Please do not click away",
+        "unknown_status": "Unfortunately, server has returned unknown status of order"
+      },
+      "action": {
+        "fill_more_info": "Return to form"
+      },
+      "change_payment_method": "Please, select another payment method",
+      "transaction_link": "transaction details",
+      "transaction_details": "See {{transactionLink}} for missing steps of this application"
+    },
+    "form": {
+      "error": {
+        "campaign_code": "Please select credit option",
+        "social_security_number": "Social security number is not valid",
+        "telephone_mobile": "Mobile phone is not valid",
+        "norwegian_citizen": "Norwegian citizen should be selected",
+        "professional_status": "Professional status is not valid",
+        "residential_status": "Residential status is not valid",
+        "net_monthly_income": "Monthly income is not valid",
+        "total_debt": "Total debt is not valid",
+        "house_mortgage": "House mortgage is not valid",
+        "other_loan": "Other loan is not valid",
+        "rent_income": "Rental income is not valid",
+        "secured_loan": "Secured loan is not valid",
+        "student_loan": "Student loan is not valid",
+        "employer": "Employer is not valid",
+        "employed_since": "Employed since is not valid",
+        "employment_percent": "Employment percent is not valid",
+        "school_code": "School is not valid",
+        "school_start_date": "Study start is not valid",
+        "school_finish_date": "Study finish is not valid",
+        "school_total_loan_outstanding": "Total loan outstanding is not valid",
+        "political_exposed_person": "Political exposed person is not valid",
+        "applied_on_behalf_of_others": "Applied on behalf of others is not valid",
+        "origin_of_founds": "Origin of founds is not valid"
+      },
+      "label": {
+        "student": "I am a student (and would like a Student Account)",
+        "accepted_credit_check": "I accept the credit check",
+        "social_security_number": "Social security number",
+        "telephone_mobile": "Mobile phone",
+        "marital_status": "Marital status",
+        "norwegian_citizen": "Norwegian citizen?",
+        "professional_status": "Professional status",
+        "residential_status": "Residential status",
+        "net_monthly_income": "Monthly income",
+        "total_debt": "Total debt",
+        "house_mortgage": "House mortgage",
+        "other_loan": "Other loan",
+        "rent_income": "Rental income",
+        "secured_loan": "Secured loan",
+        "student_loan": "Student loan",
+        "employer": "Employer",
+        "employed_since": "Employed since",
+        "employment_percent": "Employment percent",
+        "school_code": "School",
+        "school_start_date": "Study start",
+        "school_finish_date": "Study finish",
+        "school_total_loan_outstanding": "Total loan outstanding",
+        "political_exposed_person": "Political exposed person",
+        "applied_on_behalf_of_others": "Applied on behalf of others",
+        "origin_of_founds": "Origin of founds"
+      },
+      "placeholder": {
+        "social_security_number": "Social security number",
+        "telephone_mobile": "Mobile phone",
+        "norwegian_citizen": "Norwegian citizen?",
+        "professional_status": "Professional status",
+        "residential_status": "Residential status",
+        "marital_status": "Marital status",
+        "net_monthly_income": "Monthly income",
+        "total_debt": "Total debt",
+        "house_mortgage": "House mortgage",
+        "other_loan": "Other loan",
+        "rent_income": "Rental income",
+        "secured_loan": "Secured loan",
+        "student_loan": "Student loan",
+        "employer": "Employer",
+        "employed_since": "Employed since",
+        "employment_percent": "Employment percent",
+        "school_code": "School",
+        "school_start_date": "Study start",
+        "school_finish_date": "Study finish",
+        "school_total_loan_outstanding": "Total loan outstanding",
+        "political_exposed_person": "Political exposed person",
+        "applied_on_behalf_of_others": "Applied on behalf of others",
+        "origin_of_founds": "Origin of founds"
+      },
+      "tooltip": {
+        "rent_income": "Rental income",
+        "other_loan": "Other loan"
+      }
+    },
+    "header": {
+      "additional_info": "Additional information",
+      "personal_info": "Personal information",
+      "household_info": "Household information",
+      "school_info": "School information",
+      "credit_rate": "Payment method",
+      "identification": "Identification"
+    }
+  },
+  "santander_pos_installment": {
+    "action": {
+      "add_down_payment": "Add down payment",
+      "change_payment_method": "Change payment method",
+      "choose_credit_with_rate_duration": "Choose {{monthly_rate}} for {{duration_months}} Months",
+      "choose_credit_with_rate_duration_finance_calc": "{{monthly_rate}} for {{duration_months}} Months",
+      "goto_incomings": "Go to Incomings step",
+      "return_to_shop": "Back to the store",
+      "update_rates": "Update rates",
+      "continue_incomings": "Continue - Incomings",
+      "continue_guarantor": "Continue - Guarantor",
+      "continue_incomings_guarantor": "Continue - Guarantor incomings",
+      "send_application": "Send application"
+    },
+    "error": {
+      "select_credit_rate": "Please, select credit rate",
+      "update_rates": "Please, update credit rates",
+      "server_returned_empty_rates_list": "Server returned empty list of credit rates"
+    },
+    "custom_rate": {
+      "modal": {
+        "duration": {
+          "label": "Months",
+          "placeholder": "Type months"
+        },
+        "fee": {
+          "label": "Fee",
+          "placeholder": "Type fee"
+        }
+      },
+      "rate": {
+        "title": "Create your rate",
+        "term_desc": "Select months",
+        "credit_price_desc": "or monthly payment"
+      }
+    },
+    "form": {
+      "credit_duration_description": {
+        "ccp_initial_minimum_rate_title": "Initial minimum rate {{rate}}",
+        "ccp_initial_minimum_rate_description": "The first {{months}} months are interest-free",
+        "legal_text_v2": "Letzte Rate kann jeweils abweichen. Bonität vorausgesetzt. Darlehensgeber ist die Santander Consumer Bank AG, Santander-Platz 1, 41061 Mönchengladbach. Die vorstehenden Angaben bilden zugleich das 2/3-Beispiel nach § 6a Abs. 4 PAngV."
+      },
+      "label": {
+        "salutation": "Salutation",
+        "first_name": "First name",
+        "last_name": "Last name",
+        "email": "Email",
+        "address_street": "Street and number",
+        "address_zip_code": "Post code",
+        "address_city": "City",
+        "address_country": "Country",
+
+        "address_resident_date_since": "Address resident since",
+        "bank_i_b_a_n": "IBAN",
+        "bank_b_i_c": "BIC",
+        "bank_name": "Bank name",
+        "seller_name": "Seller name",
+        "seller_note": "Special comments about customer (optional)",
+        "seller_note_short": "About customer",
+        "birth_name": "Your birth name",
+        "birth_place": "Place of birth",
+        "birthday_date": "Date of birth",
+        "charging": "Charging",
+        "commodity_group": "Commodity group",
+        "condition": "Condition",
+        "count_months": "{{count}} months",
+        "cpi": "CPI",
+        "credit_due_day_of_month": "Due date",
+        "credit_price": "Credit price",
+        "down_payment": "Down payment",
+        "employed_date_since": "Employed since",
+        "employer": "Employer",
+        "employment": "Employment",
+        "employment_limited": "Employment limited",
+        "employment_limited_date_until": "Employment limited until",
+        "freelancer": "Freelancer",
+        "freelancer_company_name": "Company name",
+        "freelancer_employed_date_since": "Employed since",
+        "freelancer_industry": "Employment branch",
+        "is_accept_credit_protection_insurance": "Accept CPI (Credit Protection Insurance)",
+        "is_allow_data_processing_and_transfer": "Einverständnis zur Datenverarbeitung und -weitergabe (Sorgenfrei-Paket)",
+        "is_allow_data_processing_and_transfer_full": "Hiermit willige ich in der Erhebung, Speicherung und Verwendung <a href='{{fileUrl}}' target='_blank'>personenbezogener Daten</a> für das Sorgenfrei-Paket durch Santander Consumer Bank AG sowie die Versicherer CNP Santander Insurance Life DAC und/oder CNP Santander Insurance Europe DAC ein und bin zudem mit der Datenweitergabe an aufgabenausführende Stellen sowie selbstständige Vermittler und Rückversicherer einverstanden. Darüber hinaus bestätige ich hiermit, dass ich mit der Entbindung der Schweigepflicht einverstanden bin.",
+        "is_give_consent_to_obtain_info_schufa": "Consent for data transfer and data collection (e.g. SCHUFA)",
+        "is_give_consent_to_obtain_info_schufa_full": "Ich habe den Kunden informiert, dass im Rahmen der Antragsprüfung durch die Santander Consumer Bank AG Auskünfte bei der <a href='https://payever.de/schufa/' target='{{ fileUrl }}'>Schufa</a> Holding AG (und ggf. weiteren Kreditauskunfteien wie Infoscore Consumer Data GmbH und DeltaVista GmbH) eingeholt werden. Der Kunde ist damit einverstanden.",
+        "is_merchant_issued_data_privacy_info_to_customer": "Yes, I have issued the <a target='_blank' href='{{ fileUrl }}'>information regarding the data privacy</a> to the customer",
+        "is_legal_own_account": "Darlehensnehmer 1 bzw. <strong>Darlehensnehmer 1</strong> und 2 handelt/handeln auf eigene Rechnung",
+        "is_allow_promo": "Ich habe Darlehensnehmer 1 über die Möglichkeit der Einwilligung in Werbemaßnahmen nach den Vorgaben im <a target='_blank' href='{{ fileUrl }}'>Einholung und Dokumentation von Werbeeinwilligungen von Kunden</a> ausdrücklich und umfassend informiert <strong>Darlehensnehmer 1</strong> hat ausdrücklich seine Einwilligung in den Erhalt von Werbung unter Verwendung der nachfolgend ausgewählten Kommunikationsmittel und seine <strong>Einwilligung in die Verarbeitung personenbezogener Daten</strong> in dem in den <strong>Santander - Werbehinweisen(dort Ziffer I.)</strong> näher beschrieben Umfang durch die Santander Consumer <br/>Bank AG und Santander Leasing GmbH:",
+        "is_allow_promo_email": "E-Mail",
+        "is_allow_promo_sms": "SMS/MMS, Instant-Messaging-Dienste, Push-Benachrichtigungen in Apps und Webplattorment (z. B. Soziale Netzwerke) und sonstige elektronische Kommunikationsdienste",
+        "is_allow_promo_letter": "Brief",
+        "is_allow_promo_phone": "Phone",
+        "guarantor_relation": "Guarantor",
+        "identification_date_of_expiry": "Date of expiry",
+        "identification_date_of_issue": "Date of issue",
+        "identification_number": "ID number",
+        "identification_place_of_issue": "Place of issue",
+        "identification_type": "Type of ID",
+        "is_residence_permit": "Residence permit",
+        "marital_status": "Marital status",
+        "monthly_income": "Monthly salary",
+        "monthly_additional_costs": "Monthly additional costs",
+        "loan_amount": "Net loan amount",
+        "interest_rate": "Effective interest rate",
+        "rate_pa": "Fixed borrowing rate",
+        "monthly_mortgage": "Monthly mortgage",
+        "initial_monthly_rate": "Initial monthly rate",
+        "monthly_rate": "Monthly rate",
+        "monthly_rent": "Monthly rent",
+        "nationality": "Nationality",
+        "number_of_children": "Number of children",
+        "other_monthly_income": "Other income",
+        "other_monthly_income_type": "Other income type",
+        "other_nationality": "Other nationality",
+        "partner_monthly_income": "Partner income",
+        "personal_title": "Your personal title",
+        "phone": "Phone",
+        "place_of_birth": "Place of birth",
+        "prev_address_city": "Previous address city",
+        "prev_address_resident_date_since": "Previous address since",
+        "prev_address_street_and_number": "Previous address street",
+        "prev_address_zip": "Previous address zip",
+        "prev_employed_date_since": "Previously employed since",
+        "prev_employer": "Previous employer",
+        "rental_monthly_income": "Rental income",
+        "residence_type": "Residence type",
+        "school_or_university": "School / University",
+        "select_your_rate": "Select your rate",
+        "term": "Term",
+        "update_rates": "Please update the rates",
+        "week_of_delivery_date": "Select week",
+        "week_of_delivery_type": "Week of delivery"
+      },
+      "placeholder": {
+        "salutation": "Salutation",
+        "first_name": "First name",
+        "last_name": "Last name",
+        "email": "Email",
+        "address_street": "Street and number",
+        "address_zip_code": "Post code",
+        "address_city": "City",
+        "address_country": "Country",
+
+        "address_resident_date_since": "Address resident since",
+        "bank_i_b_a_n": "IBAN",
+        "bank_b_i_c": "BIC",
+        "bank_name": "Bank name",
+        "seller_name": "Seller name",
+        "seller_note": "Special comments about customer (optional)",
+        "birth_name": "Your birth name",
+        "birth_place": "Place of birth",
+        "birthday_date": "Date of birth",
+        "commodity_group": "Commodity group",
+        "condition": "Condition",
+        "credit_due_day_of_month": "Due date",
+        "down_payment": "Down payment",
+        "employed_date_since": "Employed since",
+        "employer": "Employer",
+        "employment": "Employment",
+        "employment_limited_date_until": "Employment limited until",
+        "freelancer_company_name": "Company name",
+        "freelancer_employed_date_since": "Employed since",
+        "freelancer_industry": "Employment branch",
+        "guarantor_relation": "Guarantor",
+        "identification_date_of_expiry": "Date of expiry",
+        "identification_date_of_issue": "Date of issue",
+        "identification_number": "ID number",
+        "identification_place_of_issue": "Place of issue",
+        "identification_type": "Type of ID",
+        "marital_status": "Marital status",
+        "monthly_income": "Monthly salary",
+        "monthly_maintanance_payment": "Monthly maintanance payment",
+        "monthly_additional_costs": "Monthly additional costs",
+        "monthly_mortgage": "Monthly mortgage",
+        "monthly_rent": "Monthly rent",
+        "nationality": "Nationality",
+        "number_of_children": "Number of children",
+        "other_monthly_income": "Other income",
+        "other_monthly_income_type": "Other income type",
+        "other_nationality": "Other nationality",
+        "partner_monthly_income": "Partner income",
+        "personal_title": "Your personal title",
+        "phone": "Phone",
+        "prev_address_city": "Previous address city",
+        "prev_address_resident_date_since": "Previous address since",
+        "prev_address_street_and_number": "Previous address street",
+        "prev_address_zip": "Previous address zip",
+        "prev_employed_date_since": "Previously employed since",
+        "prev_employer": "Previous employer",
+        "rental_monthly_income": "Rental income",
+        "residence_type": "Residence type",
+        "school_or_university": "School / University",
+        "week_of_delivery_date": "Select week",
+        "week_of_delivery_type": "Week of delivery"
+      },
+      "value": {
+        "credit_due_date": {
+          "1": "1st of each month",
+          "15": "15th of each month"
+        },
+        "delivery_week_options": {
+          "custom": "Other week",
+          "next": "Next week",
+          "this": "This week"
+        }
+      }
+    },
+    "header": {
+      "application_details": "Application details",
+      "bank_account": "Bank account",
+      "employment_details": "Employment details",
+      "guarantor": "Guarantor",
+      "guarantor_incomings": "Guarantor income & Expenditure",
+      "guarantor_personal": "Guarantor personal",
+      "incomings": "Income & Expenditure",
+      "payment_method": "Payment method",
+      "seller": "Seller"
+    },
+    "inquire": {
+      "application_approved": "Loan temporarely approved",
+      "application_approved_details": "Verify your identification now",
+      "application_is_processing": "We are processing your application",
+      "application_is_processing_details": "Verification can take a few minutes. Please do not click away",
+      "application_number": "Application",
+      "approved_print_docs": "Print POSTIDENT documents",
+      "cant_provide": "Unfortunately, we can not provide you with a loan at this time. Please, select another payment method.",
+      "failed_application_number": "Application failed",
+      "request_error": "Error occurred during inquire request",
+      "status": "Status",
+      "transaction_details": {
+        "part1": "See",
+        "part2": "transaction details",
+        "part3": "for missing steps of this application"
+      }
+    },
+    "tooltip": {
+      "is_accept_credit_protection_insurance": "Our Carefree Package provides you and your family a high guaranty rate of unexpected financial costs",
+      "residence_permit_details": "Please select if you need or have a residence permit"
+    },
+    "warning": {
+      "changes_not_allowed": "Changes are not allowed. Please change amount or address.",
+      "credit_options_need_update": "Credit options should be updated",
+      "credit_student_amount_limit_exceeded": "Please note that students can only finance up to {{ limit }}. Please add a downpayment to stay within this limit.",
+      "credit_trainee_amount_limit_exceeded": "Please note that trainees can only finance up to {{ limit }}. Please add a downpayment to stay within this limit.",
+      "check_delivery_date": "Please check the delivery date",
+      "guarantor_edit_disabled_warning": "To change guarantor status you have to return to that step",
+      "too_small_monthly_income": "Attention! Please provide additional information on the other types of income listed.",
+      "residence_permit_unckeched": "The bank does not grant individual loans unless a valid residence permit is available."
+    }
+  },
+  "santander_pos_installment_se": {
+    "form": {
+      "error": {
+        "accept_conditions": "You need to accept this",
+        "employed_from": "Enter correct date of employed",
+        "employed_to": "Enter correct date of end of employed",
+        "employment_type": "Select your employment",
+        "phone_number": "Enter correct phone number",
+        "social_security_number": "Enter correct social security number",
+        "taxable_income": "Enter your monthly salary before tax"
+      }
+    }
+  },
+  "user": {
+    "action": {
+      "forgot_pwd": "Forgot password",
+      "login": "Login",
+      "login_as_guest": "Login as guest",
+      "use_address": "Add address<br>manually",
+      "use_ssn": "Use SSN<br>for address"
+    },
+    "error": {
+      "bad_login_or_password": "Invalid email or password"
+    },
+    "reset_password_success": "An email has been sent to {{ email }}. It contains a link you must click to reset your password.",
+    "form": {
+      "email": {
+        "label": "Email",
+        "placeholder": "Email"
+      },
+      "error": {
+        "email": "Enter a valid email",
+        "full_address": "Enter your address",
+        "social_security_number": "Enter a valid SSN"
+      },
+      "full_address": {
+        "label": "Address",
+        "placeholder": "Start typing address here"
+      },
+      "label": {
+        "address": "Address",
+        "email": "Email",
+        "password": "Password",
+        "social_security_number": "Social security number"
+      },
+      "placeholder": {
+        "address": "Start typing address here",
+        "email": "Email",
+        "password": "Password",
+        "social_security_number": "Social security number"
+      },
+      "social_security_number": {
+        "label": "Social security number",
+        "placeholder": "Social security number"
+      }
+    },
+    "header": {
+      "personal_info": "Personal info"
+    }
+  },
+  "api_errors":{
+    "payment_option":{
+      "account_not_connected": "Payment option account is not connected to the business",
+      "wrong_credentials":"The credentials of the chosen payment option seem to be incorrect.<br>Please ensure in the \"connect app\" that the credentials for this payment method are still valid."
+    }
+  },
+  "error": {
+    "cant_load_checkout": "Can't load checkout!",
+    "field_required": "Field required",
+    "invalid_format": "Invalid format",
+    "invalid_value": "Invalid value",
+    "flow_not_loaded": "Cannot load requested flow.",
+    "unknown_error": "Unknown error",
+    "validator": {
+      "required": "Field can't be empty",
+      "pattern": "Invalid format",
+      "minlength": "Value is too short",
+      "maxlength": "Value is too long",
+      "bsDate": "Invalid date",
+      "length_required": "Length should be {{ length }} symbols"
+    }
+  },
+  "error_flow_finished": {
+    "header": "Flow has finished status",
+    "text": "Sorry but payment process is finished and can't be passed again"
+  },
+
+  "download_file": {
+    "title": "Download file",
+    "text": "As your browser may block downloading, please use right mouse button to click on file and choose 'Save target as' in context menu"
+  },
+
+  "send-to-device": {
+    "action": {
+      "continue": "Continue",
+      "skip": "Skip"
+    }
+  },
+  "show-qr": {
+    "action": {
+      "continue": "Continue"
+    }
+  },
+  "restore_flow_from_code": {
+    "titles": {
+      "fail": "Error"
+    },
+    "errors": {
+      "link_already_used": "This payment link already have been used, please obtain a new link."
+    }
+  },
+  "restore_flow_from_payment_code": {
+    "titles": {
+      "fail": "Error when restore from payment code"
+    },
+    "errors": {
+      "link_already_used": "This payment code link already have been used, please obtain a new link."
+    }
+  },
+  "flow_verified_finish": {
+    "success": {
+      "title": "Success",
+      "text": "You have successfully verified"
+    },
+    "fail": {
+      "title": "Failed",
+      "text": "Sorry, couldn't be verified"
+    }
+  },
+  "flow_common_finish": {
+    "success": {
+      "title": "Success",
+      "text": "Thank you! Your order has been placed"
+    },
+    "pending": {
+      "title": "Pending",
+      "text": "Thank you! Your order has been placed"
+    },
+    "fail": {
+      "title": "Failed",
+      "text": "Sorry, not possible to place order"
+    },
+    "cancel": {
+      "title": "Canceled",
+      "text": "Your order has been canceled"
+    },
+    "order_number": "Order number: {{ orderNumber }}",
+    "back_to_shop": "Back to shop"
+  },
+  "options": {
+    "boolean": {
+      "no": "No",
+      "yes": "Yes"
+    }
+  }
+
+}

@@ -1,0 +1,55 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+.ui-feedback {
+  background-color: rgba($color-white, .3);
+  border-radius: $border-radius-base * 2;
+  position: relative;
+  overflow: hidden;
+  @include payever-transition(background-color);
+  textarea {
+    resize: none;
+    background: transparent;
+    border: none;
+    width: 100%;
+    outline: none;
+    padding: 15px;
+    box-sizing: border-box;
+    display: block;
+  }
+  label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    cursor: pointer;
+    margin: 0;
+    span {
+      display: block;
+      position: absolute;
+      font-weight: normal;
+      -webkit-font-smoothing: antialiased;
+      color: $color-white;
+      font-size: 18px;
+      opacity: .5;
+      top: 50%;
+      transform: translate(0,-50%);
+      text-align: center;
+      width: 100%;
+    }
+    &:hover {
+      background-color: rgba($color-white, .1);
+      span {
+        opacity: .6;
+      }
+    }
+  }
+  &.filled {
+    background-color: rgba($color-white, .8);
+    label {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+<pe-app-switcher [activeItem]="list[0].uuid"
+                 [list]="list"
+                 [listTitle]="'Further Terminals'"
+                 [profileCardConfig]="profileCardConfig"
+                 [showTopSwitcher]="true"
+                 (onProfileCardClick)="onProfileCardClick()"
+                 (onProfileFromListClick)="onProfileFromListClick($event)"
+></pe-app-switcher>

@@ -1,0 +1,8 @@
+@use 'pe_theming' as pet;
+@use './expandable-panel-theme' as expandable_panel;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include expandable_panel.color($color-config);
+}
+

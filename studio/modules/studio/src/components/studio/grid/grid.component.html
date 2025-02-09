@@ -1,0 +1,140 @@
+<pe-studio-grid-ui></pe-studio-grid-ui>
+<pe-lib-uploader
+  [files]="files"
+  cdkDrag
+  [progress]="progress | async"
+  [ngClass]="currentThemeStyle"
+  *ngIf="uploadingInProgress"
+  (cancelUploadEmitter)="cancelUpload($event)"
+  [theme]="currentThemeStyle">
+</pe-lib-uploader>
+<ng-template #search>
+  <pe-navbar-search-items></pe-navbar-search-items>
+</ng-template>
+<div class="studio-container">
+  <pe-data-grid
+  #dataGridComponent
+  class="studio-grid"
+  [theme]="currentThemeStyle"
+  [items]="null"
+  [multipleSelectedActions]="multipleSelectedActions"
+  [filters]="[]"
+  [totalCount]="MediaViewEnum.ownMedia? (gridItems$ | async).length:null"
+  [dataListOptions]="dataGridListOptions"
+  [isShowGridItemInfo]="true"
+  [searchItems]="searchItems"
+  [sortByActions]="sortByActions"
+  [isFilterCreating]="isFilterCreating"
+  [selectedItems]="dataGridItemsService.selectedIds$ | async"
+  [enableDragAndDrop]="true"
+  (layoutTypeChanged)="changeLayout($event)"
+  (createFilter)="onFilterCreate($event)"
+  (searchRemove)="onSearchRemove($event)"
+  [initialFilterItem]="{value:'all',label:'All'}"
+  [filterItems]="[{value:'all',label:'All'}]"
+  (searchChanged)="onSearchChanged($event)"
+  (gridContentContextMenu)="onGridContentContextMenu($event)"
+  (multipleSelectedItemsChanged)="onMultipleSelectedItemsChanged($event)">
+  <pe-sidebar-header-wrapper>
+    <pe-sidebar-header title="Studio" [allowClose]="true" (closeSidebar)="showSidebar = false">
+    </pe-sidebar-header>
+  </pe-sidebar-header-wrapper>
+    <pe-sidebar-filters-wrapper>
+      <ng-container *ngIf="categories$ | async | clone as categories">
+        <pe-sidebar-filter-wrapper *ngFor="let category of categories, let i=index" [title]="category.name"
+          [expandable]="true" [active]="false" [editMode]="category.editing"
+          >
+          <pe-tree-sidebar-filter class="studio-sidebar-filter" #mySidebar [tree]="category.tree" [allowToggle]="selectedCategory === category"
+            [multiple]="false" [formControl]="formGroup.get('tree')" [refresh]="refresh$"
+             (createNode)="onCategoryAlbumCreate($event, category)"
+            (ngModelChange)='changed($event,i)' (nodeContextMenu)="nodeContextMenu($event)"
+            (toggleExpanded)="toggleMyFolders($event)" (nodeClick)="clearStudioFolder()">
+            <ng-template #nodeImageTemplate let-node="node">
+              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 16 16">
+                <g fill="none" fill-rule="evenodd">
+                  <rect width="16" height="16" fill="#86868B" rx="4"/>
+                  <g fill="#FFF" fill-rule="nonzero" transform="translate(2.4 3)">
+                    <path d="M9.74867725,0 C10.408372,0 10.9463136,0.531758977 10.9962287,1.20543298 L11,1.30259543 L11,6.19342828 C11,6.88182888 10.4892061,7.44871588 9.83827447,7.49670908 L9.74867725,7.5 L9.47144444,7.5 L9.47144444,6.875 L9.74867725,6.875 C10.0769448,6.875 10.3501417,6.61081543 10.385109,6.26802004 L10.3888912,6.19342828 L10.3888912,1.30380994 C10.387553,0.951673823 10.1365629,0.665539577 9.81792573,0.628953393 L9.74867725,0.625 L3.6957672,0.625 C3.36753609,0.625 3.09430758,0.889147327 3.05933591,1.23197252 L3.05555556,1.30657172 L3.05544444,1.562 L2.44444444,1.562 L2.44444444,1.30657172 C2.44444444,0.618094398 2.95530962,0.0512774491 3.60617928,0.00329048821 L3.6957672,0 L9.74867725,0 Z"/>
+                    <path d="M8.52645503,1.25 C9.18614982,1.25 9.72409141,1.78175898 9.77400651,2.45543298 L9.77777778,2.55259543 L9.77777778,7.44342828 C9.77777778,8.13182888 9.26698392,8.69871588 8.61605225,8.74670908 L8.52645503,8.75 L8.24922222,8.75 L8.24922222,8.125 L8.52645503,8.125 C8.85472257,8.125 9.12791951,7.86081543 9.1628868,7.51802004 L9.16666897,7.44342828 L9.16666897,2.55380994 C9.16533082,2.20167382 8.91434068,1.91553958 8.59570351,1.87895339 L8.52645503,1.875 L2.47354497,1.875 C2.14531387,1.875 1.87208535,2.13914733 1.83711369,2.48197252 L1.83333333,2.55657172 L1.83322222,2.812 L1.22222222,2.812 L1.22222222,2.55657172 C1.22222222,1.8680944 1.7330874,1.30127745 2.38395705,1.25329049 L2.47354497,1.25 L8.52645503,1.25 Z"/>
+                    <path d="M7.3042328,2.5 C7.9639276,2.5 8.50186919,3.03175898 8.55178429,3.70543298 L8.55555556,3.80259543 L8.55555556,8.69342828 C8.55555556,9.38182888 8.0447617,9.94871588 7.39383003,9.99670908 L7.3042328,10 L1.25132275,10 C0.588544849,10 0.0488123636,9.4629892 0.0031319922,8.78650351 L0,8.69342828 L0,3.80657172 C0,3.1180944 0.510865179,2.55127745 1.16173483,2.50329049 L1.25132275,2.5 L7.3042328,2.5 Z M7.3042328,3.125 L1.25132275,3.125 C0.923091649,3.125 0.649863131,3.38914733 0.614891467,3.73197252 L0.611111111,3.80657172 L0.611111111,8.69342828 C0.611111111,9.04643416 0.862522941,9.33422043 1.18190925,9.37102302 L1.25132275,9.375 L7.3042328,9.375 C7.63250034,9.375 7.90569728,9.11081543 7.94066457,8.76802004 L7.94444675,8.69342828 L7.94444675,3.80380994 C7.9431086,3.45167382 7.69211846,3.16553958 7.37348128,3.12895339 L7.3042328,3.125 Z"/>
+                  </g>
+                </g>
+              </svg>
+            </ng-template>
+          </pe-tree-sidebar-filter>
+        </pe-sidebar-filter-wrapper>
+      </ng-container>
+
+      <ng-container *ngIf="studioCategories$ | async | clone as studioCategories">
+        <pe-sidebar-filter-wrapper
+        *ngFor="let category of studioCategories, let i=index"
+        [title]="category.name"
+        [expandable]="true"
+        [active]="false"
+        [editMode]="category.editing"
+        >
+          <pe-tree-sidebar-filter class="studio-sidebar-filter" #studioFolders [tree]="category.tree" [allowToggle]="selectedCategory === category"
+            [multiple]="false" [formControl]="categoriesForm.get('tree')" [refresh]="refresh$"
+            (createNode)="onCategoryAlbumCreate($event, category)"
+            (ngModelChange)='changed($event,1)' (nodeContextMenu)="studioNodeContextMenu($event)"
+            (toggleExpanded)="toggleStudioFolders($event)" (nodeClick)="clearMyFolder($event)">
+            <ng-template #nodeImageTemplate let-node="node">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                <g fill="none" fill-rule="evenodd">
+                  <rect width="16" height="16" fill="#86868B" rx="4"/>
+                  <g fill="#FFF" fill-rule="nonzero" transform="translate(2.4 3)">
+                    <path d="M9.74867725,0 C10.408372,0 10.9463136,0.531758977 10.9962287,1.20543298 L11,1.30259543 L11,6.19342828 C11,6.88182888 10.4892061,7.44871588 9.83827447,7.49670908 L9.74867725,7.5 L9.47144444,7.5 L9.47144444,6.875 L9.74867725,6.875 C10.0769448,6.875 10.3501417,6.61081543 10.385109,6.26802004 L10.3888912,6.19342828 L10.3888912,1.30380994 C10.387553,0.951673823 10.1365629,0.665539577 9.81792573,0.628953393 L9.74867725,0.625 L3.6957672,0.625 C3.36753609,0.625 3.09430758,0.889147327 3.05933591,1.23197252 L3.05555556,1.30657172 L3.05544444,1.562 L2.44444444,1.562 L2.44444444,1.30657172 C2.44444444,0.618094398 2.95530962,0.0512774491 3.60617928,0.00329048821 L3.6957672,0 L9.74867725,0 Z"/>
+                    <path d="M8.52645503,1.25 C9.18614982,1.25 9.72409141,1.78175898 9.77400651,2.45543298 L9.77777778,2.55259543 L9.77777778,7.44342828 C9.77777778,8.13182888 9.26698392,8.69871588 8.61605225,8.74670908 L8.52645503,8.75 L8.24922222,8.75 L8.24922222,8.125 L8.52645503,8.125 C8.85472257,8.125 9.12791951,7.86081543 9.1628868,7.51802004 L9.16666897,7.44342828 L9.16666897,2.55380994 C9.16533082,2.20167382 8.91434068,1.91553958 8.59570351,1.87895339 L8.52645503,1.875 L2.47354497,1.875 C2.14531387,1.875 1.87208535,2.13914733 1.83711369,2.48197252 L1.83333333,2.55657172 L1.83322222,2.812 L1.22222222,2.812 L1.22222222,2.55657172 C1.22222222,1.8680944 1.7330874,1.30127745 2.38395705,1.25329049 L2.47354497,1.25 L8.52645503,1.25 Z"/>
+                    <path d="M7.3042328,2.5 C7.9639276,2.5 8.50186919,3.03175898 8.55178429,3.70543298 L8.55555556,3.80259543 L8.55555556,8.69342828 C8.55555556,9.38182888 8.0447617,9.94871588 7.39383003,9.99670908 L7.3042328,10 L1.25132275,10 C0.588544849,10 0.0488123636,9.4629892 0.0031319922,8.78650351 L0,8.69342828 L0,3.80657172 C0,3.1180944 0.510865179,2.55127745 1.16173483,2.50329049 L1.25132275,2.5 L7.3042328,2.5 Z M7.3042328,3.125 L1.25132275,3.125 C0.923091649,3.125 0.649863131,3.38914733 0.614891467,3.73197252 L0.611111111,3.80657172 L0.611111111,8.69342828 C0.611111111,9.04643416 0.862522941,9.33422043 1.18190925,9.37102302 L1.25132275,9.375 L7.3042328,9.375 C7.63250034,9.375 7.90569728,9.11081543 7.94066457,8.76802004 L7.94444675,8.69342828 L7.94444675,3.80380994 C7.9431086,3.45167382 7.69211846,3.16553958 7.37348128,3.12895339 L7.3042328,3.125 Z"/>
+                  </g>
+                </g>
+              </svg>
+            </ng-template>
+          </pe-tree-sidebar-filter>
+        </pe-sidebar-filter-wrapper>
+      </ng-container>
+    </pe-sidebar-filters-wrapper>
+
+    <ng-container *ngTemplateOutlet="search"></ng-container>
+
+
+    <ng-container *ngIf="layoutType===layoutTypeEnum.Grid">
+      <div class="grid-row" [ngClass]="currentThemeStyle">
+        {{activeTreeNode?.name||(mediaView== MediaViewEnum.allMedia?'All Media':'My Media')}}
+      </div>
+      <pe-data-grid-item class="studio-grid-item" [item]="addItem" [selectable]="false" [isShowGridItemInfo]="false" [theme]="currentThemeStyle">
+        <div peAppDrag class="uploading-grid-item__body" (files)="filesDropped($event)">
+          <div class="theme-image" (click)="fileSelector.click()">
+            <svg>
+              <defs>
+                <linearGradient id="sv3znyb33a" x1="50%" x2="48.333%" y1="0%" y2="107.889%">
+                  <stop offset="0%" stop-color="#007DFE" />
+                  <stop offset="100%" stop-color="#005CBB" />
+                </linearGradient>
+              </defs>
+              <use [attr.xlink:href]="'#icon-apps-grid-add'"></use>
+            </svg>
+          </div>
+        </div>
+      </pe-data-grid-item>
+    </ng-container>
+    <ng-container *ngIf="gridItems$ | async as items">
+      <ng-container *ngIf="items.length">
+        <ng-container *ngFor="let item of items">
+          <pe-data-grid-item class="studio-grid-item" [item]="item" [isShowGridItemInfo]='true' [actions]="item.actions"
+            [theme]="currentThemeStyle" [selectable]="true" [allowPreview]="true" (preview)="onOpenPreview($event)">
+          </pe-data-grid-item>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+
+    <div *ngIf="!uploadingInProgress && mediaView === MediaViewEnum.ownMedia" listSlot class="uploading-list-item">
+      <button class="uploading-list-item__add">Add</button>
+    </div>
+    <pe-sidebar-footer-wrapper>
+      <pe-menu-sidebar-footer [theme]="currentThemeStyle" [menuData]="sidebarFooterData"></pe-menu-sidebar-footer>
+    </pe-sidebar-footer-wrapper>
+  </pe-data-grid>
+</div>
+<input #fileSelector accept="image/*, video/*" type="file" style="display: none;" multiple
+  (change)="uploadMedia($event)">

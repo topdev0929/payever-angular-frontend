@@ -1,0 +1,67 @@
+<div class="pe-message-chat-room-list__search" [ngClass]="theme" [style.background-color]="messageAppColor">
+  <svg id="icon-search-18" viewBox="0 0 18 18" preserveAspectRatio="xMidYMin slice" width="100%">
+    <path fill="currentColor" d="M17.709 16.757L13.53 12.58c2.634-3.142 2.326-7.8-.698-10.57-3.023-2.768-7.69-2.665-10.59.234-2.898 2.898-3 7.566-.232 10.59 2.768 3.023 7.427 3.33 10.569.697l4.168 4.168c.155.229.431.342.702.287.27-.054.482-.265.536-.536.055-.27-.058-.547-.287-.702l.01.01zM7.622 13.98c-3.442 0-6.233-2.79-6.233-6.233 0-3.442 2.791-6.233 6.233-6.233 3.443 0 6.233 2.79 6.233 6.233-.005 3.44-2.793 6.227-6.233 6.233z"></path>
+  </svg>
+  <peb-form-field-input>
+    <input pebInput placeholder="Search" [formControl]="searchControl"/>
+  </peb-form-field-input>
+</div>
+<pe-sidebar class="pe-sidebar" [ngClass]="theme" [style.background-color]="messageAppColor">
+  <pe-sidebar-filters-wrapper>
+    <ng-container *ngIf="(peMessageChatRoomListService.chatList$ | async) as chatList">
+      <div class="pe-message-chat-room-list__wrapper" *ngIf="chatList.length">
+        <div
+          *ngFor="let chat of chatList; let i = index; trackBy: trackOption"
+          class="pe-message-chat-room-list__row"
+          [class.pe-message-chat-room-list__row_active]="peMessageChatRoomListService.activeChat?._id === chat._id"
+          [class.pe-message-chat-room-list__row_hide-border]="hovered === i + 1"
+          (click)="peMessageChatRoomListService.activeChat = chat"
+          draggable="true"
+          (dragstart)="dragStart(chat);"
+          (contextmenu)="openContextMenu($event, chat)"
+          (mouseover)="hovered = i"
+          (mouseout)="hovered = -1"
+        >
+          <div class="pe-message-chat-room-list__icon">
+            <div class="pe-message-chat-room-list__avatar" *ngIf="chat.avatar" [style.backgroundImage]="chat.avatar"></div>
+            <div class="pe-message-chat-room-list__initials">{{ chat.initials }}</div>
+          </div>
+          <div class="pe-message-chat-room-list__info">
+            <div class="pe-message-chat-room-list__header">
+              <span class="pe-message-chat-room-list__title">{{(chat.title.length > 18) ? (chat.title | slice:0:18) + '…' : chat.title}}</span>
+              <span class="pe-message-chat-room-list__time">{{ chat.updatedAt | date: 'HH:mm' }}</span>
+            </div>
+            <div class="pe-message-chat-room-list__body">
+              <span class="pe-message-chat-room-list__last-message">
+                <ng-container *ngIf="getLastMessageIcon(chat)">
+                  <svg><use xlink:href="#icon-file-14"></use></svg>
+                </ng-container>
+                <div [innerHTML]="getLastMessageContent(chat)"></div>
+              </span>
+              <div class="pe-message-chat-room-list__right">
+                <span class="pe-message-chat-room-list__unread" [style.background-color]="accentColor" *ngIf="getNumberUnreadMessages(chat) as number">
+                  <ng-container *ngIf="number >= 50">50+</ng-container>
+                  <ng-container *ngIf="number < 50">{{ number }}</ng-container>
+                </span>
+                <svg class="pe-message-chat-room-list__integration" [ngSwitch]="chat.integrationName">
+                  <use *ngSwitchCase="peMessageIntegration.WhatsApp" xlink:href="#icon-social-whatsapp-12"></use>
+                  <use *ngSwitchCase="peMessageIntegration.FacebookMessenger" xlink:href="#icon-messaging-facebook-messenger"></use>
+                  <use *ngSwitchCase="peMessageIntegration.LiveChat" xlink:href="#icon-apps-marketing"></use>
+                  <use *ngSwitchCase="peMessageIntegration.Telegram" xlink:href="#icon-social-telegram-18"></use>
+                  <use *ngSwitchCase="peMessageIntegration.InstagramMessenger" xlink:href="#icon-social-instagram-12"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pe-message-chat-room-list__no-chats" *ngIf="!chatList.length" [style.background-color]="messageAppColor">
+        <span>{{ 'message-app.sidebar.empty_contact_list' | translate }}</span>
+        <button (click)="openChatRoomFormOverlay()">Add Contacts</button>
+      </div>
+    </ng-container>
+  </pe-sidebar-filters-wrapper>
+  <pe-sidebar-footer-wrapper>
+    <pe-menu-sidebar-footer [menuData]="menuData" [theme]="theme + ' chat-room-list-menu'"></pe-menu-sidebar-footer>
+  </pe-sidebar-footer-wrapper>
+</pe-sidebar>

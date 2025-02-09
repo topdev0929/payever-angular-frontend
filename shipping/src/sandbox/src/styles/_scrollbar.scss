@@ -1,0 +1,22 @@
+@import "palette";
+
+.scrollbar {
+  &::-webkit-scrollbar {
+    width: .5em;
+    background: #323232;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #333;
+    border-radius: 0.5em;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 0.5em;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #888;
+  }
+}

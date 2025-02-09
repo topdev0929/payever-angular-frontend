@@ -1,0 +1,10 @@
+@use 'pe_theming' as pet;
+@use './form-background-theme' as form_background;
+@use './two-column-form-theme' as two_column_form;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include form_background.color($color-config);
+  @include two_column_form.color($color-config);
+}
+

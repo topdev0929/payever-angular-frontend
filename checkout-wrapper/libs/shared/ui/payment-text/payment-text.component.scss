@@ -1,0 +1,33 @@
+@import 'libs/shared/styles/assets/ui-kit-styles/pe_variables';
+
+:host {
+  display: flex;
+  align-items: flex-end;
+
+  &.after-checkbox-form {
+    margin-top: $payment-grid-unit-y - 10;
+  }
+
+  &.default-margin {
+    margin: 0 !important;
+  }
+
+  .has-margin-bottom {
+    margin-bottom: $payment-grid-unit-y !important;
+  }
+
+  .pe-payment-text,
+  .pe-payment-line,
+  .pe-payment-html {
+    margin: $payment-fix-text-y 0;
+    font-size: 12px !important;
+
+    &.text-indent {
+      padding-left: 28px;
+
+      @media (max-width: $viewport-breakpoint-sm-1) {
+        padding-left: 24px;
+      }
+    }
+  }
+}

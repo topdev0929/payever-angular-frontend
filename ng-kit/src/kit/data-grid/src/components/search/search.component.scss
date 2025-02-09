@@ -1,0 +1,28 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+.search-bar {
+  @include pe_flexbox();
+  @include pe_justify_content(flex-start);
+
+  & > span {
+    line-height: $grid-unit-y * 3;
+  }
+}
+
+.data-grid-search {
+  margin: $grid-unit-y/2 2*$grid-unit-x 0;
+
+  .form-fieldset {
+    margin-bottom: $grid-unit-y;
+  }
+
+  .mat-button-link {
+    margin-left: auto;
+    display: block;
+    color: $color-secondary;
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+}

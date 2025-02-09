@@ -1,0 +1,11 @@
+<div class="timeline-section" *ngIf="history$ | async as history">
+  <div class="section-item" *ngFor="let historyItem of history">
+    <div>
+      <div class="section-item__label">{{ historyItem.date | date : 'dd MMMM YYYY HH:mm' : undefined : locale }}</div>
+      <div class="section-item__value" [ngClass]="historyItem.status">
+        <mat-icon *ngIf="historyItem.status" class="status-icon" [svgIcon]="historyItem.status"></mat-icon>
+        <span>{{ historyItem.text }}</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<h4>Small</h4>
+
+<mat-chip-list>
+  <mat-chip class="mat-chip-sm">
+    Chip 1
+  </mat-chip>
+  <mat-chip class="mat-chip-sm">Chip 2
+    <mat-icon matChipRemove>
+      <svg class="icon icon-8">
+        <use xlink:href="#icon-close-8"></use>
+      </svg>
+    </mat-icon>
+  </mat-chip>
+</mat-chip-list>
+
+<h4>Medium</h4>
+
+<mat-chip-list>
+  <mat-chip class="mat-chip-md">
+    Chip 1
+    <mat-icon matChipRemove>
+      <svg class="icon icon-12">
+        <use xlink:href="#icon-close-12"></use>
+      </svg>
+    </mat-icon>
+  </mat-chip>
+  <mat-chip class="mat-chip-md">
+    <mat-chip-avatar>M</mat-chip-avatar>
+    Chip 2
+    <mat-icon matChipRemove>
+      <svg class="icon icon-12">
+        <use xlink:href="#icon-close-12"></use>
+      </svg>
+    </mat-icon>
+  </mat-chip>
+</mat-chip-list>
+
+<h4>Large</h4>
+
+<mat-chip-list>
+  <mat-chip class="mat-chip-lg mat-chip-with-toggle">
+    <mat-chip-avatar>M</mat-chip-avatar>
+    Penguin Records
+    <mat-slide-toggle (click)="toggleClick($event)" class="mat-slide-toggle-lg"
+                     ></mat-slide-toggle>
+  </mat-chip>
+  <mat-chip class="mat-chip-lg mat-chip-with-toggle">
+    <mat-chip-avatar>A</mat-chip-avatar>
+    <div class="pe-chip-body">
+      <p>Skate Home</p>
+      <p>Magenta</p>
+    </div>
+    <mat-slide-toggle (click)="toggleClick($event)" class="mat-slide-toggle-lg"
+                     ></mat-slide-toggle>
+  </mat-chip>
+  <mat-chip class="mat-chip-lg mat-chip-with-toggle">
+    English
+    <mat-slide-toggle (click)="toggleClick($event)" class="mat-slide-toggle-lg"
+                     ></mat-slide-toggle>
+  </mat-chip>
+</mat-chip-list>

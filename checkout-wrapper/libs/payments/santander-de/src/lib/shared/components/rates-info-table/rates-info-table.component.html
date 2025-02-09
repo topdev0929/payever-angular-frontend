@@ -1,0 +1,68 @@
+<div *ngIf="paymentTitle"><strong [innerHTML]="paymentTitle"></strong></div>
+
+<ng-container *ngIf="rate">
+  <div class="clearfix monthly-rate">
+    <span
+      class="text-secondary"
+      i18n="@@santander-de.credit_rates.monthly_rate">
+      santander-de.credit_rates.monthly_rate </span
+    >:
+    <span
+      class="text-primary"
+      [innerHTML]="rate.monthlyPayment | peCurrency:currency"></span>
+  </div>
+
+  <div class="clearfix">
+    <span
+      class="text-secondary"
+      i18n="@@santander-de.credit_rates.duration">
+      santander-de.credit_rates.duration </span
+    >:
+    <span class="text-primary">{{ translations.duration }}</span>
+  </div>
+
+  <div class="clearfix">
+    <span
+      class="text-secondary"
+      i18n="@@santander-de.credit_rates.total_amount">
+      santander-de.credit_rates.total_amount </span
+    >:
+    <span
+      class="text-primary"
+      [innerHTML]="rate.totalCreditCost | peCurrency:currency"></span>
+  </div>
+</ng-container>
+
+<div
+  class="clearfix"
+  *ngIf="data?.formRatesMain?.down_payment">
+  <span
+    class="text-secondary"
+    i18n="@@santander-de.inquiry.down_payment">
+    santander-de.inquiry.down_payment </span
+  >:
+  <span
+    class="text-primary"
+    [innerHTML]="data?.formRatesMain?.down_payment | peCurrency:currency"></span>
+</div>
+
+<div class="clearfix">
+  <span
+    class="text-secondary"
+    i18n="@@santander-de.credit_rates.credit_due_date">
+    santander-de.credit_rates.credit_due_date </span
+  >:
+  <span
+    class="text-primary"
+    [innerHTML]="creditDueDate"></span>
+</div>
+<div class="clearfix">
+  <span
+    class="text-secondary"
+    i18n="@@santander-de.credit_rates.cpi">
+    santander-de.credit_rates.cpi </span
+  >:
+  <span
+    class="text-primary"
+    [innerHTML]="cpi"></span>
+</div>

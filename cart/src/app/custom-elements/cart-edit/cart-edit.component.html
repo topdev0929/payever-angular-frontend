@@ -1,0 +1,12 @@
+<checkout-cart-edit-container *ngIf="flowId && (isReady$ | async)"
+                              [flowId]="flowId"
+                              [submit]="submit$"
+                              [isUseInventory]="isUseInventory"
+                              [isProductsRefreshDisabled]="isProductsRefreshDisabled"
+                              (onLoading)="onLoadingChange($event)"
+                              (onSubmitted)="onSubmittedChange($event)"
+                              (serviceReady)="onServiceReadyChange($event)"
+                              class="pe-bootstrap"
+></checkout-cart-edit-container>
+
+<pe-icons-set></pe-icons-set>

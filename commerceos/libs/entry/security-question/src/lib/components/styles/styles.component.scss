@@ -1,0 +1,22 @@
+@import 'pe_variables';
+
+.pe-recaptcha-wrap-wrap {
+  margin-top: 12px;
+  opacity: 1;
+  text-align: center;
+
+  .pe-recaptcha-wrap {
+    position: relative;
+    overflow: hidden;
+    width: 328px;
+    height: 80px;
+    border-radius: 12px;
+    margin: 0 auto;
+
+    pe-recaptcha {
+      position: absolute;
+      left: -3px;
+      top: -2px;
+    }
+  }
+}

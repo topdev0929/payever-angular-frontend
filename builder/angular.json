@@ -1,0 +1,383 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "main": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "preserveSymlinks": true,
+            "outputPath": "dist",
+            "index": "src/index.html",
+            "main": "src/apps/builder/index.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "polyfills": "src/polyfills.ts",
+            "assets": [
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/ng-kit/src/kit/i18/assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/ui-kit/icons-png",
+                "output": "/assets/ui-kit/icons-png"
+              },
+              {
+                "glob": "**/*",
+                "input": "i18n-serve",
+                "output": "/assets/i18n"
+              }
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": [
+              "node_modules/swiper/dist/js/swiper.min.js",
+              "node_modules/hammerjs/hammer.min.js",
+              "node_modules/fastclick/lib/fastclick.js"
+            ]
+          },
+          "configurations": {
+            "prod": {
+              "optimization": true,
+              "outputHashing": "bundles",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                },
+                {
+                  "replace": "src/apps/builder/app/components/root.component.html",
+                  "with": "src/apps/builder/app/components/root.component.prod.html"
+                }
+              ]
+            },
+            "stage": {
+              "optimization": true,
+              "outputHashing": "bundles",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.stage.ts"
+                }
+              ]
+            },
+            "dev": {
+              "optimization": true,
+              "outputHashing": "bundles",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ]
+            },
+            "test": {
+              "optimization": true,
+              "outputHashing": "bundles",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": false,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.test.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "builder:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "builder:build:production"
+            },
+            "test": {
+              "browserTarget": "builder:build:test"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "builder:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "karmaConfig": "./karma.conf.js",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.spec.json",
+            "scripts": [
+              "node_modules/swiper/dist/js/swiper.min.js",
+              "node_modules/hammerjs/hammer.min.js",
+              "node_modules/fastclick/lib/fastclick.js"
+            ],
+            "styles": [
+              "node_modules/@pe/ui-kit/scss/pe_style.scss"
+            ],
+            "assets": [
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/ng-kit/src/kit/i18/assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/ui-kit/icons-png",
+                "output": "/assets/ui-kit/icons-png"
+              },
+              {
+                "glob": "**/*",
+                "input": "i18n-serve",
+                "output": "/assets/i18n"
+              }
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "src/tsconfig.app.json",
+              "src/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "builder-dev": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "preserveSymlinks": true,
+            "outputPath": "dist",
+            "index": "src/apps/builder/index.dev.html",
+            "main": "src/apps/builder/index.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "polyfills": "src/polyfills.ts",
+            "assets": [
+              "src/assets",
+              "src/env.json",
+              {
+                "glob": "**/*",
+                "input": "assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/ng-kit/src/kit/i18/assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/ui-kit/icons-png",
+                "output": "/assets/ui-kit/icons-png"
+              },
+              {
+                "glob": "**/*",
+                "input": "i18n-serve",
+                "output": "/assets/i18n"
+              },
+              {
+                "glob": "**/*",
+                "input": "../products/dist",
+                "output": "./dist_ext/products"
+              }
+            ],
+            "styles": [
+              "node_modules/@pe/ui-kit/scss/pe_style.scss",
+              "src/styles.scss",
+              "src/styles-dev.scss"
+            ],
+            "scripts": [
+              "node_modules/swiper/dist/js/swiper.min.js",
+              "node_modules/hammerjs/hammer.min.js",
+              "node_modules/fastclick/lib/fastclick.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "outputHashing": "bundles",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": false,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "test": {
+              "optimization": true,
+              "outputHashing": "bundles",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": false,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.test.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "builder-dev:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "builder-dev:build:production"
+            },
+            "test": {
+              "browserTarget": "builder-dev:build:test"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "builder-dev:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "karmaConfig": "./karma.conf.js",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.spec.json",
+            "scripts": [
+              "node_modules/swiper/dist/js/swiper.min.js",
+              "node_modules/hammerjs/hammer.min.js",
+              "node_modules/fastclick/lib/fastclick.js"
+            ],
+            "styles": [
+              "node_modules/@pe/ui-kit/scss/pe_style.scss"
+            ],
+            "assets": [
+              "src/assets",
+              "src/env.json",
+              {
+                "glob": "**/*",
+                "input": "assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/ng-kit/src/kit/i18/assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/ui-kit/icons-png",
+                "output": "/assets/ui-kit/icons-png"
+              },
+              {
+                "glob": "**/*",
+                "input": "i18n-serve",
+                "output": "/assets/i18n"
+              },
+              {
+                "glob": "**/*",
+                "input": "../products/dist",
+                "output": "./dist_ext/products"
+              }
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "src/tsconfig.app.json",
+              "src/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+  },
+  "defaultProject": "main",
+  "schematics": {
+    "@schematics/angular:component": {
+      "prefix": "builder",
+      "styleext": "scss"
+    },
+    "@schematics/angular:directive": {
+      "prefix": "builder"
+    }
+  }
+}

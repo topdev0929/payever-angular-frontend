@@ -1,0 +1,10 @@
+<pe-feedback
+    [feedbackId] = "'feedback'"
+    [value] = ""
+    [maxLength] = "10000"
+    [minHeight] = "74"
+    [maxHeight] = "162"
+    [placeholderText] = "'Please enter your feedback'"
+    [autoFocus] = "false"
+    (feedbackValueChange) = "handleFeedbackValue($event)"
+></pe-feedback>

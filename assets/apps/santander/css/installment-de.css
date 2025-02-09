@@ -1,0 +1,31 @@
+.mobile .desktop-device .wrapper {
+  height: 564px;
+}
+
+.desktop-checkout-items.more-information-step-offset {
+  top: -98px;
+}
+
+.mobile .desktop-checkout-items.more-information-step-offset {
+  top: -122px;
+}
+
+.desktop-checkout-items.earnings-and-expenses-step-offset-1 {
+  top: -164px;
+}
+
+.mobile .desktop-checkout-items.earnings-and-expenses-step-offset-1 {
+  top: -122px;
+}
+
+.desktop-checkout-items.earnings-and-expenses-step-offset-2 {
+  top: -398px;
+}
+
+.mobile .desktop-checkout-items.earnings-and-expenses-step-offset-2 {
+  top: -526px;
+}
+
+.earnings-and-expenses-step .continue-button-wrapper {
+  margin-top: 0;
+}

@@ -1,0 +1,15 @@
+@use 'pe_theming' as pet;
+@use './root/next-studio-root-theme.component' as root;
+@use './studio/my-media/pe-my-media-theme.component' as media;
+@use './studio/upload-options/upload-options-theme.component' as upload_media;
+@use './studio/my-media/preview/pe-preview-theme.component' as preview;
+
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+
+  @include root.color($color-config);
+  @include media.color($color-config);
+  @include upload_media.color($color-config);
+  @include preview.color($color-config);
+}

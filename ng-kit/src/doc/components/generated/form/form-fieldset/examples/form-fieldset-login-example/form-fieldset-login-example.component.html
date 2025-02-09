@@ -1,0 +1,24 @@
+<form novalidate (ngSubmit)="onSubmit()" [formGroup]="form" *ngIf="form">
+
+  <div class="form-table">
+    <pe-form-login-fieldset
+      [isSubmitted]="isSubmitted"
+      [fields]="testFieldset"
+      [formGroup]="form"
+      [translationScope]="formTranslationsScope"
+      [errors]="errors$ | async"
+      [formStyle]="'default'"
+    ></pe-form-login-fieldset>
+  </div>
+
+  <h3>Some buttons for testing</h3>
+
+  <button type="submit" (click)="onSubmit()">Submit</button>
+  <button type="button" (click)="disableAll()">Disable all fields</button>
+  <button type="button" (click)="enableAll()">Enable all fields</button>
+  <button type="button" (click)="saveToCache()">To cache</button>
+  <button type="button" (click)="addExternalErrors()">Add external errors</button>
+
+  <p>Form values:</p>
+  <pre>{{ form.value | json }}</pre>
+</form>

@@ -1,0 +1,53 @@
+<div class="ui-layout-app {{ getClassNameWithModifier('ui-layout-app') }}"
+     [ngClass]="{
+      'fill-viewport': fullView,
+      'static-block-view': staticBlockView,
+      'fixed-position-view': fixedPositionView,
+      'has-toolbar': showToolbar
+    }">
+
+  <div *ngIf="showToolbar"
+       class="ui-layout-toolbar">
+    <ng-content select="[toolbar]"></ng-content>
+
+    <div class="close layout-app-close-button"
+         (click)="onClosing($event)"
+         *ngIf="withClose">
+      <svg class="icon icon-16">
+        <use xlink:href="#icon-x-16"></use>
+      </svg>
+    </div>
+  </div>
+
+  <div class="inner-wrap">
+    <div *ngIf="backgroundImageUrl" class="layout-app-bg">
+      <div class="inner-bg layout-app-bg-inner" [style.background-image]="'url('+ backgroundImageUrl +')'"></div>
+    </div>
+
+    <div class="layout-app-content">
+      <div *ngIf="showBusinessHeader"
+           [style.height.px]="businessHeaderHeight"
+           class="layout-app-header business-header">
+        <ng-content select="[business-header]"></ng-content>
+      </div>
+      <div *ngIf="showHeader"
+           class="layout-app-header"
+           [ngClass]="{
+            'no-border': noHeaderBorder,
+            'light-grey': headerLightGrey,
+            'transparent': headerTransparent
+           }">
+        <ng-content select="[header]"></ng-content>
+      </div>
+
+      <div class="layout-app-body"
+           [style.marginTop.px]="showBusinessHeader && !staticBlockView ? businessHeaderHeight : 0"
+           [ngClass]="{
+             'no-padding': noPadding
+           }">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+
+</div>

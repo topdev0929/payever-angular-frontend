@@ -1,0 +1,29 @@
+:host {
+  font-family: 'Graphik Web', sans-serif;
+  letter-spacing: -0.03em;
+  width: 100%;
+  margin-top: 5px;
+  display: flex;
+  column-gap: 3px;
+  -webkit-box-align: center;
+  align-items: center;
+  color: rgb(6, 78, 59);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+::ng-deep {
+  .tooltip-dialog {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%);
+  }
+}

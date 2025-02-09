@@ -1,0 +1,12 @@
+<checkout-sdk-payment-sections
+  *ngIf="flow && nodeFormOptions$ | async as nodeFormOptions"
+  [sectionsConfig]="sectionsConfig"
+  [formSections]="formSectionsData"
+  [flow]="flow"
+  [nodeFormOptions]="nodeFormOptions"
+  [paymentMethod]="paymentMethod"
+  [merchantMode]="merchantMode"
+  [isBillingAddressStepVisible]="isBillingAddressStepVisible"
+  (changePaymentMethod)="changePayment($event)"
+  (submitted)="onSubmit()">
+</checkout-sdk-payment-sections>

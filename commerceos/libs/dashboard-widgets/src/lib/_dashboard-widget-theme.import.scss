@@ -1,0 +1,11 @@
+@use 'pe_theming' as pet;
+@use './components/skeleton/skeleton-theme.component' as skeleton;
+@use './widgets/edit-overlay/edit-overlay-theme.component' as edit_overlay;
+@use './widgets/search/search-widget/search-widget-theme.component' as search_widget;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include skeleton.color($color-config);
+  @include edit_overlay.color($color-config);
+  @include search_widget.color($color-config);
+}

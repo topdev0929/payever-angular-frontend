@@ -1,0 +1,104 @@
+<div class="layer-title">
+  <span>{{ 'builder-app.layers.title' | translate }}</span>
+  <mat-icon (click)="close()" class="layer-title__close" svgIcon="small-close-icon"></mat-icon>
+</div>
+
+<div class="layers-tree scrollbar" pebAutoHideScrollBar>
+  <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+    <mat-tree-node
+      *matTreeNodeDef="let node"
+      matTreeNodePadding
+      [matTreeNodePaddingIndent]="20"
+      [class.active]="node.isSelected"
+      (click)="selectTreeNode(node, $event)"
+      (contextmenu)="openContextMenu($event, node)"
+    >
+      <div class="layers-tree__item" [class.layers-tree__item--hidden]="!node.isVisible">
+        <button *ngIf="node.expandable" mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+          <mat-icon
+            svgIcon="triangle-right"
+            [class.icon-down]="treeControl.isExpanded(node)"
+            [class.icon-right]="!treeControl.isExpanded(node)"
+          ></mat-icon>
+        </button>
+
+        <button *ngIf="!node.expandable" mat-icon-button disabled hidden></button>
+
+        <ng-container *ngTemplateOutlet="layerIcon; context: { $implicit: node }"></ng-container>
+
+        <span
+          class="layers-tree__name"
+          (dblclick)="editTreeNode(node)"
+          [title]="node.name"
+          *ngIf="editingNode !== node.id"
+        >
+          {{ node.name }}
+        </span>
+        <input
+          #textInput
+          *ngIf="editingNode === node.id"
+          [ngModel]="node.name"
+          (blur)="changeName(textInput.value, node)"
+          (keydown.enter)="changeName(textInput.value, node)"
+          autofocus
+        />
+
+        <div
+          class="layers-tree__eye"
+          [class.layers-tree__eye--disabled]="!node.canChangeVisible"
+          (click)="toggleVisible(node, $event)"
+        >
+          <mat-icon *ngIf="node.isVisible" svgIcon="visible-eye-icon" class="eye-icon"></mat-icon>
+          <mat-icon *ngIf="!node.isVisible" svgIcon="hidden-eye-icon" class="eye-icon"></mat-icon>
+        </div>
+      </div>
+    </mat-tree-node>
+  </mat-tree>
+</div>
+
+<ng-template #layersMenu let-item>
+  <div class="menu">
+    <div class="menu__header">
+      <div class="menu__headline">{{ 'builder-app.common.options' | translate }}</div>
+      <mat-icon (click)="closeContextMenu()" class="menu__close" svgIcon="small-close-icon"></mat-icon>
+    </div>
+    <ul class="menu__list">
+      <ng-container *ngIf="item.type === LayerNodeType.Single">
+        <li class="menu__item" (click)="editTreeNode(item)">{{ 'builder-app.actions.rename' | translate }}</li>
+        <li class="menu__item" *ngIf="item.canEditText" (click)="enableEditText(item)">{{ 'builder-app.actions.edit-text' | translate }}</li>
+        <li class="menu__item" *ngIf="item.isVisible" (click)="copy()">{{ 'builder-app.actions.copy' | translate }}</li>
+        <li class="menu__item" *ngIf="item.isVisible" (click)="paste()">{{ 'builder-app.actions.paste' | translate }}</li>
+        <li class="menu__item" *ngIf="item.isVisible" (click)="save()">{{ 'builder-app.actions.save' | translate }}</li>
+      </ng-container>
+      <li class="menu__item menu__item--danger" (click)="delete(item)">Delete</li>
+    </ul>
+  </div>
+</ng-template>
+
+<ng-template #layerIcon let-item>
+  <ng-container *ngIf="item.type === LayerNodeType.Single">
+    <mat-icon
+      *ngIf="item.elements[0]?.type === 'section'"
+      class="layers-tree__item__icon"
+      svgIcon="layer-section"
+    ></mat-icon>
+    <mat-icon *ngIf="item.elements[0]?.type === 'text'" class="layers-tree__item__icon" svgIcon="layer-text"></mat-icon>
+    <mat-icon *ngIf="item.elements[0]?.type === 'grid'" class="layers-tree__item__icon" svgIcon="layer-grid"></mat-icon>
+    <span *ngIf="item.elements[0]?.type === 'shape'" class="layers-tree__item__icon">
+      <span [ngStyle]="getShapeIconStyles(item.elements[0])"></span>
+    </span>
+    <span *ngIf="item.elements[0]?.type === 'vector'" class="layers-tree__item__icon">
+      <svg
+        [attr.viewBox]="
+        '0 0 ' + (item.elements[0]?.data?.vector?.viewBox?.width ?? 0) + ' ' + (item.elements[0]?.data?.vector?.viewBox?.height ?? 0)
+        "
+      >
+        <path [attr.d]="item.elements[0]?.data?.vector?.path"></path>
+      </svg>
+    </span>
+  </ng-container>
+
+  <ng-container *ngIf="item.type === LayerNodeType.Group">
+    <mat-icon class="layers-tree__item__icon" svgIcon="layer-group"></mat-icon>
+  </ng-container>
+</ng-template>

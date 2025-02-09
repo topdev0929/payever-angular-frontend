@@ -1,0 +1,10 @@
+<or-action-modal [close$]="close$"
+                 [heading]="'details.credit_answer.header' | translate"
+                 [buttons]="modalButtons"
+                 class="credit-answer-modal dark"
+>
+  <div *ngIf="creditAnswerText" class="answer-text" [innerHtml]='creditAnswerText'></div>
+  <div *ngIf="!creditAnswerText" class="inner-padding">
+    <span translate>details.credit_answer.not_available</span>
+  </div>
+</or-action-modal>

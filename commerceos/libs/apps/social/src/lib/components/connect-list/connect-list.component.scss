@@ -1,0 +1,103 @@
+@use 'pe_variables' as pe_variables;
+
+.social-settings__section__content {
+  &-item {
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    margin: 0;
+
+    &.parent-overlay {
+      font-size: 12px;
+    }
+
+    .item-content {
+      width: 100%;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+
+      &.not-overlay {
+        font-weight: 400;
+      }
+
+      .item-actions {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-items: flex-end;
+
+        span {
+          font-size: 14px;
+        }
+
+        peb-button-toggle {
+          flex: 1;
+        }
+      }
+
+      .item-icon {
+        margin: 0 12px;
+        border-radius: 100%;
+        mat-icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          svg {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+
+      .integration-config {
+        margin-right: 12px;
+        max-width: fit-content;
+
+        &.not-overlay {
+          margin-right: 16px;
+          font-weight: 700;
+        }
+      }
+    }
+    &:first-child {
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      .item-content > .item-actions {
+        border: 0;
+      }
+    }
+
+    &:last-child {
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+  }
+}
+
+button {
+  &:not(:first-of-type) {
+    margin-top: 17px;
+  }
+}
+
+@media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+  .social-settings__section__content {
+    .item-content {
+      height: 56px;
+
+      .item-actions {
+        span {
+          font-size: 17px;
+        }
+
+        .item-icon > .mat-icon {
+          width: 35px;
+          height: 35px;
+        }
+      }
+    }
+  }
+}

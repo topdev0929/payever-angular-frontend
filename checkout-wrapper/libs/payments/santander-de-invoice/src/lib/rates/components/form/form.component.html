@@ -1,0 +1,59 @@
+<form
+  novalidate
+  class="form-table"
+  [formGroup]="formGroup"
+  analyticsForm>
+  <div class="promo-mobile">
+    <pe-payment-text
+      type="text"
+      [marginBottom]="true"
+      [customMarginTop]="0">
+      <span i18n="@@santander-de-invoice.promo-short-text"> santander-de-invoice.promo-short-text </span>
+    </pe-payment-text>
+  </div>
+
+  <details-form formControlName="personalForm"> </details-form>
+
+  <terms-form formControlName="termsForm"> </terms-form>
+
+  <div class="promo-desktop">
+    <div class="row">
+      <div
+        class="promo-desktop__item"
+        [class.col-xs-offset-2]="isPos">
+        <div class="promo-icon">
+          <svg class="icon icon-32"><use xlink:href="#icon-payment-after-delivery-32"></use></svg>
+        </div>
+        <pe-payment-text
+          type="text"
+          [defaultMargin]="true">
+          <span [innerHTML]="translations.promo.text1"> </span>
+        </pe-payment-text>
+      </div>
+      <div class="promo-desktop__item">
+        <div class="promo-icon">
+          <svg class="icon icon-32">
+            <use xlink:href="#icon-payment-keep-32"></use>
+          </svg>
+        </div>
+        <pe-payment-text
+          type="text"
+          [defaultMargin]="true">
+          <span [innerHTML]="translations.promo.text2"> </span>
+        </pe-payment-text>
+      </div>
+      <div class="promo-desktop__item col-xs-4">
+        <div class="promo-icon">
+          <svg class="icon icon-32">
+            <use xlink:href="#icon-payment-pause-32"></use>
+          </svg>
+        </div>
+        <pe-payment-text
+          type="text"
+          [defaultMargin]="true">
+          <span [innerHTML]="translations.promo.text3"> </span>
+        </pe-payment-text>
+      </div>
+    </div>
+  </div>
+</form>

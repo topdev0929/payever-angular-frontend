@@ -1,0 +1,40 @@
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalSidebar">
+  Sidebar in modal
+</button>
+<div class="modal fade" tabindex="-1" id="modalSidebar" role="dialog">
+  <div class="modal-dialog modal-lg modal-lg-new" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="row">
+          <div class="col-sm-3 col-xs-2"></div>
+          <div class="col-sm-6 hidden-xs text-center"><div class="modal-title subheading">Modal title</div></div>
+          <div class="col-sm-3 col-xs-10 text-right">
+            <button type="button" class="btn btn-lg btn-primary btn-link">Save</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="sidebar-container">
+            <pe-sidebar
+              [isOpen]="isSidebarOpen"
+              [configuration]="configuration"
+              (onSidebarOpened)="onSidebarOpened()"
+              (onSidebarClosed)="onSidebarClosed()"
+            ></pe-sidebar>
+          </div>
+          <div>
+            <div class="row">
+              <div class="col-xs-12">&nbsp;</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-close">
+      <button aria-label="Close" class="btn btn-default btn-xs btn-link btn-inline" data-dismiss="modal" type="button">
+        <svg class="icon icon-16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-x-16"></use></svg>
+      </button>
+    </div>
+  </div>
+</div>

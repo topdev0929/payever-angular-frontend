@@ -1,0 +1,24 @@
+@use "pe_variables" as pe_variables;
+
+.columns {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  .two-column-input {
+    width: 50%;
+  }
+
+  @media (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+    flex-direction: column;
+    .two-column-input {
+      width: 100%;
+    }
+  }
+  
+  .divider {
+    width: 1px;
+    border-left-style: solid;
+    border-left-width: 1px;
+  }
+}

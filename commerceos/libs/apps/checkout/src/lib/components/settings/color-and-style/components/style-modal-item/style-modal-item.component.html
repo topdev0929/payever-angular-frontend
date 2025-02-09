@@ -1,0 +1,13 @@
+<div class="style-modal-item">
+  <div class="style-modal-item__label">
+    <span translate>{{ modal.titleKey }}</span>
+  </div>
+  <div class="style-modal-item__button">
+    <button
+      peb-text-button
+      color="confirm"
+      (click)="openDialog(modal)">
+      {{ 'settings.colorAndStyle.actions.change' | translate }}
+    </button>
+  </div>
+</div>

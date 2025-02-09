@@ -1,0 +1,87 @@
+  <form
+    *ngIf="filterForm"
+    [class.has-error]="hasError"
+    [formGroup]="filterForm">
+  <div class="input-wrapper filter-wrapper">
+    <input
+      #keysRef
+      readonly
+      type="text"
+      placeholder="Filter"
+      class="filter"
+      [class.loading]="isGlobalLoading"
+      [class.cursor-default]="this.toolbarService.getFilterKeys(this.filterConfig).items.length < 2"
+      (click)="openOverlay($event.target, this.toolbarService.getFilterKeys(this.filterConfig), 'key');">
+  </div>
+  <div class="input-wrapper condition-wrapper">
+    <input
+      #conditionsRef
+      [disabled]="!filterForm.get('key')?.value"
+      readonly
+      type="text"
+      placeholder="Contains"
+      class="condition"
+      [class.loading]="isGlobalLoading"
+      [class.cursor-default]="this.toolbarService.getConditions(this.searchItem.filter,
+        this.filterConfig).items.length < 2"
+      (click)="openOverlay($event.target, this.toolbarService
+        .getConditions(this.searchItem.filter, this.filterConfig), 'condition')">
+  </div>
+  <div
+    [class.hidden]="valueIsBetween"
+    [class.has-error]="hasError"
+    class="input-wrapper search-wrapper">
+    <input
+      #valuesRef
+      formControlName="value"
+      [disabled]="isDisabled"
+      [readonly]="readOnly"
+      peInputMask
+      [mask]="maskFn"
+      [placeholder]="placeholder"
+      class="search"
+      [class.loading]="isGlobalLoading"
+      (click)="openValueOverlay($event, 'value')"
+      (change)="keyPress($event, 'value')"
+      (keyup)="keyPress($event,'value')">
+  </div>
+
+  <div
+    [class.hidden]="!valueIsBetween"
+    [class.has-error]="hasError"
+    class="input-wrapper search-from-wrapper">
+    <input
+      #valuesRefFrom
+      formControlName="valueFrom"
+      [readonly]="readOnly"
+      peInputMask
+      [mask]="maskFn"
+      [placeholder]="isSearch ? getLabel('search_from') : getLabel('choose_from')"
+      class="search-from"
+      (click)="openValueOverlay($event, 'valueFrom')"
+      (change)="keyPress(null,'valueFrom')"
+      (keypress)="keyPress($event,'valueFrom')">
+  </div>
+  <div
+    [class.hidden]="!valueIsBetween"
+    [class.has-error]="hasError"
+    class="input-wrapper search-to-wrapper">
+    <input
+      #valuesRefTo
+      formControlName="valueTo"
+      [readonly]="readOnly"
+      peInputMask
+      [mask]="maskFn"
+      [placeholder]="isSearch ? getLabel('search_to') : getLabel('choose_to')"
+      class="search-to"
+      (click)="openValueOverlay($event, 'valueTo')"
+      (change)="keyPress(null,'valueTo')"
+      (keypress)="keyPress($event,'valueTo')">
+  </div>
+
+    <button
+      class="apply-button"
+      type="button"
+      (click)="addFilter()"
+    >{{'grid.actions.apply' | translate}}</button>
+</form>

@@ -1,0 +1,39 @@
+{
+  "payment-instant-payment": {
+    "actions": {
+      "change_payment_method": "Please, select another payment method",
+      "pay": "Pay"
+    },
+    "inquiry": {
+      "finish": {
+        "header": {
+          "success": "Your payment was successfully processed",
+          "failed": "Unfortunately, we can not accept your payment"
+        },
+        "processing": {
+          "title": "Request can take a few minutes. Please do not click away",
+          "text": "We are processing your payment"
+        },
+        "labels": {
+          "total": "Total"
+        }
+      },
+      "form": {
+        "senderHolder": {
+          "label": "Sender holder",
+          "placeholder": "Sender holder"
+        },
+        "senderIban": {
+          "label": "Sender IBAN",
+          "placeholder": "Sender IBAN",
+          "errors": {
+            "invalid_country": "Country of IBAN is not allowed"
+          }
+        },
+        "adsAgreement": {
+          "label": "Das Anklicken des Buttons “Weiter zur Bezahlung“ löst eine Übermittlung Ihrer personenbezogenen Daten an die Santander Consumer Bank AG zur Durchführung einer Direktüberweisung aus. Nähere Informationen finden Sie in den <a target='_blank' href='https://www.santander.de/static/datenschutzhinweise/direktueberweisung/'>Datenschutzhinweisen</a> der Santander zur Direktüberweisung. Der Kunde ist mit <a target='_blank' href='https://www.santander.de/static/datenschutzhinweise/rechnungskauf/werbehinweise.html'>werblicher Kommunikation</a> durch die Santander einverstanden. Die Erteilung dieser Einwilligung ist freiwillig und kann jederzeit widerrufen werden."
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,96 @@
+<div class="sidebar-container">
+  <div class="sidebar-container__content">
+    <mat-tab-group
+        [selectedIndex]="sidebarContainerIndex"
+        (selectedIndexChange)="changeSidebarContainer()"
+        animationDuration="200ms"
+    >
+      <mat-tab class="sidebar-settings">
+        <peb-expandable-panel
+          class="peb-expandable-panel"
+          headerLabel="Preview"
+          [isContentOpen]="true"
+        >
+          <div class="widget-bubble-settings">
+            <div class="open-widget">
+              <peb-button-toggle
+                [(ngModel)]="alwaysOpen"
+                (changed)="changeOpenWidget($event)"
+                label="Open widget directly"
+                [spacer]="true"
+                labelPosition="before"
+              ></peb-button-toggle>
+            </div>
+            <ul *ngIf="!alwaysOpen" class="widget-bubble-settings__nav">
+              <ng-container *ngFor="let item of sidebarWidgetSettingsMode; let index = index;">
+                <li class="widget-bubble-settings__nav-item {{sidebarWidgetSettingsIndex === index ? 'active' : ''}}"
+                    (click)="switchWidgetBubble(index)">{{item}}</li>
+              </ng-container>
+            </ul>
+            <pe-message-appearance-preview
+              [business]="business"
+            ></pe-message-appearance-preview>
+            <div class="widget-bubble-settings__content">
+              <mat-tab-group [selectedIndex]="alwaysOpen ? 0 : sidebarWidgetSettingsIndex" animationDuration="200ms">
+                <mat-tab class="widget-settings">
+                  <pe-message-theme-settings
+                    [mockUps]="mockUps"
+                    [defaultPresetColor]="defaultPresetColor"
+                    [swiperColorBoxes]="swiperColorBoxes"
+                    [colorBoxes]="colorBoxes"
+                    [shadowColor]="shadowColor"
+                    [blurValue]="blurValue"
+                    (colorLayout)="openColorPicker($event)"
+                    (mockUpLayout)="selectMockUp($event)"
+                    (changedBoxShadow)="changeBoxShadow($event)"
+                    (changedBlurMode)="changeBlurMode($event)"
+                  ></pe-message-theme-settings>
+                </mat-tab>
+                <mat-tab class="bubble-settings">
+
+                  <pe-message-bubble-settings
+                    [logo]="logo"
+                  ></pe-message-bubble-settings>
+
+                </mat-tab>
+              </mat-tab-group>
+            </div>
+          </div>
+        </peb-expandable-panel>
+
+        <peb-expandable-panel
+          class="peb-expandable-panel"
+          headerLabel="Embed"
+          [isContentOpen]="true"
+        >
+          <pe-message-embed></pe-message-embed>
+        </peb-expandable-panel>
+
+      </mat-tab>
+      <mat-tab class="sidebar-color-settings">
+        <ul class="sidebar-color-settings__nav">
+          <ng-container *ngFor="let item of colorTabs; let index = index;">
+            <li class="sidebar-color-settings__nav-item{{sidebarColorSettingsIndex === index ? ' active' : ''}}"
+                (click)="changeSidebarColorTab(index)">{{item}}
+            </li>
+          </ng-container>
+        </ul>
+      </mat-tab>
+    </mat-tab-group>
+    <div class="color-picker-container" *ngIf="sidebarContainerIndex === 1">
+      <div
+        [cpToggle]="true"
+        [cpWidth]="'402px'"
+        [cpHeight]="'auto'"
+        [cpDialogDisplay]="'inline'"
+        [cpOutputFormat]="'hex'"
+        [cpAlphaChannel]="'always'"
+        [pebColorPicker]="color"
+        (colorPickerChange)="colorSelect($event)"
+      ></div>
+      <button class="color-picker-container__done" (click)="done()">
+        {{ 'message-app.message-integration.done' | translate }}
+      </button>
+    </div>
+  </div>
+</div>

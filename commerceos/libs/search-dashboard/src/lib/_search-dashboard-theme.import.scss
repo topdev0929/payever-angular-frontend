@@ -1,0 +1,7 @@
+@use 'pe_theming' as pet;
+@use './components/search-overlay/search-overlay-theme.component' as search_overlay;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include search_overlay.color($color-config);
+}

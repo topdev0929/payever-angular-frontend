@@ -1,0 +1,108 @@
+<pe-studio-grid-ui></pe-studio-grid-ui>
+<div class="container" [ngClass]="theme">
+  <peb-expandable-panel [headerLabel]="'General'" [isContentOpen]="true">
+    <div class="image-upload__image">
+      <div [ngStyle]="{'background-image': 'url(' + appData?.url + ')'}">
+      </div>
+      <div class="media-uploader">
+        <div class="upload-media" (click)="downloadImage()">
+          Get
+        </div>
+      </div>
+    </div>
+    <form class="example-form" [formGroup]="form">
+      <peb-form-background>
+        <peb-form-field-input animated="true" label="File Name" appearance="label">
+          <input type="text" formControlName="name">
+        </peb-form-field-input>
+        <two-column-form formGroupName="mediaInfo">
+          <peb-form-field-input animated="true" label="Dimensions" appearance="label">
+            <input type="text" formControlName="dimension" disabled>
+          </peb-form-field-input>
+          <peb-form-field-input animated="true" label="Size" appearance="label">
+            <input type="text" formControlName="size" disabled>
+          </peb-form-field-input>
+        </two-column-form>
+        <two-column-form>
+          <peb-form-field-input animated="true" label="Duration" appearance="label">
+            <input type="text" formControlName="duration" disabled>
+          </peb-form-field-input>
+          <peb-form-field-input animated="true" label="Location" appearance="label">
+            <input type="text" formControlName="location">
+          </peb-form-field-input>
+        </two-column-form>
+        <peb-form-field-input animated="true" label="Owner" appearance="label">
+          <input type="text" formControlName="owner">
+        </peb-form-field-input>
+        <peb-form-field-input animated="true" label="Created" appearance="label">
+          <input type="text" [value]="formDate | date: 'hh:mm d MMMM y'" disabled>
+        </peb-form-field-input>
+
+        <two-column-form>
+          <peb-form-field-input animated="true" label="Opened by me" appearance="label">
+            <input type="text" [value]=" formOpenByMeDate | date: 'hh:mm d MMMM y'" disabled>
+          </peb-form-field-input>
+          <peb-form-field-input animated="true" label="Price" appearance="label">
+            <input type="text" formControlName="price">
+          </peb-form-field-input>
+        </two-column-form>
+        <two-column-form>
+          <peb-form-field-input animated="true" label="Modified" appearance="label">
+            <input type="text" [value]="formUpdatedDate | date: 'hh:mm d MMMM y'" disabled>
+          </peb-form-field-input>
+          <peb-form-field-input animated="true" label="License" appearance="label">
+            <input type="text" formControlName="license">
+          </peb-form-field-input>
+        </two-column-form>
+      </peb-form-background>
+    </form>
+  </peb-expandable-panel>
+  <peb-expandable-panel [headerLabel]="'Additional'" class="additional-panel" [isContentOpen]="false">
+    <div class="option">
+      <div class="add-contact__general-info add-contact__additional-info" [formGroup]="form">
+        <div class="form-fields" *ngIf="form.get('customFields')['controls'].length">
+          <peb-form-background>
+            <div class="form__row" formArrayName="customFields"
+                 *ngFor="let field of form.get('customFields')['controls']; let i = index">
+              <ng-container [ngSwitch]="field.value.type">
+                <ng-container *ngSwitchCase="fieldTypes.Input">
+                  <peb-form-field-input animated="true" [label]="field.value.label" appearance="label">
+                    <input type="text" [formControl]="field.get('value')"/>
+                    <div class="suffix"
+                         style="justify-content: center; background-color: transparent; margin-bottom: -5px;">
+                      <div (click)="removeItem(i)">
+                        <svg style="width: 16px; height:16px">
+                          <use xlink:href="'#icon-ui-remove'"></use>
+                        </svg>
+                      </div>
+                    </div>
+                  </peb-form-field-input>
+                </ng-container>
+              </ng-container>
+            </div>
+          </peb-form-background>
+
+        </div>
+        <div class="add-contact__additional-info-option-button" [matMenuTriggerFor]="optionMenu">
+          <span>Options</span>
+        </div>
+        <mat-menu class="add-contact__additional-info-menu" backdropClass="add-contact__additional-info-menu-backdrop"
+                  #optionMenu="matMenu" yPosition="above">
+          <div class="menu">
+            <div class="add-contact__option-menu-item" (click)="openAddFieldDialog()">Add field</div>
+            <div class="add-contact__option-menu-item" #clickHoverMenuTrigger="matMenuTrigger"
+                 [matMenuTriggerFor]="customFieldsMenu" (click)="openCustomFieldsMenu($event)">Choose previous fields
+            </div>
+          </div>
+        </mat-menu>
+        <mat-menu class="add-contact__additional-info-menu" backdropClass="add-contact__additional-info-menu-backdrop"
+                  #customFieldsMenu="matMenu" yPosition="above">
+          <div class="menu">
+            <button class="add-contact__option-menu-item" *ngFor="let option of fieldGroups" mat-menu-item
+                    (click)="selectOption(option)">{{ option.name }}</button>
+          </div>
+        </mat-menu>
+      </div>
+    </div>
+  </peb-expandable-panel>
+</div>

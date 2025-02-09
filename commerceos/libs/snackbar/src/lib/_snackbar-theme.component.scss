@@ -1,0 +1,54 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $background: map.get($color-config, 'background');
+  $separator: map.get($color-config, 'separator');
+  $text-color: map.get($color-config, 'text-color');
+  $hover-button: map.get($color-config, 'hover-button');
+  $label-color: map.get($color-config, 'label-color');
+  $active-text: map.get($color-config, 'active-text');
+
+  .snackbar {
+    background-color: $background;
+    backdrop-filter: blur(25px);
+    height: 100%;
+    &__message {
+      color: $text-color;
+      max-width: calc(var(--app-width) - 150px);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 8px;
+    }
+    &__spinner {
+      .spinner {
+        stroke: $hover-button;
+      }
+    }
+    &__button {
+      &-show {
+        color: $hover-button;
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+      &-hide {
+        color: $label-color;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        span {
+          height: fit-content;
+        }
+      }
+      &-show,
+      &-hide {
+        border-left-color: $separator;
+      }
+    }
+    &__icon {
+      .success {
+        background-color: $active-text;
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+<santander-de-pos-edit-form
+  *ngIf="nodeFormOptions$ | async"
+  [darkMode]="darkMode"
+  [isLoading]="isLoading$ | async"
+  (submitted)="continue.emit($event)"></santander-de-pos-edit-form>

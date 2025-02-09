@@ -1,0 +1,47 @@
+<pe-product-detail-styles></pe-product-detail-styles>
+<div class="product-detail-container">
+  <img class="close-button" (click)="closeDetail()" src="assets/icons/close.png" alt="close" />
+  <div class="product-detail-wrapper">
+    <div class="product-detail-wrapper__image">
+      <img [src]="product.image" alt="product details" />
+    </div>
+    <div class="product-detail-wrapper__content">
+      <div class="title">{{ product.name }}</div>
+      <div class="price">{{product.currency}} {{ selectedVariant? selectedVariant.price: product.price.toFixed(2)}}</div>
+      <p class="description">{{ product.description }}</p>
+
+      <div class="variants-dropdown" *ngIf="product.variants.length > 0">
+        <div class="variants-dropdown__wrapper" [matMenuTriggerFor]="menuRef">
+          <span>{{ selectedVariant ? selectedVariant.title : 'choose variant' }}</span>
+          <div class="variants-dropdown__arrow-down">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 8">
+              <g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                <g fill-rule="nonzero" stroke="#000" stroke-width="1.5">
+                  <path
+                    d="M1063 403L1056.5 409 1056.5 409 1050 403"
+                    transform="translate(-1049 -402) matrix(-1 0 0 1 2113 0)"
+                  />
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <mat-menu #menuRef="matMenu" class="variants-dropdown__menu">
+          <div class="variants-dropdown__menu-options">
+            <ng-container *ngFor="let variant of product.variants">
+              <div
+                class="variants-dropdown__menu-option"
+                (click)="updateValue($event, variant)"
+              >
+                <span class="variants-dropdown__option-title">{{ variant.title }}</span>
+              </div>
+            </ng-container>
+          </div>
+        </mat-menu>
+      </div>
+      <button mat-button class="add-to-cart" (click)="addToCart()" [disabled]="isVariantProduct && !selectedVariant">
+        {{ 'pos-app.details.add_to_bag' | translate }}
+      </button>
+    </div>
+  </div>
+</div>

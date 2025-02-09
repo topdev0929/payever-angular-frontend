@@ -1,0 +1,27 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $text-color: map.get($color-config, 'text-color');
+  $border: map.get($color-config, 'border');
+  $confirm: map.get($color-config, 'confirm');
+  $active-text: map.get($color-config, 'active-text');
+
+  .pe-text-editor-placeholder {
+    background-color: $secondary-background;
+    color: $text-color;
+    border-color: $border;
+    .content {
+      .placeholder-tree {
+        color: $text-color;
+        .mat-tree-node {
+          padding-left: 20px;
+          &:hover {
+            background-color: $confirm;
+            color: $active-text;
+          }
+        }
+      }
+    }
+  }
+}

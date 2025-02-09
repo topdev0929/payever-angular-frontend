@@ -1,0 +1,14 @@
+<santander-nl-shared-finish
+  [errorMessage]="errorMessage"
+  [embeddedMode]="embeddedMode"
+  [merchantMode]="merchantMode"
+  [showCloseButton]="showCloseButton"
+  [isDisableChangePayment]="isDisableChangePayment"
+  [nodeResult]="paymentResponse"
+  [isLoading]="!paymentResponse && !errorMessage"
+  (cleanUp)="cleanUp()"
+  (close)="close()"
+  (closeButtonClicked)="close()"
+  (tryAgain)="tryAgain()"
+  (changePaymentMethod)="changePayment($event)"
+></santander-nl-shared-finish>

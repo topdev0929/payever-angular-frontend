@@ -1,0 +1,31 @@
+<div class="input-value peb-size-input" [formGroup]="formGroup">
+  <div *ngIf="prefix" class="units">
+    {{ prefix }}
+  </div>
+
+  <peb-number-input
+    formControlName="value"
+    [step]="step"
+    [precision]="precision"
+    [min]="min"
+    [max]="max"
+    [increment]="increment"
+    [decrement]="decrement"
+    [style.visibility]="formGroup.value.unit === pebUnit.Auto || formGroup.value.unit === pebUnit.Inherit ? 'hidden' : 'visible'"
+  ></peb-number-input>
+
+  <div #unitSelector class="units" #menuTrigger="matMenuTrigger" [matMenuTriggerFor]="menu">
+    {{ formGroup.value.unit }}
+  </div>
+
+  <mat-menu #menu="matMenu" class="size-input-menu">
+    <div
+      class="unit"
+      *ngFor="let unit of units"
+      (click)="changeUnit(unit)"
+      [class.active]="unit === formGroup.value.unit"
+    >
+      <label>{{ unit }}</label>
+    </div>
+  </mat-menu>
+</div>

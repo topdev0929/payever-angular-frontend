@@ -1,0 +1,13 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $border: map.get($color-config, 'border');
+
+  peb-editor-shapes-sidebar .form__row_border,
+  peb-alignment-form {
+    &::before {
+      background-color: $border;
+    }
+  }
+  
+}

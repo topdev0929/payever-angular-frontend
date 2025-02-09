@@ -1,0 +1,21 @@
+{
+  "code": "transactions",
+  "dashboardInfo": {
+    "title": "dashboard.apps.transactions",
+    "icon": "#icon-commerceos-transactions"
+  },
+  "tag": "<transactions-app></transactions-app>",
+  "access": {
+    "business": {
+      "url": "/business/{uuid}/transactions",
+      "defaultInstalled": true,
+      "isDefault": true
+    },
+    "user": {
+      "url": "/personal/{uuid}/transactions",
+      "defaultInstalled": true,
+      "isDefault": true
+    }
+  },
+  "bootstrapScriptUrl": "${MICRO_URL_FRONTEND_TRANSACTIONS}/micro.js?{hash}"
+}

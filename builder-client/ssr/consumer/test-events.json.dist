@@ -1,0 +1,12 @@
+{
+  "AppPublishedEvent_Hello_2": {
+    "routingKey": "builder.event.application-theme.published",
+    "data": {
+      "payload": {
+        "businessId": "a94e05e7-ba21-4a0e-b8cb-8d0f1ad6d26c",
+        "applicationId": "0ec2a202-a679-4fd5-99d2-e51459b7e7bf",
+        "applicationType": "shop"
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+<zinia-finish-v2
+  [errorMessage]="errorMessage"
+  [embeddedMode]="embeddedMode"
+  [merchantMode]="merchantMode"
+  [showCloseButton]="showCloseButton"
+  [showChangePaymentButton]="showChangePaymentButton"
+  [isDisableChangePayment]="isDisableChangePayment"
+  [nodeResult]="paymentResponse"
+  [isLoading]="!paymentResponse && !errorMessage"
+  [otpStatus]="verifyOtp$ | async"
+  (cleanUp)="cleanUp()"
+  (close)="close()"
+  (tryAgain)="tryAgain()"
+  (closeButtonClicked)="close()"
+  (changePaymentMethod)="changePayment($event)"
+  (otpCodeReady)="otpCodeReady($event)">
+</zinia-finish-v2>

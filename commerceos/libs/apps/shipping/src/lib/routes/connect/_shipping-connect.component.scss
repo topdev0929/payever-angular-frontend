@@ -1,0 +1,13 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $row-background: map.get($color-config, 'row-background');
+
+  .page-shipping-connect {
+    .group {
+      &__item {
+        background-color: $row-background;
+      }
+    }
+  }
+}

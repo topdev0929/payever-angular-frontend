@@ -1,0 +1,19 @@
+<h4>Default</h4>
+<div class="button-row">
+  <button mat-raised-button class="mat-button-lg" (click)="loading = !loading">
+    <pe-progress-button-content [loading]="loading">Click me</pe-progress-button-content>
+  </button>
+  <button mat-button class="mat-button-gradient mat-button-lg" (click)="loading = !loading">
+    <pe-progress-button-content [loading]="loading">Click me (longer text)</pe-progress-button-content>
+  </button>
+</div>
+
+<h4>Custom spinner/button size</h4>
+<div class="button-row">
+  <button mat-raised-button (click)="loading = !loading">
+    <pe-progress-button-content [loading]="loading" [spinnerStrokeWidth]="2" [spinnerDiameter]="18">Click me</pe-progress-button-content>
+  </button>
+  <button mat-button class="mat-button-gradient" (click)="loading = !loading">
+    <pe-progress-button-content [loading]="loading" [spinnerStrokeWidth]="2" [spinnerDiameter]="18">Click me (longer text)</pe-progress-button-content>
+  </button>
+</div>

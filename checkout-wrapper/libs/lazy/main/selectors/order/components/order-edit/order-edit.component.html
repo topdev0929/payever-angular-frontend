@@ -1,0 +1,9 @@
+<ng-template #container></ng-template>
+
+<checkout-sdk-continue-button
+  class="button-continue"
+  [text]="submitText || fallbackText"
+  [loading]="(isLoading$ | async) || (isFetching$ | async) || !inititalFlow"
+  [disabled]="(isFetching$ | async) !== true && (isCartNotEmpty$ | async) !== true"
+  (clicked)="onContinue()">
+</checkout-sdk-continue-button>

@@ -1,0 +1,17 @@
+<pe-virtual-scroll-viewport-styles></pe-virtual-scroll-viewport-styles>
+
+<cdk-virtual-scroll-viewport
+  peAutoSizeVirtualScrollDirective
+  [messages]="items$ | async"
+  [class.content-bottom-aligned]="isContentBottomAligned"
+  [class.live-chat]="isLiveChat"
+  (scrolledIndexChange)="onScrolledIndexChange($event)"
+  #cdkvirtualscrollviewport
+  >
+  <ng-content></ng-content>
+  <ng-template #content>
+    <ng-template let-item cdkVirtualFor [cdkVirtualForOf]="items">
+      <ng-template *ngTemplateOutlet="itemTemplate; context: { $implicit: item }"></ng-template>
+    </ng-template>
+  </ng-template>
+</cdk-virtual-scroll-viewport>

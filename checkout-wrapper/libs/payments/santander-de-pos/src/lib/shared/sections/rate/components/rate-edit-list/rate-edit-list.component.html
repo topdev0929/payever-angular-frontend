@@ -1,0 +1,90 @@
+<form
+  *ngIf="{
+    rates: rates$ | async,
+    viewRates: viewRates$ | async,
+    loadingRates: loadingRates$ | async,
+    details: details$ | async,
+    conditionOption: isComfortCardCondition$ | async
+  } as vm"
+  class="form-table"
+  [formGroup]="formGroup"
+  #ngForm="ngForm">
+  <div
+    *ngIf="vm.viewRates?.length === 0 && !vm.loadingRates"
+    class="text-danger small">
+    {{!!formGroup.get('desiredInstalment').value ? translations.ratesLimit : translations.ratesListEmpty}}
+  </div>
+  <santander-de-pos-ccp-rate
+    *ngIf="vm.conditionOption && vm.rates"
+    [condition]="vm.conditionOption"
+    [currencyCode]="currency"
+    [rates]="vm.rates"
+    [nodeFormOptions]="options$ | async"
+    (selected)="rateSelected($event, vm.rates)">
+  </santander-de-pos-ccp-rate>
+
+  <ng-container *ngIf="formGroup.enabled && !vm.conditionOption">
+    <checkout-sdk-choose-rate
+      *ngIf="!!vm.rates?.length || vm.loadingRates"
+      class="choose-rate"
+      [trackFlowId]="flowId"
+      [trackPaymentMethod]="paymentMethod"
+      [rates]="vm.viewRates || []"
+      [selectedExtraDurations]="selectedExtraDurations"
+      [isLoading]="vm.loadingRates && !vm.viewRates?.length"
+      [initialRateId]="formGroup.get('creditDurationInMonths').value?.toString()"
+      [doSelectRate]="doSelectRate$"
+      (rateSelected)="rateSelected($event, vm.rates || [])"
+      (toggleExtraDuration)="toggleRatesInStorage($event)">
+    </checkout-sdk-choose-rate>
+
+    <ng-container *ngIf="showDesiredInstalment$ | async">
+      <checkout-sdk-continue-button
+        *ngIf="formGroup.get('_desiredInstalmentView').disabled"
+        [text]="translations.desiredInstalmentButton"
+        (click)="showDesiredInstallment()">
+      </checkout-sdk-continue-button>
+
+      <div class="form-fieldset-new">
+        <mat-form-field
+          *ngIf="formGroup.get('_desiredInstalmentView').enabled"
+          class="col-xs-12">
+          <mat-label i18n="@@payment-santander-de-pos.desiredInstalment.label"> Desired installment </mat-label>
+
+          <span
+            #_desiredInstalmentViewPrefix
+            matPrefix>
+            {{ currency | peCurrencySymbol }}
+          </span>
+          <input
+            matInput
+            [peInputCurrencyMask]="currency"
+            formControlName="_desiredInstalmentView"
+            type="text" />
+          <button
+            *ngIf="showApply$ | async"
+            class="mat-button-no-padding mat-button-link btn btn-link"
+            mat-button
+            matSuffix
+            i18n="@@santander-de.actions.apply"
+            (click)="applyDesiredInstallment()">
+            Apply
+          </button>
+          <mat-progress-spinner
+            *ngIf="vm.loadingRates"
+            matSuffix
+            strokeWidth="2"
+            diameter="18"
+            mode="indeterminate">
+          </mat-progress-spinner>
+        </mat-form-field>
+      </div>
+    </ng-container>
+
+    <checkout-sdk-santander-de-selected-rate-details
+      *ngIf="vm.details"
+      [details]="vm.details"
+      [isManyColumnsDisabled]="true">
+    </checkout-sdk-santander-de-selected-rate-details>
+  </ng-container>
+</form>

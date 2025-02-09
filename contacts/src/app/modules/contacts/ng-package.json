@@ -1,0 +1,45 @@
+{
+  "$schema": "../../../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../../dist/contacts",
+  "assets": [
+    "assets/contact-info.svg"
+  ],
+  "lib": {
+    "entryFile": "src/public-api.ts",
+    "umdModuleIds": {
+      "lodash": "lodash",
+      "js-cookie": "js-cookie",
+      "@angular/material":  "@angular/material",
+      "@angular/cdk": "@angular/cdk",
+      
+      "@pe/widgets":  "@pe/widgets",
+      "@pe/data-grid":  "@pe/data-grid",
+      "@pe/platform-header": "@pe/platform-header",
+      "@pe/app-switcher":  "@pe/app-switcher",
+      "@pe/auth": "@pe/auth",
+      "@pe/i18n": "@pe/i18n",
+      "@pe/i18n-core": "@pe/i18n-core",
+      "@pe/common": "@pe/common",
+      "@pe/sidebar": "@pe/sidebar",
+      "@pe/overlay-widget": "@pe/overlay-widget",
+      "@pe/forms": "@pe/forms",
+      "@pe/media": "@pe/media",
+      "@pe/ui": "@pe/ui",
+      "auth": "auth",
+
+      "apollo-angular": "apollo-angular",
+      "apollo-link": "apollo-link",
+      "graphql-tag": "graphql-tag",
+      "apollo-angular-link-http": "apollo-angular-link-http",
+      "apollo-cache-inmemory": "apollo-cache-inmemory",
+      "countries-list": "countries-list"
+    }
+  },
+  "whitelistedNonPeerDependencies": [
+    "apollo-angular",
+    "apollo-angular-link-http",
+    "apollo-cache-inmemory",
+    "apollo-client",
+    "apollo-link"
+  ]
+}

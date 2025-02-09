@@ -1,0 +1,112 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $row-background: map.get($color-config, 'row-background');
+  $active-text: map.get($color-config, 'active-text');
+  $confirm: map.get($color-config, 'confirm');
+  $fill-black: map.get($color-config, 'fill-black');
+  $label-color: map.get($color-config, 'label-color');
+  $divider: map.get($color-config, 'divider');
+  $border: map.get($color-config, 'border');
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $toggle-button: map.get($color-config, 'toggle-button');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $box-shadow-color: map.get($color-config, 'box-shadow-color');
+  $x-button: map.get($color-config, 'x-button');
+
+  #import-menu {
+    .divider {
+      background-color: $divider;
+    }
+
+    .button {
+      color: #ffffff;
+    }
+
+    .menu {
+      color: $secondary-background;
+
+      &__button {
+        background-color: $transparent-color;
+
+        span {
+          color: $text-color;
+        }
+        svg {
+          color: $x-button;
+        }
+        &:hover {
+          background-color: $confirm;
+
+          .menu__button-help-icon > svg > g {
+            rect {
+              fill: $active-text;
+            }
+            path {
+              fill: $confirm;
+            }
+          }
+
+          span, svg {
+            color: $active-text;
+          }
+          .toggle {
+            label {
+              background-color: $fill-black;
+            }
+          }
+        }
+      }
+    }
+
+    .toggle {
+      label {
+        background-color: $label-color;
+      }
+
+      em {
+        background: $active-text;
+        box-shadow: 0 0 0 0 $transparent-color;
+      }
+
+      label:hover > em {
+        box-shadow: 0 1px 2px 0 $box-shadow-color;
+      }
+
+      label:active > em {
+        box-shadow: 0 2px 4px 0 $box-shadow-color;
+      }
+
+      input:checked + label {
+        background-color: $confirm;
+      }
+    }
+  }
+
+  .product-import-tooltip {
+    &.mat-menu-before {
+      background-color: transparent;
+      border-radius: 12px;
+      backdrop-filter: blur(25px);
+    }
+      .mat-menu-content {
+        background-color: $secondary-background;
+        padding: 18px 8px 16px;
+        border: 1px solid $border;
+        border-radius: 12px;
+        color: $text-color;
+        box-shadow: 0 5px 20px 0 $box-shadow-color;
+
+        .menu-tooltip__head {
+          display: flex;
+          color: $text-color;
+          text-transform: uppercase;
+          justify-content: space-between;
+          svg {
+            width: 16px;
+          }
+        }
+      }
+  }
+}

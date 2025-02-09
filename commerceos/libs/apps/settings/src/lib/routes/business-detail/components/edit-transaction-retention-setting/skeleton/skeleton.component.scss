@@ -1,0 +1,16 @@
+@use "pe_variables" as pe_variables;
+@use 'pe_skeleton' as pe_skeleton;
+
+.edit-transaction-retention-skeleton {
+  &-select {
+    display: flex;
+    gap: 5px;
+    height: 88px;
+    &-item {
+      height: 100%;
+      width: 100%;
+      @include pe_skeleton.skeleton-animation();
+      border-radius: 12px;
+    }
+  }
+}

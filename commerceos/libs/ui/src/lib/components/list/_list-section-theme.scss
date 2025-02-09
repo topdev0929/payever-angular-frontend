@@ -1,0 +1,101 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $row-background: map.get($color-config, 'row-background');
+  $confirm: map.get($color-config, 'confirm');
+  $background: map.get($color-config, 'background');
+  $hover-button: map.get($color-config, 'hover-button');
+  $active-text: map.get($color-config, 'active-text');
+  $label-color: map.get($color-config, 'label-color');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $text-color: map.get($color-config, 'text-color');
+  $fill-black: map.get($color-config, 'fill-black');
+  
+  .pe-list-section {
+    &__group-header {
+      color: $label-color;
+    }
+
+    @media (min-width: 720px) {      
+      &__item.hover:hover {
+        background-color: $hover-button;
+  
+        .pe-list-section__item {
+          &-label,
+          &-button,
+          &-title,
+          &-title,
+          &-description,
+          &-right-block,
+          &-image {
+            color: $active-text;
+          }
+        }
+        .button-toggle {
+          opacity: 1;
+          &-slider {
+            background-color: $fill-black;
+          }
+        }
+      }
+    }
+
+    &__item,
+    &__item-title {
+      color: $text-color;
+    }
+
+    &__item {
+      &-image {
+        color: $label-color;
+      }
+      &-abbreviation {
+        background-color: $label-color;
+        color: $active-text;
+      }
+      &.selected {
+        background-color: $hover-button;
+
+        .pe-list-section {
+          &__item-label,
+          &__item-title,
+          &__item-description,
+          &__item-right-block {
+            color: $active-text;
+          }
+        }
+      }
+    }
+
+    &__item-button,
+    &__add-button {
+      color: $confirm;
+      background-color: inherit;
+    }
+
+    &__divider {
+      &:not(:last-child) {
+        .pe-list-section__item {
+          &:not(.hover:hover, .selected) {
+            .pe-list-section__item {
+              &-title,
+              &-right-block {
+                border-bottom: solid 1px $background;
+              }
+            }
+          }
+          &.hover:hover:not(.selected) {
+            @media (min-width: 720px) {
+              .pe-list-section__item {
+                &-title,
+                &-right-block {
+                  border-bottom: solid 1px $transparent-color;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

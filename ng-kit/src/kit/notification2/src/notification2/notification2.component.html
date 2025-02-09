@@ -1,0 +1,18 @@
+<div class="notify2-text">
+    <div class="notify2-img" *ngIf="iconN">
+        <img src="{{iconN}}" width="32" height="32" />
+    </div>
+    <h4 [innerHTML]="titleN"></h4>
+    <p [innerHTML]="descriptionN"></p>
+</div>
+<div class="notify2-controls" *ngIf="openText || skipText" [class.notify2-controls-x2]="openText && skipText" [class.notify2-controls-x1]="(openText && !skipText) || (!openText && skipText)">
+    <div class="notify2-control-container" *ngIf="openText">
+        <button class="action" (click)="onOpenClick(openURL)" [innerHTML]="openText"></button>
+    </div>
+    <div class="notify2-control-container" *ngIf="skipText">
+        <button class="skip" (click)="onCloseClick()" [innerHTML]="skipText"></button>
+    </div>
+</div>
+<div class="notify2-settings" *ngIf="settings" (click)="onSettingsClick()">
+    <svg class="icon icon-24"><use xlink:href="#icon-db-settings-24"></use></svg>
+</div>

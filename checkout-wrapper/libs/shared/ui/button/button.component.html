@@ -1,0 +1,12 @@
+<button
+  mat-button
+  class="checkout-button"
+  aria-label="ariaLabel"
+  [ngClass]="className"
+  [class]="class"
+  [disabled]="disabled"
+  [type]="type"
+  [disableRipple]="disableRipple"
+  (click)="click.emit($event)">
+  <ng-content #content></ng-content>
+</button>

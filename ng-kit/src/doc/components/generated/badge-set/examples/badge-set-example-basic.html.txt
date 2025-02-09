@@ -1,0 +1,1 @@
+<pe-badge-set [badgeSet]="badgeSet"></pe-badge-set>

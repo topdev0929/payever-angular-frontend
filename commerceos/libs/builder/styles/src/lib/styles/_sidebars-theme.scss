@@ -1,0 +1,51 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $text-color: map.get($color-config, 'text-color');
+  $confirm: map.get($color-config, 'confirm');
+  $warn: map.get($color-config, 'warn');
+  $primary: map.get($color-config, 'primary');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $select-button: map.get($color-config, 'select-button');
+  $border: map.get($color-config, 'border');
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $label-color: map.get($color-config, 'label-color');
+  $active-text: map.get($color-config, 'active-text');
+  $gray-button: map.get($color-config, 'gray-button');
+
+  .peb-main-editor {
+    .sidebar {
+      background-color: $primary;
+      color: $text-color;
+      .sidebar__icon {
+        &__arrow {
+          color: $label-color;
+        }
+      }
+      &:not(.sidebar--right) {
+        .sidebar__button {
+          background-color: $overlay-background;
+          &--details {
+            background-color: $select-button;
+          }
+        }
+      }
+    }
+    .form__row {
+      &_border {
+        &::before {
+          background-color: $border;
+        }
+      }
+    }
+    .peb-fill {
+      &__thumbnail {
+        border-color: $border;
+      }
+    }
+    .group {
+        border-bottom-color: $border;
+    }
+  }
+}

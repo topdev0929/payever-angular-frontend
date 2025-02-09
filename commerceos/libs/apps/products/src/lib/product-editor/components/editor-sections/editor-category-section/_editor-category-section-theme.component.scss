@@ -1,0 +1,23 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $content: map.get($color-config, 'content');
+  $confirm: map.get($color-config, 'confirm');
+  $text-color: map.get($color-config, 'text-color');
+  $background: map.get($color-config, 'background');
+
+  .pe-product-category-section {
+    .category-header {
+      border-bottom-color: $background;
+      color: $text-color;
+    }
+    .form-field {
+      &-input {
+        > button {
+          background-color: $content;
+          color: $confirm;
+        }
+      }
+    }
+  }
+}

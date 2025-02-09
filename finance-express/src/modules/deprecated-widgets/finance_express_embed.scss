@@ -1,0 +1,721 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+@import "./scss/variables";
+@import "./scss/mixins";
+
+@mixin rotateY($degrees) {
+  -webkit-transform: rotateY($degrees);
+  -ms-transform: rotateY($degrees); // IE9 only
+  -o-transform: rotateY($degrees);
+  transform: rotateY($degrees);
+}
+
+.payever-hide {
+  display: none;
+}
+
+.payever-overlay {
+  width: 100%;
+  max-width: 450px;
+  border-left: 1px $light_grey4 solid;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: auto;
+  position: fixed;
+  background: $white;
+  .payever-loading {
+    display: none;
+    text-align: center;
+    padding: 1em;
+    @include payever_animation($name: payever-loading-color-change, $duration: 1s, $iteration-count: infinite);
+  }
+  .payever-installment-title {
+    position: relative;
+    border-bottom: 1px $light_grey4 solid;
+    color: $black;
+    & > span {
+      display: block;
+      text-align: center;
+      &.payever-close-button {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 30px;
+        cursor: pointer;
+      }
+      &.payever-option-logo {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 50px;
+        height: 50px;
+        line-height: 1px;
+        text-align: center;
+        @include payever_vertical_align_middle();
+        img {
+          vertical-align: middle;
+          display: inline-block;
+          max-height: 34px;
+          max-width: 34px;
+        }
+      }
+      &.payever-option-name {
+        margin: 0 50px;
+        font-size: 18px;
+        line-height: 30px;
+        padding: 10px 0;
+      }
+    }
+  }
+  .payever-installment-iframe {
+    position: absolute;
+    top: 51px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    iframe {
+      visibility: visible;
+    }
+  }
+  &.payever-is-loading {
+    .payever-loading {
+      display: block;
+    }
+    .payever-installment-iframe iframe {
+      visibility: hidden;
+    }
+  }
+  @media (max-width: 450px) {
+    border-left: 0 none;
+  }
+  @include keyframes(payever-loading-color-change) {
+    0% {
+      color: $light_grey;
+    }
+    50% {
+      color: $black;
+    }
+    100% {
+      color: $light_grey;
+    }
+  }
+}
+
+.payever-finance-express {
+  display: block;
+  box-sizing: border-box;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 400;
+  &.payever-text-link a {
+    padding: 0;
+  }
+  &.payever-button {
+    button {
+      padding: 0 16px;
+      border: 0;
+      white-space: nowrap;
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      &:focus {
+        outline: none;
+      }
+      svg {
+        display: inline-block;
+        vertical-align: middle;
+        margin-top: -4px;
+        margin-right: 6px;
+      }
+    }
+    div {
+      text-align: left;
+    }
+  }
+  &.payever-banner-and-rate {
+    .payever-banner {
+
+      flex-direction: column;
+
+      > div {
+        width: 100%;
+        padding: 12px;
+        text-align: center;
+      }
+
+      > div:first-child {
+        vertical-align: top;
+        min-height: 1em;
+        > div {
+          height: 100%;
+          position: relative;
+          border-style: solid;
+          border-width: 3px;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          padding: 10px 35px;
+
+          .paever-banner-border {
+            position: absolute;
+            background: #fff;
+          }
+          .paever-border-top {
+            top: -3px;
+            right: 10px;
+            left: 10px;
+            height: 3px;
+          }
+          .paever-border-right {
+            top: 10px;
+            right: -3px;
+            bottom: 10px;
+            width: 3px;
+          }
+          .paever-border-bottom {
+            right: 10px;
+            bottom: -3px;
+            left: 10px;
+            height: 3px;
+          }
+          .paever-border-left {
+            top: 10px;
+            bottom: 10px;
+            left: -3px;
+            width: 3px;
+          }
+        }
+      }
+      .payever-duration {
+        font-size: 3vw;
+        line-height: 1em;
+      }
+      .payever-amount {
+        font-size: 11px;
+        line-height: 14px;
+      }
+      .payever-banner-logo {
+        width: 60%;
+        margin: 5%;
+        display: inline-block;
+      }
+      .payever-effective-rate {
+        font-size: 8px;
+        line-height: 1.8;
+      }
+
+      .payever-legal-info {
+        text-align: left;
+        font-size: 12px;
+        line-height: 14px;
+      }
+    }
+    .payever-rate {
+      text-align: left;
+      .payever-amount {
+        border-radius: 4px 4px 0 0;
+        padding: 8px 4% 8px 7%;
+        font-size: 16px;
+        .payever-monthly-text {
+          font-size: 65%;
+        }
+      }
+      .payever-dropdown {
+        &::-ms-expand {
+          display: none;
+        }
+        border-radius: 0 0 4px 4px;
+        padding: 8px;
+        margin-bottom: 8px;
+        width: 100%;
+        background: #fff;
+        appearance: none;
+        -webkit-appearance: button;
+        -moz-appearance: none;
+        -webkit-padding-end: 20px;
+        -webkit-padding-start: 7%;
+        -webkit-user-select: none;
+        background-image: url(data:image/svg+xml;base64,77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiPg0KPHBhdGggY2xhc3M9InBhdGgxIiBmaWxsPSIjMzMzMzMzIiBkPSJNOC4wMDc2NiwxMC40NDY0MWMtMC4xMjM1MSwwIC0wLjI0NzAyLC0wLjA0NzA5IC0wLjM0MTI4LC0wLjEzOTM1bC0zLjM3MDU4LC0zLjM0NTc0Yy0wLjE4Nzg3LC0wLjE4NjQ1IC0wLjE4Nzg3LC0wLjQ4OTAyIDAsLTAuNjc1NDhjMC4xODc4NywtMC4xODY0NSAwLjQ5Mjc1LC0wLjE4NjQ1IDAuNjgwNjIsMGwzLjAzMTI0LDMuMDA3MDRsMy4wMjk5NCwtMy4wMDcwNGMwLjE4Nzg3LC0wLjE4NjQ1IDAuNDkyNzUsLTAuMTg2NDUgMC42ODA2MiwwYzAuMTg3ODcsMC4xODY0NSAwLjE4Nzg3LDAuNDg5MDMgMCwwLjY3NTQ4bC0zLjM3MDU3LDMuMzQ1NzRjLTAuMDkzNjEsMC4wOTIyNiAtMC4yMTcxMiwwLjEzOTM1IC0wLjMzOTk4LDAuMTM5MzV6IiAvPg0KPC9zdmc+);
+        background-position: 97% center;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        border-top: none;
+      }
+      .payever-footer {
+        padding: 0 8px;
+        .payever-total {
+          margin-right: 3px;
+        }
+        .payever-effective-rate {
+          white-space: nowrap;
+          float: right;
+        }
+      }
+    }
+  }
+
+  &-bubble {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    &.payever-bubble {
+      position: absolute;
+      right: 370px;
+    }
+    .payever-activator-link {
+      margin: 0;
+      cursor: pointer;
+      border: 0 none;
+      padding: 0;
+      background: none;
+      position: relative;
+      outline: none !important;
+    }
+    .payever-installment-hint-close {
+      cursor: pointer;
+      position: absolute;
+      top: -30px;
+      right: -1px;
+      background: rgba(40,45,50,.4) url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAANlBMVEUAAAD////////////////////////////////////////////////////////////////////xY8b8AAAAEXRSTlMACAobJThGcbG/2uTn6Pf5+haE7tEAAABfSURBVBjTVc4xAoAgDEPRCLWiKJr7X9YBKTHjW/KxFEfM9gwUtiCrPBK8BVklN2DSgKAJHyl0OhUAb/wD7CRvV6jkI139RbrG7aS4HSQdH+1y641XQj6kw68VQNKwBLy8YgX6BCnEIQAAAABJRU5ErkJggg==') no-repeat 10px;
+      background-size: 8px 8px;
+      border-radius: 40px;
+      visibility: visible;
+      padding: 6px 10px 5px 22px;
+      font-family: $font-family-sans-serif;
+      font-size: 12px;
+      color: $white;
+      line-height: 12px;
+      display: block;
+      &:hover {
+        background-color: rgba(40,45,50,.5);
+      }
+    }
+    .payever-installment-hint-add-to-cart {
+      background: $white;
+      padding: 10px 18px;
+      text-align: left;
+      display: block;
+      button {
+        background: $blue;
+        border: 1px $blue solid;
+        box-shadow: 0 4px 5px rgba(0,0,0,.08);
+        padding: 6px 10px;
+        border-radius: 5px;
+        margin: 0;
+        display: inline-block;
+        color: $white;
+        font-family: $font-family-sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 12px;
+        width: auto;
+        position: static;
+        float: none;
+        cursor: pointer;
+        outline: 0 none!important;
+        &:hover, &:focus, &:active {
+          outline: 0 none!important;
+        }
+        span {
+          display: inline-block;
+          margin: 0 4px 0 0;
+          padding: 0;
+          position: relative;
+          border-radius: 50%;
+          width: 12px;
+          height: 12px;
+          vertical-align: top;
+          &:before, &:after {
+            content: "";
+            display: block;
+            background: $white;
+            position: absolute;
+          }
+          &:before {
+            width: 9px;
+            height: 1px;
+            left: 2px;
+            top: 6px;
+          }
+          &:after {
+            width: 1px;
+            height: 9px;
+            left: 6px;
+            top: 2px;
+          }
+        }
+        svg.icon-16 {
+          margin: -2px 4px -2px 0;
+          vertical-align: top;
+        }
+        &:active {
+          color: $blue;
+          span {
+            background: $blue;
+          }
+        }
+        &:hover, &:active, &:focus {
+          color: $white;
+          text-decoration: none;
+        }
+        &:active {
+          box-shadow: 0 4px 5px rgba(0,0,0,.08), inset 0 4px 5px rgba(0,0,0,.08);
+        }
+      }
+    }
+    &.payever-banner-type-bubble {
+      padding: 30px 10px 93px 10px;
+      min-width: 103px;
+      .payever-activator-link {
+        width: 83px;
+        height: 83px;
+        font-size: 10px;
+        color: transparent;
+        -webkit-perspective: 160px;
+        -moz-perspective: 160px;
+        -ms-perspective: 160px;
+        -o-perspective: 160px;
+        perspective: 160px;
+        border-radius: 50%;
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        .payever-button-image {
+          width: 73px;
+          height: 73px;
+          display: block;
+          margin: 0;
+          padding: 5px;
+          background: $white;
+          overflow: hidden;
+          border-radius: 50%;
+          img {
+            display: block;
+            width: 73px;
+            height: 73px;
+            border-radius: 50%;
+          }
+        }
+        & + .payever-installment-hint {
+          transform-origin: 315px 100% 0px;
+          transform: translate(0px, 0px) scale(1, 1);
+          opacity: 1;
+          cursor: default;
+          position: relative;
+          margin-bottom: 13px;
+          background-color: #fafafb;
+          width: 290px;
+          border-radius: 5px;
+          border: 1px solid rgba(0,0,0,.1);
+          box-shadow: 0 0 10px rgba(0,0,0,.08);
+          font-family: $font-family-sans-serif;
+          &:before {
+            top: 100%;
+            right: 32px;
+            border: 9px solid transparent;
+            border-top-color: rgba(0,0,0,.14);
+            content: "";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+            margin-left: -6px;
+            display: block;
+          }
+          &:after {
+            top: 100%;
+            border: 8px solid transparent;
+            border-top-color: $white;
+            content: "";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+            margin-left: -5px;
+            right: 33px;
+            display: block;
+          }
+          .payever-installment-hint-value-box {
+            border-radius: 6px;
+            box-shadow: 0 1px 1px #f0f0f1;
+            padding: 17px;
+            overflow: hidden;
+            background: #ffffff;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            .payever-installment-hint-value {
+              display: block;
+              font-size: 15px;
+              line-height: 23px;
+              font-weight: 400;
+              letter-spacing: 0.41px;
+              color: $black;
+              text-align: justify;
+              max-height: 192px;
+              overflow: hidden;
+            }
+          }
+          .payever-installment-hint-add-to-cart {
+            border-top: $border-block-title;
+            border-radius: 0 0 6px 6px;
+            margin-top: -6px;
+          }
+        }
+      }
+      &.payever-banner-place-left {
+        .payever-activator-link {
+          left: 10px;
+          right: auto;
+          & + .payever-installment-hint {
+            &:before {
+              right: auto;
+              left: 32px;
+              margin-left: 0;
+              margin-right: -6px;
+            }
+            &:after {
+              right: auto;
+              left: 33px;
+              margin-left: 0;
+              margin-right: -5px;
+            }
+          }
+        }
+      }
+      &.payever-banner-message-place-side {
+        padding: 30px 93px 10px 10px;
+        .payever-activator-link + .payever-installment-hint {
+          margin-bottom: 0;
+          margin-right: 13px;
+          &:before {
+            top: auto;
+            bottom: 32px;
+            left: 100%;
+            margin-left: 0;
+            margin-top: -6px;
+            border-left-color: rgba(0,0,0,.14);
+            border-top-color: transparent;
+          }
+          &:after {
+            top: auto;
+            bottom: 33px;
+            left: 100%;
+            margin-left: 0;
+            margin-top: -5px;
+            border-left-color: $white;
+            border-top-color: transparent;
+          }
+        }
+        &.payever-banner-place-left {
+          padding: 30px 10px 10px 93px;
+          .payever-activator-link + .payever-installment-hint {
+            margin-right: 0;
+            margin-left: 13px;
+            &:before {
+              left: auto;
+              right: 100%;
+              border-right-color: rgba(0,0,0,.14);
+              border-left-color: transparent;
+              margin-left: -6px;
+              margin-right: 0;
+            }
+            &:after {
+              left: auto;
+              right: 100%;
+              border-right-color: $white;
+              border-left-color: transparent;
+              margin-left: -5px;
+              margin-right: 0;
+            }
+          }
+        }
+      }
+    }
+    &.payever-banner-type-boxed {
+      padding: 30px 10px 10px 10px;
+      .payever-installment-hint-close {
+        top: 0;
+        right: 10px;
+      }
+      .payever-installment-hint {
+        .payever-installment-hint-add-to-cart {
+          padding-bottom: 20px;
+          margin-bottom: -10px;
+        }
+      }
+      .payever-activator-link {
+        position: relative;
+        .payever-button-image {
+          width: 302px;
+          height: 302px;
+          display: block;
+          padding: 35px;
+          -moz-box-sizing: border-box;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          border-radius: 0;
+          border: $border-block-title;
+          @include payever_vertical_align_middle();
+          background: $white no-repeat center center;
+          .payever-banner-body {
+            display: inline-block;
+            vertical-align: top;
+            width: 100%;
+            overflow: hidden;
+            max-height: 230px;
+            text-align: left;
+            font-size: 14px;
+            line-height: 1.42857;
+            color: $text-color;
+            font-family: $font-family-sans-serif;
+          }
+        }
+        &.payever-banner-text-vertical-align-middle {
+          .payever-button-image .payever-banner-body {
+            vertical-align: middle;
+          }
+        }
+        &.payever-banner-text-vertical-align-bottom {
+          .payever-button-image .payever-banner-body {
+            vertical-align: bottom;
+          }
+        }
+      }
+      &.payever-banner-corner-circle {
+        .payever-button-image {
+          border-radius: 10px;
+        }
+        .payever-installment-hint-add-to-cart {
+          border-radius: 10px 10px 0 0;
+        }
+      }
+    }
+    .payever-button-flipper {
+      -webkit-transform-style: preserve-3d;
+      -moz-transform-style: preserve-3d;
+      -ms-transform-style: preserve-3d;
+      -o-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+      -webkit-transform-origin: 40px 40px 0;
+      -moz-transform-origin: 40px 40px 0;
+      -ms-transform-origin: 40px 40px 0;
+      -o-transform-origin: 40px 40px 0;
+      transform-origin: 40px 40px 0;
+      position: absolute;
+      display: block;
+      left: 0;
+      top: 0;
+      &:not(:hover) {
+        @include payever_animation(
+                $name: payever-spinbtn,
+                $duration: 10s,
+                $timing-function: ease-in-out,
+                $iteration-count: infinite);
+      }
+      & > span {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: $white no-repeat center center;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        display: block;
+        box-shadow: 0 0 10px $light_grey8;
+        &.payever-button-flip {
+          -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+        }
+        background-size: 56px;
+        background-color: #fe0000;
+      }
+      @include keyframes(payever-spinbtn) {
+        0%, 40% {
+          @include rotateY(0deg);
+        }
+        47%, 53% {
+          @include rotateY(180deg);
+        }
+        60%, 100% {
+          @include rotateY(360deg);
+        }
+      }
+    }
+  }
+  .payever-fieldset {
+    border-radius: 4px;
+    box-shadow: inset 0 0 0 1px #e1e1e1;
+    margin-bottom: 5.5px;
+    overflow-x: hidden;
+  }
+  .payever-form-table-row {
+    border-color: transparent #e1e1e1 #e1e1e1 transparent;
+    border-style: solid;
+    border-width: 1px;
+    box-sizing: border-box;
+    float: left;
+    min-height: 56px;
+    padding: 0;
+    position: relative;
+    width: 50%;
+    z-index: 0;
+  }
+  .payever-form-table-label {
+    font-size: 12px;
+    font-weight: 400;
+    left: 24px;
+    line-height: 29px;
+    margin: 0;
+    opacity: 0.75;
+    overflow: hidden;
+    position: absolute;
+    right: 24px;
+    text-overflow: ellipsis;
+    top: 0;
+    white-space: nowrap;
+  }
+  .payever-form-table-control {
+    background-color: transparent;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 16px;
+    height: 53px;
+    line-height: 31px;
+    padding: 22px 24px 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+  }
+  select.payever-form-table-control {
+    &::-ms-expand {
+      display: none;
+    }
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: transparent;
+    background-image: url(data:image/svg+xml;base64,77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiPg0KPHBhdGggY2xhc3M9InBhdGgxIiBmaWxsPSIjMzMzMzMzIiBkPSJNOC4wMDc2NiwxMC40NDY0MWMtMC4xMjM1MSwwIC0wLjI0NzAyLC0wLjA0NzA5IC0wLjM0MTI4LC0wLjEzOTM1bC0zLjM3MDU4LC0zLjM0NTc0Yy0wLjE4Nzg3LC0wLjE4NjQ1IC0wLjE4Nzg3LC0wLjQ4OTAyIDAsLTAuNjc1NDhjMC4xODc4NywtMC4xODY0NSAwLjQ5Mjc1LC0wLjE4NjQ1IDAuNjgwNjIsMGwzLjAzMTI0LDMuMDA3MDRsMy4wMjk5NCwtMy4wMDcwNGMwLjE4Nzg3LC0wLjE4NjQ1IDAuNDkyNzUsLTAuMTg2NDUgMC42ODA2MiwwYzAuMTg3ODcsMC4xODY0NSAwLjE4Nzg3LDAuNDg5MDMgMCwwLjY3NTQ4bC0zLjM3MDU3LDMuMzQ1NzRjLTAuMDkzNjEsMC4wOTIyNiAtMC4yMTcxMiwwLjEzOTM1IC0wLjMzOTk4LDAuMTM5MzV6IiAvPg0KPC9zdmc+);
+    background-position-y: calc(50% + 6px);
+    background-position: calc(100% - 6px) 50%;
+    background-repeat: no-repeat;
+    background-size: auto;
+    margin: 0;
+    outline: none;
+    position: relative;
+  }
+}

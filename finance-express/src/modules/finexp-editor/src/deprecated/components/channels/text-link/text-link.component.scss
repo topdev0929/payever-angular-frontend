@@ -1,0 +1,10 @@
+@import "../../../../../../../../node_modules/@pe/ui-kit/scss/pe_variables";
+@import "../../../../../../../../node_modules/@pe/ui-kit/scss/mixins/pe_mixins";
+
+:host {
+  .empty-connections {
+    &-action {
+      padding: 22px;
+    }
+  }
+}

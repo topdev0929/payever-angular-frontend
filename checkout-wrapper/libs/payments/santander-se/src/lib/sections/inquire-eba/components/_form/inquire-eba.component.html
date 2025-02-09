@@ -1,0 +1,21 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup"
+  analyticsForm>
+  <household-form formControlName="householdForm"></household-form>
+  <existing-loans-form formControlName="existingLoansForm"></existing-loans-form>
+
+  <checkout-sdk-continue-button
+    class="button-continue"
+    i18n-text="@@actions.submit"
+    text="Submit"
+    (clicked)="submit()">
+  </checkout-sdk-continue-button>
+</form>
+
+<santander-se-shared-finish
+  *ngIf="isSendingPayment$ | async"
+  [embeddedMode]="embeddedMode"
+  [merchantMode]="merchantMode"
+  [isLoading]="true">
+</santander-se-shared-finish>

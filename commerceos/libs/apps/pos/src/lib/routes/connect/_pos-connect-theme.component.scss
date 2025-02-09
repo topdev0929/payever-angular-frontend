@@ -1,0 +1,63 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $active-text: map.get($color-config, 'active-text');
+  $confirm: map.get($color-config, 'confirm');
+  $primary: map.get($color-config, 'primary');
+  $x-button: map.get($color-config, 'x-button');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $fill-black: map.get($color-config, 'fill-black');
+  $background: map.get($color-config, 'background');
+
+  .connect__container {
+    .page-header {
+      color: $text-color;
+    }
+
+    .connect {
+      &__section {
+        &__header {
+          color: #7a7a7a;
+        }
+        &__content {
+          background-color: $primary;
+          &-item {
+            .item {
+              &-content {
+                border-top-color: $background !important;
+                .item-name {
+                  color: $text-color;
+                }
+              }
+              &-icon {
+                background-color: $x-button;
+                color: $active-text;
+              }
+            }
+            &:hover {
+              background: $confirm !important;
+              color: $active-text !important;
+
+              .item-control {
+                .button-toggle-slider {
+                  background-color: $fill-black;
+                }
+                button {
+                  color: $active-text;
+                }
+              }
+
+              .item-content {
+                border-top-color: $transparent-color !important;
+                .item-name {
+                  color: $active-text;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

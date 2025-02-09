@@ -1,0 +1,39 @@
+<peb-form-background [formGroup]="form">
+
+    <div class="dark">
+        <peb-select
+            formControlName="selectedFolder"
+            [label]="'contacts-app.group_modal.select_group' | translate"
+            [selected]="form.controls.selectedFolder.value"
+            [isFieldInvalid]="selectedFolderInvalid"
+            errorMessage="{{'contacts-app.group_modal.select_folder_required' | translate}}"
+            placeholder="Folder name"
+            selectType="label">
+
+            <peb-select-option
+                    *ngFor="let folder of foldersData$ | async"
+                    [label]="folder.name"
+                    [value]="folder._id">
+            </peb-select-option>
+
+        </peb-select>
+
+      <peb-form-field-input
+        formControlName="folderName"
+        [label]="folderNameLabel"
+        appearance="label"
+        [isFieldInvalid]="folderNameInvalid"
+        [errorMessage]="folderNameErrorMessage "
+      >
+        <input
+          [placeholder]="folderNamePlaceholder"
+        />
+        <div class="suffix">
+          <button peb-text-button color="confirm" (click)="addFolder()">
+            {{'contacts-app.group_modal.add_new_group' | translate}}
+          </button>
+        </div>
+      </peb-form-field-input>
+    </div>
+
+</peb-form-background>

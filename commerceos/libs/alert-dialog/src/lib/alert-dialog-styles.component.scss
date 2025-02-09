@@ -1,0 +1,13 @@
+.pe-alert-dialog {
+  &__panel {
+    .mat-dialog-container {
+      padding: 24px 16px;
+      box-sizing: border-box;
+      backdrop-filter: blur(25px);
+      box-shadow: 0 2px 12px 0 rgb(0 0 0 / 50%) !important;
+      border-width:1px;
+      border-style: solid;
+      border-radius: 10px;
+    }
+  }
+}

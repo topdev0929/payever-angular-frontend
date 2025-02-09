@@ -1,0 +1,39 @@
+<ng-container *ngIf="(gridOptions$ | async) && (translationsReady$ | async)">
+  <pe-data-grid
+    #dataGridComponent
+    [dataListOptions]="gridOptions$ | async"
+    [items]="gridItems$ | async"
+    [displayFilters]="false"
+    [filters]="null"
+    [defaultLayout]="viewMode"
+    (searchChanged)="onSearchStringChange($event)"
+    (filtersChanged)="onFilterChange()"
+    (layoutTypeChanged)="onChangeView($event)"
+    (scrollEvent)="onScrollStream$.next($event)"
+    (chooseFilters)="chooseFilters()"
+    (nodeContextMenu)="openContextMenu($event, item, contextMenu)"
+    itemsTitle="transactions">
+    <div navbarSlot class="tree-filters-button">
+      <pe-connect-tree-filter-icon
+      [active]="showTreeFilters$ | async"
+      (click)="showTreeFilters$.next(!showTreeFilters$.value)">
+      </pe-connect-tree-filter-icon>
+    </div>
+    <pe-data-grid-item
+      *ngFor="let item of (gridItems$ | async)"
+      inViewport
+      (inViewportAction)="onInViewportChange($event)"
+      [item]="item"
+      [actions]="item.actions"
+      [selectable]="false"
+      [isShowGridItemInfo]="true"
+      [labels]="''">
+      <integration-card
+        [integration]="item._cardItem"
+        [gridAnimationProgress$]="dataGridComponent.gridAnimationProgress$"
+        [onScroll$]="onScrollStream$"
+        (saveReturn)="saveReturn($event)">
+      </integration-card>
+    </pe-data-grid-item>
+  </pe-data-grid>
+</ng-container>

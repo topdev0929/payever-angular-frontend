@@ -1,0 +1,117 @@
+<ng-container *ngIf="isFieldsetVisible()">
+  <div [formGroup]="formGroup"
+       class="form-fieldset"
+       [class.form-fieldset-no-border]="noBorder || formStyle === 'no-border'"
+       [class.form-fieldset-no-border-radius]="noBorderRadius"
+       [class.form-fieldset-no-margin]="noMargin"
+       [class.form-fieldset-horizontal]="orientation === 'horizontal'"
+       [class.dark]="formStyle === 'dark'">
+
+    <div class="row">
+      <ng-template [ngTemplateOutlet]="fieldsetContainer" [ngTemplateOutletContext]="{ fields: fields }"></ng-template>
+    </div>
+
+    <ng-template #fieldsetContainer let-fields="fields">
+      <ng-container *ngFor="let field of fields">
+        <div *ngIf="isFieldVisible(field.name)"
+             [ngClass]="(asObservable(field?.fieldSettings) | async)?.classList"
+             [class.form-fieldset-field-readonly]="isFieldReadonly(field)"
+             [class.force-no-transparent]="field.type === 'checkbox' && formStyle === 'transparent' && noBorder"
+             [class.fs-hide]="(asObservable(field?.fieldSettings) | async)?.fullStoryHide">
+          <ng-template [ngTemplateOutlet]="fieldsetControls"
+                       [ngTemplateOutletContext]="{ field: field }"
+          ></ng-template>
+          <ng-container *ngIf="asObservable(field?.tooltipIcon) | async">
+            <!-- Small hack to ad space between tooltip icon and dropdown icon -->
+            <ng-container *ngIf="['select', 'select-country', 'select-boolean'].indexOf(field.type) >= 0">&nbsp;&nbsp;</ng-container>
+            <pe-tooltip-icon [config]="asObservable(field?.tooltipIcon) | async"></pe-tooltip-icon>
+          </ng-container>
+        </div>
+      </ng-container>
+    </ng-template>
+
+    <ng-template #fieldsetControls let-field="field">
+      <ng-container [ngSwitch]="field.type">
+        <ng-template *ngSwitchCase="FormFieldType.Input" [ngTemplateOutlet]="inputField" [ngTemplateOutletContext]="getFieldContext(field)"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.InputCurrency" [ngTemplateOutlet]="inputCurrencyField" [ngTemplateOutletContext]="getFieldContext(field)"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.AutocompleteGooglePlaces" [ngTemplateOutlet]="autocompleteGooglePlacesField" [ngTemplateOutletContext]="getFieldContext(field)"></ng-template>
+      </ng-container>
+    </ng-template>
+
+    <!-- Input field -->
+    <!-- @deprecated field.nameAttribute. Use field.inputSettings.nameAttribute instead -->
+    <!-- @deprecated field.autocompleteAttribute. Use field.inputSettings.autocompleteAttribute instead -->
+    <ng-template #inputField let-f="f">
+      <pe-input *ngIf="((asObservable(f.field?.inputSettings) | async) || {}) as inputSettings"
+                [addonAppend]="f.addonAppend$ | async"
+                [addonPrepend]="f.addonPrepend$ | async"
+                [errorMessage]="getFieldError(f.field)"
+                [errorStateMatcher]="errorStateMatcher"
+                [formControlRef]="formGroup.get(f.field.name)"
+                [required]="isFieldRequired(f.field)"
+                [readonly]="isFieldReadonly(f.field)"
+                [blockCopyPaste]="isBlockCopyPaste(f.field)"
+                [scopeQaId]="scopeQaId"
+                [tabIndex]="f.tabIndex$ | async"
+                [placeholder]="translate(inputSettings.placeholder) || translate(f.placeholder)"
+                [type]="inputSettings.type"
+                [minLength]="inputSettings.minLength"
+                [maxLength]="inputSettings.maxLength"
+                [numberMin]="inputSettings.numberMin"
+                [numberMax]="inputSettings.numberMax"
+                [numberIsInteger]="inputSettings.numberIsInteger"
+                [showNumberControls]="inputSettings.showNumberControls"
+                [nameAttribute]="inputSettings.nameAttribute || f.field?.nameAttribute"
+                [autocompleteAttribute]="inputSettings.autocompleteAttribute || f.field?.autocompleteAttribute"
+                (valueChange)="executeCallback(inputSettings, 'onValueChange', $event)"
+                (focus)="executeCallback(inputSettings, 'onFocus', $event)"
+                (blur)="executeCallback(inputSettings, 'onBlur', $event)"
+      ></pe-input>
+    </ng-template>
+
+    <!-- Currency input field -->
+    <ng-template #inputCurrencyField let-f="f">
+      <pe-input-currency ngDefaultControl
+                         *ngIf="((asObservable(f.field?.inputCurrencySettings) | async) || {}) as inputCurrencySettings"
+                         [addonAppend]="f.addonAppend$ | async"
+                         [addonPrepend]="f.addonPrepend$ | async"
+                         [forceDisabled]="formGroup.get(f.field.name).disabled"
+                         [errorMessage]="getFieldError(f.field)"
+                         [errorStateMatcher]="errorStateMatcher"
+                         [formControl]="formGroup.get(f.field.name)"
+                         [touched]="formGroup.get(f.field.name).touched"
+                         [maxLength]="inputCurrencySettings.maxLength"
+                         [placeholder]="translate(inputCurrencySettings.placeholder) || translate(f.placeholder)"
+                         [required]="isFieldRequired(f.field)"
+                         [readonly]="isFieldReadonly(f.field)"
+                         [blockCopyPaste]="isBlockCopyPaste(f.field)"
+                         [scopeQaId]="scopeQaId"
+                         [tabIndex]="f.tabIndex$ | async"
+                         (valueChange)="handleValueChange(f.field, inputCurrencySettings, 'onValueChange', $event)"
+                         (focus)="executeCallback(inputCurrencySettings, 'onFocus', $event)"
+                         (blur)="executeCallback(inputCurrencySettings, 'onBlur', $event)"
+      ></pe-input-currency>
+    </ng-template>
+
+    <!-- Google places autocomplete field -->
+    <ng-template #autocompleteGooglePlacesField let-f="f">
+      <pe-autocomplete-google-places *ngIf="((asObservable(f.field?.autocompleteGooglePlacesSettings) | async) || {}) as autocompleteGooglePlacesSettings"
+                                     [addonAppend]="f.addonAppend$ | async"
+                                     [addonPrepend]="f.addonPrepend$ | async"
+                                     [errorMessage]="getFieldError(f.field)"
+                                     [errorStateMatcher]="errorStateMatcher"
+                                     [formControlRef]="formGroup.get(f.field.name)"
+                                     [countriesOnly]="autocompleteGooglePlacesSettings.countriesOnly"
+                                     [placeholder]="translate(autocompleteGooglePlacesSettings.placeholder) || translate(f.placeholder)"
+                                     [required]="isFieldRequired(f.field)"
+                                     [readonly]="isFieldReadonly(f.field)"
+                                     [blockCopyPaste]="isBlockCopyPaste(f.field)"
+                                     [scopeQaId]="scopeQaId"
+                                     [tabIndex]="f.tabIndex$ | async"
+                                     (valueChange)="handleValueChange(f.field, autocompleteGooglePlacesSettings, 'onValueChange', $event)"
+                                     (focus)="executeCallback(autocompleteGooglePlacesSettings, 'onFocus', $event)"
+                                     (blur)="executeCallback(autocompleteGooglePlacesSettings, 'onBlur', $event)"
+      ></pe-autocomplete-google-places>
+    </ng-template>
+  </div>
+</ng-container>

@@ -1,0 +1,133 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+@import "../../controls";
+
+:host {
+  display: block;
+  width: 440px;
+}
+
+.version-forms {
+  padding: 8px 16px 8px 24px;
+  @include pe_flexbox;
+  @include pe_justify-content(space-between);
+
+  .image-picker {
+    position: relative;
+    cursor: pointer;
+    @include pe_flexbox;
+    @include pe_flex-direction(column);
+    @include pe_justify-content(center);
+    @include pe_align-items(center);
+    width: 56px;
+    height: 56px;
+    margin: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .logo {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+  }
+
+  .logo-remove {
+    position: absolute;
+    right: 20%;
+    top: 20%;
+    border: none;
+    outline: none;
+    padding: 0 4px;
+    background-color: rgba(64, 64, 64, 0.8);
+    border-radius: 50%;
+
+    &:hover {
+      background: rgba(96, 96, 96, 0.7);;
+    }
+  }
+
+  .content {
+    @include pe_flex(1);
+    margin-left: 16px;
+  }
+
+  form.theme-name, form.version-name {
+    @include pe_flexbox;
+    @include pe_justify-content(space-between);
+    @include pe_align-items(center);
+    margin-bottom: $unit / 2;
+
+    label {
+      @extend %navbar-field-label;
+      width: 6 * $unit;
+      @include pe_flex-shrink(0);
+    }
+
+    input {
+      @extend %navbar-field-input;
+      @include pe_flex(1, 0);
+      margin-right: 8px;
+    }
+  }
+}
+
+ul.versions-table {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  max-height: 160px;
+  overflow-y: auto;
+
+  li.version-row {
+    @include pe_flexbox;
+    @include pe_justify-content(space-between);
+    padding: 8px;
+    border-bottom: 1px solid rgba(192, 192, 192, .5);
+
+    &:last-child { border-bottom: none; }
+
+    &.current {
+      background-color: $color-white-grey-1;
+    }
+
+    .version-actions {
+      padding-right: 8px;
+      @include pe_flex(0, 0);
+    }
+
+    .version-container {
+      @include pe_flexbox;
+    }
+
+    .version-name {
+      @include pe_flexbox;
+      @include pe_align-items(center);
+      padding: 0 16px;
+      @include pe_flex(1, 0);
+    }
+
+    .published-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #0f0;
+      padding: 0;
+      margin: 0 8px;
+    }
+
+    .version-date {
+      padding: 0 8px;
+      @include pe_flex(0, 0);
+    }
+
+    .version-time {
+      padding: 0 8px;
+      @include pe_flex(0, 0);
+    }
+  }
+}

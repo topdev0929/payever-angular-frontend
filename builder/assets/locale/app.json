@@ -1,0 +1,374 @@
+{
+  "content_editor": {
+    "foo": {},
+    "widget_component": {
+      "edit": "Edit",
+      "duplicate": "Duplicate",
+      "remove": "Delete",
+      "back": "Back",
+      "front": "Front",
+      "backward": "Backward",
+      "forward": "Forward"
+    },
+    "inventory": {
+      "in_stock": "In stock",
+      "out_of_stock": "Not Available",
+      "low": "In stock"
+    },
+    "base_widget_settings": {
+      "block_size": "Block size",
+      "alignment": "Alignment",
+      "open_in_new_tab": "Open in new tab",
+      "font_weight": "Font weight",
+      "font_size": "Font size",
+      "custom_link": "Custom link",
+      "link_to": "Link to",
+      "links": "Links",
+      "text": "Text",
+      "background": "Background",
+      "border": "Border",
+      "hover": "Hover",
+      "text_hover": "Text hover",
+      "radius": "Radius",
+      "border_width": "Border Width",
+      "main_color": "Main color",
+      "style": "Style",
+      "icon": "Icon",
+      "btn_config": {
+        "text_color": "Text color",
+        "fill_color": "Fill color",
+        "border_color": "Border color",
+        "corners": "Corners",
+        "no_fill": "No fill",
+        "no_border": "No border"
+      },
+      "corner_types": {
+        "square": "Square",
+        "round": "Round",
+        "circle": "Circle"
+      },
+      "font_weights": {
+        "thin": "Thin",
+        "light": "Light",
+        "regular": "Regular",
+        "medium": "Medium",
+        "bold": "Bold"
+      }
+    },
+    "catalog_settings": {
+      "item_shape": {
+        "label": "Grid shape"
+      },
+      "items_per_row": {
+        "label": "Columns"
+      },
+      "rows_per_page": {
+        "label": "Rows"
+      },
+      "details_alignment": {
+        "label": "Details alignment",
+        "options": {
+          "left": "Left",
+          "center": "Center",
+          "right": "Right"
+        }
+      },
+      "has_padding": {
+        "label": "Padding"
+      },
+      "has_name": {
+        "label": "Item name"
+      },
+      "has_price": {
+        "label": "Price"
+      },
+      "has_lines": {
+        "label": "Lines"
+      },
+      "hover_effect": {
+        "label": "Hover effect",
+        "options": {
+          "no_effect": "No effect",
+          "zoom_in": "Zoom in",
+          "zoom_out": "Zoom out"
+        }
+      },
+      "category": {
+        "label": "Category"
+      },
+      "category_type": {
+        "all": "All products",
+        "taxonomy": "Products from a category",
+        "manual": "Custom selection"
+      },
+      "select_products": "Select products"
+    },
+    "cart_icon_widget_settings": {
+      "icon_color": "Icon color",
+      "quantity": "Quantity",
+      "quantity_color": "Quantity color",
+      "quantity_type": {
+        "dot": "Dot",
+        "number": "Number"
+      }
+    },
+    "menu_widget_settings": {
+      "menu_content": "Menu content"
+    },
+    "featured_products_settings_component": {
+      "select_category_or_selection": {
+        "label": "Select category or custom selection"
+      }
+    },
+    "image_field": {
+      "add_img": "Add image"
+    },
+    "text_widget": {
+      "placeholder": "Text"
+    },
+    "featured_products_widget": {
+      "placeholder_title_edit_mode": "Click here to add products",
+      "placeholder_title_viewer_mode": "You don't have any products",
+      "sale": "SALE"
+    },
+    "product_widget": {
+      "cart_button_title": "Add to cart"
+    },
+    "docker_widgets": {
+      "titles": {
+        "text": "Text",
+        "image": "Image",
+        "products": "Products",
+        "product": "Product",
+        "button": "Button",
+        "dropdown": "Dropdown",
+        "cart": "Cart",
+        "menu": "Menu"
+      }
+    },
+    "editor": {
+      "context_menu": {
+        "select_area": "Select Area"
+      },
+      "widget_settings": {
+        "widget_settings_position": {
+          "left": "Left",
+          "right": "Right",
+          "top": "Top",
+          "bottom": "Bottom",
+          "pin_widget": "Pin widget",
+          "offset": "Offset"
+        },
+        "widget_settings_visibility": {
+          "visible_on": "Visible on:"
+        }
+      },
+      "areas": {
+        "header": "Header",
+        "body": "Body",
+        "footer": "Footer"
+      }
+    }
+  },
+  "website_editor": {
+    "system_header": {
+      "publish_changes": "Publish",
+      "save_changes": "Save changes",
+      "pages_menu": {
+        "add_page": "+ Add page",
+        "duplicate_page": "Duplicate",
+        "delete_page": "Delete"
+      },
+      "layers_menu": {
+        "placeholder": "No layers"
+      },
+      "master_page_panel": {
+        "title": "Master page editing:"
+      },
+      "select_master_page": {
+        "title": "Choose Master page"
+      },
+      "publish_menu": {
+        "version": "Version",
+        "current_version": "Current version",
+        "publish": "Publish",
+        "published": "Published",
+        "publishing": "Publishing",
+        "not_published": "Not published",
+        "install": "Install",
+        "delete": "Delete",
+        "logo": "Logo",
+        "name": "Name",
+        "ver": "ver.",
+        "category": "Category"
+      },
+      "back_to_dashboard": {
+        "title": "To Dashboard"
+      },
+      "apps_controls": {
+        "products": {
+          "title": "Products"
+        },
+        "checkout": {
+          "title": "Checkout"
+        },
+        "themes": {
+          "title": "Themes"
+        }
+      },
+      "settings_section": {
+        "settings": "Settings"
+      },
+      "tools_section": {
+        "preview": "Edit site",
+        "fullscreen": "Fullscreen",
+        "zoom": "Zoom"
+      },
+      "undo_redo_section": {
+        "undo": "Undo",
+        "redo": "Redo"
+      },
+      "view_section": {
+        "edit_master_page": "Edit Master page",
+        "view": "View",
+        "layers": "Layers"
+      },
+      "widgets_section": {
+        "categories": {
+          "product": "Product",
+          "text": "Text",
+          "objects": "Objects",
+          "media": "Media"
+        },
+        "media": {
+          "picture": "Picture",
+          "carousel": "Carousel"
+        }
+      }
+    },
+    "delete_page_dialog": {
+      "title": "Are you sure you want to delete this page?"
+    },
+    "cart": {
+      "add_notification": "{{product}} has been added to your cart."
+    },
+    "page_editor": {
+      "placeholder": "You have no pages yet"
+    },
+    "page_settings": {
+      "page_title": "Page title",
+      "page_slug": "Page slug",
+      "title": "Title",
+      "slug": "Slug"
+    },
+    "system_actions": {
+      "cart": "Cart",
+      "checkout_amount": "Checkout amount"
+    },
+    "screen_sizes": {
+      "desktop": "Desktop",
+      "tablet": "Tablet",
+      "mobile": "Mobile"
+    }
+  },
+  "theme": {
+    "categories": {
+      "add_category_dialog": {
+        "edit_category": "Edit category",
+        "add_category": "Add category",
+        "category_name": "Category name"
+      },
+      "delete_category_dialog": {
+        "title": "Deleting Category",
+        "subtitle": "Do you really want to delete category? Because all data will be lost and you will not be able to restore it."
+      }
+    },
+    "delete-theme-dialog": {
+      "title": "Deleting Theme",
+      "subtitle": "Do you really want to delete the theme? Because all data will be lost and you will not be able to restore it."
+    },
+    "theme_card": {
+      "installed": "Installed",
+      "install": "Install",
+      "edit": "Edit",
+      "export": "Export",
+      "delete": "Delete"
+    },
+    "theme_container": {
+      "title": "Themes",
+      "add_theme": "Add Theme",
+      "add_theme_plus": "+ Add Theme",
+      "no_themes": "You have no themes yet",
+      "no_themes_additions": "Please add your first theme"
+    },
+    "themes_list": {
+      "filter_themes": "Filter Themes",
+      "edit": "Edit",
+      "delete": "Delete",
+      "add_category": "+Add Category",
+      "my_themes": "My Themes",
+      "all_themes": "All Themes",
+      "placeholder": "You have no themes yet",
+      "filter": "Filter",
+      "industry": "Industry",
+      "all_industries": "All industries",
+      "sort_by": "Sort By",
+      "full_preview": "Full Preview",
+      "choose_design": "Choose Design"
+    }
+  },
+  "common": {
+    "buttons": {
+      "cancel": "Cancel",
+      "done": "Done"
+    }
+  },
+  "errors": {
+    "forbidden": "You don't have permission to perform this action!"
+  },
+  "not_found": {
+    "shop": "Shop not found.",
+    "interested": "Interested in payever Shop?",
+    "register": "Register",
+    "link": "/entry/registration/business"
+  },
+  "navbar_controls": {
+    "add_section": "Add Section"
+  },
+  "section_settings": {
+    "add_background_image": "Add Background Image",
+    "remove_background_image": "Remove Background Image"
+  },
+  "shape_settings": {
+    "background": "Background",
+    "hover": "Hover",
+    "blur": "Blur",
+    "offset": "Offset",
+    "corners": "Corners",
+    "line_height": "Line Height",
+    "opacity": "Opacity",
+    "no_border": "No Border",
+    "border_line": "Border Line",
+    "radius": "Radius",
+    "font_size": "Font Size",
+    "no_shadow": "No Shadow",
+    "drop_shadow": "Drop Shadow",
+    "remove_hover": "Remove Hover"
+  },
+  "button_settings": {
+    "size": "Size"
+  },
+  "carousel_settings": {
+    "add_images": "Add images"
+  },
+  "text_settings": {
+    "cross_device": "Cross Device",
+    "open_new_tab": "Open In new Tab",
+    "link_to": "Link To",
+    "enter_url": "Enter Url",
+    "font_family": "Font Family"
+  },
+  "widgets": {
+    "amount_name": "Type Amount"
+  }
+}

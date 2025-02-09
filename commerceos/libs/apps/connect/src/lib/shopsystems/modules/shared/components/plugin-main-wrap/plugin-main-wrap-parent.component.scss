@@ -1,0 +1,101 @@
+@import "../../../../../../assets/variables";
+
+.cdk-overlay-backdrop.connect-modal + .cdk-global-overlay-wrapper {
+  .plugin-main-wrap-container {
+    min-width: 100%;
+    padding: 0;
+
+
+    .pe-info-box {
+      width: 100%;
+      padding: 0;
+
+      .info-box {
+        .mat-card {
+          border-radius: 0;
+        }
+      }
+    }
+
+    .connect-payment-option-wrapper__api-keys .mat-accordion .mat-expansion-panel {
+      &:first-of-type {
+        border-top-style: solid;
+        border-top-width: 1px;
+        border-bottom: none;
+      }
+    }
+
+    .mat-expansion-panel-header-title-no-logo.text-centered {
+      width: 100%;
+      margin: 0;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+
+      .add-button {
+        font-family: Roboto, sans-serif;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 1.33;
+        background-color: rgba(0, 0, 0, 0);
+      }
+    }
+
+    .mat-list-item-col.sections-step-buttons {
+      .mat-raised-button {
+        font-size: 14px;
+        line-height: 1.33;
+        background-color: rgba(0, 0, 0, 0);
+      }
+
+      .icon.icon-16 {
+        background-color: rgba(0, 0, 0, 0);
+        height: 12px;
+        width: 12px;
+      }
+    }
+
+    .key {
+      overflow: hidden;
+
+      &-info__title {
+        font-size: 12px;
+        font-weight: 300;
+        line-height: 1.33;
+        font-family: Roboto, sans-serif;
+      }
+
+      &-value {
+        .btn-copy {
+          font-size: 14px;
+          line-height: 1.33;
+          background-color: rgba(0, 0, 0, 0);
+          border: none;
+          -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+          &:focus {
+            background-color: rgba(0, 0, 0, 0);
+            outline: none;
+            border: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            text-underline: none;
+          }
+        }
+      }
+
+      .row {
+        height: 40px;
+        padding: 0 12px;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+
+        &:last-of-type {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}

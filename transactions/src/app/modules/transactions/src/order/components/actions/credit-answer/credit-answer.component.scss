@@ -1,0 +1,12 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+
+.answer-text {
+  padding: $pe_vgrid_height $pe_hgrid_gutter / 2;
+  font-family: monospace;
+}
+
+@media(min-width: $viewport-breakpoint-ipad + 1) {
+  ::ng-deep .credit-answer-modal .mat-card-transparent {
+    min-width: 768px; // exact px width required to show answer credit answer text properly
+  }
+}

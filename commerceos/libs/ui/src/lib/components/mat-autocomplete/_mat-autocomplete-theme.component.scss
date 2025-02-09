@@ -1,0 +1,49 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $primary: map.get($color-config, 'primary');
+  $accent: map.get($color-config, 'accent');
+  $separator: map.get($color-config, 'separator');
+  $text-color: map.get($color-config, 'text-color');
+  $label-color: map.get($color-config, 'label-color');
+  $warn: map.get($color-config, 'warn');
+  $background: map.get($color-config, 'background');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $row-background: map.get($color-config, 'row-background');
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $background: map.get($color-config, 'background');
+  $active-text: map.get($color-config, 'active-text');
+  $hover-button: map.get($color-config, 'hover-button');
+
+  .mat-autocomplete-panel {
+    background-color: $row-background !important;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(25px);
+    border-radius: 12px !important;
+
+    .mat-option {
+      background-color: $transparent-color;
+      color: $text-color;
+
+      .mat-option-text {
+        color: $text-color;
+      }
+      &:not(:last-child) {
+        border-bottom: solid 1px $background;
+      }
+
+      &.mat-selected,
+      &:hover {
+        background-color: $hover-button !important;
+        border-bottom-color: rgba(0, 0, 0, 0) !important;
+        &::before {
+          background-color: $transparent-color;
+        }
+
+        .mat-option-text {
+          color: $active-text !important;
+        }
+      }
+    }
+  }
+}

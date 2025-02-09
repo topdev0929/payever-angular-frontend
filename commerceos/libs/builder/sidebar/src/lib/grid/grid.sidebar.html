@@ -1,0 +1,74 @@
+<ng-container [ngTemplateOutlet]="mainSidebar"></ng-container>
+
+<ng-template #mainSidebar>
+  <form [formGroup]="form" *ngIf="form" class="form">
+    <div class="group__wrapper">
+
+      <ng-container *ngIf="isCellElement$ | async; then cellSidebarTemplate else tableSidebarTemplate"></ng-container>
+
+      <ng-container #cellSidebarSlot></ng-container>
+    </div>
+
+    <ng-template #tableSidebarTemplate>
+      <peb-editor-sidebar-tabs>
+        <peb-editor-sidebar-tab [title]="'builder-app.sidebar.style' | translate">
+          <div class="group">
+            <div class="group__row">
+              <peb-grid-layout-form></peb-grid-layout-form>
+            </div>
+          </div>
+
+          <div class="group" *ngIf="!(selectedElements$ | async)[0].children?.length">
+            <div class="group__row">
+              <label class="group__label">
+                {{ 'builder-app.sidebar.link' | translate }}
+              </label>
+            </div>
+            <peb-link-form></peb-link-form>
+          </div>
+          <div class="group">
+            <peb-function-form></peb-function-form>
+          </div>
+
+        </peb-editor-sidebar-tab>
+
+        <peb-editor-sidebar-tab [title]="'builder-app.sidebar.arrange' | translate">
+          <ng-container [ngTemplateOutlet]="cellSizeFormTemplate"></ng-container>
+          <div
+            class="group"
+            *ngIf="!(selectedElements$ | async)[0].children?.length && (selectedElements$ | async)[0].parent?.type === 'section'"
+          >
+            <div class="group__row">
+              <label class="group__label">
+                {{ 'builder-app.sidebar.full_height' | translate }}
+              </label>
+              <peb-slide-toggle formControlName="fullHeight"></peb-slide-toggle>
+            </div>
+          </div>
+        </peb-editor-sidebar-tab>
+      </peb-editor-sidebar-tabs>
+    </ng-template>
+
+    <ng-template #cellSidebarTemplate>
+      <ng-container #tabSidebarSlot></ng-container>
+    </ng-template>
+
+    <ng-template #cellSizeFormTemplate>
+      <div class="group__row">
+        <peb-position-form></peb-position-form>
+      </div>
+
+      <div class="group__row">
+        <peb-dimensions-form></peb-dimensions-form>
+      </div>
+
+      <div class="group__row">
+        <peb-alignment-form></peb-alignment-form>
+      </div>
+
+      <div class="group__row">
+        <peb-position-form></peb-position-form>
+      </div>
+    </ng-template>
+  </form>
+</ng-template>

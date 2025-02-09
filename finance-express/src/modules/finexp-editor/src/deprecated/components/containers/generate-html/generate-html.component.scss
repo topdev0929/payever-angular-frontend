@@ -1,0 +1,13 @@
+@import "../../../../../../../../node_modules/@pe/ui-kit/scss/pe_variables";
+
+.generate-box {
+  .content {
+    .generated-code {
+      padding: $padding-large-vertical * 2 $padding-large-horizontal;
+      border-radius: $border-radius-base * 2.5;
+      background: $color-white-grey-2;
+      font-size: $font-size-small;
+      overflow: hidden;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  &_title {
+    font-size: 12px;
+    font-weight: 500;
+    flex: 1;
+    @media (max-width: $viewport-breakpoint-sm-2) {
+      font-size: 14px;
+    }
+  }
+}
+
+.remove-button {
+  margin-top: 12px;
+}

@@ -1,0 +1,31 @@
+@import '../../../../../../../../shared/styles/assets/ui-kit-styles/pe_variables';
+
+.promo-desktop {
+  padding: 0 28px;
+  display: flex;
+  width: 100%;
+
+  .row {
+    width: 100%;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+
+    .promo-icon {
+      color: #404040;
+
+      .icon-32 {
+        width: 26px;
+      }
+    }
+
+    @media (min-width: $screen-xs) {
+      .promo-icon {
+        float: left;
+        margin-right: 24px;
+      }
+    }
+  }
+}

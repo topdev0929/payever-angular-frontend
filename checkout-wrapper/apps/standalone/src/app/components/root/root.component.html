@@ -1,0 +1,5 @@
+<router-outlet></router-outlet>
+
+<div
+  [innerHTML]="skeleton$ | async"
+  [@slideInOut]="animationState$ | async"></div>

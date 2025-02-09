@@ -1,0 +1,44 @@
+@use 'pe_variables.scss' as pe_variables;
+
+.message-subscription-list {
+  .row {
+    align-items: center;
+    display: flex;
+    margin: 0;
+
+    .peb-button-toggle {
+      flex: 1;
+      margin-right: -44px;
+      padding-right: 44px;
+    }
+  }
+
+  .button-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+  }
+
+  .icon {
+    border: none;
+    padding: 0 12px;
+    margin-top: 5px;
+  }
+
+  .link {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    margin-right: 12px;
+    width: fit-content;
+    max-width: 100%;
+    @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+      font-size: 17px;
+    }
+  }
+
+  .install-connection {
+    margin-top: 16px;
+  }
+}

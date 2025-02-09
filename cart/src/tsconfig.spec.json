@@ -1,0 +1,87 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/spec",
+    "module": "commonjs",
+    "types": [
+      "jasmine",
+      "node"
+    ]
+  },
+  "files": [
+    "test.ts",
+    "polyfills.ts"
+  ],
+  "include": [
+    "**/*.spec.ts",
+    "**/*.d.ts",
+
+    "./**/*.ts",
+
+    "../node_modules/@pe/checkout-sdk/sdk/**/*.ts",
+
+    "../node_modules/@pe/checkout-sdk/src/sdk/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/src/kit/pe-variables.ts",
+
+    "../node_modules/@pe/ng-kit/modules/address/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/address/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/button/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/button/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/common/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/common/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/dev/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/dev/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/dialog/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/dialog/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/i18n/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/i18n/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/icons-provider/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/icons-provider/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/form/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/form/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/location/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/location/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/media/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/media/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/micro/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/micro/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/mobile/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/mobile/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/modal/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/modal/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/test/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/test/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/tooltip/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/tooltip/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/snack-bar/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/snack-bar/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/rate/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/rate/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/tooltip/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/tooltip/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/translation/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/translation/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/window/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/window/**/*.ts"
+  ]
+}

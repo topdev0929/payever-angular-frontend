@@ -1,0 +1,70 @@
+@import '../../../../ui-styles/src/pe_skeleton.scss';
+@import "../misc/styles/grid.mixin.scss";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  margin-right: -16px;
+  margin-top: 16px;
+  width: calc(100% + 10px);
+  @supports (-webkit-touch-callout: none) {
+    width: calc(100% + 13px);
+  }
+}
+
+.pe-grid-viewport {
+  &__title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-right: 16px;
+
+    &.loading {
+      height: 21px;
+    }
+
+    .sidebar-toggle {
+      width: 16px;
+      height: 16px;
+      display: block;
+      border: 0;
+      padding: 0;
+      background-color: rgba(0, 0, 0, 0);
+      cursor: pointer;
+      margin-right: 10px;
+
+      .mat-icon {
+        width: 16px;
+        height: 16px;
+      }
+
+      @include grid-desktop {
+        display: none;
+      }
+
+      @include grid-mobile {
+        display: none;
+      }
+    }
+
+    p {
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 1.3125;
+      margin: 0;
+    }
+
+    .skeleton-title {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 21px;
+      border-radius: 3px;
+      @include skeleton-animation();
+    }
+  }
+}

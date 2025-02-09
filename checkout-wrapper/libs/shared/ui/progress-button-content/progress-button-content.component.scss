@@ -1,0 +1,16 @@
+:host,
+:root {
+  position: relative;
+  display: block;
+}
+
+.mat-spinner {
+  position: relative !important;
+}
+
+// required to prevent width changes of button
+.hidden-content {
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}

@@ -1,0 +1,21 @@
+<div class="social-settings">
+  <div class="page-header">{{ 'social-app.connect.title' | translate }}</div>
+  <div class="scrollbar">
+    <div class="content">
+      <!-- SOCIAL MEDIA ACCOUNTS -->
+      <section class="social-settings__section">
+        <div class="social-settings__section__header">{{ 'social-app.connect.accounts.title' | translate }}</div>
+        <pe-social-connect-list [notOverlay]="true"></pe-social-connect-list>
+      </section>
+      <div class="margin"></div>
+      <section class="social-settings__section">
+        <button
+          pe-form-button
+          class="new-button"
+          color="confirm"
+          (click)="openConnectApp()"
+        >{{ 'social-app.actions.add_integration' | translate }}</button>
+      </section>
+    </div>
+  </div>
+</div>

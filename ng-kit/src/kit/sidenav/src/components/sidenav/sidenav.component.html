@@ -1,0 +1,17 @@
+<mat-sidenav-container #sidenavContainer [hasBackdrop]="hasBackdrop">
+  <mat-sidenav #sidenav
+               [fixedBottomGap]="fixedBottomGap"
+               [fixedInViewport]="fixedInViewport"
+               [fixedTopGap]="fixedTopGap"
+               [ngClass]="classNames"
+               [(opened)]="opened"
+               [position]="position"
+  >
+    <ng-content select="[header]"></ng-content>
+      <ng-content select="[sub-header]"></ng-content>
+      <ng-content select="[sidenav-content]"></ng-content>
+    </mat-sidenav>
+  <mat-sidenav-content>
+    <ng-content select="[main-content]"></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

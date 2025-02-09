@@ -1,0 +1,20 @@
+<form [formGroup]="form">
+  <div class="group__row">
+    <peb-slide-toggle formControlName="synced">
+      {{ 'builder-app.forms.auto_resize.sync' | translate }}
+    </peb-slide-toggle>
+  </div>
+
+  <div class="group__row">
+    <peb-slide-toggle formControlName="resizeText">
+      {{ 'builder-app.forms.auto_resize.resize_text' | translate }}
+    </peb-slide-toggle>
+  </div>
+
+  <div class="group__row">
+    <peb-slide-toggle formControlName="resizeChildren">
+      {{ 'builder-app.forms.auto_resize.resize_children' | translate }}
+    </peb-slide-toggle>
+  </div>
+
+</form>

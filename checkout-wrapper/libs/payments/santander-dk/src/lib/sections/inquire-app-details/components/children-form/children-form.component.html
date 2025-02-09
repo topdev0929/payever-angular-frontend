@@ -1,0 +1,51 @@
+<form
+  *ngIf="formGroup.enabled"
+  class="form-table"
+  [formGroup]="formGroup">
+  <div
+    class="h5"
+    i18n="@@santander-dk.inquiry.step.children_details.title">
+    Children details
+  </div>
+  <div class="form-fieldset-new">
+    <mat-form-field class="col-xs-12">
+      <mat-label i18n="@@santander-dk.inquiry.form.children_living_home.label"> Children living home </mat-label>
+
+      <input
+        matInput
+        peInputMask
+        formControlName="_count"
+        type="text"
+        [mask]="countMask"
+        [unmask]="countUnmask" />
+    </mat-form-field>
+  </div>
+
+  <div
+    *ngIf="controlsArray.length"
+    class="form-fieldset-new">
+    <ng-container formArrayName="children">
+      <ng-container
+        *ngFor="
+          let control of controlsArray;
+          let i = index;
+          trackBy: trackByIdx
+        "
+        [formGroup]="control">
+        <mat-form-field class="col-xs-12">
+          <mat-label>
+            <span>{{translateMemo(i + 1).age_of_child}}</span>
+          </mat-label>
+
+          <input
+            matInput
+            peInputMask
+            formControlName="age"
+            type="text"
+            [mask]="ageMask"
+            [unmask]="ageUnmask" />
+        </mat-form-field>
+      </ng-container>
+    </ng-container>
+  </div>
+</form>

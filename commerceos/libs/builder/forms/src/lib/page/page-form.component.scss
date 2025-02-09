@@ -1,0 +1,97 @@
+@import '../../../../styles/src/lib/styles/spinner';
+
+.form {
+  &__seo {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  &__row {
+    margin-top: 16px;
+
+    > span {
+      display: block;
+      font-size: 11px;
+      font-family: Roboto, sans-serif;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    input {
+      border: 0;
+      border-radius: 6px;
+      box-sizing: border-box;
+      padding: 4px 20px 4px 8px;
+      font-family: Roboto, sans-serif;
+      font-size: 12px;
+      line-height: 1.33;
+      letter-spacing: normal;
+      height: 28px;
+      margin: 0;
+      outline: none;
+      width: 100%;
+    }
+
+    &.border {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      position: relative;
+  
+      &::before {
+        content: "";
+        height: 1px;
+        width: calc(100% + 15px);
+        display: block;
+        top: 0;
+        position: absolute;
+      }
+    }
+  }
+}
+
+.add {
+  padding-top: 16px;
+  position: relative;
+
+  &::before {
+    display: block;
+    content: '';
+    height: 1px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  button {
+    appearance: none;
+    background-color: #37363b;
+    border-radius: 6px;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 1.7;
+    outline: none;
+    padding: 4px 14px;
+    width: 100%;
+  }
+}
+
+.apply {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 0;
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+  height: auto;
+  padding: 8px 18px;
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  text-align: center;
+  color: #ffffff;
+  width: 100%;
+}

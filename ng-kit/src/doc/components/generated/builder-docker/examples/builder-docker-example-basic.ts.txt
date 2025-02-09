@@ -1,0 +1,82 @@
+import { IDockerItem } from '../../../../../modules/builder-docker';
+import { BuilderDockerService } from '../../../../../modules/builder-docker';
+
+export class BuilderDockerDocComponent {
+  itemsList: IDockerItem[] = [];
+
+  constructor(private builderDockerService: BuilderDockerService) {
+    this.itemsList = [
+      {
+        title: 'Text',
+        type: 'text',
+        iconId: '#icon-b-text-32',
+        onSelect: () => {
+          alert('Text clicked');
+        }
+      },
+      {
+        title: 'Images',
+        type: 'images',
+        iconId: '#icon-b-image-32',
+        subItems: [
+          {
+            title: 'Banner',
+            type: 'banner',
+            iconId: '#icon-b-banner-32',
+            onSelect: () => {
+              alert('Banner clicked');
+            }
+          },
+          {
+            title: 'Gallery',
+            type: 'gallery',
+            iconId: '#icon-b-gallery-32',
+          },
+          {
+            title: 'Slider',
+            type: 'slider',
+            iconId: '#icon-b-slider-32',
+          },
+        ]
+      },
+      {
+        title: 'Columns',
+        type: 'columns',
+        iconId: '#icon-b-layout-32',
+      },
+      {
+        title: 'Spacer',
+        type: 'spacer',
+        iconId: '#icon-b-spacer-32',
+      },
+      {
+        title: 'Map',
+        type: 'map',
+        iconId: '#icon-b-map-32',
+      },
+      {
+        title: 'Custom',
+        type: 'custom',
+        iconId: '#icon-b-code-32',
+      },
+      {
+        title: 'Products',
+        type: 'products',
+        iconId: '#icon-b-products-32',
+        subItems: [
+          {
+            title: 'Product',
+            type: 'product',
+            iconId: '#icon-b-product-32',
+          },
+          {
+            title: 'Featured',
+            type: 'featured',
+            iconId: '#icon-b-featured-32',
+          },
+        ]
+      },
+    ];
+  }
+}
+

@@ -1,0 +1,130 @@
+@use 'SASS:map';
+@use 'pe_variables' as pe_variables;
+
+@mixin color($color-config) {
+    $text-color: map.get($color-config, "text-color");
+    $active-text: map.get($color-config, "active-text");
+    $label-color: map.get($color-config, "label-color");
+    $secondary: map.get($color-config, "secondary");
+    $confirm: map.get($color-config, "confirm");
+    $warn: map.get($color-config, "warn");
+    $secondary-background: map.get($color-config, "secondary-background");
+    $border: map.get($color-config, "border");
+    $transparent-color: map.get($color-config, "transparent-color");
+    $separator: map.get($color-config, "separator");
+    $active-button: map.get($color-config, "active-button");
+  
+      .folder-tree {
+        .root-folder.cdk-drop-list-dragging {
+          opacity: .5;
+        }
+        &__node {
+          .folder-tree__node-name {
+            color: $text-color;
+          }
+          &-abbr {
+            color: $active-text
+          }
+          &.is-dragging.drop-center {
+            background-color: $active-button;
+          }
+          &:hover {
+            &::before {
+                background-color: $active-button;
+              }
+            }
+          &--active {
+            .folder-tree {
+              &__node-name {
+                color: $active-text;
+              }
+              &__toggle-button {
+                .folder-expand-icon {
+                  svg  g g  {
+                    fill: $active-text;
+                  }
+                }
+              }
+            }
+
+            &::before {
+              background: $confirm;
+            }
+
+            &:hover {
+              &::before {
+                background: rgba($confirm, 0.9);
+              }
+            }
+          }
+          @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+            &:hover, &--active {
+              .folder-tree__node-name {
+                color: $text-color;
+              }
+              &::before {
+                background-color: inherit;
+              }
+            }
+          }
+          &-name {
+            border-bottom-color: $transparent-color;
+          }
+          &-container-data {
+            &::before{
+              border-bottom-color: $transparent-color;
+            }
+          }
+          &-abbr {
+            color: $active-text;
+            background-color: $label-color;
+          }
+        }
+        &__input {
+          color: $text-color;
+          background-color: $secondary;
+          border-color: $confirm;
+        }
+      }
+      .folder-context-menu {
+        background-color: $secondary-background;
+        border-color: $border;
+        &__title {
+          color: $text-color;
+        }
+        &__list {
+          &-item {
+            &.divider-item {
+              &::before,
+              &::after {
+                background-color: $transparent-color;
+              }
+            }
+            span {
+              color: $label-color;
+            }
+            &.active {
+              &:not(.delete) {
+                span {
+                  color: $text-color;
+                }
+                &:hover {
+                  span {
+                    background-color: $active-button;
+                  }
+                }
+              }
+              &.delete {
+                span {
+                  color: $warn;
+                  &:hover {
+                    background-color: $warn;
+                    color: $active-text;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+  }

@@ -1,0 +1,20 @@
+{
+  "name": "@pe/affiliates",
+  "version": "0.0.7-AFF-3",
+  "description": "Builder: affiliates",
+  "repository": "https://gitlab.devpayever.com/frontend/affiliates",
+  "bin": {
+    "pe-i18n-cosf-prepare-affiliates-app": "./bin/i18n-cosf-prepare.js"
+  },
+  "peerDependencies": {
+    "@angular/common": "^9.1.13",
+    "@angular/core": "^9.1.13",
+    "@pe/common": "0.0.10",
+    "@pe/data-grid": "latest",
+    "@pe/filters": "latest",
+    "@pe/sidebar": "latest"
+  },
+  "dependencies": {
+    "tslib": "^1.10.0"
+  }
+}

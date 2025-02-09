@@ -1,0 +1,367 @@
+<div class="styles-active-form">
+  <div class="styles-active-form__title" translate>
+    settings.colorAndStyle.actions.enable
+  </div>
+  <div class="styles-active-form__toggle">
+    <mat-slide-toggle
+      [checked]="formStyle?.get('formActive')?.get('active').value"
+      (change)="formStyle?.get('formActive')?.get('active').patchValue($event.checked)">
+    </mat-slide-toggle>
+  </div>
+</div>
+
+<div class="pe-info-box-container-fixed color-styles-info-box">
+  <pe-info-box
+    [fixed]="false"
+    [roundBorder]="true"
+    [notFullwidthOnMobile]="true"
+    [withHeader]="false"
+    [withFooter]="false"
+    [title]="'settings.colorAndStyle.title' | translate"
+    (onClose)="goBack()">
+    <ng-container content>
+      <mat-accordion class="checkout-mat-accordion" multi>
+        <mat-expansion-panel
+          *ngFor="let panel of colorAndStyleMenu; let last = last; let index = index;"
+          [expanded]="index === 0 || index === 1"
+          hideToggle="true">
+          <mat-expansion-panel-header
+            collapsedHeight="40px"
+            expandedHeight="40px"
+            class="mat-expansion-panel-header-no-logo">
+            <mat-panel-title>
+              {{ panel.name | translate }}
+            </mat-panel-title>
+            <mat-panel-description>
+              <svg *ngIf="panels?.toArray() && panels.toArray()[index]">
+                <use
+                  [attr.xlink:href]="panels.toArray()[index].expanded ? '#icon-minus-big-16' : '#icon-plus-big-16'"></use>
+              </svg>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <ng-container *ngIf="panel.key === 'businessHeader'" [ngTemplateOutlet]="businessHeader"></ng-container>
+          <ng-container *ngIf="panel.key === 'button'" [ngTemplateOutlet]="button"></ng-container>
+          <ng-container *ngIf="panel.key === 'page'" [ngTemplateOutlet]="page"></ng-container>
+          <ng-container *ngIf="panel.key === 'input'" [ngTemplateOutlet]="input"></ng-container>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </ng-container>
+  </pe-info-box>
+
+  <div class="form-table" [formGroup]="formStyle">
+    <ng-template #businessHeader>
+      <mat-list [disableRipple]="true" class="mat-list-transparent mat-list-transparent-bold">
+
+        <!-- Colors -->
+        <mat-list-item class="mat-list-item-no-padding-left">
+          <div class="mat-list-item-flex">
+            <peb-color-picker-form
+              class="color-picker-form-block"
+              [theme]="theme"
+              [buttonLabel]="translateService.translate('settings.colorAndStyle.actions.changeColor')"
+              [label]="translateService.translate('settings.colorAndStyle.panelBusinessHeader.controls.businessHeaderBackgroundColor')"
+              [formControl]="formStyle.get('formBusinessHeader').get('businessHeaderBackgroundColor')">
+            </peb-color-picker-form>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item-no-padding-left">
+          <div class="mat-list-item-flex">
+            <peb-color-picker-form
+              class="color-picker-form-block"
+              [theme]="theme"
+              [buttonLabel]="translateService.translate('settings.colorAndStyle.actions.changeColor')"
+              [label]="translateService.translate('settings.colorAndStyle.panelBusinessHeader.controls.businessHeaderBorderColor')"
+              [formControl]="formStyle.get('formBusinessHeader').get('businessHeaderBorderColor')">
+            </peb-color-picker-form>
+          </div>
+        </mat-list-item>
+      </mat-list>
+
+      <mat-list [disableRipple]="true" class="mat-list-transparent mat-list-transparent-bold mat-list-margin-top">
+        <mat-list-item class="mat-list-item-no-padding-left">
+          <div class="mat-list-item-flex">
+            <peb-form-field-input
+              class="field-input"
+              label="{{'settings.colorAndStyle.panelBusinessHeader.controls.businessHeaderDesktopHeight' | translate}}"
+              appearance="label">
+              <input
+                type="number"
+                placeholder="{{'actions.enterValue' | translate}}"
+                [formControl]="formStyle.get('formBusinessHeader').get('businessHeaderDesktopHeight')"/>
+              <div class="suffix">
+                <p translate>unitOfMeasurement.pixels</p>
+              </div>
+            </peb-form-field-input>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item-no-padding-left">
+          <div class="mat-list-item-flex">
+            <peb-form-field-input
+              class="field-input"
+              label="{{'settings.colorAndStyle.panelBusinessHeader.controls.businessHeaderMobileHeight' | translate}}"
+              appearance="label">
+              <input
+                type="number"
+                placeholder="{{'actions.enterValue' | translate}}"
+                [formControl]="formStyle.get('formBusinessHeader').get('businessHeaderMobileHeight')"/>
+              <div class="suffix">
+                <p translate>unitOfMeasurement.pixels</p>
+              </div>
+            </peb-form-field-input>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </ng-template>
+
+    <ng-template #button>
+      <mat-list [disableRipple]="true" novalidate formGroupName="formButton"
+                class="mat-list-transparent mat-list-transparent-bold">
+
+        <!-- Colors -->
+        <mat-list-item class="mat-list-item-no-padding-left">
+          <div class="mat-list-item-flex">
+            <peb-color-picker-form
+              class="color-picker-form-block"
+              [theme]="theme"
+              [buttonLabel]="translateService.translate('settings.colorAndStyle.actions.changeColor')"
+              [label]="translateService.translate('settings.colorAndStyle.panelButtons.controls.buttonTextColor')"
+              [formControl]="formStyle.get('formButton').get('buttonTextColor')">
+            </peb-color-picker-form>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item-no-padding-left">
+          <div class="mat-list-item-flex">
+            <peb-color-picker-form
+              class="color-picker-form-block"
+              [theme]="theme"
+              [buttonLabel]="translateService.translate('settings.colorAndStyle.actions.changeColor')"
+              [label]="translateService.translate('settings.colorAndStyle.panelButtons.controls.buttonBackgroundColor')"
+              [formControl]="formStyle.get('formButton').get('buttonBackgroundColor')">
+            </peb-color-picker-form>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item-no-padding-left">
+          <div class="mat-list-item-flex">
+            <peb-color-picker-form
+              class="color-picker-form-block"
+              [theme]="theme"
+              [buttonLabel]="translateService.translate('settings.colorAndStyle.actions.changeColor')"
+              [label]="translateService.translate('settings.colorAndStyle.panelButtons.controls.buttonBackgroundDisabledColor')"
+              [formControl]="formStyle.get('formButton').get('buttonBackgroundDisabledColor')">
+            </peb-color-picker-form>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item-no-padding-left">
+          <div class="mat-list-item-flex">
+            <div class="mat-list-item-col">
+              <div class="form-fieldset">
+                <button
+                  #buttonMenuAlignmentTrigger
+                  mat-raised-button
+                  [matMenuTriggerFor]="menuAlignment">
+                  <svg class="icon icon-32">
+                    <use [attr.xlink:href]="cornersIcons[selectedButtonBorderRadius]"></use>
+                  </svg>
+                </button>
+                <mat-menu
+                  #menuAlignment="matMenu"
+                  class="mat-menu-dark"
+                  [backdropClass]="theme !== 'dark'? 'checkout-corner-button-' + theme : 'checkout-corner-button'">
+                  <button
+                    *ngFor="let corner of corners"
+                    mat-menu-item
+                    (click)="setSelectedButtonBorderRadius(corner)">
+                    <svg class="icon icon-32">
+                      <use [attr.xlink:href]="cornersIcons[corner]"></use>
+                    </svg>
+                  </button>
+                </mat-menu>
+              </div>
+            </div>
+            <div class="mat-list-item-col">
+              <span translate>settings.colorAndStyle.panelButtons.titleCorners</span>
+            </div>
+            <div class="mat-list-item-col text-right">
+              <button
+                mat-raised-button
+                type="button"
+                color="muted-light"
+                class="expansion-list-button"
+                [class.mat-button-xs]="true"
+                [class.mat-button-rounded]="true"
+                (click)="buttonMenuAlignmentTrigger._elementRef.nativeElement.click()">
+                {{ 'settings.colorAndStyle.actions.changeCorner' | translate }}
+              </button>
+            </div>
+          </div>
+        </mat-list-item>
+
+      </mat-list>
+    </ng-template>
+
+    <ng-template #page>
+      <mat-list [disableRipple]="true" novalidate formGroupName="formPage"
+                class="mat-list-transparent mat-list-transparent-bold">
+
+        <mat-list-item class="mat-list-item-no-padding-left">
+          <div class="mat-list-item-flex">
+            <peb-color-picker-form
+              class="color-picker-form-block"
+              [theme]="theme"
+              [buttonLabel]="translateService.translate('settings.colorAndStyle.actions.changeColor')"
+              [label]="translateService.translate('settings.colorAndStyle.panelPage.controls.pageBackgroundColor')"
+              [formControl]="formStyle.get('formPage').get('pageBackgroundColor')">
+            </peb-color-picker-form>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item-no-padding-left">
+          <div class="mat-list-item-flex">
+            <peb-color-picker-form
+              class="color-picker-form-block"
+              [theme]="theme"
+              [buttonLabel]="translateService.translate('settings.colorAndStyle.actions.changeColor')"
+              [label]="translateService.translate('settings.colorAndStyle.panelPage.controls.pageLineColor')"
+              [formControl]="formStyle.get('formPage').get('pageLineColor')">
+            </peb-color-picker-form>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item-no-padding-left">
+          <div class="mat-list-item-flex">
+            <peb-color-picker-form
+              class="color-picker-form-block"
+              [theme]="theme"
+              [buttonLabel]="translateService.translate('settings.colorAndStyle.actions.changeColor')"
+              [label]="translateService.translate('settings.colorAndStyle.panelPage.controls.pageTextPrimaryColor')"
+              [formControl]="formStyle.get('formPage').get('pageTextPrimaryColor')">
+            </peb-color-picker-form>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item-no-padding-left">
+          <div class="mat-list-item-flex">
+            <peb-color-picker-form
+              class="color-picker-form-block"
+              [theme]="theme"
+              [buttonLabel]="translateService.translate('settings.colorAndStyle.actions.changeColor')"
+              [label]="translateService.translate('settings.colorAndStyle.panelPage.controls.pageTextSecondaryColor')"
+              [formControl]="formStyle.get('formPage').get('pageTextSecondaryColor')">
+            </peb-color-picker-form>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item-no-padding-left">
+          <div class="mat-list-item-flex">
+            <peb-color-picker-form
+              class="color-picker-form-block"
+              [theme]="theme"
+              [buttonLabel]="translateService.translate('settings.colorAndStyle.actions.changeColor')"
+              [label]="translateService.translate('settings.colorAndStyle.panelPage.controls.pageTextLinkColor')"
+              [formControl]="formStyle.get('formPage').get('pageTextLinkColor')">
+            </peb-color-picker-form>
+          </div>
+        </mat-list-item>
+
+      </mat-list>
+    </ng-template>
+
+    <ng-template #input>
+      <mat-list [disableRipple]="true" class="mat-list-transparent mat-list-transparent-bold">
+
+        <mat-list-item class="mat-list-item-no-padding-left">
+          <div class="mat-list-item-flex">
+            <peb-color-picker-form
+              class="color-picker-form-block"
+              [theme]="theme"
+              [buttonLabel]="translateService.translate('settings.colorAndStyle.actions.changeColor')"
+              [label]="translateService.translate('settings.colorAndStyle.panelInputs.controls.inputTextPrimaryColor')"
+              [formControl]="formStyle.get('formInput').get('inputTextPrimaryColor')">
+            </peb-color-picker-form>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item-no-padding-left">
+          <div class="mat-list-item-flex">
+            <peb-color-picker-form
+              class="color-picker-form-block"
+              [theme]="theme"
+              [buttonLabel]="translateService.translate('settings.colorAndStyle.actions.changeColor')"
+              [label]="translateService.translate('settings.colorAndStyle.panelInputs.controls.inputTextSecondaryColor')"
+              [formControl]="formStyle.get('formInput').get('inputTextSecondaryColor')">
+            </peb-color-picker-form>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item-no-padding-left">
+          <div class="mat-list-item-flex">
+            <peb-color-picker-form
+              class="color-picker-form-block"
+              [theme]="theme"
+              [buttonLabel]="translateService.translate('settings.colorAndStyle.actions.changeColor')"
+              [label]="translateService.translate('settings.colorAndStyle.panelInputs.controls.inputBackgroundColor')"
+              [formControl]="formStyle.get('formInput').get('inputBackgroundColor')">
+            </peb-color-picker-form>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item-no-padding-left">
+          <div class="mat-list-item-flex">
+            <peb-color-picker-form
+              class="color-picker-form-block"
+              [theme]="theme"
+              [buttonLabel]="translateService.translate('settings.colorAndStyle.actions.changeColor')"
+              [label]="translateService.translate('settings.colorAndStyle.panelInputs.controls.inputBorderColor')"
+              [formControl]="formStyle.get('formInput').get('inputBorderColor')">
+            </peb-color-picker-form>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item-no-padding-left">
+          <div class="mat-list-item-flex">
+            <div class="mat-list-item-col">
+              <div class="form-fieldset">
+                <button
+                  #inputMenuAlignmentTrigger
+                  mat-raised-button
+                  [matMenuTriggerFor]="menuAlignment">
+                  <svg class="icon icon-32">
+                    <use [attr.xlink:href]="cornersIcons[selectedInputBorderRadius]"></use>
+                  </svg>
+                </button>
+                <mat-menu
+                  #menuAlignment="matMenu"
+                  class="mat-menu-dark"
+                  [backdropClass]="theme !== 'dark'? 'checkout-corner-button-' + theme : 'checkout-corner-button'">
+                  <button
+                    *ngFor="let corner of corners"
+                    mat-menu-item
+                    (click)="setSelectedInputBorderRadius(corner)">
+                    <svg class="icon icon-32">
+                      <use [attr.xlink:href]="cornersIcons[corner]"></use>
+                    </svg>
+                  </button>
+                </mat-menu>
+              </div>
+            </div>
+            <div class="mat-list-item-col">
+              <span translate>settings.colorAndStyle.panelInputs.titleCorners</span>
+            </div>
+            <div class="mat-list-item-col text-right">
+              <button
+                mat-raised-button
+                type="button"
+                color="muted-light"
+                class="expansion-list-button"
+                [class.mat-button-xs]="true"
+                [class.mat-button-rounded]="true"
+                (click)="inputMenuAlignmentTrigger._elementRef.nativeElement.click()">
+                {{ 'settings.colorAndStyle.actions.changeCorner' | translate }}
+              </button>
+            </div>
+          </div>
+        </mat-list-item>
+
+      </mat-list>
+    </ng-template>
+  </div>
+</div>
+
+<div
+  class="add-button add-button__danger-color add-button__margin-top"
+  translate
+  (click)="resetStyles()">
+  settings.colorAndStyle.actions.reset
+</div>

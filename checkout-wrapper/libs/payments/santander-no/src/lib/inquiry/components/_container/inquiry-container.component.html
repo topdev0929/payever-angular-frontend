@@ -1,0 +1,15 @@
+<checkout-sdk-payment-sections
+  *ngIf="nodeFormOptions$ | async as nodeFormOptions"
+  [sectionsConfig]="sectionsConfig"
+  [formSections]="formSectionsData"
+  [flow]="flow$ | async"
+  [doSubmit$]="doSubmit$"
+  [nodeFormOptions]="nodeFormOptions"
+  [paymentMethod]="paymentMethod"
+  [merchantMode]="merchantMode"
+  [embeddedMode]="embeddedMode"
+  (changePaymentMethod)="changePayment($event)"
+  (finishedModalShown)="finishedModalShown()"
+  (checkStepsLogic)="checkStepsLogic($event)"
+  (loadedLazyModule)="loadedLazyModule($event)">
+</checkout-sdk-payment-sections>

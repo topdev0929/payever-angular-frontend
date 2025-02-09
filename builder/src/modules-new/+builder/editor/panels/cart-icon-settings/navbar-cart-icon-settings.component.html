@@ -1,0 +1,49 @@
+<form *ngIf="form" novalidate class="form-table form-table-horizontal" (ngSubmit)="onSubmit()" [formGroup]="form">
+  <span
+    class="form-fieldset-horizontal-label"
+    translate
+    [innerHtml]="'content_editor.cart_icon_widget_settings.icon_color'"
+  ></span>
+  <pe-form-fieldset
+    [isSubmitted]="isSubmitted"
+    [fields]="colorFieldset"
+    [formGroup]="form"
+    [errors]="errors$ | async"
+    [formStyle]="'dark'"
+    [orientation]="'horizontal'"
+  ></pe-form-fieldset>
+
+  <pe-form-fieldset
+    [isSubmitted]="isSubmitted"
+    [fields]="showNumberFieldset"
+    [formGroup]="form"
+    [errors]="errors$ | async"
+    [formStyle]="'dark'"
+    [orientation]="'horizontal'"
+  ></pe-form-fieldset>
+
+  <span
+    class="form-fieldset-horizontal-label"
+    [innerHtml]="'content_editor.cart_icon_widget_settings.quantity_color'"
+    translate
+  ></span>
+  <pe-form-fieldset
+    [isSubmitted]="isSubmitted"
+    [fields]="quantityBackgroundFieldset"
+    [formGroup]="form"
+    [errors]="errors$ | async"
+    [formStyle]="'dark'"
+    [orientation]="'horizontal'"
+  ></pe-form-fieldset>
+
+  <pe-builder-navbar-separator></pe-builder-navbar-separator>
+
+  <pe-builder-element-visibility-toggle
+    [editor]="editor"
+    [pageStore]="pageStore"
+  ></pe-builder-element-visibility-toggle>
+
+  <pe-builder-element-pinned-toggle [editor]="editor" [pageStore]="pageStore"></pe-builder-element-pinned-toggle>
+
+  <pe-builder-navbar-spacer style="padding-right: 12px"></pe-builder-navbar-spacer>
+</form>

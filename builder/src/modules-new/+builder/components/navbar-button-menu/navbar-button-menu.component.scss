@@ -1,0 +1,24 @@
+.menu-container {
+  margin: -8px 0;
+  padding: 5px 0;
+  background-color: #383735;
+}
+
+.button-icon {
+  width: 16px;
+  height: 16px;
+  color: #ffffff;
+}
+
+.menu-button {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.menu-button {
+  color: #ffffff;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}

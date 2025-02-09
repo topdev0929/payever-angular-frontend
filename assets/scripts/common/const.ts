@@ -1,0 +1,14 @@
+export const ANIMATION_DELAY = 1200;
+export const CAR_IMG = "../../assets/car-image.png";
+export const DRONE_CAMERA_IMG = "../../assets/drone-camera.png";
+export const ENGLISH_FLAG = "../../assets/english-icon.svg";
+export const GERMAN_FLAG = "../../assets/germany-icon.svg";
+export const CHECK_OFF_ICON = '../../assets/checkoff-icon.svg';
+export const CHECK_ON_ICON = "../../assets/checkmark-blue-icon.svg";
+export const PAYEVER_ICON = '../../assets/payever-logo.svg';
+export const PLAY_ICON = '../../assets/play.svg';
+export const REPLAY_ICON = '../../assets/replay.svg';
+export const PAUSE_ICON = '../../assets/pause.svg';
+export const PRICES: { [key: string]: string } = { "Technology": "2.039,00", "Car": "46.090,00" };
+export const PRICES_KRONA: { [key: string]: string } = { "Technology": "23.839,00", "Car": "272.049,00" };
+export const PRICES_WITH_FEE_KRONA: { [key: string]: string } = { "Technology": "24.999,024", "Car": "292.049,00" };

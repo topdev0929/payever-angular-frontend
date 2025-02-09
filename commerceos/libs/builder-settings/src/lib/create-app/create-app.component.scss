@@ -1,0 +1,25 @@
+:host {
+  height: 100%;
+}
+
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 16px;
+  &__logo {
+    margin-bottom: 16px;
+  }
+}
+
+.delete-button {
+  margin-top: 12px;
+  padding: 12px 123px;
+  border-radius: 12px;
+  width: 100%;
+  display: block;
+  border: 0;
+  cursor: pointer;
+  outline: 0;
+  font-size: 14px;
+  font-weight: normal;
+}

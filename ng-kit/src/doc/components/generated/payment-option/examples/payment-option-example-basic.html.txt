@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-xs-6">
+    <pe-payment-option
+      title="SOFORT Banking"
+      linkTitle="Edit"
+      [iconPng]="iconPng"
+      [hasSwitch]="true"
+      [switchOn]="true"
+      (onSwitchToggle)="handleSwitchToggle($event)"
+      (onLinkClick)="handleLinkClick($event)"
+      ></pe-payment-option>
+  </div>
+  <div class="col-xs-6">
+    <pe-payment-option
+      title="PayPal"
+      linkTitle="Add payment"
+      iconPng="https://stage.payever.de/media/cache/payment_option.icon/18de526e7ef2103cc3588c6c4239c544.png"
+      (onLinkClick)="handleLinkClick($event)"
+      ></pe-payment-option>
+  </div>
+</div>

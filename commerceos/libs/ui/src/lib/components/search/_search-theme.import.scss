@@ -1,0 +1,10 @@
+@use 'pe_theming' as pet;
+@use './search-theme' as search;
+@use './search-field/search-field-theme.component' as search_field;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include search.color($color-config);
+  @include search_field.color($color-config);
+}
+

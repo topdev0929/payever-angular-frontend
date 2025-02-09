@@ -1,0 +1,15 @@
+<!-- loaded with error -->
+<ng-template #ratesContent><ng-content></ng-content></ng-template>
+
+<ng-container *ngIf="loadErrorMessage && !isLoading">
+  <div class="error-container text-center">
+    <p class="text-danger">{{ loadErrorMessage }}</p>
+    <button type="button" class="btn btn-primary" (click)="onFetchRates()"
+      i18n="@@checkout_sdk.action.try_again">checkout_sdk.action.try_again</button>
+  </div>
+</ng-container>
+
+<p *ngIf="!loadErrorMessage && !isLoading && !rates?.length">{{ noRatesText || translations.noRates }}</p>
+<div *ngIf="(!loadErrorMessage && rates?.length) || isLoading">
+  <ng-container *ngTemplateOutlet="ratesContent"></ng-container>
+</div>

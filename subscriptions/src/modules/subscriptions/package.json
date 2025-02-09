@@ -1,0 +1,36 @@
+{
+  "name": "@pe/subscriptions",
+  "version": "0.3.11",
+  "description": "Builder: subscriptions",
+  "repository": "https://gitlab.devpayever.com/frontend/subscriptions",
+  "license": "LicenseRef-payever",
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
+  "peerDependencies": {
+    "@angular/animations": "x",
+    "@angular/cdk": "x",
+    "@angular/cli": "x",
+    "@angular/common": "^9.1.4",
+    "@angular/core": "^9.1.4",
+    "@angular/forms": "x",
+    "@angular/material": "x",
+    "tslib": "^1.10.0",
+    "moment": "x",
+    "lodash-es": "x",
+    "ngx-scrollbar": "x",
+    "@auth0/angular-jwt": "x",
+    "ngx-color-picker": "x",
+    "angular2-text-mask": "x",
+    "text-mask-addons": "^3.8.0",
+    "ngx-webstorage": "5.0.0",
+    "ngx-clipboard": "^13.0.1",
+
+    "@pe/platform-header": "x",
+    "@pe/common": "x",
+    "@pe/forms": "x",
+    "@pe/auth": "x",
+    "@pe/connect-app": "x",
+    "@pe/ui": "1.0.7"
+  }
+}

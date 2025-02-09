@@ -1,0 +1,13 @@
+<div class="card" [style.min-height]="0">
+  <div class="card-body">
+    <div class="alert alert-success" role="alert" *ngIf="!!(message$ | async)">
+      {{ message$ | async }}
+    </div>
+    <h5 class="card-title">This is custom element container</h5>
+    <p class="card-text">valueBoolean: <strong>{{ valueBoolean }}</strong></p>
+    <p class="card-text">valueNumber: <strong>{{ valueNumber }}</strong></p>
+    <p class="card-text">valueString: <strong>{{ valueString }}</strong></p>
+    <p class="card-text">valueObject: <strong>{{ valueObject | json }}</strong></p>
+    <button class="btn btn-primary" type="button" (click)="onSaved()">Save</button>
+  </div>
+</div>

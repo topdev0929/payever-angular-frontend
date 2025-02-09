@@ -1,0 +1,33 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $success: map.get($color-config, 'success');
+  $text-color: map.get($color-config, 'text-color');
+  $border: map.get($color-config, 'border');
+
+  .statistics-widgets-percentage {
+    .circular-chart {
+        &__body {
+            &.green .circle {
+                stroke: $success;
+              }
+        }
+        &__text {
+            &-date, &-percentage {
+                color: $text-color;
+            }
+            &-profit {
+                color: $success;
+            }
+        }
+        &.circle-bg {
+            fill: $border;
+        }
+    }
+    .percentage {
+        &__title {
+            color: $text-color;
+        }
+    }
+  }
+}

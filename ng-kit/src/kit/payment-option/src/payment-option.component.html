@@ -1,0 +1,22 @@
+<div class="toggle-settings-item">
+  <div class="col-sm-7 col-xs-6 toggle-settings-item-info">
+    <img class="toggle-settings-item-logo img-circle" [src]="iconPng">
+    <span [innerHTML]="title"></span>
+  </div>
+  <div class="col-sm-5 col-xs-6 toggle-settings-item-controls text-right">
+    <button
+      class="btn btn-link"
+      [innerHTML]="linkTitle"
+      (click)="onLinkBtnClick($event)"
+      ></button>
+    <ng-container *ngIf="hasSwitch">
+      <input
+        class="form-control-toggle"
+        [id]="uuid"
+        [checked]="switchOn"
+        (change)="onSwitchToggle($event)"
+        type="checkbox">
+      <label [attr.for]="uuid"></label>
+    </ng-container>
+  </div>
+</div>

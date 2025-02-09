@@ -1,0 +1,553 @@
+@use "pe_variables" as pe_variables;
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $select-button: map.get($color-config, 'select-button');
+  $text-color: map.get($color-config, 'text-color');
+  $row-background: map.get($color-config, 'row-background');
+  $background: map.get($color-config, 'background');
+  $border: map.get($color-config, 'border');
+  $button-menu-opened: map.get($color-config, 'button-menu-opened');
+  $badge-button: map.get($color-config, 'badge-button');
+  $spinner: map.get($color-config, 'spinner');
+  $icon-fill: map.get($color-config, 'icon-fill');
+  $content: map.get($color-config, 'content');
+  $fill-black: map.get($color-config, 'fill-black');
+  $confirm: map.get($color-config, 'confirm');
+  $warn: map.get($color-config, 'warn');
+  $x-button: map.get($color-config, 'x-button');
+  $primary: map.get($color-config, 'primary');
+  $hover-button: map.get($color-config, 'hover-button');
+  $separator: map.get($color-config, 'separator');
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $overlay-background-no-blur: map.get($color-config, 'overlay-background-no-blur');
+  $label-color: map.get($color-config, 'label-color');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $active-text: map.get($color-config, 'active-text');
+  $accent: map.get($color-config, 'accent');
+  $accent-border: map.get($color-config, 'accent-border');
+  $accent-fill: map.get($color-config, 'accent-fill');
+  $accent-fill-border: map.get($color-config, 'accent-fill-border');
+  $filter-invert-light: map.get($color-config, 'filter-invert-light');
+  $gray-button: map.get($color-config, 'gray-button');
+  $overlay-backdrop: map.get($color-config, 'overlay-backdrop');
+  
+  .connect-modal,
+  .connect-short-modal {
+    & + .cdk-global-overlay-wrapper {
+      .overlay-widget-container {
+        border-color: $border;
+        > div {
+          .overlay-widget {
+            &__header {
+              color: $text-color;
+            }
+          }
+        }
+      }
+      .mat-expansion-panel {
+        background-color: $transparent-color;
+        border-bottom-color: $background;
+        &-indicator {
+          color: $text-color;
+        }
+        &-header,
+        &-header:focus,
+        &-header:hover {
+          background-color: $content;
+          > * {
+            color: $text-color;
+          }
+        }
+        &-body {
+          .fieldset-caption {
+            color: $label-color;
+          }
+        }
+        &.mat-expansion-panel__api-keys {
+          .mat-expansion-panel-body {
+            border-top-color: $background;
+          }
+        }
+      }
+      .mat-form-field {
+        &.mat-focused {
+          .mat-form-field-underline {
+            background-color: $confirm !important;
+          }
+        }
+      }
+      .form-table .form-fieldset .row {
+        & > div {
+          background-color: $row-background;
+          border-right-color: $background;
+          border-bottom: none;
+        }
+      }
+      .plugin-api-key-button {
+        &:hover {
+          opacity: 0.9;
+        }
+      }
+      .mat-form-field-label {
+        color: $label-color;
+      }
+
+      .pe-field-footnote-key-value {
+        color: $text-color;
+      }
+
+      .mat-input-element {
+        color: $text-color !important;
+        caret-color: $text-color !important;
+        background-color: $transparent-color;
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active {
+          box-shadow: 0 0 0 30px $transparent-color inset;
+          -webkit-text-fill-color: $text-color;
+          caret-color: $text-color;
+        }
+        &::placeholder {
+          color: $label-color;
+        }
+      }
+      .mat-form-field-subscript-wrapper {
+        color: $warn;
+      }
+      
+      .mat-button-block,
+      .uninstall-button button {
+        background-color: $content !important;
+      }
+      .mat-button-block {
+        color: $confirm !important;
+        overflow: hidden !important;
+      }
+      .uninstall-button button {
+        color: $warn;
+      }
+      .pe-info-box {
+        &.tpm-verify .mat-card {
+          .mat-card-content .content-wrapper {
+            .tpm-verify {
+              &-title,
+              &-message {
+                color: $text-color;
+              }
+            }
+          }
+          .mat-card-actions {
+            .mat-button {
+              color: $text-color;
+              &:first-of-type {
+                background-color: $warn;
+                color: $active-text;
+              }
+              &:not(:first-of-type) {
+                background-color: $content;
+              }
+            }
+          }
+        }
+        .mat-card {
+          &-content,
+          .mat-card-actions {
+            background-color: $transparent-color;
+            .content-wrapper {
+              background-color: $transparent-color !important;
+            }
+          }
+        }
+      }
+      .form-table .form-fieldset .row {
+        .field-bottom-line {
+          border-bottom-color: $border;
+        }
+      }
+      .mat-select-value-text {
+        color: $text-color;
+      }
+      .mat-form-field-suffix {
+        .mat-raised-button {
+          background-color: $transparent-color;
+          color: $confirm;
+        }
+      }
+      .mat-slide-toggle {
+        &-bar {
+          background-color: $x-button;
+        }
+        &-content {
+          color: $text-color;
+        }
+        &.mat-checked:not(.mat-disabled) {
+          .mat-slide-toggle-bar {
+            background-color: $hover-button;
+          }
+        }
+      }
+      .mat-list {
+        &-item {
+          background-color: $row-background;
+          height: auto !important;
+          border-bottom: solid 1px $background;
+          &-content {
+            height: auto !important;
+          }
+        }
+        &-item-col {
+          color: $text-color;
+          .mat-button-base {
+            background-color: $transparent-color;
+            &:not(.delete-button) {
+              .mat-button-wrapper {
+                color: $confirm;
+              }
+            }
+          }
+        }
+      }
+      .mat-list-item-flex {
+        :nth-child(3) {
+          &.mat-list-item-col-tpm-button-last {
+            .mat-button-base {
+              .mat-button-wrapper {
+                color: $warn;
+              }
+            }
+          }
+        }
+      }
+      .mat-checkbox {
+        &-label {
+          color: $text-color !important;
+        }
+        &-frame {
+          border-radius: 100%;
+          border: solid 1px $accent-border !important;
+          background-color: $accent;
+        }
+        &-checked {
+          .mat-checkbox-frame {
+            border: solid 1px $transparent-color !important;
+            background-color: $confirm;
+          }
+          .mat-checkbox-background {
+            background-color: $transparent-color;
+          }
+        }
+      }
+      .mat-raised-button {
+        color: $hover-button;
+        border: none;
+        &.mat-muted-light {
+          background: $transparent-color !important;
+        }
+      }
+      .button-col.text-right {
+        .mat-spinner {
+          background-color: $transparent-color !important;
+          width: fit-content !important;
+          svg circle {
+            stroke: $icon-fill !important;
+          }
+        }
+      }
+    }
+  }
+
+  .mat-progress-spinner {
+    stroke: $spinner;
+  }
+
+  .mat-select-panel {
+    &:not(.pe-checkout-bootstrap) {
+      background-color: $row-background !important;
+      box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(25px);
+      border-radius: 12px;
+      @media (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+        transform: none !important;
+      }
+
+      .mat-option {
+        background-color: $transparent-color !important;
+        color: $text-color;
+        border-bottom: solid 1px $row-background !important;
+        height: 40px;
+        font-size: 14px;
+        font-weight: 400;
+        @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+          height: 56px;
+          font-size: 17px;
+        }
+
+        &:not(:first-of-type) {
+          &::before {
+            background-color: $separator;
+          }
+        }
+
+        .mat-option-text {
+          color: $text-color;
+        }
+
+        &.mat-selected,
+        &:hover {
+          background-color: $hover-button !important;
+          border-bottom: none !important;
+
+          .mat-option-text {
+            color: $active-text !important;
+          }
+        }
+        &:not(:last-of-type, .mat-selected, :hover) {
+          border-bottom: 1px solid $background !important;
+        }
+      }
+      .field-bottom-line {
+        border-bottom: none !important;
+      }
+    }
+  }
+  .modal-overlay {
+    width: 100% !important;
+    height: 100% !important;
+    .modal-window {
+      background-color: $overlay-background-no-blur !important;
+      .modal-actions__block {
+        &.right-side {
+          .modal-actions__button {
+            color: $label-color !important;
+            background-color: $transparent-color !important;
+            font-weight: 500;
+            line-height: normal;
+            display: flex;
+            align-items: center;
+            margin: 0 4px !important;
+            &.active {
+              color: $hover-button !important;
+            }
+          }
+        }
+        &.title {
+          .modal-actions__title {
+            color: $text-color !important;
+          }
+        }
+      }
+      .generate-box {
+        .content {
+          .generated-code {
+            background-color: $row-background !important;
+            color: $label-color !important;
+          }
+        }
+        &__button {
+          background-color: $content;
+          color: $confirm;
+          font-size: 14px;
+          font-weight: 500;
+          &:hover {
+            opacity: 0.9;
+          }
+          &--active {
+            color: #069D3B;
+          }
+        }
+      }
+      .settings-container {
+        .actions-container {
+          .settings-container {
+            background-color: $primary !important;
+            .settings-menu-item[aria-expanded='true'] {
+              background-color: $button-menu-opened !important;
+            }
+            .pe-btn-colorpicker {
+              border: solid 1px $accent-border !important;
+            }
+          }
+        }
+      }
+    }
+  }
+  .cdk-overlay-backdrop.finexp-mat-menu:not(.color-picker-form-menu, .checkout-style-item-alignment-menu)
+    + .cdk-overlay-connected-position-bounding-box {
+    .cdk-overlay-pane {
+      .mat-menu-panel {
+        background-color: $secondary-background !important;
+        backdrop-filter: blur(25px) !important;
+        box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2) !important;
+        border: solid 1px $accent-border;
+        margin-bottom: 0 !important;
+        &.mat-menu-pe-colorpicker {
+          padding: 12px !important;
+          border-radius: 12px !important;
+          border: solid 1px $border !important;
+        }
+        .mat-menu-content {
+          background-color: $transparent-color !important;
+          .payments-menu {
+            &__action {
+              background-color: $content !important;
+              color: $warn !important;
+              &:hover {
+                opacity: 0.9 !important;
+              }
+            }
+            &__item {
+              padding: 0 8px;
+              border-radius: 6px;
+              cursor: pointer;
+              &-content {
+                .mat-checkbox {
+                  &-background {
+                    border-radius: 100%;
+                    background-color: $accent;
+                    border: solid 1px $accent-border;
+                    svg {
+                      width: 12px;
+                      height: 12px;
+                      margin: auto;
+                    }
+                  }
+                  &-frame {
+                    border: solid 1px $accent-border;
+                  }
+                  &-checked {
+                    .mat-checkbox-frame, .mat-checkbox-background {
+                      border: none !important;
+                    }
+                  }
+                }
+                .payments-menu__action {
+                  color: $confirm !important;
+                  background-color: $transparent-color !important;
+                }
+                .icon {
+                  color: $active-text;
+                }
+              }
+              &:hover {
+                background-color: $confirm !important;
+                .payments-menu {
+                  &__name,
+                  &__action {
+                    color: $active-text !important;
+                  }
+                }
+                .mat-checkbox-checked .mat-checkbox-background {
+                  background-color: $active-text;
+                  .mat-checkbox-checkmark path.mat-checkbox-checkmark-path {
+                    stroke: $confirm !important;
+                  }
+                }
+              }
+            }
+            &__name {
+              color: $text-color !important;
+            }
+            &__icon {
+              filter: $filter-invert-light;
+            }
+          }
+          .settings-menu {
+            background-color: $transparent-color !important;
+            color: $text-color !important;
+            border-radius: 0 !important;
+            border: none !important;
+            &__block,
+            .input-settings,
+            .text-input-settings,
+            &__placement {
+              color: $text-color !important;
+              border-right: none !important;
+            }
+            .text-input-settings {
+              outline: none !important;
+              &:focus {
+                box-shadow: 0px -12px 0px -11px $confirm inset;
+              }
+            }
+            &__label {
+              color: $label-color !important;
+            }
+            &__placement {
+              background-color: rgba(0, 0, 0, 0.3);
+            }
+            &__input {
+              input.input-settings,
+              &-dimensions {
+                padding: 0 6px 0 0 !important;
+                height: 24px;
+              }
+            }
+            &.sub-menu {
+              padding: 0 !important;
+              .payments-menu__item-content {
+                padding: 8px 2px !important;
+                &:hover {
+                  background-color: $confirm !important;
+                  .payments-menu {
+                    &__name,
+                    &__action {
+                      color: $active-text !important;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .finexp-mat-menu__placement-menu, .finexp-mat-menu {
+    +* {
+      .cdk-overlay-pane .mat-menu-panel {
+        border-radius: 12px !important;
+        background-color: $secondary-background !important;
+        backdrop-filter: blur(25px) !important;
+        box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2) !important;
+        border: solid 1px $border !important;
+        .mat-menu-content, .settings-menu.sub-menu {
+          background-color: unset !important;
+          border-radius: unset !important;
+          padding: 0 !important;
+        }
+        .settings-menu.sub-menu {
+          .payments-menu {
+            &__name {
+              color: $text-color !important;
+            }
+            &__item-content {
+              &:not(:last-child) {
+                border-bottom: solid 1px $border !important;
+              }
+              padding: 10px 0 !important;
+              &:hover {
+                background-color: $confirm;
+                .payments-menu__name {
+                  color: $active-text !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .mat-snack-bar-container {
+    >div {
+      display: flex !important;
+      justify-content: center !important;
+    }
+  }
+  .dialog-dismiss-integration-changes-backdrop {
+    background-color: $overlay-backdrop; 
+  }
+}

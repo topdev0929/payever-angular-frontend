@@ -1,0 +1,13 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+    $secondary-background: map.get($color-config, 'secondary-background');
+    $border: map.get($color-config, 'border');
+    $text-color: map.get($color-config, 'text-color');
+    
+    dashboard-notification-list {
+      background-color: $secondary-background;
+      border-color: $border;
+      color: $text-color;
+    }
+  }

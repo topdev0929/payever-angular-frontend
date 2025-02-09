@@ -1,0 +1,18 @@
+<form [formGroup]="blurForm">
+  <div class="group__row">
+    <label class="group__label">{{ 'builder-app.forms.blur.title' | translate }}</label>
+    <peb-slide-toggle formControlName="enabled"></peb-slide-toggle>
+  </div>
+
+  <div class="group__row" *ngIf="blurForm.value.enabled">
+    <div class="group__col combined-input-range">
+      <label class="group__label">{{ 'builder-app.common.value' | translate }}</label>
+      <peb-number-input
+        [min]="0"
+        [max]="100"
+        formControlName="value"
+        units="px"
+      ></peb-number-input>
+    </div>
+  </div>
+</form>

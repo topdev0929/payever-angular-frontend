@@ -1,0 +1,75 @@
+@import '../../../../../../shared/styles/assets/imports';
+
+.ui-layout-footer {
+  width: 100%;
+  margin-bottom: 20px;
+
+  .logo-wrapper {
+    display: inline-block;
+    margin: 60px 0 17px;
+
+    .logo-checkout {
+      @include payever_transition();
+      width: 140px;
+      height: 18px;
+
+      @media (max-width: 414px) {
+        width: 118px;
+        height: 15px;
+      }
+    }
+  }
+
+  .footer-cols {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 12px;
+    line-height: 11px;
+    white-space: nowrap;
+    color: var(--checkout-page-text-primary-color, $color-black-pe);
+
+    a {
+      text-decoration: none;
+    }
+
+    div {
+      & + div {
+        margin-left: 15px;
+      }
+
+      @media (max-width: 475px) {
+        margin-left: 10px;
+        font-size: 10px;
+        a {
+          font-size: 9px;
+        }
+      }
+
+      @media (max-width: 375px) {
+        margin-left: 9px;
+        font-size: 9px;
+        a {
+          font-size: 8px;
+        }
+      }
+
+      @media (max-width: 340px) {
+        margin-left: 8px;
+        font-size: 8px;
+        a {
+          font-size: 7px;
+        }
+      }
+    }
+  }
+
+  .border-top {
+    border-top: 1px solid var(--checkout-page-line-color, #dfdfdf);
+  }
+
+  .cancel-btn {
+    margin-top: 17px;
+  }
+}

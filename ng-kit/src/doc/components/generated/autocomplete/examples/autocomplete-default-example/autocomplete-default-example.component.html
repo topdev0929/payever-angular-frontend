@@ -1,0 +1,8 @@
+<form novalidate [formGroup]="form" (ngSubmit)="onSubmit()">
+  <pe-autocomplete [errorMessage]="'Please enter a valid city name'"
+                   [formGroup]="form"
+                   [formControlName]="'option'"
+                   [options]="options"
+  ></pe-autocomplete>
+  <button>Submit</button>
+</form>

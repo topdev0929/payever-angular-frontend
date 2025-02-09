@@ -1,0 +1,24 @@
+:host {
+  display: inline-block;
+  .user {
+    display: flex;
+    align-items: center;
+    &__avatar {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+    }
+    @media (max-width: 720px) {
+      &, &__avatar {
+        width: 24px;
+        height: 24px;
+      }
+    }
+    &__name {
+      font-size: 14px;
+      font-weight: 500;
+      margin-left: 8px;
+    }
+  }
+}

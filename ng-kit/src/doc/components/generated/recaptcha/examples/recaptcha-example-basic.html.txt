@@ -1,0 +1,6 @@
+<pe-recaptcha
+  [key]="publicKey"
+  (verified)="onVerified($event)"
+  [size]="getSize()"
+  [theme]="getTheme()"
+></pe-recaptcha>

@@ -1,0 +1,13 @@
+<div class="doc-container-black">
+  <pe-tree [theme]="theme" [treeData]="treeData">
+  </pe-tree>
+  <ng-template #AddonPrepend>
+    <button class="mat-button-link mat-button-no-padding"
+            mat-button
+            (click)="onClickAddonPrepend()">
+      <svg class="icon icon-16 mat-tree-grey dots-width">
+        <use xlink:href="#icon-dots-v-16"></use>
+      </svg>
+    </button>
+  </ng-template>
+</div>

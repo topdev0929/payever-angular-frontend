@@ -1,0 +1,27 @@
+<div class="button-page" [class.active]="active">
+  <button mat-button class="button-page-label" disableRipple="true" (click)="selected.emit()">
+    {{ page?.label }}
+  </button>
+  <mat-menu #menu="matMenu" class="mat-menu-dark">
+    <div class="menu">
+      <button mat-menu-item class="menu-button" disableRipple="true" (click)="copied.emit()">
+        Copy
+      </button>
+      <button mat-menu-item class="menu-button" disableRipple="true" (click)="deleted.emit()">
+        Delete
+      </button>
+    </div>
+  </mat-menu>
+  <button
+    *ngIf="!readOnly"
+    [matMenuTriggerFor]="menu"
+    mat-icon-button
+    class="button-page-dropdown"
+    disableRipple="true"
+  >
+    <svg class="icon button-page-dropdown-icon">
+      <use xlink:href="#icon-dropdown-triangle-16"></use>
+    </svg>
+  </button>
+  <mat-divider vertical class="button-page-divider"></mat-divider>
+</div>

@@ -1,0 +1,141 @@
+@use  'pe_screen_variables.scss' as pe_variables;
+@use 'pe_mixins' as pe_mixins;
+
+.confirm-action-dialog {
+  padding: 12px;
+  font-family: Roboto, sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 260px;
+  min-height: 305px;
+  border-radius: 12px;
+  -webkit-backdrop-filter: blur(25px);
+  backdrop-filter: blur(25px);
+
+  &__icon {
+    margin-top: 23px;
+    margin-bottom: 18px;
+  }
+
+  .mat-dialog-container {
+    max-width: 408px;
+    padding: 20px 12px;
+    border-radius: 12px;
+    backdrop-filter: blur(25px);
+  }
+
+
+  &__title {
+    font-family: Roboto, sans-serif;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.21;
+    margin-bottom: 8px;
+  }
+
+  &__subtitle {
+    font-family: Roboto, sans-serif;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 18px;
+  }
+
+  &__projected-content {
+    max-width: 260px;
+  }
+
+  &__buttons {
+    margin-top: 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 8px;
+
+    .confirm-action-dialog__button {
+      text-align: center;
+      border: none;
+      outline: none;
+      box-shadow: none;
+      padding: 8px 0;
+      margin-bottom: 8px;
+      width: 228px;
+      height: 36px;
+      border-radius: 6px;
+      font-family: Roboto, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.21;
+      letter-spacing: normal;
+      cursor: pointer;
+
+      &:active,
+      &:focus,
+      &:hover {
+        border: none;
+        outline: none;
+        box-shadow: none;
+      }
+
+      &.red {
+        background-color: #eb4653;
+        color: #ffffff !important;
+      }
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+  @media (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+    padding: 48px 32px;
+    width: 100%;
+    height: calc(100% * 3 / 4);
+    border-radius: 10px 10px 0 0;
+    border: unset;
+    @include pe_mixins.payever_bottom-sheet();
+    &__content {
+      max-width: 100%;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    &__title, &__subtitle, &__buttons {
+      width: 100%;
+    }
+    &__title {
+      font-size: 34px;
+      font-weight: 700;
+      margin: 6px 0 16px;
+    }
+    &__subtitle {
+      flex: 1;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 20px;
+    }
+    &__buttons {
+      .confirm-action-dialog__button {
+        width: 100%;
+        min-height: 44px;
+        height: 44px;
+        font-size: 17px;
+        font-weight: 600;
+      }
+    }
+  }
+}

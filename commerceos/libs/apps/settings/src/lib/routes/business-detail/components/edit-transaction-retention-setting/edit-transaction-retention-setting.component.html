@@ -1,0 +1,34 @@
+<form
+  *ngIf="!(isLoading$ | async) else skeleton"
+  class="form-container" [formGroup]="formGroup">
+    <peb-form-background>
+      <peb-select
+        formControlName="transactionsRetentionPeriod"
+        [label]="'info_boxes.panels.business_details.menu_list.archive.archived_in' | translate"
+        selectType="label"
+      >
+        <peb-select-option
+          *ngFor="let item of options"
+          [label]="item.label"
+          [value]="item.value"
+        ></peb-select-option>
+      </peb-select>
+      <peb-select
+        formControlName="failedTransactionsRetentionPeriod"
+        [label]="'info_boxes.panels.business_details.menu_list.archive.declined_archived_in' | translate"
+        selectType="label"
+      >
+      <peb-select-option
+        *ngFor="let item of options"
+        [label]="item.label"
+        [value]="item.value"
+      ></peb-select-option>
+    </peb-select>
+    </peb-form-background>
+</form>
+
+<ng-template #skeleton>
+  <edit-transaction-retention-setting-skeleton>
+  </edit-transaction-retention-setting-skeleton>
+</ng-template>
+

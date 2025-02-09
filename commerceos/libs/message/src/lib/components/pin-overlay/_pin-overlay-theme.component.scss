@@ -1,0 +1,58 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $border: map.get($color-config, 'border');
+  $content: map.get($color-config, 'content');
+  $confirm: map.get($color-config, 'confirm');
+  $text-color: map.get($color-config, 'text-color');
+  $gray-button: map.get($color-config, 'gray-button');
+  $button-fill: map.get($color-config, 'button-fill');
+  $active-text: map.get($color-config, 'active-text');
+  $dropdown-panel: map.get($color-config, 'dropdown-panel');
+  $box-shadow-color: map.get($color-config, 'box-shadow-color');
+
+  .pin-message {
+    color: $text-color;
+
+    &__pin {
+      background: $confirm;
+      color: $active-text
+    }
+
+    &__cancel {
+      background: $gray-button;
+      color: $text-color
+    }
+  }
+
+  .pe-message-pin-overlay-backdrop {
+    background-color: rgba(0, 0, 0, 0.3);
+
+    & ~ .cdk-global-overlay-wrapper {
+      align-items: center;
+      justify-content: center;
+
+      .pe-message-pin-overlay {
+        width: 100%;
+        height: 100%;
+
+        .mat-dialog-container {
+          padding: 0;
+          overflow: unset;
+
+          pe-pin-dialog {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            @media (max-width: 480px) {
+              align-items: flex-end;
+            }
+          }
+        }
+      }
+    }
+  }
+}

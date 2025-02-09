@@ -1,0 +1,44 @@
+<div class="chapter">
+  <h2>ErrorComponent</h2>
+  <div class="main-block">
+    <tabset>
+      <tab heading="Overview">
+        <h3>Import ErrorModule</h3>
+        <pre><code class="typescript" [innerHTML]="'import {ErrorModule } from \'@pe/ng-kit/modules/error\';'"></code></pre>
+        <p>&nbsp;</p>
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          >
+          <div class="error-example-wrap">
+            <pe-error
+              title="We're sorry"
+              description="Something went wrong in out end.<br />Please try again or contact us for <a href='#'>help</a>."
+              code="500"
+            ></pe-error>
+          </div>
+        </example-viewer>
+      </tab>
+      <tab heading="API">
+        <component-api-renderer [path]="'error/src/error.component'"></component-api-renderer>
+      </tab>
+      <tab heading="Examples">
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          >
+          <div class="error-example-wrap">
+            <pe-error
+              title="We're sorry"
+              description="Something went wrong in out end.<br />Please try again or contact us for <a href='#'>help</a>."
+              code="500"
+            ></pe-error>
+          </div>
+        </example-viewer>
+      </tab>
+      <tab heading="README">
+        <doc-viewer documentUrl="/assets/module-guides/error/error.html"></doc-viewer>
+      </tab>
+    </tabset>
+  </div>
+</div>

@@ -1,0 +1,122 @@
+@import '../../../../styles/src/lib/styles/spinner';
+@import '../../../../styles/src/lib/styles/variables';
+
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+.form {
+
+  &__row {
+
+    >span {
+      display: block;
+      font-size: 11px;
+      font-family: Roboto, sans-serif;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    input {
+      border: 0;
+      border-radius: 6px;
+      box-sizing: border-box;
+      padding: 4px 20px 4px 8px;
+      font-family: Roboto, sans-serif;
+      font-size: 12px;
+      line-height: 1.33;
+      height: 28px;
+      margin: 0;
+      outline: none;
+      width: 100%;
+    }
+
+    button {
+      appearance: none;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-family: Roboto, sans-serif;
+      font-size: 12px;
+      line-height: 1.7;
+      outline: none;
+      padding: 4px 14px;
+      width: 100%;
+    }
+  }
+}
+
+.position {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 6px;
+
+  &__button {
+    align-items: center;
+    border-radius: 6px;
+    height: 28px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.fill {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  position: relative;
+
+  &::before,
+  &::after {
+    display: block;
+    content: '';
+    height: 1px;
+    position: absolute;
+    width: 100%;
+  }
+
+  &::before {
+    top: 0;
+  }
+
+  &::after {
+    bottom: 0;
+  }
+}
+
+.add {
+  padding-top: 16px;
+  position: relative;
+
+  &::before {
+    display: block;
+    content: '';
+    height: 1px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.reset {
+  padding-bottom: 16px;
+  position: relative;
+  margin: 0;
+}
+
+peb-element-name {
+  margin-top: 10px;
+}
+
+.dimension {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 3px;
+  grid-row-gap: 6px;
+}
+
+peb-slide-toggle{
+  margin-top: 8px;
+}

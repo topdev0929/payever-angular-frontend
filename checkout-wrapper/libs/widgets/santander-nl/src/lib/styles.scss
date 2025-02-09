@@ -1,0 +1,31 @@
+:host {
+  display: block;
+}
+
+.ui-top-text {
+  display: flex;
+  font-size: 18px;
+  font-weight: 400;
+  padding-top: 2px;
+  color: #ea1d25;
+  white-space: nowrap;
+
+  &::before {
+    display: inline-block;
+    width: 1.5px;
+    height: 20px;
+    margin-right: 6px;
+    content: '';
+    background-color: #ea1d25;
+  }
+}
+
+.finexp-regular-text {
+  font-size: 9px;
+}
+
+finexp-ui-regular-text {
+  p {
+    margin: 0;
+  }
+}

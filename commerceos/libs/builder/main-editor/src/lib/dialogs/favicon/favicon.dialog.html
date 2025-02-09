@@ -1,0 +1,61 @@
+<div class="favicon-dialog">
+  <div class="favicon-dialog__form">
+    <div class="favicon-dialog__header">
+      <div class="favicon-dialog__header-action favicon-dialog__header-action--cancel" (click)="closeForm()">
+        {{ 'builder-app.actions.close' | translate }}
+      </div>
+      <div class="favicon-dialog__title">
+        <span>{{ title }}</span>
+      </div>
+      <div class="favicon-dialog__header-action favicon-dialog__header-action--success" (click)="submitForm()" 
+      [class.disabled]="(uploaded$ | async) === false">
+        {{ 'builder-app.actions.save' | translate }}
+      </div>
+    </div>
+    <div class="favicon-dialog__content">
+      <div class="favicon-dialog__fields">
+        <div class="favicon-dialog__field favicon-dialog__field-big">
+
+       <peb-favicon-picker
+        [addButtonLabel]="'Add Favicon'"
+        [image]="previewImageUrl"
+        [isImageLoading]="false"
+        (file)="uploadImage($event)"
+       ></peb-favicon-picker>
+
+      <div class="favicon-dialog__content__description">
+        <span>
+          {{ 'builder-app.main_editor.favicon_hint' | translate }}
+        </span>
+         <span>
+          {{ 'builder-app.main_editor.favicon_recommend' | translate }}
+         </span>
+      </div>
+
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #confirmDialogTpl>
+  <div class="favicon-dialog__confirm">
+    <div class="favicon-dialog__confirm-icon">
+      <mat-icon svgIcon="alert"></mat-icon>
+    </div>
+    <div class="favicon-dialog__confirm-title">
+      {{ 'builder-app.main_editor.confirm' | translate }}
+    </div>
+    <div class="favicon-dialog__confirm-subtitle">
+      {{ 'builder-app.main_editor.close_confirm' | translate }}
+    </div>
+    <div class="favicon-dialog__confirm-actions">
+      <div class="favicon-dialog__confirm-action favicon-dialog__confirm-action--confirm" (click)="confirmDialogRef?.close(true)">
+        {{ 'builder-app.main_editor.yes' | translate }}
+      </div>
+      <div class="favicon-dialog__confirm-action favicon-dialog__confirm-action--reject" (click)="confirmDialogRef?.close(false)">
+        {{ 'builder-app.main_editor.no' | translate }}
+      </div>
+    </div>
+  </div>
+</ng-template>

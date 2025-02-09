@@ -1,0 +1,34 @@
+{
+  "payment-openbank": {
+    "actions": {
+      "apply": "Apply",
+      "change_payment_method": "Please, select another payment method",
+      "try_again": "Try again",
+      "pay": "Pay"
+    },
+    "errors": {
+      "finish": {
+        "emptyRedirectUrl": "The 'redirectUrl' is empty in backend response"
+      }
+    },
+    "inquiry": {
+      "finish": {
+        "processing": {
+          "title": "Request can take a few minutes. Please do not click away",
+          "text": "We are processing your payment"
+        }
+      },
+      "form": {
+        "birthDate": {
+          "label": "Date of birth",
+          "placeholder": "Date of birth"
+        },
+        "phone": {
+          "label": "Phone",
+          "placeholder": "Phone"
+        },
+        "legal": "Before continuing, you must read and accept the <a href=\"{{termsLink}}\">General Terms and Conditions</a> for Zinia. After clicking \"Buy with Zinia\", your data will be processed by Zinia for the purpose of providing the service, which involves the use of automated decision-making. For further information on this data processing and how to exercise your rights, please read the <a href=\"{{privacyLink}}\">Privacy Policy</a>."
+      }
+    }
+  }
+}

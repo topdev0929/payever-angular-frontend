@@ -1,0 +1,31 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $text-color: map.get($color-config, 'text-color');
+  $border: map.get($color-config, 'border');
+  $secondary-button: map.get($color-config, 'secondary-button');
+
+  peb-pages {
+    background-color: $overlay-background;
+    border-color: $border;
+    .message-dialog-wrapper {
+        &__header {
+            .close-button {
+                background-color: $secondary-button;
+                color: $text-color;
+            }
+        }
+    }
+    .pages-dialog {
+        &__section-header {
+            color: $text-color;
+        }
+    }
+    .section {
+        &__label {
+            color: $text-color;
+        }
+    }
+  }
+}

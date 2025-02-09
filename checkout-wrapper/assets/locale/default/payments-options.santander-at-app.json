@@ -1,0 +1,19 @@
+{
+  "payment-santander-at": {
+    "actions": {
+      "redirect_to_santander_at": "Redirect to Santander",
+      "change_payment_method": "Please, select another payment method"
+    },
+    "inquiry": {
+      "finish": {
+        "processing": {
+          "title": "Request can take a few minutes. Please do not click away",
+          "text": "We are processing your payment"
+        },
+        "labels": {
+          "total": "Total"
+        }
+      }
+    }
+  }
+}

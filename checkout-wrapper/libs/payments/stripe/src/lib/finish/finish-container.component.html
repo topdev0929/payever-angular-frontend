@@ -1,0 +1,14 @@
+<stripe-shared-finish
+  [errorMessage]="errorMessage"
+  [embeddedMode]="embeddedMode"
+  [nodeResult]="paymentResponse"
+  [showCloseButton]="showCloseButton"
+  [showChangePaymentButton]="true"
+  [isLoading]="!paymentResponse && !errorMessage"
+  (cleanUp)="cleanUp()"
+  (close)="close()"
+  (closeButtonClicked)="close()"
+  (changePaymentMethod)="changePayment($event)"
+  (updateStatus)="updateStatus()"
+  (tryAgain)="tryAgain()"
+></stripe-shared-finish>

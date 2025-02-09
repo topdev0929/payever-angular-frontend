@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="ie=edge" http-equiv="x-ua-compatible" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="HandheldFriendly" content="true" />
+    <title>Builder</title>
+    <base href="/" />
+    <script src="https://payevertest.azureedge.net/js/pe-static.js"></script>
+  </head>
+  <body class="pe-bootstrap">
+    <!-- Platform part for testing -->
+    <div class="os-background-wrap"></div>
+    <div class="os-platform-content">
+      <app-builder></app-builder>
+    </div>
+    <script>
+      (function() {
+        PayeverStatic.IconLoader.loadIcons([
+          'set',
+          'apps',
+          'settings',
+          'builder',
+          'dock',
+          'edit-panel',
+          'social',
+          'dashboard',
+          'notification',
+          'commerceos',
+          'widgets',
+          'payment-methods',
+          'shipping',
+          'finance-express'
+        ])
+      })()
+    </script>
+  </body>
+</html>

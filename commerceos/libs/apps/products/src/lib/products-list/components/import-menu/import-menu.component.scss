@@ -1,0 +1,122 @@
+.hidden-icons {
+  display: none;
+}
+
+#import-menu {
+  width: 100%;
+
+  .divider {
+    width: 1px;
+    height: 21px;
+    margin: auto 16px;
+  }
+
+  .button {
+    white-space: nowrap;
+    cursor: pointer;
+    padding: 23px 0;
+    font-size: 13px;
+    margin-left: 45%;
+  }
+
+  .menu {
+    width: 100%;
+    padding-bottom: 10px;
+
+    &__button {
+      position: relative;
+      display: inline-flex;
+      box-sizing: border-box;
+      width: 100%;
+      border: none;
+      text-align: left;
+      min-width: 90px;
+      cursor: pointer;
+      outline: none;
+      align-items: center;
+      margin-bottom: 0;
+      padding: 4px 8px;
+      border-radius: 6px;
+
+      .mat-icon {
+        height: 20px;
+      }
+
+      & > div {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+      }
+
+      span {
+        font-family: Roboto, sans-serif;
+        font-size: 14px;
+        line-height: 1.1;
+        margin-left: 8px;
+        user-select: none;
+      }
+
+      &-help-icon {
+        height: 20px;
+        width: 20px;
+      }
+    }
+
+    &__icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .toggle {
+    label {
+      display: block;
+      width: 31px;
+      height: 20px;
+      margin: 0 auto;
+      border-radius: 100px;
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+    }
+
+    input {
+      display: none;
+    }
+
+    em {
+      height: 16px;
+      width: 16px;
+      display: inline-block;
+      border-radius: 50%;
+      margin-top: 2px;
+      margin-left: 3px;
+      transition: all 0.2s ease-in-out;
+      pointer-events: none;
+    }
+
+    label:hover > em {
+      transform: scale(1.01);
+    }
+
+    input:checked + label > em {
+      margin-left: 13px;
+    }
+
+    label:active > em {
+      width: 22px;
+    }
+
+    input:checked + label:active > em {
+      margin-left: 10px;
+    }
+  }
+
+  .close-icon {
+    cursor: pointer;
+  }
+}

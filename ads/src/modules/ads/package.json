@@ -1,0 +1,22 @@
+{
+  "name": "@pe/ads",
+  "version": "1.0.0-ADF-1.9",
+  "description": "Builder: ads",
+  "repository": "https://gitlab.devpayever.com/frontend/ads",
+  "license": "UNLICENSED",
+  "peerDependencies": {
+    "@angular/common": "^9.1.4",
+    "@angular/core": "^9.1.4",
+    "tslib": "^1.10.0",
+    "@angular/material": "latest",
+    "@angular/cdk": "latest",
+    "moment": "latest",
+    "lodash-es": "latest",
+    "ngx-webstorage": "latest",
+    "@auth0/angular-jwt": "latest",
+    "ngx-color-picker": "latest",
+    "angular2-text-mask": "latest",
+    "iban": "latest",
+    "text-mask-addons": "^3.8.0"
+  }
+}

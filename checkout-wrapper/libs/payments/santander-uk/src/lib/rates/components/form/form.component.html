@@ -1,0 +1,80 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup"
+  analyticsForm>
+  <p
+    *ngIf="
+    !formGroup.get('duration').dirty
+      && !formGroup.get('duration').value
+      && !hasRatesLoadError
+      && !isRatesLoading
+    "
+    class="small text-danger"
+    i18n="@@payment-santander-uk.credit_rates.error.rate_not_selected">
+    payment-santander-uk.credit_rates.error.rate_not_selected
+  </p>
+
+  <santander-uk-rates-edit-list
+    [flowId]="flow.id"
+    [paymentMethod]="paymentMethod"
+    [total]="flow.total"
+    [extraDuration]="extraDuration"
+    [deposit]="downPayment$ | async"
+    [currency]="flow.currency"
+    [initialData]="formGroup.value"
+    (selected)="onRateSelected($event)"
+    (fetchingRates)="isRatesLoading = $event; ratesLoading.emit($event)"
+    (hasFetchError)="hasRatesLoadError = $event; ratesLoadingError.emit($event)">
+  </santander-uk-rates-edit-list>
+
+  <div class="form-fieldset-new">
+    <mat-form-field class="col-xs-12">
+      <mat-label i18n="@@payment-santander-uk.inquiry.form.deposit.placeholder"> Down payment </mat-label>
+      <span
+        matPrefix
+        #prefix>
+        {{ flow.currency | peCurrencySymbol }}
+      </span>
+      <input
+        matInput
+        [peInputCurrencyMask]="flow.currency"
+        formControlName="_deposit_view"
+        type="text" />
+      <button
+        *ngIf="showApply$ | async"
+        class="mat-button-no-padding mat-button-link btn btn-link"
+        mat-button
+        matSuffix
+        i18n="@@payment-santander-uk.actions.apply"
+        (click)="apply()">
+        Apply
+      </button>
+      <mat-progress-spinner
+        *ngIf="isRatesLoading"
+        matSuffix
+        strokeWidth="2"
+        diameter="18"
+        mode="indeterminate">
+      </mat-progress-spinner>
+    </mat-form-field>
+  </div>
+
+  <pe-payment-text type="text">
+    <strong i18n="@@payment-santander-uk.inquiry.full_details"> payment-santander-uk.inquiry.full_details </strong>
+    <button
+      mat-button
+      type="button"
+      (click)="onInfoButtonClicked()"
+      class="mat-button-link mat-button-space-around mat-button-fit-content info-button">
+      <svg class="icon icon-16">
+        <use xlink:href="#icon-settings-info-48"></use>
+      </svg>
+    </button>
+  </pe-payment-text>
+  <pe-payment-text type="text">
+    <span [innerHTML]="translations.note2"></span>
+  </pe-payment-text>
+  <pe-payment-text type="text">
+    <span [innerHTML]="translations.note1"></span>
+  </pe-payment-text>
+</form>

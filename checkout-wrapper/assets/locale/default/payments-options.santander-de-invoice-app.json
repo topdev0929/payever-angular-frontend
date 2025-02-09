@@ -1,0 +1,88 @@
+{
+  "santander-de-invoice": {
+    "action": {
+      "buy_now_for_total": "Buy now for {{ total }}"
+    },
+    "errors": {
+      "unknown": "Unknown error"
+    },
+    "inquiry": {
+      "finish": {
+        "header": {
+          "success": "Your payment was successfully processed",
+          "failed": "Unfortunately, we can not accept your payment",
+          "failed_ex": "We cannot provide you this payment. because of following:<br><b>{{ errorText }}</b>"
+        }
+      },
+      "form": {
+        "birthday": {
+          "label": "Date of birth",
+          "placeholder": "Date of birth"
+        },
+        "phone": {
+          "label": "Phone",
+          "placeholder": "Phone"
+        },
+        "conditions_accepted": {
+          "label": "Ich willige in die Übermittlung meiner personenbezogenen Daten an die Santander Consumer Bank AG gemäß den näheren Bestimmungen des beigefügten <a target='_blank' href='https://www.santander.de/applications/rechnungskauf/datenschutzbestimmungen/'>Einwilligungserklärungstextes</a> sowie an die darin genannten Auskunfteien und in die Durchführung einer automatisierten Entscheidung ein.<br>Nähere Informationen finden Sie in den <a target='_blank' href='https://www.santander.de/applications/rechnungskauf/datenschutzbestimmungen/'>Datenschutzhinweisen</a> der Santander für den Rechnungs-/Ratenkauf."
+        },
+        "advertising_accepted": {
+          "label": "Der Kunde ist mit werblicher Kommunikation durch die Santander einverstanden. Die Erteilung dieser Einwilligung ist freiwillig und kann jederzeit widerrufen werden.",
+          "text": "Das Anklicken des Buttons, mit dem Sie Ihren Kauf verbindlich tätigen und sich damit zu einer Zahlung verpflichten, löst eine Übermittlung Ihrer personenbezogenen Daten an die Santander Consumer Bank AG zum Zweck der Bonitätsprüfung aus. Nähere Informationen finden Sie in den Datenschutzhinweisen der Santander für den Rechnungs-/Ratenkauf.",
+          "details": {
+            "title": "WERBLICHER KOMMUNIKATION",
+            "text": "Santander Consumer Bank AG und Santander Consumer Leasing GmbH informieren Sie bei Erteilung Ihrer Einwilligung per E-Mail, Telefon, Brief oder sonstiger elektronischer Kommunikationsdienste (SMS o.ä.) personalisiert über eigene und vermittelte Services und Produkte. Sie stimmen insoweit der Verarbeitung Ihrer personenbezogenen Daten zu (Details hierzu s. <a target='_blank' href='https://www.santander.de/static/datenschutzhinweise/rechnungskauf/werbehinweise.html'><u>Santander Werbehinweise</u></a>). Sie können diese Einwilligung jederzeit <u>widerrufen</u> und ohne Einwilligung zulässiger Werbung jederzeit <u>widersprechen</u> (Details hierzu s. <a target='_blank' href='https://www.santander.de/static/datenschutzhinweise/rechnungskauf/werbehinweise.html'><u>Santander Werbehinweise</u></a>)."
+          }
+        },
+        "customer_information": {
+          "label": "I have given the customer the <a target=\"blank\" href=\"https://www.santander.de/static/datenschutzhinweise/rechnungskauf/datenschutzhinweise.html\">Notes on data protection</a>"
+        },
+        "customer_acts": {
+          "label": "The customer acts on his <a class=\"info\">own account</a> (according to Section 11 (5) GwG).",
+          "details": {
+            "title": "Legal obligation to cooperate",
+            "text": "I have informed the customer that he must disclose to the bank in accordance with Section 11 (6) GwG whether he intends to establish, continue or carry out the business relationship or transaction for a beneficial owner and must provide all information and documents relating to identification are required. The customer must notify the bank immediately of any changes in connection with the above mandatory information in the course of the business relationship"
+          }
+        },
+        "personal_salutation": {
+          "label": "Salutation",
+          "placeholder": "Salutation"
+        },
+        "_first_name": {
+          "label": "First name",
+          "placeholder": "First name"
+        },
+        "_last_name": {
+          "label": "Last name",
+          "placeholder": "Last name"
+        }
+      }
+    },
+    "promo": {
+      "text1": "Pay after<br>Delivery",
+      "text2": "Pay just what<br>you keep",
+      "text3": "Pause<br>payments"
+    },
+    "promo-short-text": "Jetzt kaufen, in 30 Tagen bezahlen"
+  },
+  "santander-de-invoice-pos": {
+    "promo": {
+      "text1": "Pay after<br>Delivery",
+      "text3": "Pause<br>payments"
+    },
+    "promo-short-text": "Jetzt kaufen, in 30 Tagen bezahlen",
+    "inquiry": {
+      "finish": {
+        "header": {
+          "failed": "Unfortunately, we can not accept your payment",
+          "failed_ex": "We cannot provide you this payment. because of following:<br><b>{{ errorText }}</b>",
+          "merchant_text": "Thank you! Please go to transactions now in order to confirm you have checked the customers ID"
+        }
+      }
+    }
+  },
+  "salutation": {
+    "SALUTATION_MR": "Mr",
+    "SALUTATION_MRS": "Mrs"
+  }
+}

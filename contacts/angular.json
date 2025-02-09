@@ -1,0 +1,157 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "dev": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "aot": true,
+            "preserveSymlinks": true,
+            "outputPath": "dist",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "polyfills": "src/polyfills.ts",
+            "assets": [
+              "src/assets",
+              "src/env.json",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@pe/filters/filter-icons",
+                "output": "./assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@pe/sidebar/sidebar-icons",
+                "output": "./assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@pe/ui/src/assets",
+                "output": "./assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "i18n-serve",
+                "output": "i18n-serve"
+              }
+            ],
+            "styles": [
+              "src/styles/material.scss",
+              "src/styles/global.scss"
+            ],
+            "scripts": [
+              "node_modules/element-closest/element-closest.js",
+              "node_modules/scrollingelement/scrollingelement.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "dev:build",
+            "port": 8080
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "dev:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "dev:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "karmaConfig": "./karma.conf.js",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.spec.json",
+            "scripts": [
+              "node_modules/element-closest/element-closest.js",
+              "node_modules/scrollingelement/scrollingelement.js"
+            ],
+            "styles": [
+            ],
+            "assets": [
+              "src/assets",
+              "src/env.json"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "src/tsconfig.app.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "contacts": {
+      "projectType": "library",
+      "root": "src/app/modules/contacts",
+      "sourceRoot": "src/app/modules/contacts/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "src/app/modules/contacts/tsconfig.lib.json",
+            "project": "src/app/modules/contacts/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "src/app/modules/contacts/tsconfig.lib.prod.json"
+            }
+          }
+        }
+      }
+    }
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "prefix": "contacts",
+      "style": "scss"
+    },
+    "@schematics/angular:directive": {
+      "prefix": "contacts"
+    }
+  },
+  "cli": {
+    "analytics": false
+  }
+}

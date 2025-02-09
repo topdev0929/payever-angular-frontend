@@ -1,0 +1,57 @@
+<div class="wallpapers-wrapper">
+  <div class="wallpapers">
+    <tabset>
+      <tab active="true">
+        <ng-template tabHeading>
+          <svg class="icon icon-24"><use xlink:href="#icon-images-24"></use></svg>
+        </ng-template>
+        <div class="wallpapers-container scrollbar-light clearfix"
+             [class.loading]="isLoading"
+        >
+          <div class="content">
+            <div class="uploading-section" *ngIf="isPresetRemoveEnabled">
+              <pe-skin-widget-upload [config]="config"
+                                     [isPreset]="true"
+                                     (uploadButtonClicked)="uploadSkinItemClicked.emit($event)">
+              </pe-skin-widget-upload>
+            </div>
+            <div class="wallpaper-items-container">
+              <pe-skin-widget-item [skins]="presetSkins"
+                                   [isPresetRemoveEnabled]="isPresetRemoveEnabled"
+                                   [isPreset]="true"
+                                   (skinItemClicked)="skinItemClicked.emit($event)"
+                                   (deleteSkinItemClicked)="deleteSkinItemClicked.emit($event)">
+              </pe-skin-widget-item>
+            </div>
+          </div>
+          <div class="loader_32 loader-white"></div>
+        </div>
+      </tab>
+      <tab>
+        <ng-template tabHeading>
+          <svg class="icon icon-24"><use xlink:href="#icon-upload-24"></use></svg>
+        </ng-template>
+        <div class="wallpapers-container scrollbar-light clearfix"
+             [class.loading]="isLoading"
+        >
+          <div class="content">
+            <div class="uploading-section">
+              <pe-skin-widget-upload [config]="config"
+                                     (uploadButtonClicked)="uploadSkinItemClicked.emit($event)">
+              </pe-skin-widget-upload>
+            </div>
+            <div class="wallpaper-items-container">
+              <pe-skin-widget-item [skins]="customSkins"
+                                   [isPresetRemoveEnabled]="isPresetRemoveEnabled"
+                                   (skinItemClicked)="skinItemClicked.emit($event)"
+                                   (deleteSkinItemClicked)="deleteSkinItemClicked.emit($event)">
+              </pe-skin-widget-item>
+            </div>
+          </div>
+          <div class="loader_32 loader-white"></div>
+        </div>
+      </tab>
+    </tabset>
+    <span class="wallpapers-close" (click)="closed.emit()">{{ config.close }}</span>
+  </div>
+</div>

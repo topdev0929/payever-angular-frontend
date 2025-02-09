@@ -1,0 +1,133 @@
+<mat-toolbar class="builder-editor-navbar mat-toolbar-transparent-dark mat-toolbar-editor">
+  <mat-toolbar-row>
+
+    <div class="button-group">
+      <pe-builder-navbar-top-button
+        (clicked)="onToggleSidebar('left')"
+        [active]="editor.sidebarsDisplay.left"
+        class="button"
+        bottomLabel="Left Sidebar"
+        icon="#icon-left-sidebar-16"
+        iconWidth="16"
+        iconHeight="16"
+      ></pe-builder-navbar-top-button>
+
+      <pe-builder-navbar-top-button
+        (clicked)="onToggleSidebar('right')"
+        [active]="editor.sidebarsDisplay.right"
+        class="button"
+        bottomLabel="Right Sidebar"
+        icon="#icon-right-sidebar-16"
+        iconWidth="16"
+        iconHeight="16"
+      ></pe-builder-navbar-top-button>
+    </div>
+
+    <pe-builder-navbar-top-button
+      (clicked)="togglePagesType.emit()"
+      class="button"
+      bottomLabel="Edit Master-page"
+      icon="#icon-edit-master-20"
+      iconWidth="16"
+      iconHeight="16"
+    ></pe-builder-navbar-top-button>
+
+    <pe-builder-navbar-spacer></pe-builder-navbar-spacer>
+
+    <pe-builder-navbar-top-button
+      *peFeatureFlag="'add_widget.product'"
+      (clicked)="elementsFactory.createProduct()"
+      class="button"
+      bottomLabel="Product"
+      img="assets/ui-kit/icons-png/icon-b-products-colored-64.png"
+    ></pe-builder-navbar-top-button>
+
+    <pe-builder-navbar-top-button
+      *peFeatureFlag="'add_widget.product_page'"
+      (clicked)="elementsFactory.createProductPage(editor.gridLinePosition.left)"
+      class="button"
+      bottomLabel="Product page"
+      img="assets/ui-kit/icons-png/icon-b-products-colored-64.png"
+    ></pe-builder-navbar-top-button>
+
+    <pe-builder-navbar-top-button
+      *peFeatureFlag="'add_widget.text'"
+      class="button"
+      bottomLabel="Text"
+      img="assets/ui-kit/icons-png/icon-b-text-colored-64.png"
+      (clicked)="elementsFactory.createText(editor.screen)"
+    ></pe-builder-navbar-top-button>
+
+    <pe-builder-navbar-top-button
+      class="button"
+      bottomLabel="Objects"
+      img="assets/ui-kit/icons-png/icon-b-form-colored-64.png"
+      [hasDropdownMenu]="true"
+    >
+      <pe-builder-navbar-button-categories-menu
+        [data]="widgetObjectsButtonData"
+      ></pe-builder-navbar-button-categories-menu>
+    </pe-builder-navbar-top-button>
+
+    <pe-builder-navbar-top-button
+      class="button"
+      bottomLabel="Media"
+      img="assets/ui-kit/icons-png/icon-b-media-colored-64.png"
+      [hasDropdownMenu]="true"
+    >
+      <pe-builder-navbar-button-menu
+        [data]="widgetMediaButtonData"
+        (changed)="mediaItemClicked($event)"
+      ></pe-builder-navbar-button-menu>
+    </pe-builder-navbar-top-button>
+
+    <pe-builder-navbar-spacer></pe-builder-navbar-spacer>
+
+    <div class="button-group">
+      <pe-builder-editor-screen-select [editor]="editor"></pe-builder-editor-screen-select>
+
+      <!-- Temporary disabled -->
+      <!--<pe-builder-editor-scale-select-->
+      <!--    [editor]="editor"-->
+      <!--&gt;</pe-builder-editor-scale-select>-->
+
+      <pe-builder-seo-button
+        [editor]="editor"
+        [pageStore]="pageStore"
+        [pages]="pages"
+        *ngIf="(this.themeStore.activePage$ | async)?.type !== PebPageType.Master"
+      ></pe-builder-seo-button>
+
+      <pe-builder-viewer-toggle></pe-builder-viewer-toggle>
+    </div>
+
+    <div class="button-group">
+      <pe-builder-navbar-top-button
+        class="button"
+        bottomLabel="Undo"
+        icon="#icon-undo-16"
+        [disabled]="!pageStore.canUndo"
+        (clicked)="undo.emit()"
+      >
+      </pe-builder-navbar-top-button>
+      <pe-builder-navbar-top-button
+        class="button"
+        bottomLabel="Redo"
+        icon="#icon-redo-16"
+        [disabled]="!pageStore.canRedo"
+        (clicked)="redo.emit()"
+      >
+      </pe-builder-navbar-top-button>
+    </div>
+
+    <div class="button-group">
+      <pe-builder-theme-save-button
+        [editor]="editor"
+      ></pe-builder-theme-save-button>
+      <pe-builder-theme-publish-button
+        [editor]="editor"
+        [pageStore]="pageStore"
+      ></pe-builder-theme-publish-button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

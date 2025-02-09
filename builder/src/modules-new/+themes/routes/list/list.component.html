@@ -1,0 +1,19 @@
+<!-- TODO: Return translate-->
+<div class="header-section" *ngIf="!(peStepperService.isActive$ | async)">
+  <mat-button-toggle-group
+    [value]="activeType"
+    (change)="onNavigate($event)"
+    class="mat-button-toggle-group-transparent"
+  >
+    <mat-button-toggle value="my" disableRipple="true">
+      {{ 'theme.themes_list.my_themes' | translate }}
+    </mat-button-toggle>
+    <mat-button-toggle value="all" disableRipple="true">
+      {{ 'theme.themes_list.all_themes' | translate }}
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+
+<div class="content-section" #themes>
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,14 @@
+{
+  "name": "@pe/builder-mail",
+  "version": "0.0.1-MAILF-9.1",
+  "description": "Builder: mail",
+  "repository": "https://gitlab.devpayever.com/frontend/marketing",
+  "license": "UNLICENSED",
+  "peerDependencies": {
+    "@angular/common": "^9.1.4",
+    "@angular/core": "^9.1.4",
+    "tslib": "^1.10.0",
+    "@angular/material": "latest",
+    "@angular/cdk": "latest"
+  }
+}

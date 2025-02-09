@@ -1,0 +1,48 @@
+<div #editorRenderer class="editor-renderer">
+  <div class="viewport"
+    *ngIf="viewport$ | async as viewport" 
+    [style.width.px]="viewport.width||maxWidth"
+    [style.height.px]="viewport.height||maxHeight"
+    >
+  <div
+    class="renderer-wrap"
+    [style.width.px]="viewport.page.width"
+    [style.height.px]="viewport.page.height"
+    [style.left.px]="viewport.offsetX"
+    [style.top.px]="viewport.offsetY"
+    (contextmenu)="contextMenu($event, iframe)"
+  >
+    <peb-renderer
+      #rendererContainer
+      class="peb-renderer"
+      [elements]="elements$ | async"
+      [style.transform]="scale$ | async"
+      [style.width.px]="viewport.page.originalWidth"
+      [style.height.px]="viewport.page.originalHeight"
+      [container]="renderContainer"
+      (viewInitialized)="initRenderer(rendererContainer.elmRef.nativeElement)"
+    >
+      <div *ngIf="(editText$|async).enabled !== true"
+        class="hit-area"
+        [style.transform]="transform$ | async"
+        [style.cursor]="cursor$ | async" 
+      ></div>
+
+      <peb-text-editor></peb-text-editor>
+
+    </peb-renderer>
+  
+    <ng-container *ngIf="viewBox$ | async as viewBox">
+      <peb-section-borders [width]="viewBox.width" [height]="viewBox.height"></peb-section-borders>
+      <peb-hover [width]="viewBox.width" [height]="viewBox.height"></peb-hover>
+      <peb-controls [width]="viewBox.width" [height]="viewBox.height"></peb-controls>
+      <peb-selection [width]="viewBox.width" [height]="viewBox.height"></peb-selection>
+      <peb-snap-lines [width]="viewBox.width" [height]="viewBox.height"></peb-snap-lines>
+    </ng-container>
+  </div>
+  </div>
+  
+</div>
+
+<div *ngIf="isLoading$ | async" class="loading">Loading...</div>
+<iframe class="iframe" #iframe (load)="onLoad(iframe)"></iframe>

@@ -1,0 +1,22 @@
+<ng-container *ngIf="video">
+  <video
+    #player
+    *ngIf="container && !container.editMode && !container.previewMode; else preview"
+    [attr.peb-lazy-video]="isLazy? video.url:''"
+    [attr.peb-lazy-poster]="isLazy? video.preview: ''"
+    [attr.peb-lazy-playing]="isPlaying"
+    [src]="isLazy?'': video.url"
+    [poster]="isLazy?'': video.preview"
+    [muted]="!video.sound"
+    [controls]="video.controls"
+    [loop]="video.loop"
+    [style.objectFit]="fillModeToObjectFit[video.fillMode || pebFillMode.Original]"
+  ></video>
+
+  <ng-template #preview>
+    <div
+      class="video-preview" 
+      [style]="videoPreviewStyles">
+    </div>
+  </ng-template>
+</ng-container>

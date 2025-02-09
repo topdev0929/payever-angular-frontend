@@ -1,0 +1,55 @@
+<mat-card class="mat-card-transparent mat-card-transparent-sm">
+  <mat-card-header>
+    <mat-card-title>
+      {{ headingText | uppercase }}
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content (click)="cardButtonClicked.emit()">
+    <div class="mat-card-logo-wrapper">
+      <div *ngIf="!images" class="logo logo-placeholder img-circle">
+        <h2 *ngIf="placeholderText">{{ placeholderText }}</h2>
+        <svg *ngIf="placeholderIcon" class="icon icon-48">
+          <use [attr.xlink:href]="placeholderIcon"></use>
+        </svg>
+      </div>
+      <ng-container *ngIf="images && images.length === 1">
+        <img *ngIf="images[0]" class="logo img-circle" [src]="images[0]">
+        <div *ngIf="!images[0]" class="logo logo-placeholder img-circle">
+          <h2 *ngIf="placeholderText">{{ placeholderText }}</h2>
+          <svg *ngIf="placeholderIcon" class="icon icon-48">
+            <use [attr.xlink:href]="placeholderIcon"></use>
+          </svg>
+        </div>
+      </ng-container>
+      <div *ngIf="images && images.length > 1" class="logos-wrapper">
+        <ng-container *ngFor="let image of images.slice(0, 3)">
+          <div *ngIf="image" class="logo logo-coupled img-circle">
+            <img [src]="image">
+          </div>
+          <div *ngIf="!image" class="logo logo-coupled logo-placeholder img-circle">
+            <h2 *ngIf="placeholderText">{{ placeholderText }}</h2>
+            <svg *ngIf="placeholderIcon" class="icon icon-48">
+              <use [attr.xlink:href]="placeholderIcon"></use>
+            </svg>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <button mat-button
+            class="mat-button-link mat-button-sm"
+            [class.mat-button-space-between]="images && images.length > 1"
+            [class.mat-button-with-arrow]="images && images.length > 1"
+    >
+      {{ cardButtonText }}
+      <svg *ngIf="images && images.length > 1" class="icon icon-16">
+        <use xlink:href="#icon-arrow-down-small-16"></use>
+      </svg>
+    </button>
+  </mat-card-content>
+  <mat-card-actions *ngIf="footerButtonText">
+    <button mat-button
+            class="mat-button"
+            (click)="footerButtonClicked.emit()"
+    >{{ footerButtonText }}</button>
+  </mat-card-actions>
+</mat-card>

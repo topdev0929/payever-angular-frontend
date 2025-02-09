@@ -1,0 +1,46 @@
+:host {
+  display: block;
+  padding: 6px 12px 12px 12px;
+  height: 100%;
+}
+
+.options-container {
+  height: 100%;
+  width: 100%;
+  overflow: hidden auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.option {
+  &__group {
+    &:not(:last-of-type) {
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+    }
+  }
+
+  &__item {
+    cursor: pointer;
+    padding: 0 8px;
+    border-radius: 8px;
+
+    svg {
+      display: none;
+      margin-right: -10px;
+
+      &.active {
+        display: inline-block;
+      }
+    }
+
+    span {
+      display: inline-block;
+      font-family: 'Roboto', sans-serif;
+      font-size: 12px;
+      padding: 7px 0 7px 16px;
+    }
+  }
+}

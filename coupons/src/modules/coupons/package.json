@@ -1,0 +1,18 @@
+{
+  "name": "@pe/coupons",
+  "version": "0.0.35-COUPONF-6.1.12",
+  "bin": {
+    "pe-i18n-cosf-prepare-coupons-app": "./bin/i18n-cosf-prepare.js"
+  },
+  "peerDependencies": {
+    "@angular/common": "^9.1.4",
+    "@angular/core": "^9.1.4",
+    "@angular/material": "^9.2.4",
+    "@angular/animations": "^9.1.4",
+    "@angular/cdk": "^11.2.3",
+    "@pe/data-grid": "11.0.14-COUPONF-26"
+  },
+  "dependencies": {
+    "tslib": "2.1.0"
+  }
+}

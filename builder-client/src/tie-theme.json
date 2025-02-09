@@ -1,0 +1,16 @@
+{
+  "pages": [
+    {
+      "slug": "home",
+      "id": "home-id",
+      "title": "Tiesociety",
+      "type": "default"
+    },
+    {
+      "slug": "about-us",
+      "id": "about-us-id",
+      "title": "About us",
+      "type": "default"
+    }
+  ]
+}

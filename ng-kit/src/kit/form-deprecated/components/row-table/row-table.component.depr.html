@@ -1,0 +1,17 @@
+<div class="input-group">
+  <span class="pe-input-group-addon input-group-addon" *ngIf="addonPrepend && hasTextAddonPrepend" [innerHtml]="addonPrepend.text"></span>
+  <pe-form-row-addon class="pe-input-group-addon input-group-addon "
+                     *ngIf="addonPrepend && !hasTextAddonPrepend"
+                     [addon]="addonPrepend"
+                     (clickAddon)="onClickAddonPrepend()"></pe-form-row-addon>
+  <span class="pe-input-group-main input-group-main">
+    <ng-content></ng-content>
+    <label class="pe-control-label  small" [innerHtml]="properties.label" *ngIf="properties.label"></label>
+    <div class="error small" [innerHtml]="errorText" *ngIf="errorText"></div>
+  </span>
+  <span class="pe-input-group-addon input-group-addon" *ngIf="addonAppend && hasTextAddonAppend" [innerHtml]="addonAppend.text"></span>
+  <pe-form-row-addon class="pe-input-group-addon input-group-addon"
+                     *ngIf="addonAppend && !hasTextAddonAppend"
+                     [addon]="addonAppend"
+                     (clickAddon)="onClickAddonAppend()"></pe-form-row-addon>
+</div>

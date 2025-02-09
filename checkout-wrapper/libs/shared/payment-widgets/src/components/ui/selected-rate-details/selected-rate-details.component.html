@@ -1,0 +1,16 @@
+<div
+  #grid
+  class="grid"
+  (resized)="onResize($event)">
+  <div
+    #cell
+    class="cell"
+    *ngFor="let col of details">
+    <span
+      class="title"
+      [innerHTML]="col.title"></span>
+    <span
+      class="value"
+      [innerHTML]="col.value"></span>
+  </div>
+</div>

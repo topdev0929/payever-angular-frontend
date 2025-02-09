@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="HandheldFriendly" content="true">
+  <title>Orders - Angular Cli</title>
+  <base href="/">
+  <script type="text/javascript" src="https://payevertesting.azureedge.net/js/pe-static.js"></script>
+  <script src="https://payevertesting.azureedge.net/js/polyfills-zonejs-es5.js" nomodule defer></script>
+  <script src="https://payevertesting.azureedge.net/js/polyfills-zonejs-es2015.js" type="module"></script>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+  <body class="pe-bootstrap">
+    <div id="os-background-wrap" class="platform-background-wrap" style="background-image: url('https://commerceos.test.devpayever.com/assets/images/commerseos-background.jpg-blurred');"></div>
+    <div id="os-background"
+         class="platform-background"
+         style="display: none; background-image: url('https://commerceos.test.devpayever.com/assets/images/commerseos-background.jpg-blurred');"
+         data-background-low="https://commerceos.test.devpayever.com/assets/images/commerseos-background-blurred.jpg-blurred"
+         data-background-original="https://commerceos.test.devpayever.com/assets/images/commerseos-background-blurred.jpg-blurred"
+         data-background-default="https://commerceos.test.devpayever.com/assets/images/commerseos-background-blurred.jpg-blurred"
+         ></div>
+    <transactions-app></transactions-app>
+    <script>
+      (function() {
+        PayeverStatic.IconLoader.loadIcons([
+          'set',
+          'apps',
+          'settings',
+          'builder',
+          'dock',
+          'edit-panel',
+          'social',
+          'dashboard',
+          'notification',
+          'commerceos',
+          'widgets',
+          'payment',
+          'payment-methods',
+          'payment-plugins',
+          'shipping',
+          'finance-express'
+        ]);
+      })()
+    </script>
+  </body>
+</html>
+

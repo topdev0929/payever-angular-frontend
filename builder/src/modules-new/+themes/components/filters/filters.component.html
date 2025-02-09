@@ -1,0 +1,79 @@
+<div
+  class="category-filters"
+  [class.category-filters--opened]="opened"
+  [hidden]="!opened"
+>
+<div class="category-filters__container">
+
+  <div class="category-filters__mobile-controls">
+    <button
+      class="category-filters__mobile-control"
+      (click)="toggleFilters()"
+    >
+      <span class="close-icon"></span>
+    </button>
+
+    <button
+      class="category-filters__mobile-control category-filters__mobile-control--black"
+      (click)="toggleFilters()"
+    >
+      {{ 'common.done' | translate }}
+    </button>
+  </div>
+
+  <cdk-tree [dataSource]="this.initialFilterSourcesSubject$ | async" [treeControl]="treeControl">
+      <cdk-tree-node
+        *cdkTreeNodeDef="let node; when: hasChildFilters"
+        cdkTreeNodePadding
+        [style.display]="shouldRender(node) ? 'flex' : 'none'"
+      >
+        <button
+          class="category-filters__filter-parent"
+          [class.category-filters__filter-parent--border]="!isFirstOfTypeParentNode(node)"
+          cdkTreeNodeToggle
+          (click)="node.isExpanded = !node.isExpanded"
+          [style.visibility]="node.expandable ? 'visible' : 'hidden'"
+        >
+          <span>{{ node.name }}</span>
+          <div
+            class="category-filters__filter-icon"
+            [class.category-filters__filter-icon--expanded]="node.isExpanded"
+          >
+            <ng-container *ngTemplateOutlet="plusIcon"></ng-container>
+          </div>
+        </button>
+      </cdk-tree-node>
+      <cdk-tree-node
+        *cdkTreeNodeDef="let node"
+        cdkTreeNodePadding
+        [style.display]="shouldRender(node) ? 'flex' : 'none'"
+        [style.padding-left]="0"
+      >
+        <button
+          class="category-filters__filter-child"
+          [class.category-filters__filter-child--active]="isActiveFilter(node)"
+          [class.category-filters__filter-child--last]="isLastOfTypeChildNode(node)"
+          [disabled]="node?.disabled"
+          (click)="onFilterClick(node)"
+        >
+          <span>{{ node.name }}</span>
+        </button>
+      </cdk-tree-node>
+  </cdk-tree>
+
+</div>
+
+<ng-template #plusIcon>
+  <svg width="7px" height="7px" viewBox="0 0 7 7" version="1.1" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+      <g transform="translate(-188.000000, -547.000000)" stroke="#979797">
+        <g transform="translate(189.000000, 548.000000)">
+          <line x1="2.5" y1="0" x2="2.5" y2="5" id="Line-3"></line>
+          <line x1="2.5" y1="0" x2="2.5" y2="5" id="Line-3"
+            transform="translate(2.500000, 2.500000) rotate(-270.000000) translate(-2.500000, -2.500000) "></line>
+        </g>
+      </g>
+    </g>
+  </svg>
+</ng-template>

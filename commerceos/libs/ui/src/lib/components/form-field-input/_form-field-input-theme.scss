@@ -1,0 +1,121 @@
+@use 'SASS:map';
+
+@mixin base_input($color-config){
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $text-color: map.get($color-config, 'text-color');
+  $label-color: map.get($color-config, 'label-color');
+  $extra-bg-color: map.get($color-config, 'extra-bg-color');
+
+
+  background-color: $transparent-color;
+  color: $text-color;
+  line-height: unset;
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    box-shadow: 0 0 0 30px $transparent-color inset;
+    -webkit-text-fill-color: $text-color;
+    caret-color:  $text-color;
+  }
+
+
+  &::placeholder {
+    color: $label-color;
+  }
+}
+
+@mixin color($color-config) {
+  $primary: map.get($color-config, 'primary');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $active-button: map.get($color-config, 'active-button');
+  $active-text: map.get($color-config, 'active-text');
+  $text-color: map.get($color-config, 'text-color');
+  $label-color: map.get($color-config, 'label-color');
+  $warn: map.get($color-config, 'warn');
+  $content: map.get($color-config, 'content');
+  $extra-bg-color: map.get($color-config, 'extra-bg-color');
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $row-background: map.get($color-config, 'row-background');
+  $input-button-background: map.get($color-config, 'input-button-background');
+  $background: map.get($color-config, 'background');
+
+  .input-content-wrapper {
+    &_search {
+      background-color: $primary;
+    }
+    .label-container {
+      &.form-search,
+      input {
+        @include base_input($color-config);
+      }
+
+      input {
+        @include base_input($color-config);
+      }
+    }
+
+    .label-container .search,
+    .suffix p {
+      color: $text-color;
+    }
+
+    &_search .reset {
+      background-color: $primary;
+    }
+  }
+
+  .label-input-content-wrapper {
+    .label-container {
+      width: unset;
+      flex: 1;
+      background-color: $row-background;
+      .label-text {
+        color: $label-color;
+      }
+      .input-field {
+        input {
+          @include base_input($color-config);
+          &::-webkit-credentials-auto-fill-button {
+            position: absolute;
+            top: 10px;
+            right: 8px;
+          }
+        }
+
+        span {
+          color: $text-color;
+          &.prefix {
+            color: $label-color;
+          }
+        }
+      }
+      &.is-invalid {
+        &::after {
+          background-color: $warn;
+        }
+        .label-text,
+        .input-field input::placeholder {
+          color: $warn;
+        }
+      }
+    }
+
+    .suffix {
+      background-color: $input-button-background;
+      border-left: solid 1px $background;
+      p {
+        color: $label-color;
+      }
+    }
+    .suffix-icon {
+      color: $label-color;
+    }
+
+    .suffix-spinner {
+      mat-spinner {
+        stroke: $label-color;
+      }
+    }
+  }
+}

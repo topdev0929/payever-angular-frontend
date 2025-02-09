@@ -1,0 +1,15 @@
+<santander-de-pos-shared-finish
+  #finishRef
+  [errorMessage]="errorMessage"
+  [embeddedMode]="embeddedMode"
+  [merchantMode]="true"
+  [showCloseButton]="showCloseButton"
+  [isDisableChangePayment]="true"
+  [nodeResult]="paymentResponse"
+  [isLoading]="!paymentResponse && !errorMessage"
+  (cleanUp)="cleanUp()"
+  (close)="close()"
+  (tryAgain)="tryAgain()"
+  (changePaymentMethod)="changePayment($event)"
+  [isEditMode]="true"
+  (changeContainerHeight)="onChangeContainerHeight($event)"></santander-de-pos-shared-finish>

@@ -1,0 +1,32 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup"
+  analyticsForm>
+  <div class="h5">
+    <span i18n="@@payment-santander-de-pos.inquiry.sections.bank.title"> Bank details </span>
+  </div>
+  <div class="form-fieldset-new">
+    <mat-form-field class="col-xs-12">
+      <mat-label i18n="@@payment-santander-de-pos.inquiry.form.customer.bankIBAN.label"> Bank IBAN </mat-label>
+
+      <input
+        matInput
+        peInputMask
+        formControlName="bankIBAN"
+        type="text"
+        [mask]="ibanMask"
+        [unmask]="ibanUnmask" />
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('bankBIC').enabled"
+      class="col-xs-12">
+      <mat-label i18n="@@payment-santander-de-pos.inquiry.form.customer.bankBIC.label"> Bank BIC </mat-label>
+
+      <input
+        matInput
+        formControlName="bankBIC"
+        type="text" />
+    </mat-form-field>
+  </div>
+</form>

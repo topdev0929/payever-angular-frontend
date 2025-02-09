@@ -1,0 +1,26 @@
+
+<h2>Channels</h2>
+
+<label>Login: <input [(ngModel)]="login"></label>
+<br>
+<label>Password: <input [(ngModel)]="password"></label>
+<br>
+<label>businessId: <input [(ngModel)]="businessId"></label>
+<br>
+<label>checkoutUuid: <input [(ngModel)]="checkoutUuid"></label>
+<br>
+<button (click)="openChannels()">Open</button>
+
+<hr>
+
+<h2>FinExp Widget</h2>
+
+<label>channelSetId: <input [(ngModel)]="channelSetId"></label>
+<br>
+<label>type:
+  <select [(ngModel)]="type">
+    <option *ngFor="let wt of widgetTypes" [selected]="wt == type">{{ wt }}</option>
+  </select>
+</label>
+<br>
+<button (click)="openFinExpWidget()">Open</button>

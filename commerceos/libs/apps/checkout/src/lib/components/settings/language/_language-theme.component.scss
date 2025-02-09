@@ -1,0 +1,32 @@
+@use "pe_variables" as pe_variables;
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $warn: map.get($color-config, 'warn');
+  $text-color: map.get($color-config, 'text-color');
+  $confirm: map.get($color-config, 'confirm');
+
+  .overlay-widget .pe-info-box-container-fixed.language-content {
+    .default-error-message {
+      color: $warn;
+    }
+    .pe-info-box {
+      .content-wrapper {
+        .mat-list-item {
+
+          &-title {
+            color: $text-color;
+          }
+          &-subtitle {
+            color: $confirm;
+          }
+          @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {            
+            &, &-content {
+              height: 56px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

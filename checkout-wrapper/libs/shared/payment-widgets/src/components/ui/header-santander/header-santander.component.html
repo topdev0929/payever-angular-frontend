@@ -1,0 +1,10 @@
+<ng-container [ngTemplateOutlet]="logoTemplate || santanderLogo"></ng-container>
+<span class="title">
+  <ng-content></ng-content>
+</span>
+
+<ng-template #santanderLogo>
+  <mat-icon
+    class="santander-icon"
+    svgIcon="santander-bank"></mat-icon>
+</ng-template>

@@ -1,0 +1,68 @@
+@use 'pe_variables' as pe_variables;
+
+.screen-list {
+  width: 100%;
+  border-radius: 12px;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 0;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+    padding: 0 12px;
+    &:not(:last-child){
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+    }
+
+    &:hover,
+    &.selected {
+      cursor: pointer;
+    }
+
+    span {     
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .screen-subtitle {
+      text-align: start;
+      line-height: 200%;
+    }
+
+    .screen-icon {
+      padding-right: 0.5em;
+    }
+
+    .active {
+      border-radius: 100%;
+      width: 18px;
+      min-width: 18px;
+      height: 18px;
+    }
+    @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+      height: 56px;
+      padding: 0 18px;
+      span {
+        font-size: 16px;
+      }
+      .active {
+        width: 22px;
+        height: 22px;
+        min-width: 22px;
+      }
+    }
+  }
+}

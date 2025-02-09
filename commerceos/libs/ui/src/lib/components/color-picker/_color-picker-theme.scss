@@ -1,0 +1,81 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $text-color: map.get($color-config, 'text-color');
+  $accent-border: map.get($color-config, 'accent-border');
+  $border: map.get($color-config, 'border');
+  $label-color: map.get($color-config, 'label-color');
+  $row-background: map.get($color-config, 'row-background');
+  $filter-invert-dark: map.get($color-config, 'filter-invert-dark');
+
+  .color-picker-form-menu {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  
+  .cdk-overlay-pane {
+    .color-picker-form {
+      &-menu {
+        &__container {
+          background-color: $secondary-background;
+          border: solid 1px $border;
+        }
+
+        &__label {
+          color: $text-color;
+        }
+      }
+    }
+    color-picker {
+      .color-picker.open {
+        background-color: unset;
+          .saturation-lightness {
+            border-radius: 6px;
+          }
+          .type-policy {
+            top: 218px;
+            right: 12px;
+            filter: $filter-invert-dark;
+          }
+          .hex-text, .hsla-text, .rgba-text {
+            .box div {
+              color: $label-color;
+            }
+          }
+      }
+    }
+    peb-color-picker {
+      .color-picker {
+        background-color: unset;
+        border: unset;
+        .saturation-lightness {
+          height: 230px;
+        }
+      }
+    }
+    .color-picker.open {
+      .grid {
+        border-top: solid 1px $border;
+        span {
+          color: $text-color;
+        }
+      }
+      input {
+        background-color: $row-background;
+        color: $text-color;
+        border: solid 1px $border !important;
+        outline: none;
+        border-radius: 6px;
+      }
+  }
+    .mat-menu-pe-colorpicker {
+      border-radius: 12px !important;
+      margin-top: 12px;
+      border: solid 1px $accent-border;
+      box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2);
+      background-color: $secondary-background;
+      backdrop-filter: blur(25px);
+      padding: 16px;
+    }
+  }
+}

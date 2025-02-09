@@ -1,0 +1,33 @@
+{
+  "santander-at-finexp-widget": {
+    "common": {
+      "rate_param": {
+        "annual_percentage_rate": "Effektivzins ",
+        "total": "Gesamt",
+        "nominal_interest_rate": "Sollzins",
+        "duration": "Laufzeit",
+        "monthly_rate": "Monatsrate"
+      },
+      "month": {
+        "one": "{{ count }} Monat",
+        "many": "{{ count }} Monate"
+      },
+      "rate_title": "In {{ monthly_rate_with_currency }} Monatsraten je {{ duration_with_months }}",
+      "rate_select_title": "{{ monthly_rate_with_currency }}/Monat über {{ duration_with_months }} Monate",
+      "header_text": "Santander Teilzahlung",
+      "header_text_extended": "Teilzahlung",
+      "introduction_text": "<span>So einfach funktioniert die Teilzahlung:</span><ol><li>Wunschartikel in den Warenkorb legen und als Zahlungsart <strong>Santander Teilzahlung</strong> auswählen.</li><li>Sobald Sie zur Bezahlung gehen, startet der <strong>Online-Finanzierungsprozess</strong>.</li><li><strong>Wunschrate und Laufzeit wählen</strong>.</li><li>Nach Prüfung und Genehmigung Ihres Finanzierungsantrags ird Ihr Wunschartikel versandt bzv. ist im Geschäft abholbereit.</li><li>Danach beginnt die <strong>monatliche Abbuchung</strong> der vereinbarten <strong>Rate</strong>.</li></ol>",
+      "credit_details_text": "Erfüllung banküblicher Bonitätskriterien vorausgesetzt.",
+      "show_checkout_wrapper": "Checkout with finance express",
+      "show_more_info": "Mehr Informationen"
+    },
+    "button": {
+    },
+    "dropdown-calculator": {
+    },
+    "text": {
+    },
+    "two-fields-calculator": {
+    }
+  }
+}

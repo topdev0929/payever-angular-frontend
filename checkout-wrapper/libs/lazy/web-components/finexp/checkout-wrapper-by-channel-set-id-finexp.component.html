@@ -1,0 +1,30 @@
+<div class="pe-checkout-bootstrap">
+  <checkout-main-wrapper
+    *ngIf="flowId && (isReady$ | async) && !forceHide; else loading;"
+    [updateSteps$]="updateSteps$"
+    [openOrderStep$]="openOrderStep$"
+    [updateFlow$]="updateFlow$"
+    [saveFlowToStorage$]="saveFlowToStorage$"
+    [updateSettings$]="updateSettings$"
+    [fixedPosition]="fixedPosition"
+    [hidden]="checkoutHidden"
+    [asCustomElement]="true"
+    [disableLocaleDetection]="disableLocaleDetection"
+    [params]="params"
+    (flowcloned)="onFlowCloned($event)"
+    (layoutshown)="onLayoutShown()"></checkout-main-wrapper>
+  <ng-template #loading>
+    <div
+      *ngIf="!lastError && !checkoutHidden"
+      class="skeleton-loader"
+      [class.skeleton-no-paddings]="params?.forceNoPaddings"
+      [innerHTML]="skeleton$ | async"></div>
+    <div
+      *ngIf="lastError"
+      i18n="@@error.cant_load_checkout">
+      Can't load checkout
+    </div>
+  </ng-template>
+
+  <checkout-wrapper-skeleton-default-template></checkout-wrapper-skeleton-default-template>
+</div>

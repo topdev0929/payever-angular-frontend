@@ -1,0 +1,8 @@
+@use 'pe_theming' as pet;
+@use './context-menu-theme' as context_menu;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include context_menu.color($color-config);
+}
+

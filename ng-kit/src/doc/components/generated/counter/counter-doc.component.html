@@ -1,0 +1,49 @@
+<div class="chapter">
+  <h2>CounterComponent</h2>
+  <div class="main-block">
+    <tabset>
+      <tab heading="Overview">
+        <h3>Import CounterModule</h3>
+        <pre><code class="typescript" [innerHTML]="'import { CounterModule } from \'@pe/ng-kit/modules/counter\';'"></code></pre>
+        <p>&nbsp;</p>
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          [tsExample]="tsExample"
+          >
+          <pe-counter
+            [value]="10"
+            [minValue]="5"
+            [maxValue]="15"
+            [autoFocus]="false"
+            [readOnly]="false"
+            (counterValueChange)="handleCounterValue($event)"
+          ></pe-counter>
+        </example-viewer>
+      </tab>
+      <tab heading="API">
+        <component-api-renderer [path]="'counter/src/components/counter/counter.component'"></component-api-renderer>
+      </tab>
+      <tab heading="Examples">
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          [tsExample]="tsExample"
+          >
+          <pe-counter
+            [value]="10"
+            [minValue]="5"
+            [maxValue]="15"
+            [autoFocus]="false"
+            [readOnly]="false"
+            (counterValueChange)="handleCounterValue($event)"
+          ></pe-counter>
+        </example-viewer>
+      </tab>
+      <tab heading="README">
+        <doc-viewer documentUrl="/assets/module-guides/counter/counter.html"></doc-viewer>
+      </tab>
+    </tabset>
+  </div>
+</div>
+

@@ -1,0 +1,16 @@
+@import 'bootstrap-sass/assets/stylesheets/bootstrap/_variables';
+@import 'bootstrap-sass/assets/stylesheets/bootstrap/_mixins';
+@import '../../../../../../../shared/styles/assets/ui-kit-styles/pe_variables';
+@import '../../../../../../../shared/styles/assets/ui-kit-styles/mixins/pe_mixins.scss';
+
+.order-block {
+  width: 100%;
+  margin-left: -7px; // Exists as clearfix for the expansion caret
+  .row {
+    padding-bottom: 4px;
+  }
+  .total {
+    color: var(--checkout-page-text-primary-color, $color-grey-1);
+    margin-top: $grid-unit-y;
+  }
+}

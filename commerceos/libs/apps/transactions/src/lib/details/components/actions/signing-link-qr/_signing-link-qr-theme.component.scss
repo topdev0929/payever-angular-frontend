@@ -1,0 +1,32 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $content: map.get($color-config, 'content');
+  $label-color: map.get($color-config, 'label-color');
+  $text-color: map.get($color-config, 'text-color');
+  $select-button: map.get($color-config, 'select-button');
+
+  .action-wrapper {
+    .mat-button-toggle-group-volumetric {
+      background: $select-button;
+
+      .mat-button-toggle {
+        background-color: $select-button;
+        color: $text-color;
+
+        &.mat-button-toggle-checked {
+          background-color: $label-color;
+        }
+
+        &:not(.mat-button-toggle-checked):hover {
+          background-color: rgba($label-color, 0.3);
+        }
+      }
+    }
+
+    .qr-wrapper {
+      background-color: $content;
+    }
+  }
+}

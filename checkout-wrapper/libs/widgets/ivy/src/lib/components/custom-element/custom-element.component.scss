@@ -1,0 +1,31 @@
+@import '../../../../../../shared/payment-widgets/assets/root-styles.component.scss';
+
+:host {
+  display: block;
+  @include widget-root-styles;
+}
+
+.error {
+  display: flex;
+  flex-wrap: nowrap;
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  padding: 8px;
+  justify-content: flex-start;
+  align-items: center;
+  color: #f8f8f8;
+  border-radius: 4px;
+  background-color: #ff644e;
+  width: fit-content;
+
+  &-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  &-message {
+    margin-left: 8px;
+    text-align: center;
+  }
+}

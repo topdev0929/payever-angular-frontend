@@ -1,0 +1,35 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "../refund/refund.component";
+
+.error {
+  color: $color-red;
+}
+
+.form-table {
+  border-radius: 0;
+  fieldset {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.verify-details-line {
+  font-size: $font-size-large-2;
+  margin: 0.5 * $grid-unit-y 0;
+  ::ng-deep .text-secondary {
+    color: #aaaaaa;
+  }
+  ::ng-deep strong {
+    font-size: $font-size-large-0;
+    font-weight: 400;
+  }
+}
+
+:host ::ng-deep {
+  .form-widget.form-design input[type="checkbox"]:not(.switcher) + label:before {
+    border: 1px solid #cccccc !important;
+  }
+}
+.transparent {
+  opacity: 0;
+}

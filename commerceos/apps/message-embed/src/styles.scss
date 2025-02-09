@@ -1,0 +1,12 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
+
+  &.dark { background-color: #24272e; }
+  &.light { background-color: #f3f2f8; }
+  &.transparent { background-color: #24272e; }
+}

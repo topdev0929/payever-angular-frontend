@@ -1,0 +1,74 @@
+<ng-container [ngSwitch]="true">
+  <ng-template *ngSwitchCase="addon?.addonType === addonTypes.Button"
+               [ngTemplateOutlet]="addonButton">
+  </ng-template>
+
+  <ng-template *ngSwitchCase="addon?.addonType === addonTypes.Icon"
+               [ngTemplateOutlet]="addonIcon">
+  </ng-template>
+
+  <ng-template *ngSwitchCase="addon?.addonType === addonTypes.IconButton"
+               [ngTemplateOutlet]="addonIconButton">
+  </ng-template>
+
+  <ng-template *ngSwitchCase="addon?.addonType === addonTypes.Text"
+               [ngTemplateOutlet]="addonText">
+  </ng-template>
+
+  <ng-template *ngSwitchCase="addon?.addonType === addonTypes.Loader"
+               [ngTemplateOutlet]="addonLoader">
+  </ng-template>
+</ng-container>
+
+<!-- Addon button -->
+<ng-template #addonButton>
+  <button mat-button
+          [class.mat-button-no-padding]="!addon?.noDefaultClass"
+          [class.mat-button-link]="!addon?.noDefaultClass"
+          [type]="addon?.buttonType || 'button'"
+          (click)="onClickAddon()"
+          [ngClass]="addon?.className">
+    <span *ngIf="addon.text" [innerHtml]="addon.text"></span>
+    <mat-icon *ngIf="addon.iconId">
+      <ng-template [ngTemplateOutlet]="icon"></ng-template>
+    </mat-icon>
+  </button>
+</ng-template>
+
+<!-- Addon text -->
+<ng-template #addonText>
+  <span [innerHtml]="addon.text" [ngClass]="addon?.className" [class.addon-filled]="addon?.addonStyle === 'filled'"></span>
+</ng-template>
+
+<!-- Addon icon button -->
+<ng-template #addonIcon>
+  <mat-icon [ngClass]="addon?.className">
+    <ng-template [ngTemplateOutlet]="icon"></ng-template>
+  </mat-icon>
+</ng-template>
+
+<!-- Addon icon -->
+<ng-template #addonIconButton>
+  <mat-icon [ngClass]="addon?.className"
+            class="addon-icon-button"
+            (click)="addon?.onClick($event)"
+            role="button">
+    <ng-template [ngTemplateOutlet]="icon"></ng-template>
+  </mat-icon>
+</ng-template>
+
+<!-- Icon -->
+<ng-template #icon>
+  <svg [attr.class]="iconClass">
+    <use [attr.xmlns:xlink]="'http://www.w3.org/1999/xlink'" [attr.xlink:href]="iconId"></use>
+  </svg>
+</ng-template>
+
+<!-- Loader -->
+<ng-template #addonLoader>
+  <mat-progress-spinner
+    [strokeWidth]="loaderStrokeWidth"
+    [diameter]="loaderSize"
+    [mode]="'indeterminate'">
+  </mat-progress-spinner>
+</ng-template>

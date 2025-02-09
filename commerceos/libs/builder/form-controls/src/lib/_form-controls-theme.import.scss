@@ -1,0 +1,27 @@
+@use 'pe_theming' as pet;
+@use './number-input/number-input-theme.import' as number_input;
+@use './color-picker/color-picker-theme.import' as color_picker;
+@use './select/select-theme.import' as select;
+@use './slide-toggle/slide-toggle-theme.component' as slide_toggle;
+@use './text/text-theme.input' as text;
+@use './textarea/textarea-theme.component' as textarea;
+@use './button-toggle/button-toggle-group-theme.component' as button_toggle_group;
+@use './color-palette/color-palette-theme.component' as color_palette;
+@use './range-input/range-input-theme.component' as range_input;
+@use './angle-picker/angle-picker-theme.component' as angle_picker;
+@use './size-input/size-input-theme.component' as size_input;
+
+@mixin theme($theme-config) {
+    @include color_picker.theme($theme-config);
+    @include select.theme($theme-config);
+    @include number_input.theme($theme-config);
+    $color-config: pet.get-color-config-from-theme($theme-config);
+    @include slide_toggle.color($color-config);
+    @include text.color($color-config);
+    @include textarea.color($color-config);
+    @include button_toggle_group.color($color-config);
+    @include color_palette.color($color-config);
+    @include range_input.color($color-config);
+    @include angle_picker.color($color-config);
+    @include size_input.color($color-config);
+}

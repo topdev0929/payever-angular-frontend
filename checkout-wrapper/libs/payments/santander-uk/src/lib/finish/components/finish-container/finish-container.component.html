@@ -1,0 +1,25 @@
+<santander-uk-shared-finish
+  [errorMessage]="errorMessage"
+  [embeddedMode]="embeddedMode"
+  [merchantMode]="merchantMode"
+  [showCloseButton]="showCloseButton"
+  [isDisableChangePayment]="isDisableChangePayment"
+  [nodeResult]="paymentResponse"
+  [isLoading]="!paymentResponse && !errorMessage || redirecting"
+  (cleanUp)="cleanUp()"
+  (close)="close()"
+  (tryAgain)="tryAgain()"
+  (closeButtonClicked)="close()"
+  (changePaymentMethod)="changePayment($event)"></santander-uk-shared-finish>
+
+<form
+  #redirectForm
+  *ngIf="postRedirectData"
+  id="peUKRedirectForm"
+  method="post"
+  [action]="postRedirectData?.postUrl">
+  <input
+    type="hidden"
+    [name]="postRedirectData?.postParam"
+    [value]="postRedirectData?.postValue" />
+</form>

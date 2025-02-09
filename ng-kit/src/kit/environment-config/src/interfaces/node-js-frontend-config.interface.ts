@@ -1,0 +1,36 @@
+export interface NodeJsFrontendConfigInterface {
+  builder: string;
+  builderClient: string;
+  builderTranslate: string;
+  cart: string;
+  checkout: string;
+  checkoutWrapper: string;
+  commerceos: string;
+  connect: string;
+  contacts: string;
+  marketing: string;
+  paymentOptionsSantanderDe: string;
+  paymentOptionsSantanderDeCcp: string;
+  paymentOptionsSantanderDeFact: string;
+  paymentOptionsSantanderDeInvoice: string;
+  paymentOptionsSantanderNoInvoice: string;
+  paymentOptionsSantanderDk: string;
+  paymentOptionsSantanderSe: string;
+  paymentOptionsSantanderNo: string;
+  paymentOptionsSantanderNl: string;
+  paymentOptionsPayex: string;
+  paymentOptionsPaypal: string;
+  paymentOptionsSofort: string;
+  paymentOptionsStripe: string;
+  paymentOptionsWiretransfer: string;
+  paymentOptionsInstantPayment: string;
+  paymentOptionsSwedbank: string;
+  pos: string;
+  posClient: string;
+  products: string;
+  settings: string;
+  shipping: string;
+  shops: string;
+  shopsClient: string;
+  transactions: string;
+}

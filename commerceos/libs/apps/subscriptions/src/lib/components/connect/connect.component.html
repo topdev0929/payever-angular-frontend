@@ -1,0 +1,18 @@
+<pe-list-container class="pe-subscription-connect" [title]="'connect-app.layout.title'" [hideTitleInMobile]="true">
+  <pe-list-section
+    [actionButtonType]="actionButtonType"
+    [addButtonLabel]="'connect-app.actions.add_integrations'"
+    [integrations]="paymentsIntegrations$ | async"
+    [isInForm]="false"
+    [sectionTitle]="'subscriptions-app.settings.payments'"
+    [showAddButton]="true"
+    [showGroupTitle]="true"
+    [toggleButtonLabel]="'connect-app.actions.open'"
+    [upperCase]="false"
+    (navigated)="navigateToConnect($event)"
+    (switched)="switchIntegration($event)"
+    [isSmallSize]="true"
+    [category]="paymentsCategory"
+    [listType]="integrationList"
+  ></pe-list-section>
+</pe-list-container>

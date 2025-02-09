@@ -1,0 +1,33 @@
+:host {
+  font-family: Roboto, sans-serif;
+  display: block;
+  color: #333;
+}
+
+.grid {
+  display: flex;
+  margin: 6px 6px 0;
+  gap: 0 16px;
+
+  .cell {
+    display: inline-flex;
+
+    .title,
+    .value {
+      white-space: nowrap;
+      color: inherit;
+      font-size: 12px;
+      line-height: 150%;
+      vertical-align: bottom;
+    }
+
+    .title {
+      font-weight: 300;
+      padding-right: 11px;
+    }
+
+    .value {
+      font-weight: 500;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "TermsLine1": {
+    "english": "By clicking <b>Pay</b> you agree with the <br class='mobile-br'> <span>terms of service of payever.</span>",
+    "germany": "Mit dem Klick auf <b>Pay</b> Stimmen Sie den <br class='mobile-br'> <span>AGB der payever GmbH</span> zu."
+  },
+  "TermsLine2": {
+    "english": "By clicking <b>Pay</b> you agree with the following policies",
+    "germany": "By clicking <b>Pay</b> you agree with the following policies"
+  }
+}

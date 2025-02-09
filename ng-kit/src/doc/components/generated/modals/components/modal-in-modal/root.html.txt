@@ -1,0 +1,5 @@
+<h1>This is main root page</h1>
+<p>Nothing else</p>
+<button (click)="gotoFirst()">Show first modal</button>
+
+<router-outlet></router-outlet>

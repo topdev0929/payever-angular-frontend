@@ -1,0 +1,74 @@
+<div class="data-grid-wrap" [ngClass]="theme">
+  <pe-data-grid
+    #dataGridComponent
+    [theme]="theme"
+    [items]="items"
+    [filterItems]="filterItems"
+    [multipleSelectedActions]="multipleSelectedActions"
+    [isShowGridItemInfo]="true"
+    [dataListOptions]="gridOptions"
+    [sortByActions]="sortByActions"
+    (searchRemove)="onSearchRemove($event)"
+    (createFilter)="onFilterCreate($event)"
+    (searchChanged)="onSearchChanged($event)"
+    [searchItems]="searchItems"
+    [displayNavbar]="true"
+    (toggleExternalSideMenu)="onToggleSidebar($event)"
+  >
+    <pe-data-grid-item
+      [item]="addNewItem"
+      [actions]="[addItemAction]"
+      [isShowSimplifyGrid]="true"
+      [theme]="theme"
+      [selectable]="false"
+      [isShowGridItemInfo]="false"
+      class="grid-item"
+    >
+      <div class="add-new">
+        <svg color="blue">
+          <defs>
+            <linearGradient id="add@2x-a" x1="50%" x2="48.333%" y1="0%" y2="107.889%">
+              <stop offset="0%" stop-color="#007DFE"/>
+              <stop offset="100%" stop-color="#005CBB"/>
+            </linearGradient>
+          </defs>
+          <use [attr.xlink:href]="'#icon-shipping-add'" color="blue"></use>
+        </svg>
+      </div>
+    </pe-data-grid-item>
+
+    <pe-data-grid-item
+      *ngFor="let item of filteredItems"
+      [item]="item"
+      [actions]="[editItemAction]"
+      [isShowSimplifyGrid]="true"
+      [theme]="theme"
+      [selectable]="true"
+      [isShowGridItemInfo]="true"
+      (contextmenu)="openContextMenu($event, item, contextMenu)"
+      class="grid-item"
+    >
+      <div class="shipping-items">
+        <div class="shipping-items__title-container item-bg">
+          <span class="title-text">{{ item.data.name }}</span>
+        </div>
+        <div class="shipping-items__content">
+          <span>Shipping to {{ item?.data?.zones && item?.data?.zones[0]?.countryCodes ?
+              item?.data?.zones[0]?.countryCodes.length > 1 ?
+                item?.data?.zones[0]?.countryCodes.length + ' countries'
+              :(item?.data?.zones[0]?.countryCodes | countries)
+            : '' }}</span>
+          <span>Shipping from {{ item?.data?.origins[0]?.countryCode ? (item?.data?.origins[0]?.countryCode | country) : '' }}</span>
+          <span>{{ item.data.products.length }} products</span>
+        </div>
+      </div>
+    </pe-data-grid-item>
+  </pe-data-grid>
+</div>
+
+<ng-template #contextMenu>
+  <peb-shipping-context-menu
+    [actions]="contextActions"
+    (close)="closeContextMenu()"
+  ></peb-shipping-context-menu>
+</ng-template>

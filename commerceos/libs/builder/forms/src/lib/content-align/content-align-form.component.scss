@@ -1,0 +1,25 @@
+@import '../../../../styles/src/lib/styles/_sidebars.scss';
+
+form {
+  position: relative;
+}
+
+.readonly {
+  position: absolute;
+  display: block;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  cursor: not-allowed;
+  z-index: 999;
+}
+
+.label {
+  display: block;
+  font-size: 11px;
+  font-family: Roboto, sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  color: #7a7a7a;
+}

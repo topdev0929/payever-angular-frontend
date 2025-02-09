@@ -1,0 +1,43 @@
+<entry-layout [hideLanguageSwitcher]="hideLanguageSwitcher">
+  <div class="login-second-factor-code__container">
+    <button mat-button
+            class="mat-button-no-padding close-button login-second-factor-code__skip"
+            type="button"
+            *ngIf="isShowSkip()"
+            (click)="onSuccessLogin()">
+      <small>Skip</small>
+    </button>
+    <p class="login-second-factor-code__description">{{'forms.login.twoFA.description' | translate:{email: email} }}</p>
+    <p class="login-second-factor-code__invalid" *ngIf="codeInvalid$ | async">{{'forms.login.twoFA.incorrect_2fa_code' | translate}}</p>
+
+    <form
+      class="login-second-factor-code__form"
+      [formGroup]="form"
+    >
+      <pe-auth-code
+        formControlName="code"
+        numberOfDigits="6"
+        autocomplete="one-time-code"
+      ></pe-auth-code>
+    </form>
+
+    <button class="login-second-factor-code__button" type="submit">
+      <pe-progress-button-content [loading]="isLoading$ | async">{{ 'actions.login' | translate }}</pe-progress-button-content>
+    </button>
+
+    <button
+      peb-text-button
+      (click)="onLogOut()"
+    >
+      {{ 'actions.logout' | translate }}
+    </button>
+
+    <div
+      *ngIf="availableSecurityQuestion"
+      class="login-second-factor-code__security-question"
+      (click)="toSecurityQuestion()"
+    >
+      {{ 'forms.login.twoFA.to_security_question' | translate }}
+    </div>
+  </div>
+</entry-layout>

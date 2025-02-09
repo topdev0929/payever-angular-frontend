@@ -1,0 +1,21 @@
+<pe-dialog
+  [baseButtons]="null"
+  [noMarginBottom]="true"
+  [hasCloseIcon]="true">
+  <pe-dialog-content>
+    <div class="dialog-container">
+      <div
+        class="dialog-title large-1"
+        i18n="@@payment-santander-de-pos.inquiry.sections.protection.information_package.title">
+        payment-santander-de-pos.inquiry.sections.protection.information_package.title
+      </div>
+      <div class="list">
+        <ng-container *ngFor="let item of informationPackageObject | keyvalue">
+          <div
+            class="list__item"
+            [innerHTML]="item.value"></div>
+        </ng-container>
+      </div>
+    </div>
+  </pe-dialog-content>
+</pe-dialog>

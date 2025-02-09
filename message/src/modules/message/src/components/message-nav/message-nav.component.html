@@ -1,0 +1,18 @@
+<pe-sidebar class="pe-sidebar" [ngClass]="theme" [style.background-color]="messageAppColor">
+  <pe-sidebar-filters-wrapper>
+    <pe-sidebar-header class="pe-sidebar-header" [allowClose]="false" title="{{ 'message-app.sidebar.message' | translate }}" (closeSidebar)="closeFolder()"></pe-sidebar-header>
+    <pe-sidebar-filter-wrapper [expandable]="true" [title]="'message-app.sidebar.all_messages' | translate">
+      <pe-sidebar-filter-wrapper [active]="false" [title]="'message-app.sidebar.chat' | translate">
+        <pe-tree-sidebar-filter
+          [tree]="peMessageNavService.folderTree"
+          [multiple]="false"
+          [formControl]="folderControl"
+          (nodeContextMenu)="openContextMenu($event.event, $event.node)"
+        ></pe-tree-sidebar-filter>
+      </pe-sidebar-filter-wrapper>
+    </pe-sidebar-filter-wrapper>
+    <pe-sidebar-footer-wrapper>
+      <pe-menu-sidebar-footer [menuData]="menuData" [theme]="theme + ' nav-folder-menu'"></pe-menu-sidebar-footer>
+    </pe-sidebar-footer-wrapper>
+  </pe-sidebar-filters-wrapper>
+</pe-sidebar>

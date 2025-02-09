@@ -1,0 +1,89 @@
+<ng-container *ngIf="options$ | async as options">
+  <form
+    *ngIf="formGroup.enabled"
+    class="form-table"
+    [formGroup]="formGroup">
+    <div
+      class="h5"
+      i18n="@@santander-dk.inquiry.step.cars_details.title">
+      Cars details
+    </div>
+    <div class="form-fieldset-new">
+      <mat-form-field class="col-xs-12">
+        <mat-label i18n="@@santander-dk.inquiry.form.cars_household.label"> Number of cars at household </mat-label>
+
+        <input
+          matInput
+          peInputMask
+          formControlName="_count"
+          type="text"
+          [mask]="countMask"
+          [unmask]="countUnmask" />
+      </mat-form-field>
+    </div>
+
+    <div
+      *ngIf="controlsArray.length"
+      class="form-fieldset-new">
+      <ng-container formArrayName="cars">
+        <ng-container
+          *ngFor="
+            let control of controlsArray;
+            let i = index;
+            trackBy: trackByIdx
+          "
+          [formGroup]="control">
+          <mat-form-field class="col-xs-12">
+            <mat-label>
+              <span>{{translateMemo(i + 1).finance_type}}</span>
+            </mat-label>
+
+            <mat-select formControlName="financedTypeView">
+              <mat-option
+                *ngFor="let option of options.carsFinancedTypes"
+                [value]="option">
+                {{ option.label }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field
+            *ngIf="control.get('age').enabled"
+            class="col-xs-12">
+            <mat-label>
+              <span>{{translateMemo(i + 1).age_of_car}}</span>
+            </mat-label>
+
+            <mat-select formControlName="age">
+              <mat-option
+                *ngFor="let option of options.carsAges"
+                [value]="option.value">
+                {{ option.label }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field
+            *ngIf="control.get('monthlyExpense').enabled"
+            class="col-xs-12">
+            <mat-label>
+              <span>>{{translateMemo().monthly_expense}}</span>
+            </mat-label>
+
+            <span
+              #prefix
+              matPrefix>
+              {{ currency | peCurrencySymbol }}
+            </span>
+            <input
+              matInput
+              peInputMask
+              formControlName="monthlyExpense"
+              [peInputCurrencyMask]="currency"
+              type="text" />
+          </mat-form-field>
+        </ng-container>
+      </ng-container>
+    </div>
+  </form>
+</ng-container>

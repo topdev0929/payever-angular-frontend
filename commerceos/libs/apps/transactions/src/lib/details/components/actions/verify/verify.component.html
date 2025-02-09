@@ -1,0 +1,12 @@
+<pe-action-layout
+  class="verify-container"
+  titleTranslateKey="transactions.form.verify.heading"
+  submitTitleTranslateKey="transactions.form.verify.actions.verify"
+  [isLoading]="isLoading$ | async"
+  (closeEvent)="close()"
+  (submitEvent)="done()"
+>
+  <pe-verify-action-fields [order]="order"></pe-verify-action-fields>
+
+  <router-outlet></router-outlet>
+</pe-action-layout>

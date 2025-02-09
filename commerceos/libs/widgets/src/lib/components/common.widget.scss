@@ -1,0 +1,205 @@
+@use 'pe_spinner' as pe_spinner;
+
+:host {
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+}
+
+.pe-widget-main {
+  box-shadow: 17px 20px 40px rgba(0, 0, 0, 0.21);
+  .widget, .viewer__widget {
+    border-radius: 1.32em;
+    overflow: hidden;
+    transform: translateZ(0);
+
+    &__content {
+      &--notifications-open {
+        margin-bottom: -1px;
+      }
+    }
+    &__header {
+      padding: 1.25em 15px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+    &__body {
+      padding: 1.25em 15px;
+    }
+
+    &__sub-header {
+      display: flex;
+      align-items: center;
+    }
+
+    &__image {
+      min-height: 1.2em;
+      min-width: 1.2em;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+
+    &--abbreviation-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background-image: linear-gradient(to top, #304d8b, #5f83d6);
+      text-transform: uppercase;
+      text-align: center;
+      font-size: 50%;
+      line-height: 2.5em;
+      color: #ffffff;
+    }
+
+    &__name {
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    &__open-button {
+      justify-self: flex-end;
+      border-radius: 1em;
+      height: 1.9em;
+      min-width: 4.66em;
+      line-height: 1;
+      padding: 0.25em 1em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+      position: relative;
+      font-weight: 500;
+      overflow: hidden;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      .mat-spinner {
+        @include pe_spinner.mat_spinner();
+        svg {
+          position: relative !important;
+          circle {
+            stroke: #ffffff;
+          }
+        }
+      }
+    }
+
+    &__buttons {
+      margin-left: 0.5em;
+      padding-right: 2.5em;
+      position: relative;
+    }
+
+    &__button {
+      height: 23px;
+      min-height: 23px;
+      width: 23px;
+      min-width: 23px;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 0;
+    }
+
+    &__plus-button {
+      height: 2em;
+      width: 2em;
+      position: relative;
+    }
+
+    &__notifications {
+      max-height: 1000px;
+      transform: scaleY(1);
+      transition: max-height .5s ease-in, padding 0s .05s;
+      transform-origin: top;
+      padding: 1.25em;
+
+      &--hidden {
+        max-height: 0;
+        padding: 0;
+        transition: max-height .5s ease-in, padding 0s .5s;
+      }
+    }
+
+    &__notification {
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      &-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0.58em 0;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+      }
+
+      &:last-child &-row {
+        border-bottom: none;
+      }
+
+      &-icon {
+        height: 18px;
+        width: 18px;
+        min-width: 18px;
+        margin-right: 18px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+      }
+
+      &-title {
+        font-size: 14px;
+        font-weight: 400;
+        margin-right: auto;
+      }
+
+      &-delete {
+        position: relative;
+        height: 2em;
+        min-height: 2em;
+        width: 2em;
+        min-width: 2em;
+        border-radius: 100%;
+        padding: 0;
+      }
+    }
+  }
+}
+
+.icon {
+  transition: transform 0.15s ease-in;
+
+  &.spin {
+    transform: rotate(45deg);
+  }
+}
+
+a,
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+.margin-left {
+  margin-left: 0.5em;
+}
+
+.margin-right {
+  margin-right: 0.5em;
+}
+
+.contacts__pe-widget {
+  .widget__content {
+    backdrop-filter: inherit!important;
+  }
+  .icons__image {
+    background-color: rgba(0, 0, 0, 0)!important;
+  }
+}

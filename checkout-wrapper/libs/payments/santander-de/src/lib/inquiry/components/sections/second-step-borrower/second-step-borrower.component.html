@@ -1,0 +1,20 @@
+<form
+  *ngIf="mode === 'Edit'"
+  class="form-table"
+  [formGroup]="formGroup">
+  <income-form formControlName="incomeForm"></income-form>
+  <bank-form formControlName="bankForm"></bank-form>
+
+  <protection-form
+    *ngIf="formGroup.get('protectionForm').enabled"
+    [ratesData]="incomeService.ratesData$ | async"
+    formControlName="protectionForm">
+  </protection-form>
+
+  <checkout-sdk-continue-button
+    class="button-continue"
+    [text]="translations.buttonText"
+    [loading]="loading$ | async"
+    (clicked)="onContinue()">
+  </checkout-sdk-continue-button>
+</form>

@@ -1,0 +1,37 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup">
+  <mat-checkbox
+    *ngIf="formGroup.get('_agreement_for_data_processing_and_transfer').enabled"
+    analyticFieldName="Agreement for data processing and transfer"
+    formControlName="_agreement_for_data_processing_and_transfer">
+    <span [innerHTML]="translations._agreement_for_data_processing_and_transfer"> </span>
+  </mat-checkbox>
+
+  <ng-container *ngIf="showCpiLegalText$ | async">
+    <div peFixFileLinks>
+      <pe-payment-text
+        [marginBottom]="true"
+        type="text">
+        <span [innerHTML]="translations.allowDataProcessingAndTransferFull"></span>
+      </pe-payment-text>
+    </div>
+  </ng-container>
+
+  <mat-checkbox
+    formControlName="credit_accepts_requests_to_credit_agencies"
+    analyticFieldName="Credit accepts requests to credit agencies"
+    [analyticsConsent]="analyticConsentEventEnum.GENERAL_CONSENT_GIVEN">
+    <span [innerHTML]="translations._borrowerAgreeToBeAdvised"> </span>
+  </mat-checkbox>
+
+  <div
+    (click)="onPromoTextClicked($event)"
+    peFixFileLinks>
+    <pe-payment-text
+      type="text"
+      class="after-checkbox-form">
+      <span [innerHTML]="translations.legalPromoShort"></span>
+    </pe-payment-text>
+  </div>
+</form>

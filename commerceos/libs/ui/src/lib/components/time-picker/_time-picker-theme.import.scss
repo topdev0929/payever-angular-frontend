@@ -1,0 +1,8 @@
+@use 'pe_theming' as pet;
+@use './time-picker/time-picker-theme.component' as time_picker;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include time_picker.color($color-config);
+}
+

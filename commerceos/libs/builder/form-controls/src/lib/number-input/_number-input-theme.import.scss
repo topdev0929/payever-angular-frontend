@@ -1,0 +1,9 @@
+@use 'pe_theming' as pet;
+@use './number-input-spinbutton-theme.component' as number_input_spin_button;
+@use './number-input-theme.component' as number_input;
+
+@mixin theme($theme-config) {
+    $color-config: pet.get-color-config-from-theme($theme-config);
+    @include number_input_spin_button.color($color-config);
+    @include number_input.color($color-config);
+}

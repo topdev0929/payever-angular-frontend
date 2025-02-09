@@ -1,0 +1,17 @@
+export enum FrontendAppsEnum {
+  Builder = 'builder',
+  Checkout = 'checkout',
+  CheckoutWrapper = 'checkoutWrapper',
+  Commerceos = 'commerceos',
+  Connect = 'connect',
+  Coupons = 'coupons',
+  Marketing = 'marketing',
+  Pos = 'pos',
+  PosClient = 'posClient',
+  Products = 'products',
+  Settings = 'settings',
+  Shipping = 'shipping',
+  Shop = 'shop',
+  ShopsClient = 'shopsClient',
+  Transactions = 'transactions',
+}

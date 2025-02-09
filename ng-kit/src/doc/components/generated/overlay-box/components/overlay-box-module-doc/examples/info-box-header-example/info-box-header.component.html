@@ -1,0 +1,15 @@
+<pe-info-box>
+  <ng-container header>
+    <pe-info-box-header [hasButton]="true"
+                        [title]="'Info box header'"
+                        [icon]="'#icon-apps-cart'"
+                        (onButtonClick)="onCloseCLick()" ></pe-info-box-header>
+  </ng-container>
+  <ng-container content>
+    Content
+  </ng-container>
+  <ng-container footer>
+    <button mat-button>Contact Payever</button>
+    <button mat-button>Leave Feedback</button>
+  </ng-container>
+</pe-info-box>

@@ -1,0 +1,7 @@
+<div
+  *ngIf="nodeFormOptions$ | async"
+  class="pe-payment-container">
+  <rates-form
+    (submitted)="onSubmitted()"
+    (selectRate)="onSelectRate($event)"></rates-form>
+</div>

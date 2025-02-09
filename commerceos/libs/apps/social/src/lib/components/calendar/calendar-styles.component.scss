@@ -1,0 +1,39 @@
+@use 'pe_screen_variables.scss' as pe_variables;
+
+.social-grid-item {
+  pe-grid-list-item {
+    .pe-grid-item {
+      &__text{
+        gap: 5px;
+        padding: 0;
+        color: #FFF;
+        display: flex;
+        font-size: 24px;
+        font-weight: 700;
+        text-align: center;
+        line-height: normal;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        background: linear-gradient(180deg, #31A1EF 0%, #0078D0 100%);
+
+        .social-day-item {
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+        }
+      }
+
+      @media (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+        &__text{
+          font-size: 22px;
+          padding-top: 8px;
+
+          .social-day-item {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+}

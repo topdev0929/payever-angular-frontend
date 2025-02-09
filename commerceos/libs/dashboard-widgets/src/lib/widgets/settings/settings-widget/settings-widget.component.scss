@@ -1,0 +1,12 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+:host {
+  margin-bottom: 1.35em;
+  display: block;
+}
+.settings-widget-button {
+  width: 50%;
+  &:first-of-type {
+    margin-right: 12px;
+    text-align: left;
+  }
+}

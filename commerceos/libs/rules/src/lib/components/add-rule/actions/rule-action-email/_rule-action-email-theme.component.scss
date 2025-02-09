@@ -1,0 +1,29 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $row-background: map.get($color-config, 'row-background');
+  $gray-button: map.get($color-config, 'gray-button');
+  $primary: map.get($color-config, 'primary');
+  $filter-invert-dark: map.get($color-config, 'filter-invert-dark');
+  $text-color: map.get($color-config, 'text-color');
+
+  .rule-action-email {
+    &__from {
+        background: $gray-button;
+        color: $text-color;
+    }
+    .pe-text-editor-toolbar {
+        padding: 5px 6px;
+    
+        button,
+        .list {
+          padding: 0;
+          background-color: transparent;
+    
+          &.active {
+            color: $primary;
+          }
+        }
+    }    
+  }
+}

@@ -1,0 +1,220 @@
+
+@import "~@pe/ui-kit/scss/pe_variables";
+
+
+$regular-text-color: darken(#ffffff, 10%);
+$regular-light-text-color: #111111;
+$content-transparent-background-color: rgba(0, 0, 0, 0.3);
+$content-transparent-button-background-color: rgba(0, 0, 0, 0.5);
+$content-transparent-border-color: rgba(255, 255, 255, 0.1);
+
+.transactions-app {
+  .backdrop {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+
+  .overlay {
+    border-radius: 16px;
+    overflow: hidden;
+    max-height: calc( 100% - 105px);
+    height: fit-content;
+    max-width: 438px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: $viewport-breakpoint-xs-2) {
+      max-width: 100%;
+      max-height: 100%;
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+      min-width: unset;
+    }
+
+    &__header {
+      align-items: center;
+      box-sizing: border-box;
+      display: flex;
+      height: 71px;
+      justify-content: space-between;
+      padding: 28px 24px 34px;
+      position: relative;
+      @media (max-width: $viewport-breakpoint-sm-2) {
+        padding: 16px 12px;
+      }
+    }
+
+    &__body {
+      height: calc(100% - 71px);
+      overflow: overlay;
+      overflow-x: hidden;
+      padding-bottom: 12px;
+    }
+
+    &__button {
+      appearance: none;
+      background-color: rgba(0, 0, 0, 0);
+      border: none;
+      box-sizing: border-box;
+      cursor: pointer;
+      font-family: 'Roboto';
+      font-size: 14px;
+      font-weight: 500;
+      padding: 0;
+      outline: none;
+      display: flex;
+      flex: 1;
+      &:last-child {
+        justify-content: flex-end;
+      }
+      @media (max-width: $viewport-breakpoint-sm-2) {
+        font-size: 16px;
+      }
+
+      &_loading {
+        font-style: italic;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    }
+
+    &__title {
+      font-family: 'Roboto';
+      font-size: 14px;
+      font-weight: 600;
+      flex: 1;
+      text-align: center;
+      white-space: nowrap;
+      width: max-content;
+      @media (max-width: $viewport-breakpoint-sm-2) {
+        font-size: 20px;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        z-index: -1;
+      }
+    }
+
+    &__body {
+      .mat-expansion-panel {
+        &-header,
+        &-header:focus {
+          cursor: pointer;
+          padding: 0 24px;
+          display: flex;
+          align-items: center;
+          height: 40px;
+          @media (max-width: $viewport-breakpoint-sm-2){
+            height: 44px;
+            padding: 0 12px;
+          }
+
+          .mat-content {
+            align-items: center;
+          }
+        }
+
+        &-body {
+          padding: 12px;
+        }
+      }
+    }
+  }
+
+  .pe-transactions-overlay-panel {
+    border-radius: 1em;
+    height: 100%;
+    overflow: auto;
+    margin-top: 3.9375em;
+    margin-bottom: 5.625em;
+    max-height: calc(100% - 105px);
+    max-width: 414px;
+    width: 100%;
+  }
+
+  .overlay-widget-container {
+    .overlay-widget {
+      .overlay-widget__header {
+        .header-container {
+          .overlay-widget__title {
+            font-family: 'Roboto';
+            font-size: 14px;
+            font-weight: bold;
+            @media (max-width: $viewport-breakpoint-sm-2) {
+              font-size: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  pe-cos-next-root {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .transaction-app {
+    height: calc(100% - 56px);
+  }
+
+  pe-verify-action, pe-shipping-goods-transaction {
+    peb-checkbox {
+      &.verify-checkbox .checkbox-label-aria {
+        .peb-checkbox-wrapper {
+          align-items: flex-start;
+          height: auto;
+          padding-top: 7.5px;
+          padding-bottom: 9.5px;
+          border-bottom: none;
+
+          .label-text {
+            font-family: Roboto, sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 1.33;
+          }
+        }
+      }
+
+      .checkbox-frame {
+        margin-top: 5px;
+      }
+    }
+
+    peb-form-field-input {
+      .label-container {
+        width: 100%;
+      }
+    }
+  }
+
+  .add-rule-overlay-panel {
+    .overlay-widget-container {
+      .overlay-widget__content {
+        height: calc(100% - 71px);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .overlay-widget-container {
+        max-width: 436px;
+      }
+    }
+  }
+
+  @media (max-width: 720px) {
+    .welcome_panel {
+      width: auto;
+      height: auto;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+.platform-background-wrap {
+  background-position: center;
+  background-size: cover;
+  position: fixed;
+  top: -140px;
+  left: -140px;
+  bottom: -140px;
+  right: -140px;
+  z-index: -1;
+  @include payever_transition(all, $animation-duration-slide-out, $animation-effect-ease-in);
+  filter: blur(80px);
+  @include payever_transform_translate3d(0,0,0);
+
+  &::before {
+    content: '';
+    position: absolute;
+    background-color: $color-grey-2;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+body.pe-bootstrap {
+  padding: 0 !important;
+}
+.pe-bootstrap .mat-card-content .mat-expansion-panel-dark .mat-expansion-panel-content .mat-expansion-panel-body {
+  border-radius: 0!important;
+}

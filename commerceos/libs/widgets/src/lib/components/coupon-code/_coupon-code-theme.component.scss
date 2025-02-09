@@ -1,0 +1,11 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+    $text-color: map.get($color-config, "border");
+  
+    .pe-widget-coupon-code {
+      .coupon_code {
+          color: $text-color;
+      }
+    }
+  }

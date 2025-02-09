@@ -1,0 +1,23 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $gray-button: map.get($color-config, gray-button);
+  $text-color: map.get($color-config, text-color);
+  $confirm: map.get($color-config, confirm);
+  $primary: map.get($color-config, primary);
+  $overlay-background-no-blur: map.get($color-config, overlay-background-no-blur);
+
+  pe-rules {
+    .rules {
+      &__action {
+        background-color: $overlay-background-no-blur;
+        backdrop-filter: blur(25px);
+      }
+
+      &__button {
+        color: $confirm;
+        background-color: $primary;
+      }
+    }
+  }
+}

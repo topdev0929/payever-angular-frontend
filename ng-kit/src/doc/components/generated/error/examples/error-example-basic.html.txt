@@ -1,0 +1,5 @@
+<pe-error
+  title="We're sorry"
+  description="Something went wrong in out end.<br />Please try again or contact us for <a href='#'>help</a>."
+  code="500"
+></pe-error>

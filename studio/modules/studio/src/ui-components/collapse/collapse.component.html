@@ -1,0 +1,9 @@
+<div class="collapse" (click)="onCollapse()">
+  <div class="collapse__title">{{ title }}</div>
+  <div class="collapse__icon">
+    <span [class.collapsed]="!isCollapsed"></span>
+  </div>
+</div>
+<div class="collapse-container" [class.collapsed]="isCollapsed">
+  <ng-content></ng-content>
+</div>

@@ -1,0 +1,54 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "./../../panels/page-container";
+
+.overlay-widget .pe-info-box-container-fixed {
+  &.policies-content {
+    min-width: calc(100% + 24px);
+    min-height: 0;
+    height: fit-content;
+    padding: 0;
+    margin-right: -12px;
+    margin-left: -12px;
+
+    .pe-info-box {
+      min-width: 100%;
+      max-width: 100%;
+      padding-bottom: 0;
+      padding-top: 0;
+
+      .info-box {
+        &.not-fullwidth-mobile {
+          padding: 0;
+        }
+
+        .mat-card {
+          border-radius: 0;
+        }
+      }
+
+      .content-wrapper {
+        background-color: transparent;
+        .policies-content{
+          &-row {
+            >div {
+              margin: 0 12px 12px;
+            }
+          }
+        }
+        .checkbox-setting {
+          display: flex;
+          align-items: center;
+          padding-left: 12px;
+          &_title {
+            font-size: 12px;
+            font-weight: 500;
+            flex: 1;
+            @media (max-width: $viewport-breakpoint-sm-2) {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

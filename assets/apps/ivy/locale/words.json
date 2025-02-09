@@ -1,0 +1,18 @@
+{
+  "Redirect to Ivy": {
+    "english": "Redirect to Ivy",
+    "germany": "Weiter zu Ivy" 
+  },
+  "Terms": {
+    "english": "By clicking <b>Redirect to Ivy</b> you agree with the <br class='mobile-br'> <span>terms of service of payever</span>.",
+    "germany": "Mit dem Klick auf <b>Weiter zu Ivy</b> Stimmen Sie den <br class='mobile-br'> <span>AGB der payever GmbH</span> zu."
+  },
+  "outerFrameTerms": {
+    "english": "By selecting your Bank, you agree to our <span>Terms and conditions</span> and <span>Privacy Policy</span>. You also agree to the <span>Terms</span> of the shop.",
+    "germany": "Indem du deine Bank auswählst, bestätigst du unsere AGB und Datenschutzbestimmung. Du stimmst auch den AGBs des Shops zu."
+  },
+  "outerEndToEndEncryption": {
+    "english": "Your payment is secured with end-to-end SSL encryption.",
+    "germany": "Deine Zahlung ist durch eine <br /> End-to-End-SSL-Verschlüsselung gesichert."
+  }
+}

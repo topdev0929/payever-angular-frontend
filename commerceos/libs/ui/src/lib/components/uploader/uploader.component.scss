@@ -1,0 +1,43 @@
+:host {
+    position: fixed;
+    z-index: 9999;
+    left: 33%;
+    height: 36px;
+    padding: 10px 16px 10px 12px;
+    right: 50%;
+    transform: translateX(50%);
+    top: 10%;
+    width: 300px;
+    max-width: 100%;
+    border-radius: 9px;
+    display: flex;
+    flex-direction: row;
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    .row-uploader {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+
+      .upload-items {
+        flex: 1;
+      }
+      .cancel {
+        width: 10%;
+        cursor: pointer;
+        letter-spacing: normal;
+        text-align: right;
+      }
+    }
+    p {
+      text-align: center;
+    }
+    mat-progress-spinner {
+      svg {
+        width: 35px;
+        height: 35px;
+      }
+    }
+  }

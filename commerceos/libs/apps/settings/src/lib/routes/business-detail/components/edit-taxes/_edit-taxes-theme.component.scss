@@ -1,0 +1,13 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $label-color: map.get($color-config, 'label-color');
+
+  .settings-edit-taxes {
+    .toggle-group__label {
+      span {
+        color: $label-color;
+      }
+    }
+  }
+}

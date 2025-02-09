@@ -1,0 +1,32 @@
+<div class="pe-transaction-detail-skeleton">
+  <div class="pe-transaction-detail-skeleton-actions">
+    <ng-container [ngTemplateOutlet]="skeletonActionsItem"></ng-container>
+    <ng-container [ngTemplateOutlet]="skeletonActionsItem"></ng-container>
+    <ng-container [ngTemplateOutlet]="skeletonActionsItem"></ng-container>
+  </div>
+  <div class="pe-transaction-detail-skeleton-general">
+    <div class="pe-transaction-detail-skeleton-general-item"></div>
+    <div class="pe-transaction-detail-skeleton-general-item"></div>
+    <div class="pe-transaction-detail-skeleton-general-item"></div>
+  </div>
+  <div class="pe-transaction-detail-skeleton-rows">
+    <ng-container [ngTemplateOutlet]="skeletonRowsItem"></ng-container>
+    <ng-container [ngTemplateOutlet]="skeletonRowsItem"></ng-container>
+    <ng-container [ngTemplateOutlet]="skeletonRowsItem"></ng-container>
+    <ng-container [ngTemplateOutlet]="skeletonRowsItem"></ng-container>
+    <ng-container [ngTemplateOutlet]="skeletonRowsItem"></ng-container>
+  </div>
+</div>
+
+<ng-template #skeletonRowsItem>
+  <div class="pe-transaction-detail-skeleton-rows-item">
+    <div class="pe-transaction-detail-skeleton-rows-item-text"></div>
+  </div>
+</ng-template>
+
+<ng-template #skeletonActionsItem>
+  <div class="pe-transaction-detail-skeleton-actions-item">
+    <div class="pe-transaction-detail-skeleton-actions-item-image"></div>
+    <div class="pe-transaction-detail-skeleton-actions-item-text"></div>
+  </div>
+</ng-template>

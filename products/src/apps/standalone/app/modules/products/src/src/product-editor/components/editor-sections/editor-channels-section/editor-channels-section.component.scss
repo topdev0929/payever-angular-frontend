@@ -1,0 +1,41 @@
+.channel-container {
+  .expandable-panel {
+    display: block;
+    overflow: hidden;
+
+    &:not(:first-of-type) {
+      margin-top: 16px;
+    }
+
+    .expandable-panel__header {
+      padding: 8px 12px !important;
+    }
+
+    .expandable-panel__content {
+      margin-top: 1px;
+      padding: 0 !important;
+    }
+  }
+
+  .group {
+    display: grid;
+    grid-gap: 1px;
+    overflow: hidden;
+  }
+
+  .channel-button-toggle {
+    background-color: #111111;
+    display: block;
+    padding: 2px 4px;
+
+    .button-toggle-container {
+      justify-content: space-between;
+      width: auto !important;
+    }
+  }
+
+  .market-toggle {
+    max-height: 41px;
+    background-color: rgba(0, 0, 0, 0.3) !important;
+  }
+}

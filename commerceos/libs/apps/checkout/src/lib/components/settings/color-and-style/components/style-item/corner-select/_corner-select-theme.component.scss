@@ -1,0 +1,41 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $input-button-background: map.get($color-config, 'input-button-background');
+  $text-color: map.get($color-config, 'text-color');
+  $background: map.get($color-config, 'background');
+  $hover-button: map.get($color-config, 'hover-button');
+  $active-text: map.get($color-config, 'active-text');
+  $transparent-color: map.get($color-config, 'transparent-color');
+
+  .checkout-style-corner-select {
+    &__label {
+      color: $text-color;
+    }
+    &__button {
+        background-color: $input-button-background;
+        border-left-color: $background;
+    }
+  }
+
+  .checkout-corner-button + .cdk-overlay-connected-position-bounding-box .cdk-overlay-pane {
+    .mat-menu-panel {
+      background-color: $transparent-color;
+      .mat-menu-content {
+        .mat-menu-item {
+          border-bottom-color: $background;
+          &:hover {
+            background-color: $hover-button;
+            color: $active-text;
+            border-bottom-color: $transparent-color;
+          }
+          .icon {
+            & + span {
+              color: $text-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}

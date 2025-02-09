@@ -1,0 +1,24 @@
+.pe-checkout-bootstrap {
+  .pagination-lg > li {
+    > a,
+    > span {
+      padding: $grid-unit-y $pe_hgrid_gutter * 0.5;
+    }
+  }
+  .pagination-sm > li {
+    &:first-child {
+      > a,
+      > span {
+        border-top-left-radius: $border-radius-base;
+        border-bottom-left-radius: $border-radius-base;
+      }
+    }
+    &:last-child {
+      > a,
+      > span {
+        border-top-right-radius: $border-radius-base;
+        border-bottom-right-radius: $border-radius-base;
+      }
+    }
+  }
+}

@@ -1,0 +1,244 @@
+import { Component, ChangeDetectionStrategy, Injector, Inject, EventEmitter, Output } from '@angular/core';
+import { FormArray, FormControl, Validators } from '@angular/forms';
+import { Observable } from 'rxjs/Observable';
+import { assign } from 'lodash-es';
+
+import { FormAbstractComponent, ErrorBag, FormScheme } from '../../../../../../modules/form';
+
+interface MyFormInterface {
+  norwegian_citizen: boolean;
+  residential_status: string;
+  residential_status_radio: string;
+  residential_status_checkbox: string;
+  professional_status: string;
+  employer: string;
+  employer_text: string;
+  employed_since: string;
+  employment_percent: number;
+}
+
+@Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  selector: 'form-fieldset-doc',
+  templateUrl: 'form-fieldset-doc.component.html',
+  providers: [ErrorBag]
+})
+export class FormFieldsetDocComponent extends FormAbstractComponent<MyFormInterface> {
+
+  formOptions: any = {
+    residential_statuses: [
+      {
+        label: 'one',
+        value: 1
+      },
+      {
+        label: 'two',
+        value: 2
+      },
+      {
+        label: 'three',
+        value: 3
+      }
+    ],
+    professional_statuses: [
+      {
+        label: 'idiot',
+        value: 1
+      },
+      {
+        label: 'professional',
+        value: 2
+      },
+      {
+        label: 'master',
+        value: 3
+      }
+    ]
+  };
+
+  formTranslationsScope: 'santander_installment_no.form';
+
+  formScheme: FormScheme = {
+    fieldsets: {
+      first: [
+        {
+          name: 'norwegian_citizen',
+          type: FormFieldType.Boolean,
+          uiRowSettings: {
+            rowClassName: 'col-xs-12 col-sm-6'
+          }
+        },
+        {
+          name: 'residential_status',
+          type: FormFieldType.Select,
+          options: this.formOptions.residential_statuses,
+          uiRowSettings: {
+            rowClassName: 'col-xs-12 col-sm-6'
+          }
+        },
+        {
+          name: 'residential_status_radio',
+          type: FormFieldType.Radio,
+          options: this.formOptions.residential_statuses,
+          uiRowSettings: {
+            rowClassName: 'col-xs-12',
+            label: null
+          }
+        },
+        {
+          name: 'residential_status_checkbox',
+          type: FormFieldType.Checkbox,
+          uiRowSettings: {
+            rowClassName: 'col-xs-12 col-sm-6',
+            formWidgetClassName: 'text-right'
+          }
+        },
+        {
+          name: 'residential_status_checkbox_array',
+          type: FormFieldType.CheckboxArray,
+          options: this.formOptions.residential_statuses,
+          uiRowSettings: {
+            rowClassName: 'col-xs-12 col-sm-6',
+            formWidgetClassName: 'text-right'
+          }
+        },
+        {
+          name: 'employer',
+          type: FormFieldType.Text,
+          uiRowSettings: {
+            rowClassName: 'col-xs-12 col-sm-6'
+          }
+        },
+        {
+          name: 'employer_text',
+          type: FormFieldType.Textarea,
+          uiRowSettings: {
+            rowClassName: 'col-xs-12 col-sm-6'
+          },
+          textareaOptions: {
+            rows: 5
+          }
+        },
+        {
+          name: 'employed_since',
+          type: FormFieldType.Date,
+          uiRowSettings: {
+            rowClassName: 'col-xs-12 col-sm-6'
+          },
+          dateOptions: {
+            placement: 'bottom',
+            monthOnly: true
+          }
+        },
+        {
+          name: 'employment_percent',
+          type: FormFieldType.Number,
+          uiRowSettings: {
+            rowClassName: 'col-xs-12 col-sm-6'
+          },
+          addonPrepend: {
+            button: 'default',
+            iconId: 'icon-plus-solid-16'
+          },
+          clickAddonPrepend: () => this.testClickPrepend()
+        }
+      ]
+    }
+  };
+
+  testFieldset: any = this.formScheme.fieldsets['first'];
+
+  protected formStorageKey: string = 'santander_installment_no.form';
+
+  constructor(
+    injector: Injector,
+    protected errorBag: ErrorBag
+  ) {
+    super(injector);
+  }
+
+  onSuccess(): void {
+    alert('Success!');
+  }
+
+  addServerErrors(): void {
+    this.errorBag.setErrors({
+      norwegian_citizen: 'Some error message',
+      residential_status: 'Another error message',
+      residential_status_radio: 'Error!',
+      residential_status_checkbox: 'Error!',
+      residential_status_checkbox_array: 'Error!'
+    });
+    this.changeDetectorRef.detectChanges();
+  }
+
+  disableSomething(): void {
+    this.toggleControl('employer', false);
+    this.toggleControl('employed_since', false);
+  }
+
+  enableSomething(): void {
+    this.toggleControl('employer', true);
+    this.toggleControl('employed_since', true);
+  }
+
+  disableAll(): void {
+    this.toggleControl('norwegian_citizen', false);
+    this.toggleControl('residential_status', false);
+    this.toggleControl('professional_status', false);
+    this.toggleControl('employer', false);
+    this.toggleControl('employed_since', false);
+    this.toggleControl('employment_percent', false);
+  }
+
+  enableAll(): void {
+    this.toggleControl('norwegian_citizen', true);
+    this.toggleControl('residential_status', true);
+    this.toggleControl('professional_status', true);
+    this.toggleControl('employer', true);
+    this.toggleControl('employed_since', true);
+    this.toggleControl('employment_percent', true);
+  }
+
+  saveToCache(): void {
+    this.saveDataToStorage();
+  }
+
+  testClickPrepend(): void {
+    alert('clicked prepend');
+  }
+
+  protected createForm(initialData: MyFormInterface): void {
+
+    initialData = <MyFormInterface>{
+      norwegian_citizen: false
+    };
+
+    initialData = this.initialData;
+
+    this.form = this.formBuilder.group({
+      norwegian_citizen: [initialData.norwegian_citizen, Validators.required],
+      residential_status: [initialData.residential_status, Validators.required],
+
+      residential_status_radio: [initialData.residential_status_radio, Validators.required],
+      residential_status_checkbox: [initialData.residential_status_checkbox, Validators.required],
+      residential_status_checkbox_array: new FormArray([
+        new FormControl(true),
+        new FormControl(false),
+        new FormControl(true)
+      ]),
+
+      professional_status: [initialData.professional_status, Validators.required],
+      employer: [initialData.employer, Validators.required],
+      employer_text: [initialData.employer_text, Validators.required],
+      employed_since: [this.stringToDate(initialData.employed_since), Validators.required],
+      employment_percent: [initialData.employment_percent || '', Validators.required],
+    });
+
+  }
+
+  protected onUpdateFormData(formValues: MyFormInterface): void {
+    
+  }
+
+}

@@ -1,0 +1,10 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $overlay-background: map.get($color-config, 'overlay-background');
+  .verify-fields {
+    .section-item:not(first-of-type) {
+      border-top: 1px solid $overlay-background;
+    }
+  }
+}

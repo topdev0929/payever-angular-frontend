@@ -1,0 +1,48 @@
+/*
+  Builder docker used in website builder
+*/
+@import "~@pe/ui-kit/scss/pe_variables";
+
+$item_size: 77px;
+.builder-docker {
+  background-color: rgba($color-justblack, .7);
+  border-radius: $border-radius-base * 3;
+  padding: $pe_vgrid_height;
+  display: inline-block;
+  position: relative;
+  width: $item_size * 7 + $pe_vgrid_height * 2;
+  max-width: 100%;
+  text-align: center;
+
+  .builder-docker-menu {
+    font-size: 0;
+    display: inline-block;
+  }
+
+  .btn-back {
+    height: 100%;
+    border-right: 1px solid rgba($color-white, .5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    display: block;
+    color: $color-gray_2;
+    cursor: pointer;
+    border-radius: $border-radius-base * 3 0 0 $border-radius-base * 3;
+    .icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -8px;
+      margin-left: -8px;
+    }
+    &:hover {
+      color: $color-white;
+      background-color: rgba($color-justblack, .7);
+    }
+    & + .builder-docker-menu {
+      // margin-left: 49px;
+    }
+  }
+}

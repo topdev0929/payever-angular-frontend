@@ -1,0 +1,401 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+// TODO Rewrite styles
+
+:host ::ng-deep {
+  .tpm-outer-container {
+    &.pe-info-box-container-fixed {
+      .mat-list.mat-list-base {
+        width: unset;
+      }
+    }
+
+    .fieldset-caption {
+      padding: $padding-base-vertical $padding-base-horizontal*2;
+      line-height: 1.3em;
+      font-size: $font-size-micro-1;
+      color: $color-gray-4;
+    }
+
+    .mat-accordion {
+      .mat-list {
+        margin-left: 0;
+        .mat-list-item {
+          padding-left: 0;
+         /*  @media (max-width: $viewport-breakpoint-sm-1 - 1) {
+            padding-left: 0;
+          } */
+
+          .mat-list-item-col:not(:last-of-type) {
+            padding-right: $padding-base-horizontal;
+          }
+        }
+      }
+    }
+
+    .mat-divider {
+      color: $color-white-grey-1;
+    }
+
+    // TODO hack for spinner inside small buttons
+    .button-col {
+      @include pe_flexbox; // fix for spinner inside button
+      @include pe_justify-content(flex-end);
+    }
+
+    button.mat-button-link:not(.hover):hover {
+      color: inherit;
+    }
+  }
+}
+
+:host ::ng-deep .tpm-add-number {
+  .tpm-status {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: $pe_vgrid_height*4;
+    border-bottom: 1px solid $color-white-grey-2;
+    padding: 0 $margin-adjust*3 0 $margin-adjust*6;
+  }
+  .status-icon {
+    margin-left: $margin-adjust*2;
+  }
+
+  .form-table {
+    //padding: $margin-adjust*5.5 $margin-adjust*6 0;
+  }
+
+  .tpm-checkbox {
+    background-color: transparent !important;
+    padding: 0;
+  }
+
+  /*
+  .tpm-collection {
+    height: $pe_vgrid_height*5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 $margin-adjust*6;
+  }
+
+  .tpm-collection:not(:first-of-type) {
+    border-top: 1px solid $color-white-grey-2;
+  }*/
+
+  .mat-checkbox-checked.mat-accent .mat-checkbox-label, .mat-checkbox-label{
+    color: $color-secondary-0;
+  }
+
+  .mat-checkbox-checked.mat-accent .mat-checkbox-frame, .mat-checkbox-frame {
+    border-color: $color-secondary-0;
+  }
+
+  .mat-checkbox-checked.mat-accent .mat-checkbox-background .mat-checkbox-checkmark-path {
+    stroke: $color-secondary-0 !important;
+  }
+
+  .mat-list-item-content {
+    padding: 0 16px !important;
+
+    &:hover {
+      background-color: #0371e2;
+    }
+
+    .mat-list-item-flex {
+      .mat-list-item-icon {
+        flex: 0.2;
+      }
+      .mat-list-item-col {
+        //flex: initial !important;
+        display: flex;
+        height: 55px;
+        align-items: center !important;
+        font-size: 12px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.33;
+        letter-spacing: normal;
+        color: #fff;
+
+        svg {
+          max-height: 100%;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+  .mat-list-item-single-image {
+    padding: 0 !important;
+    .mat-list-item-content {
+      padding: 0 !important;
+    }
+    .mat-list-item-col {
+      height: auto !important;
+      padding: 0 !important;
+      justify-content: center;
+      background: #fff;
+    }
+  }
+}
+
+:host ::ng-deep .tpm-verify {
+  &-box {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &-icon {
+    margin-top: $pe_vgrid_height*5;
+  }
+
+  &-title {
+    margin-top: $margin-adjust*6.5;
+    font-size: $font-size-h3;
+    color: $color-white;
+  }
+
+  &-message {
+    margin-top: $margin-adjust*4;
+  }
+
+  &-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: $pe_hgrid_gutter*7;
+    margin-top: $pe_hgrid_gutter*2;
+    margin-bottom: $pe_hgrid_gutter*2.25;
+  }
+
+  &-decline {
+    width: $pe_hgrid_gutter*3;
+  }
+
+  &-accept {
+    width: $pe_hgrid_gutter*3;
+  }
+}
+
+:host ::ng-deep {
+  .btn-wide {
+    width: $pe_hgrid_gutter*3;
+  }
+
+  .bg-grey.mat-raised-button {
+    background-color: $color-white-grey-1;
+  }
+
+  .text-grey {
+    color: $color-white-grey-4;
+  }
+
+  .print-background {
+    background: #ffffff; // Must be hardcoded
+    margin-top: -60px; // To hide header
+    margin-left: -10px;
+    z-index: 9999 !important;
+    width: calc(100% + 10px);
+    height: calc(100% + 60px);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    top: 0;
+  }
+
+  .body-image {
+    text-align: center;
+    padding: $grid-unit-y $grid-unit-x;
+    background: #fff;
+  }
+
+  .width-50-percent {
+    width: 50%;
+    img {
+      max-width: 100%;
+    }
+    iframe {
+      width: 100%;
+    }
+  }
+}
+
+.width-100-percent {
+  width: 100%;
+  img {
+    max-width: 100%;
+  }
+  iframe {
+    width: 100%;
+  }
+}
+
+.height-100-percent {
+  height: 100%;
+}
+
+.height-500-px {
+  height: 500px;
+  iframe {
+    height: 100%;
+  }
+}
+
+.white-space {
+  white-space: nowrap;
+}
+
+::ng-deep {
+  // TODO Move to uikit
+  @media print {
+    pe-new-platform-header {
+      display: none !important;
+    }
+    .pe-platform-header, .pe-platform-header .main-header {
+      display: none !important;
+    }
+    .pe-micro-container.below-platform-header {
+      top: 0 !important;
+    }
+  }
+
+  .tpm-print-dialog {
+    background: transparent !important;
+  }
+}
+
+.mat-button-block {
+  height: 55px;
+  color: $color-secondary-0 !important;
+  background: $color-primary-overlap !important;
+}
+
+.mat-button-block:hover {
+  opacity: 0.8;
+}
+
+:host ::ng-deep .pe-info-box-with-footer .mat-card-transparent .mat-card-content .mat-accordion .mat-expansion-panel:last-of-type .mat-button-block:last-of-type {
+  border-radius: 0;
+}
+
+:host ::ng-deep .pe-info-box-with-footer .mat-card-actions .mat-button-block {
+  margin-top: 2px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.operations-display-flex {
+  display: flex;
+  .mat-button-block {
+    flex-grow: 99;
+    border-bottom: none !important;
+    &:last-child {
+      border-bottom-left-radius: 0 !important;
+    }
+  }
+}
+
+:host ::ng-deep .field-bottom-line {
+  border-bottom: 2px solid $color-secondary-2 !important;
+}
+
+:host ::ng-deep .pe-field-footnote-key-value {
+  // This one is for DK (checkbox footnote)
+  margin-bottom: 12px;
+  .wrap {
+    display: flex;
+    margin-bottom: 4px;
+    .key {
+      flex-basis: 50%;
+    }
+    .value {
+      flex-basis: 50%;
+    }
+  }
+}
+
+// Fix to not have space between 2 last buttons:
+
+.mat-list-item-flex {
+  align-items: center !important;
+}
+
+.mat-list-item-col-tpm-button {
+  width: auto !important;
+  padding: 0 12px;
+  &.mat-list-item-col-tpm-button {
+    padding-right: 0;
+  }
+}
+
+// This block is to replace default toggle to the plus/minus
+::ng-deep .pe-info-box-container-fixed.tpm-outer-container {
+  .pe-info-box {
+    .info-box {
+      .mat-card {
+        .mat-accordion {
+          .mat-expansion-panel {
+            .mat-expansion-panel-header {
+              display: flex;
+              flex-wrap: nowrap;
+              align-items: center;
+
+              .mat-content {
+                mat-panel-title {
+                  padding-left: 0;
+                }
+
+                mat-panel-description {
+                  display: flex;
+                  justify-content: flex-end;
+                  align-items: center;
+                  padding-right: 0;
+                  margin-right: 0;
+
+                  svg {
+                    // For plus/minus
+                    text-align: right;
+                    height: 12px;
+                    width: 12px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.tpm-outer-container {
+  .connect-email-settings-outgoing-host-gmail\.com,
+  .connect-email-settings-outgoing-host-payever\.org {
+    background-position: center;
+    background-size: cover;
+    width: 32px;
+    height: 32px;
+  }
+  .caret {
+    border: solid #fff !important;
+    background: transparent !important;
+    border-width: 0 1px 1px 0 !important;
+    display: inline-block;
+    padding: 6px;
+    transform: rotate(-45deg);
+    height: 0;
+    border-radius: 0;
+    margin-right: 5px;
+  }
+}

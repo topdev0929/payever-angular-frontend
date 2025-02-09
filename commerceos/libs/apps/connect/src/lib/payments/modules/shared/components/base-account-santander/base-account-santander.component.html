@@ -1,0 +1,10 @@
+<onboarding-form
+  *ngIf="business"
+  [business]="business"
+  [isLoading]="isLoading"
+  [paymentMethod]="paymentMethod"
+  [requiredFields]="requiredFields"
+  (submitSuccess)="onSubmitSuccess($event)"
+  (submitFailed)="onSubmitFailed($event)"
+  (ready)="onReady($event)"
+></onboarding-form>

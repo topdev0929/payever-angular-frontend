@@ -1,0 +1,45 @@
+{
+  "name": "@pe/checkout-app",
+  "version": "1.0.53",
+  "description": "Payever Checkout app",
+  "repository": "https://gitlab.devpayever.com/frontend/checkout",
+  "license": "UNLICENSED",
+  "bin": {
+    "pe-i18n-cosf-prepare-checkout-app": "./bin/i18n-cosf-prepare.js"
+  },
+  "peerDependencies": {
+    "@angular/animations": "x",
+    "@angular/cdk": "x",
+    "@angular/cli": "x",
+    "@angular/common": "^9.1.4",
+    "@angular/core": "^9.1.4",
+    "@angular/forms": "x",
+    "@angular/material": "x",
+    "tslib": "^1.10.0",
+    "moment": "x",
+    "lodash-es": "x",
+    "ngx-scrollbar": "x",
+    "@auth0/angular-jwt": "x",
+    "ngx-color-picker": "x",
+    "angular2-text-mask": "x",
+    "iban": "x",
+    "is-touch-device": "^1.0.1",
+    "text-mask-addons": "^3.8.0",
+    "ngx-webstorage": "5.0.0",
+    "ngx-clipboard": "^13.0.1",
+    "country-data-list": "^1.2.0",
+
+    "@pe/platform-header": "x",
+    "@pe/media": "x",
+    "@pe/common": "x",
+    "@pe/forms": "x",
+    "@pe/auth": "x",
+    "@pe/app-switcher": "x",
+    "@pe/finexp-app": "x",
+    "@pe/connect-app": "x",
+    "@pe/ui": "1.0.7",
+    "@pe/data-grid": "11.0.6-DG-64.1",
+    "@pe/filters": "2.0.8",
+    "@pe/sidebar": "1.0.5"
+  }
+}

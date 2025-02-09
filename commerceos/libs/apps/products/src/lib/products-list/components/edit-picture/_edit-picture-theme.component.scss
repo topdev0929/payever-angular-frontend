@@ -1,0 +1,30 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+    $active-text: map.get($color-config, 'active-text');
+    $primary: map.get($color-config, 'primary');
+    $border: map.get($color-config, 'border');
+    $confirm: map.get($color-config, 'confirm');
+    $text-color: map.get($color-config, 'text-color');
+
+    .products-edit-menu {
+        svg {
+            fill: $text-color;
+        }
+
+        ul {
+            background-color: $primary;
+            color: $text-color;
+
+            li {
+                &:not(:last-of-type) {
+                    border-color: $border;
+                }
+
+                &:hover {
+                    background-color: $confirm;
+                }
+            }
+        }
+    }
+}

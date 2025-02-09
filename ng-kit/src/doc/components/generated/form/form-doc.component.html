@@ -1,0 +1,286 @@
+<div class="chapter" [formGroup]="form" *ngIf="form !== null">
+  <h1>Forms</h1>
+  <p>For additional Angular documentation please read <a
+    href="https://gitlab.devpayever.com/frontend/ng-kit/blob/master/modules/form/README.md"
+    target="_blank">README.md</a></p>
+
+  <hr>
+
+  <div id="form-fieldset" class="main-block">
+    <h3>Form fieldset</h3>
+    <p>For additional form fieldset documentation please read <a
+      href="https://payever.atlassian.net/wiki/spaces/PROD/pages/178126887/Forms+architecture+and+core+classes"
+      target="_blank">Forms architecture and core classes</a>
+    </p>
+    <div class="doc-block">
+      <div class="row">
+        <div class="col-xs-12">
+
+          <tabset>
+            <tab heading="View">
+              <form-fieldset-doc></form-fieldset-doc>
+            </tab>
+
+            <tab heading="Template">
+              <pre><code class="html" [innerHtml]="formFieldsetExample1TemplateHtml | code"></code></pre>
+            </tab>
+
+            <tab heading="Component">
+              <pre><code class="html" [innerHtml]="formFieldsetExample1ComponentHtml | code"></code></pre>
+            </tab>
+          </tabset>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="form-text-table" class="main-block">
+    <h3>Text table</h3>
+    <div class="doc-block">
+      <tabset>
+        <tab heading="View">
+          <div class="row">
+            <div class="col-xs-12 col-sm-8">
+              <form class="form-table">
+                <fieldset>
+                  <table>
+                    <tr>
+                      <td class="valign-top">
+                        <div class="row">
+                          <div class="col-xs-7 text-secondary">Title 1</div>
+                          <div class="col-xs-5 text-right">Description</div>
+                          <div class="col-xs-7 text-secondary">Title 2</div>
+                          <div class="col-xs-5 text-right">Description 2</div>
+                          <div class="col-xs-7 text-secondary">Another title</div>
+                          <div class="col-xs-5 text-right">Long description</div>
+                        </div>
+                      </td>
+                      <td class="valign-top">
+                        <div class="row">
+                          <div class="col-xs-7 text-secondary">Title 1</div>
+                          <div class="col-xs-5 text-right">Description</div>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Template">
+          <div class="row">
+            <div class="col-xs-12">
+<pre><code class="html" html-entities="true"><form class="form-table">
+    <fieldset>
+        <table>
+            <tr>
+                <td class="valign-top">
+                    <div class="row">
+                        <div class="col-xs-7 text-secondary">Title 1</div>
+                        <div class="col-xs-5 text-right">Description</div>
+                        <div class="col-xs-7 text-secondary">Title 2</div>
+                        <div class="col-xs-5 text-right">Description 2</div>
+                        <div class="col-xs-7 text-secondary">Another title</div>
+                        <div class="col-xs-5 text-right">Long description</div>
+                    </div>
+                </td>
+                <td class="valign-top">
+                    <div class="row">
+                        <div class="col-xs-7 text-secondary">Title 1</div>
+                        <div class="col-xs-5 text-right">Description</div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+</form></code></pre>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+  <div id="form-money-value" class="main-block">
+    <h3>Price Input</h3>
+    <div class="doc-block">
+      <tabset>
+        <tab heading="View">
+          <div class="row">
+            <div class="col-xs-12">
+              <pe-price
+                [currency]="'USD'"                
+                [initialValue]="'234.30'"
+                [setValue]="setPriceInputValue"
+                [min]="0"
+                [max]="1000000"
+                [autoFocus]="false"
+                [disabled]="false"
+                (priceValueChange)="handlePriceValue($event)">
+              </pe-price>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Template">
+          <div class="row">
+            <div class="col-xs-12">
+              <pre><code class="html" [innerHtml]="priceExample | code"></code></pre>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+  <div id="form-number-field" class="main-block">
+    <h3>Number field</h3>
+    <div class="doc-block">
+      <tabset>
+        <tab heading="View">
+          <div class="row">
+            <div class="col-xs-12">
+              <pe-counter
+                [value]="10"
+                [minValue]="5"
+                [maxValue]="15"
+                (counterValueChange)="handleCounterValue($event)"
+              ></pe-counter>
+              <p>&nbsp;</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <pe-counter
+                [readOnly]="true"
+                (counterValueChange)="handleCounterValue($event)"
+              ></pe-counter>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Template">
+          <div class="row">
+            <div class="col-xs-12">
+              <pre><code class="html" [innerHtml]="counterExample | code"></code></pre>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+  <div id="form-feedback" class="main-block">
+    <h3>Feedback field</h3>
+    <div class="doc-block">
+      <tabset>
+        <tab heading="View">
+          <div class="row">
+            <div class="col-xs-12">
+              <div style="background: #444; padding: 20px 40px;">
+                <pe-feedback
+                  [feedbackId]="'feedback1'"
+                  [value]=""
+                  [maxLength]="10000"
+                  [minHeight]="74"
+                  [maxHeight]="162"
+                  [placeholderText]="'Please enter your feedback'"
+                  [autoFocus]="false"
+                  (feedbackValueChange)="handleFeedbackValue($event)"
+                ></pe-feedback>
+              </div>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Template">
+          <div class="row">
+            <div class="col-xs-12">
+              <pre><code class="html" [innerHtml]="feedbackExample | code"></code></pre>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+  <div id="form-other-styles" class="main-block">
+    <h3>Other styles</h3>
+    <div class="doc-block">
+      <div class="row">
+        <div class="col-xs-12">
+          <p>See other styles at <a href="http://getbootstrap.com/css/#forms">Bootstrap forms</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="form-input" class="main-block">
+    <h3>Input - Wrapper for Material</h3>
+    <div class="doc-block">
+      <div class="row">
+        <div class="col-xs-12">
+          <tabset>
+            <tab heading="View">
+              <pe-input
+                ngDefaultControl
+                placeholder="email"
+                type="email"
+                [formControl]="emailFormControl"
+                [errorMessage]="'Please enter a valid email address'"
+              ></pe-input>
+              <pe-input
+                ngDefaultControl
+                placeholder="email"
+                type="email"
+                [formControl]="emailFormControl"
+                label="Errors appear instantly!"
+                [errorMessage]="'Please enter a valid email address'"
+              ></pe-input>
+            </tab>
+
+            <tab heading="Template">
+              <pre><code class="html" [innerHtml]="formFieldExampleTemplateHtml | code"></code></pre>
+            </tab>
+
+            <tab heading="Component">
+              <pre><code class="html" [innerHtml]="formFieldExampleComponentHtml | code"></code></pre>
+            </tab>
+          </tabset>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="form-textarea" class="main-block">
+    <h3>Textarea - Wrapper for Material</h3>
+    <div class="doc-block">
+      <div class="row">
+        <div class="col-xs-12">
+          <tabset>
+            <tab heading="View">
+              <pe-textarea
+                ngDefaultControl
+                placeholder="Comment"
+                type="text"
+                [formControl]="commentFormControl"
+                label="Errors appear instantly!"
+                [errorMessage]="'Comment is <strong>required</strong>'"
+              ></pe-textarea>
+              <pe-textarea
+                ngDefaultControl
+                placeholder="Comment"
+                type="text"
+                [formControl]="commentFormControl"
+                [errorMessage]="'Comment is <strong>required</strong>'"
+                ngDefaultControl
+              ></pe-textarea>
+            </tab>
+
+            <tab heading="Template">
+              <pre><code class="html" [innerHtml]="formFieldExampleTemplateHtml | code"></code></pre>
+            </tab>
+
+            <tab heading="Component">
+              <pre><code class="html" [innerHtml]="formFieldExampleComponentHtml | code"></code></pre>
+            </tab>
+          </tabset>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

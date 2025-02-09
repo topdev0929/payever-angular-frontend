@@ -1,0 +1,37 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $row-background: map.get($color-config, 'row-background');
+  $warn: map.get($color-config, 'warn');
+  $confirm: map.get($color-config, 'confirm');
+  $active-text: map.get($color-config, 'active$active-text');
+
+  .cdk-drag-preview {
+    .mat-list-item-content {
+      color: $text-color;
+      .mat-list-item-flex {
+        background-color: rgba($row-background, 0.3);
+        .mat-list-item-col {
+          .icon-menu-wrapper {
+            .icon-menu-item {
+              color: $active-text;
+            }
+          }
+          .danger-color {
+            color: $warn;
+          }
+        }
+      }
+      .mat-button {
+        color: $confirm;
+      }
+    }
+    .icon-menu-wrapper {
+        background-color: $warn;
+        .icon-menu-item {
+            color: $active-text;
+        }
+    }
+  }
+}

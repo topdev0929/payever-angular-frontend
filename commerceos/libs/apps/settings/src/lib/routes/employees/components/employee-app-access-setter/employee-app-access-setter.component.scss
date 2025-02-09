@@ -1,0 +1,50 @@
+@use "pe_variables" as pe_variables;
+
+
+:host {
+    ::ng-deep {
+        .form-background-wrapper{
+            border-radius: 0px 0px 8px 8px;
+        }
+        .expandable-panel{
+            &__header{
+                border-radius: 8px;
+                padding: 8px 12px;
+                font-size: 12px;
+                @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+                    font-size: 17px;
+                }
+            }
+
+            &__title {
+                font-weight: 500;
+            }
+
+            &__description {
+                font-weight: 400;
+            }
+            &.open{
+                .expandable-panel__header {
+                    border-radius: 8px 8px 0 0;
+                    border-bottom-style: solid;
+                    border-bottom-width: 1px;
+                }
+            }
+            &__content{
+                padding: 0;
+            }
+        }
+        .expandable-panel__content{
+            padding: 0;
+            .form-background-wrapper {
+                >* {
+                    width: 100%;
+                    >* {
+                        padding : 0 12px;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,33 @@
+<mat-tree [class.mat-tree-dark]="theme === 'dark'" [dataSource]="nestedDataSource" [treeControl]="nestedTreeControl">
+  <mat-tree-node class="mat-tree-item" *matTreeNodeDef="let node">
+    <span *ngIf="node.label" class="mat-tree-text">{{node.label}}</span>
+    <ng-template  [ngTemplateOutlet]="node.content"></ng-template>
+  </mat-tree-node>
+  <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+    <mat-list class="mat-sidenav-list">
+      <mat-list-item class="mat-tree-node mat-tree-item" [class.mat-tree-border-top]="getLevel(node) === 0"
+                     [class.mat-list-item-not-visible]="node.isNotVisible">
+        <a (click)="onExpandNode(node)" matLine matTreeNodeToggle class="mat-tree-text">{{node.label}}</a>
+        <div class="mat-list-item-content-addon-prepend">
+          <ng-template [ngTemplateOutlet]="node.addonPrepend"></ng-template>
+        </div>
+        <div class="mat-tree-node-space mat-list-item-content-addon-append">
+          <div class="mat-tree-node-right">
+            <svg *ngIf="node.isNotVisible" class="icon icon-20 mat-tree-grey mat-tree-node-right-item">
+              <use xlink:href="#icon-dontshow-24"></use>
+            </svg>
+            <svg *ngIf="!nestedTreeControl.isExpanded(node)" class="icon icon-16 mat-tree-grey">
+              <use xlink:href="#icon-plus-16"></use>
+            </svg>
+            <svg *ngIf="nestedTreeControl.isExpanded(node)" class="icon icon-16 mat-tree-grey">
+              <use xlink:href="#icon-minus-big-16"></use>
+            </svg>
+          </div>
+        </div>
+      </mat-list-item>
+    </mat-list>
+    <ul [hidden]="!nestedTreeControl.isExpanded(node)" class="mat-tree-list" [class.mat-tree-scheme]="!node.hideScheme">
+      <ng-container matTreeNodeOutlet></ng-container>
+    </ul>
+  </mat-nested-tree-node>
+</mat-tree>

@@ -1,0 +1,761 @@
+<ng-container *ngIf="isFieldsetVisible()">
+
+  <div [formGroup]="formGroup"
+       class="form-fieldset"
+       [class.form-fieldset-no-border]="noBorder || formStyle === 'no-border'"
+       [class.form-fieldset-no-border-radius]="noBorderRadius"
+       [class.form-fieldset-no-margin]="noMargin"
+       [class.form-fieldset-horizontal]="orientation === 'horizontal'"
+       [class.fixed-dark]="fixedDark"
+       [class.dark]="formStyle === 'dark'">
+
+    <div class="row">
+      <ng-template [ngTemplateOutlet]="fieldsetContainer" [ngTemplateOutletContext]="{ fields: fields }"></ng-template>
+    </div>
+
+    <ng-template #fieldsetContainer let-fields="fields">
+      <ng-container *ngFor="let field of fields">
+        <div *ngIf="isFieldVisible(field.name)"
+             [ngClass]="(asObservable(field?.fieldSettings) | async)?.classList"
+             [class.form-fieldset-field-readonly]="isFieldReadonly(field)"
+             [class.force-no-transparent]="field.type === 'checkbox' && formStyle === 'transparent' && noBorder"
+             [class.fs-hide]="(asObservable(field?.fieldSettings) | async)?.fullStoryHide">
+          <ng-template [ngTemplateOutlet]="fieldsetControls"
+                       [ngTemplateOutletContext]="{ field: field }"
+          ></ng-template>
+          <ng-container *ngIf="asObservable(field?.tooltipIcon) | async">
+            <!-- Small hack to ad space between tooltip icon and dropdown icon -->
+            <ng-container *ngIf="['select', 'select-country', 'select-boolean'].indexOf(field.type) >= 0">&nbsp;&nbsp;</ng-container>
+            <pe-tooltip-icon [config]="asObservable(field?.tooltipIcon) | async"></pe-tooltip-icon>
+          </ng-container>
+        </div>
+      </ng-container>
+    </ng-template>
+
+    <ng-template #fieldsetControls let-field="field">
+      <ng-container [ngSwitch]="field.type">
+        <ng-template *ngSwitchCase="FormFieldType.Input" [ngTemplateOutlet]="inputField" [ngTemplateOutletContext]="field._context"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.IframeInput" [ngTemplateOutlet]="iframeInputField" [ngTemplateOutletContext]="field._context"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.IframeInputIban" [ngTemplateOutlet]="iframeInputIbanField" [ngTemplateOutletContext]="field._context"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.InputCurrency" [ngTemplateOutlet]="inputCurrencyField" [ngTemplateOutletContext]="field._context"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.InputIban" [ngTemplateOutlet]="inputIbanField" [ngTemplateOutletContext]="field._context"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.InputCreditCardNumber" [ngTemplateOutlet]="inputCreditCardNumberField" [ngTemplateOutletContext]="field._context"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.InputCreditCardExpiration" [ngTemplateOutlet]="inputCreditCardExpirationField" [ngTemplateOutletContext]="field._context"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.InputWithMask" [ngTemplateOutlet]="inputWithMask" [ngTemplateOutletContext]="field._context"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.InputPassword" [ngTemplateOutlet]="inputPasswordField" [ngTemplateOutletContext]="field._context"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.InputSpinner" [ngTemplateOutlet]="inputSpinnerField" [ngTemplateOutletContext]="field._context"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.PhoneInput" [ngTemplateOutlet]="phoneInputField" [ngTemplateOutletContext]="field._context"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.Select" [ngTemplateOutlet]="selectField" [ngTemplateOutletContext]="field._context"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.SelectCountry" [ngTemplateOutlet]="selectCountryField" [ngTemplateOutletContext]="field._context"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.SelectBoolean" [ngTemplateOutlet]="selectBooleanField" [ngTemplateOutletContext]="field._context"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.Date" [ngTemplateOutlet]="dateField" [ngTemplateOutletContext]="field._context"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.Textarea" [ngTemplateOutlet]="textareaField" [ngTemplateOutletContext]="field._context"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.Radio" [ngTemplateOutlet]="radioField" [ngTemplateOutletContext]="field._context"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.Checkbox" [ngTemplateOutlet]="checkboxField" [ngTemplateOutletContext]="field._context"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.CheckboxArray" [ngTemplateOutlet]="checkboxArrayField" [ngTemplateOutletContext]="field._context"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.Autocomplete" [ngTemplateOutlet]="autocompleteField" [ngTemplateOutletContext]="field._context"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.AutocompleteGooglePlaces" [ngTemplateOutlet]="autocompleteGooglePlacesField" [ngTemplateOutletContext]="field._context"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.AutocompleteChips" [ngTemplateOutlet]="autocompleteChipsField" [ngTemplateOutletContext]="field._context"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.SlideToggle" [ngTemplateOutlet]="slideToggleField" [ngTemplateOutletContext]="field._context"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.Slider" [ngTemplateOutlet]="sliderField" [ngTemplateOutletContext]="field._context"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.ColorPicker" [ngTemplateOutlet]="colorPickerField" [ngTemplateOutletContext]="field._context"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.ColorPanel" [ngTemplateOutlet]="colorPanelField" [ngTemplateOutletContext]="field._context"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.ButtonToggle" [ngTemplateOutlet]="buttonToggleField" [ngTemplateOutletContext]="field._context"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.FilePicker" [ngTemplateOutlet]="filePickerField" [ngTemplateOutletContext]="field._context"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.ImagePicker" [ngTemplateOutlet]="imagePickerField" [ngTemplateOutletContext]="field._context"></ng-template>
+        <ng-template *ngSwitchCase="FormFieldType.TableGridPicker" [ngTemplateOutlet]="tableGridPickerField" [ngTemplateOutletContext]="field._context"></ng-template>
+      </ng-container>
+    </ng-template>
+
+    <!-- Input field -->
+    <!-- @deprecated field.nameAttribute. Use field.inputSettings.nameAttribute instead -->
+    <!-- @deprecated field.autocompleteAttribute. Use field.inputSettings.autocompleteAttribute instead -->
+    <ng-template #inputField let-f="f">
+      <pe-input *ngIf="((asObservable(f.field?.inputSettings) | async) || {}) as inputSettings"
+                [addonAppend]="f.addonAppend$ | async"
+                [addonPrepend]="f.addonPrepend$ | async"
+                [errorMessage]="getFieldError(f.field)"
+                [errorStateMatcher]="errorStateMatcher"
+                [formControlRef]="formGroup.get(f.field.name)"
+                [required]="isFieldRequired(f.field)"
+                [readonly]="isFieldReadonly(f.field)"
+                [blockCopyPaste]="isBlockCopyPaste(f.field)"
+                [scopeQaId]="scopeQaId"
+                [tabIndex]="f.tabIndex$ | async"
+                [placeholder]="translate(inputSettings.placeholder) || translate(f.placeholder)"
+                [type]="inputSettings.type"
+                [minLength]="inputSettings.minLength"
+                [maxLength]="inputSettings.maxLength"
+                [numberMin]="inputSettings.numberMin"
+                [numberMax]="inputSettings.numberMax"
+                [numberIsInteger]="inputSettings.numberIsInteger"
+                [showNumberControls]="inputSettings.showNumberControls"
+                [nameAttribute]="inputSettings.nameAttribute || f.field?.nameAttribute"
+                [autocompleteAttribute]="inputSettings.autocompleteAttribute || f.field?.autocompleteAttribute"
+                [debounceTime]="inputSettings.debounceTime"
+                (valueChange)="executeCallback(inputSettings, 'onValueChange', $event)"
+                (focus)="executeCallback(inputSettings, 'onFocus', $event)"
+                (blur)="executeCallback(inputSettings, 'onBlur', $event)"
+      ></pe-input>
+    </ng-template>
+
+    <!-- Input field -->
+    <ng-template #iframeInputField let-f="f">
+      <pe-iframe-input *ngIf="((asObservable(f.field?.inputSettings) | async) || {}) as inputSettings"
+                        [formToken]="f.formToken"
+                        [paymentFlowId]="f.paymentFlowId"
+                        [addonAppend]="f.addonAppend$ | async"
+                        [addonPrepend]="f.addonPrepend$ | async"
+                        [errorMessage]="getFieldError(f.field)"
+                        [errorStateMatcher]="errorStateMatcher"
+                        [formControlRef]="formGroup.get(f.field.name)"
+                        [required]="isFieldRequired(f.field)"
+                        [readonly]="isFieldReadonly(f.field)"
+                        [blockCopyPaste]="isBlockCopyPaste(f.field)"
+                        [scopeQaId]="scopeQaId"
+                        [tabIndex]="f.tabIndex$ | async"
+                        [placeholder]="translate(inputSettings.placeholder) || translate(f.placeholder)"
+                        [type]="inputSettings.type"
+                        [minLength]="inputSettings.minLength"
+                        [maxLength]="inputSettings.maxLength"
+                        [numberMin]="inputSettings.numberMin"
+                        [numberMax]="inputSettings.numberMax"
+                        [numberIsInteger]="inputSettings.numberIsInteger"
+                        [showNumberControls]="inputSettings.showNumberControls"
+                        [nameAttribute]="inputSettings.nameAttribute"
+                        [autocompleteAttribute]="inputSettings.autocompleteAttribute"
+                        [debounceTime]="inputSettings.debounceTime"
+                        (valueChange)="executeCallback(inputSettings, 'onValueChange', $event)"
+                        (focus)="executeCallback(inputSettings, 'onFocus', $event)"
+                        (blur)="executeCallback(inputSettings, 'onBlur', $event)"
+      ></pe-iframe-input>
+    </ng-template>
+
+    <!-- Input field -->
+    <ng-template #iframeInputIbanField let-f="f">
+      <pe-iframe-input-iban ngDefaultControl
+                            *ngIf="((asObservable(f.field?.inputIbanSettings) | async) || {}) as inputIbanSettings"
+                            [formToken]="f.formToken"
+                            [paymentFlowId]="f.paymentFlowId"
+                            [addonAppend]="f.addonAppend$ | async"
+                            [addonPrepend]="f.addonPrepend$ | async"
+                            [errorMessage]="getFieldError(f.field)"
+                            [errorStateMatcher]="errorStateMatcher"
+                            [formControlRef]="formGroup.get(f.field.name)"
+                            [required]="isFieldRequired(f.field)"
+                            [readonly]="isFieldReadonly(f.field)"
+                            [blockCopyPaste]="isBlockCopyPaste(f.field)"
+                            [scopeQaId]="scopeQaId"
+                            [tabIndex]="f.tabIndex$ | async"
+                            [placeholder]="translate(inputIbanSettings.placeholder) || translate(f.placeholder)"
+                            (valueChange)="handleValueChange(f.field, inputIbanSettings, 'onValueChange', $event)"
+                            (focus)="executeCallback(inputIbanSettings, 'onFocus', $event)"
+                            (blur)="executeCallback(inputIbanSettings, 'onBlur', $event)"
+      ></pe-iframe-input-iban>
+    </ng-template>
+
+    <!-- Currency input field -->
+    <ng-template #inputCurrencyField let-f="f">
+      <pe-input-currency ngDefaultControl
+                         *ngIf="((asObservable(f.field?.inputCurrencySettings) | async) || {}) as inputCurrencySettings"
+                         [addonAppend]="f.addonAppend$ | async"
+                         [addonPrepend]="f.addonPrepend$ | async"
+                         [forceDisabled]="formGroup.get(f.field.name).disabled"
+                         [errorMessage]="getFieldError(f.field)"
+                         [errorStateMatcher]="errorStateMatcher"
+                         [formControl]="formGroup.get(f.field.name)"
+                         [touched]="formGroup.get(f.field.name).touched"
+                         [maxLength]="inputCurrencySettings.maxLength"
+                         [placeholder]="translate(inputCurrencySettings.placeholder) || translate(f.placeholder)"
+                         [required]="isFieldRequired(f.field)"
+                         [readonly]="isFieldReadonly(f.field)"
+                         [blockCopyPaste]="isBlockCopyPaste(f.field)"
+                         [scopeQaId]="scopeQaId"
+                         [tabIndex]="f.tabIndex$ | async"
+                         (valueChange)="handleValueChange(f.field, inputCurrencySettings, 'onValueChange', $event)"
+                         (focus)="executeCallback(inputCurrencySettings, 'onFocus', $event)"
+                         (blur)="executeCallback(inputCurrencySettings, 'onBlur', $event)"
+      ></pe-input-currency>
+    </ng-template>
+
+    <!-- IBAN input field -->
+    <ng-template #inputIbanField let-f="f">
+      <pe-input-iban ngDefaultControl
+                     *ngIf="((asObservable(f.field?.inputIbanSettings) | async) || {}) as inputIbanSettings"
+                     [addonAppend]="f.addonAppend$ | async"
+                     [addonPrepend]="f.addonPrepend$ | async"
+                     [forceDisabled]="formGroup.get(f.field.name).disabled"
+                     [errorMessage]="getFieldError(f.field)"
+                     [errorStateMatcher]="errorStateMatcher"
+                     [formControl]="formGroup.get(f.field.name)"
+                     [touched]="formGroup.get(f.field.name).touched"
+                     [placeholder]="translate(inputIbanSettings.placeholder) || translate(f.placeholder)"
+                     [required]="isFieldRequired(f.field)"
+                     [readonly]="isFieldReadonly(f.field)"
+                     [blockCopyPaste]="isBlockCopyPaste(f.field)"
+                     [scopeQaId]="scopeQaId"
+                     [tabIndex]="f.tabIndex$ | async"
+                     (valueChange)="handleValueChange(f.field, inputIbanSettings, 'onValueChange', $event)"
+                     (focus)="executeCallback(inputIbanSettings, 'onFocus', $event)"
+                     (blur)="executeCallback(inputIbanSettings, 'onBlur', $event)"
+      ></pe-input-iban>
+    </ng-template>
+
+    <!-- Credit card number input field -->
+    <ng-template #inputCreditCardNumberField let-f="f">
+      <pe-input-credit-card-number ngDefaultControl
+                                   *ngIf="((asObservable(f.field?.inputCreditCardNumberSettings) | async) || {}) as inputCreditCardNumberSettings"
+                                   [addonAppend]="f.addonAppend$ | async"
+                                   [addonPrepend]="f.addonPrepend$ | async"
+                                   [forceDisabled]="formGroup.get(f.field.name).disabled"
+                                   [errorMessage]="getFieldError(f.field)"
+                                   [errorStateMatcher]="errorStateMatcher"
+                                   [formControl]="formGroup.get(f.field.name)"
+                                   [touched]="formGroup.get(f.field.name).touched"
+                                   [placeholder]="translate(inputCreditCardNumberSettings.placeholder) || translate(f.placeholder)"
+                                   [required]="isFieldRequired(f.field)"
+                                   [readonly]="isFieldReadonly(f.field)"
+                                   [blockCopyPaste]="isBlockCopyPaste(f.field)"
+                                   [scopeQaId]="scopeQaId"
+                                   [tabIndex]="f.tabIndex$ | async"
+                                   (valueChange)="handleValueChange(f.field, inputCreditCardNumberSettings, 'onValueChange', $event)"
+                                   (focus)="executeCallback(inputCreditCardNumberSettings, 'onFocus', $event)"
+                                   (blur)="executeCallback(inputCreditCardNumberSettings, 'onBlur', $event)"
+      ></pe-input-credit-card-number>
+    </ng-template>
+
+    <!-- Credit card expiration input field -->
+    <ng-template #inputCreditCardExpirationField let-f="f">
+      <pe-input-credit-card-expiration ngDefaultControl
+                                       *ngIf="((asObservable(f.field?.inputCreditCardExpirationSettings) | async) || {}) as inputCreditCardExpirationSettings"
+                                       [addonAppend]="f.addonAppend$ | async"
+                                       [addonPrepend]="f.addonPrepend$ | async"
+                                       [forceDisabled]="formGroup.get(f.field.name).disabled"
+                                       [errorMessage]="getFieldError(f.field)"
+                                       [errorStateMatcher]="errorStateMatcher"
+                                       [formControl]="formGroup.get(f.field.name)"
+                                       [touched]="formGroup.get(f.field.name).touched"
+                                       [placeholder]="translate(inputCreditCardExpirationSettings.placeholder) || translate(f.placeholder)"
+                                       [required]="isFieldRequired(f.field)"
+                                       [readonly]="isFieldReadonly(f.field)"
+                                       [blockCopyPaste]="isBlockCopyPaste(f.field)"
+                                       [scopeQaId]="scopeQaId"
+                                       [tabIndex]="f.tabIndex$ | async"
+                                       (valueChange)="handleValueChange(f.field, inputCreditCardExpirationSettings, 'onValueChange', $event)"
+                                       (focus)="executeCallback(inputCreditCardExpirationSettings, 'onFocus', $event)"
+                                       (blur)="executeCallback(inputCreditCardExpirationSettings, 'onBlur', $event)"
+      ></pe-input-credit-card-expiration>
+    </ng-template>
+
+    <!-- Input with mask input field -->
+    <ng-template #inputWithMask let-f="f">
+      <pe-input-with-mask  ngDefaultControl
+                           *ngIf="((asObservable(f.field?.inputWithMaskSettings) | async) || {}) as inputWithMaskSettings"
+                           [addonAppend]="f.addonAppend$ | async"
+                           [addonPrepend]="f.addonPrepend$ | async"
+                           [forceDisabled]="formGroup.get(f.field.name).disabled"
+                           [errorMessage]="getFieldError(f.field)"
+                           [errorStateMatcher]="errorStateMatcher"
+                           [formControl]="formGroup.get(f.field.name)"
+                           [touched]="formGroup.get(f.field.name).touched"
+                           [placeholder]="translate(inputWithMaskSettings.placeholder) || translate(f.placeholder)"
+                           [mask]="inputWithMaskSettings.mask"
+                           [unmask]="inputWithMaskSettings.unmask"
+                           [required]="isFieldRequired(f.field)"
+                           [readonly]="isFieldReadonly(f.field)"
+                           [blockCopyPaste]="isBlockCopyPaste(f.field)"
+                           [scopeQaId]="scopeQaId"
+                           [tabIndex]="f.tabIndex$ | async"
+                           (valueChange)="handleValueChange(f.field, inputWithMaskSettings, 'onValueChange', $event)"
+                           (focus)="executeCallback(inputWithMaskSettings, 'onFocus', $event)"
+                           (blur)="executeCallback(inputWithMaskSettings, 'onBlur', $event)"
+      ></pe-input-with-mask>
+    </ng-template>
+
+    <!-- Password input field -->
+    <ng-template #inputPasswordField let-f="f">
+      <pe-input-password *ngIf="((asObservable(f.field?.inputPasswordSettings) | async) || {}) as inputPasswordSettings"
+                         [addonAppend]="f.addonAppend$ | async"
+                         [addonPrepend]="f.addonPrepend$ | async"
+                         [nameAttribute]="'Password'"
+                         [autocompleteAttribute]="'current-password'"
+                         [errorMessage]="getFieldError(f.field)"
+                         [errorStateMatcher]="errorStateMatcher"
+                         [formControlRef]="formGroup.get(f.field.name)"
+                         [placeholder]="translate(inputPasswordSettings.placeholder) || translate((asObservable(f.field?.inputSettings) | async)?.placeholder) || translate(f.placeholder)"
+                         [required]="isFieldRequired(f.field)"
+                         [readonly]="isFieldReadonly(f.field)"
+                         [blockCopyPaste]="isBlockCopyPaste(f.field)"
+                         [scopeQaId]="scopeQaId"
+                         [showPasswordRequirements]="inputPasswordSettings.showPasswordRequirements"
+                         [showForgotPassword]="inputPasswordSettings.showForgotPassword"
+                         [tabIndex]="f.tabIndex$ | async"
+                         (forgotPasswordClick)="executeCallback(inputPasswordSettings.forgotPasswordClick ? inputPasswordSettings : f.field?.inputSettings, 'forgotPasswordClick', $event)"
+                         (valueChange)="executeCallback(inputPasswordSettings.onValueChange ? inputPasswordSettings : f.field?.inputSettings, 'onValueChange', $event)"
+                         (focus)="executeCallback(inputPasswordSettings.onFocus ? inputPasswordSettings : f.field?.inputSettings, 'onFocus', $event)"
+                         (blur)="executeCallback(inputPasswordSettings.onBlur ? inputPasswordSettings : f.field?.inputSettings, 'onBlur', $event)"
+      ></pe-input-password>
+    </ng-template>
+
+    <!-- Input Spinner field -->
+    <!-- @deprecated field.nameAttribute. Use field.inputSettings.nameAttribute instead -->
+    <!-- @deprecated field.autocompleteAttribute. Use field.inputSettings.autocompleteAttribute instead -->
+    <ng-template #inputSpinnerField let-f="f">
+      <pe-input-spinner
+        *ngIf="((asObservable(f.field?.inputSettings) | async) || {}) as inputSettings"
+        [addonAppend]="f.addonAppend$ | async"
+        [addonPrepend]="f.addonPrepend$ | async"
+        [errorMessage]="getFieldError(f.field)"
+        [errorStateMatcher]="errorStateMatcher"
+        [formControlRef]="formGroup.get(f.field.name)"
+        [placeholder]="translate(inputSettings.placeholder) || translate(f.placeholder)"
+        [nameAttribute]="inputSettings.nameAttribute || f.field?.nameAttribute"
+        [autocompleteAttribute]="inputSettings.autocompleteAttribute || f.field?.autocompleteAttribute"
+        [required]="isFieldRequired(f.field)"
+        [readonly]="isFieldReadonly(f.field)"
+        [scopeQaId]="scopeQaId"
+        [tabIndex]="f.tabIndex$ | async"
+        (valueChange)="executeCallback(inputSettings, 'onValueChange', $event)"
+        (focus)="executeCallback(inputSettings, 'onFocus', $event)"
+        (blur)="executeCallback(inputSettings, 'onBlur', $event)"
+      ></pe-input-spinner>
+    </ng-template>
+
+    <!-- Phone field -->
+    <ng-template #phoneInputField let-f="f">
+      <pe-phone-input ngDefaultControl
+                      *ngIf="((asObservable(f.field?.phoneInputSettings) | async) || {}) as phoneInputSettings"
+                      [addonAppend]="f.addonAppend$ | async"
+                      [addonPrepend]="f.addonPrepend$ | async"
+                      [errorMessage]="getFieldError(f.field)"
+                      [errorStateMatcher]="errorStateMatcher"
+                      [formControlRef]="formGroup.get(f.field.name)"
+                      [placeholder]="translate(phoneInputSettings.placeholder) || translate(f.placeholder)"
+                      [required]="isFieldRequired(f.field)"
+                      [readonly]="isFieldReadonly(f.field)"
+                      [blockCopyPaste]="isBlockCopyPaste(f.field)"
+                      [scopeQaId]="scopeQaId"
+                      [tabIndex]="f.tabIndex$ | async"
+                      (valueChange)="handleValueChange(f.field, phoneInputSettings, 'onValueChange', $event)"
+                      (focus)="executeCallback(phoneInputSettings, 'onFocus', $event)"
+                      (blur)="executeCallback(phoneInputSettings, 'onBlur', $event)">
+      </pe-phone-input>
+    </ng-template>
+
+    <!-- Select field -->
+    <ng-template #selectField let-f="f">
+      <ng-container *ngIf="((asObservable(f.field?.fieldSettings) | async) || {}) as fieldSettings">
+        <pe-select *ngIf="((asObservable(f.field?.selectSettings) | async) || {}) as selectSettings"
+                   [addonAppend]="f.addonAppend$ | async"
+                   [addonPrepend]="f.addonPrepend$ | async"
+                   [disableOptionCentering]="selectSettings.disableOptionCentering"
+                   [errorMessage]="getFieldError(f.field)"
+                   [errorStateMatcher]="errorStateMatcher"
+                   [formControlRef]="formGroup.get(f.field.name)"
+                   [label]="translate(selectSettings.label) || translate(fieldSettings.label) || translate(f.label)"
+                   [multiple]="selectSettings.multiple"
+                   [options]="selectSettings.options"
+                   [optionGroups]="selectSettings.optionGroups"
+                   [panelClass]="selectSettings.panelClass"
+                   [placeholder]="translate(selectSettings.placeholder) || translate(fieldSettings.placeholder) || translate(f.placeholder)"
+                   [required]="isFieldRequired(f.field)"
+                   [readonly]="isFieldReadonly(f.field)"
+                   [scopeQaId]="scopeQaId"
+                   [tabIndex]="f.tabIndex$ | async"
+                   [singleLineMode]="selectSettings.singleLineMode"
+                   [singleLineMoreText]="selectSettings.singleLineMoreText"
+                   [addOptionButton]="selectSettings.addOptionButton"
+                   [optionClass]="selectSettings.optionClass"
+                   (openedChange)="executeCallback(selectSettings, 'onOpenedChange', $event)"
+                   (valueChange)="handleValueChange(f.field, selectSettings, 'onValueChange', $event)"
+                   (focus)="executeCallback(selectSettings, 'onFocus', $event)"
+                   (blur)="executeCallback(selectSettings, 'onBlur', $event)"
+        ></pe-select>
+      </ng-container>
+    </ng-template>
+
+    <!-- Table Grid Picker  field -->
+    <ng-template #tableGridPickerField let-f="f">
+      <pe-table-grid-picker [formControlRef]="formGroup.get(f.field.name)" [scopeQaId]="scopeQaId"
+                            [tabIndex]="f.tabIndex$ | async"
+                            (valueChange)="handleValueChange(f.field, field?.tableGridPickerSettings, 'onValueChange', $event)">
+      </pe-table-grid-picker>
+    </ng-template>
+
+    <!-- Select field -->
+    <ng-template #selectCountryField let-f="f">
+      <pe-select-country *ngIf="((asObservable(f.field?.selectCountrySettings) | async) || {}) as selectCountrySettings"
+                         [addonAppend]="f.addonAppend$ | async"
+                         [addonPrepend]="f.addonPrepend$ | async"
+                         [disableOptionCentering]="(asObservable(f.field?.selectCountrySettings) | async)?.disableOptionCentering"
+                         [errorMessage]="getFieldError(f.field)"
+                         [errorStateMatcher]="errorStateMatcher"
+                         [formControlRef]="formGroup.get(f.field.name)"
+                         [label]="translate(selectCountrySettings.label) || translate(f.label)"
+                         [multiple]="selectCountrySettings.multiple"
+                         [scrollToInitElement]="selectCountrySettings.scrollToInitElement"
+                         [panelClass]="selectCountrySettings.panelClass"
+                         [panelHeight]="selectCountrySettings.panelHeight"
+                         [placeholder]="translate(selectCountrySettings.placeholder) || translate(f.placeholder)"
+                         [showPhoneCodes]="selectCountrySettings.showPhoneCodes"
+                         [addPhoneCodeToValue]="selectCountrySettings.addPhoneCodeToValue"
+                         [required]="isFieldRequired(f.field)"
+                         [readonly]="isFieldReadonly(f.field)"
+                         [scopeQaId]="scopeQaId"
+                         [tabIndex]="f.tabIndex$ | async"
+                         (openedChange)="executeCallback(selectCountrySettings, 'onOpenedChange', $event)"
+                         (valueChange)="handleValueChange(f.field, selectCountrySettings, 'onValueChange', $event)"
+                         (focus)="executeCallback(selectCountrySettings, 'onFocus', $event)"
+                         (blur)="executeCallback(selectCountrySettings, 'onBlur', $event)"
+      ></pe-select-country>
+    </ng-template>
+
+    <!-- Boolean select field -->
+    <ng-template #selectBooleanField let-f="f">
+      <pe-select *ngIf="((asObservable(f.field?.selectBooleanSettings) | async) || {}) as selectBooleanSettings"
+                 [addonAppend]="f.addonAppend$ | async"
+                 [addonPrepend]="f.addonPrepend$ | async"
+                 [errorMessage]="getFieldError(f.field)"
+                 [errorStateMatcher]="errorStateMatcher"
+                 [formControlRef]="formGroup.get(f.field.name)"
+                 [label]="translate(selectBooleanSettings.label) || translate(f.label)"
+                 [multiple]="selectBooleanSettings.multiple"
+                 [options]="[{ label: selectBooleanSettings.trueLabel, value: true },
+                             { label: selectBooleanSettings.falseLabel, value: false }]"
+                 [placeholder]="translate(selectBooleanSettings.placeholder) || translate(f.placeholder)"
+                 [required]="isFieldRequired(f.field)"
+                 [readonly]="isFieldReadonly(f.field)"
+                 [scopeQaId]="scopeQaId"
+                 [tabIndex]="f.tabIndex$ | async"
+                 (openedChange)="executeCallback(selectBooleanSettings, 'onOpenedChange', $event)"
+                 (valueChange)="handleValueChange(f.field, selectBooleanSettings, 'onValueChange', $event)"
+      ></pe-select>
+    </ng-template>
+
+    <!-- Date input field -->
+    <ng-template #dateField let-f="f">
+      <pe-datepicker *ngIf="((asObservable(f.field?.dateSettings) | async) || {}) as dateSettings"
+                     [addonPrepend]="f.addonPrepend$ | async"
+                     [errorMessage]="getFieldError(f.field)"
+                     [errorStateMatcher]="errorStateMatcher"
+                     [filter]="dateSettings.filter"
+                     [formControlRef]="formGroup.get(f.field.name)"
+                     [max]="dateSettings.max"
+                     [min]="dateSettings.min"
+                     [mode]="dateSettings.mode"
+                     [panelClass]="dateSettings.calendarClass"
+                     [placeholder]="translate(dateSettings.placeholder) || translate(f.placeholder)"
+                     [required]="isFieldRequired(f.field)"
+                     [readonly]="isFieldReadonly(f.field)"
+                     [blockCopyPaste]="isBlockCopyPaste(f.field)"
+                     [scopeQaId]="scopeQaId"
+                     [startAt]="dateSettings.startAt"
+                     [startView]="dateSettings.startView"
+                     [tabIndex]="f.tabIndex$ | async"
+                     [touchUi]="dateSettings.touchUi"
+                     (valueChange)="handleValueChange(f.field, dateSettings, 'onValueChange', $event)"
+                     (focus)="executeCallback(dateSettings, 'onFocus', $event)"
+                     (blur)="executeCallback(dateSettings, 'onBlur', $event)"
+      ></pe-datepicker>
+    </ng-template>
+
+    <!-- Textarea field -->
+    <ng-template #textareaField let-f="f">
+      <pe-textarea *ngIf="((asObservable(f.field?.textareaSettings) | async) || {}) as textareaSettings"
+                   [addonAppend]="f.addonAppend$ | async"
+                   [addonPrepend]="f.addonPrepend$ | async"
+                   [errorMessage]="getFieldError(f.field)"
+                   [errorStateMatcher]="errorStateMatcher"
+                   [formControlRef]="formGroup.get(f.field.name)"
+                   [maxRows]="textareaSettings.maxRows"
+                   [minRows]="textareaSettings.minRows"
+                   [placeholder]="translate(textareaSettings.placeholder) || translate(f.placeholder)"
+                   [required]="isFieldRequired(f.field)"
+                   [readonly]="isFieldReadonly(f.field)"
+                   [blockCopyPaste]="isBlockCopyPaste(f.field)"
+                   [scopeQaId]="scopeQaId"
+                   [tabIndex]="f.tabIndex$ | async"
+                   (valueChange)="handleValueChange(f.field, textareaSettings, 'onValueChange', $event)"
+                   (focus)="executeCallback(textareaSettings, 'onFocus', $event)"
+                   (blur)="executeCallback(textareaSettings, 'onBlur', $event)"
+      ></pe-textarea>
+    </ng-template>
+
+    <!-- Radio field -->
+    <ng-template #radioField let-f="f">
+      <pe-radio-group *ngIf="((asObservable(f.field?.radioSettings) | async) || {}) as radioSettings"
+                      [errorMessage]="getFieldError(f.field)"
+                      [errorStateMatcher]="errorStateMatcher"
+                      [formControlRef]="formGroup.get(f.field.name)"
+                      [labelPosition]="radioSettings.labelPosition"
+                      [orientation]="radioSettings.orientation"
+                      [radioButtons]="radioSettings.radioButtons"
+                      [required]="isFieldRequired(f.field)"
+                      [readonly]="isFieldReadonly(f.field)"
+                      [scopeQaId]="scopeQaId"
+                      [tabIndex]="f.tabIndex$ | async"
+                      (valueChange)="handleValueChange(f.field, radioSettings, 'onValueChange', $event)"
+      ></pe-radio-group>
+    </ng-template>
+
+    <!-- Checkbox single field -->
+    <ng-template #checkboxField let-f="f">
+      <pe-checkbox *ngIf="((asObservable(f.field?.checkboxSettings) | async) || {}) as checkboxSettings"
+                   [aria-label]="checkboxSettings.ariaLabel"
+                   [errorMessage]="getFieldError(f.field)"
+                   [errorStateMatcher]="errorStateMatcher"
+                   [indeterminate]="checkboxSettings.indeterminate"
+                   [formControlRef]="formGroup.get(f.field.name)"
+                   [labelPosition]="checkboxSettings.labelPosition"
+                   [label]="translate(checkboxSettings.label) || translate(f.label)"
+                   [name]="f.field.name"
+                   [required]="isFieldRequired(f.field)"
+                   [readonly]="isFieldReadonly(f.field)"
+                   [scopeQaId]="scopeQaId"
+                   [size]="checkboxSettings.size"
+                   [tabIndex]="f.tabIndex$ | async"
+                   (labelClick)="handleLabelClick(f.field, $event)"
+                   (valueChange)="handleValueChange(f.field, checkboxSettings, 'onValueChange', $event)"
+      ></pe-checkbox>
+    </ng-template>
+
+    <!-- Checkbox array field -->
+    <ng-template #checkboxArrayField let-f="f">
+      <div *ngFor="let checkboxSettings of (asObservable(f.field?.checkboxArraySettings) | async); index as i;">
+        <pe-checkbox [aria-label]="checkboxSettings?.ariaLabel"
+                     [errorMessage]="getFieldError(f.field)"
+                     [errorStateMatcher]="errorStateMatcher"
+                     [indeterminate]="checkboxSettings?.indeterminate"
+                     [formControlRef]="formGroup.get(f.field.name).controls[i]"
+                     [labelPosition]="checkboxSettings?.labelPosition"
+                     [label]="translate(checkboxSettings.label) || translate(f.label)"
+                     [name]="f.field.name"
+                     [required]="isFieldRequired(f.field)"
+                     [readonly]="isFieldReadonly(f.field)"
+                     [scopeQaId]="scopeQaId"
+                     [size]="checkboxSettings?.size"
+                     [tabIndex]="(asObservable(f.field?.fieldSettings) | async)?.tabIndex !== null ?
+                       ((asObservable(f.field?.fieldSettings) | async)?.tabIndex + i) :
+                       null"
+                     (labelClick)="handleLabelClick(f.field, $event)"
+                     (valueChange)="handleValueChange(f.field, checkboxSettings, 'onValueChange', $event)"
+        ></pe-checkbox>
+      </div>
+    </ng-template>
+
+    <!-- Autocomplete field -->
+    <ng-template #autocompleteField let-f="f">
+      <pe-autocomplete *ngIf="((asObservable(f.field?.autocompleteSettings) | async) || {}) as autocompleteSettings"
+                       [addonAppend]="f.addonAppend$ | async"
+                       [addonPrepend]="f.addonPrepend$ | async"
+                       [aria-label]="autocompleteSettings.ariaLabel"
+                       [autoActiveFirstOption]="autocompleteSettings.autoActiveFirstOption"
+                       [displayByField]="autocompleteSettings.displayByField"
+                       [displayWith]="autocompleteSettings.displayWith"
+                       [displayOptionByField]="autocompleteSettings.displayOptionByField"
+                       [displayOptionWith]="autocompleteSettings.displayOptionWith"
+                       [errorMessage]="getFieldError(f.field)"
+                       [errorStateMatcher]="errorStateMatcher"
+                       [filter]="autocompleteSettings.filter"
+                       [filterByField]="autocompleteSettings.filterByField"
+                       [formControlRef]="formGroup.get(f.field.name)"
+                       [options]="autocompleteSettings.options"
+                       [placeholder]="translate(autocompleteSettings.placeholder) || translate(f.placeholder)"
+                       [required]="isFieldRequired(f.field)"
+                       [readonly]="isFieldReadonly(f.field)"
+                       [blockCopyPaste]="isBlockCopyPaste(f.field)"
+                       [scopeQaId]="scopeQaId"
+                       [tabIndex]="f.tabIndex$ | async"
+                       (valueChange)="handleValueChange(f.field, autocompleteSettings, 'onValueChange', $event)"
+                       (focus)="executeCallback(autocompleteSettings, 'onFocus', $event)"
+                       (blur)="executeCallback(autocompleteSettings, 'onBlur', $event)"
+      ></pe-autocomplete>
+    </ng-template>
+
+    <!-- Google places autocomplete field -->
+    <ng-template #autocompleteGooglePlacesField let-f="f">
+      <pe-autocomplete-google-places *ngIf="((asObservable(f.field?.autocompleteGooglePlacesSettings) | async) || {}) as autocompleteGooglePlacesSettings"
+                                     [addonAppend]="f.addonAppend$ | async"
+                                     [addonPrepend]="f.addonPrepend$ | async"
+                                     [errorMessage]="getFieldError(f.field)"
+                                     [errorStateMatcher]="errorStateMatcher"
+                                     [formControlRef]="formGroup.get(f.field.name)"
+                                     [countriesOnly]="autocompleteGooglePlacesSettings.countriesOnly"
+                                     [placeholder]="translate(autocompleteGooglePlacesSettings.placeholder) || translate(f.placeholder)"
+                                     [required]="isFieldRequired(f.field)"
+                                     [readonly]="isFieldReadonly(f.field)"
+                                     [blockCopyPaste]="isBlockCopyPaste(f.field)"
+                                     [scopeQaId]="scopeQaId"
+                                     [tabIndex]="f.tabIndex$ | async"
+                                     (valueChange)="handleValueChange(f.field, autocompleteGooglePlacesSettings, 'onValueChange', $event)"
+                                     (focus)="executeCallback(autocompleteGooglePlacesSettings, 'onFocus', $event)"
+                                     (blur)="executeCallback(autocompleteGooglePlacesSettings, 'onBlur', $event)"
+      ></pe-autocomplete-google-places>
+    </ng-template>
+
+    <!-- Autocomplete chips field -->
+    <ng-template #autocompleteChipsField let-f="f">
+      <pe-autocomplete-chips *ngIf="((asObservable(f.field?.autocompleteChipsSettings) | async) || {}) as autocompleteChipsSettings"
+                             [addonAppend]="f.addonAppend$ | async"
+                             [addonPrepend]="f.addonPrepend$ | async"
+                             [aria-label]="autocompleteChipsSettings.ariaLabel"
+                             [autoActiveFirstOption]="autocompleteChipsSettings.autoActiveFirstOption"
+                             [class]="autocompleteChipsSettings.autocompleteClassList"
+                             [displayByField]="autocompleteChipsSettings.displayByField"
+                             [displayWith]="autocompleteChipsSettings.displayWith"
+                             [errorMessage]="getFieldError(f.field)"
+                             [errorStateMatcher]="errorStateMatcher"
+                             [filter]="autocompleteChipsSettings.filter"
+                             [filterByField]="autocompleteChipsSettings.filterByField"
+                             [formControlRef]="formGroup.get(f.field.name)"
+                             [options]="autocompleteChipsSettings.options"
+                             [placeholder]="translate(autocompleteChipsSettings.placeholder) || translate(f.placeholder)"
+                             [required]="isFieldRequired(f.field)"
+                             [readonly]="isFieldReadonly(f.field)"
+                             [blockCopyPaste]="isBlockCopyPaste(f.field)"
+                             [scopeQaId]="scopeQaId"
+                             [separatorKeys]="autocompleteChipsSettings.separatorKeys"
+                             [chipsSize]="autocompleteChipsSettings.chipsSize"
+                             [tabIndex]="f.tabIndex$ | async"
+                             [validateInput]="autocompleteChipsSettings.validateInput"
+                             [addOptionButton]="autocompleteChipsSettings.addOptionButton"
+                             [type]="autocompleteChipsSettings.type"
+                             [colorCheckboxClasses]="autocompleteChipsSettings.colorCheckboxClasses"
+                             (valueChange)="handleValueChange(f.field, autocompleteChipsSettings, 'onValueChange', $event)"
+                             (focus)="executeCallback(autocompleteChipsSettings, 'onFocus', $event)"
+                             (blur)="executeCallback(autocompleteChipsSettings, 'onBlur', $event)"
+      ></pe-autocomplete-chips>
+    </ng-template>
+
+    <!-- Slide toggle field - @TODO this scenario is different and should be checked and aligned with other field wrappers -->
+    <ng-template #slideToggleField let-f="f">
+      <pe-slide-toggle *ngIf="((asObservable(f.field?.slideToggleSettings) | async) || {}) as slideToggleSettings"
+                       [aria-label]="slideToggleSettings.ariaLabel"
+                       [aria-labelledby]="slideToggleSettings.ariaLabelledby"
+                       [isLightFontWeight]="slideToggleSettings.isLightFontWeight"
+                       [errorMessage]="getFieldError(f.field)"
+                       [errorStateMatcher]="errorStateMatcher"
+                       [formControlRef]="formGroup.get(f.field.name)"
+                       [withoutLeftPadding]="slideToggleSettings.withoutLeftPadding"
+                       [fullWidth]="slideToggleSettings.fullWidth"
+                       [label]="translate(slideToggleSettings.label) || translate(f.label)"
+                       [labelPosition]="slideToggleSettings.labelPosition"
+                       [required]="isFieldRequired(f.field)"
+                       [readonly]="isFieldReadonly(f.field)"
+                       [scopeQaId]="scopeQaId"
+                       [size]="slideToggleSettings.size"
+                       [tabIndex]="f.tabIndex$ | async"
+                       (valueChange)="handleValueChange(f.field, slideToggleSettings, 'onValueChange', $event)"
+      ></pe-slide-toggle>
+    </ng-template>
+
+    <!-- Slider field - @TODO this scenario is different and should be checked and aligned with other field wrappers -->
+    <ng-template #sliderField let-f="f">
+      <pe-slider *ngIf="((asObservable(f.field?.sliderSettings) | async) || {}) as sliderSettings"
+                 [displayWith]="sliderSettings.displayWith"
+                 [errorStateMatcher]="errorStateMatcher"
+                 [formControlRef]="formGroup.get(f.field.name)"
+                 [label]="translate(sliderSettings.label) || translate(f.label)"
+                 [max]="sliderSettings.max"
+                 [min]="sliderSettings.min"
+                 [multiplyFactor]="sliderSettings.multiplyFactor"
+                 [preventUpdatingValueByInput]="sliderSettings.preventUpdatingValueByInput"
+                 [roundToFixed]="sliderSettings.roundToFixed"
+                 [scopeQaId]="scopeQaId"
+                 [showValueLabel]="sliderSettings.showValueLabel"
+                 [step]="sliderSettings.step"
+                 [tabIndex]="f.tabIndex$ | async"
+                 [thumbLabel]="sliderSettings.thumbLabel"
+                 [valueLabelAppend]="sliderSettings.valueLabelAppend"
+                 (input)="executeCallback(sliderSettings, 'onInput', $event)"
+                 (valueChange)="handleValueChange(f.field, sliderSettings, 'onValueChange', $event)"
+      ></pe-slider>
+    </ng-template>
+
+    <!-- Colorpicker field -->
+    <ng-template #colorPickerField let-f="f">
+      <pe-color-picker *ngIf="((asObservable(f.field?.colorPickerSettings) | async) || {}) as colorPickerSettings"
+                       [align]="colorPickerSettings.align"
+                       [alpha]="colorPickerSettings.alpha"
+                       [complex]="colorPickerSettings.complex"
+                       [errorStateMatcher]="errorStateMatcher"
+                       [format]="colorPickerSettings.format"
+                       [formControlRef]="formGroup.get(f.field.name)"
+                       [label]="translate(colorPickerSettings.label) || translate(f.label)"
+                       [scopeQaId]="scopeQaId"
+                       [tabIndex]="f.tabIndex$ | async"
+                       (close)="executeCallback(colorPickerSettings, 'onClose')"
+                       (valueChange)="handleValueChange(f.field, colorPickerSettings, 'onValueChange', $event)"
+                       (closed)="handleValueChange(f.field, colorPickerSettings, 'onClosed', $event)"
+                       (opened)="handleValueChange(f.field, colorPickerSettings, 'onOpened', $event)"
+      ></pe-color-picker>
+    </ng-template>
+
+    <!-- Color panel field -->
+    <ng-template #colorPanelField let-f="f">
+      <pe-color-panel *ngIf="((asObservable(f.field?.colorPanelSettings) | async) || {}) as colorPanelSettings"
+                      [errorStateMatcher]="errorStateMatcher"
+                      [formControlRef]="formGroup.get(f.field.name)"
+                      [format]="colorPanelSettings.format"
+                      [scopeQaId]="scopeQaId"
+                      [tabIndex]="f.tabIndex$ | async"
+                      (close)="executeCallback(colorPanelSettings, 'onClose')"
+                      (valueChange)="handleValueChange(f.field, colorPanelSettings, 'onValueChange', $event)"
+      ></pe-color-panel>
+    </ng-template>
+
+    <!-- Button toggle field -->
+    <ng-template #buttonToggleField let-f="f">
+      <pe-button-toggle-group *ngIf="((asObservable(f.field?.buttonToggleSettings) | async) || {}) as buttonToggleSettings"
+                              [alignment]="buttonToggleSettings.alignment"
+                              [buttons]="buttonToggleSettings.buttons"
+                              [errorStateMatcher]="errorStateMatcher"
+                              [formControlRef]="formGroup.get(f.field.name)"
+                              [label]="translate(buttonToggleSettings.label) || translate(f.label)"
+                              [multiple]="buttonToggleSettings.multiple"
+                              [scopeQaId]="scopeQaId"
+                              (valueChange)="handleValueChange(f.field, buttonToggleSettings, 'onValueChange', $event)"
+      ></pe-button-toggle-group>
+    </ng-template>
+
+    <!-- Image picker field -->
+    <ng-template #imagePickerField let-f="f">
+      <pe-image-picker *ngIf="((asObservable(f.field?.imagePickerSettings) | async) || {}) as imagePickerSettings"
+                       [alignment]="imagePickerSettings.alignment"
+                       [businessUuid]="imagePickerSettings.businessUuid"
+                       [container]="imagePickerSettings.container"
+                       [description]="imagePickerSettings.description"
+                       [descriptionAlignment]="imagePickerSettings.descriptionAlignment"
+                       [formControlRef]="formGroup.get(f.field.name)"
+                       [label]="translate(imagePickerSettings.label) || translate(f.label)"
+                       [uploadProgress]="imagePickerSettings.uploadProgress"
+                       [loading]="imagePickerSettings.loading"
+                       [placeholder]="translate(imagePickerSettings.placeholder) || translate(f.placeholder)"
+                       [preventDeleteRequest]="imagePickerSettings.preventDeleteRequest"
+                       [scopeQaId]="scopeQaId"
+                       [style]="imagePickerSettings.style"
+                       [tabIndex]="f.tabIndex$ | async"
+                       (deleteRequestError)="executeCallback(imagePickerSettings, 'onDeleteRequestError', $event)"
+                       (uploadRequestError)="executeCallback(imagePickerSettings, 'onUploadRequestError', $event)"
+                       (valueChange)="handleValueChange(f.field, imagePickerSettings, 'onValueChange', $event)"
+      ></pe-image-picker>
+    </ng-template>
+
+    <!-- File picker field -->
+    <ng-template #filePickerField let-f="f">
+      <pe-file-picker  *ngIf="((asObservable(f.field?.filePickerSettings) | async) || {}) as filePickerSettings"
+                       [formControlRef]="formGroup.get(f.field.name)"
+                       [label]="translate(filePickerSettings.label) || translate(f.label)"
+                       [scopeQaId]="scopeQaId"
+                       [accept]="filePickerSettings.accept"
+                       [description]="filePickerSettings.description"
+                       [multiple]="filePickerSettings.multiple"
+                       [placeholder]="translate(filePickerSettings.placeholder) || translate(f.placeholder)"
+                       [tabIndex]="f.tabIndex$ | async"
+                       (valueChange)="handleValueChange(f.field, filePickerSettings, 'onValueChange', $event)"
+      ></pe-file-picker>
+    </ng-template>
+
+  </div>
+
+</ng-container>

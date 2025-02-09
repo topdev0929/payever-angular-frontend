@@ -1,0 +1,33 @@
+<div class="chapter">
+  <h2>MicroAddonComponent</h2>
+  <div class="main-block">
+    <tabset>
+      <tab heading="Overview">
+        <h3>Import MicroModule</h3>
+        <pre><code class="typescript" [innerHTML]="'import {MicroModule } from \'@pe/ng-kit/modules/micro\';'"></code></pre>
+        <p>&nbsp;</p>
+
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          >
+          <pe-micro-addon url='https://mein.payever.de/login'></pe-micro-addon>
+        </example-viewer>
+      </tab>
+      <tab heading="API">
+        <component-api-renderer [path]="'micro/src/components/micro-addon.component'"></component-api-renderer>
+      </tab>
+      <tab heading="Examples">
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          >
+          <pe-micro-addon url='https://mein.payever.de/login'></pe-micro-addon>
+        </example-viewer>
+      </tab>
+      <tab heading="README">
+        <doc-viewer documentUrl="/assets/module-guides/micro/micro.html"></doc-viewer>
+      </tab>
+    </tabset>
+  </div>
+</div>

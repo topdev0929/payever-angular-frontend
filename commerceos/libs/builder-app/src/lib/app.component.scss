@@ -1,0 +1,24 @@
+@use "pe_variables" as pe_variables;
+
+:host {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.container-outer {
+  height: 100%;
+  padding-bottom: 16px;
+  padding-left: 16px;
+  @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+    padding: 0;
+  }
+}
+
+.mat-drawer-side {
+  @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+    width: 100%;
+    padding-right: 16px;
+  }
+}

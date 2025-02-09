@@ -1,0 +1,25 @@
+<div class="preview" [class.preview--stepper]="peStepperService.isActive$ | async">
+  <!-- <button
+    *ngIf="!(peStepperService.isActive$ | async)"
+    mat-button
+    class="mat-button-no-padding preview-close-button"
+    (click)="onDisablePreviewMode()"
+  >
+    <svg class="preview-close-button-icon"><use xlink:href="#icon-preview-32"></use></svg>
+  </button> -->
+  <div class="preview__header">
+    <div class="preview__label">
+      Your payever Shop
+    </div>
+    <div class="preview__controls">
+      <button class="preview__control preview__control--only-desktop" (click)="onDisablePreviewMode()">Edit</button>
+      <button class="preview__control preview__control--white" (click)="openShop()">Open</button>
+    </div>
+  </div>
+  <pe-viewer
+    [document]="document$ | async"
+    [activeProduct]="activeProduct$ | async"
+    [cartData]="cartData$ | async"
+    (event)="onEvent($event)"
+  ></pe-viewer>
+</div>

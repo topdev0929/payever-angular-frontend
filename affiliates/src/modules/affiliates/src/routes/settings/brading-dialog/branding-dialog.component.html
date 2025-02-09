@@ -1,0 +1,45 @@
+<div class="container" [ngClass]="config.theme">
+  <div class="element-body-wrap">      
+      <div class="upload-item-wrap no-margin">
+        <div class="left-part">
+        <img src="assets/icons/branding-icon-settings.svg" />
+        <span>Logoname.png</span>
+        </div>
+        <div class="right-part">
+          <span>Upload new</span>
+        </div>
+      </div>                             
+      <div class="upload-item-wrap">
+        <div class="left-part">
+          <img src="assets/icons/branding-icon-settings.svg" />
+          <span>filename.png</span>
+        </div>
+        <div class="right-part">
+          <span>Upload new</span>
+        </div>
+      </div>      
+      <peb-form-background>
+        <peb-form-field-input label="Affiliate portal domain" appearance="label">          
+          <input value="https://affiliate name" />
+          <div class="suffix">
+            <p>.payever.affiliate</p>
+          </div>
+        </peb-form-field-input>
+      </peb-form-background>
+      <div class="content">This is where your affiliates can log in to their dashboard. Changing this will prevent all of the old links to your affiliate portal from working. Affiliate links will keep on working.</div>
+      <peb-form-background> 
+        <peb-select selectType="label" label="Default Program" selected="Program name1">
+          <peb-select-option label="Program name1" value="Program name1"></peb-select-option>
+          <peb-select-option label="Program name2" value="Program name2"></peb-select-option>
+        </peb-select>
+      </peb-form-background>
+      <peb-form-background> 
+        <peb-form-field-input label="Sender name" appearance="label">
+          <input value="Your Brand" />
+        </peb-form-field-input>
+        <peb-form-field-input label="Sender e-mail" appearance="label">
+          <input value="affiliates@domain.com" />
+        </peb-form-field-input>
+      </peb-form-background>
+  </div>     
+</div>

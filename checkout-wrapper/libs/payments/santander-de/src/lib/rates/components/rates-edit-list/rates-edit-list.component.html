@@ -1,0 +1,17 @@
+<form class="form-table">
+  <checkout-sdk-choose-rate
+    [trackFlowId]="flowId"
+    [trackPaymentMethod]="paymentMethod"
+    [rates]="transformedRates"
+    [selectedExtraDurations]="selectedExtraDurations"
+    [isLoading]="isLoading && transformedRates?.length === 0"
+    [initialRateId]="initialRate?.duration?.toString()"
+    (rateSelected)="selectRateByDuration($event)"
+    (toggleExtraDuration)="toggleRatesInStorage($event)"></checkout-sdk-choose-rate>
+
+  <checkout-sdk-santander-de-selected-rate-details
+    *ngIf="selectedRate"
+    [details]="details$ | async"
+    [isManyColumnsDisabled]="true">
+  </checkout-sdk-santander-de-selected-rate-details>
+</form>

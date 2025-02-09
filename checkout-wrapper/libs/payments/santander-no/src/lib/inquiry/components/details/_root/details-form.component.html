@@ -1,0 +1,41 @@
+<ng-container [ngSwitch]="mode">
+  <ng-container *ngSwitchCase="modeEnum.View">
+    <santander-no-details-summery></santander-no-details-summery>
+  </ng-container>
+  <ng-container *ngSwitchCase="modeEnum.Edit">
+    <form
+      class="form-table"
+      [formGroup]="formGroup"
+      analyticsForm>
+      <santander-no-personal-form formControlName="personalForm"> </santander-no-personal-form>
+
+      <div *ngIf="loanFormsEnabled">
+        <div
+          class="h5"
+          i18n="@@santander-no.inquiry.step.section.loans.title">
+          santander-no.inquiry.step.section.loans.title
+        </div>
+
+        <santander-no-debt-form formControlName="debtForm"> </santander-no-debt-form>
+
+        <santander-no-mortgage-loans-form formControlName="mortgageLoans"> </santander-no-mortgage-loans-form>
+
+        <santander-no-secured-loans-form formControlName="securedLoans"> </santander-no-secured-loans-form>
+
+        <santander-no-student-loans-form formControlName="studentLoans"> </santander-no-student-loans-form>
+      </div>
+
+      <santander-no-monthly-expenses-form formControlName="monthlyExpensesForm"> </santander-no-monthly-expenses-form>
+
+      <santander-no-aml-form formControlName="amlForm"> </santander-no-aml-form>
+
+      <checkout-sdk-continue-button
+        i18n-text="@@santander-no.action.send_inquiry"
+        text="santander-no.action.send_inquiry"
+        [disabled]="loading$ | async"
+        [loading]="loading$ | async"
+        (clicked)="submit()">
+      </checkout-sdk-continue-button>
+    </form>
+  </ng-container>
+</ng-container>

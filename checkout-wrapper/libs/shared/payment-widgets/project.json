@@ -1,0 +1,28 @@
+{
+  "name": "payment-widgets-sdk",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/shared/payment-widgets/src",
+  "prefix": "lib",
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/shared/payment-widgets"],
+      "options": {
+        "jestConfig": "libs/shared/payment-widgets/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/shared/payment-widgets/src/**/*.ts", "libs/shared/payment-widgets/src/**/*.html"],
+        "tsConfig": ["libs/shared/payment-widgets/tsconfig.lib.json", "libs/shared/payment-widgets/tsconfig.spec.json"],
+        "exclude": ["**/node_modules/**"]
+      },
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": ["scope:libs", "type:finexp-utils"],
+  "implicitDependencies": []
+}

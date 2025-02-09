@@ -1,0 +1,19 @@
+<div class="builder-docker" [style.width]="width">
+
+  <ng-container *ngIf="isSubItemsShown">
+    <a class="btn-back" (click)="returnToTopLevel()">
+      <svg class="icon icon-16"><use xlink:href="#icon-arrow-left-16"></use></svg>
+    </a>
+  </ng-container>
+
+  <div class="builder-docker-menu">
+
+    <pe-builder-docker-item
+      *ngFor="let item of getItemsList()"
+      [dockerItem]="item"
+      (click)="onSelect(item)"
+      >
+    </pe-builder-docker-item>
+
+  </div>
+</div>

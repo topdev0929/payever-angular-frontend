@@ -1,0 +1,28 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $text-color: map.get($color-config, 'text-color');
+  $confirm: map.get($color-config, 'confirm');
+  $warn: map.get($color-config, 'warn');
+  $primary: map.get($color-config, 'primary');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $select-button: map.get($color-config, 'select-button');
+  $border: map.get($color-config, 'border');
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $label-color: map.get($color-config, 'label-color');
+  $active-text: map.get($color-config, 'active-text');
+  $gray-button: map.get($color-config, 'gray-button');
+
+  .peb-input-value {
+    background-color: $overlay-background;
+    color: $text-color;
+    .units {
+      color: $label-color;
+    }
+    input {
+      background-color: $transparent-color;
+      color: $text-color;
+    }
+  }
+}

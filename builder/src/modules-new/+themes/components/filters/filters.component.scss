@@ -1,0 +1,159 @@
+.category-filters {
+  position: sticky;
+  top: 63px;
+  width: 160px;
+  height: 100%;
+  margin-left: -8px;
+
+  &__container {
+    position: relative;
+    left: -500px;
+    transition: all 0.3s;
+  }
+
+  &--opened {
+    z-index: 0;
+  }
+
+  &--opened & {
+    &__container {
+      left: 0;
+    }
+  }
+
+  &__filter-parent {
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px 5px 10px 0;
+    width: 100%;
+    text-align: left;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    outline: none;
+    cursor: pointer;
+    text-transform: capitalize;
+    background-color: transparent;
+
+    span {
+      padding-left: 8px;
+    }
+  }
+
+  &__filter-child {
+    font-size: 14px;
+    font-weight: 300;
+    border: none;
+    padding: 4px 0;
+    width: 100%;
+    text-align: left;
+    outline: none;
+    cursor: pointer;
+    text-transform: capitalize;
+    background-color: transparent;
+    margin-bottom: 3px;
+
+    &:disabled {
+      opacity: 0.5;
+    }
+
+    span {
+      padding-left: 8px;
+    }
+
+    &--active {
+      background-color: #4d4d50;
+    }
+
+    &--last {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__filter-icon--expanded {
+    position: relative;
+    left: 1px;
+    transform: rotate(45deg) scale(1);
+  }
+
+  &__mobile-controls {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-filters {
+    position: fixed;
+    z-index: 999;
+    display: none;
+    margin: 0;
+
+    &--opened {
+      display: block;
+      background-color: #000;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      padding: 15px;
+    }
+
+    &__filter-parent {
+      padding: 20px 5px 20px 0;
+    }
+
+    &__filter-child {
+      padding: 8px 0;
+
+      &--last {
+        margin-bottom: 30px;
+      }
+    }
+
+    &__mobile-controls {
+      display: block;
+    }
+
+    &__mobile-control {
+      width: 100%;
+      background-color: transparent;
+      font-size: 17px;
+      border: none;
+      padding: 8px 0;
+
+      &--black {
+        background-color: #3e3e3e;
+        border-radius: 5px;
+        color: #ffffff;
+        margin-top: 15px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+.close-icon {
+  display: block;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+
+  &::before,
+  &::after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: #888;
+  }
+
+}

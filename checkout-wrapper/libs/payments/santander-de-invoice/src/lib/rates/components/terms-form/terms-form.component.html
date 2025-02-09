@@ -1,0 +1,35 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup">
+  <mat-checkbox
+    formControlName="advertisingAccepted"
+    analyticFieldName="Advertising accepted">
+    <ng-container *ngIf="!merchantMode">
+      <span [innerHTML]="translations.advertisingAccepted.text"></span>
+      <br />
+    </ng-container>
+    <span
+      [innerHTML]="translations.advertisingAccepted.label"
+      (click)="advertisingAcceptedClicked($event)"
+      data-test-id="advertisingAccepted">
+      Advertising accepted
+    </span>
+  </mat-checkbox>
+  <mat-checkbox
+    *ngIf="formGroup.get('_customerInformation').enabled"
+    formControlName="_customerInformation"
+    analyticFieldName="Customer information">
+    <span [innerHTML]="translations.customerInformation.label"> Customer information </span>
+  </mat-checkbox>
+  <mat-checkbox
+    *ngIf="formGroup.get('_customerActs').enabled"
+    formControlName="_customerActs"
+    analyticFieldName="Customer acts">
+    <span
+      [innerHTML]="translations.customerActs.label"
+      (click)="customerActsClicked($event)"
+      data-test-id="customerActs">
+      Customer acts
+    </span>
+  </mat-checkbox>
+</form>

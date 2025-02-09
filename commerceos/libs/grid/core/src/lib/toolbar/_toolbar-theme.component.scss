@@ -1,0 +1,50 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $primary: map.get($color-config, 'primary');
+  $text-color: map.get($color-config, 'text-color');
+  $button: map.get($color-config, 'button');
+  $active-text: map.get($color-config, 'active-text');
+  $secondary: map.get($color-config, 'secondary');
+  $button-fill: map.get($color-config, 'button-fill');
+  $accent-border: map.get($color-config, 'accent-border');
+
+  pe-grid-toolbar {
+    background-color: $primary;
+    .pe-grid-toolbar {
+      &__filters {
+        color: $text-color;
+        svg g gm, svg path {
+          fill: $text-color;
+        }
+      }
+      &__actions {
+        span {
+          color: $text-color;
+        }
+        .mat-icon {
+          color: $text-color;
+        }
+        button {
+          background-color: $button;
+          color: $active-text;
+        }
+      }
+      &__button {
+        background-color: $button;
+        color: $active-text;
+      }
+
+      &__chip {
+        background-color: $button-fill;
+
+        .mat-icon svg g path {
+          fill: $active-text;
+        }
+        span {
+          color: $active-text;
+        }
+      }
+    }
+  }
+}

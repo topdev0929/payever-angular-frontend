@@ -1,0 +1,34 @@
+<div *ngIf='ruleForm' class='add-rule'>
+  <form [formGroup]='ruleForm'>
+    <peb-form-background>
+      <peb-form-field-input [label]="'rule.name' | translate" appearance='label' animated='true'
+        [isFieldInvalid]="showErrors && (ruleForm?.controls?.name?.errors?.required || nameError)"
+        [errorMessage]="nameError ? nameError : ('rule.name-required' | translate)">
+        <input pebInput formControlName='name' />
+      </peb-form-field-input>
+      <peb-form-field-input [label]="'rules.description' | translate" appearance='label' animated='true'
+        [isFieldInvalid]="showErrors && ruleForm?.controls?.description?.errors?.required"
+        [errorMessage]="'rules.description-required' | translate">
+        <input pebInput formControlName='description' />
+      </peb-form-field-input>
+    </peb-form-background>
+    <pe-rule-actions (addAction)="addAction($event)">
+      <ng-container formArrayName="actions">
+        <ng-container *ngFor="let item of actionsFiled.controls; index as i" [formGroupName]="i">
+          <pe-rule-action-form
+            [formGroup]="item"
+            [showErrors]="showErrors"
+            [action]="actionPipeline[i]"
+            [defaultData]="defaultData?.actions?.[i]"
+            [hideRemoveButton]="i === 0"
+            (remove)="removeAction(i)"
+          ></pe-rule-action-form>
+        </ng-container>
+      </ng-container>
+    </pe-rule-actions>
+    <div class='add-rule__actions-title' style="color: #78787d; margin-top: 20px">
+      {{ 'rules.next_action_suggestions' | translate }}
+    </div>
+    <pe-rule-action-list [actionList]="suggestedActions" [embeddedMode]="true" (addAction)="addAction($event)"></pe-rule-action-list>
+  </form>
+</div>

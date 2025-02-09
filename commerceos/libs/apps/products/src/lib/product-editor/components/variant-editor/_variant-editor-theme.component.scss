@@ -1,0 +1,56 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $row-background: map.get($color-config, 'row-background');
+  $text-color: map.get($color-config, 'text-color');
+  $active-button: map.get($color-config, 'active-button');
+  $border: map.get($color-config, 'border');
+  $button: map.get($color-config, 'button');
+  $label-color: map.get($color-config, 'label-color');
+  $active-text: map.get($color-config, 'active-text');
+
+  .variant-editor-modal, .option__item-container.cdk-drag-preview {
+    .option__handle {
+      background-color: $row-background;
+      .mat-icon {
+        svg {
+          stroke: $text-color;
+          g > g > path {
+            fill: $text-color;
+          }
+        }
+      }
+    }
+    .overlay {
+      .overlay__body {
+        .expandable-panel {
+          &__content {
+            padding: 16px 12px;
+          }
+        }
+      }
+    }
+  }
+
+  .variant {
+    &-button-toggle {
+      background-color: $row-background;
+    }
+    .edit > .mat-icon > svg {
+      g > g {
+        fill: $text-color;
+      }
+    }
+
+    .placeholder {
+      border: solid 1px $border;
+      .mat-icon > svg {
+        g, g > g > path {
+          opacity: 0.7;
+          fill: $label-color;
+          stroke: $label-color;
+        }
+      }
+    }
+  }
+}

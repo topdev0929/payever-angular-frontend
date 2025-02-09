@@ -1,0 +1,54 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+.ui-paragraph-editor {
+  position: relative;
+
+  .editor-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: $color-black;
+    border-radius: $border-radius-base;
+
+    .groups-panel {
+      border-top-left-radius: $border-radius-base;
+      border-top-right-radius: $border-radius-base;
+
+      .group-icon {
+        &:first-child {
+          border-top-left-radius: $border-radius-base;
+        }
+      }
+
+      .finish-button {
+        @include payever_vertical_align_middle;
+        margin: 0;
+        float: right;
+        border-top-right-radius: $border-radius-base;
+
+        &:hover, &:active {
+          background-color: transparent;
+        }
+      }
+    }
+
+    .actions-panel {
+      @include pe_flexbox;
+      text-align: center;
+      position: relative;
+      border-bottom-left-radius: $border-radius-base;
+      border-bottom-right-radius: $border-radius-base;
+      padding: $margin_adjust 4 * $pe-hgrid_gutter;
+      font-size: 0;
+
+      .action-icon {
+        padding: 0;
+
+        &:not(:first-child) {
+          margin-left: $margin_adjust;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+<div class="confirmation-dialog modal fade" bsModal #modal="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1" role="dialog" aria-labelledby="ConfirmationDialog" aria-hidden="true">
+  <div class="modal-dialog pe-bootstrap {{ config.dialogClasses }}">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-xs-12">
+              <h4>{{ config.title }}</h4>
+              <p [innerHTML]="config.message"></p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+          <div class="row">
+              <div class="col-xs-12">
+                  <button *ngIf="config.showCancel" class="btn btn-link btn-default" data-dismiss (click)="onCloseClick()">{{ config.cancelText }}</button>
+                  <button class="btn btn-link btn-primary" (click)="onConfirmClick()">{{ config.confirmText }}</button>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

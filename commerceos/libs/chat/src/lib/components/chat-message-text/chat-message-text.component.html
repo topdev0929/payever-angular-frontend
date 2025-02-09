@@ -1,0 +1,19 @@
+<div *ngIf="messageObj?.replyData?.senderObj" class="text-message" (click)="showRepliedMessage($event)">
+  <div class="text-message__dash" [class.blur-mode]="blurValue" [style.background-color]="messageObj.accentColor"></div>
+  <div *ngIf="messageObj.previewImage" class="text-preview" [style.background-image]="previewImage"></div>
+  <div class="text-message__detail">
+    <p class="text-message__title">
+      {{ (messageObj.replyData.senderObj?.firstName || '') + " " + (messageObj.replyData.senderObj?.lastName || '') }}
+    </p>    
+    <p class="text-message__content">{{ messageObj.replyData.content }}</p>
+  </div>
+</div>
+<p class="text" *ngIf="message" [innerHTML]="message"></p>
+<a *ngIf="_urlContent && _urlContent.state" [href]="_urlContent.url" target="_blank" class="pe-link-text">
+<div >
+  <a *ngIf="_urlContent.siteName!==''" [href]="_urlContent.siteUrl" target="_blank"><h5>{{ _urlContent.siteName }}</h5></a>
+  <h3 *ngIf="_urlContent.title!==''">{{ _urlContent.title }}</h3>
+  <p *ngIf="_urlContent.description!==''" >{{ _urlContent.description }}</p>
+  <img #image *ngIf="_urlContent.img!==''" [src]="_urlContent.img" [alt]="_urlContent.title" (loaded)="onImageLoad()">
+</div>
+</a>

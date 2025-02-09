@@ -1,0 +1,12 @@
+<div class="employee-notification text-center dark">
+  <div class="employee-notification__icon">
+    <svg width="56" height="56">
+      <use [attr.xlink:href]="'#icon-commerceos-success'"></use>
+    </svg>
+  </div>
+  <div class="employee-notification__heading-2">{{ title | translate }}</div>
+  <p class="employee-notification__descriptions">{{ description | translate }}</p>
+  <div class="employee-notification__buttons-back">
+    <button type="button" translate (click)="navigateToEntry()">actions.close</button>
+  </div>
+</div>

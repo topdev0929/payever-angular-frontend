@@ -1,0 +1,7 @@
+<pe-modal (onClose)="back()">
+  <h2>First modal</h2>
+  <p>One fine body…</p>
+  <button (click)="gotoSecond()">Show second modal</button>
+</pe-modal>
+
+<router-outlet></router-outlet>

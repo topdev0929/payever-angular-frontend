@@ -1,0 +1,47 @@
+{
+  "$schema": "../../../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../../dist/libs/transactions",
+  "assets": [
+  ],
+  "lib": {
+    "entryFile": "src/public-api.ts",
+    "umdModuleIds": {
+      "lodash": "lodash",
+      "lodash-es": "lodash-es",
+      "js-cookie": "js-cookie",
+      "@angular/material":  "@angular/material",
+      "@angular/cdk": "@angular/cdk",
+
+      "@ngrx/effects": "@ngrx/effects",
+      "@ngrx/store": "@ngrx/store",
+
+      "@pe/ng-kit/modules/auth": "@pe/ng-kit/modules/auth",
+      "@pe/ng-kit/modules/data-grid": "@pe/ng-kit/modules/data-grid",
+      "@pe/ng-kit/modules/i18n": "@pe/ng-kit/modules/i18n",
+      "@pe/ng-kit/modules/table": "@pe/ng-kit/modules/table",
+      "@pe/ng-kit/modules/common": "@pe/ng-kit/modules/common",
+      "@pe/ng-kit/src/kit/window": "@pe/ng-kit/src/kit/window",
+      "@pe/ng-kit/modules/environment-config": "@pe/ng-kit/modules/environment-config",
+      "@pe/checkout-sdk/sdk/types": "@pe/checkout-sdk/sdk/types",
+      "@pe/ng-kit/modules/platform-header": "@pe/ng-kit/modules/platform-header",
+      "@pe/ng-kit/src/kit/navbar": "@pe/ng-kit/src/kit/navbar",
+
+      "@pe/checkout-sdk/sdk/api": "@pe/checkout-sdk/sdk/api",
+      "@pe/checkout-sdk/sdk/form-utils": "@pe/checkout-sdk/sdk/form-utils",
+      "@pe/checkout-sdk/sdk/storage": "@pe/checkout-sdk/sdk/storage",
+      "@pe/checkout-sdk/sdk/plugins": "@pe/checkout-sdk/sdk/plugins",
+      "@pe/checkout-sdk/sdk/products": "@pe/checkout-sdk/sdk/products",
+
+      "@pe/platform-header": "@pe/platform-header"
+    }
+  },
+  "whitelistedNonPeerDependencies": [
+    "angular",
+    "moment",
+    "lodash",
+    "lodash-es",
+    "rxjs",
+    "@pe/ng-kit",
+    "@pe/checkout-sdk"
+  ]
+}

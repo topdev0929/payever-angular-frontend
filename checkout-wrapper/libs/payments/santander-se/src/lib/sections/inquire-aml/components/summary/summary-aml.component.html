@@ -1,0 +1,25 @@
+<div
+  *ngIf="paymentForm?.personalForm?.monthlyGrossIncome as monthlyGrossIncome"
+  class="clearfix">
+  <span
+    class="text-secondary"
+    i18n="@@santander-se.inquiry.form.monthly_gross_income.label"
+    >Monthly gross income</span
+  >:
+  <span
+    class="text-primary"
+    [innerHTML]="monthlyGrossIncome | peCurrency:flow.currency"></span>
+</div>
+
+<div
+  *ngIf="paymentForm?.personalForm?.citizenship as citizenship"
+  class="clearfix">
+  <span
+    class="text-secondary"
+    i18n="@@santander-se.inquiry.form.citizenship.label"
+    >Citizenship</span
+  >:
+  <span
+    class="text-primary"
+    [innerHTML]="citizenship"></span>
+</div>

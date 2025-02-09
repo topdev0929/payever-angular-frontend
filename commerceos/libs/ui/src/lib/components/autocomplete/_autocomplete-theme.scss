@@ -1,0 +1,13 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+
+  .dropdown-arrow .arrow-open {
+    color: $text-color;
+    z-index: 10;
+  }
+  .pac-container.pac-logo.hdpi {
+    z-index: 200100 !important;
+  }
+}

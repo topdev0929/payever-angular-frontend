@@ -1,0 +1,10 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  pe-business-switcher {
+    .business-switcher__business-name {
+      color: $text-color;
+    }
+  }
+}

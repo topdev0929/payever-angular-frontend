@@ -1,0 +1,19 @@
+@use 'pe_theming' as pet;
+@use './panels/panels-theme.import' as panels;
+@use './settings/settings-theme.import' as settings;
+@use './checkout-clipboard-copy/checkout-clipboard-copy-theme.component' as clipboard_copy_theme;
+@use './create-checkout-form/create-checkout-form-theme.component' as create_checkout_form;
+@use './channel-settings/qr-app/qr-app-theme.component' as qr_app;
+@use './layout/layout-theme.component' as layout;
+@use './sections/options/options-theme.component' as options;
+
+@mixin theme($theme-config) {
+    @include panels.theme($theme-config);
+    @include settings.theme($theme-config);
+    $color-config: pet.get-color-config-from-theme($theme-config);
+    @include clipboard_copy_theme.color($color-config);
+    @include create_checkout_form.color($color-config);
+    @include qr_app.color($color-config);
+    @include layout.color($color-config);
+    @include options.color($color-config);
+}

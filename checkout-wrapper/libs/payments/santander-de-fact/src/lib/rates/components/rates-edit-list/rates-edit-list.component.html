@@ -1,0 +1,27 @@
+<ng-container *ngIf="vm$ | async as vm">
+  <checkout-sdk-choose-rate
+    class="choose-rate"
+    [trackFlowId]="flowId"
+    [trackPaymentMethod]="paymentMethod"
+    [rates]="vm.rates"
+    [isLoading]="!vm.rates.length"
+    [initialRateId]="initialRateId"
+    [doSelectRate]="doSelectRate$"
+    (rateSelected)="rateSelected($event)">
+  </checkout-sdk-choose-rate>
+
+  <checkout-sdk-santander-de-selected-rate-details
+    [details]="vm.details"
+    [isManyColumnsDisabled]="true">
+  </checkout-sdk-santander-de-selected-rate-details>
+
+  <ng-content></ng-content>
+
+  <santander-de-fact-inquiry-finish
+    *ngIf="errorMessage"
+    [embeddedMode]="embeddedMode"
+    [merchantMode]="merchantMode"
+    [errorMessage]="errorMessage"
+    (tryAgain)="tryAgain()">
+  </santander-de-fact-inquiry-finish>
+</ng-container>

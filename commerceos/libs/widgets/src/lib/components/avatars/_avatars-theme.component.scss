@@ -1,0 +1,18 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $tertiary-button: map.get($color-config, 'tertiary-button');
+  $active-text: map.get($color-config, 'active-text');
+
+  pe-widget-avatars {
+    .style_img {
+      background-color: $tertiary-button;
+    }
+    .style_div, .icons__link .style_div {
+      color: $active-text !important;
+    }
+    .style-text{
+      color: $active-text;
+    }
+  }
+}

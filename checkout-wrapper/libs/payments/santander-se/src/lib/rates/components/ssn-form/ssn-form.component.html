@@ -1,0 +1,23 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup">
+  <div class="form-fieldset-new">
+    <mat-form-field class="col-xs-12">
+      <mat-label i18n="@@santander-se.inquiry.form.social_security_number.label"> Social Security Number </mat-label>
+
+      <input
+        matInput
+        formControlName="socialSecurityNumber"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12">
+      <mat-label i18n="@@santander-se.inquiry.form.phone_number.label"> Phone Number </mat-label>
+
+      <input
+        matInput
+        formControlName="phone"
+        type="text" />
+    </mat-form-field>
+  </div>
+</form>

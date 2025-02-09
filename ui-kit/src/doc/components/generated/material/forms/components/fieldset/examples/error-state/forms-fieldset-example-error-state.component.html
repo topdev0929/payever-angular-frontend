@@ -1,0 +1,54 @@
+<div class="form-table">
+  <div class="form-fieldset">
+    <div class="row">
+
+      <div class="col-xs-6">
+        <mat-checkbox [class.mat-checkbox-error]="!agreeWithTerms3"
+                      [(ngModel)]="agreeWithTerms3"
+                      [(indeterminate)]="indeterminate"
+                      [labelPosition]="'after'"
+                      [disabled]="false">
+          Agree with terms
+        </mat-checkbox>
+        <mat-error>please check this field, it is required</mat-error>
+        <div class="tooltip-icon">
+          <svg class="icon icon-16"
+               matTooltip="This will be send to your customers by SMS. You ca add variables to your message"
+               [matTooltipPosition]="'above'">
+            <use xlink:href="#icon-help-question-16"></use>
+          </svg>
+        </div>
+      </div>
+
+      <div class="col-xs-6">
+        <mat-checkbox [class.mat-checkbox-error]="!agreeWithTerms4"
+                      [(ngModel)]="agreeWithTerms4"
+                      [(indeterminate)]="indeterminate"
+                      [labelPosition]="'before'"
+                      [disabled]="false">
+          Agree with terms
+        </mat-checkbox>
+        <mat-error>please check this field, it is required</mat-error>
+      </div>
+
+      <div class="col-xs-12">
+        <mat-radio-group [(ngModel)]="favoriteSeason" [class.mat-radio-error]="!favoriteSeason">
+          <mat-radio-button *ngFor="let season of seasons" [value]="season">
+            {{season}}
+          </mat-radio-button>
+        </mat-radio-group>
+        <mat-error>please select one, it is required</mat-error>
+      </div>
+
+      <div class="col-xs-12">
+        <mat-radio-group [(ngModel)]="favoriteSeason2" [class.mat-radio-error]="!favoriteSeason2" [labelPosition]="'before'" class="mat-radio-group-label-before">
+          <mat-radio-button *ngFor="let season of seasons" [value]="season">
+            {{season}}
+          </mat-radio-button>
+        </mat-radio-group>
+        <mat-error>please select one, it is required</mat-error>
+      </div>
+
+    </div>
+  </div>
+</div>

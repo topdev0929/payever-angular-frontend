@@ -1,0 +1,28 @@
+.dimension {
+  column-gap: 4px;
+  grid-row-gap: 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+
+  .readonly,
+  .height-readonly {
+    position: absolute;
+    display: block;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    cursor: not-allowed;
+    z-index: 999;
+  }
+
+  .height-readonly {
+    left: 50%;
+  }
+}
+
+peb-slide-toggle {
+  display: block;
+  margin-top: 16px;
+}

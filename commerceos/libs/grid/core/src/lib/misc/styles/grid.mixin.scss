@@ -1,0 +1,11 @@
+@mixin grid-mobile {
+    @media (max-width: 720px) {
+        @content;
+    }
+}
+
+@mixin grid-desktop {
+    @media (min-width: 721px) {
+        @content;
+    }
+}

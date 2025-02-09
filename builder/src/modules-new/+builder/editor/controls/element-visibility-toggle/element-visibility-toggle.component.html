@@ -1,0 +1,10 @@
+<pe-builder-navbar-controls-button
+  *ngIf="(editor.activeElement$ | async) || (editor.editedElement$ | async)"
+  icon="#icon-visibility-16"
+  [hasDropdownMenu]="true"
+>
+  <pe-builder-navbar-button-visibility-menu
+    [pageStore]="pageStore"
+    [uuid]="(editor.activeElement$ | async) || (editor.editedElement$ | async)"
+  ></pe-builder-navbar-button-visibility-menu>
+</pe-builder-navbar-controls-button>

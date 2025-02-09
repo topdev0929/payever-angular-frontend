@@ -1,0 +1,36 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup"
+  (submit)="onSubmit()"
+  analyticsForm>
+  <checkout-sdk-choose-rate
+    [trackFlowId]="flow.id"
+    [trackPaymentMethod]="paymentMethod"
+    [rates]="transformedBanks$ | async"
+    [initialRateId]="initialBank"
+    i18n-noRateSelectedText="@@payment-santander-instant-at.actions.select_bank"
+    noRateSelectedText="payment-santander-instant-at.actions.select_bank"
+    (rateSelected)="bankSelected($event)">
+  </checkout-sdk-choose-rate>
+
+  <div class="form-fieldset-new">
+    <mat-form-field
+      *ngIf="formGroup.get('iban').enabled"
+      class="col-xs-12">
+      <mat-label i18n="@@payment-santander-instant-at.inquiry.form.bank_iban.label"> IBAN </mat-label>
+
+      <input
+        matInput
+        peInputMask
+        formControlName="iban"
+        type="text"
+        [mask]="ibanMask"
+        [unmask]="ibanUnmask" />
+    </mat-form-field>
+  </div>
+
+  <button
+    #submitButton
+    class="hidden"
+    type="submit"></button>
+</form>

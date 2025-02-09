@@ -1,0 +1,67 @@
+.my-panel {
+  .mat-dialog-container {
+    width: 408px;
+    height: 400px;
+    padding: 60px 38px;
+    border-radius: 12px;
+    max-width: 408px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5);
+    background-color: #24272e;
+  }
+  .dialog-wrapper{
+    text-align: center;
+  }
+
+  h2 {
+    color: white;
+    margin-top: 17px;
+    margin-bottom: 0;
+    font-family: Roboto;
+    font-size: 32px;
+  }
+
+  p {
+    margin-top: 8px;
+    margin-bottom: 0;
+    font-family: Roboto;
+    font-size: 14px;
+    color: white;
+  }  
+
+  .buttons {
+    margin-top: 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    button {
+      height: 32px;
+      border: none;
+      outline: none;
+      padding: 0;
+      border-radius: 8px;
+      margin-top: 8px;
+      max-width: 216px;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.3);
+      font-family: Roboto;
+      font-size: 14px;
+      font-weight: 500;
+      color: white;
+      cursor: pointer;
+
+      &.blue {
+        background-color: #0371e2;
+      }
+    }
+  }
+
+  .footer{
+    margin-top: 16px;
+    line-height: 1.33;
+    letter-spacing: normal;    
+    color: #ffffff;
+    font-family: Roboto;
+    font-size: 12px;
+  }
+}

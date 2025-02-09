@@ -1,0 +1,690 @@
+{
+  "add_category_modal":{
+    "title":"Add new category",
+    "name_label":"Give a name to a category",
+    "name_error_text":"Enter a valid name",
+    "select_from_existing_categories":"Select from your existing categories",
+    "name_placeholder":"Give a name to a category",
+    "select_products_manually":"Select products manually"
+  },
+  "catalog_menu":{
+    "categories_shown":"Categories shown",
+    "design":"Design",
+    "items_per_row":"Items per row",
+    "items_per_page":"Items per page",
+    "align":{
+      "left":"Left",
+      "center":"Center",
+      "right":"Right",
+      "title":"Details Alignment"
+    },
+    "item_details":{
+      "title":"Item details"
+    },
+    "title":"Catalog",
+    "show_navigation_label":"Show navigation",
+    "show_sorting_label":"Show sorting",
+    "show_lines":"Show lines",
+    "padding":"Padding",
+    "show_name":"Show name",
+    "show_price":"Show price"
+  },
+  "theme":{
+    "content_block":{
+      "page":"Page",
+      "general_settings":"General"
+    }
+  },
+  "themes": {
+    "welcome_screen": {
+      "heading": "Make your store Yours. Select one free theme",
+      "subheading": "Our templates are beautifully designed to show your product in the best way and make the best conversion. Pick one of our templates that come with hundreds of customizable features. Then make it all yours using our friendly user Editor. Or even changing it's code",
+      "button": "Select theme"
+    },
+    "themes_select": {
+      "categories_all": "All",
+      "theme_card_actions": {
+        "install": "Install",
+        "preview": "Preview"
+      },
+      "add_theme": "Add theme"
+    },
+    "theme_preview": {
+      "buttons": {
+        "desktop": "Desktop",
+        "mobile": "Mobile",
+        "back": "Back to themes",
+        "install_var": {
+          "install": "Install",
+          "installed": "Installed"
+        }
+      },
+      "placeholder": "There is no preview mode for this theme"
+    },
+    "theme_edit_modal": {
+      "link": "Save as theme",
+      "title": {
+        "create": "Create theme",
+        "edit": "Edit theme"
+      },
+      "theme_name": "Theme name",
+      "theme_name_placeholder": "Please enter theme name",
+      "theme_category": "Theme category",
+      "theme_category_placeholder": "Please choose theme category",
+      "theme_preview_url": "Theme preview url",
+      "theme_preview_url_placeholder": "Please enter theme preview url",
+      "upload_buttons": {
+        "desktop": "Desktop preview image",
+        "mobile": "Mobile preview image"
+      },
+      "error": "Error occured, please try again"
+    },
+    "category_create_modal": {
+      "title": "Add a category",
+      "theme_category_name": "Theme category name",
+      "theme_category_name_placeholder": "Please enter theme category name",
+      "error": "Please enter valid name"
+    }
+  },
+  "categories_list":{
+    "category_sets":"Category sets",
+    "add_new_category":"+ Add new category",
+    "back_to_catalog_link_text":"Catalogue",
+    "title":"Categories"
+  },
+  "duplicate_button":"Duplicate",
+  "delete_button": "Delete",
+  "category_menu":{
+    "category_name_label":"Category Name",
+    "category_name_error":"Enter a valid name",
+    "manual_selection":"Manual selection",
+    "all_products_option":"All products",
+    "header_title":"Header",
+    "category_title_error":"Enter a valid title",
+    "category_name_placeholder":"Category Name",
+    "category_title_placeholder":"Category title",
+    "title":"Category",
+    "overlay_font_size":{
+      "small":"Small",
+      "normal":"Normal",
+      "large":"Large"
+    },
+    "product_category_label":"Product category",
+    "add_edit_products_button":"+ Add or edit products",
+    "products":"products"
+  },
+  "general_settings":{
+    "header_style": "Header Style",
+    "footer_style": "Footer Style",
+    "theme_settings": "Theme Settings",
+    "favicon_settings": "Favicon / Webclip",
+    "notifications": {
+      "all_pages_warning": "These changes will be applied for all pages! Please make sure you want it.",
+      "all_pages_description": "All custom content will stay, but styles will be updated."
+    }
+  },
+  "product_picker_modal":{
+    "title":"Select products",
+    "create_product_button":"Create product",
+    "add_selected_button":"Add selected",
+    "editor":{
+      "back_to_list":"Back"
+    }
+  },
+  "footer_menu":{
+    "social_media_title": "Social media",
+    "service_menu_title": "Service menu",
+    "payments_title": "Payments",
+    "visibility":"Visibility",
+    "block_color":"Block color",
+    "payments":{
+      "show_payments":"Show payment options"
+    },
+    "block":"Block",
+    "navigation":{
+      "show_navigation":"Show service navigation"
+    },
+    "newslettes": {
+      "header" : "Newsletter header",
+      "show_newsletters": "Show newsletter"
+    },
+    "show_social_link":"Show social media"
+  },
+  "navigation":{
+    "title":"Navigation",
+    "add_menu_item":"Add menu item",
+    "url_label":"URL",
+    "url_error":"Please enter correct URL",
+    "name_label":"Menu item name",
+    "name_error":"Please enter menu item name",
+    "url_placeholder":"Enter the url",
+    "name_placeholder":"Enter the name of the menu item",
+    "add_item":"Add item",
+    "update_item":"Update item",
+    "header_menu":"Header menu",
+    "footer_menu":"Footer menu",
+    "tree":{
+      "choose_item":"Choose page",
+      "nav_item":{
+        "text_label":"Text",
+        "link":"Link"
+      },
+      "pages_list":{
+        "pages":"Pages",
+        "custom":"Custom"
+      },
+      "new_nav_item":{
+        "text":"Text",
+        "link":"Link",
+        "text_default_value":"New value"
+      },
+      "add_new_item":"+ Add a new menu item"
+    }
+  },
+  "save_button":"Save",
+  "pages":{
+    "empty_page":"Select a page from the right sidebar to start editing",
+    "add_new_page":"+ Add a new page",
+    "new_page":{
+      "title":"New page",
+      "name_label":"Page name",
+      "add_page":"Add page",
+      "name_placeholder":"Page name",
+      "enter_new_page_name": "Please, enter a new page name."
+    },
+    "advanced_settings":{
+      "nav_title":"Navigation title",
+      "invalid_slug":"Invalid slug",
+      "head_description":"Description from <head> tag",
+      "title":"Options",
+      "slug":"Page Slug",
+      "head_title":"Title from <head> tag"
+    },
+    "item":{
+      "visibility":"Visibility",
+      "is_home":"Is home",
+      "unpublished":"Unpublished"
+    },
+    "settings":{
+      "settings_title":"Settings",
+      "publish_status":"Publish status",
+      "advanced_settings_link":"Advanced options",
+      "title":"Options"
+    },
+    "list":{
+      "add_new_page":"+ Add a new page",
+      "delete_modal_title":"Are you sure you want to delete this page?",
+      "title":"Pages"
+    },
+    "set_as_home_modal":{
+      "set_page_as_home_question": "Do you want to set {{ page }} page as home?",
+      "current_home_page": "Current home page is {{ page }}"
+    }
+  },
+  "product_menu":{
+    "layout":"Layout",
+    "text_alignment":{
+      "title":"Text alignment",
+      "center":"Center",
+      "left":"Left",
+      "right":"Right"
+    },
+    "shop_button":{
+      "title":"Shop button",
+      "corners_square":"Square",
+      "corners_round":"Round",
+      "corners_circle":"Circle",
+      "text_color":"Text Color",
+      "button_color":"Button Color",
+      "border_color":"Border Color",
+      "corners_title":"Corners"
+    },
+    "title":"Product"
+  },
+  "page_settings_menu": {
+    "header_style": "Header Style",
+    "page_style": "Page Style",
+    "footer_style": "Footer Style"
+  },
+  "social_links_list":{
+    "structure":"Structure",
+    "add_link":"+ Add social network"
+  },
+  "social_links_modal":{
+    "title":"Connect Account",
+    "url_error":"Enter a valid value",
+    "add": "Add",
+    "link_account": "link account"
+  },
+  "system_header":{
+    "customize":"Customize",
+    "apps_list":{
+      "edit_page":"Edit page",
+      "navigation":"Navigation",
+      "styles":"Styles",
+      "pages":"Pages"
+    },
+    "dashboard_link":"Dashboard",
+    "publish_discard_mobile":"Publish \/ Discard",
+    "save_discard_mobile":"Save \/ Discard",
+    "save_theme_discard_mobile":"Save theme \/ Discard",
+    "discard_changes_modal":{
+      "question":"Are you sure you want to cancel all changes?",
+      "description":"Please make your choice.",
+      "reloading_data_notification":"Reloading data"
+    },
+    "discard_changes":"Discard changes",
+    "publish_changes":"Publish",
+    "save_changes":"Save changes",
+    "save_theme":"Save theme"
+  },
+  "buttons":{
+    "add": "Add",
+    "duplicate":"Duplicate",
+    "rename":"Rename",
+    "delete":"Delete",
+    "add_image":"Add image",
+    "cancel":"Cancel",
+    "close": "Close",
+    "save": "Save",
+    "add_link":"Add link",
+    "preview":"Preview",
+    "publish":"Publish",
+    "unpublish":"Unpublish",
+    "edit":"Edit",
+    "update": "Update",
+    "yes": "Yes",
+    "no": "No",
+    "submit": "Submit",
+    "start": "Start",
+    "plus_add_or_edit_products":"+ Add or edit products",
+    "plus_add_category":"+ Add category"
+  },
+  "labels":{
+    "design":"Design",
+    "logo":"Logo",
+    "search_bar":"Search bar",
+    "show_lines":"Show lines",
+    "add_link":"Add link",
+    "url":"URL",
+    "other_themes":"Other themes",
+    "product_category":"Product category",
+    "items_per_row":"Items per row",
+    "details_alignment":"Details Alignment",
+    "padding":"Padding",
+    "item_details":"Item details",
+    "show_name":"Show name",
+    "show_price":"Show price",
+    "show_cart_preview":"Show cart preview",
+    "background_color":"Background color",
+    "please_select_a_widget":"Please select a widget",
+    "message_top_bar": "Message top bar",
+    "background": "Background",
+    "text_color": "Text Color",
+    "default": "Default",
+    "custom": "Custom",
+    "name_color": "Name Color",
+    "name_hover_color": "Name Hover Color",
+    "price_color": "Price Color",
+    "hover_effect": "Hover Effect",
+    "favicon": "Favicon",
+    "logo_size": "Logo size",
+    "open_link_in_new_tab": "Open link in new tab",
+    "horizontal_padding": "Horizontal padding"
+  },
+  "errors":{
+    "please_enter_correct_url":"Please enter correct URL"
+  },
+  "titles": {
+    "add_link": "Add link",
+    "pages": "Pages",
+    "global": "Global",
+    "styles": "Styles",
+    "current_theme_name": "Current theme name",
+    "theme_1": "Theme 1",
+    "theme_2": "Theme 2",
+    "theme_3": "Theme 3"
+  },
+  "placeholders":{
+    "enter_the_url":"Enter the url"
+  },
+  "options":{
+    "manual_selection":"Manual selection",
+    "left":"Left",
+    "center":"Center",
+    "right":"Right"
+  },
+  "widget_settings":{
+    "design":"Design",
+    "pages_back_link":"Pages",
+    "title":"Widget Settings",
+    "editing_banner": "You are editing banner",
+    "editing_text": "You are editing text",
+    "editing_featured_products": "You are editing featured products"
+  },
+  "routes":{
+    "checkout":{
+      "go_to_checkout":"Go to checkout"
+    }
+  },
+  "store_select": {
+    "actions": {
+      "open_builder": "Open front store",
+      "edit": "Edit",
+      "store_background": "Cover image",
+      "delete": "Delete",
+      "add_store": "Add a store"
+    },
+    "store_subheading": "{{ productCount }} products",
+    "empty_store": "There are no stores",
+    "cover_widget": {
+      "add_cover": "Add cover image",
+      "uploading": "Uploading...",
+      "fail": "Uploading failed",
+      "retry": "Please retry"
+    }
+  },
+  "dashboard":{
+    "welcome_screen": {
+      "heading": "Get your business online",
+      "subheading": "Everything you need to start, run and grow your business online. Add pages to your ecommerce store, manage products and add payment options easily",
+      "actions": {
+        "start": "Start now"
+      }
+    },
+    "weebly": {
+      "title": "Weebly"
+    },
+    "facebook": {
+      "title": "Facebook",
+      "description": ""
+    },
+    "themes": {
+      "title": "Themes"
+    },
+    "notifications": {
+      "title": "Recommended tasks to boost your business",
+      "empty_notifications_placeholder": "Sorry, you don't have any notifications"
+    },
+    "switch_store":"Switch Store",
+    "add_new_store":"Add New Store",
+    "ads":{
+      "title":"ADs",
+      "description":"Get the most out of your Ads, place your products in the most adecuate networks. It is free! We just charge you for the real budget that the compaigns cost."
+    },
+    "open_button":"Open",
+    "app_center":{
+      "title":"App center",
+      "description":"Integrate with powerful ecommerce applications, new features and plugins for your store."
+    },
+    "marketing":{
+      "title":"Marketing",
+      "description":"Send personal offers, Automatic discount coupons for special ocations, Update your customers with new products. It is completelly free."
+    },
+    "messenger":{
+      "title":"Messenger",
+      "description":"Your own realtime messenger. Help your users in real time, keep the conversation after purchases and send personalized offers and much more."
+    },
+    "payments":{
+      "title":"Payments",
+      "add_payment_button":"Add payment",
+      "add_payment_types_description":"Add payment types"
+    },
+    "products":{
+      "title":"Products",
+      "add_product_button":"Add product",
+      "add_products_description":"Add products"
+    },
+    "store_front":{
+      "title":"Store front",
+      "description":"Custom delivery"
+    },
+    "facebook":{
+      "title": "Facebook"
+    },
+    "store_builder":{
+      "title":"Store Builder",
+      "description":"Open Store Builder"
+    },
+    "store_settings":{
+      "title":"Store Settings",
+      "description":"Set up everything you will need for successful running of your payever store."
+    },
+    "store_logo":{
+      "edit_store":"Edit store"
+    },
+    "create_store": {
+      "add_store": "Add Store",
+      "add_logo": "+ Logo",
+      "store_name_label": "Store name",
+      "add_store_button": "Add Store",
+      "continue_button": "Continue",
+      "done_button": "Done",
+      "delete_store_modal": {
+        "confirm_question": "Do you really want to delete this store?",
+        "confirm_additional": "Please confirm your action.",
+        "delete_store_button": "Delete Store"
+      },
+      "add_store_name_placeholder": "Add your store name",
+      "invalid_store_logo_notification": "Invalid store logo",
+      "delete_store_button": "Delete Store",
+      "upload_logo_generic_error": "An error has happened while uploading logo file"
+    },
+    "store_select":{
+      "to_dashboard_link":"To Dashboard",
+      "add_new_store_button":"Add New Store"
+    },
+    "store_settings_modal":{
+      "live_switcher": {
+        "title": "Store",
+        "subtitle": "Live status",
+        "description": "Make store visible for your customer"
+      },
+      "custom_code":"Custom code",
+      "head_tag":{
+        "title":"Head tag",
+        "description":"Enter code that will be added into the 'head' tag on every page of your site"
+      },
+      "footer_tag":{
+        "title":"Footer tag",
+        "description":"Enter code that will be added after the '<\/body>' tag on every page of your site"
+      },
+      "own_domain":{
+        "title":"Own domain",
+        "domain_name_label":"Domain name",
+        "verify_connection_link":"Verify connection",
+        "instructions_link":"Instructions",
+        "domain_name_paceholder":"Domain name",
+        "a_record": "A record (@)",
+        "current_ip": "Current IP address",
+        "correct_ip": "Correct IP address",
+        "cname_current": "Current value",
+        "cname_current_empty": "[empty]",
+        "cname_correct": "Correct value"
+      },
+      "payever_domain":{
+        "title":"Payever domain",
+        "enter_domain_placeholder":"Enter domain name",
+        "subdomain_already_used_notification": "This subdomain is already used"
+      },
+      "google_analytics":{
+        "title":"Google Analytics"
+      },
+      "main":{
+        "title":"Settings",
+        "domain_chapter_title":"Domain",
+        "owm_domain_title":"Own domain",
+        "payever_domain_title":"Payever domain",
+        "copied_text":"Copied",
+        "scripts_chapter_title":"Scripts",
+        "google_analytics":{
+          "title":"Google Analytics",
+          "description":"Google Analytics enables you to track the visitors to your store, and generates reports that will help you with your marketing."
+        },
+        "custom_code":{
+          "title":"Custom code",
+          "description":"Add script to the head ot footer of every page of your site."
+        },
+        "copy_link":"Copy"
+      },
+      "changes_saved_notification":"Changes saved",
+      "error_occured_notification":"Error occurred"
+    },
+    "get_started":{
+      "title":"Get started",
+      "description":"Configure the essentials of your store and start selling in a few clicks"
+    },
+    "grow":{
+      "title":"Grow",
+      "description":"Add all payments in your custom store or most popular shopsystem"
+    },
+    "run":{
+      "title":"Run",
+      "description":"Configure the essentials of your store and start selling in a few clicks"
+    },
+    "payment_app_modal_title":"Payments app",
+    "settings_modal_title":"Settings"
+  },
+  "products":"products",
+  "product":"product",
+  "image_field":{
+    "add_new":"Add new",
+    "remove":"Remove",
+    "add_image":"Add image"
+  },
+  "cart":{
+    "product_column_title":"PRODUCT",
+    "quantity_column_title":"QTY",
+    "price_column_title":"PRICE",
+    "total":"Total",
+    "cart_is_empty": "Cart is empty",
+    "continue_shopping_button":"Continue shopping",
+    "checkout_button":"Checkout",
+    "view_cart_button":"View cart",
+    "item":"Item",
+    "quantity_error": "Total stock quantity is {{ quantity }}"
+  },
+  "category":{
+    "no_categories":"Please add categories to your store."
+  },
+  "footer":{
+    "powered_by_payever":"Powered by payever"
+  },
+  "search":{
+    "search_input_placeholder":"Search our store",
+    "results_page":{
+      "title":"Search results for"
+    },
+    "not_found_title": "Products were not found"
+  },
+  "featured_products_widget":{
+    "select_products_text":"Please select products"
+  },
+  "notifications":{
+    "messages":{
+      "error_occured":"Error occured",
+      "saving":"Saving",
+      "changes_saved":"Changes saved",
+      "was_added_to_your_cart": "was added to your cart",
+      "publishing": "Publishing",
+      "published": "Published"
+    }
+  },
+  "docker_widgets": {
+    "titles": {
+      "text": "Text",
+      "images": "Images",
+      "banner": "Banner",
+      "products": "Products",
+      "featured": "Featured",
+      "spacer": "Spacer"
+    }
+  },
+  "back_link":"Back",
+  "system_pages":{
+    "catalog":"Catalog",
+    "home":"Home",
+    "product":"Product"
+  },
+  "default_page_widget_text":{
+    "title":"New page...",
+    "text":"Fill your page"
+  },
+  "hamburger_menu":{
+    "back_button":"Back"
+  },
+  "out_of":"out of",
+  "header_menu": {
+    "top_bar_placeholder": "Please enter the text",
+    "top_bar_background_color": "Message background color",
+    "header_background_color": "Header background color"
+  },
+  "favicon_menu": {
+    "upload_description_main": "Upload your favicon image that will be shown in the address bar of your browser. Will be resized to 32x32 px.",
+    "upload_description_additional": "Leave empty to show your header logo."
+  },
+  "url_lower_case": "url",
+  "url_upper_case": "URL",
+  "product_page": {
+    "shop_now_button": "Shop now"
+  },
+  "facebook": {
+    "start": {
+      "title": "Connect your account and sell on facebook",
+      "description": "Create a Shop tab in Facebook with all your store products",
+      "connect_to_facebook": "Connect to Facebook"
+    },
+    "select_page": {
+      "title": "Select a page to publish your products",
+      "disconnect": "Disconnect page",
+      "connect_page": "Connect page",
+      "select_page": "Select a facebook page",
+      "confirm_disconnect_page_title": "Disconnect page",
+      "confirm_disconnect_page_text": "Are you sure you want disconnect current page?"
+    },
+    "main_info": {
+      "store_status": "Store status",
+      "launch_store_page": "Launch Facebook store page",
+      "title": "Facebook Channel",
+      "facebook_account": "Facebook account",
+      "facebook_account_description": "Facebook user account",
+      "disconnect": "Disconnect",
+      "change": "Change",
+      "connect_page": "Connect page",
+      "connected": "Connected",
+      "page_connected": "Page connected",
+      "connect_account": "Connect account",
+      "confirm_disconnect_account_title": "Disconnect account",
+      "confirm_disconnect_account_text": "Are you sure you want disconnect current account? Connected page will be disconnected too.",
+      "error_message": "Error occurred"
+    }
+  },
+  "products_container": {
+    "messages": {
+      "products_save_message": "Products have been successfully added to catalog"
+    }
+  },
+  "hover_effects": {
+    "no_effect": "No effect",
+    "zoom_in": "Zoom in",
+    "zoom_out": "Zoom out"
+  },
+  "not_found": {
+    "shop": "Shop not found.",
+    "interested": "Interested in payever Shop?",
+    "register": "Register",
+    "link": "/entry/registration/business"
+  },
+  "cookies_label": "Payever verwendet Cookies, um Ihnen den bestmöglichen Service zu gewährleisten. Wenn Sie auf der Seite weitersurfen stimmen Sie der Cookie-Nutzung zu.Ich stimme zu.",
+  "password": {
+    "enter_store_using_password": "Enter store using password",
+    "password_label": "Password",
+    "password_incorrect": "Incorrect password",
+    "enter": "Enter",
+    "enter_password": "Enter password"
+  },
+  "under_construction": "Website is under construction and will be available soon",
+  "payever_fashion": "payever Fashion",
+  "start_business": "Start, run and grow your fashion business.",
+  "register_domain": "Register domain"
+}

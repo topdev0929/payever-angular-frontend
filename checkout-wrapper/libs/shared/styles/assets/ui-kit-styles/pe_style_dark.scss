@@ -1,0 +1,13 @@
+//
+// Main styles file
+// ----------------------------
+
+@import 'pe_variables';
+
+// Changes for dark theme
+
+$color-blue: $color-black-pe;
+$color-dark-blue: $color-black;
+$spinner-default-color: $color-black;
+
+@import 'pe_components';

@@ -1,0 +1,177 @@
+.pe-bootstrap {
+  .notify {
+    border-radius: $border-radius-base * 2;
+    min-height: $grid-unit-y * 4;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, .14);
+    max-width: 320px;
+    padding: $grid-unit-y $pe_hgrid_gutter * 2 $grid-unit-y $pe_hgrid_gutter*0.5;
+    background: $color-white;
+    position: fixed;
+    bottom: $grid-unit-y * 2;
+    right: $pe_hgrid_gutter;
+    z-index: 1100;
+    &[data-position="top-right"] {
+      bottom: auto;
+      top: $grid-unit-y * 2;
+    }
+    &[data-position="top-left"] {
+      bottom: auto;
+      right: auto;
+      top: $grid-unit-y * 2;
+      left: $pe_hgrid_gutter;
+    }
+    &[data-position="bottom-left"] {
+      right: auto;
+      left: $pe_hgrid_gutter;
+    }
+    span {
+      display: block;
+    }
+    .notify-icon {
+      position: absolute;
+      left: $pe_hgrid_gutter*0.5;
+      top: ($grid-unit-y * 6 - 32px)*0.5;
+      & + .notify-text {
+        margin-left: 32px + $pe_hgrid_gutter*0.5;
+      }
+    }
+    .notify-close {
+      position: absolute;
+      top: $grid-unit-y + 3px;
+      right: $pe_hgrid_gutter*0.5;
+      cursor: pointer;
+      color: $color-gray;
+      @include payever_transition($property: color);
+      .icon {
+        display: block;
+      }
+      &:hover {
+        color: $color-blue;
+      }
+    }
+    &.notify-warning {
+      min-height: $grid-unit-y * 6;
+      .notify-icon {
+        color: $color-orange;
+      }
+    }
+
+    &.dark {
+      a {
+        color: inherit;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // Notify2 setttings
+  $n2_common_width:    370px;
+  $n2_common_height:   70px;
+  $n2_header_height:   27px;
+  $n2_action_width:    80px;
+  $n2_img_width:       60px;
+
+  .notify2 {
+    display: inline-block;
+    width: 100%;
+    height: 244px;
+    padding: 44px 40px 0 40px;
+    border-radius: $border-radius-base * 2;
+    background: rgba(255,255,255,.75);
+    box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.2);
+    vertical-align: middle;
+    overflow: hidden;
+    position: relative;
+    margin-right: 30px;
+    @media(max-width: $viewport-breakpoint-sm-2) {
+      padding: 24px 20px 0 20px;
+      height: 180px;
+    }
+    .notify2-text {
+      .notify2-img {
+        text-align: center;
+        margin-bottom: 22px;
+        @media(max-width: $viewport-breakpoint-sm-2) {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+        }
+        img {
+          width: 32px;
+          height: 32px;
+          border-radius: $border-radius-base;
+          overflow: hidden;
+          @media(max-width: $viewport-breakpoint-sm-2) {
+            width: 24px;
+            height: 24px;
+          }
+        }
+      }
+      h4 {
+        text-align: center;
+        font-weight: 400;
+        font-size: 17px;
+        color: $color-gray;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        margin-bottom: 15px;
+      }
+      p {
+        font-size: 12px;
+        color: $color-gray-2;
+        text-align: center;
+        white-space: normal;
+        line-height: 18px;
+      }
+    }
+    .notify2-controls {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      flex-wrap: nowrap;
+      align-content: stretch;
+      display: flex;
+      flex-direction: row;
+      .notify2-control-container {
+        flex-grow: 1;
+        button {
+          display: block;
+          width: 100%;
+          height: 40px;
+          font-size: 14px;
+          color: $color-gray;
+          border: none;
+          background: rgba(255,255,255,.3);
+          text-overflow: ellipsis;
+          overflow: hidden;
+          outline: none;
+          &:hover, &:active, &:focus {
+            background: rgba(255,255,255,.6);
+          }
+        }
+        & + .notify2-control-container {
+          margin-left: 2px;
+        }
+      }
+    }
+    .notify2-settings {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      opacity: .75;
+      cursor: pointer;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  .notify2-list {
+    margin: 0 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 0;
+    padding: 20px 0;
+  }
+}

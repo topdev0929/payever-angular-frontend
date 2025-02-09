@@ -1,0 +1,10 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+    $spinner: map.get($color-config, 'spinner');
+    $text-color: map.get($color-config, 'text-color');
+    $confirm: map.get($color-config, 'confirm');
+    $border: map.get($color-config, 'border');
+
+
+}

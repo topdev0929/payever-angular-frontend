@@ -1,0 +1,73 @@
+<form [formGroup]="sectionForm" *ngIf="formOptions$ | async as formOptions">
+  <div class="form">
+    <peb-slide-toggle formControlName="default">
+      {{ 'builder-app.forms.section.default' | translate }}
+    </peb-slide-toggle>
+    
+    <div class="form__row">
+      <span>
+        {{ 'builder-app.forms.section.position' | translate }}
+      </span>
+      <div class="position">
+        <div class="position__button" (click)="changePosition(1)">
+          <peb-editor-move-down-icon></peb-editor-move-down-icon>
+        </div>
+        <div class="position__button" (click)="changePosition(-1)">
+          <peb-editor-move-up-icon></peb-editor-move-up-icon>
+        </div>
+      </div>
+    </div>
+
+    <div class="form__row add">
+      <peb-slide-toggle formControlName="fullWidth">
+        {{ 'builder-app.forms.section.full_width' | translate }}
+      </peb-slide-toggle>
+
+      <peb-slide-toggle formControlName="fullHeight">
+        {{ 'builder-app.forms.section.device_auto_adjust' | translate }}
+      </peb-slide-toggle>
+
+      <peb-overflow-form></peb-overflow-form>
+      <peb-auto-resize-form></peb-auto-resize-form>
+    </div>
+
+    <div class="form__row add">
+      <span>
+        {{ 'builder-app.forms.section.size' | translate }}
+      </span>
+
+      <div class="dimension">
+        <peb-size-input 
+          *ngIf="formOptions.showHeight"
+          class="section-height" 
+          formControlName="height" 
+          [min]="1" 
+          [precision]="1" 
+          prefix="H"
+          [units]="['px','auto']">
+        </peb-size-input>
+
+        <peb-size-input 
+          *ngIf="formOptions.showHeightLimit"
+          class="section-height" 
+          formControlName="minHeight" 
+          [min]="1" 
+          [precision]="1" 
+          prefix="MIN"
+          [units]="['px','auto']">
+        </peb-size-input>
+
+        <peb-size-input 
+          *ngIf="formOptions.showHeightLimit"
+          class="section-height" 
+          formControlName="maxHeight" 
+          [min]="1" 
+          [precision]="1" 
+          prefix="MAX"
+          [units]="['px','auto']">
+        </peb-size-input>
+      </div>
+    </div>
+
+  </div>
+</form>

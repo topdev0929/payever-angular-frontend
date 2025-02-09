@@ -1,0 +1,102 @@
+{
+  "form": {
+    "title": "Adding numbers",
+    "type": "info-box",
+    "operations": [
+      {
+        "action": "search-numbers",
+        "text": "Search",
+        "align": "right",
+        "isSubmit": true
+      }
+    ],
+    "content": {
+      "fieldset": [
+        {
+          "name": "country",
+          "type": "select",
+          "fieldSettings": {
+            "classList": "col-xs-6",
+            "label": "Country",
+            "required": true
+          },
+          "selectSettings": {
+            "panelClass": "mat-select-dark",
+            "options": [
+              {
+                "label": "Germany",
+                "value": "DE"
+              },
+              {
+                "label": "USA",
+                "value": "US"
+              },
+              {
+                "label": "Sweden",
+                "value": "SE"
+              },
+              {
+                "label": "Denmark",
+                "value": "DK"
+              },
+              {
+                "label": "Norway",
+                "value": "NO"
+              }
+            ],
+            "placeholder": "Country"
+          }
+        },
+        {
+          "name": "phoneNumber",
+          "type": "input",
+          "fieldSettings": {
+            "classList": "col-xs-6",
+            "label": "Number (Optional)",
+            "required": false
+          },
+          "inputSettings": {
+            "placeholder": "Number (Optional)"
+          }
+        },
+        {
+          "name": "excludeAny",
+          "type": "checkbox",
+          "fieldSettings": {
+            "classList": "col-xs-4 form-fieldset-field-padding",
+            "label": "Exclude Any",
+            "required": false
+          }
+        },
+        {
+          "name": "excludeLocal",
+          "type": "checkbox",
+          "fieldSettings": {
+            "classList": "col-xs-4 form-fieldset-field-padding",
+            "label": "Exclude Local",
+            "required": false
+          }
+        },
+        {
+          "name": "excludeForeign",
+          "type": "checkbox",
+          "fieldSettings": {
+            "classList": "col-xs-4 form-fieldset-field-padding",
+            "label": "Exclude Foreign",
+            "required": false
+          }
+        }
+      ],
+      "fieldsetData": {
+        "country": "US",
+        "phoneNumber": "46790645127",
+        "excludeLocal": false,
+        "excludeForeign": false
+      },
+      "data": []
+    },
+    "actionContext": {
+      "id": "89302dde-8705-4848-ad03-b12d39af64ce"
+    }
+  }
+}

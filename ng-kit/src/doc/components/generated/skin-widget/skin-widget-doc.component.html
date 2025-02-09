@@ -1,0 +1,42 @@
+<div class="chapter">
+    <h2>Wallpapers</h2>
+    <div id="wallpapers-default" class="main-block">
+        <h3>Default</h3>
+        <div class="doc-block">
+          <tabset>
+            <tab heading="View">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <pe-skin-widget [customSkinsItems]="customItems"
+                                        [presetSkinsItems]="presetItems"
+                                        [isPresetRemoveEnabled]="false"
+                                        [config]="config"
+                                        (skinItemClicked)="onSkinItemClicked($event)"
+                                        (deleteSkinItemClicked)="onDeleteSkinItemClicked($event)"
+                                        (uploadSkinItemClicked)="onUploadSkinItemClicked($event)"
+                                        (closed)="onClose()"
+                        ></pe-skin-widget>
+                    </div>
+                </div>
+            </tab>
+            <tab heading="Template">
+              <div class="row">
+                <div class="col-xs-12">
+                  <pre><code class="javascript" html-entities="true" [innerHTML]="jsEx1 | code"></code></pre>
+                </div>
+              </div>
+            </tab>
+            <tab heading="Component">
+              <div class="row">
+                <div class="col-xs-12">
+                  <pre><code class="javascript" html-entities="true" [innerHTML]="jsEx2 | code"></code></pre>
+                </div>
+              </div>
+            </tab>
+            <tab heading="README">
+              <doc-viewer documentUrl="/assets/module-guides/skin-wdget/skin-wdget.html"></doc-viewer>
+            </tab>
+          </tabset>
+        </div>
+    </div>
+</div>

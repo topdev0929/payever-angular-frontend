@@ -1,0 +1,16 @@
+.employee-cell {
+  display: flex;
+  align-items: center;
+
+  .avatar {
+    background-size: cover;
+    background-position: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+  }
+
+  .name {
+    margin-left: 10px;
+  }
+}

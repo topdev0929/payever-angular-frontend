@@ -1,0 +1,11 @@
+@use 'pe_theming' as pet;
+@use './notification/notification-theme.component' as notification;
+@use './notification-list/notification-list-theme.component' as notification_list;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @if $color-config != null {
+    @include notification.color($color-config);
+    @include notification_list.color($color-config);
+  }
+}

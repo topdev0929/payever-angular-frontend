@@ -1,0 +1,189 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $row-background: map.get($color-config, 'row-background');
+  $label-color: map.get($color-config, 'label-color');
+  $confirm: map.get($color-config, 'confirm');
+  $border: map.get($color-config, 'border');
+  $confirm-hover: map.get($color-config, 'confirm-hover');
+  $icon-background: map.get($color-config, 'icon-background');
+  $text-color: map.get($color-config, 'text-color');
+  $tertiary-background: map.get($color-config, 'tertiary-background');
+  $box-shadow-color: map.get($color-config, 'box-shadow-color');
+  $success: map.get($color-config, 'success');
+  $warn: map.get($color-config, 'warn');
+  $divider: map.get($color-config, 'divider');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $background: map.get($color-config, 'background');
+  $input-button-background: map.get($color-config, 'input-button-background');
+
+  .page-shipping {
+    &__title {
+      color: $text-color;
+    }
+    .group {
+      &__label {
+        color: $label-color;
+      }
+      &__label-bottom {
+        color: $label-color;
+
+        .link {
+          color: $confirm;
+        }
+      }
+
+      &__item {
+        background-color: $row-background;
+
+        &.list-item {
+          border-bottom-color: $background;
+        }
+
+        .list-item-space {
+          border-bottom-color: $background;
+        }
+
+        &--link {
+          background-color: $row-background;
+
+          &:hover {
+            background-color: $confirm-hover;
+          }
+        }
+
+        &-icon {
+          background-color: $label-color;
+        }
+
+        &-label {
+          color: $text-color;
+        }
+
+        &-selector {
+          background-color: $row-background;
+
+          &-item {
+            color: $text-color;
+            border-bottom-color: $border;
+
+            &:hover {
+              background: $tertiary-background;
+            }
+          }
+        }
+
+        &-textarea {
+          background-color: $row-background;
+          &:focus {
+            box-shadow: 0 0 0 3px $box-shadow-color;
+          }
+          &::placeholder {
+            color: $label-color;
+          }
+        }
+        &-input {
+          background: $row-background;
+          color: $text-color;
+
+          &:focus {
+            box-shadow: 0 0 0 3px $box-shadow-color;
+          }
+          &::placeholder {
+            color: $label-color;
+          }
+        }
+        &-checkbox-item {
+          .checkmark,
+          .checkmark-icon {
+            border-color: $border;
+          }
+          input:checked ~ .checkmark-icon {
+            background-color: $confirm;
+          }
+
+          input[type='radio']:checked ~ .checkmark {
+            border: solid 1.4px $border;
+          }
+
+          input[type='radio']:checked ~ .checkmark-icon {
+            background-color: $confirm;
+            border: solid 1.4px $border;
+          }
+
+          &-disabled-input {
+            color: $label-color;
+          }
+        }
+        &-message {
+          &.fail {
+            background-color: $warn;
+          }
+
+          &.success {
+            background-color: $success;
+          }
+          color: $text-color;
+
+          &-button,
+          &-link {
+            background-color: rgba(0, 0, 0, 0);
+            color: $confirm;
+
+            &.remove-sub-button {
+              color: $warn;
+            }
+
+            &.edit {
+              color: $confirm;
+            }
+
+            &.submit {
+              color: $text-color;
+            }
+
+            &.remove {
+              color: $warn;
+            }
+          }
+
+          &-details {
+            color: $label-color;
+          }
+        }
+      }
+      .divider {
+        border-left-color: $row-background;
+        background-color: $background;
+      }
+    }
+  }
+
+  lib-shipping-form {
+    .label-input-content-wrapper .label-container {
+      background-color: $transparent-color;
+    }
+  }
+
+  .zone-origin-wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    &__input {
+      input {
+        color: $text-color;
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active {
+          box-shadow: 0 0 0 30px $transparent-color inset;
+          -webkit-text-fill-color: $text-color;
+        }
+      }
+    }
+    &__button {
+      background-color: $input-button-background;
+      border-left: solid 1px $background;
+    }
+  }
+}

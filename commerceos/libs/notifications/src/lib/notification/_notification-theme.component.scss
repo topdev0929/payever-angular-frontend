@@ -1,0 +1,19 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, text-color);
+  $icon-background: map.get($color-config, icon-background);
+  $tertiary-button: map.get($color-config, tertiary-button);
+
+  pe-notification {
+    a {
+      color: $text-color;
+    }
+    .icon {
+      background-color: $icon-background;
+    }
+    .round-blue {
+      background-color: $tertiary-button;
+    }
+  }
+}

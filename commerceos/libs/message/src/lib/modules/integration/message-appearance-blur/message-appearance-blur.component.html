@@ -1,0 +1,20 @@
+<div class="appearance-blur">
+  <peb-form-background>
+    <peb-button-toggle
+      [(ngModel)]="showBlurMode"
+      label="Background Blur"
+      [spacer]="true"
+      labelPosition="before"
+      (changed)="disable()"
+    ></peb-button-toggle>
+  
+    <pe-message-slider
+      class="appearance-blur__slider"
+      *ngIf="showBlurMode"
+      [(ngModel)]="blurValue"
+      (changed)="change($event)"
+      [min]="65"
+      [max]="200"
+    ></pe-message-slider>
+  </peb-form-background>
+</div>

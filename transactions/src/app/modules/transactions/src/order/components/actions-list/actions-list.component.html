@@ -1,0 +1,40 @@
+<ng-container *ngIf="uiActions?.length">
+  <!-- One "top" and most relevant action is available as a button -->
+  <ng-container *ngFor="let uiAction of uiActions | slice:0:1">
+    <ng-container *ngIf="uiAction.type === 'button'">
+      <button mat-button class="mat-button-rounded mat-button-sm mat-raised-button mat-muted-light" (click)="uiAction.onClick($event)">{{ uiAction.labelTranslated || uiAction.label | translate }}</button>
+    </ng-container>
+    <ng-container *ngIf="uiAction.type === 'link'">
+      <a mat-button class="mat-button-xs" target="_blank" [href]="uiAction.href" (click)="$event.stopPropagation()">{{ uiAction.labelTranslated || uiAction.label | translate }}</a>
+    </ng-container>
+  </ng-container>
+
+  <!-- Other actions available as a "more" menu -->
+  <ng-container *ngIf="uiActions.length > 1">
+    <mat-menu #actionsMenu="matMenu"
+              [xPosition]="'before'"
+              class="mat-menu-dark"
+              (click)="$event.stopPropagation()">
+      <ng-template matMenuContent>
+        <ng-container *ngFor="let uiAction of uiActions | slice:1">
+          <ng-container *ngIf="uiAction.type === 'button'">
+            <button mat-menu-item (click)="uiAction.onClick($event)" [innerHtml]="uiAction.labelTranslated || uiAction.label | translate"></button>
+          </ng-container>
+          <ng-container *ngIf="uiAction.type === 'link'">
+            <a mat-menu-item target="_blank" [href]="uiAction.href" [innerHtml]="uiAction.labelTranslated || uiAction.label | translate"></a>
+          </ng-container>
+        </ng-container>
+      </ng-template>
+    </mat-menu>
+    <button mat-button
+      [matMenuTriggerFor]="actionsMenu"
+      (click)="$event.stopPropagation()"
+      class="mat-button-rounded mat-button-sm mat-raised-button mat-muted-light mat-button-icon actions-more"
+      >
+      <svg class="icon icon-24">
+        <use [attr.xlink:href]="'#icon-dots-h-24'"></use>
+      </svg>
+    </button>
+  </ng-container>
+
+</ng-container>

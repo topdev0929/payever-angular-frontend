@@ -1,0 +1,11 @@
+<ivy-shared-finish
+  [asSinglePayment]="asSinglePayment"
+  [nodeResult]="paymentResponse"
+  [showCloseButton]="showCloseButton"
+  [isLoading]="!paymentResponse && !errorMessage"
+  [errorMessage]="errorMessage"
+  (cleanUp)="cleanUp()"
+  (close)="close()"
+  (closeButtonClicked)="close()"
+  (changePaymentMethod)="changePayment($event)"
+  (tryAgain)="tryAgain()"></ivy-shared-finish>

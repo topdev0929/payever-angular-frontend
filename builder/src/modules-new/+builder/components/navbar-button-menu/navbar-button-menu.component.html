@@ -1,0 +1,14 @@
+<div class="menu-container">
+  <ng-container *ngFor="let item of data">
+    <button
+      *peFeatureFlag="item.featureFlagName"
+      mat-menu-item
+      class="menu-button"
+      [disableRipple]="true"
+      [attr.pe-qa-builder]="getTestingAttribute(item.value)"
+      (click)="changed.emit(item)"
+    >
+      {{ item.label | translate }}
+    </button>
+  </ng-container>
+</div>

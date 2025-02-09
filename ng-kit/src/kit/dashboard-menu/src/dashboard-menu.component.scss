@@ -1,0 +1,96 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+.ui-dashboard-menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0;
+    li {
+      display: inline-block;
+      font-size: 14px;
+      color: $color-white;
+      vertical-align: middle;
+      position: relative;
+      &.ui-db-text {
+        &:after {
+          content: '';
+          display: block;
+          width: 1px;
+          height: 14px;
+          background: $color-white;
+          top: 50%;
+          margin-top: -7px;
+          left: 0;
+          position: absolute;
+        }
+        &:first-child:after {
+          display: none;
+        }
+      }
+      > span {
+        display: block;
+      }
+    }
+  }
+  &-item {
+    cursor: pointer;
+    margin: 0 12px;
+    &:hover {
+      opacity: .75;
+    }
+  }
+  &-title {
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+  }
+  &-avatar {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-color: $color-white;
+    color: $color-gray;
+    position: relative;
+    font-size: 12px;
+    display: block;
+    span {
+      font-weight: 600;
+      display: inline-block;
+      height: 1em;
+      line-height: 1;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -.5em;
+      transform: translateX(-50%);
+    }
+  }
+
+  &-icon {
+    position: relative;
+
+    .ui-dashboard-menu-icon-notification {
+      margin-right: - ceil($pe_vgrid_height / 4);
+      color: $color-blue;
+
+      svg {
+        vertical-align: 0;
+        height: ceil($pe_vgrid_height / 3) * 3 + 1;
+        width: ceil($pe_vgrid_height / 3) * 3 + 1;
+      }
+    }
+  }
+
+  .ui-dashboard-menu-counter {
+    display: inline;
+    font-size: 12px;
+    font-weight: 600;
+  }
+}

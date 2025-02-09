@@ -1,0 +1,10 @@
+<div class="pe-progress-spinner">
+    <mat-progress-spinner [strokeWidth]="strokeWidth"
+                          [diameter]="diameter"
+                          [value]="value"
+                          [mode]="mode"
+    ></mat-progress-spinner>
+    <div class="check-mark">
+        <svg class="icon icon-12" *ngIf="checkWhenDone && value === 100"><use [attr.xlink:href]="'#icon-check2-16'"></use></svg>
+    </div>
+</div>

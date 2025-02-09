@@ -1,0 +1,22 @@
+<form
+  *ngIf="options$ | async as options"
+  #ngForm="ngForm"
+  class="form-table"
+  [formGroup]="formGroup"
+  [class.is-edit-mode]="isExpandAll"
+  (ngSubmit)="onSubmit()">
+  <santander-de-pos-summary-identify
+    *ngIf="mode === 'View'"
+    [currency]="currency"
+    [formOptions]="options">
+  </santander-de-pos-summary-identify>
+  <santander-de-pos-form-identify
+    *ngIf="mode === 'Edit'"
+    formControlName="_identifyForm"
+    [isExpandAll]="isExpandAll"
+    [options]="options"
+    [isSubmitted]="ngForm.submitted"
+    [businessId]="businessId"
+    (continue)="submit()">
+  </santander-de-pos-form-identify>
+</form>

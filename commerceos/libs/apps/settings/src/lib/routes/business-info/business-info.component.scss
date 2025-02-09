@@ -1,0 +1,130 @@
+@use 'pe_variables' as pe_variables;
+@import "../../misc/scss/pe_variables";
+
+.form {
+  margin: 0 auto;
+  display: block;
+  max-width: 560px;
+  @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+    max-width: unset;
+  }
+}
+
+.page-title {
+  margin: 19px 0 18px;
+  font-family: "Roboto", sans-serif;
+  font-size: $font-size-h3;
+
+  @media (max-width: 720px) {
+    display: none;
+  }
+}
+
+.fieldset {
+  &.name-field {
+    padding-top: 27px;
+  }
+
+  &.remove-field {
+    padding-top: 16px;
+  }
+
+  &__description {
+    margin: 0;
+    font-size: $font-size-micro-2;
+    line-height: 20px;
+
+    &.logo-description {
+      margin-bottom: 6px;
+    }
+
+    &.name-description {
+      margin-bottom: 8px;
+    }
+  }
+
+  .business-logo-picker {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px 0 16px;
+  }
+
+  .logo-preview {
+    display: flex;
+    align-items: center;
+    flex-grow: 0;
+
+    &.preview-hidden {
+      visibility: hidden;
+    }
+
+    &__image {
+      width: 20px;
+      height: 20px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    &__name {
+      margin-left: 8px;
+      font-size: 16px;
+    }
+  }
+
+
+  .mat-progress-spinner {
+    width: 23px !important;
+}
+
+  .logo-picker {
+    display: flex;
+    flex-grow: 0;
+    align-items: center;
+    height: 40px;
+
+    &__action {
+      display: flex;
+      justify-content: center;
+      font-size: $font-size-large-2;
+      cursor: pointer;
+    }
+
+    .hidden {
+      width: 0;
+      height: 0;
+    }
+  }
+
+  .remove-button {
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 12px;
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    &__text {
+      font-size: $font-size-large-2;
+    }
+  }
+
+  .custom-spinner {
+    display: inline-block;
+  }
+
+  @media (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+    .business-logo-picker, .remove-button {
+      height: 44px;
+      align-items: center;
+    }
+    .logo-preview__image {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  
+}
+

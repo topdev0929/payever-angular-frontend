@@ -1,0 +1,45 @@
+<div class="rule-action-pipeline">
+  <div class="rule-action-pipeline__header">
+    <div class="rule-action-pipeline__header-container">
+      <div class="rule-action-pipeline__header-left">
+        <div class="rule-action-pipeline__header-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
+            <use [attr.xlink:href]="action.icon"></use>
+          </svg>
+        </div>
+        <span class="rule-action-pipeline__header-title">
+          {{action.title}}
+        </span>
+      </div>
+      <div *ngIf="!hideRemoveButton" (click)="removeAction()" class="rule-action-pipeline__header-close">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
+          <use xlink:href="#icon-chip-close"></use>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="rule-action-pipeline__body">
+    <ng-container [ngSwitch]="action.type">
+      <pe-rule-action-condition
+        *ngSwitchCase="ruleActionEnum.Condition"
+        [defaultData]="defaultData"
+        [showErrors]="showErrors"
+      ></pe-rule-action-condition>
+      <pe-rule-action-move
+        *ngSwitchCase="ruleActionEnum.Move"
+        [defaultData]="defaultData"
+        [showErrors]="showErrors"
+      ></pe-rule-action-move>
+      <pe-rule-action-copy
+        *ngSwitchCase="ruleActionEnum.Copy"
+        [defaultData]="defaultData"
+        [showErrors]="showErrors"
+      ></pe-rule-action-copy>
+      <pe-rule-action-email
+        *ngSwitchCase="ruleActionEnum.Mail"
+        [defaultData]="defaultData"
+        [showErrors]="showErrors"
+      ></pe-rule-action-email>
+    </ng-container>
+  </div>
+</div>

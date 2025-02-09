@@ -1,0 +1,123 @@
+@import '../../../../styles/src/lib/styles/_sidebars.scss';
+
+.font-row {
+  display: flex;
+  width: 100%;
+  margin: 5px 0 0 0;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 5px;
+
+  &__control {
+    width: 100%;
+
+    &--right {
+      margin-left: 10px;
+    }
+
+    &--picker {
+      margin-left: auto;
+    }
+  }
+}
+
+.inline-controls {
+  display: flex;
+  border-radius: 3px;
+  overflow: hidden;
+
+  &__control {
+    display: flex;
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.font-header {
+  display: flex;
+  height: 20px;
+  justify-content: space-between;
+
+  span {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+  }
+
+  peb-select {
+    background: rgba(0, 0, 0, 0);
+    max-width: max-content;
+
+    ::ng-deep span {
+      color: #0371e2;
+      text-align: right;
+    }
+  }
+}
+
+.font-body {
+  display: grid;
+  grid-column-gap: 6px;
+  grid-template-columns: auto 62px;
+}
+
+.toggle-group {
+  display: grid;
+  grid-column-gap: 1px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  border-radius: 6px;
+  overflow: hidden;
+  width: 100%;
+
+  &.vertical-align {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  font-size: 0;
+}
+
+.align-header {
+  margin-top: 18px;
+
+  span {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+  }
+}
+
+.align-body + .align-header {
+  padding-top: 40px;
+}
+
+.font-style-icon {
+  width: 13px;
+  height: 13px;
+  font-size: 0;
+}
+
+.line-height-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+}
+
+.auto-width {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 0;
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+  height: auto;
+  padding: 8px 18px;
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  text-align: center;
+  color: #ffffff;
+  width: 100%;
+  margin-bottom: 0px;
+}

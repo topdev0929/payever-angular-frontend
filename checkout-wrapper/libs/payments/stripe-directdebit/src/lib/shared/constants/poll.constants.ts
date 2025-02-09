@@ -1,0 +1,2 @@
+export const CHECK_FLOW_REQUEST_DELAY = 5000;
+export const CHECK_FLOW_REQUEST_COUNT = 12;

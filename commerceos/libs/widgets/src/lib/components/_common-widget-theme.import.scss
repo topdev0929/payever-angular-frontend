@@ -1,0 +1,29 @@
+@use 'pe_theming' as pet;
+@use './appointment-table/appointment-table-theme.component' as appointment_table;
+@use './avatars/avatars-theme.component' as avatars;
+@use './button/button-theme.component' as button;
+@use './column/column-theme.component' as column;
+@use './contacts-table/contacts-table-theme.component' as contacts_table;
+@use './coupon-code/coupon-code-theme.component' as coupon_code;
+@use './icons/icons-theme.component' as icons;
+@use './image-table/image-table-theme.component' as image_table;
+@use './social-table/social-table-theme.component' as social_table;
+@use './start/start-theme.component' as start;
+@use './table/table-theme.component' as table;
+@use './widget/widget-theme.component' as widget;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include appointment_table.color($color-config);
+  @include avatars.color($color-config);
+  @include button.color($color-config);
+  @include column.color($color-config);
+  @include contacts_table.color($color-config);
+  @include coupon_code.color($color-config);
+  @include icons.color($color-config);
+  @include image_table.color($color-config);
+  @include social_table.color($color-config);
+  @include table.color($color-config);
+  @include start.color($color-config);
+  @include widget.color($color-config);
+}

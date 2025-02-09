@@ -1,0 +1,101 @@
+@import '../../../../../../../../shared/styles/assets/ui-kit-styles/pe_variables.scss';
+
+:host {
+  .steps-header-container {
+    padding-bottom: 36px;
+  }
+
+  .icons-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .step-icon {
+    background-color: $color-gray-4;
+    color: $color-white-pe;
+
+    &.active {
+      background-color: $color-grey-dark;
+
+      .step-label {
+        color: $color-grey-dark;
+      }
+    }
+
+    .step-number {
+      height: 24px;
+      width: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bolder;
+    }
+
+    border-radius: 50%;
+    position: relative;
+
+    .step-label {
+      color: $color-gray-4;
+      position: absolute;
+      top: 28px;
+      left: 0;
+      right: 0;
+      white-space: nowrap;
+      display: flex;
+      justify-content: center;
+      font-weight: bold;
+
+      &.last {
+        justify-content: end;
+      }
+
+      &.first {
+        justify-content: start;
+      }
+    }
+  }
+
+  .steps-header-spacer {
+    flex: auto;
+    min-width: 32px;
+    height: 0;
+    border-top: 1px solid $color-grey-dark;
+    margin: 0 10px;
+    position: relative;
+    $dot-size: 6px;
+
+    &::after,
+    &::before {
+      display: block;
+      content: '';
+      width: $dot-size;
+      height: $dot-size;
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid $color-grey-dark;
+      top: -$dot-size/2;
+    }
+
+    &::before {
+      left: -$dot-size;
+    }
+
+    &::after {
+      right: -$dot-size;
+    }
+
+    &.active {
+      &::before {
+        background-color: $color-grey-dark;
+        border: none;
+      }
+    }
+
+    &.next-step-active {
+      &::after {
+        background-color: $color-grey-dark;
+        border: none;
+      }
+    }
+  }
+}

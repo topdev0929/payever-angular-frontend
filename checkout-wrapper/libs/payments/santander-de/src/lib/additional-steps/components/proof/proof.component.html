@@ -1,0 +1,60 @@
+<div *ngIf="{ 
+  isUploading: isUploading$ | async,
+  asyncTranslations: AsyncTranslations$ | async
+ } as vm">
+  <div class="top-text-1">
+    <p>
+      <svg class="icon icon-64 text-primary">
+        <use xlink:href="#icon-progress-94"></use>
+      </svg>
+    </p>
+    <p class="dark-text h2">{{translations.headerCardTitle}}</p>
+    <p class="caption-1">{{translations.headerCardSubtitle}}</p>
+  </div>
+  <div class="top-text-2">
+    <p class="dark-text large-1">{{translations.descriptionCardTitle}}</p>
+    <p class="subtitle">{{vm.asyncTranslations.descriptionCardSubtitle}}</p>
+  </div>
+
+  <div class="action-wrapper">
+    <div
+      class="action-card"
+      (click)="onClicked()">
+      <p class="large-3">
+        {{translations.uploadActionTitle}}
+      </p>
+      <p *ngIf="!vm.isUploading">
+        <svg class="icon icon-64 text-primary">
+          <use xlink:href="#icon-upload-documents-28"></use>
+        </svg>
+      </p>
+      <div
+        class="uploading-spinner"
+        *ngIf="vm.isUploading">
+        <mat-progress-spinner
+          matSuffix
+          strokeWidth="2"
+          diameter="26"
+          mode="indeterminate">
+        </mat-progress-spinner>
+      </div>
+      <p class="subtitle">
+        {{translations.uploadActionSubtitle}}
+      </p>
+    </div>
+  </div>
+
+  <div class="skip-button">
+    <a (click)="skip()"
+      i18n="@@santander-de.inquiry.additionalSteps.proof.skip.action"> Skip> </a>
+    <p>{{translations.skipText}}</p>
+  </div>
+</div>
+
+<ng-template #modalContentTemplate>
+  <santander-de-upload-documents 
+    [title]="translations.uploadDialog.title" 
+    [subtitle]="translations.uploadDialog.subtitle" 
+    [docsText]="docsText$ | async"
+  />
+</ng-template>

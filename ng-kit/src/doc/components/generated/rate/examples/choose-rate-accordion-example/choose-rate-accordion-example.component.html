@@ -1,0 +1,17 @@
+<p>duration of selected rate: {{ currentRate?.duration }}</p>
+<p>rate scroll offset: {{ scroll }}</p>
+<pe-choose-rate-accordion [initialRateId]="uploadedRates[0].id"
+                          [isLoading]="isLoading"
+                          [rates]="uploadedRates"
+                          (rateSelected)="onRateSelected($event)"
+                          (panelOpened)="onPanelOpened($event)"
+>
+  <div style="padding: 20px">
+    <p>bank_interest of selected rate: {{ currentRate?.bank_interest }}</p>
+    <p>interest_rate of selected rate: {{ currentRate?.interest_rate }}</p>
+    <p>monthly_rate of selected rate: {{ currentRate?.monthly_rate }}</p>
+  </div>
+</pe-choose-rate-accordion>
+<hr>
+<button (click)="toggleLoading()" class="btn btn-default btn-lg">Toggle loading</button>
+<div style="min-height: 40px;"></div>

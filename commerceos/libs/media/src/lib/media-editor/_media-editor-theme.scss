@@ -1,0 +1,67 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $gray-button: map.get($color-config, gray-button);
+  $text-color: map.get($color-config, text-color);
+  $confirm: map.get($color-config, confirm);
+  $border: map.get($color-config, border);
+  $primary: map.get($color-config, primary);
+  $warn: map.get($color-config, warn);
+  $spinner-background: map.get($color-config, spinner-background);
+  $row-background: map.get($color-config, 'row-background');
+  $label-color: map.get($color-config, 'label-color');
+
+  pe-media-editor {
+    .media-editor {
+      &__add-image {
+        border: solid 0.8px $border;
+        svg > g {
+          opacity: 1;
+          g {
+            fill: $border;
+          }
+        }
+      }
+  
+      &__delete-image {
+        background-color: $row-background;
+        color: $text-color;
+      }
+  
+      &__image {
+        background-color: $primary;
+      }
+  
+      &__picture-wrapper {
+        background-image: linear-gradient(to bottom, #ededf4, #aeb0b7 98%);
+  
+        p {
+          color: $text-color;
+        }
+      }
+  
+      &__progress-percentage {
+        color: rgba(0, 0, 0, 0.2);
+      }
+  
+      &__progress-spinner {
+        stroke: $spinner-background;
+      }
+  
+      &__thumbnail-border {
+        &_active {
+          border: 2px solid $confirm;
+        }
+  
+        &_incorrect {
+          border: 2px solid $warn;
+        }
+      }
+    }
+    .pe-form-button.peb-base-button {
+      .peb-button-wrapper {
+        color: $confirm;
+      }
+    }
+  }
+}

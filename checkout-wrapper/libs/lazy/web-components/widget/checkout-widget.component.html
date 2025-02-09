@@ -1,0 +1,16 @@
+<widget-main-selector
+  *ngIf="paymentMethod"
+  [channelSet]="channelSet"
+  [type]="type"
+  [amount]="amount"
+  [isDebugMode]="isDebugMode"
+  [env]="env"
+  [config]="config"
+  [paymentMethod]="paymentMethod"
+  [cart]="cart"
+  [billingAddress]="billingAddress"
+  [shippingAddress]="shippingAddress"
+  [shippingOption]="shippingOption"
+  [theme]="theme"
+  (clicked)="clicked.emit($event)">
+</widget-main-selector>

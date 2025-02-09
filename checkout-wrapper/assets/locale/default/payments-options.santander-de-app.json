@@ -1,0 +1,1171 @@
+{
+  "santander-de": {
+    "actions": {
+      "apply": "Apply",
+      "continue": "Continue",
+      "close": "Close",
+      "change_payment_method": "Change payment method",
+      "send_inquiry": "Send finance inquiry",
+      "try_again": "Try again",
+      "update_rates": "Update rates",
+      "update_rates_to_continue": "Update rates to continue"
+    },
+    "credit_rates": {
+      "actions": {
+        "rate_choose_summary": "Choose {{total}}/mo. for {{duration}}",
+        "rate_choose_summary_finance_calc": "{{total}} for {{duration}}"
+      },
+      "error": {
+        "rate_not_selected": "Please select rate"
+      },
+      "rate_title": "{{ rate }}/mo. for {{ duration }} months",
+      "rate_line1": "Total credit {{ total }}",
+      "rate_param": {
+        "interest_rate": "Annual rate",
+        "total_amount": "Total amount",
+        "price": "Purchase price",
+        "rate_pa": "Borrowing rate",
+        "bank_interest": "Bank interest",
+        "cpi": "CPI"
+      },
+      "credit_due_date": "Charging",
+      "cpi": "CPI",
+      "duration": "Term",
+      "duration_value": "{{duration}} {{label}}",
+      "monthly_rate": "Monthly rate",
+      "initial_monthly_rate": "Initial monthly rate",
+      "total_amount": "Credit price",
+      "month": "month",
+      "months": "months"
+    },
+    "choose_payment": {
+      "employmentTypes": {
+        "4": "Employee",
+        "6": "Employee managing director",
+        "7": "Public employee service",
+        "8": "Workers",
+        "9": "Unemployed",
+        "10": "Permanent doctor",
+        "11": "Trainee",
+        "12": "Official",
+        "27": "Federal voluntary service",
+        "16": "Housewife/househusband",
+        "22": "Pensioner",
+        "23": "Retiree",
+        "24": "Pupil",
+        "5": "Soldier, Foreign Armed Forces",
+        "13": "Soldier, professional",
+        "30": "Soldier, time",
+        "28": "Student",
+        "self_employed": "Self employed"
+      },
+      "residentialTypes": {
+        "1": "for rent",
+        "10": "Property",
+        "12": "paid property",
+        "2": "with the parents"
+      },
+      "maritalStatuses": {
+        "15": "married",
+        "16": "single",
+        "17": "separated",
+        "18": "divorced",
+        "19": "widowed"
+      },
+      "identificationTypes": {
+        "0": "ID card",
+        "1": "passport"
+      }
+    },
+    "inquiry": {
+      "guarantorRelations":{
+        "equivalent_household": "Yes, same household",
+        "other_household": "Yes, other household",
+        "none": "No"
+      },
+      "protection": {
+        "footnote": "By choosing this option, your monthly installment payment will increase from {{previous_monthly_installments}} to {{new_monthly_installments}} (new credit amount {{new_amount}} instead of {{previous_amount}})."
+      },
+      "description": "Solvency assumed. Representative example according to § 6a Abs. 4 PAngV: Net loan amount of € 1.000,- , effective interest rate of 9,9 %; fixed borrowing rate 9,48 % p.a.; duration 12 month, 12 monthly rates at € 87,67 Grand total € 1.052,04. This is an offer of Santander Consumer Bank AG, Santander-Platz 1, 41061 Mönchengladbach.",
+      "down_payment": "Down payment",
+      "legal_text": "* First installment can differ. The total amount is {{total_amount}} containing the {{amount_contains}} and interests ({{bank_interest}}). The effective interest rate per year is {{interest_rate}} (borrowing rate p.a. {{rate_pa}}).",
+      "legal_text_value_cpi": "CPI ({{cpi_amount}})",
+      "legal_text_value_down_payment": "down payment ({{down_payment}})",
+      "legal_text_value_price": "purchase price ({{price}})",
+      "legal_value_price": "purchase price ({{price}})",
+      "legal_text_promo": {
+        "short": "Das Fortfahren der Kreditanfrage über diesen Punkt hinaus löst eine <a href='{{fileUrlPromo}}' target='_blank'>Datenübermittlung und Datenerfassung</a> zum Zwecke der Bonitätsprüfung (z.B. Schufa) aus.",
+        "tooltip": "Die Einwilligung in den Erhalt von Werbung bezieht sich auf werbliche Kommunikation der Santander Consumer Bank AG und der Santander Consumer Leasing GmbH für jeweils eigene sowie von diesen vermittelte Finanzprodukte (Konten-, Darlehens-, Karten- und Anlageprodukte) und von diesen vermittelte Versicherungsprodukte.<br>Sofern und soweit ich durch Auswahl eines oder mehrerer der nachfolgenden Kommunikationsmittel in den Erhalt von Werbung einwillige, entbinde ich die Santander Consumer Bank AG für die Weitergabe von Informationen an die Santander Leasing GmbH sowie an die von der Santander Consumer Bank AG für die Werbung eingesetzten Dienstleister außerdem vom Bankgeheimnis.<br>Betroffene Personen haben das Recht, von Ihnen erteilte Einwilligungen jederzeit vollständig oder teilweise zu widerrufen (Details hierzu siehe <a href='{{fileUrl}}' target='_blank'>Santander-Werbehinsweis</a> Ziffer II.)."
+      },
+      "legal_promo_conditions": {
+        "text": "Ich bin mit <a>werblicher Kommunikation</a> durch die Santander\nConsumer Bank AG und Santander Consumer Leasing\nGmbH und mit der damit einhergehenden Verarbeitung\npersonenbezogener Daten in dem in Ziffer 1 der <a href='{{fileUrlPromo}}' target='_blank'>Santander-\nWerbehinweise</a> geschilderten Umfang einverstanden. \nIch habe den <a href='{{fileUrlPrivacy}}' target='_blank'>Datenschutzhinweis</a> zur Kenntnis genommen.\n",
+        "more_info": {
+          "title": "Werblicher Kommunikation",
+          "text": "Die Einwilligung in den Erhalt von Werbung bezieht sich auf werbliche Kommunikation der Santander Consumer Bank AG und der Santander Consumer Leasing GmbH für jeweils eigene sowie von diesen vermittelte Finanzprodukte (Konten-, Darlehens-, Karten- und Anlageprodukte) und von diesen vermittelte Versicherungsprodukte.<br>Sofern und soweit ich durch Auswahl eines oder mehrerer der nachfolgenden Kommunikationsmittel in den Erhalt von Werbung einwillige, entbinde ich die Santander Consumer Bank AG für die Weitergabe von Informationen an die Santander Leasing GmbH sowie an die von der Santander Consumer Bank AG für die Werbung eingesetzten Dienstleister außerdem vom Bankgeheimnis.<br>Betroffene Personen haben das Recht, von Ihnen erteilte Einwilligungen jederzeit vollständig oder teilweise zu widerrufen (Details hierzu siehe <a href='{{fileUrl}}' target='_blank'>Santander-Werbehinsweis</a> Ziffer II.)."
+        }
+      },
+      "warning_credit_student_amount_limit_exceeded": "Please note that students can only finance up to {{ limit }}. Please add a downpayment to stay within this limit.",
+      "warning_credit_trainee_amount_limit_exceeded": "Please note that trainees can only finance up to {{ limit }}. Please add a downpayment to stay within this limit.",
+      "action": {
+        "add_down_payment": "Add down payment"
+      },
+      "product_specific_data_protection_info": "Find the product specific data protection information <a href='{{fileUrl}}' target='_blank'>here</a>",
+      "finish": {
+        "application_accepted_click_and_collect_false": {
+          "title": "Order confirmed. Thank you"
+        },
+        "application_in_process_click_and_collect_false": {
+          "title": "Loan temporarely approved"
+        },
+        "application_click_and_collect_true": {
+          "title": "Loan in decision",
+          "text": "You will get the credit decision via email. Inside service hours of Santander Consumer Bank you will receive a decision within minutes. Ourside service hours the decision can take up to 1 day.<br><br>Service hours are:<br>Mo - Fr 08:00 - 20:00<br>Sa 09:00 - 20:00"
+        },
+        "application_fail": {
+          "title": "Unfortunately, we can not provide you with a loan at this time. Please, select another payment method.",
+          "text": "Application failed"
+        },
+        "application_number": "Application number: {{ applicationNumber }}",
+        "finish_application": "Finish application",
+        "transaction_details": "See <a href='{{transactionLink}}' target='_blank'>transaction details</a> for missing steps of this application",
+        "application_success_click_and_collect_false": {
+          "timer": "We guide you back to the handler in {{timer}} seconds",
+          "description": "By clicking on {{buttonText}}, you will be redirected to the Santander Contract Center where you can download your credit agreement",
+          "text": "Your credit request no. {{applicationNumber}} was approved with reservation"
+        }
+      },
+      "sining-status": {
+        "headerCardTitle": {
+          "declined": "Please select another payment method",
+          "undecided": "Your loan request has been submitted"
+        },
+        "descriptionCardTitle": {
+          "undecided": "What's next?"
+        },
+        "descriptionCardSubtitle": {
+          "declined": "Unfortunately, based ib the automated verification process, no credit could currently be granted based ib the information you provided.",
+          "undecided": "As soon as a decition has been made, you will recive a link by email throught which you can sign your loan agreement. After you signed the application, the retailer will ship your goods."
+        },
+        "descriptionCardFootnote": {
+          "declined": "Thank you for your understanding!"
+        }
+      },
+      "additionalSteps": {
+        "creditCheck": {
+          "title": "Credit check"
+        },
+        "proof": {
+          "title": "Proof",
+          "headerCard": {
+            "title": "Good news:",
+            "subtitle": "Your loan application has been provisionally approved"
+          },
+          "descriptionCard": {
+            "title": "What's next?",
+            "subtitle": {
+              "group1Working": "In your application you stated that you are employed. Please upload evidence of the net income stated in the application here.",
+              "group2Retired": "In your application you stated that you are a pensioner. Please upload proof showing the amount of your monthly pension/pension (e.g. pension notice or bank statement).",
+              "group3NotWorking": "",
+              "group4Student": "In your application you stated that you are studying. Please upload proof of your studies (e.g. confirmation of enrollment)."
+            }
+          },
+          "actions": {
+            "upload": {
+              "title": "Document upload",
+              "subtitle": "You upload relevant evidence of your income as a PDF. or upload image file."
+            }
+          },
+          "uploadDocuments": {
+            "title": "Document upload",
+            "subtitle": "Please upload the fallowing documents:",
+            "docsText": {
+              "group1Working": "Proof of income about your income in the last 3 completed months <br> (e.g. payslips, notifications of benefits, bank statements)",
+              "group2Retired": "Proof of the amount of your monthly pension/pension <br> (e.g. pension notice or bank statement).",
+              "group3NotWorking": "",
+              "group4Student": "Current proof from your university/college about your studies <br> (e.g. confirmation of enrollment)"
+            }
+          },
+          "skip": {
+            "action": "Submit later",
+            "text": "Don't have time or don't have the necessary documents in hand? We will send you an email with a link to the Santander contract center where you can upload the evidence at any time."
+          }
+        },
+        "identification": {
+          "title": "Identification",
+          "headerCard": {
+            "title": "Good news:",
+            "subtitle": "Your loan request has been approved"
+          },
+          "descriptionCard": {
+            "title": "What's next?",
+            "subtitle": "in the next step, we must verify your identity. You can choose from different options for this."
+          },
+          "actions": {
+            "videoChat": {
+              "title": "Video-chat",
+              "headerSubtitle": "You will be redirected to our partner WebID and first take a photo of your idenification document and a profile photo of yourself. in the next step, log into your online banking and transfer the cymbolic amount of one cent. Finally, you sign your loan agreement digitally via SMS TAN",
+              "subtitle": "you transfer a symbolic amount of one cent via your online banking to prove your identity through your bank."
+            },
+            "kontoIdent": {
+              "title": "konto-Ident",
+              "headerSubtitle": "You will be redirected to our partner WebID and first take a photo of your idenification document and a profile photo of yourself. in the next step, log into your online banking and transfer the cymbolic amount of one cent. Finally, you sign your loan agreement digitally via SMS TAN",
+              "subtitle": "An emploee of our partner WebID will identify you via video chat (Mon-Fri 7:00 - 10:00)."
+            }
+          },
+          "confirmDialog": {
+            "confirm": "Continue to WebID",
+            "requirementsTitle": "Requirements:",
+            "requirements": {
+              "onlineBanking": "Online banking is activated for you",
+              "webcam": "Camera (Webcam on PC) is avalible",
+              "webcamAndMic": "Camera and mircrophone (Webcam on PC)",
+              "connection": "Stabel & fast internet connection",
+              "passport": "Valid passport or ID card"
+            }
+          },
+          "skip": {
+            "action": "Identify later",
+            "text": "We will be happy to send you an email with a link to the Santander contract center where you can initiate a video ident or download a Post-ident coupon."
+          }
+        },
+        "signature": {
+          "loading": {
+            "title": "Please wait a moment",
+            "subtitle": "We are about to receive your data from WebID, this may take a few seconds"
+          },
+          "title": "Signature",
+          "headerCard": {
+            "title": "Thank you!",
+            "subtitle": "Your loan application is complete"
+          },
+          "descriptionCard": {
+            "title": "What's next?",
+            "subtitle": "The bank will shortly send the retailer the final approvalof your loan, and reailer will ship the goods ypu orders. if contrary to expectaions, a query arises about your applicaion, the bank will contact you."
+          },
+          "action": {
+            "title": "Click the button below to return to the shop and complete your order.",
+            "button": "Complete the order in the shop"
+          }
+        }
+      },
+      "step": {
+        "rates": {
+          "title": "Payment method"
+        },
+        "customer_personal": {
+          "title": "Application details"
+        },
+        "bank": {
+          "title": "Bank account"
+        },
+        "income": {
+          "title": "Income"
+        },
+        "expenses": {
+          "title": "Expenditure"
+        },
+        "customer_income": {
+          "title": "Income & Expenditure"
+        },
+        "customer_employment": {
+          "title_employment": "Employment details",
+          "title_study": "Study details"
+        }
+      },
+      "form": {
+        "customer": {
+          "freelancer": {
+            "label": "Freelancer"
+          },
+          "addressCellPhone": {
+            "label": "Cell phone",
+            "placeholder": "Cell phone"
+          },
+          "typeOfIdentification": {
+            "label": "Type of identification",
+            "placeholder": "Type of identification"
+          },
+          "personalSalutation": {
+            "label": "Salutation",
+            "placeholder": "Salutation",
+            "value": {
+              "SALUTATION_MR": "Mr",
+              "SALUTATION_MRS": "Mrs"
+            }
+          },
+          "personalTitle": {
+            "label": "Title",
+            "placeholder": "Title"
+          },
+          "_firstName": {
+            "label": "First name",
+            "placeholder": "First name"
+          },
+          "_lastName": {
+            "label": "Last name",
+            "placeholder": "Last name"
+          },
+          "personalBirthName": {
+            "label": "Birth name",
+            "placeholder": "Birth name"
+          },
+          "addressLandlinePhone": {
+            "label": "Phone",
+            "placeholder": "Phone"
+          },
+          "addressResidentSince": {
+            "label": "Address residence since",
+            "placeholder": "Address residence since"
+          },
+          "employedSince": {
+            "label": "Employed since",
+            "placeholder": "Employed since"
+          },
+          "employedUntil": {
+            "label": "Employed until",
+            "placeholder": "Employed until"
+          },
+          "employer": {
+            "label": "Employer",
+            "placeholder": "Employer"
+          },
+          "schoolOrUniversity": {
+            "label": "School / University",
+            "placeholder": "School / University"
+          },
+          "studySince": {
+            "label": "Study start",
+            "placeholder": "Study start"
+          },
+          "employment": {
+            "label": "Employment",
+            "placeholder": "Employment"
+          },
+          "employmentLimited": {
+            "label": "Employment limited",
+            "placeholder": "Employment limited"
+          },
+          "freelancerCompanyName": {
+            "label": "Freelancer company name",
+            "placeholder": "Freelancer company name"
+          },
+          "freelancerEmployedSince": {
+            "label": "Freelancer since",
+            "placeholder": "Freelancer since"
+          },
+          "selfEmployedEmployedSince": "Self employed since",
+          "selfEmployedCompanyName" : "Company name",
+          "freelancerIndustry": {
+            "label": "Freelancer industry",
+            "placeholder": "Freelancer industry"
+          },
+          "housingCosts": {
+            "label": "Housing costs",
+            "placeholder": "Housing costs"
+          },
+          "identificationDateOfExpiry": {
+            "label": "Date of expiry",
+            "placeholder": "Date of expiry"
+          },
+          "identificationDateOfIssue": {
+            "label": "Date of issue",
+            "placeholder": "Date of issue"
+          },
+          "identificationNumber": {
+            "label": "ID number",
+            "placeholder": "ID number"
+          },
+          "identificationPlaceOfIssue": {
+            "label": "Place of issue",
+            "placeholder": "Place of issue"
+          },
+          "housingCostsAdditional": {
+            "label": "Monthly additional costs",
+            "placeholder": "Monthly additional costs"
+          },
+          "housingCostsMortgage": {
+            "label": "Monthly mortgage",
+            "placeholder": "Monthly mortgage"
+          },
+          "housingCostsRent": {
+            "label": "Monthly rent",
+            "placeholder": "Monthly rent"
+          },
+          "monthlyMaintenancePayments": {
+            "label": "Monthly maintenance payments",
+            "placeholder": "Monthly maintenance payments"
+          },
+          "netIncome": {
+            "label": "Monthly salary",
+            "placeholder": "Monthly salary",
+            "too_small_warning": "Attention! Please provide additional information on the other types of income listed."
+          },
+          "netIncomePartner": {
+            "label": "Partner income",
+            "placeholder": "Partner income"
+          },
+          "otherIncome": {
+            "label": "Other income",
+            "placeholder": "Other income"
+          },
+          "personalDateOfBirth": {
+            "label": "Date of birth",
+            "placeholder": "Date of birth"
+          },
+          "personalMaritalStatus": {
+            "label": "Marital status",
+            "placeholder": "Marital status"
+          },
+          "personalNationality": {
+            "label": "Nationality",
+            "placeholder": "Nationality"
+          },
+          "personalOtherNationality": {
+            "label": "Other nationality",
+            "placeholder": "Other nationality"
+          },
+          "personalPlaceOfBirth": {
+            "label": "Place of birth",
+            "placeholder": "Place of birth"
+          },
+          "personalResidencePermit": {
+            "label": "Residence permit",
+            "placeholder": "Residence permit",
+            "tooltip": "Please select if you need or have a residence permit.",
+            "unckeched_warning": "The bank does not grant individual loans unless a valid residence permit is available."
+          },
+          "_prevAddressLine": {
+            "label": "Previous address",
+            "placeholder": "Previous address"
+          },
+          "prevAddressCity": {
+            "label": "Previous address city",
+            "placeholder": "Previous address city"
+          },
+          "prevAddressResidentSince": {
+            "label": "Previous address resident since",
+            "placeholder": "Previous address resident since"
+          },
+          "prevAddressCountry": {
+            "label": "Previous address country",
+            "placeholder": "Previous address country"
+          },
+          "prevAddressStreetNumber": {
+            "label": "Previous address street number",
+            "placeholder": "Previous address street number"
+          },
+          "prevAddressStreet": {
+            "label": "Previous address street",
+            "placeholder": "Previous address street"
+          },
+          "prevAddressZip": {
+            "label": "Previous address zip-code",
+            "placeholder": "Previous address zip-code"
+          },
+          "prevEmployer": {
+            "label": "Previous employer",
+            "placeholder": "Previous employer"
+          },
+          "prevEmployedSince": {
+            "label": "Previously employed since",
+            "placeholder": "Previously employed since"
+          },
+          "rentalIncome": {
+            "label": "Rental income",
+            "placeholder": "Rental income"
+          },
+          "incomeResidence": {
+            "label": "Select residence type",
+            "placeholder": "Select residence type"
+          },
+          "sortOfIncome": {
+            "label": "Sort of income",
+            "placeholder": "Sort of income"
+          },
+          "guarantorRelation": {
+            "label": "Type of guarantor relation",
+            "recommended": "Second applicant is recommended"
+          }
+        },
+        "_agreement_for_data_processing_and_transfer": {
+          "label": "Einverständnis zur Datenverarbeitung und -weitergabe (Sorgenfrei-Paket)",
+          "tooltip": "Ich bestätige, dass der Kunde in die Erhebung, Speicherung und Verwendung <a href='{{fileUrl}}' target='_blank'>personenbezogener Daten</a> für das Sorgenfrei-Paket durch Santander Consumer Bank AG sowie die Versicherer CNP Santander Insurance Life DAC und/oder CNP Santander Insurance Europe DAC  einwilligt und zudem mit der Datenweitergabe an aufgabenausführende Stellen sowie selbstständige Vermittler und Rückversicherer einverstanden ist. Darüber hinaus wird hiermit bestätigt, dass der Kunde mit der Entbindung der Schweigepflicht einverstanden ist."
+        },
+        "allow_data_processing_and_transfer_full": "Hiermit willige ich in der Erhebung, Speicherung und Verwendung <a href='{{fileUrl}}' target='_blank'>personenbezogener Daten</a> für das Sorgenfrei-Paket durch Santander Consumer Bank AG sowie die Versicherer CNP Santander Insurance Life DAC und/oder CNP Santander Insurance Europe DAC ein und bin zudem mit der Datenweitergabe an aufgabenausführende Stellen sowie selbstständige Vermittler und Rückversicherer einverstanden. Darüber hinaus bestätige ich hiermit, dass ich mit der Entbindung der Schweigepflicht einverstanden bin.",
+        "allow_promo_email": {
+          "label": "E-Mail"
+        },
+        "allow_promo_phone": {
+          "label": "Phone"
+        },
+        "allow_promo_letter": {
+          "label": "Mail"
+        },
+        "allow_promo_others": {
+          "label": "SMS and Apps"
+        },
+        "bank_b_i_c": {
+          "label": "BIC",
+          "placeholder": "BIC"
+        },
+        "bank_i_b_a_n": {
+          "label": "IBAN",
+          "placeholder": "IBAN"
+        },
+        "bank_account_bank_name": {
+          "label": "Name of the bank",
+          "placeholder": "Name of the bank"
+        },
+        "credit_due_date": {
+          "value": {
+            "1": "1st of each month",
+            "15": "15th of each month"
+          },
+          "label": "Due date",
+          "placeholder": "Due date"
+        },
+        "credit_protection_insurance": {
+          "label": "Ich möchte das <a>Sorgenfrei-Paket</a> (optional).",
+          "cpi": {
+            "title": "Sorgenfrei-Paket",
+            "text": "Das Sorgenfrei Paket ist nicht Voraussetzung für die Gewährung des Darlehens, bietet Ihnen und Ihrer Familie jedoch im Falle des Todes (und ggf. der Arbeitslosigkeit) ein hohes Maß an Sicherheit vor unvorhergesehenen finanziellen Belastungen.\n<br>\nSollten Sie keine weitere Absicherung haben und auch keine Absicherung wünschen, tragen Sie bei Eintreten unvorhergesehener Ereignisse alle Kosten selber.\n<br>\nBei Rückfragen wenden Sie sich gerne unter 02161 690-7680 an uns."
+          }
+        },
+        "credit_accepts_requests_to_credit_agencies": {
+          "label": "I give my consent to obtain information from credit bureau services, especially <a href='{{fileUrl}}' target='_blank'>Schufa</a>"
+        },
+        "_down_payment_view": {
+          "label": "Down payment",
+          "placeholder": "Down payment"
+        }
+      }
+    }
+  },
+  "santander-de-pos": {
+    "actions": {
+      "apply": "Apply",
+      "continue": "Continue",
+      "close": "Close",
+      "cancel": "Cancel",
+      "change_payment_method": "Change payment method",
+      "send_inquiry": "Send finance inquiry",
+      "try_again": "Try again",
+      "update_rates": "Update rates",
+      "update_rates_to_continue": "Update rates to continue"
+    },
+    "credit_rates": {
+      "actions": {
+        "continue": "Continue",
+        "create_your_rate": "Create your rate",
+        "edit_your_rate": "Edit your rate",
+        "rate_choose_summary": "Choose {{total}} for {{duration}}",
+        "rate_choose_summary_finance_calc": "{{total}} for {{duration}}"
+      },
+      "error": {
+        "rate_not_selected": "Please select rate"
+      },
+      "rate_title": "{{ rate }}/mo. for {{ duration }} months",
+      "rate_line1": "Total credit {{ total }}",
+      "rate_param": {
+        "interest_rate": "Annual rate",
+        "total_amount": "Total amount",
+        "loan_amount": "Net loan amount",
+        "first_instalment": "First instalment",
+        "price": "Purchase price",
+        "rate_pa": "Borrowing rate",
+        "bank_interest": "Bank interest",
+        "cpi": "CPI"
+      },
+      "single_ccp_rate": {
+        "title": "Initial minimum rate {{rate}}",
+        "description": "The first {{months}} months are interest-free"
+      },
+      "custom_rate": {
+        "form": {
+          "duration": {
+            "label": "Months",
+            "placeholder": "Type months"
+          },
+          "installment": {
+            "label": "Fee",
+            "placeholder": "Type fee"
+          }
+        }
+      },
+      "credit_due_date": "Charging",
+      "cpi": "CPI",
+      "duration": "Term",
+      "duration_value": "{{duration}} {{label}}",
+      "initial_monthly_rate": "Initial monthly rate",
+      "monthly_rate": "Monthly rate",
+      "total_amount": "Credit price",
+      "month": "month",
+      "months": "months"
+    },
+    "inquiry": {
+      "legal_text_v2": "Last installment can differ. Solvency assumed. This is an offer of Santander Consumer Bank AG, Santander-Platz 1, 41061 Mönchengladbach. Representative 2/3 example according to § 6a Abs. 4 PAngV.",
+      "warning_credit_student_amount_limit_exceeded": "Please note that students can only finance up to {{ limit }}. Please add a downpayment to stay within this limit.",
+      "warning_credit_trainee_amount_limit_exceeded": "Please note that trainees can only finance up to {{ limit }}. Please add a downpayment to stay within this limit.",
+      "finish": {
+        "application_success": {
+          "title": "Loan temporarely approved"
+        },
+        "application_fail": {
+          "title": "Unfortunately, we can not provide you with a loan at this time. Please, select another payment method.",
+          "text": "Application failed"
+        },
+        "application_number": "Application number: {{ applicationNumber }}",
+        "application_number_label": "Application number",
+        "status_label": "Status",
+        "transaction_details": "See <a href='{{transactionLink}}' target='_blank'>transaction details</a> for missing steps of this application"
+      },
+      "step": {
+        "rates": {
+          "title": "Payment method"
+        },
+        "customer_personal": {
+          "title": "Application details"
+        },
+        "bank": {
+          "title": "Bank account"
+        },
+        "seller": {
+          "title": "Seller"
+        },
+        "customer_income": {
+          "title": "Income & Expenditure",
+          "button": "Continue - Incomings"
+        },
+        "customer_employment": {
+          "title_employment": "Employment details",
+          "title_study": "Study details"
+        },
+        "guarantor": {
+          "title": "Guarantor"
+        },
+        "guarantor_personal": {
+          "title": "Guarantor application details",
+          "button": "Continue - Guarantor"
+        },
+        "guarantor_income": {
+          "title": "Guarantor Income & Expenditure",
+          "button": "Continue - Guarantor incomings"
+        },
+        "guarantor_employment": {
+          "title_employment": "Guarantor Employment details",
+          "title_study": "Guarantor Study details"
+        }
+      },
+      "form": {
+        "customer": {
+          "freelancer": {
+            "label": "Freelancer"
+          },
+          "typeOfIdentification": {
+            "label": "Type of identification",
+            "placeholder": "Type of identification"
+          },
+          "personalSalutation": {
+            "label": "Salutation",
+            "placeholder": "Salutation",
+            "value": {
+              "SALUTATION_MR": "Mr",
+              "SALUTATION_MRS": "Mrs"
+            }
+          },
+          "personalTitle": {
+            "label": "Title",
+            "placeholder": "Title"
+          },
+          "_firstName": {
+            "label": "First name",
+            "placeholder": "First name"
+          },
+          "_lastName": {
+            "label": "Last name",
+            "placeholder": "Last name"
+          },
+          "personalBirthName": {
+            "label": "Birth name",
+            "placeholder": "Birth name"
+          },
+          "addressPhoneNumber": {
+            "label": "Phone",
+            "placeholder": "Phone"
+          },
+          "addressResidentSince": {
+            "label": "Address residence since",
+            "placeholder": "Address residence since"
+          },
+          "employedSince": {
+            "label": "Employed since",
+            "placeholder": "Employed since"
+          },
+          "employedUntil": {
+            "label": "Employed until",
+            "placeholder": "Employed until"
+          },
+          "employer": {
+            "label": "Employer",
+            "placeholder": "Employer"
+          },
+          "schoolOrUniversity": {
+            "label": "School / University",
+            "placeholder": "School / University"
+          },
+          "studySince": {
+            "label": "Study start",
+            "placeholder": "Study start"
+          },
+          "employment": {
+            "label": "Employment",
+            "placeholder": "Employment"
+          },
+          "employmentLimited": {
+            "label": "Employment limited",
+            "placeholder": "Employment limited"
+          },
+          "freelancerCompanyName": {
+            "label": "Freelancer company name",
+            "placeholder": "Freelancer company name"
+          },
+          "freelancerEmployedSince": {
+            "label": "Freelancer since",
+            "placeholder": "Freelancer since"
+          },
+          "freelancerIndustry": {
+            "label": "Freelancer industry",
+            "placeholder": "Freelancer industry"
+          },
+          "housingCosts": {
+            "label": "Housing costs",
+            "placeholder": "Housing costs"
+          },
+          "identificationDateOfExpiry": {
+            "label": "Date of expiry",
+            "placeholder": "Date of expiry"
+          },
+          "identificationDateOfIssue": {
+            "label": "Date of issue",
+            "placeholder": "Date of issue"
+          },
+          "identificationNumber": {
+            "label": "ID number",
+            "placeholder": "ID number"
+          },
+          "identificationPlaceOfIssue": {
+            "label": "Place of issue",
+            "placeholder": "Place of issue"
+          },
+          "housingCostsAdditional": {
+            "label": "Monthly additional costs",
+            "placeholder": "Monthly additional costs"
+          },
+          "housingCostsMortgage": {
+            "label": "Monthly mortgage",
+            "placeholder": "Monthly mortgage"
+          },
+          "housingCostsRent": {
+            "label": "Monthly rent",
+            "placeholder": "Monthly rent"
+          },
+          "monthlyMaintenancePayments": {
+            "label": "Monthly maintenance payments",
+            "placeholder": "Monthly maintenance payments"
+          },
+          "netIncome": {
+            "label": "Monthly salary",
+            "placeholder": "Monthly salary",
+            "too_small_warning": "Attention! Please provide additional information on the other types of income listed."
+          },
+          "netIncomePartner": {
+            "label": "Partner income",
+            "placeholder": "Partner income"
+          },
+          "otherIncome": {
+            "label": "Other income",
+            "placeholder": "Other income"
+          },
+          "personalDateOfBirth": {
+            "label": "Date of birth",
+            "placeholder": "Date of birth"
+          },
+          "personalMaritalStatus": {
+            "label": "Marital status",
+            "placeholder": "Marital status"
+          },
+          "personalNationality": {
+            "label": "Nationality",
+            "placeholder": "Nationality"
+          },
+          "personalOtherNationality": {
+            "label": "Other nationality",
+            "placeholder": "Other nationality"
+          },
+          "personalPlaceOfBirth": {
+            "label": "Place of birth",
+            "placeholder": "Place of birth"
+          },
+          "personalResidencePermit": {
+            "label": "Residence permit",
+            "placeholder": "Residence permit",
+            "tooltip": "Please select if you need or have a residence permit.",
+            "unckeched_warning": "The bank does not grant individual loans unless a valid residence permit is available."
+          },
+          "_prevAddressLine": {
+            "label": "Previous address",
+            "placeholder": "Previous address"
+          },
+          "prevAddressCity": {
+            "label": "Previous address city",
+            "placeholder": "Previous address city"
+          },
+          "prevAddressResidentSince": {
+            "label": "Previous address resident since",
+            "placeholder": "Previous address resident since"
+          },
+          "prevAddressStreetAndNumber": {
+            "label": "Previous address street and number",
+            "placeholder": "Previous address street and number"
+          },
+          "prevAddressZip": {
+            "label": "Previous address zip-code",
+            "placeholder": "Previous address zip-code"
+          },
+          "prevEmployer": {
+            "label": "Previous employer",
+            "placeholder": "Previous employer"
+          },
+          "prevEmployedSince": {
+            "label": "Previously employed since",
+            "placeholder": "Previously employed since"
+          },
+          "rentalIncome": {
+            "label": "Rental income",
+            "placeholder": "Rental income"
+          },
+          "incomeResidence": {
+            "label": "Select residence type",
+            "placeholder": "Select residence type"
+          },
+          "sortOfIncome": {
+            "label": "Sort of income",
+            "placeholder": "Sort of income"
+          },
+          "personalChildren": {
+            "label": "Number of children",
+            "placeholder": "Number of children"
+          }
+        },
+        "guarantor": {
+          "freelancer": {
+            "label": "Freelancer"
+          },
+          "addressEmail": {
+            "label": "Email",
+            "placeholder": "Email"
+          },
+          "typeOfIdentification": {
+            "label": "Type of identification",
+            "placeholder": "Type of identification"
+          },
+          "personalSalutation": {
+            "label": "Salutation",
+            "placeholder": "Salutation",
+            "value": {
+              "SALUTATION_MR": "Mr",
+              "SALUTATION_MRS": "Mrs"
+            }
+          },
+          "personalFirstName": {
+            "label": "First name",
+            "placeholder": "First name"
+          },
+          "personalLastName": {
+            "label": "Last name",
+            "placeholder": "Last name"
+          },
+          "personalTitle": {
+            "label": "Title",
+            "placeholder": "Title"
+          },
+          "personalBirthName": {
+            "label": "Birth name",
+            "placeholder": "Birth name"
+          },
+          "addressPhoneNumber": {
+            "label": "Phone",
+            "placeholder": "Phone"
+          },
+          "addressResidentSince": {
+            "label": "Address residence since",
+            "placeholder": "Address residence since"
+          },
+          "employedSince": {
+            "label": "Employed since",
+            "placeholder": "Employed since"
+          },
+          "employedUntil": {
+            "label": "Employed until",
+            "placeholder": "Employed until"
+          },
+          "employer": {
+            "label": "Employer",
+            "placeholder": "Employer"
+          },
+          "schoolOrUniversity": {
+            "label": "School / University",
+            "placeholder": "School / University"
+          },
+          "studySince": {
+            "label": "Study start",
+            "placeholder": "Study start"
+          },
+          "employment": {
+            "label": "Employment",
+            "placeholder": "Employment"
+          },
+          "employmentLimited": {
+            "label": "Employment limited",
+            "placeholder": "Employment limited"
+          },
+          "freelancerCompanyName": {
+            "label": "Freelancer company name",
+            "placeholder": "Freelancer company name"
+          },
+          "freelancerEmployedSince": {
+            "label": "Freelancer since",
+            "placeholder": "Freelancer since"
+          },
+          "freelancerIndustry": {
+            "label": "Freelancer industry",
+            "placeholder": "Freelancer industry"
+          },
+          "housingCosts": {
+            "label": "Housing costs",
+            "placeholder": "Housing costs"
+          },
+          "identificationDateOfExpiry": {
+            "label": "Date of expiry",
+            "placeholder": "Date of expiry"
+          },
+          "identificationDateOfIssue": {
+            "label": "Date of issue",
+            "placeholder": "Date of issue"
+          },
+          "identificationNumber": {
+            "label": "ID number",
+            "placeholder": "ID number"
+          },
+          "identificationPlaceOfIssue": {
+            "label": "Place of issue",
+            "placeholder": "Place of issue"
+          },
+          "housingCostsAdditional": {
+            "label": "Monthly additional costs",
+            "placeholder": "Monthly additional costs"
+          },
+          "housingCostsMortgage": {
+            "label": "Monthly mortgage",
+            "placeholder": "Monthly mortgage"
+          },
+          "housingCostsRent": {
+            "label": "Monthly rent",
+            "placeholder": "Monthly rent"
+          },
+          "monthlyMaintenancePayments": {
+            "label": "Monthly maintenance payments",
+            "placeholder": "Monthly maintenance payments"
+          },
+          "netIncome": {
+            "label": "Monthly salary",
+            "placeholder": "Monthly salary",
+            "too_small_warning": "Attention! Please provide additional information on the other types of income listed."
+          },
+          "netIncomePartner": {
+            "label": "Partner income",
+            "placeholder": "Partner income"
+          },
+          "otherIncome": {
+            "label": "Other income",
+            "placeholder": "Other income"
+          },
+          "personalDateOfBirth": {
+            "label": "Date of birth",
+            "placeholder": "Date of birth"
+          },
+          "personalMaritalStatus": {
+            "label": "Marital status",
+            "placeholder": "Marital status"
+          },
+          "personalNationality": {
+            "label": "Nationality",
+            "placeholder": "Nationality"
+          },
+          "personalOtherNationality": {
+            "label": "Other nationality",
+            "placeholder": "Other nationality"
+          },
+          "personalPlaceOfBirth": {
+            "label": "Place of birth",
+            "placeholder": "Place of birth"
+          },
+          "personalResidencePermit": {
+            "label": "Residence permit",
+            "placeholder": "Residence permit",
+            "tooltip": "Please select if you need or have a residence permit.",
+            "unckeched_warning": "The bank does not grant individual loans unless a valid residence permit is available."
+          },
+          "_addressLine": {
+            "label": "Address",
+            "placeholder": "Address"
+          },
+          "addressCity": {
+            "label": "Address city",
+            "placeholder": "Address city"
+          },
+          "addressCountry": {
+            "label": "Address country",
+            "placeholder": "Address country",
+            "errors": {
+              "country_not_allowed": "This country is not allowed"
+            }
+          },
+          "addressStreetAndNumber": {
+            "label": "Address street and number",
+            "placeholder": "Address street and number"
+          },
+          "addressZipCode": {
+            "label": "Address zip-code",
+            "placeholder": "Address zip-code"
+          },
+          "_prevAddressLine": {
+            "label": "Previous address",
+            "placeholder": "Previous address"
+          },
+          "prevAddressCity": {
+            "label": "Previous address city",
+            "placeholder": "Previous address city"
+          },
+          "prevAddressResidentSince": {
+            "label": "Previous address resident since",
+            "placeholder": "Previous address resident since"
+          },
+          "prevAddressStreetAndNumber": {
+            "label": "Previous address street and number",
+            "placeholder": "Previous address street and number"
+          },
+          "prevAddressZip": {
+            "label": "Previous address zip-code",
+            "placeholder": "Previous address zip-code"
+          },
+          "prevEmployer": {
+            "label": "Previous employer",
+            "placeholder": "Previous employer"
+          },
+          "prevEmployedSince": {
+            "label": "Previously employed since",
+            "placeholder": "Previously employed since"
+          },
+          "rentalIncome": {
+            "label": "Rental income",
+            "placeholder": "Rental income"
+          },
+          "incomeResidence": {
+            "label": "Select residence type",
+            "placeholder": "Select residence type"
+          },
+          "sortOfIncome": {
+            "label": "Sort of income",
+            "placeholder": "Sort of income"
+          },
+          "personalChildren": {
+            "label": "Number of children",
+            "placeholder": "Number of children"
+          }
+        },
+        "_agreement_for_data_processing_and_transfer": {
+          "label": "Einverständnis zur Datenverarbeitung und -weitergabe (Sorgenfrei-Paket)",
+          "tooltip": "Ich bestätige, dass der Kunde in die Erhebung, Speicherung und Verwendung <a href='{{fileUrl}}' target='_blank'>personenbezogener Daten</a> für das Sorgenfrei-Paket durch Santander Consumer Bank AG sowie die Versicherer CNP Santander Insurance Life DAC und/oder CNP Santander Insurance Europe DAC  einwilligt und zudem mit der Datenweitergabe an aufgabenausführende Stellen sowie selbstständige Vermittler und Rückversicherer einverstanden ist. Darüber hinaus wird hiermit bestätigt, dass der Kunde mit der Entbindung der Schweigepflicht einverstanden ist."
+        },
+        "_merchant_issued_data_privacy_info_to_customer": {
+          "label": "Ja, ich habe die <a target='_blank' href='{{fileUrl}}'>Hinweise zum Datenschutz</a> and den Kunden ausgehändigt."
+        },
+        "bank_b_i_c": {
+          "label": "BIC",
+          "placeholder": "BIC"
+        },
+        "bank_i_b_a_n": {
+          "label": "IBAN",
+          "placeholder": "IBAN"
+        },
+        "bank_account_bank_name": {
+          "label": "Name of the bank",
+          "placeholder": "Name of the bank"
+        },
+        "guarantor_relation": {
+          "label": "Guarantor",
+          "placeholder": "Guarantor",
+          "value": {
+            "1": "1st of each month",
+            "15": "15th of each month"
+          }
+        },
+        "seller_name": {
+          "label": "Seller name",
+          "placeholder": "Seller name"
+        },
+        "note": {
+          "label_short": "About customer",
+          "label": "Special comments about customer",
+          "placeholder": "Special comments about customer"
+        },
+        "condition": {
+          "label": "Condition",
+          "placeholder": "Condition"
+        },
+        "commodity_group": {
+          "label": "Commodity group",
+          "placeholder": "Commodity group"
+        },
+        "legal_own_account": {
+          "label": "Darlehensnehmer 1 bzw. <strong>Darlehensnehmer 1</strong> und 2 handelt/handeln auf eigene Rechnung",
+          "placeholder": "Darlehensnehmer 1 bzw. <strong>Darlehensnehmer 1</strong> und 2 handelt/handeln auf eigene Rechnung"
+        },
+        "week_of_delivery": {
+          "label": "Select week",
+          "placeholder": "Select week"
+        },
+        "week_of_delivery_type_view": {
+          "label": "Week of delivery",
+          "placeholder": "Week of delivery",
+          "value": {
+            "CURRENT": "This week",
+            "NEXT": "Next week",
+            "CUSTOM": "Other week"
+          }
+        },
+        "credit_due_date": {
+          "value": {
+            "1": "1st of each month",
+            "15": "15th of each month"
+          },
+          "label": "Due date",
+          "placeholder": "Due date"
+        },
+        "credit_protection_insurance": {
+          "label": "Accept CPI (Credit Protection Insurance)",
+          "tooltip": "Our Carefree Package provides you and your family a high guaranty rate of unexpected financial costs"
+        },
+        "credit_accepts_requests_to_credit_agencies": {
+          "label": "Einverständnis Datenübermittlung und Datenerfassung z.B. SCHUFA",
+          "tooltip": "Ich habe den Kunden informiert, dass im Rahmen der Antragsprüfung durch die Santander Consumer Bank AG Auskünfte bei der <a href='https://payever.de/schufa/' target='_blank'>Schufa</a> Holding AG (und ggf. weiteren Kreditauskunfteien wie Infoscore Consumer Data GmbH und DeltaVista GmbH) eingeholt werden. Der Kunde ist damit einverstanden."
+        },
+        "_down_payment_view": {
+          "label": "Down payment",
+          "placeholder": "Down payment"
+        }
+      }
+    }
+  }
+}

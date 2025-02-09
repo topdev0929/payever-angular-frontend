@@ -1,0 +1,19 @@
+@import "../../../../../../../../shared/styles/assets/imports";
+
+.form-design {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .payment-option-icon {
+    order: 2;
+    position: relative;
+    padding-right: 0;
+    right: 0;
+  }
+
+  .payment-title {
+    color: $color-grey-2;
+    margin-bottom: 0;
+  }
+}

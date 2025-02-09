@@ -1,0 +1,98 @@
+{
+  "form": {
+    "contentType": "accordion",
+    "title": "Stripe",
+    "type": "info-box",
+    "content": {
+      "accordion": [
+        {
+          "title": "Options",
+          "fieldset": [
+            {
+              "type": "checkbox",
+              "name": "merchantCoversFee",
+              "fieldSettings": {
+                "classList": "col-xs-12",
+                "required": false
+              },
+              "inputSettings": {
+                "placeholder": "Merchant covers fee"
+              }
+            },
+            {
+              "type": "checkbox",
+              "name": "delayedPayments",
+              "fieldSettings": {
+                "classList": "col-xs-12",
+                "required": false
+              },
+              "inputSettings": {
+                "placeholder": "Capture transaction manually"
+              }
+            },
+            {
+              "type": "input",
+              "name": "statementDescriptor",
+              "fieldSettings": {
+                "classList": "col-xs-12",
+                "required": false
+              },
+              "inputSettings": {
+                "placeholder": "Credit card statement descriptor (optional)"
+              }
+            }
+          ],
+          "fieldsetData": {
+            "statementDescriptor": "",
+            "delayedPayments": false,
+            "merchantCoversFee": true
+          },
+          "operation": {
+            "action": "payment-form-save",
+            "operationType": "action",
+            "text": "Save",
+            "classes": "text-grey",
+            "isSubmit": true
+          },
+          "icon": "#icon-options-key"
+        },
+        {
+          "title": "Authentication",
+          "data": {
+          },
+          "operation": {
+            "forceUrl": "https://connect.stripe.com/oauth/authorize?client_id=sfdsfdsfds&redirect_uri=https%3A%2F%2Fstripe-payments.test.devpayever.com%2Fapi%2Fcallback%2Fconnect%2F6a19ad8b-b8ba-4f1b-a21a-16976b909fc1&response_type=code&scope=read_write&state={redirectUrl}",
+            "open": "self",
+            "text": "Connect",
+            "classes": "text-grey"
+          },
+          "icon": "#icon-authentication-key"
+        },
+        {
+          "title": "Authentication popup",
+          "data": {
+          },
+          "operation": {
+            "forceUrl": "http://localhost:8080/ng-kit#/components/third-party-generator",
+            "open": "popup",
+            "text": "Connect",
+            "classes": "text-grey",
+            "width": 800,
+            "height": 600,
+            "refreshOperation": {
+              "action": "update",
+              "operationType": "action",
+              "text": "Save",
+              "classes": "text-grey",
+              "isSubmit": true
+            }
+          },
+          "icon": "#icon-authentication-key"
+        }
+      ]
+    },
+    "actionContext": {
+      "id": "b231c27d-cd20-4f4c-b8f8-61d91aabe241"
+    }
+  }
+}

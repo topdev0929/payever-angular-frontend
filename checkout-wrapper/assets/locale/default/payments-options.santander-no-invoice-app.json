@@ -1,0 +1,104 @@
+{
+  "santander-no-invoice": {
+    "action": {
+      "buy_now_for_total": "Buy now for {{ total }}"
+    },
+    "boolean": {
+      "yes": "Ja",
+      "no": "Nei"
+    },
+    "inquiry": {
+      "finish": {
+        "application_success": {
+          "title": "Order confirmed. Thank you."
+        },
+        "application_pending": {
+          "title": "Your application has been sent to Santander Consumer Bank"
+        },
+        "application_fail": {
+          "title": "Unfortunately, we can not provide you with a loan at this time."
+        }
+      },
+      "form": {
+        "aml": {
+          "title": "Permanent employee",
+          "pay_source":{
+            "SALARY": "Lønn",
+            "PROFIT_FROM_SALE_OF_REAL_ESTATE": "Gain from sale of movable assets (car, boat, etc.)",
+            "INHERITANCE_GIFTS": "Inheritance/gifts",
+            "LOTTERY_GAMBLING": "Winnings from betting/lottery",
+            "PENSION": "Pension",
+            "DIVIDEND_OR_SIMILAR_YIELD_FROM_COMMERCIAL_ACTIVITY": "Dividends or similar gains from commercial activity",
+            "COMPENSATION": "Compensation (insurance, restitution, etc.)",
+            "INCOME_FROM_COMMERCIAL_ACTIVTY": "Income from commercial activities including rental income",
+            "PROFIT_FROM_MOVABLES": "Gain from sale of movable assets (car, boat, etc.)",
+            "SAVINGS": "Saved funds",
+            "YIELD_FROM_INVESTMENTS": "Dividends from investments",
+            "OTHER": "Other",
+            "SOCIAL_BENEFITS": "Public benefits/ social security",
+            "EDUCATIONAL_SUPPORT": "Student loans/scholarships"
+          },
+          "professional_status" : {
+            "EMPLOYED": "Permanent employee",
+            "ARBEID_MONEY": "Work settlement allowance",
+            "TEMPORARY_POSITION": "Temporary employment",
+            "SELF_EMPLOYED": "Self-employed",
+            "RETIRED": "Pensioner / Disabled",
+            "OTHER": "Other",
+            "UNEMPLOYED": "Unemployed"
+          }
+        },
+        "advertising_accepted": {
+          "details": {
+            "title": "Advertising accepted",
+            "text": "Advertising has been accepted"
+          }
+        },
+        "social_security_number": {
+          "label": "Social security number",
+          "placeholder": "Social security number"
+        },
+        "registered_post_number": {
+          "label": "Registered post number",
+          "placeholder": "Registered post number",
+          "errors": {
+            "invalid_value": "Invalid zip code"
+          }
+        },
+        "telephone_mobile": {
+          "label": "Telephone mobile",
+          "placeholder": "Telephone mobile"
+        },
+        "political_exposed_person": {
+          "label": "Political exposed person",
+          "placeholder": "Political exposed person",
+          "tooltip": "Choose yes if you or someone in your immediate family is a politically exposed person.<br>This includes:<br>- State head, Prime Minister / head of state, Minister, Deputy Minister / Deputy Minister<br>- Member of National Assembly<br>- Member of the Supreme Court<br>- Member of higher court statements who make decisions that can only be appealed exceptionally<br>- Member of the Board of Auditors, Court of Auditors<br>- Member of the central bank, Ambassador, Charge d`affaires<br>- Member of administrative, management or controlling body of a state-owned enterprise<br>- Higher ranking military officer<br>- Function in the management of an international organization"
+        },
+        "applied_on_behalf_of_others": {
+          "label": "Applied on behalf of others",
+          "placeholder": "Applied on behalf of others",
+          "tooltip": "Choose \"yes\" if you apply on behalf of someone else."
+        },
+
+        "pay_source": {
+          "label": "Specify How you plan to repay",
+          "placeholder": "Specify How you plan to repay",
+          "tooltip": "Specify How you plan to repay"
+        },
+        "pay_with_main_income": {
+          "label": "Do you want to repay the credit with ordinary salary or social security?",
+          "placeholder": "Do you want to repay the credit with ordinary salary or social security?"
+        },
+        "other_pay_source": {
+          "label": "Please elaborate on your answer",
+          "placeholder": "Please elaborate on your answer"
+        },
+        "professional_status": {
+          "label": "Choose employment or social security",
+          "placeholder": "Choose employment or social security",
+          "tooltip": "Choose employment or social security"
+        }
+      }
+    }
+  }
+}

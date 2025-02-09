@@ -1,0 +1,44 @@
+.rule-action-pipeline {
+  border-radius: 12px;
+  min-width: 200px;
+  overflow: hidden;
+  margin-bottom: 8px;
+
+  &__header,
+  &__body {
+    .block {
+      margin-bottom: 1px;
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    height: 44px;
+    margin-bottom: 1px;
+
+    &-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      align-self: center;
+      width: 100%;
+      padding: 0 10px;
+    }
+
+    &-left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    &-close,
+    &-icon {
+      margin-top: 4px;
+    }
+
+    &-close {
+      cursor: pointer;
+    }
+  }
+}

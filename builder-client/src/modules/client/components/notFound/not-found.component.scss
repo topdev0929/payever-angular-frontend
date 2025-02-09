@@ -1,0 +1,67 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+.not-found-container {
+  @include pe_flex-direction(column);
+  @include pe_flexbox;
+  @include pe_justify-content(center);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.http-error {
+  font-family: $font-family-base;
+  color: black;
+  font-size: $font-size-base * 7;
+  line-height: $font-size-base * 7;
+  margin: $margin-base-x auto 0 auto;
+}
+
+.shop-not-found {
+  font-family: $font-family-base;
+  color: $color-black-pe;
+  font-size: $font-size-large-1 * 3;
+  line-height: $font-size-large-1 * 3;
+  font-weight: bold;
+  margin: $margin-base-x / 2 auto 0 auto;
+  text-align: center;
+
+  @media (max-width: $viewport-breakpoint-sm-1) {
+    font-size: $font-size-large-1 * 2;
+    line-height: $font-size-large-1 * 2;
+  }
+}
+
+.interested {
+  font-family: $font-family-base;
+  color: black;
+  font-size: $font-size-h3;
+  line-height: $font-size-h3;
+  margin: $margin-base-y * 2 auto $margin-base-y auto;
+}
+
+.register-button {
+  margin: 0 auto;
+  background-color: $color-blue;
+
+  @include border-radius($border-radius-large * 3);
+
+  border: 1px solid $color-blue;
+  display: inline-block;
+  cursor: pointer;
+  color: $color-white;
+  font-family: $font-family-base;
+  font-size: $font-size-regular-2;
+  padding: $padding-small-vertical $padding-small-horizontal * 4;
+  text-decoration:none;
+  text-shadow: 0 1px 0 #2f6627;
+}
+
+.no-shop-icon {
+  margin: 0 auto;
+  width: $grid-unit-x * 6;
+}
+

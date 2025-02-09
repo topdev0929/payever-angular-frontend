@@ -1,0 +1,38 @@
+{
+  "CardNumber": {
+    "english": "Card number",
+    "germany": "Kartennummer"
+  },
+  "HolderName": {
+    "english": "Holder Name",
+    "germany": "Kerteninhaber"
+  },
+  "ValidUntil": {
+    "english": "Valid until",
+    "germany": "Güiltig bis"
+  },
+  "StripeDebitCardTermsLine1": {
+    "english": "By clicking <b>Pay</b> you agree with the <br class='mobile-br'><span>terms of service of payever</span>.",
+    "germany": "Mit dem Klick auf <b>Bezahlen</b> Stimmen Sie den <br class='mobile-br'><span>AGB der payever GmbH</span> zu."
+  },
+  "StripeDebitCardTermsLine2": {
+    "english": "By clicking <b>Pay</b> you agree with the following policies",
+    "germany": "By clicking <b>Bezahlen</b> you agree with the following policies"
+  },
+  "StripeDebitCardPaymentInfo": {
+    "english" : "By providing your IBAN and confirming this payment, your are authorizing --- and Stripe, our payment service provider, to send instructions to your Bank to debit your account and your Bank to debit your account in accordance with those instructions to your Bank to debit your account in accordance with those instructions. You are entitled to a refund must be claimed within 8 weeks starting from the date on which your account was debited.",
+    "germany": "Ich ermächtige ---, Zahlungen von meinem/ unserem Konto mittels Lastschrift einzuziehen. Zugleich weise ich mein Kreditinstitut an, die von --- auf mein/ unser Konto gezogenen Lastschriften einzulösen. ich kann innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrages verlangen. Es gelten dabei die mit meinem/ Kreditinstitut vereinbarten Bedingungen."
+  },
+  "StripeCreditCardPayButton": {
+    "english": "Pay",
+    "germany": "Jetzt kostenpflichtig bestellen"
+  },
+  "StripeCreditCardTermsLine1": {
+    "english": "By clicking <b>Pay</b> you agree with the <br class='mobile-br'> <span>terms of service of payever</span>..",
+    "germany": "Mit dem Klick auf <b>Jetzt kostenpflichtig bestellen</b> <br class='mobile-br'> Stimmen Sie den <span>AGB der payever GmbH</span> zu."
+  },
+  "StripeCreditCardTermsLine2": {
+    "english": "By clicking <b>Pay</b> you agree with the following policies",
+    "germany": "By clicking <b>Jetzt kostenpflichtig bestellen</b> you agree with the following policies"
+  }
+}

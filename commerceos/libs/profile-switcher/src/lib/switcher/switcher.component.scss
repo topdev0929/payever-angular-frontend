@@ -1,0 +1,295 @@
+@import 'pe_screen_variables.scss';
+@import "pe_variables.scss";
+@import "pe_mixins.scss";
+@import 'pe_animation_variables.scss';
+
+
+@mixin translate3d($x, $y, $z) {
+    -webkit-transform: translate3d($x, $y, $z);
+    transform: translate3d($x, $y, $z);
+}
+
+.switcher-container {
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .business-items-container {
+        display: flex;
+        flex-direction: column;
+        padding: 19px 0 0;
+        -webkit-backdrop-filter: blur(50px);
+        backdrop-filter: blur(50px);
+        box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.5);
+
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 20px;
+        height: auto;
+        width: 436px;
+        max-height: 646px;
+        overflow: hidden;
+        
+        @media (max-width: $viewport-breakpoint-xs-2) {
+            border: none;
+            border-radius: 0;
+            height: 100%;
+            width: var(--app-width);
+            max-height: var(--app-height);
+            overflow: auto;
+        }
+
+        .header {
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-bottom: 16px;
+            &-back {
+                display: none;
+                &-icon {
+                    width: 18px;
+                    height: 24px;
+                    margin-right: 6px;
+                }
+                @media (max-width: $viewport-breakpoint-xs-2) {
+                    display: flex;
+                    position: absolute;
+                    left: 8px;
+                    top: 0;
+                    align-items: center;
+                    font-size: 17px;  
+                    font-weight: 400;
+                }
+            }
+            &-title {
+                text-align: center;
+                line-height: 24px;                
+                font-size: 24px;
+                font-weight: 500;
+                @media (max-width: $viewport-breakpoint-sm-2) {
+                    font-size: 17px;
+                    font-weight: 600;
+                }
+            }
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            @include translate3d(0, 0, 0);
+            @include payever_animation(initialize, $animation-duration-complex * 4, both);
+
+            .expandable-panel {
+                &__header {
+                    display: flex;
+                    @media (max-width: $viewport-breakpoint-xs-2) {
+                        display: none;
+                    }
+                }
+
+                &__content {
+                    overflow: hidden;
+                }
+            }
+
+            .profile-card {
+                padding: 2px 0;
+                .card-image {
+                    cursor: pointer;
+                    position: relative;
+                    width: 80px;
+                    height: 80px;
+                    @media (max-width: $viewport-breakpoint-sm-2) {
+                        width: 90px;
+                        height: 90px;
+                    }
+                    border-radius: 50%;
+                    background-image: linear-gradient(#a0a7aa, #808893);
+                    margin: auto;
+                    overflow: auto;
+                    .logo {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        object-fit: cover;
+                        justify-content: center;
+                        align-items: center;
+                        font-weight: 100;
+                        font-size: 37px;
+                        font-family: sans-serif;
+                        &.img-circle {
+                            border-radius: 50%;
+                        }
+                        .abbreviation {
+                            height: 35px;
+                            line-height: 37px;
+                            font-weight: 500;
+                        }
+                    }
+                }
+                .card-title {
+                    font-size: 18px;
+                    @media (max-width: $viewport-breakpoint-sm-2) {
+                        font-size: 24px;
+                    }
+                    font-weight: bold;
+                    text-align: center;
+                    margin-top: 12px;
+                }
+            }
+
+            .business-list-panel {
+                flex: 1;
+
+                .expandable-panel {
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+
+                    &__body {
+                      display: flex;
+                      flex-direction: column;
+                      height: 100%;
+                        max-height: 294px;
+                      @media (max-width: $viewport-breakpoint-xs-2) {
+                        max-height: unset;
+                    }
+                    }
+
+                    &__content {
+                        height: 100%;
+                    }
+                }
+
+                .expanded-panel-body {
+                    height: calc(100% - 32px)
+                }
+            }
+
+            .business-list {
+                display: flex;
+
+                flex-direction: column;
+                height: 270px;
+                overflow: auto;
+                
+                @media (max-width: $viewport-breakpoint-xs-2) {
+                    height: 100%;
+                    overflow: unset;
+                }
+                .business-item {
+                    align-items: center;
+                    cursor: pointer;
+                    padding: 6px 12px;
+                    height: 40px;
+                    margin-bottom: 1px;
+                    display: flex;
+                    justify-content: space-between;
+                    @media (min-width: $viewport-breakpoint-xs-2) {
+                    &:hover {
+                        background-color: #0371e2;
+                        .business-title {
+                            color: #ffffff;
+                        }
+                    }
+                    }
+                    &:first-child {
+                        border-top-left-radius: 13px;
+                        border-top-right-radius: 13px;
+                    }
+                    &:last-child {
+                        border-bottom-left-radius: 13px;
+                        border-bottom-right-radius: 13px;
+                        margin-bottom: 0;
+                    }
+
+                    
+                    @media (max-width:$viewport-breakpoint-sm-2) {
+                        height: 44px;
+                    }
+
+                    .business-logo {
+                        align-items: center;
+                        display: flex;
+                        justify-content: center;
+                        position: relative;
+                        min-height: 28px;
+                        height: 28px;
+                        min-width: 28px;
+                        width: 28px;
+                        margin-right: 16px;
+                        border-radius: 6px;
+                        overflow: hidden;
+
+                        @media (max-width: $viewport-breakpoint-sm-2) {
+                            width: 30px;
+                            height: 30px;
+                            min-height: 30px;
+                            min-width: 30px;
+                        }
+
+                        pe-profile-card-spinner {
+                            border-radius: 6px;
+                        }
+                        background-image: linear-gradient(#a0a7aa, #808893);
+                        div {
+                            font-weight: bold;
+                            font-size: 17px;
+                            color: #ffffff;
+                            text-align: center;
+                            line-height: 1.6;
+                        }
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                    .business-title {
+                        font-size: 14px;
+                        font-weight: 400;
+                        line-height: 2;
+                        flex-grow: 1;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+
+                        @media (max-width: $viewport-breakpoint-sm-2) {
+                            font-size: 17px;
+                        }
+                    }
+                    .icon-arrow {
+                        margin-top: 6px;
+                        svg {
+                            width: 8px;
+                            height: 15px;
+                        }
+                    }
+                }
+                .scroll-viewport {
+                    height: 100%;
+                    width: 100%;
+                    overflow: overlay;
+                    border-radius: 13px;
+                    transform: unset;
+                    contain: unset;
+
+                    .cdk-virtual-scroll-content-wrapper {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.no-data {
+    color: #ffffff;
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+}

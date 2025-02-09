@@ -1,0 +1,32 @@
+.tabs {
+  .active {
+    background-color: var(--checkout-button-background-color, rgba(17, 17, 17, 0.85));
+    color: white;
+  }
+
+  &__nav {
+    display: flex;
+    padding: 8px;
+    gap: 12px;
+
+    &.center {
+      justify-content: center;
+    }
+
+    &.stretched {
+      justify-content: space-between;
+    }
+  }
+
+  &__pill {
+    width: 75px;
+    border-radius: 18px;
+    justify-content: center;
+    background: #e8e8ed;
+
+    .tab-title {
+      font-weight: 500;
+      font-size: 14px;
+    }
+  }
+}

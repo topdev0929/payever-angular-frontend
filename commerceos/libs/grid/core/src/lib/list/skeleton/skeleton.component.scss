@@ -1,0 +1,167 @@
+@import "../../../../../../ui-styles/src/pe_skeleton.scss";
+
+:host {
+  z-index: 3;
+  width: calc(100% + var(--scrollWidth));
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  height: auto;
+}
+
+.grid-skeleton-container {
+  width: calc((100% / var(--columns) - 8px));
+
+  .grid-skeleton-item {
+    display: block;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+
+    .thumbnail {
+      width: 100;
+      height: var(--image-height);
+    }
+
+    .bottom {
+      padding: 12px;
+
+      &__line {
+        width: 115px;
+        height: 10px;
+        border-radius: 3px;
+        @include skeleton-animation();
+      }
+
+      &__rectangle {
+        width: 100%;
+        height: 27px;
+        border-radius: 5px;
+        @include skeleton-animation();
+        margin-top: 10px;
+      }
+
+      .bottom__row {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 17px;
+
+        .ellipse {
+          width: 60px;
+          height: 24px;
+          border-radius: 5px;
+          @include skeleton-animation();
+        }
+
+        .circle {
+          width: 24px;
+          height: 24px;
+          border-radius: 12px;
+          @include skeleton-animation();
+        }
+      }
+    }
+  }
+
+  &.mobile {
+    position: relative;
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 14px;
+
+    &.last-row {
+      margin-bottom: 0;
+    }
+  }
+
+  .grid-skeleton-mobile {
+    display: flex;
+    width: 100%;
+    padding: 14px;
+
+    .mobile-thumbnail {
+      width: 42px;
+      min-width: 42px;
+      height: 42px;
+      @include skeleton-animation();
+      border-radius: 8px;
+    }
+
+    .mobile-content {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      margin-right: 8px;
+      margin-left: 14px;
+      position: relative;
+      width: calc(100% - 58px);
+
+      .skeleton-item {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        height: 22px;
+
+        .line {
+          &.first-line {
+            width: 25%;
+          }
+          &.last-line {
+            width: 75%;
+          }
+        }
+
+        .line,
+        .square {
+          width: 45%;
+          height: 12px;
+          border-radius: 3px;
+          background: $skeleton-color-dark;
+          @include skeleton-animation();
+
+          &.even {
+            width: 60%;
+          }
+        }
+
+        .full-line {
+          width: 100%;
+          height: 12px;
+          border-radius: 3px;
+          @include skeleton-animation();
+
+          &.even {
+            width: 60%;
+          }
+        }
+
+        .ellipse,
+        .rectangle {
+          width: 60%;
+          min-width: 100px;
+          height: 24px;
+          border-radius: 12px;
+          @include skeleton-animation();
+          margin-top: 8px;
+        }
+      }
+    }
+
+    .dots-button {
+      position: absolute;
+      top: 15px;
+      right: 10px;
+      width: 20px;
+      height: 10px;
+      margin: 3px 0 7px 22px;
+      border-radius: 3px;
+      background: $skeleton-color-dark;
+      @include skeleton-animation();
+    }
+  }
+}

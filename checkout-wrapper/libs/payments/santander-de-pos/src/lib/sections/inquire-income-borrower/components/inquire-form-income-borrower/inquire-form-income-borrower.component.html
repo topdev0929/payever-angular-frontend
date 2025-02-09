@@ -1,0 +1,42 @@
+<form
+  *ngIf="{
+    options: options$ | async,
+    loading: loading$ | async,
+    enableProtectionForm: protectionFormEnabled$ | async
+  } as vm"
+  class="form-table">
+  <ng-container [ngSwitch]="mode">
+    <santander-de-pos-summary-income-employment
+      *ngSwitchCase="modeEnum.View"
+      [currency]="currency"
+      [formOptions]="vm.options"></santander-de-pos-summary-income-employment>
+    <ng-container *ngSwitchCase="modeEnum.Edit">
+      <form
+        class="form-table"
+        [formGroup]="formGroup"
+        (ngSubmit)="onSubmit()">
+        <income-form formControlName="incomeForm"></income-form>
+        <employment-form
+          *ngIf="formGroup.get('employmentForm').enabled"
+          formControlName="employmentForm"></employment-form>
+        <protection-form
+          *ngIf="vm.enableProtectionForm"
+          [ratesData]="incomeService.ratesData$ | async"
+          formControlName="protectionForm"></protection-form>
+      </form>
+    </ng-container>
+  </ng-container>
+
+  <checkout-sdk-continue-button
+    *ngIf="!isExpandAll && mode === modeEnum.Edit"
+    class="button-continue"
+    text="{{isLastStep ? transactions.submit : transactions.continue}}"
+    [loading]="vm.loading"
+    [disabled]="vm.loading"
+    (clicked)="submit()">
+  </checkout-sdk-continue-button>
+  <button
+    #submitTrigger
+    type="submit"
+    class="hidden"></button>
+</form>

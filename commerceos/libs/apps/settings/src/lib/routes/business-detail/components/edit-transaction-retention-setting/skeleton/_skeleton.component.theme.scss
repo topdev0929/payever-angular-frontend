@@ -1,0 +1,11 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $skeleton: map.get($color-config, 'skeleton');
+
+  .edit-transaction-retention-skeleton {
+    &-select-item {
+      background-color: $skeleton;
+    }
+  }
+}

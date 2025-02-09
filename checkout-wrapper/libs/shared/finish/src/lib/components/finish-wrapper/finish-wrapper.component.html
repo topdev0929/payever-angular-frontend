@@ -1,0 +1,88 @@
+<ng-container *ngIf="embeddedMode">
+  <div class="checkout-sdk-finish-modal-mode-container">
+    <div
+      class="bg-container"
+      [class.is-fit-content]="isFitContent">
+      <div
+        #finishContainer
+        class="valign"
+        [class.is-fit-content]="isFitContent">
+        <ng-template [ngTemplateOutlet]="contents"></ng-template>
+        <div class="button-group">
+          <button
+            type="button"
+            class="btn btn-dark"
+            *ngFor="let button of buttonsAsArray"
+            (click)="onButtonClick(button)">
+            {{ button.title }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<iframe-callback
+  *ngIf="iframeCallbackUrl"
+  [src]="iframeCallbackUrl"></iframe-callback>
+
+<ng-template #contents>
+  <div class="text-center finish-wrapper-content">
+    <!-- Loading state -->
+    <div
+      class="wait-block"
+      *ngIf="isLoading || isChangingPaymentMethod">
+      <div *ngIf="!isChangingPaymentMethod">
+        <div
+          class="large-1 text-primary"
+          [innerHtml]="processingTitle ? processingTitle : translations.header"></div>
+        <p
+          class="small text-secondary processing-note"
+          [innerHtml]="processingText ? processingText : translations.details"></p>
+      </div>
+      <div class="processing-request-loader">
+        <div class="loader_48"></div>
+      </div>
+    </div>
+
+    <!-- Not loading state -->
+
+    <!-- *** Errors case -->
+    <ng-container *ngIf="errorMessage && !isPaymentAlreadySubmitted">
+      <p class="text-warning">
+        <svg class="icon icon-32"><use xlink:href="#icon-alert-32"></use></svg>
+      </p>
+      <div
+        class="subheading"
+        i18n="@@checkout_sdk.finish.header.request_error">
+        checkout_sdk.finish.header.request_error
+      </div>
+      <div
+        class="text-danger small"
+        [innerHtml]="errorMessage"></div>
+      <div
+        *ngFor="let err of getNonFormErrors()"
+        class="text-danger small"
+        [innerHtml]="err"></div>
+    </ng-container>
+
+    <ng-container *ngIf="isPaymentAlreadySubmitted">
+      <checkout-sdk-finish-status-icon [status]="'success'"> </checkout-sdk-finish-status-icon>
+      <br />
+      <p
+        class="large-1 text-primary"
+        i18n="@@checkout_sdk.finish.header.request_error">
+        checkout_sdk.finish_already_submitted.title
+      </p>
+    </ng-container>
+
+    <!-- *** No error case -->
+    <ng-container *ngIf="!errorMessage && !isLoading && !isChangingPaymentMethod && !isPaymentAlreadySubmitted">
+      <ng-content></ng-content>
+    </ng-container>
+
+    <ng-container *ngIf="template">
+      <ng-container [ngTemplateOutlet]="template"></ng-container>
+    </ng-container>
+  </div>
+</ng-template>

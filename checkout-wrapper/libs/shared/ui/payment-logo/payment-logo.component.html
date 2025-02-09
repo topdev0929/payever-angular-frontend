@@ -1,0 +1,10 @@
+<div id="svg-icon-wrapper">
+  <svg
+    *ngIf="iconStyle$ | async as iconStyle"
+    [ngStyle]="iconStyle">
+    <use
+      [attr.xmlns:xlink]="'http://www.w3.org/1999/xlink'"
+      [attr.xlink:href]="iconId"
+    ></use>
+  </svg>
+</div>

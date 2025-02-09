@@ -1,0 +1,51 @@
+<pe-overlay-container [showHeader]="false"
+                      [withPadding]="false"
+                      [showSpinner]="false"
+                      [fullHeight]="true"
+                      [notFullwidthOnMobile]="false"
+                      class="reset-scroll-container fixed channel-settings-box-container"
+>
+  <ng-container content>
+    <div
+      class="channel-settings"
+      [style.backgroundColor]="backgroundColor"
+      [class.channel-settings-touch]="isTouchDevice()">
+
+      <div class="scrolling-content" #scrollingContent>
+        <mat-toolbar #scrollingToolbar class="mat-toolbar-editor mat-toolbar-light">
+          <div class="mat-toolbar-area">
+            <ng-container *ngIf="isTouchDevice()">
+              <div class="scroll-wrapper">
+                <ng-container [ngTemplateOutlet]="settingsTemplate"></ng-container>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="!isTouchDevice()">
+              <div #scrollingWrapper
+                   class="scroll-wrapper"
+                   [class.cursor-pointer]="isScrolling"
+                   (panstart)="onPanStart()"
+                   (pan)="onPan($event)"
+                   (panend)="onPanEnd($event)">
+                <ng-container [ngTemplateOutlet]="settingsTemplate"></ng-container>
+
+                <div *ngIf="settingsScroll$ | async" class="scroll-backdrop"></div>
+              </div>
+            </ng-container>
+
+            <ng-template #settingsTemplate>
+              <ng-content select="[settings]"></ng-content>
+            </ng-template>
+          </div>
+        </mat-toolbar>
+      </div>
+
+      <div class="wrapper-example">
+        <ng-content select="[example]"></ng-content>
+      </div>
+    </div>
+
+    <ng-container footer>
+    </ng-container>
+  </ng-container>
+
+</pe-overlay-container>

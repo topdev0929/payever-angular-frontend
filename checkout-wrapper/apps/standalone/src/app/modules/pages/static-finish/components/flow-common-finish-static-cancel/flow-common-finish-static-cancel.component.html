@@ -1,0 +1,16 @@
+<checkout-sdk-finish-wrapper *ngIf="ready$ | async">
+  <div class="static-finish-wrapper">
+    <checkout-sdk-finish-status-icon [status]="'fail'"> </checkout-sdk-finish-status-icon>
+    <div
+      class="large-1"
+      i18n="@@flow_common_finish.cancel.title">
+      flow_common_finish.cancel.title
+    </div>
+    <p i18n="@@flow_common_finish.cancel.text">flow_common_finish.cancel.text</p>
+    <p
+      class="small text-secondary"
+      *ngIf="orderNumber">
+      {{ orderNumberText }}
+    </p>
+  </div>
+</checkout-sdk-finish-wrapper>

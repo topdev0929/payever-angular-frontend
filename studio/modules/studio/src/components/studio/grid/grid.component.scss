@@ -1,0 +1,122 @@
+.uploading-grid-item {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  box-sizing: border-box;
+  cursor: pointer;
+  flex-basis: calc(20% - 14px);
+  height: auto;
+  margin: 6px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  &__body {
+    background-color: white !important;
+    background-image: none !important;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: column;
+    .theme-image {
+      box-sizing: border-box;
+      font-weight: bold;
+      color: rgba(0, 0, 0, 0.2);
+      text-align: center;
+      background-color: white;
+      border-top-right-radius: 12px;
+      border-top-left-radius: 12px;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      display: flex;
+      svg {
+        display: block;
+        width: 72px;
+        height: 72px;
+        color: black;
+        margin: 0 auto 10px;
+      }
+    }
+  }
+  &__drag {
+    color: #000;
+    opacity: 0.2;
+    font-size: 15px;
+    font-weight: 500;
+    padding-bottom: 40px;
+  }
+  &__icon {
+    padding-top: 40px;
+  }  
+
+  &__loader {
+    display: flex;
+  }
+
+  &__svg {
+    flex-grow: 1;
+  }
+
+  &__add {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+  }
+
+
+  @media (max-width: 1600px) {
+      flex-basis: calc(25% - 14px);
+  }
+  @media (max-width: 1440px) {
+      flex-basis: calc(33.3% - 14px);
+  }
+  @media (max-width: 1024px) {
+      flex-basis: calc(50% - 14px);
+  }
+
+  @media (max-width: 720px) {
+    margin: 10px 0 10px 15px;
+    min-height: 235px;
+    max-height: 235px;
+  }
+
+}
+.uploading-grid-item__add.dark {
+  background-color: #131414;
+}
+.uploading-grid-item__add.light {
+  background-color: #fafafa;
+  color: inherit;
+}
+.uploading-grid-item__add.transparent {
+  background-color: rgba(36, 39, 46, 0.8);
+}
+:host {
+  .studio-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+}
+
+.grid-row {
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 7px 7px 10px;
+
+  &:not(.light) {
+    color: white;
+  }
+
+  &.light {
+    color: black;
+  }
+}

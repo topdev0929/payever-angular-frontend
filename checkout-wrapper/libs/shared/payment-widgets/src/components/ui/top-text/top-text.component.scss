@@ -1,0 +1,14 @@
+:host {
+  font-family: Roboto, sans-serif;
+  display: block;
+  margin: 6px 6px 12px;
+  color: #333;
+  font-size: 13px;
+  text-align: justify;
+  line-height: 140%;
+  ::ng-deep br {
+    display: block;
+    margin-bottom: 6px;
+    content: " ";
+  }
+}

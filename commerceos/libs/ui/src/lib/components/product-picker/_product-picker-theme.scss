@@ -1,0 +1,51 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $active-button: map.get($color-config, 'active-button');
+  $border: map.get($color-config, 'border');
+  $text-color: map.get($color-config, 'text-color');
+  $label-color: map.get($color-config, 'label-color');
+  $warn: map.get($color-config, 'warn');
+  $background: map.get($color-config, 'background');
+  $confirm: map.get($color-config, 'confirm');
+  $hover-button: map.get($color-config, 'hover-button');
+  $active-text: map.get($color-config, 'active-text');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $input-button-background: map.get($color-config, 'input-button-background');
+
+  .product-picker-container {
+    &__controls {
+      .input-with-label {
+        border-bottom-color: $confirm;
+        .label-text {
+          color: $label-color;
+        }
+        input {
+          color: $text-color;
+          background-color: $transparent-color;
+        }
+        &.is-invalid {
+          &::after {
+            background-color: $warn;
+          }
+          .label-text, input::placeholder {
+            color: $warn;
+          }
+        }
+      }
+
+      .button-container {
+        background-color: $input-button-background;
+        border-left: solid 1px $background;
+      }
+    }
+
+    .product-container {
+      &__item {
+        border-top: 1px solid $background;
+        color: $text-color;
+        background-color: $input-button-background;
+      }
+    }
+  }
+}

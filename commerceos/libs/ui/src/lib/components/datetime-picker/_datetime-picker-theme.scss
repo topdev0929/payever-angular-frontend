@@ -1,0 +1,106 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $text-color: map.get($color-config, 'text-color');
+  $filter-invert-light: map.get($color-config, 'filter-invert-light');
+  $content: map.get($color-config, 'content');
+  $confirm-hover: map.get($color-config, 'confirm-hover');
+  $row-background: map.get($color-config, 'row-background');
+  $button: map.get($color-config, 'button');
+  $divider: map.get($color-config, 'divider');
+  $active-text: map.get($color-config, 'active-text');
+  $label-color: map.get($color-config, 'label-color');
+  $confirm: map.get($color-config, 'confirm');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $background: map.get($color-config, 'background');
+  $active-button: map.get($color-config, 'active-button');
+  $box-shadow-color: map.get($color-config, 'box-shadow-color');
+  $border: map.get($color-config, 'border');
+
+  .peb-datetime-picker-wrapper {
+    background-color: $overlay-background;
+    box-shadow: 0 5px 20px 0 $box-shadow-color;
+    backdrop-filter: blur(25px);
+    border: 1px solid $border;
+
+    &__header-title {
+      color: $text-color;
+    }
+    &__header-icon {
+      filter: $filter-invert-light;
+    }
+    .mat {
+      &-calendar {
+        &-header {
+          background-color: $content;
+          border-bottom-color: $background;
+          color: $text-color;
+        }
+        &-content {
+          background-color: $row-background;
+        }
+        &-period-button,
+        &-previous-button,
+        &-next-button,
+        &-table-header,
+        &-table-header {
+          color: $text-color;
+          border-bottom-color: $background;
+        }
+        &-body-cell {
+          &-content {
+            color: $text-color;
+          }
+          &:hover {
+            &:not(.mat-calendar-body-disabled){
+              .mat-calendar-body-cell-content {
+                &:not(.mat-calendar-body-selected){
+                  background-color: $active-button;
+                }
+              }
+            }
+          }
+        }
+        &-body-selected {
+          background-color: $confirm;
+          color: $active-text;
+          &:hover {
+            background-color: $confirm-hover;
+          }
+        }
+        &-body-disabled {
+          .mat-calendar-body-cell-content {
+            color: $label-color !important;
+          }
+        }
+        &-previous-button[disabled],
+        &-next-button[disabled] {
+          color: $label-color !important;
+        }
+        &-body-in-range:before {
+          background: $divider;
+        }
+      }
+      &-focus-indicator {
+        .mat-button-focus-overlay {
+          background-color: $transparent-color;
+        }
+        &:hover {
+          .mat-button-focus-overlay {
+            background-color: $text-color;
+          }
+        }
+      }
+    }
+    .peb-datepicker-actions {
+      color: $active-text;
+      &__apply {
+        background-color: $confirm;
+      }
+      &__cancel {
+        background-color: $label-color;
+      }
+    }
+  }
+}

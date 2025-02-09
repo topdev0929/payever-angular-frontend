@@ -1,0 +1,11 @@
+<form class="form" [formGroup]="form">
+  <span class="label">
+    {{ 'builder-app.forms.position.content_align' | translate }}
+  </span>
+
+    <peb-select
+      formControlName="contentAlign"
+      [options]="contentAlignTypes"
+      label="Content Alignment"      
+    ></peb-select>
+</form>

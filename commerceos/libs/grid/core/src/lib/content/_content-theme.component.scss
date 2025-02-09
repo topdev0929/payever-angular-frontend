@@ -1,0 +1,25 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+    $secondary: map.get($color-config, 'secondary');
+    $primary: map.get($color-config, 'primary');
+    $backdrop-filter-light: map.get($color-config, 'backdrop-filter-light');
+    $tertiary-background: map.get($color-config, 'tertiary-background');
+    $text-color: map.get($color-config, 'text-color');
+  
+    pe-grid-content {
+        .pe-grid-content__info,
+        .pe-grid-content__toolbar {
+          backdrop-filter: $backdrop-filter-light;
+          background-color: $tertiary-background;
+    
+          span, .total-block__data {
+            color: $text-color;
+          }
+        }
+        .mobile-title{
+          color: $text-color;
+        }
+      }
+  }
+  

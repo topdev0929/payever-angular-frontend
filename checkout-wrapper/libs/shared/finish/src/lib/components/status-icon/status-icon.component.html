@@ -1,0 +1,17 @@
+<ng-container [ngSwitch]="status">
+  <p *ngSwitchCase="'success'">
+    <svg class="icon text-primary" [ngClass]="iconConfig.iconsClass">
+      <use [attr.xlink:href]="'#icon-' + iconConfig.icons.success"></use>
+    </svg>
+  </p>
+  <p *ngSwitchCase="'pending'">
+    <svg class="icon text-primary" [ngClass]="iconConfig.iconsClass">
+      <use [attr.xlink:href]="'#icon-' + iconConfig.icons.pending"></use>
+    </svg>
+  </p>
+  <p *ngSwitchCase="'fail'">
+    <svg class="icon text-primary" [ngClass]="iconConfig.iconsClass">
+      <use [attr.xlink:href]="'#icon-' + iconConfig.icons.fail"></use>
+    </svg>
+  </p>
+</ng-container>

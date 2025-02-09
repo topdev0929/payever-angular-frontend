@@ -1,0 +1,51 @@
+.pe-list-container {
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  max-width: 560px;
+  @media (max-width: 720px) {
+    max-width: unset;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 16px 0;
+  }
+
+  &__scroll-port {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    padding-right: 0 !important; //fckn scroll padding in safari
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 0;
+
+    > * {
+      &:not(:last-of-type) {
+        margin-bottom: 24px;
+      }
+
+      &:last-of-type {
+        margin-bottom: 16px;
+      }
+    }
+  }
+
+  &__title,
+  &__content {
+    width: 100%;
+  }
+
+  .hide-in-mobile {
+    @media (max-width: 720px) {
+      display: none;
+    }
+  }
+}

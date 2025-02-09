@@ -1,0 +1,34 @@
+@import "../../../../misc/styles/grid.mixin.scss";
+
+:host {
+  margin-left: auto;
+
+  &.is-mobile {
+    margin-left: 0;
+
+    .cell-preview {
+      width: fit-content;
+    }
+  }
+
+  .cell-preview {
+    appearance: none;
+    border-radius: 6px;
+    border-width: 0;
+    cursor: pointer;
+    font-family: Roboto, sans-serif;
+    font-size: 12px;
+    line-height: 1.33;
+    padding: 4px 15px;
+    text-transform: capitalize;
+    width: 100px;
+    height: fit-content;
+    min-height: 23px;
+
+    @include grid-mobile {
+      width: fit-content;
+      height: 20px;
+    }
+
+  }
+}

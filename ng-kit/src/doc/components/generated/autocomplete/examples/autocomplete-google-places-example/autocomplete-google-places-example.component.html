@@ -1,0 +1,10 @@
+<form novalidate [formGroup]="form" (ngSubmit)="onSubmit()">
+  <pe-autocomplete-google-places ngDefaultControl
+                                 [errorMessage]="'Please enter a valid address'"
+                                 [formGroup]="form"
+                                 [formControlName]="'address'"
+                                 [placeholder]="'address'"
+                                 (address)="onAddressChanged($event)"
+  ></pe-autocomplete-google-places>
+  <button>Submit</button>
+</form>

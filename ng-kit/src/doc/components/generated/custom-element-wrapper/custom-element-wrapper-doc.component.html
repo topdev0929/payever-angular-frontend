@@ -1,0 +1,74 @@
+<div class="chapter">
+  <h2>CounterComponent</h2>
+  <div class="main-block">
+    <tabset>
+      <tab heading="Overview">
+        <h3>Custom element</h3>
+        <p>To see custom element at first build it via `<strong>npm run build:test-custom-element</strong>`</p>
+        <p>Check <strong>README.md</strong> file for detailed explanation.</p>
+        <p>Check custom element example at `<strong>src/doc/components/generated/custom-element-wrapper/test-custom-element</strong>`</p>
+        <p>&nbsp;</p>
+        <example-viewer
+          title="Basic Example">
+          <h4>Test inputs/outputs</h4>
+          <div class="row">
+            <div class="col-xs-4">
+              <pe-checkbox [label]="'Boolean value'" (valueChange)="valueBoolean = $event.checked"></pe-checkbox>
+            </div>
+            <div class="col-xs-4">
+              Number value: <input class="form-control" [(ngModel)]="valueNumber" type="number">
+            </div>
+            <div class="col-xs-4">
+              String value: <input class="form-control" [(ngModel)]="valueString" type="text">
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-xs-3">
+              Object value: {{'{'}} a:
+            </div>
+            <div class="col-xs-2">
+              <input class="form-control" [(ngModel)]="valueObject.a" type="text">
+            </div>
+            <div class="col-xs-2">
+              {{'}'}}, {{'{'}} b: {{'{'}} c:
+            </div>
+            <div class="col-xs-2">
+              <input class="form-control" [(ngModel)]="valueObject.b.c" type="text">
+            </div>
+            <div class="col-xs-1">
+              {{'} }'}}
+            </div>
+          </div>
+          <button mat-button color="primary" class="mat-button-lg" type="button" (click)="onSubmit()">Trigger submit</button>
+          <button mat-button color="primary" class="mat-button-lg" type="button" (click)="onPay()">Trigger pay</button>
+          <hr>
+
+          <p>Saved value: {{ savedValue | json }}</p>
+          <p>Ready: {{ isReady }}</p>
+          <hr>
+
+          <h4>Custom element</h4>
+          <pe-load-micro [micro]="'test-custom-element'">
+            <pe-test-custom-element
+              [attr.submitForm]="submit$ | async | json"
+              [attr.payForOrder]="pay$ | async | json"
+              [attr.valueBoolean]="valueBoolean | json"
+              [attr.valueNumber]="valueNumber | json"
+              [attr.valueString]="valueString | json"
+              [attr.valueObject]="valueObject | json"
+              (ready)="onReady($event)"
+              (saved)="onSaved($event)"></pe-test-custom-element>
+          </pe-load-micro>
+        </example-viewer>
+      </tab>
+      <tab heading="API">
+        <component-api-renderer [path]="'custom-element-wrapper/src/custom-element-wrapper.component'"></component-api-renderer>
+      </tab>
+      <tab heading="README">
+        <doc-viewer documentUrl="/assets/module-guides/custom-element-wrapper/custom-element-wrapper.html"></doc-viewer>
+      </tab>
+    </tabset>
+  </div>
+</div>
+

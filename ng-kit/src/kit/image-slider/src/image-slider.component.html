@@ -1,0 +1,38 @@
+<div class="ui-image-slider">
+  <div #swiperContainer class="swiper-container main-swiper-container"
+       [ngStyle]="{ 'width': width, 'height': height }" >
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let image of images; let i = index;">
+        <img [src]="image | mediaUrl:container"
+             [ngClass]="{ 'fitToWidth': fitToWidth,
+                          'fitToHeight': fitToHeight }" />
+        <span class="slide-inline-span"></span>
+      </div>
+    </div>
+
+    <div *ngIf="showPrevNext" class="button-next">
+      <svg class="icon icon-16"><use xlink:href="#icon-arrow-right-2-16"></use></svg>
+    </div>
+    <div *ngIf="showPrevNext" class="button-prev">
+      <svg class="icon icon-16"><use xlink:href="#icon-arrow-left-2-16"></use></svg>
+    </div>
+  </div>
+
+  <div [class.hidden]=" !usePagination " class="swiper-pagination"></div>
+
+  <div id="swiper-bottom-space"></div>
+
+  <div #thumbsWrapper [class.hidden]=" !showThumbs " class="swiper-container gallery-thumbs">
+    <div class="swiper-wrapper" >
+      <ul>
+        <li *ngFor="let image of images; let i = index;">
+          <div class="swiper-slide">
+            <button (click)="thumbClicked(i)" class="swiper-slider-btn-clickable"
+                    [ngStyle]="{ 'background-image': 'url(' +  (image | mediaUrl:container) + ')' }">
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

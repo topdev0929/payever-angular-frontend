@@ -1,0 +1,46 @@
+<santander-invoice-de-shared-finish-styles></santander-invoice-de-shared-finish-styles>
+<checkout-sdk-finish-wrapper
+  [buttons]="buttons"
+  [errorMessage]="errorMessage"
+  [iframeCallbackUrl]="getIframeCallbackUrl()"
+  [isLoading]="isLoading"
+  [isPaymentAlreadySubmitted]="isPaymentAlreadySubmitted()"
+  [isChangingPaymentMethod]="isChangingPaymentMethod"
+  [embeddedMode]="embeddedMode"
+  [asSinglePayment]="asSinglePayment"
+  (close)="onClose()">
+  <ng-container *ngIf="nodeResult">
+    <ng-container [ngSwitch]="true">
+      <ng-container *ngSwitchCase="isStatusSuccess()">
+        <checkout-sdk-finish-status-success
+          i18n-title="@@santander-de-invoice.inquiry.finish.header.success"
+          title="@@santander-de-invoice.inquiry.finish.header.success"
+          [total]="nodeResult.payment?.total"
+          [currency]="flow?.currency"
+          [storeName]="nodeResult.payment?.businessName || '---'"
+          [createdAt]="nodeResult.createdAt"
+          [billingAddressName]="isPosPayment() ? billingAddressName() : null"
+          [applicationNumber]="applicationNumber"
+          [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"
+          [flowId]="flow?.id"
+          [isPosPayment]="false"></checkout-sdk-finish-status-success>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="isStatusUnknown()">
+        <checkout-sdk-finish-status-unknown
+          [nodeResult]="nodeResult"
+          [applicationNumber]="applicationNumber"
+          [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"></checkout-sdk-finish-status-unknown>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="isStatusFail()">
+        <checkout-sdk-finish-status-fail
+          class="status-fail"
+          [title]="statusFailTitle"
+          [canChangePaymentMethod]="canChangePaymentMethod()"
+          [applicationNumber]="applicationNumber"
+          [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"></checkout-sdk-finish-status-fail>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</checkout-sdk-finish-wrapper>

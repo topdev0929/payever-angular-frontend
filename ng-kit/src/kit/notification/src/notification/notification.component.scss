@@ -1,0 +1,53 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+:host.notify {
+  display: block;
+  position: relative;
+  bottom: auto;
+  right: auto;
+  margin-top: $pe_vgrid_height;
+  @include payever_transform_translate(100%, 0);
+  @include payever_transition(transform, $animation-duration-slide-in, $animation-effect-ease-out);
+  &.in {
+    @include payever_transform_translate(0, 0);
+  }
+  &.dark {
+    box-shadow: none;
+    border-radius: $border-radius-base;
+    background-color: rgba($color-justblack, .7);
+    color: $color-white;
+    padding: $pe_vgrid_height $pe_hgrid_gutter * 2;
+    text-align: center;
+    @include break(sm_3) {
+      max-width: $viewport-breakpoint-xs-2;
+    }
+    .notify-close {
+      color: $color-white;
+    }
+  }
+}
+
+:host-context([data-position="top-center"]){
+  &.notify {
+    @include payever_transform_translate(0, -100%);
+    &.in {
+      @include payever_transform_translate(0, 0);
+    }
+  }
+}
+
+:host-context([data-position="center-center"]){
+  &.notify {
+    @include payever_transform_translate(0, 100%);
+    padding: $pe_vgrid_height * 2;
+
+    .notification-svg-icon {
+      margin-bottom: $pe_vgrid_height;
+    }
+    &.in {
+      @include payever_transform_translate(0, 0);
+    }
+  }
+}
+

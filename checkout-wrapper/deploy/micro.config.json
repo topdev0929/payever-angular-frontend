@@ -1,0 +1,14 @@
+{
+  "code": "checkout-wrapper",
+  "tag": "<pe-checkout-wrapper-by-flow-id></pe-checkout-wrapper-by-flow-id>",
+  "url": "/pay/{uuid}",
+  "innerMicros": {
+    "sections": {
+      "bootstrapScriptUrl": "${MICRO_URL_FRONTEND_CHECKOUT_WRAPPER}/wrapper/${MICRO_CHECKOUT_VERSION}/checkout-sections/micro.js"
+    },
+    "mainCustomElements": {
+      "bootstrapScriptUrl": "${MICRO_URL_FRONTEND_CHECKOUT_WRAPPER}/wrapper/${MICRO_CHECKOUT_VERSION}/checkout-main-ce/micro.js"
+    }
+  }
+
+}

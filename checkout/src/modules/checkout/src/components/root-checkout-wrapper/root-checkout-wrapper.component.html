@@ -1,0 +1,13 @@
+<pe-load-micro [bootstrapScriptUrl]="bootstrapScriptUrl" [isShowLoader]="false">
+  <pe-checkout-wrapper-by-channel-set-id
+    [class.hidden]="!((isVisible$ | async))"
+    [attr.saveflowtostorage]="wrapperService.saveFlowToStorage$ | async | json"
+    [attr.disablelocaledetection]="true | json"
+    [attr.params]="wrapperService.params$ | async | json"
+    [attr.createflowparams]="{ channelSetId: wrapperService.channelSetId$ | async } | json"
+    [attr.recreateflow]="wrapperService.reCreateFlow$ | async | json"
+    [attr.checkouthidden]="!((isVisible$ | async))"
+    (layoutshown)="wrapperService.setCustomElementReady(true)"
+    (eventemitted)="wrapperService.onEventEmitted($event)">
+  </pe-checkout-wrapper-by-channel-set-id>
+</pe-load-micro>

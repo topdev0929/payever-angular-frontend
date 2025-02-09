@@ -1,0 +1,81 @@
+import {
+  AddressTypeEnum,
+  FlowInterface,
+  PaymentMethodEnum,
+  PaymentMethodVariantEnum,
+  SalutationEnum,
+} from '@pe/checkout/types';
+import { cloneDeep } from '@pe/checkout/utils';
+
+export const flowWithPaymentOptionsFixture: () => FlowInterface = () => cloneDeep<FlowInterface>({
+  id: 'd49a2299-ce03-5e35-beab-bbaa3a8aa28e',
+  amount: 1000,
+  total: 1000,
+  apiCall: {
+    id: 'efg2459-ce03-5e35-b3ab-2baa3a8aa28e',
+  },
+  paymentOptions: [
+    {
+      name: 'santander_pos_installment_se.name',
+      paymentMethod: PaymentMethodEnum.SANTANDER_POS_INSTALLMENT_SE,
+      max: 1000,
+      min: 540,
+      fixedFee: 0,
+      variableFee: 0,
+      shareBagEnabled: true,
+      acceptFee: true,
+      settings: null,
+      slug: null,
+      connections: [
+        {
+          id: 'santander_pos_installment_se:id',
+          default: true,
+          name: null,
+          merchantCoversFee: null,
+          shippingAddressAllowed: true,
+          shippingAddressEquality: false,
+          version: PaymentMethodVariantEnum.Default,
+        },
+      ],
+    },
+    {
+      name: 'santander_installment_se.name',
+      paymentMethod: PaymentMethodEnum.SANTANDER_INSTALLMENT_SE,
+      max: 100000,
+      min: 540,
+      fixedFee: 0,
+      variableFee: 0,
+      shareBagEnabled: true,
+      acceptFee: true,
+      settings: null,
+      slug: null,
+      connections: [
+        {
+          id: 'cb769cb4-a30b-4876-b56f-fe96775f5372',
+          default: true,
+          name: null,
+          merchantCoversFee: null,
+          shippingAddressAllowed: true,
+          shippingAddressEquality: false,
+          version: PaymentMethodVariantEnum.Default,
+        },
+      ],
+    },
+  ],
+  connectionId: 'cb769cb4-a30b-4876-b56f-fe96775f5372',
+  billingAddress: {
+    city: 'SomeCity',
+    country: 'DE',
+    email: 'customer2000@email.de',
+    firstName: 'Test',
+    lastName: 'Test',
+    phone: '+46731298952',
+    salutation: SalutationEnum.SALUTATION_MR,
+    fullAddress: 'SomeStreet 2000, SomeCity 12345' + 'DE',
+    street: 'SomeStreet 2000',
+    streetName: 'SomeStreet',
+    streetNumber: '2000',
+    type: AddressTypeEnum.BILLING,
+    zipCode: '12345',
+  },
+});

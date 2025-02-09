@@ -1,0 +1,10 @@
+<a class="ui-layout-tab" 
+   (click)="onTabClick($event)" 
+   [class.active]="active" 
+   [class.no-shadow]="noIconShadow">
+  <svg *ngIf="svgIcon" class="icon icon-svg icon-32">
+    <use [attr.xlink:href]="svgIcon"></use>
+  </svg>
+  
+  <img *ngIf="pngIcon" class="icon icon-png icon-32" [src]="pngIcon" />
+</a>

@@ -1,0 +1,69 @@
+<div class="pe-subscription-programs">
+  <pe-data-grid
+    #programDataGrid
+    class="subscriptions-grid"
+    itemsTitle="Programs"
+    [isShowGridItemInfo]="true"
+    [items]="dataGridService.gridItems$ | async"
+    [selectedItems]="dataGridService.selectedPrograms$ | async"
+    [dataListOptions]="dataGridService.dataGridListOptions"
+    [sortByActions]="dataGridService.sortByActions"
+    [multipleSelectedActions]="dataGridService.multipleSelectedActions"
+    [singleSelectedAction]="dataGridService.openAction"
+    [displayFilters]="headerService.isDataGridSidebarActive$ | async"
+    [filters]="dataGridService.filterConditions"
+    (filtersChanged)="onFiltersChanged($event)"
+    (searchChanged)="onSearchChanged($event)"
+    (scrollEvent)="scrollOnBottom($event)"
+    (multipleSelectedItemsChanged)="onSelectedItemsChanged($event)"
+    (layoutTypeChanged)="layoutChanged($event)"
+    [defaultLayout]="'grid'"
+    (toggleExternalSideMenu)="onToggleSidebar($event)"
+  >
+    <ng-container *ngIf="headerService.isDataGridSidebarActive">
+      <pe-sidebar-filters-wrapper>
+        <pe-sidebar-header class="pe-sidebar-header" title="Programs"></pe-sidebar-header>
+        <pe-sidebar-filter-wrapper [title]="'My programs'" [expandable]="true" [editable]="false" [active]="false">
+          <pe-tree-sidebar-filter
+            [tree]="dataGridService.groupFiltersTree$ | async"
+            [multiple]="true"
+            [formControl]="dataGridService.groupFiltersFormGroup.get('tree')"
+          >
+            <ng-template #nodeImageTemplate let-node="node">
+              <pe-sidebar-group-icons [icon]="node.data.key"></pe-sidebar-group-icons>
+            </ng-template>
+          </pe-tree-sidebar-filter>
+        </pe-sidebar-filter-wrapper>
+        <pe-sidebar-filter-wrapper [title]="'Albums'" [expandable]="true" [editable]="false" [active]="false">
+          <pe-tree-sidebar-filter
+            [tree]="dataGridService.albumsTree$ | async"
+            [multiple]="true"
+            [formControl]="dataGridService.albumsFormGroup.get('tree')"
+          >
+            <ng-template #nodeImageTemplate let-node="node">
+              <pe-sidebar-group-icons [icon]="node.data.key"></pe-sidebar-group-icons>
+            </ng-template>
+          </pe-tree-sidebar-filter>
+        </pe-sidebar-filter-wrapper>
+      </pe-sidebar-filters-wrapper>
+
+      <pe-sidebar-footer-wrapper>
+        <pe-menu-sidebar-footer [menuData]="dataGridService.sidebarFooterData$ | async"></pe-menu-sidebar-footer>
+      </pe-sidebar-footer-wrapper>
+    </ng-container>
+
+    <pe-data-grid-item [item]="addProgramButton" [actions]="[dataGridService.addAction]" [isShowGridItemInfo]="false">      
+    </pe-data-grid-item>
+
+    <pe-data-grid-item
+      *ngFor="let item of dataGridService.gridItems$ | async"
+      [item]="item"
+      [selectable]="true"
+      [isShowGridItemInfo]="true"
+      [actions]="[dataGridService.openAction]"
+      [labels]="'NEW'"
+    >
+      <pe-program-grid-item [item]="item"></pe-program-grid-item>
+    </pe-data-grid-item>
+  </pe-data-grid>
+</div>

@@ -1,0 +1,150 @@
+<div class="data-grid-wrap employees-data-grid" [ngClass]="theme">
+  <pe-data-grid #dataGridComponent
+    id="employee-data-grid"
+    [filters]="[]"
+    [theme]="theme"
+    [items]="items$ | async"
+    [filterItems]="filterItems"
+    [multipleSelectedActions]="multipleSelectedActions"
+    [singleSelectedAction]="null"
+    [secondSingleSelectedAction]="null"
+    [selectedItems]="selectedItems$ | async"
+    [isShowGridItemInfo]="true"
+    [dataListOptions]="gridOptions"
+    [displayFilters]="showSidebar$ | async"
+    [isFilterCreating]="isFilterCreating"
+    [enableDragAndDrop]="true"
+    [creatingFilterParentName]="'Albums'"
+    [sortByActions]="sortByActions"
+    [isGridContextMenuAllow]="false"
+    [searchItems]="searchItems$ | async"
+    (searchRemove)="onSearchRemove($event)"
+    (createFilter)="onFilterCreate($event)"
+    (searchChanged)="onSearchChanged($event)"
+  >
+    <pe-sidebar-filters-wrapper>
+      <pe-sidebar-header
+        [title]="'pages.employees.sidebar.title' | translate"
+        [allowClose]="false"
+        (closeSidebar)="showSidebar = false"
+      >
+      </pe-sidebar-header>
+      <pe-sidebar-filter-wrapper
+        *ngFor="let category of groupCategories"
+        [title]="'Groups'"
+        [expandable]="true"
+        [active]="false"
+        (headerClick)="navigateTolLink('')"
+        [allowDrop]="true"
+      >
+          <pe-tree-sidebar-filter
+                  [ngTemplateOutlet]="nodeImageTemplate"
+                  [ngTemplateOutletContext]="{node:category.tree}"
+          >
+            <ng-template #nodeImageTemplate let-nodes="node">
+              <div *ngFor="let item of nodes"
+                   class="sidebar-item"
+                   (dragenter)="endDrag($event, item)"
+                   (contextmenu)="openContextMenu($event, item, sidebarContextMenu)"
+                   [ngClass]="item.data.category === currentSidebarItemSelected ? 'active' : ''"
+                   (click)="navigateTolLink(item)"
+              >
+                <svg class="sidebar-item__icon">
+                  <use [attr.xlink:href]="item.image"></use>
+                </svg>
+                {{item.name|translate}}
+              </div>
+            </ng-template>
+          </pe-tree-sidebar-filter>
+      </pe-sidebar-filter-wrapper>
+      <pe-sidebar-filter-wrapper
+        *ngFor="let category of sidebarCategories"
+        [title]="category.title"
+        [expandable]="true"
+        [active]="false"
+        (headerClick)="navigateTolLink('')"
+      >
+        <pe-tree-sidebar-filter
+          [ngTemplateOutlet]="nodeImageTemplate"
+          [ngTemplateOutletContext]="{node:category.tree}"
+        >
+          <ng-template #nodeImageTemplate let-nodes="node">
+            <div
+              *ngFor="let item of nodes"
+              class="sidebar-item"
+              [ngClass]="item.data.category === currentSidebarItemSelected ? 'active' : ''"
+              (click)="navigateTolLink(item)"
+            >
+              <svg class="sidebar-item__icon">
+                <use [attr.xlink:href]="item.image"></use>
+              </svg>
+              {{item.name|translate}}
+            </div>
+          </ng-template>
+        </pe-tree-sidebar-filter>
+      </pe-sidebar-filter-wrapper>
+    </pe-sidebar-filters-wrapper>
+    <pe-sidebar-footer-wrapper>
+      <pe-menu-sidebar-footer [menuData]="sidebarFooterData" [theme]="theme"></pe-menu-sidebar-footer>
+    </pe-sidebar-footer-wrapper>
+    <ng-container>
+      <pe-data-grid-item
+              [item]="addNewItem"
+              [actions]="[addItemAction]"
+              [theme]="theme"
+              [isShowSimplifyGrid]="true"
+              [selectable]="false"
+              [isShowGridItemInfo]="false"
+              class="grid-item"
+      >
+        <div class="add-new">
+          <svg color="blue">
+            <defs>
+              <linearGradient id="add@2x-a" x1="50%" x2="48.333%" y1="0%" y2="107.889%">
+                <stop offset="0%" stop-color="#007DFE"/>
+                <stop offset="100%" stop-color="#005CBB"/>
+              </linearGradient>
+            </defs>
+            <use [attr.xlink:href]="'#icon-shipping-add'" color="blue"></use>
+          </svg>
+        </div>
+      </pe-data-grid-item>
+      <pe-data-grid-item
+        *ngFor="let gridItem of (items$ | async)"
+        [item]="gridItem"
+        [isShowGridItemInfo]="true"
+        [isShowSimplifyGrid]="true"
+        [selectable]="true"
+        (contextmenu)="openContextMenu($event, gridItem, contextMenu)"
+        [actions]="[editEmployee]"
+        [theme]="theme"
+        [class.default-avatar]="gridItem.data?.withoutImage"
+        (dragstart)="startDrag(gridItem)"
+      >
+        <div class="employee-items">
+          <div class="employee-items__title-container item-bg">
+            <img [ngClass]="gridItem.showAbbreviation ? 'default-logo' : 'logo'" class="logo" alt="" [src]="gridItem.image">
+          </div>
+          <div class="employee-items__content">
+            <span>{{ gridItem.title}}</span>
+            <button  *ngIf="gridItem.data.actionButton" class="action-button" (click)="gridItem.data.actionButton.callback">
+              {{gridItem.data.actionButton.title}}
+            </button>
+          </div>
+        </div>
+      </pe-data-grid-item>
+    </ng-container>
+  </pe-data-grid>
+</div>
+<ng-template #contextMenu>
+  <peb-settings-context-menu
+          [actions]="contextActions"
+          (close)="closeContextMenu()"
+  ></peb-settings-context-menu>
+</ng-template>
+<ng-template #sidebarContextMenu>
+  <peb-settings-context-menu
+          [actions]="sidebarContextActions"
+          (close)="closeContextMenu()"
+  ></peb-settings-context-menu>
+</ng-template>

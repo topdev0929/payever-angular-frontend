@@ -1,0 +1,70 @@
+peb-renderer {
+  display: block;
+  position: absolute;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  .form__row--image {
+    background-image: linear-gradient(#474747, #000);
+    border-radius: 6px;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+  }
+}
+
+.selected-album {
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  height: 28px;
+  margin: 0;
+  width: 100%;
+  outline: none;
+  font-size: 12px;
+  padding: 4px 8px;
+  display: flex;
+
+  mat-icon {
+    width: 20px;
+  }
+
+  span {
+    flex: 1;
+  }
+}
+
+.album {
+  padding: 4px 20px 4px 8px;
+  font-size: 12px;
+
+  label {
+    font-weight: inherit;
+  }
+
+  &:hover,
+  &.selected {
+    font-weight: 700;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+::ng-deep {
+  .album-selector {
+    transform-origin: left top;
+    width: 410px;
+    max-width: unset;
+    color: white;
+    background: rgb(28 28 28);
+    min-height: unset;
+  }
+}

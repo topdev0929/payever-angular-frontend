@@ -1,0 +1,23 @@
+<ng-container *ngIf="vm$ | async as vm">
+  <div
+    *ngIf="!vm.rates.length && !vm.isLoadingRates; else rates"
+    class="title-2"
+    i18n="@@payment-santander-uk.credit_rates.error.rates_list_empty">
+    payment-santander-uk.credit_rates.error.rates_list_empty
+  </div>
+
+  <ng-template #rates>
+    <checkout-sdk-choose-rate
+      class="checkout-sdk-choose-rate"
+      [trackFlowId]="flowId"
+      [trackPaymentMethod]="paymentMethod"
+      [selectedExtraDurations]="selectedExtraDurations"
+      [rates]="vm.rates"
+      [isLoading]="vm.isLoadingRates && !vm.rates.length"
+      [initialRateId]="makeRateId(this.selectedRate)"
+      [doSelectRate]="doSelectRate$"
+      (rateSelected)="rateSelected($event)"
+      (toggleExtraDuration)="toggleRatesInStorage($event)">
+    </checkout-sdk-choose-rate>
+  </ng-template>
+</ng-container>

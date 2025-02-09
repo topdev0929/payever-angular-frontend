@@ -1,0 +1,87 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+.switcher-wrapper {
+
+  height: 100vh;
+  width: $pe_hgrid_gutter * 30;
+  overflow: hidden;
+  max-height: 100vh;
+  position: absolute; // was bad idea to use fixed position inside micro-container
+  top: 50%;
+  left: 50%;
+  @include payever_transform_translate(-50%, -50%);
+  @include payever_animation(initOverlay, $animation-duration-complex, both);
+
+  .switcher-scroll-wrapper {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .switcher-wrapper-inner {
+    height: 100%;
+    padding-top: 30vh;
+    width: $pe_hgrid_gutter * 30 + 20;
+    @include payever_transition();
+  }
+
+  &-opened {
+    .switcher-wrapper-inner {
+      padding-top: 15vh;
+    }
+  }
+
+  &.without-top-switcher {
+    .switcher-wrapper-inner {
+      padding-top: unset;
+      .profile-business-list {
+        max-height: 100%;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        @include payever_transform_translateY(-50%);
+      }
+    }
+  }
+
+  .profile-cards {
+    @include pe_flexbox;
+    @include pe_justify-content(center);
+  }
+}
+
+@keyframes initOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media(max-width: $viewport-breakpoint-sm-2 - 1) {
+  .switcher-wrapper {
+    width: 100%;
+    .switcher-wrapper-inner {
+      width: 100%;
+    }
+  }
+}
+
+@media(max-width: $viewport-breakpoint-sm-1 - 1) {
+  .switcher-wrapper {
+    .switcher-wrapper-inner {
+      margin: 0;
+    }
+  }
+}
+
+@media(max-width: $viewport-breakpoint-xs-2 - 1) {
+  .switcher-wrapper {
+    @include pe_flex-direction(column);
+    .profile {
+      margin-bottom: 5vh;
+      width: 50%;
+    }
+  }
+}

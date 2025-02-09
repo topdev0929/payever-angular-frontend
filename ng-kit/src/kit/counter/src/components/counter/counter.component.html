@@ -1,0 +1,31 @@
+<div class="counter-container">
+  <button mat-raised-button
+          type="button"
+          class="mat-button-sm mat-button-small-padding mat-button-fit-content counter-button-minus"
+          [disabled]="value == minValue || readOnly"
+          (click)="add(-1)">
+    <svg class="icon icon-12">
+      <use xlink:href="#icon-minus-big-16"></use>
+    </svg>
+  </button>
+
+  <input type="number" 
+         #input 
+         class="form-control number-input counter-input" 
+         [value]="value" 
+         (input)="onInput()" 
+         [autofocus]="autoFocus" 
+         [readonly]="readOnly" 
+         placeholder="0" 
+         autocomplete="off">
+
+  <button mat-raised-button
+          type="button"
+          class="mat-button-sm mat-button-small-padding mat-button-fit-content counter-button-plus"
+          [disabled]="value == maxValue || readOnly"
+          (click)="add(1)">
+    <svg class="icon icon-12">
+      <use xlink:href="#icon-plus-16"></use>
+    </svg>
+  </button>
+</div>

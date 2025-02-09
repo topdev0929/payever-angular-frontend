@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "downlevelIteration": true,
+    "target": "es5",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": true,
+    // TODO: Return this after updating editor to follow this rule or after adding editor compilation check
+    "noImplicitAny": false,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "types": [
+      "node",
+      "jasmine",
+      "swiper"
+    ]
+  },
+  "awesomeTypescriptLoaderOptions": {
+    "useWebpackText": true,
+    "silent": true
+  },
+  "compileOnSave": false,
+  "buildOnSave": false
+}

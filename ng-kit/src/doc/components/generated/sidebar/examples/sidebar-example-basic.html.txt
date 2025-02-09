@@ -1,0 +1,5 @@
+<pe-sidebar [isOpen]="isSidebarOpen"
+  [configuration]="configuration"
+  (onSidebarOpened)="onSidebarOpened()"
+  (onSidebarClosed)="onSidebarClosed()"
+></pe-sidebar>

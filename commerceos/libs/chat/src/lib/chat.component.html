@@ -1,0 +1,65 @@
+<div *ngIf="!peMessageAppService.showPinnedMessageList" class="header" [style.background-color]="bgColor">
+  <ng-content select="pe-chat-header"></ng-content>
+</div>
+<div *ngIf="peMessageAppService.showPinnedMessageList" class="unpin-message-header"
+  (click)="backToChat()"
+  >
+  <mat-icon class="cross-icon" svgIcon="arrow-left"></mat-icon>
+  <span class="pin-message-header">
+    {{pinCount}} pinned messages  
+  </span>
+</div>
+<div class="scrollable" #scrollable [style.background-color]="bgColor" (scroll)="onScroll($event)">
+  <div class="messages">
+    <div
+      *ngIf="dateTag"
+      [@showBadgeAnimation]="showDateTag && dateTag ? 'show' : 'hidden'"
+      class="date-tag" [class.blur-mode]="blurValue">{{ dateTag }}</div>
+    <div #messageContainer class="messages__container{{messages?.length > 10 ? '_over-list' : ''}}">
+        <pe-virtual-scroll-viewport
+          #pevirtualscrollviewport
+          [contentAlignment]="'bottom'"
+          [isLiveChat]="isLiveChat"
+          (firstItemIndexChange)="firstItemIndexChange($event)"
+          (scrollIndexChange)="scrollIndexChange()
+          ">
+          <ng-content select="pe-chat-message"></ng-content>
+        </pe-virtual-scroll-viewport>
+        <p class="no-messages" *ngIf="noMessagesPlaceholder && !messages?.length">
+          {{ noMessagesPlaceholder | translate }}
+        </p>
+      <div
+        class="messages__container_scroll-bottom"
+        [class.show]="scrollBottom"
+        [class.blur-mode]="blurValue"
+        [style.background-color]="messagesBottomColor"
+        (click)="scrollListBottom()"
+      >
+        <mat-icon class="icon-16" svgIcon="arrow-down"></mat-icon>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-container *ngIf="!peMessageAppService.showPinnedMessageList">
+  <div class="appearance-settings">
+    <ng-content select="pe-chat-appearance"></ng-content>
+  </div>
+  <div class="form">
+    <ng-content select="pe-chat-form"></ng-content>
+  </div>
+</ng-container>
+<div *ngIf="peMessageAppService.showPinnedMessageList" class="unpin-message">
+  <div class="unpin-message-link" *ngIf="pinCount > 1">
+    <span (click)="unpinAllMessage()">
+      {{'message-app.chat-unpin-all'|translate}} {{pinCount}} {{'message-app.chat-unpin-messages'|translate}}
+    </span>
+  </div>
+  <div class="unpin-message-link" *ngIf="pinCount <= 1">
+    <span (click)="unpinAllMessage()">
+      {{'message-app.chat-unpin'|translate}} {{pinCount}}  {{'message-app.chat-message'|translate}}
+    </span>
+  </div>
+</div>
+<div *ngIf="peMessageAppService.showPinnedMessageList" class="logo-footer">
+  <mat-icon class="logo-footer__icon" svgIcon="message-app-color"></mat-icon>
+</div>

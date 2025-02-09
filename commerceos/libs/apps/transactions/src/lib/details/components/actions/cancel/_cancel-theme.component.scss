@@ -1,0 +1,17 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $warn: map.get($color-config, 'warn');
+  $content: map.get($color-config, 'content');
+  $label-color: map.get($color-config, 'label-color');
+
+  .transactions-cancel {
+    .hint-text {
+      color: $label-color;
+    }
+    button[type='submit'] {
+      background-color: $content;
+      color: $content;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 12px;
+
+  .peb-social-sharing-image {
+    width: 100%;
+  }
+
+  .footer-info {
+    font-size: 12px;
+    font-weight: normal;
+    margin: 8px 0;
+  }
+}

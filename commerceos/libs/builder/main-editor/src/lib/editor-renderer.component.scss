@@ -1,0 +1,84 @@
+:host {
+  display: contents;
+}
+
+.editor-renderer {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: max-content;
+  height: max-content;
+  min-width: 100%;
+  min-height: 100%;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.iframe {
+  height: 100%;
+  width: 100%;
+  border: none;
+}
+
+.renderer-wrap {
+  pointer-events: none;
+  position: absolute;
+  will-change: width, height, transform;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  background-color: white;
+}
+
+.peb-renderer {
+  display: block;
+  transform-origin: center top;
+  border: none;
+  position: relative;
+}
+
+.renderer-wrap .peb-renderer {
+  height: max-content;
+  transform-origin: left top;
+  will-change: width, height;
+}
+
+.preview-renderer {
+  z-index: -1000;
+  display: block;
+  position: absolute;
+  transform-origin: left top;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+
+  pointer-events: none;
+}
+
+.hit-area {
+  pointer-events: auto;
+  position: fixed;
+  top: -100%;
+  left: -100%;
+  right: -100%;
+  bottom: -100%;
+  background: rgba(0, 0, 0, 0);
+  z-index: 2;
+}
+
+.viewport {
+  background-color: #e4e4e4;
+}
+
+peb-text-editor {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 2;
+}
+
+.loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  cursor: wait;
+}

@@ -1,0 +1,49 @@
+<div class="form" *ngIf="shapeBorderService.shapeBorderForm">
+  <form [formGroup]="shapeBorderService.shapeBorderForm">
+    <div class="group__row">
+      <label class="group__label">{{ 'builder-app.forms.border.title' | translate }}</label>
+      <peb-slide-toggle formControlName="enabled"></peb-slide-toggle>
+    </div>
+    <div [class.hide]="!shapeBorderService.shapeBorderForm.value.enabled">
+      <div class="group__row">
+        <label class="group__label">
+          {{ 'builder-app.forms.border.fill' | translate }}
+        </label>
+        <div class="peb-fill" (click)="shapeBorderService.showBorderColorForm()">
+          <div
+            class="peb-fill__thumbnail"
+            [style.background-color]="(borderColor$ | async) | rgbCss"
+          ></div>
+          <mat-icon svgIcon="arrow" class="sidebar__icon sidebar__icon__arrow sidebar__icon__arrow--fill"></mat-icon>
+        </div>
+      </div>
+
+      <div class="group__row group__row_pointer border-style" (click)="shapeBorderService.openBorderStyleForm()">
+        <label class="group__label">
+          {{ 'builder-app.forms.border.style' | translate }}
+        </label>
+        <div class="selected-border-style">
+          <div
+            class="selected-border-style__style"
+            [style.border-bottom-style]="shapeBorderService.shapeBorderForm.value.style"
+            [style.border-bottom-width.px]="shapeBorderService.isSingleLineBorder(shapeBorderService.shapeBorderForm.value.style) ? 1 : 3"
+          ></div>
+        </div>
+        <mat-icon svgIcon="arrow" class="sidebar__icon sidebar__icon__arrow sidebar__icon__arrow"></mat-icon>
+      </div>
+
+      <div class="group__row">
+        <label class="group__label">
+          {{ 'builder-app.forms.border.width' | translate }}
+        </label>
+        <peb-number-input-spinbutton
+          class="sidebar__spinbutton"
+          [min]="0"
+          [max]="100"
+          formControlName="width"
+          units="px"
+        ></peb-number-input-spinbutton>
+      </div>
+    </div>
+  </form>
+</div>

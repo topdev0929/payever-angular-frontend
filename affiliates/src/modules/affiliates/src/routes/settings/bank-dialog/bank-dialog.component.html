@@ -1,0 +1,25 @@
+<div class="container" [ngClass]="config.theme">
+  <div class="element-body-wrap">            
+      <peb-form-background>
+        <peb-form-field-input label="Account holder" appearance="label">          
+          <input value="Your Name" />
+        </peb-form-field-input>
+        <peb-select selectType="label" label="Country" selected="Germany">
+          <peb-select-option label="Germany" value="Germany"></peb-select-option>
+          <peb-select-option label="USA" value="USA"></peb-select-option>
+          <peb-select-option label="Canada" value="Canada"></peb-select-option>
+        </peb-select>
+        <peb-select selectType="label" label="City (Optional)" selected="Hamburg">
+          <peb-select-option label="Hamburg" value="Hamburg"></peb-select-option>
+          <peb-select-option label="Berlin" value="Berlin"></peb-select-option>
+          <peb-select-option label="Munich" value="Munich"></peb-select-option>
+        </peb-select>
+        <peb-form-field-input label="Bank name (Optional)" appearance="label">
+          <input value="Reiffeisen" />
+        </peb-form-field-input>
+        <peb-form-field-input label="Account number (Optional)" appearance="label">
+          <input value="234325235426346" />
+        </peb-form-field-input>
+      </peb-form-background>                  
+  </div>     
+</div>

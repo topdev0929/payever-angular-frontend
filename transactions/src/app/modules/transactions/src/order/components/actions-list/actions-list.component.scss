@@ -1,0 +1,32 @@
+// @import "~bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+:host {
+  white-space: nowrap;
+  margin-top: $grid-unit-y/2;
+  &.last-on-right {
+    margin-right: -$grid-unit-x/2;
+  }
+  &.actions-desktop {
+    display: flex;
+  }
+}
+
+.mat-button-xs {
+  display: inline-block;
+  color: #fff;
+  background: rgba(255,255,255,.2);
+  border-radius: 10px;
+  outline: none;
+  line-height: 22px;
+  text-decoration: none;
+  margin: 4px 3px;
+  vertical-align: bottom;
+}
+
+.actions-more {
+  min-width: auto;
+  padding: 0;
+  margin-left: 8px;
+}

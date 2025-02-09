@@ -1,0 +1,336 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "dev": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "aot": true,
+            "outputPath": "dist",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "polyfills": "src/polyfills.ts",
+            "assets": [
+              "src/assets",
+              "src/env.json",
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/ng-kit/modules/ui-locale/assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "i18n-serve",
+                "output": "i18n-serve"
+              },
+              {
+                "glob": "**/transactions.png",
+                "input": "node_modules/@pe/ui-kit/icons-apps",
+                "output": "/assets"
+              }
+            ],
+            "styles": [
+              "node_modules/@pe/ui-kit/scss/pe_style.scss",
+              "src/styles.scss"
+            ],
+            "scripts": [
+              "node_modules/element-closest/element-closest.js",
+              "node_modules/scrollingelement/scrollingelement.js",
+              "node_modules/jquery/dist/jquery.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "dev:build",
+            "port": 8080
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "dev:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "dev:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "codeCoverage": true,
+            "karmaConfig": "src/karma.conf.js",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.spec.json",
+            "scripts": [
+              "node_modules/element-closest/element-closest.js",
+              "node_modules/scrollingelement/scrollingelement.js",
+              "node_modules/jquery/dist/jquery.min.js"
+            ],
+            "styles": [
+              "node_modules/@pe/ui-kit/scss/pe_style.scss"
+            ],
+            "assets": [
+              "src/assets",
+              "src/env.json",
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/ng-kit/modules/ui-locale/assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "i18n-serve",
+                "output": "/dist_ext/transactions/i18n"
+              },
+              {
+                "glob": "**/transactions.png",
+                "input": "node_modules/@pe/ui-kit/icons-apps",
+                "output": "/assets"
+              }
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "src/tsconfig.app.json",
+              "src/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "prod": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "aot": true,
+            "outputPath": "dist",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "polyfills": "src/polyfills.ts",
+            "assets": [
+              {
+                "glob": "**/transactions.png",
+                "input": "node_modules/@pe/ui-kit/icons-apps",
+                "output": "/assets"
+              }
+            ],
+            "styles": [
+              "node_modules/@pe/ui-kit/scss/pe_style.scss",
+              "src/styles.scss"
+            ],
+            "scripts": [
+              "node_modules/element-closest/element-closest.js",
+              "node_modules/scrollingelement/scrollingelement.js",
+              "node_modules/jquery/dist/jquery.min.js"
+            ]
+          },
+          "configurations": {
+            "prod": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "dev": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "stage": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "prod:build",
+            "port": 8080
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "prod:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "prod:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "karmaConfig": "src/karma.conf.js",
+            "codeCoverage": true,
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.spec.json",
+            "scripts": [
+              "node_modules/element-closest/element-closest.js",
+              "node_modules/scrollingelement/scrollingelement.js",
+              "node_modules/jquery/dist/jquery.min.js"
+            ],
+            "styles": [],
+            "assets": [
+              {
+                "glob": "**/transactions.png",
+                "input": "node_modules/@pe/ui-kit/icons-apps",
+                "output": "/assets"
+              }
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "src/tsconfig.app.json",
+              "src/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "libs.transactions": {
+      "projectType": "library",
+      "root": "src/app/modules/transactions",
+      "sourceRoot": "src/app/modules/transactions/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "src/app/modules/transactions/tsconfig.lib.json",
+            "project": "src/app/modules/transactions/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "src/app/modules/transactions/tsconfig.lib.prod.json"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "dev",
+  "schematics": {
+    "@schematics/angular:component": {
+      "prefix": "orders",
+      "style": "scss"
+    },
+    "@schematics/angular:directive": {
+      "prefix": "orders"
+    }
+  },
+  "cli": {
+    "analytics": "2f353427-4bf7-4a18-80fb-37aa84fe74ef"
+  }
+}

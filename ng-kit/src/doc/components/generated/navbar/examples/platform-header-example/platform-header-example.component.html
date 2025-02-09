@@ -1,0 +1,13 @@
+<p>Header is shown on top of screen</p>
+<pe-platform-header
+  [color]="color"
+  [position]="position"
+  [notificationControls]="connectionControls"
+  [style]="style"
+  [showAlert]="showBadConnectionAlert$ | async"
+>
+</pe-platform-header>
+
+<button (click)="showBadConnectionAlert$.next(!showBadConnectionAlert$.value)">Toggle Bad Connection Alert</button>
+<button (click)="loggedIn$.next(!loggedIn$.value)">Toggle Logged In</button>
+

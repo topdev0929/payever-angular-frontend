@@ -1,0 +1,104 @@
+<div class="version-forms">
+  <div class="image-picker" (click)="onLogoUpload()">
+    <mat-progress-spinner *ngIf="isLogoChanging$ | async" mode="indeterminate" diameter="16"></mat-progress-spinner>
+    <ng-container *ngIf="!(isLogoChanging$ | async)">
+      <button class="logo-remove" (click)="onLogoClear()" *ngIf="(logo$ | async)">
+        <svg class="icon icon-12">
+          <use xlink:href="#icon-close-bold-12"></use>
+        </svg>
+      </button>
+
+      <ng-container *ngIf="!(logo$ | async)">
+        <svg class="icon icon-24">
+          <use xlink:href="#add-photo-alternate-24"></use>
+        </svg>
+        <span>Logo</span>
+      </ng-container>
+      <div
+        *ngIf="(logo$ | async)"
+        [style.backgroundImage]="'url(' + (logo$ | async) + ')' | safe: 'style'"
+        class="logo"
+      ></div>
+    </ng-container>
+  </div>
+  <div class="content">
+    <form [formGroup]="themeNameForm" class="theme-name">
+      <label for="theme-name" pe-qa-builder="theme-name-label">Name:</label>
+      <input
+        id="theme-name"
+        name="theme-name"
+        formControlName="name"
+        type="text"
+        placeholder="Name"
+        autocomplete="off"
+        pe-qa-builder="theme-name"
+      />
+      <pe-builder-navbar-top-button
+        class="button"
+        [disabled]="isNameChanging || themeNameForm.pristine || themeNameForm.invalid"
+        [showSpinner]="isNameChanging"
+        label="Change"
+        (clicked)="onNameUpdate()"
+      ></pe-builder-navbar-top-button>
+    </form>
+
+    <form [formGroup]="versionNameForm" class="theme-name">
+      <label for="theme-name" pe-qa-builder="version-name-label">Version:</label>
+      <input
+        id="version-name"
+        name="version-name"
+        formControlName="name"
+        type="text"
+        placeholder="Name"
+        autocomplete="off"
+        pe-qa-builder="version-name"
+      />
+      <pe-builder-navbar-top-button
+        class="button"
+        [disabled]="isVersionCreating || versionNameForm.pristine || versionNameForm.invalid"
+        [showSpinner]="isVersionCreating"
+        label="Create"
+        (clicked)="onVersionCreate()"
+      ></pe-builder-navbar-top-button>
+    </form>
+  </div>
+</div>
+
+<ul class="versions-table">
+  <li *ngFor="let version of availableVersions; let i = index" [class.current]="version.current" class="version-row">
+    <span class="version-actions" [mat-menu-trigger-for]="publishMenu" pe-qa-builder="version-actions">
+      <svg class="icon icon-16">
+        <use xlink:href="#icon-dots-v-16"></use>
+      </svg>
+    </span>
+
+    <mat-menu class="mat-menu-dark" #publishMenu>
+      <button mat-menu-item (click)="onVersionInstall(version.id)" pe-qa-builder="version-actions-edit">
+        Edit
+      </button>
+      <button mat-menu-item (click)="onVersionPublish(version.id)" pe-qa-builder="version-actions-publish">
+        Publish
+      </button>
+      <button mat-menu-item [disabled]="version.published" (click)="onVersionDelete(version.id)" pe-qa-builder="version-actions-edit-delete">
+        Delete
+      </button>
+    </mat-menu>
+
+    <div class="version-name">
+      <span>
+        {{ currentThemeName }}
+      </span>
+      <button *ngIf="version.published" title="Published" class="published-dot"></button>
+    </div>
+    <span class="version-version">
+      {{ version.name }}
+    </span>
+    <span class="version-date">
+      {{ version.createdAt | date: 'dd/MM/yy' }}
+    </span>
+    <span class="version-time">
+      {{ version.createdAt | date: 'hh:mm' }}
+    </span>
+  </li>
+</ul>
+

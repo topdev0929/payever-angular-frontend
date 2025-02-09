@@ -1,0 +1,23 @@
+<button (click)="toggleContent()">Toggle content</button>
+<button (click)="toggleCaution()">Toggle caution</button>
+
+<pe-layout-app [fullView]="true" [showHeader]="true" [showToolbar]="false">
+  <pe-layout-header header [showBackButton]="true" [fullWidth]="false">
+    <div col-left>
+      Col-left
+    </div>
+    <div col-center>
+      Col-center
+    </div>
+    <div col-right>
+      Col-right
+    </div>
+  </pe-layout-header>
+  <pe-layout-content [showSidebar]="false" [showCaution]="isCautionOpened" [collapsed]="!isContentOpened">
+    <div no-collapse [hidden]="isContentOpened">Main content (no collapse)</div>
+
+    <div caution [hidden]="!isCautionOpened">Some caution content</div>
+
+    <div>It will collapse</div>
+  </pe-layout-content>
+</pe-layout-app>

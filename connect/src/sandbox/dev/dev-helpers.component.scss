@@ -1,0 +1,64 @@
+$unit: 8px;
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#modal {
+  min-width: 30 * $unit;
+  background: white;
+
+  button {
+    color: rgba(17, 17, 17, 0.85);
+
+    &[disabled] { color: rgba(17, 17, 17, 0.4); }
+
+  }
+
+  button + button {
+    margin-left: -1px;
+  }
+
+  section {
+    padding: 2*$unit;
+    border-bottom: 1px solid #ccc;
+
+    &.controls {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+
+  .field {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: $unit;
+
+    label {
+      width: 10 * $unit;
+      padding-right: 2 * $unit;
+      margin-bottom: 0;
+      flex-shrink: 0;
+    }
+
+    input, select {
+      flex-grow: 1;
+    }
+
+    input, option {
+      padding: 0 5px;
+    }
+  }
+}

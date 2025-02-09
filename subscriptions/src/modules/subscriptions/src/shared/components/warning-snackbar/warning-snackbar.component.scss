@@ -1,0 +1,15 @@
+:host {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  padding: 7px 0;
+  background-color: #ff8500;
+  min-height: 34px;
+  border-radius: 5px;
+
+  .snackbar-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+}

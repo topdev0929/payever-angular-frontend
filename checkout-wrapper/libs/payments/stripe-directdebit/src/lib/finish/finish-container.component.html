@@ -1,0 +1,12 @@
+<stripe-direct-debit-shared-finish
+  [errorMessage]="errorMessage"
+  [embeddedMode]="embeddedMode"
+  [nodeResult]="paymentResponse"
+  [showCloseButton]="showCloseButton"
+  [isLoading]="!paymentResponse && !errorMessage"
+  (cleanUp)="cleanUp()"
+  (close)="close()"
+  (tryAgain)="tryAgain()"
+  (changePaymentMethod)="changePayment($event)"
+  (updateStatus)="updateStatus()"
+></stripe-direct-debit-shared-finish>

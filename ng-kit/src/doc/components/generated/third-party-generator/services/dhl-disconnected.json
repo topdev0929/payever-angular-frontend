@@ -1,0 +1,60 @@
+{
+  "contentType": "accordion",
+  "connected": false,
+  "title": "shipping.dhl.title",
+  "closeUrl": "https://dhl-backend.test.devpayever.com/api/flow/close-app",
+  "type": "info-box",
+  "content": {
+    "accordion": [
+      {
+        "title": "shipping.dhl.authentication",
+        "action": {
+          "actionId": "start",
+          "text": "shipping.dhl.connect",
+          "apiUrl": "https://dhl-backend.test.devpayever.com/api/flow/save-business-auth",
+          "httpMethod": "post",
+          "classes": "text-grey"
+        },
+        "fieldset": [
+          {
+            "name": "businessCustomerShippingUser",
+            "type": "input",
+            "fieldSettings": {
+              "classList": "col-xs-12",
+              "label": "shipping.dhl.authentication.user",
+              "required": true
+            },
+            "inputSettings": {
+              "placeholder": "shipping.dhl.authentication.user"
+            }
+          },
+          {
+            "name": "businessCustomerShippingPassword",
+            "type": "input-password",
+            "fieldSettings": {
+              "classList": "col-xs-12",
+              "label": "shipping.dhl.authentication.password",
+              "required": true
+            },
+            "inputSettings": {
+              "placeholder": "shipping.dhl.authentication.password"
+            }
+          },
+          {
+            "name": "businessCustomerShippingEkp",
+            "type": "input",
+            "fieldSettings": {
+              "classList": "col-xs-12",
+              "label": "EKP",
+              "required": true
+            },
+            "inputSettings": {
+              "placeholder": "EKP"
+            }
+          }
+        ],
+        "fieldsetData": {}
+      }
+    ]
+  }
+}

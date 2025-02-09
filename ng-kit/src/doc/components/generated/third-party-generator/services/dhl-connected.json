@@ -1,0 +1,200 @@
+{
+  "contentType": "accordion",
+  "connected": true,
+  "title": "shipping.dhl.title",
+  "closeUrl": "https://dhl-backend.test.devpayever.com/api/flow/close-app",
+  "type": "info-box",
+  "content": {
+    "accordion": [
+      {
+        "title": "shipping.dhl.settings",
+        "action": {
+          "actionId": "save-settings",
+          "text": "shipping.dhl.save",
+          "apiUrl": "https://dhl-backend.test.devpayever.com/api/flow/save-settings",
+          "httpMethod": "post",
+          "classes": "text-grey",
+          "isSubmit": true
+        },
+        "fieldset": [],
+        "fieldsetData": {},
+        "nestedElements": {
+          "accordion": [
+            {
+              "title": "shipping.dhl.settings.general.title",
+              "fieldset": [
+                {
+                  "name": "displayName",
+                  "type": "input",
+                  "fieldSettings": {
+                    "classList": "col-xs-12",
+                    "label": "shipping.dhl.settings.general.displayname"
+                  },
+                  "inputSettings": {
+                    "placeholder": "shipping.dhl.settings.general.displayname"
+                  }
+                }
+              ],
+              "fieldsetData": {
+                "displayName": ""
+              }
+            },
+            {
+              "title": "shipping.dhl.settings.freeshipping.title",
+              "fieldset": [
+                {
+                  "name": "freeShippingTitle",
+                  "type": "input",
+                  "fieldSettings": {
+                    "classList": "col-xs-12",
+                    "label": "shipping.dhl.settings.freeshipping.field.title"
+                  },
+                  "inputSettings": {
+                    "placeholder": "shipping.dhl.settings.freeshipping.field.title"
+                  }
+                },
+                {
+                  "name": "freeOver",
+                  "type": "input",
+                  "fieldSettings": {
+                    "classList": "col-xs-12",
+                    "label": "shipping.dhl.settings.freeshipping.field.orderover"
+                  },
+                  "inputSettings": {
+                    "placeholder": "shipping.dhl.settings.freeshipping.field.orderover",
+                    "type": "number"
+                  }
+                }
+              ],
+              "fieldsetData": {
+                "freeShippingTitle": "",
+                "freeOver": ""
+              }
+            },
+            {
+              "title": "shipping.dhl.settings.commission.title",
+              "fieldset": [
+                {
+                  "name": "commissionType",
+                  "type": "select",
+                  "fieldSettings": {
+                    "label": "shipping.dhl.settings.commission.field.type",
+                    "classList": "col-xs-6"
+                  },
+                  "selectSettings": {
+                    "options": [
+                      {
+                        "label": "%",
+                        "value": "percentage"
+                      },
+                      {
+                        "label": "EUR",
+                        "value": "price"
+                      }
+                    ],
+                    "placeholder": "shipping.dhl.settings.commission.field.type"
+                  }
+                },
+                {
+                  "name": "commission",
+                  "type": "input",
+                  "fieldSettings": {
+                    "classList": "col-xs-6",
+                    "label": "shipping.dhl.settings.commission.field.number"
+                  },
+                  "inputSettings": {
+                    "placeholder": "shipping.dhl.settings.commission.field.number",
+                    "type": "number"
+                  }
+                }
+              ],
+              "fieldsetData": {
+                "commissionType": "",
+                "commission": ""
+              }
+            },
+            {
+              "title": "shipping.dhl.settings.rate.title",
+              "fieldset": [
+                {
+                  "name": "rate",
+                  "type": "input-currency",
+                  "fieldSettings": {
+                    "classList": "col-xs-12",
+                    "required": true,
+                    "label": "shipping.dhl.settings.rate.flatrate"
+                  },
+                  "addonAppend": {
+                    "addonType": "text",
+                    "addonStyle": "filled",
+                    "text": "EUR"
+                  },
+                  "inputCurrencySettings": {
+                    "maxLength": 6,
+                    "placeholder": "shipping.dhl.settings.rate.flatrate"
+                  }
+                }
+              ],
+              "fieldsetData": {
+                "rate": 10000
+              }
+            }
+          ]
+        }
+      },
+      {
+        "title": "shipping.dhl.authentication",
+        "action": {
+          "actionId": "disconnect-app",
+          "text": "shipping.dhl.disconnect",
+          "apiUrl": "https://dhl-backend.test.devpayever.com/api/flow/remove-business-auth",
+          "httpMethod": "post",
+          "classes": "text-grey"
+        },
+        "fieldset": [
+          {
+            "name": "businessCustomerShippingUser",
+            "type": "input",
+            "fieldSettings": {
+              "classList": "col-xs-12",
+              "label": "shipping.dhl.authentication.user",
+              "required": true
+            },
+            "inputSettings": {
+              "placeholder": "shipping.dhl.authentication.user"
+            }
+          },
+          {
+            "name": "businessCustomerShippingPassword",
+            "type": "input-password",
+            "fieldSettings": {
+              "classList": "col-xs-12",
+              "label": "shipping.dhl.authentication.password",
+              "required": true
+            },
+            "inputSettings": {
+              "placeholder": "shipping.dhl.authentication.password"
+            }
+          },
+          {
+            "name": "businessCustomerShippingEkp",
+            "type": "input",
+            "fieldSettings": {
+              "classList": "col-xs-12",
+              "label": "EKP",
+              "required": true
+            },
+            "inputSettings": {
+              "placeholder": "EKP"
+            }
+          }
+        ],
+        "fieldsetData": {
+          "businessCustomerShippingUser": "test@top.com",
+          "businessCustomerShippingPassword": "fdsfdsfds",
+          "businessCustomerShippingEkp": "gfddgffdg"
+        }
+      }
+    ]
+  }
+}

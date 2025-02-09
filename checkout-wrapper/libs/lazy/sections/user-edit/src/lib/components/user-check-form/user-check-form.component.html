@@ -1,0 +1,189 @@
+<checkout-user-check-form-styles></checkout-user-check-form-styles>
+<form
+  *ngIf="vm$ | async as vm"
+  class="form-table form-table-checkout"
+  [style.position]="'relative'"
+  [formGroup]="formGroup"
+  analyticsForm
+  (ngSubmit)="submit()">
+  <button
+    #submitTrigger
+    aria-label="Submit button"
+    id="submitButton"
+    name="submitButton"
+    type="submit"
+    class="native-submit"></button>
+
+  <div class="form-fieldset-new">
+    <ng-container *ngIf="formGroup.get('customerType').enabled">
+      <mat-form-field class="col-xs-12 col-sm-12 col-sm-border-bottom-left-radius">
+        <mat-label i18n="@@checkout_address_edit.form.type.label">Type</mat-label>
+        <mat-select formControlName="customerType">
+          <mat-option
+            *ngFor="let option of customerTypes"
+            [value]="option.value">
+            {{ option.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </ng-container>
+
+    <ng-container *ngIf="formGroup.get('company').enabled">
+      <mat-form-field class="col-xs-12">
+        <mat-label i18n="@@checkout_address_edit.form.company.label"> Company </mat-label>
+
+        <input
+          matInput
+          formControlName="company"
+          type="text"
+          [matAutocomplete]="auto"
+          (input)="onCompanyInput($event)" />
+        <mat-spinner
+          matSuffix
+          *ngIf="companiesLoading$ | async"
+          [strokeWidth]="2"
+          [diameter]="26"></mat-spinner>
+        <mat-autocomplete
+          #auto="matAutocomplete"
+          [displayWith]="displayCompany"
+          (optionSelected)="onCompanySelected($event.option.value)">
+          <mat-option
+            *ngFor="let option of companies$ | async"
+            [value]="option">
+            {{ option.name }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </ng-container>
+
+    <ng-container *ngIf="formGroup.get('organizationName').enabled">
+      <mat-form-field class="col-xs-12">
+        <mat-label i18n="@@checkout_address_edit.form.organizationName.label"> Organization </mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="organizationName" />
+      </mat-form-field>
+    </ng-container>
+
+    <ng-container *ngIf="formGroup.get('email').enabled">
+      <mat-form-field
+        matAutocompleteOrigin
+        #origin="matAutocompleteOrigin"
+        class="col-xs-12">
+        <mat-label i18n="@@user.form.label.email"> Email Autocomplete </mat-label>
+        <input
+          matInput
+          formControlName="email"
+          type="text"
+          [matAutocomplete]="auto"
+          [matAutocompleteConnectedTo]="origin" />
+
+        <mat-autocomplete
+          autoActiveFirstOption
+          #auto="matAutocomplete"
+          class="email-suggestions-wrapper"
+          (optionSelected)="emailSuggestionSelected()">
+          <mat-option
+            *ngFor="let email of vm.emails"
+            [value]="email">
+            <div class="email-suggestion-label">
+              <span i18n="@@address.suggest_your_email"> address.suggest_your_email </span>
+            </div>
+
+            <div class="email-suggestion">
+              <div class="email-suggestion-details">
+                <div class="email-suggestion-email">
+                  {{ email }}
+                </div>
+              </div>
+
+              <div class="email-suggestion-status-checked">
+                <svg class="icon icon-16">
+                  <use xlink:href="#icon-checkbox-checked-24"></use>
+                </svg>
+              </div>
+            </div>
+          </mat-option>
+        </mat-autocomplete>
+
+        <button
+          *ngIf="formGroup.get('email').value && !vm.canLogin"
+          matSuffix
+          type="button"
+          tabIndex="-1"
+          class="btn btn-link mat-button-no-padding mat-button-link"
+          i18n="@@action.clear"
+          (click)="clearEmail()">
+          Clear
+        </button>
+
+        <button
+          *ngIf="vm.canLogin"
+          matSuffix
+          type="button"
+          tabIndex="-1"
+          class="btn btn-link mat-button-no-padding mat-button-link"
+          i18n="@@action.login"
+          (click)="login()">
+          Login
+        </button>
+      </mat-form-field>
+    </ng-container>
+
+    <mat-form-field
+      class="col-xs-12"
+      *ngIf="formGroup.get('fullAddress').enabled">
+      <mat-label i18n="@@user.form.label.address"> Address </mat-label>
+      <span
+        #prefix
+        matPrefix>
+        <pe-icon [icon]="'icon-geocoder-24'"> </pe-icon>
+      </span>
+      <input
+        #input
+        matInput
+        peInputMask
+        peAddressAutocomplete
+        [matAutocomplete]="auto"
+        formControlName="fullAddress"
+        [mask]="addressMask"
+        (addressChange)="fullAddressChange($event)"
+        type="text" />
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option
+          *ngFor="let option of addressItems$ | async"
+          [value]="option">
+          {{ option.address }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field
+      class="col-xs-12"
+      *ngIf="formGroup.get('socialSecurityNumber').enabled">
+      <mat-label i18n="@@user.form.label.social_security_number"> Social security number </mat-label>
+
+      <input
+        matInput
+        formControlName="socialSecurityNumber"
+        type="text" />
+
+      <button
+        matSuffix
+        tabIndex="-1"
+        type="button"
+        class="btn btn-link mat-button-line-height-sm mat-button-no-padding"
+        [innerHTML]="translations.ssnSuffix"
+        (click)="toggleSsn()">
+        {{ translations.ssnSuffix }}
+      </button>
+    </mat-form-field>
+  </div>
+
+  <checkout-sdk-continue-button
+    i18n-text="@@action.continue"
+    text="action.continue"
+    type="submit">
+  </checkout-sdk-continue-button>
+</form>

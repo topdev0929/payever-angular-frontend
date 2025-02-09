@@ -1,0 +1,13 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+
+  .style-container {
+    .headline {
+      span {
+        color: $text-color;
+      }
+    }
+  }
+}

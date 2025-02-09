@@ -1,0 +1,76 @@
+{
+  "form": {
+    "contentType": "accordion",
+    "title": "tpm.communications.qr.title",
+    "type": "info-box",
+    "content": {
+      "accordion": [
+        {
+          "icon": "#icon-qrcode-24",
+          "title": "tpm.communications.qr.title",
+          "data": [
+            [
+              {
+                "type": "image",
+                "value": "/background_jpg_ed4f73.jpg"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "value": "tpm.communications.qr.print"
+              },
+              {
+                "action": "print",
+                "actionData": {
+                  "url": "https://checkout.test.devpayever.com/pay/restore-flow-from-code/009fb3a1-2f69-4888-a371-2dfbe91d6447",
+                  "payeverLogo": true,
+                  "wording": "Pay Now",
+                  "businessName": "MyCompany Inc.",
+                  "avatarUrl": "https://payevertesting.blob.core.windows.net/images/3e373bc3-115b-4e4d-b824-a89c6f7c92e8-Screenshot%202020-06-03%20at%2009.14.19.png",
+                  "id": "79cbab94-6158-53e7-906b-7086c473b510"
+                },
+                "text": "tpm.communications.qr.print",
+                "type": "button",
+                "color": "muted-light",
+                "rounded": true,
+                "size": "xs",
+                "request": {
+                  "method": "post",
+                  "url": "https://qr-backend.test.devpayever.com/api/app/2382ffce-5620-4f13-885d-3c069f9dd9b4/print"
+                }
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "value": "tpm.communications.qr.download"
+              },
+              {
+                "action": "download",
+                "actionData": {
+                  "url": "https://checkout.test.devpayever.com/pay/restore-flow-from-code/009fb3a1-2f69-4888-a371-2dfbe91d6447",
+                  "payeverLogo": true,
+                  "wording": "Pay Now",
+                  "businessName": "MyCompany Inc.",
+                  "avatarUrl": "https://payevertesting.blob.core.windows.net/images/3e373bc3-115b-4e4d-b824-a89c6f7c92e8-Screenshot%202020-06-03%20at%2009.14.19.png",
+                  "id": "79cbab94-6158-53e7-906b-7086c473b510"
+                },
+                "text": "tpm.communications.qr.download",
+                "type": "button",
+                "color": "muted-light",
+                "rounded": true,
+                "size": "xs",
+                "request": {
+                  "method": "post",
+                  "url": "https://qr-backend.test.devpayever.com/api/app/2382ffce-5620-4f13-885d-3c069f9dd9b4/download"
+                }
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    "actionContext": {}
+  }
+}

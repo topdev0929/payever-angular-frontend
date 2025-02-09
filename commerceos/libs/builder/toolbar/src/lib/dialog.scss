@@ -1,0 +1,33 @@
+.peb-dialog {
+  border-radius: 12px;
+  -webkit-backdrop-filter: blur(25px);
+  backdrop-filter: blur(25px);
+  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.20);
+  padding: 8px;
+  font-family: Roboto, sans-serif;
+  border: solid 1px #3b3b3b;
+
+  &__header {
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  &__close.mat-icon {
+    width: 20px;
+    height: 20px;
+    transition: color 0.2s;
+    cursor: pointer;
+    margin-left: 5px;
+  }
+
+  &__body {
+    padding-top: 15px;
+  }
+}

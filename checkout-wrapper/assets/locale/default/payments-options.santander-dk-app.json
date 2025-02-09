@@ -1,0 +1,538 @@
+{
+  "santander-dk": {
+    "actions": {
+      "continue": "Continue",
+      "mitid_login": "Login with MitID",
+      "send_inquiry": "Send finance inquiry",
+      "try_again": "Try again"
+    },
+    "duration": {
+      "one_month": "{{ count }} month",
+      "count_months": "{{ count }} months",
+      "count_months_short": "{{ count }} mdr"
+    },
+    "boolean": {
+      "yes": "Ja",
+      "no": "Nej"
+    },
+    "credit_rates": {
+      "actions": {
+        "rate_choose_summary": "Choose {{monthlyCost}} for {{duration}}",
+        "rate_choose_summary_finance_calc": "{{monthlyCost}} for {{duration}}"
+      },
+      "error": {
+        "rate_not_selected": "Please select product and rate",
+        "no_credit_options_for_product": "Sorry but no options available for selected product",
+        "no_products": "Sorry but no products available"
+      },
+      "rate_param": {
+        "amount_range": "Amount range",
+        "account_fee": "Account fee",
+        "nominal_interest": "Variable interest",
+        "effective_interest": "Effective interest",
+        "establishment_fee": "Establishment fee",
+        "payment_duration": "Payment period",
+        "annually_procent": "Annually percent",
+        "total_cost": "Total cost",
+        "total_loan_amount": "Total loan amount",
+        "interest_free_duration": "Interest free duration",
+        "payment_free_duration": "Payment free duration",
+        "monthly_payment": "Monthly rate",
+        "terms_in_month": "Terms"
+      },
+      "choose_rate_title": "Choose duration and monthly payment on the drop down below",
+      "rate_help_text": "If you repay your loan before the installment period of {{ payment_free_duration }} month(s) expires, it only costs the startup fee: {{ establishment_fee }}. There must always be a maturity of min. 12 months after the repayment period. When redeeming before time, contact the customer service of Santander Consumer Bank.",
+      "product_not_selected": "Please select product",
+      "monthly_administration_fee_note": "Account fee <strong>{{ monthly_administration_fee }}</strong> is included in all calculations. Funds can be returned within <strong>14 days</strong>",
+      "rate_title": "{{ monthly_payment }} Pr. Måned",
+      "rate_line1": "Payment period is {{ payment_duration }}",
+      "rate_line2": "Including {{ payment_free_duration }} of payment free duration",
+
+      "rate_dropdown": {
+        "title": "<b>{{ monthly_payment }}/month</b> for {{ payment_duration }}",
+        "pretitle": "No payment for the first {{ payment_free_duration }}, then"
+      }
+    },
+    "inquiry": {
+      "iframe": {
+        "title": "Contract iframe"
+      },
+      "finish": {
+        "application_success": {
+          "title": "Order confirmed. Thank you.",
+          "finish_application": "Finish application",
+          "finish_application_description": "By clicking on Finish application we will direct you to the digital contract center of Santander, where you can download your loan contract and verify your identity using post- or video-identification. You’ll also receive the link to this portal via email, so you may also complete this process later on if you’d prefer that. The merchant will ship your order as soon as you have completed all the required steps.",
+          "finish_application_description_pos": "By clicking on Finish application we will direct you to the digital contract center of Santander, where you can download your loan contract and verify your identity using post- or video-identification. You’ll also receive the link to this portal via email, so you may also complete this process later on if you’d prefer that.",
+          "finish_application_timer": "We guide you back to the handler in <b>{{timer}}</b> seconds"
+        },
+        "application_check_status_processing": {
+          "title": "We are processing your application",
+          "text": "It can take up to 3 minutes. Please do not click away"
+        },
+        "application_pending": {
+          "title": "Your application has been sent to <br>Santander Consumer Bank",
+          "text": "In order to complete your loan, you will be contacted by <br>Santander Consumer Bank on the stated email address",
+          "contacts_note": "For questions and inquiries contact our customer service at <br>tel. 70 23 09 03",
+
+          "opening_hours": {
+            "title": "Opening Hours",
+            "workday": {
+              "title": "{{day}}",
+              "hours": "10-20"
+            },
+            "monday": {
+              "title": "Monday",
+              "hours": "10-20"
+            },
+            "tuesday": {
+              "title": "Tuesday",
+              "hours": "10-20"
+            },
+            "wednesday": {
+              "title": "Wednesday",
+              "hours": "10-20"
+            },
+            "thursday": {
+              "title": "Thursday",
+              "hours": "10-20"
+            },
+            "friday": {
+              "title": "Friday",
+              "hours": "10-20"
+            },
+            "saturday": {
+              "title": "Saturday",
+              "hours": "10-18"
+            },
+            "sunday": {
+              "title": "Sunday",
+              "hours": "10-17"
+            }
+          }
+        },
+        "application_fail": {
+          "title": "Unfortunately, we can not provide you <br>with a loan at this time."
+        }
+      },
+      "subscribe_to_offers": {
+        "title": "Should we contact you with offers and information about the opportunities and benefits you have as a customer?",
+        "text": "Subscribe to our newsletters and keep up-to-date with news, offers and competitions from Santander Consumer Bank and our Partners. If you click on \"Yes, please,\" you allow the Santander Consumer Bank to contact you by email and text with our newsletters as well as offers of our products consisting of car loans, consumer loans, savings, sales finance, insurance and credit cards. Of course, you can always sign up again."
+      },
+      "step": {
+        "rates": {
+          "title": "Choose rate",
+          "no_rates": "The chosen amount can’t be financed by Santander"
+        },
+        "mitid_skat": {
+          "title": "MITID AND SKAT",
+          "summary": "Udført",
+          "mitid_body": {
+            "login": "You must login at MitID to continue",
+            "title": "Confirm with MitID",
+            "text": "By logging in with your NemID and social security number, you create a secure connection so you can easily, quickly and securely approve your loan."
+          },
+          "skat_body": {
+            "login": "You must login at Skat to continue",
+            "title": "Give consent to SKAT.dk with your MitID",
+            "text": "We will redirect you to SKAT's website, where you use NemID to authorise SKAT to share your annual tax return and salary information with us. We will only access the information needed for this loan application."
+          },
+          "bank_consent": {
+            "login": "Retrieve information",
+            "title": "Fetch credit information",
+            "text": "We will redirect to out partner Noitso where you will be asked for consent to get additional credit information by PSD2"
+          }
+        },
+        "app_details": {
+          "title": "Application details"
+        },
+        "children_details": {
+          "title": "Children details"
+        },
+        "cars_details": {
+          "title": "Cars details"
+        },
+        "bank_details": {
+          "title": "Bank details"
+        },
+        "cpr_details": {
+          "title": "CPR details"
+        },
+        "safe_insurance": {
+          "title": "SAFE Forsikring"
+        },
+        "finance_details": {
+          "title": "Finance details"
+        },
+        "agree_text": "<p>Santander Consumer Bank, branch of Santander Consumer Bank AS, Norge (hereinafter: Santander), may obtain information about my loans/credits from other companies affiliated with KreditStatus (see the companies at <a target=\"_blank\" href=\"https://www.kreditstatus.dk\">www.kreditstatus.dk</a>). The information that may be obtained is:</p><ul><li>Identification information, balance, loan type, principal/credit limit and date of origination.</li><li>Any information about arrears and their dates.</li></ul><p>The information may only be used for credit assessment in connection with my application for credit.</p><p>It is voluntary whether I wish to consent to Santander collecting and processing information about my credit exposures. If I do not wish to give my consent, it may mean that my creditworthiness cannot be assessed until I have provided Santander with the necessary documentation.</p><p>I can withdraw my consent by contacting Santander. However, this will not affect the processing and disclosure of my data that has taken place before the consent is withdrawn. Read more about Santander's processing of your data <a target=\"_blank\" href=\"https://santanderconsumer.dk/kundeservice/behandling-af-persondata/\">here</a>.</p>"
+      },
+      "fetch_data_modal": {
+        "title": "We are loading data",
+        "text": "Please wait"
+      },
+      "form": {
+        "_addressLine": {
+          "label": "Address",
+          "placeholder": "Address"
+        },
+        "marketing_consent": {
+          "label": "Receive offers via sms or email <a>give consent</a>",
+          "placeholder": " ",
+          "details": {
+            "title": "Permission to contact you",
+            "text": "<p>If you click on \"Yes\", you give Santander Consumer Bank permission to contact you with news, offers of our products, contests and information about the opportunities and benefits for you as a customer. Of course, you can opt out again at any time.</p>"
+          }
+        },
+        "accept_business_terms": {
+          "label": "I agree with <a>terms and conditions</a>",
+          "placeholder": " ",
+          "details": {
+            "title": "Terms and conditions",
+            "text": "<p>I hereby give my consent to Santander being able to obtain information about my potential loans and credits from the banks and financing companies who are affiliated with KreditStatus. This information may only be used to evaluate my creditworthiness regarding this application with Santander.</p><p>Santander has the right to gather the following information about my existing loans and credits via KreditStatus: identification information, type of loan, principal amount of loan/credit max, formation time, and the current balance.</p><p>Information about which banks and financing companies that have access to gather information about my credit arrangements from KreditStatus is always available on www.kreditstatus.dk</p><p>I am an adult and I hereby confirm that the information I have stated is correct and in accordance with the truth.</p><p>I understand that during the processing of this application there will be made a creditworthiness investigation, and that during this investigation information about my economic conditions with credit information bureaus may be exchanged, and that the gathered information will be registered and processed.</p><p>I understand that Santander can choose to refuse to grant a loan, if the given information is incorrect, or if Santander in connection with credit approval receives information that impacts the rating.</p><p>Regardless of whether a customer relationship will be formed or not, all information stated in the application will be saved by Santander for at least 1 year.</p><p>I accept that a possible rejection will not be explained to me, unless it happens on the basis of a search in a database (for example RKI/debtors ledger).</p><p>I am aware that information will form a basis for Santander meeting the requirement in the Credit Agreement Act § 7c on the assessment of me being able to repay the lent amount.</p><p>Santander can, after you have sent your application, contact you via phone, text message or email to hear if you have any questions regarding the application, our products, etc.</p>"
+          }
+        },
+        "phone_number": {
+          "label": "Telefon",
+          "placeholder": "Telefon",
+          "errors": {
+            "cant_start_with_0": "Phone number can't start with 0"
+          }
+        },
+        "email_address": {
+          "label": "Email address",
+          "placeholder": "Email address"
+        },
+        "confirm_email": {
+          "label": "Repeat email address",
+          "placeholder": "Repeat email address",
+          "errors": {
+            "email_not_much": "Confirmation email does not match"
+          }
+        },
+        "marital_status": {
+          "label": "Familienstand",
+          "placeholder": "Familienstand",
+          "value": {
+            "0": "Single",
+            "1": "Married",
+            "2": "Cohabiting",
+            "3": "Divorced",
+            "4": "Widow",
+            "5": "Separated"
+          }
+        },
+        "citizenship": {
+          "label": "Citizenship type",
+          "placeholder": "Citizenship type",
+          "value": {
+            "0default": "Dansk statsborger",
+            "0": "Statsborger i EU eller EFTA",
+            "1": "Statsborger udenfor EU\/EFTA"
+          }
+        },
+        "residence_permit_number": {
+          "label": "Residence permit number",
+          "placeholder": "Residence permit number"
+        },
+        "household_expenses": {
+          "label": "Do you share household cost?",
+          "placeholder": "Do you share household cost?"
+        },
+        "household_budget_percentage": {
+          "label": "What is your share of household cost?",
+          "placeholder": "What is your share of household cost?"
+        },
+        "residence_permit_type": {
+          "label": "Residence permit type",
+          "placeholder": "Residence permit type",
+          "value": {
+            "0": "C",
+            "1": "D",
+            "2": "E",
+            "3": "F",
+            "4": "G",
+            "5": "H",
+            "6": "K",
+            "7": "L",
+            "8": "P",
+            "9": "R",
+            "10": "Z",
+            "11": "B",
+            "12": "A",
+            "13": "J"
+          }
+        },
+        "residence_permit_date": {
+          "label": "Residence permit date",
+          "placeholder": "Residence permit date"
+        },
+        "children_living_home": {
+          "label": "Anzahl der Kinder",
+          "placeholder": "Anzahl der Kinder"
+        },
+        "child_age": {
+          "label": "Age of children {{ index }}",
+          "placeholder": "Age of children {{ index }}"
+        },
+        "cars_household": {
+          "label": "Number of cars at household",
+          "placeholder": "Number of cars at household"
+        },
+        "car_financed_type": {
+          "label": "Finance type of car {{ index }}",
+          "placeholder": "Finance type of car {{ index }}",
+          "value": {
+            "cars_financed_type_private": "Privately owned",
+            "cars_financed_type_leased": "Leased car",
+            "cars_financed_type_leased_without_service": "Leased without service",
+            "cars_financed_type_company": "Company car"
+          }
+        },
+        "car_monthly_expense": {
+          "label": "Monthly expense of car {{ index }}",
+          "placeholder": "Monthly expense of car {{ index }}"
+        },
+        "car_age": {
+          "label": "Age of car {{ index }}",
+          "placeholder": "Age of car {{ index }}",
+          "value": {
+            "1": "0-2 years old",
+            "4": "3-5 years old",
+            "6": "6+ years old"
+          }
+        },
+        "employment_type": {
+          "label": "Employment type",
+          "placeholder": "Employment type",
+          "value": {
+            "0": "Salaried",
+            "1": "Independent",
+            "2": "Vacant",
+            "3": "Part-time - below 16 hours",
+            "5": "Temporary job",
+            "6": "Pensioner",
+            "7": "Student",
+            "8": "Part-time - 16 hours or more"
+          }
+        },
+        "employed_since": {
+          "label": "Beschäftigt seit",
+          "placeholder": "Beschäftigt seit"
+        },
+        "unemployed_since": {
+          "label": "Unemployed since",
+          "placeholder": "Unemployed since"
+        },
+        "residential_type": {
+          "label": "Residential type",
+          "placeholder": "Residential type",
+          "value": {
+            "0": "Owner",
+            "1": "Rental",
+            "2": "Cooperative",
+            "3": "Living at home",
+            "4": "Rented room"
+          }
+        },
+        "current_year_debt": {
+          "label": "Current year debt",
+          "placeholder": "Current year debt"
+        },
+        "bank_registration_number": {
+          "label": "Bank registration number",
+          "placeholder": "Bank registration number"
+        },
+        "bank_account_number": {
+          "label": "Kontonummer",
+          "placeholder": "Kontonummer"
+        },
+        "e_card": {
+          "label": "Ich habe eine Visa-Karte",
+          "placeholder": "Ich habe eine Visa-Karte"
+        },
+        "first_name": {
+          "label": "Vorname",
+          "placeholder": "Vorname"
+        },
+        "last_name": {
+          "label": "Nachname",
+          "placeholder": "Nachname"
+        },
+        "social_security_number": {
+          "label": "Sozialversicherungsnummer",
+          "placeholder": "Sozialversicherungsnummer"
+        },
+        "city": {
+          "label": "Stadt",
+          "placeholder": "Stadt"
+        },
+        "address": {
+          "label": "Straße und Hausnummer",
+          "placeholder": "Straße und Hausnummer"
+        },
+        "postal_code": {
+          "label": "Postal code",
+          "placeholder": "Postal code"
+        },
+
+        "political_exposed_person": {
+          "label": "Are you or a family member of a politically exposed person?",
+          "placeholder": "Are you or a family member of a politically exposed person?"
+        },
+
+        "wants_safe_insurance": {
+          "label": "Tilføg SAFE til mit lån",
+          "placeholder": "Tilføg SAFE til mit lån",
+          "details": {
+            "text": "SAFE er en forsikring som sikrer, at dit lån bliver betalt, hvis du bliver ufrivilligt arbejdsløs eller uarbejdsdygtig pga. sygdom eller ulykke. SAFE giver tryghed til dig og din familie.  <br/><br/>Du kan læse mere om SAFE <a href=\"https://www.santanderconsumer.dk/_layouts/15/scbdk.cards.branding/assets/documents/Betingelser%20SAFE%20L%C3%A5nesikring.pdf\" target=\"_blank\">her</a>. <br/><br/> Forsikringspræmien udgør {{ insurance_percent }} af den månedlige finansieringsydelse, der dags dato udgør {{ insurance_monthly_cost }}. Forsikringspræmien opkræves månedligt samtidig med ydelsen for din finansiering, og reguleres såfremt lånets øvrige betingelser ændres.  <br/> Vær opmærksom på at for selvstændige dækker forsikringen hospitalsindlæggelse, uarbejdsdygtighed og dødsfald."
+          }
+        },
+        "insurance_conditions_accepted": {
+          "label": "Ja, jeg har læst og accepterer <a href='https://www.santanderconsumer.dk/_layouts/15/scbdk.cards.branding/assets/documents/Betingelser%20SAFE%20L%C3%A5nesikring.pdf' target=\"_blank\">betingelserne for SAFE</a>",
+          "placeholder": "Ja, jeg har læst og accepterer <a href='https://www.santanderconsumer.dk/_layouts/15/scbdk.cards.branding/assets/documents/Betingelser%20SAFE%20L%C3%A5nesikring.pdf' target=\"_blank\">betingelserne for SAFE</a>",
+          "details": {
+            "title": "Jeg accepterer betingelserne for SAFE",
+            "text": "Jeg er indforstået med, at sygdom eller personskade som jeg har, eller burde have haft kendskab til ved forsikringens etablering og som jeg senere anmelder, ikke er dækket af forsikringen. Jeg er indforstået med, at hvis jeg har eller burde have haft kendskab til kommende arbejdsløshed, kan disse tilfælde ikke senere føre til krav om forsikringsdækning. Jeg er indforstået med, at arbejdsløshed efter tidsbegrænset ansættelse eller fleksjob ikke er omfattet af SAFE. SAFE træder i kraft, hvis dit lån bliver bevilget og startdatoen på forsikringen vil være den samme dag, som lånet bliver udbetalt til dig. Du skal være opmærksom på, at der for dækning af arbejdsløshed er en kvalifikationsperiode på 180 dage og for uarbejdsdygtighed en kvalifikationsperiode på 30 dage."
+          }
+        },
+        "monthly_salary_before_tax": {
+          "label": "monatliches Nettoeinkommen",
+          "placeholder": "monatliches Nettoeinkommen"
+        },
+        "total_debt": {
+          "label": "Total debt",
+          "placeholder": "Total debt"
+        },
+        "total_transport_cost_monthly__fuel": {
+          "label": "Monthly transport costs (fuel)",
+          "placeholder": "Monthly transport costs (fuel)"
+        },
+        "total_transport_cost_monthly__public": {
+          "label": "Månedlige transportomkostninger (offentlig transport)",
+          "placeholder": "Månedlige transportomkostninger (offentlig transport)"
+        },
+        "total_rent_monthly": {
+          "label": "Mnd. husleje inkl. vand og varme",
+          "placeholder": "Mnd. husleje inkl. vand og varme"
+        },
+        "insurance_for_unemployment": {
+          "label": "I am member of an unemployment insurance",
+          "placeholder": "I am member of an unemployment insurance"
+        },
+        "pay_with_main_income": {
+          "label": "Yes, I plan to repay with my main income.",
+          "placeholder": "Yes, I plan to repay with my main income."
+        },
+        "pay_source": {
+          "label": "Angivhvordan du planlægger at tilbagebetale",
+          "placeholder": "Angivhvordan du planlægger at tilbagebetale",
+          "value": {
+            "0": "Undefined",
+            "1": "Salary",
+            "2": "Pension",
+            "3": "Social benefits",
+            "4": "Savings",
+            "5": "Commercial activity or rental",
+            "6": "Sale of real estate",
+            "7": "Sale of car or similar",
+            "8": "Inheritance or gifts",
+            "9": "Yield from investments",
+            "10": "Dividends",
+            "11": "Compensation",
+            "12": "Co applicant repays",
+            "99": "Other"
+          }
+        },
+        "other_pay_source": {
+          "label": "Uddyb venligst dit svar",
+          "placeholder": "Uddyb venligst dit svar"
+        },
+        "agree_obtain_credit_status": {
+          "label": "I have read and accept that Santander may obtain information about my loans/credits from other companies affiliated with KreditStauts.",
+          "placeholder": "I have read and accept that Santander may obtain information about my loans/credits from other companies affiliated with KreditStauts."
+        },
+        "apply_on_behalf_of_other": {
+          "label": "I am not applying on behalf of others.",
+          "placeholder": "I am not applying on behalf of others."
+        },
+        "confirm_entered_data": {
+          "label": "I confirm that all information provided is correct.",
+          "placeholder": "I confirm that all information provided is correct."
+        },
+        "_product_id": {
+          "label": " ",
+          "placeholder": " "
+        },
+        "_is_safe_insurance_allowed": {
+          "label": " ",
+          "placeholder": " "
+        },
+        "total_credit_amount": {
+          "label": " ",
+          "placeholder": " "
+        },
+        "credit_duration_in_months": {
+          "label": " ",
+          "placeholder": " "
+        },
+        "application_number": {
+          "label": " ",
+          "placeholder": " "
+        },
+        "debtor_id": {
+          "label": " ",
+          "placeholder": " "
+        },
+        "_skat_passed": {
+          "label": " ",
+          "placeholder": " "
+        },
+        "was_c_p_r_processed": {
+          "label": " ",
+          "placeholder": " "
+        },
+        "was_tax_processed": {
+          "label": " ",
+          "placeholder": " "
+        },
+        "_insurance_enabled": {
+          "label": " ",
+          "placeholder": " "
+        },
+        "_insurance_monthly_cost": {
+          "label": " ",
+          "placeholder": " "
+        },
+        "_insurance_percent": {
+          "label": " ",
+          "placeholder": " "
+        },
+        "_insurance_processed": {
+          "label": " ",
+          "placeholder": " "
+        },
+        "finance_type": {
+          "label": "Finance type {{index}}"
+        },
+        "age_of_car": {
+          "label": "Age of car {{index}}"
+        },
+        "monthly_expense": {
+          "label": "Monthly expense"
+        },
+        "age_of_child": {
+          "label": "Age of child {{index}}"
+        },
+        "product_consent": {
+          "agree_text": "Santander via løbende informere dig pr. mail med information om vores produkter. Ønsker du ikke dette,",
+          "action": "please unsubscribe here:",
+          "label": "Jeg ønsker ikke, at Santander sender mig information om deres produkter."
+        }
+      }
+    },
+    "selected_rate_details": {
+      "table": {
+        "description": "Selected rates table"
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+<div class="pe-grid-sidenav__container">
+  <div *ngIf="isGlobalLoading" class="skeleton-title"></div>
+  <div
+    *ngIf="showSidenavHeader"
+    class="pe-grid-sidenav__title"
+    [class.hidden]="isGlobalLoading"
+  >
+    {{ sidenavTitle }}
+    <mat-icon svgIcon="small-close-icon" (click)="close(true)"></mat-icon>
+  </div>
+  <ng-content select="[searchConversation]"></ng-content>
+  <ng-content select="[emptyConversationList]"></ng-content>
+  <div
+    class="pe-grid-sidenav__content"
+    [class.pe-grid-sidenav__content_small-padding]="smallPadding"
+    [class.pe-grid-sidenav__content_message-extra]="messagesExtraSidebar"
+  >
+    <ng-scrollbar (reachedBottom)="onBottomReached()" thumbClass="pe-scrollbar-thumb" visibility="hover" appearance="compact">
+      <ng-content></ng-content>
+    </ng-scrollbar>
+  </div>
+  <div *ngIf="isGlobalLoading" class="skeleton__menu"></div>
+  <div
+    *ngIf="sidenavMenu && !mobileView"
+    class="pe-grid-sidenav__menu"
+    [class.pe-grid-sidenav__menu_opened]="menuOpened"
+    (click)="openMenu($event.target, $event.target.clientWidth)"
+  >
+    <svg *ngIf="!isGlobalLoading" xmlns="http://www.w3.org/2000/svg" height="100%" width="100%" viewBox="0 0 24 24" fit="" preserveAspectRatio="xMidYMid meet" focusable="false">
+      <g fill="currentColor" fill-rule="evenodd">
+        <path d="M13.6453 12.0012l8.0126 -8.0126c0.454724,-0.455906 0.454724,-1.19055 0,-1.64528 -0.454724,-0.455906 -1.18937,-0.455906 -1.64528,0l-8.0126 8.0126 -8.0126 -8.0126c-0.455906,-0.455906 -1.19055,-0.455906 -1.64528,0 -0.454724,0.454724 -0.454724,1.18937 0,1.64528l8.0126 8.0126 -8.0126 8.0126c-0.454724,0.455906 -0.454724,1.19055 0,1.64528 0.226772,0.226772 0.524409,0.341339 0.822047,0.341339 0.297638,0 0.596457,-0.114567 0.823228,-0.341339l8.0126 -8.0126 8.0126 8.0126c0.226772,0.226772 0.525591,0.341339 0.823228,0.341339 0.297638,0 0.595276,-0.114567 0.822047,-0.341339 0.454724,-0.454724 0.454724,-1.18937 0,-1.64528l-8.0126 -8.0126 0 0z" class="path1"></path>
+      </g>
+    </svg>
+  </div>
+</div>

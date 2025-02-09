@@ -1,0 +1,61 @@
+<form class="form-table" (click)="$event.stopPropagation()" novalidate (ngSubmit)="onSubmitForm()" #filterForm="ngForm">
+  <div class="form-fieldset-container transparent round-corners">
+    <div class="form-fieldset form-fieldset-no-margin">
+      <div class="row">
+
+        <div class="col-xs-12">
+          <div class="pe-input">
+            <mat-form-field>
+              <mat-select #condition="ngModel"
+                          name="condition"
+                          [panelClass]="'mat-select-panel-dark'"
+                          [(ngModel)]="filter.condition"
+                          (selectionChange)="onChangeCondition()"
+              >
+                <mat-option *ngFor="let option of conditions"
+                            (click)="$event.stopPropagation()"
+                            [value]="option.value"
+                >{{ option.label }}</mat-option>
+              </mat-select>
+              <mat-label>{{ 'ng_kit.data_grid.condition' | translate }}</mat-label>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <ng-container *ngIf="condition?.value === rangeCondition">
+          <div class="col-xs-12">
+            <div class="pe-input">
+              <pe-datepicker [placeholder]="'ng_kit.data_grid.filter.placeholders.fromDate' | translate"
+                             [formControlRef]="form.get('dateFromInput')"
+                             [max]="now"
+                             (valueChange)="valueChangeFromDate($event)"></pe-datepicker>
+
+            </div>
+          </div>
+
+          <div class="col-xs-12">
+            <div class="pe-input">
+              <pe-datepicker [placeholder]="'ng_kit.data_grid.filter.placeholders.toDate' | translate"
+                             [formControlRef]="form.get('dateToInput')"
+                             [min]="filter?.value?.dateFrom || null"
+                             [max]="now"
+                             (valueChange)="valueChangeToDate($event)"></pe-datepicker>
+            </div>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="condition?.value !== rangeCondition">
+          <div class="col-xs-12">
+            <div class="pe-input">
+              <pe-datepicker [placeholder]="'ng_kit.data_grid.filter.placeholders.date' | translate"
+                             [formControlRef]="form.get('dateInput')"
+                             [max]="now"
+                             (valueChange)="valueChangeDate($event)"></pe-datepicker>
+            </div>
+          </div>
+        </ng-container>
+
+      </div>
+    </div>
+  </div>
+</form>

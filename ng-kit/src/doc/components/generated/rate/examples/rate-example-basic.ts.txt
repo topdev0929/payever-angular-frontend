@@ -1,0 +1,22 @@
+import { Component } from '@angular/core';
+import { RateOption } from '../../../../../modules/rate';
+
+@Component({
+  selector: 'rate-doc',
+  templateUrl: 'rate-doc.component.html'
+})
+export class RateDocComponent {
+
+  rateOptions: RateOption[] = [
+    { label: 'Months:', val: '1 Month' },
+    { label: 'Credit purchase:', val: '1678 NOK' }
+  ];
+
+  handleRateSelect(isSelected: boolean): void {
+      
+  }
+
+  handleEdit(): void {
+    
+  }
+}

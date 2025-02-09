@@ -1,0 +1,11 @@
+<div [ngClass]="theme">
+        <pe-edit-picture [businessId]="businessId" [blob]="image" (changePictures)="onUpdatePicture($event)">
+        </pe-edit-picture>
+        <div style="margin: 16px 0;">
+            <peb-form-background>
+                <peb-form-field-input [label]="'invoice-app.common.invoice.folder_name'|translate" appearance="label">
+                    <input name="title" [(ngModel)]="title" pebInput />
+                </peb-form-field-input>
+            </peb-form-background>
+        </div>
+</div>

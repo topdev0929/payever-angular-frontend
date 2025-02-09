@@ -1,0 +1,95 @@
+<div class="preview-container" [ngClass]="detailsActive || renameMediaActive ? 'blurred' : ''">
+  <div class="studio-preview-controls">
+    <div class="row">
+      <div class="row-item">
+        <div class="control pointer" (click)="handleClosePreviewForm()">
+          <span class="back-icon">
+            <svg width="7px" height="13px" viewBox="0 0 8 13" version="1.1" class="chevron-icon">
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="1">
+              <g transform="translate(-344.000000, -357.000000)" fill="#FFF">
+                <g transform="translate(-202.000000, 165.000000)">
+                  <path d="M544,195 L544,203 L543,203 L543,195 L543,194 L552,194 L552,195 L544,195 Z"
+                        transform="translate(547.500000, 198.500000) rotate(-225.000000) translate(-547.500000, -198.500000) "></path>
+                </g>
+              </g>
+            </g>
+          </svg>
+          </span>
+          <strong>BACK</strong></div>
+      </div>
+      <div class="row-item middle">
+        <div class="control">
+          <span class="price-tag">{{ data?.media?.name }}</span>
+        </div>
+      </div>
+      <div class="row-item right">
+        <div class="control">
+          <button *ngIf="data?.mediaView === 'own'" (click)="downloadMedia(data?.media?.url)" mat-mini-fab>
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" viewBox="0 0 13 16">
+              <g fill="#FFF" fill-rule="evenodd">
+                <path
+                  d="M0 16L12.999 16 12.999 14.154 0 14.154zM3.765 0L3.765 5.719 0 5.719 6.5 12.239 12.999 5.719 9.235 5.719 9.235 0z"/>
+              </g>
+            </svg>
+          </button>
+          <button mat-mini-fab [matMenuTriggerFor]="optionsMenu">
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="4" height="16" viewBox="0 0 4 16">
+              <g fill="#FFF" fill-rule="evenodd">
+                <path
+                  d="M14 4c-1.104 0-2-.896-2-2s.896-2 2-2 2 .896 2 2-.896 2-2 2M8 4c-1.104 0-2-.896-2-2s.896-2 2-2 2 .896 2 2-.896 2-2 2M2 4C.896 4 0 3.104 0 2s.896-2 2-2 2 .896 2 2-.896 2-2 2"
+                  transform="rotate(-90 8 8)"/>
+              </g>
+            </svg>
+
+          </button>
+          <mat-menu #optionsMenu="matMenu">
+            <div class="menu">
+              <button class="menu__button" *ngIf="data?.mediaView === 'own'" (click)="onToggleMoveTo()">
+                <span>Move to</span>
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" viewBox="0 0 19 16">
+                  <g fill="none">
+                    <path fill="#FFF"
+                          d="M15.71 0c1.215 0 2.206.958 2.298 2.172l.007.175v8.81c0 1.24-.941 2.262-2.14 2.348l-.166.006H4.557c-1.22 0-2.215-.967-2.3-2.186l-.005-.168V2.354c0-1.24.941-2.262 2.14-2.348L4.557 0H15.71zm0 1.126H4.556c-.604 0-1.108.476-1.172 1.093l-.007.135v8.803c0 .636.463 1.155 1.051 1.221l.128.007H15.71c.605 0 1.109-.476 1.173-1.093l.007-.135V2.35c-.003-.635-.465-1.15-1.052-1.216l-.128-.007z"/>
+                    <path fill="#FFF"
+                          d="M13.457 2.252c1.216 0 2.207.958 2.299 2.171l.007.175v8.811c0 1.24-.941 2.262-2.14 2.348l-.166.006H2.305c-1.22 0-2.215-.967-2.3-2.186L0 13.409V4.606c0-1.24.941-2.262 2.14-2.348l.165-.006h11.152z"/>
+                    <path fill="#141414" d="M11.086 7L11.805 7.694 7.903 11.741 4 7.694 4.72 7 7.902 10.3z"
+                          transform="matrix(0 1 1 0 -1.468 1.468)"/>
+                  </g>
+                </svg>
+              </button>
+              <button class="menu__button" *ngIf="data?.mediaView === 'own'" (click)="onToggleRename()">
+                <span>Rename</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                  <g fill="#FFF" fill-rule="evenodd">
+                    <g>
+                      <path
+                        d="M1.673 11.835l2.19-.587-2.828-2.829-.587 2.191c-.143.534.174 1.082.707 1.225.17.045.349.045.518 0zM12 .556c.711.711.805 2.057.033 2.829L4.641 10.47 1.812 7.643 9.205.556c.772-.772 2.084-.71 2.795 0z"
+                        transform="translate(2)"/>
+                    </g>
+                    <rect width="16" height="2" y="14" rx="1"/>
+                  </g>
+                </svg>
+              </button>
+              <button class="menu__button" (click)="onToggleDetails()">
+                <span>Details</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                  <path fill="#FFF"
+                        d="M8 .076C3.624.076.076 3.624.076 8S3.624 15.924 8 15.924 15.924 12.376 15.924 8c0-2.102-.835-4.117-2.32-5.603C12.116.91 10.101.076 8 .076zm.664 12.268H7.332v-6.28h1.332v6.28zm-.112-7.408c-.147.139-.346.21-.548.196-.204.014-.406-.057-.556-.196-.137-.144-.208-.338-.196-.536-.014-.202.057-.4.196-.548.15-.138.349-.209.552-.196.203-.021.406.05.55.194.146.144.218.346.198.55.012.198-.059.392-.196.536z"/>
+                </svg>
+              </button>
+            </div>
+          </mat-menu>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="studio-preview-container">
+    <div class="vertical-center">
+      <div class="preview">
+        <img [src]="data?.media?.url" [alt]="data?.media?.name">
+      </div>
+    </div>
+  </div>
+</div>

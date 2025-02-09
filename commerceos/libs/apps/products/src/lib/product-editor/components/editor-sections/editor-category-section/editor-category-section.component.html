@@ -1,0 +1,54 @@
+<form
+  *ngIf="form"
+  novalidate
+  [formGroup]="form"
+  (submit)="onSubmit()"
+  class="pe-product-category-section"
+>
+  <button #submitTrigger id="submitTrigger" class="submit" name="submitButton" type="submit" hidden></button>
+
+  <div *ngFor="let channelSet of channelSetCategories?.controls || []; let i = index">
+    <peb-form-background>
+      <div class="wrapper" *ngIf="channelSet.value.enabled">
+
+        <div class="category-header">{{ channelSet.value.label }}</div>
+
+        <div class="form-field-input">
+          <div>
+            <pe-search
+            [errorMessage]="('product-app.product_editor.categories.error') | translate"
+            (filterChanged)="onChangeFilter($event, channelSet.value.id)"
+            [isFieldInvalid]="channelSet.invalid"
+            [items]="( searchItems$ | async )[channelSet.value.id] || []"
+            [label]="'filters.labels.category' | translate "
+            [key]="channelSet.value.id"
+            [allowEmptySearch]="true"
+            [placeholder]="'add_category' | translate"
+            (selected)="addCategory($event.value, channelSet.value.id, i)"></pe-search>
+          </div>
+          <button (click)="openCategorySection(channelSet.value.id)">Browse</button>
+        </div>
+
+        <pe-search-list>
+          <pe-search-list-item
+            *ngFor="let category of getSelectedCategories(channelSet.value.id)"
+            [removeButtonLabel]="'actions.remove' | translate"
+            (remove)="removeCategory(category, channelSet.value.id, i)">
+            {{ category }}
+          </pe-search-list-item>
+        </pe-search-list>
+
+      </div>
+    </peb-form-background>
+    <button
+      pe-form-button
+      color="confirm"
+      class="add"
+      (click)="openCategorySection(channelSet.value.id)"
+      *ngIf="channelSet.value.enabled">
+      Add category
+    </button>
+  </div>
+
+
+</form>

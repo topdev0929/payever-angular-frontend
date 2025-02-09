@@ -1,0 +1,352 @@
+//
+// Form Table
+// ----------------------------
+
+.pe-bootstrap .transparent .pe-checkout-bootstrap, // This selector is small hack for commerceos
+.pe-checkout-bootstrap {
+  .form-table {
+    // Field size customization
+
+
+    .mat-form-field {
+      padding: 0 !important;
+
+      &.mat-form-field-has-borders {
+        border-width: 1px 1px 0 1px;
+        border-style: solid;
+
+        &:last-of-type {
+          border-width: 1px;
+        }
+
+        .mat-form-field-wrapper {
+          height: 50px;
+          min-height: 50px;
+          font-size: 14px;
+          line-height: 16px;
+        }
+      }
+    }
+
+    .form-fieldset-new {
+      .mat-checkbox {
+        &-layout {
+          height: 49px;
+        }  
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+    }
+
+    .form-fieldset-new:not(.form-fieldset-no-border) .mat-form-field-wrapper {
+      height: 50px;
+      min-height: 50px;
+      padding: 6px 15px;
+      font-size: 14px;
+      line-height: 16px;
+    }
+
+    .form-fieldset-new:not(.form-fieldset-no-border) {
+      input,
+      select,
+      .mat-checkbox-label,
+      .btn {
+        font-size: 14px;
+      }
+    }
+
+    .mat-form-field-label {
+      position: absolute;
+      margin-top: 3px;
+      text-transform: none;
+    }
+
+    .mat-form-field-suffix,
+    .mat-form-field-prefix {
+      position: relative;
+      margin-top: 7px;
+    }
+
+    .mat-form-field-underline {
+      position: absolute;
+      bottom: 0;
+    }
+
+    .mat-form-field-infix {
+      position: relative;
+    }
+
+    @media (max-width: $viewport-breakpoint-sm-1 - 1) {
+      .mat-form-field-infix {
+        font-size: 13px !important; // For cosf
+      }
+      .form-fieldset-new:not(.form-fieldset-no-border) .mat-form-field-wrapper {
+        margin-top: -7px;
+        height: 47px;
+        min-height: 47px;
+        font-size: 13px;
+        line-height: 17px;
+      }
+      .form-fieldset-new:not(.form-fieldset-no-border) {
+        input,
+        select,
+        .mat-checkbox-label,
+        .btn {
+          font-size: 13px !important;
+        }
+      }
+      .mat-form-field-label {
+        margin-top: 4px !important;
+      }
+      .mat-checkbox-inner-container {
+        margin-right: 8px;
+      }
+      .form-fieldset-new > [class*='col'] {
+        min-height: 42px;
+      }
+      .form-fieldset-new {
+        .mat-checkbox-layout {
+          height: 40px;
+        }
+      }
+    }
+
+    .mat-form-field-ripple {
+      display: block;
+    }
+    // Custom colors
+
+    .mat-form-field.mat-focused .mat-form-field-ripple {
+      background-color: $color-black-pe;
+    }
+    .mat-form-field.mat-focused .mat-input-element {
+      caret-color: $color-black-pe;
+    }
+
+    button .mat-progress-spinner circle {
+      stroke: $color-white-grey-4;
+    }
+  }
+
+  .mat-checkbox-checked.mat-accent .mat-checkbox-label,
+  .mat-checkbox-checked .mat-checkbox-label {
+    color: $color-grey-3;
+  }
+
+  @mixin pe-custom-payment-form($linkColor: var(--checkout-page-text-primary-color, $color-black-pe)) {
+    .form-table .mat-checkbox-label {
+      color: $color-grey-2;
+      font-size: 12px !important;
+      font-weight: 400;
+      line-height: 1.6;
+      a {
+        color: $linkColor;
+        &:hover {
+          opacity: 0.9;
+        }
+      }
+    }
+
+    @media (max-width: $viewport-breakpoint-sm-1 - 1) {
+      .form-table {
+        // Checkbox customization
+        .mat-checkbox-label {
+          font-size: 12px !important;
+          color: $color-grey-2 !important;
+        }
+        .mat-checkbox-checked .mat-checkbox-label {
+          color: $color-grey-1 !important;
+        }
+      }
+    }
+
+    .form-table .form-fieldset.form-fieldset-no-border {
+      margin-bottom: 0;
+      padding-left: 0 !important;
+      > [class*='col'] {
+        min-height: 26px !important;
+      }
+      .mat-checkbox-inner-container {
+        margin-top: 0px;
+      }
+      .pe-checkbox {
+        margin-bottom: 4px;
+      }
+
+      .form-fieldset-field-wrap {
+        &.last-text {
+          .pe-checkbox {
+            margin-bottom: 0px;
+          }
+        }
+      }
+    }
+  }
+  @mixin pe-custom-form-border-radius($inputBorderRadius) {
+    .form-table {
+      .mat-form-field {
+        &.mat-form-field-has-borders {
+          &.col-xs-6 {
+            border-top-right-radius: 0 !important;
+          }
+        }
+      }
+
+      // iOS border fix:
+      // This is very hard hack to make only part of '.col-...' elements have border radius.
+      border-radius: 0 !important;
+
+      .form-fieldset-new:not(.form-fieldset-no-border) {
+        border-radius: $inputBorderRadius !important;
+      }
+
+      .form-fieldset-new:not(.form-fieldset-no-border) > [class*='col']:first-child {
+        border-top-left-radius: $inputBorderRadius !important;
+        border-top-right-radius: $inputBorderRadius !important;
+        &.col-xs-6 {
+          border-top-right-radius: 0 !important;
+        }
+      }
+
+      .form-fieldset-new:not(.form-fieldset-no-border) > [class*='col']:last-child {
+        border-bottom-right-radius: $inputBorderRadius !important;
+        border-bottom-left-radius: $inputBorderRadius !important;
+      }
+
+      .form-fieldset-new:not(.form-fieldset-no-border) > .form-border-radius-top-right-only {
+        // For Santander DE
+        border-top-right-radius: $inputBorderRadius !important;
+      }
+    }
+  }
+  @mixin pe-custom-form-colors(
+    $inputBackgroundColor,
+    $inputBorderColor,
+    $inputTextPrimaryColor,
+    $inputTextSecondaryColor
+  ) {
+    .form-table {
+      .mat-form-field {
+        .icon {
+          color: $inputTextSecondaryColor;
+        }
+        .mat-select-value {
+          color: $inputTextPrimaryColor;
+        }
+        &-suffix,
+        &-prefix,
+        &-label {
+          color: $inputTextSecondaryColor;
+        }
+        &-infix .mat-input-element {
+          color: $inputTextPrimaryColor;
+          -webkit-text-fill-color: $inputTextPrimaryColor;
+        }
+        &-hide-placeholder :-ms-input-placeholder.mat-input-element {
+          color: transparent !important;
+        }
+        &.mat-form-field-has-borders {
+          border-color: $inputBorderColor;
+        }
+      }
+
+      @media (min-width: $viewport-breakpoint-ipad) {
+        .form-fieldset-new:not(.form-fieldset-no-border) > [class*='col-sm-']:first-child {
+          border-top-right-radius: 0 !important;
+        }
+        .form-fieldset-new:not(.form-fieldset-no-border) > [class*='col-sm-']:last-child {
+          border-bottom-left-radius: 0 !important;
+        }
+      }
+
+      // Colors
+
+      .form-fieldset-new:not(.form-fieldset-no-border) {
+        background: $inputBackgroundColor;
+        box-shadow: inset 0 0 0 1px $inputBorderColor;
+        .form-fieldset-field-wrap {
+          &.no-margin-top {
+            .mat-checkbox {
+              .mat-checkbox-inner-container {
+                margin-top: 0;
+              }
+            }
+          }
+        }
+        .mat-checkbox {
+          .mat-checkbox-label {
+            opacity: 0.8;
+            color: $inputTextPrimaryColor;
+          }
+          .mat-checkbox-frame {
+            opacity: 0.8;
+            border-color: $inputTextSecondaryColor;
+          }
+          &.mat-checkbox-checked {
+            .mat-checkbox-label {
+              opacity: 1;
+              color: $inputTextPrimaryColor;
+            }
+            .mat-checkbox-frame {
+              opacity: 1;
+              border-color: $inputTextPrimaryColor;
+            }
+            .mat-checkbox-background {
+              .mat-checkbox-checkmark-path {
+                // Have to use !important because they use important here:
+                //  /node_modules/@angular/material/_theming.scss
+                stroke: $inputTextPrimaryColor !important;
+              }
+            }
+          }
+        }
+
+        pe-form-addon {
+          color: $inputTextSecondaryColor;
+        }
+        .btn-link {
+          color: $inputTextPrimaryColor;
+        }
+        > [class*='col'] {
+          border-color: transparent $inputBorderColor $inputBorderColor transparent;
+        }
+      }
+      .form-fieldset.form-fieldset-no-border {
+        background: none;
+        .mat-checkbox-frame {
+          border-color: $inputTextSecondaryColor;
+        }
+      }
+      .mat-form-field-disabled {
+        opacity: 0.6 !important;
+      }
+      .mat-checkbox-disabled {
+        opacity: 0.5 !important;
+      }
+    }
+  }
+
+  $defaultInputBackgroundColor: #ffffff;
+  $defaultInputBorderColor: #dfdfdf;
+  $defaultInputTextPrimaryColor: #3a3a3a;
+  $defaultInputTextSecondaryColor: #999999; // $color-grey-2;
+  $defaultInputBorderRadius: $border-radius-default;
+
+  @include pe-custom-form-border-radius(var(--checkout-input-border-radius, $defaultInputBorderRadius));
+  @include pe-custom-form-colors(
+    var(--checkout-input-background-color, $defaultInputBackgroundColor),
+    var(--checkout-input-border-color, $defaultInputBorderColor),
+    var(--checkout-input-text-primary-color, $defaultInputTextPrimaryColor),
+    var(--checkout-input-text-secondary-color, $defaultInputTextSecondaryColor)
+  );
+  .pe-payment-micro {
+    @include pe-custom-payment-form($color-grey-2);
+    @include pe-custom-form-border-radius(var(--checkout-input-border-radius, $defaultInputBorderRadius));
+    @include pe-custom-form-colors(
+      $defaultInputBackgroundColor,
+      $defaultInputBorderColor,
+      $defaultInputTextPrimaryColor,
+      $defaultInputTextSecondaryColor
+    );
+  }
+}

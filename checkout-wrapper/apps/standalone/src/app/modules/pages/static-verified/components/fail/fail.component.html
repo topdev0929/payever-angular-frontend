@@ -1,0 +1,28 @@
+<checkout-sdk-finish-wrapper>
+  <div class="static-wrapper">
+    <checkout-sdk-finish-status-icon [status]="'fail'"> </checkout-sdk-finish-status-icon>
+    <div
+      class="large-1"
+      i18n="@@flow_verified_finish.fail.title">
+      flow_verified_finish.fail.title
+    </div>
+    <p *ngIf="errorMessage else defaultMessage">{{ errorMessage }}</p>
+    <p
+      class="small text-secondary"
+      *ngIf="orderNumber">
+      {{ orderNumberText }}
+    </p>
+    <button
+      *ngIf="showBack$ | async"
+      class="go-back-btn"
+      type="button"
+      (click)="goBack()"
+      translate>
+      flow_common_finish.back_to_shop
+    </button>
+  </div>
+</checkout-sdk-finish-wrapper>
+
+<ng-template #defaultMessage>
+  <p i18n="@@flow_verified_finish.fail.text">flow_verified_finish.fail.text</p>
+</ng-template>

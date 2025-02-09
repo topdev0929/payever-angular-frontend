@@ -1,0 +1,65 @@
+@use 'pe_spinner' as pe_spinner;
+
+:host {
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+}
+
+.icons {
+  &__links {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 18px;
+    @media(max-width: 600px) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+    @media(max-width: 480px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @media(max-width: 400px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__link {
+    align-items: center;
+    justify-self: center;
+    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    transition: transform .2s cubic-bezier(0.32, 0.08, 0.24, 1);
+
+    &:hover {
+      cursor: pointer;
+      transform: scale3d(1.05, 1.05, 1.05);
+    }
+  }
+
+  &__image {
+    position: relative;
+    border-radius: .86em;
+    padding: 1em;
+    .mat-spinner {
+      @include pe_spinner.mat_spinner();
+      border-radius: .86em;
+    }
+    .icon {
+      transform: scale(1);
+    }
+  }
+
+  &__title {
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: normal;
+  }
+
+  &__thumb {
+    min-height: 2.86em;
+    min-width: 2.86em;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "affiliates-app": {
+    "actions": {
+      "edit": "Edit",
+      "open": "Open",
+      "cancel": "Cancel",
+      "done": "Done",
+      "save": "Save",
+      "create_new": "Add Program",
+      "remove_domain": "Remove domain",
+      "create_domain": "Add domain"
+    },
+    "main_nav": {
+      "name": "Affiliate",
+      "navigation": "Navigation",
+      "dashboard": "Dashboard",       
+      "transactions": "transactions",       
+      "settings": "Settings",
+      "programs": "Programs"
+    },
+    "errors": {
+      "unknown_error": "Unknown error"
+    },
+    "messages": {
+      "domain_connected": "Domain connected",
+      "domain_disconnected": "Domain is not connected",
+      "no_domain":"No domains connected"
+    },    
+    "info":{
+      "social_image": "When you share a link to your store on social media, an image is usually shown in your post. This one will be used if another relevant image can’t be found. Recommended size: 1200 x 628 px"
+    },
+    "affiliates": {
+      "title": "affiliates"
+    },
+    "settings": {
+      "title": "Settings",
+      "live_status": "Live status",
+      "payever_domain": "payever domain",
+      "personal_domain": "Personal domain",
+      "connect_existing": "Connect existing domain",
+      "password_protection": "Password protection",
+      "social_image": "Social sharing image",
+      "publishing": "PUBLISHING",
+      "domains": "DOMAINS",
+      "domain_label": "Domain",
+      "domain_placeholder": "Enter Domain",
+      "date_placeholder": "Enter Date",
+      "date_label": "Date Added",
+      "provider_label": "Provider",
+      "provider_placeholder": "Enter Provider",
+      "safety": "SAFETY",
+      "social": "SOCIAL",
+      "all_shops": "ALL SHOPS",
+      "meta_description":"Meta description",
+      "page_title":"Page title"
+    }    
+  }
+}

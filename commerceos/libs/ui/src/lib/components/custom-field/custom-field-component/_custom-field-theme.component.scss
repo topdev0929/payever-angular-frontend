@@ -1,0 +1,39 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $border: map.get($color-config, 'border');
+  $text-color: map.get($color-config, 'text-color');
+  $confirm: map.get($color-config, 'confirm');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $row-background: map.get($color-config, 'row-background');
+  $filter-invert-light: map.get($color-config, 'filter-invert-light');
+
+  .pe-custom-field {
+    .overlay-widget {
+      background-color: $secondary-background;
+      border: solid 1px $border;
+      .header-container {
+        background-color: $transparent-color;
+      }
+      &__back,
+      &__title {
+        color: $text-color;
+      }
+      &__done {
+        color: $confirm;
+      }
+    }
+  }
+  .option {
+    &__handle,
+    &__remove,
+    &__add {
+      background-color: $row-background;
+      color: $text-color;
+    }
+    &__add {
+      color: $confirm;
+    }
+  }
+}

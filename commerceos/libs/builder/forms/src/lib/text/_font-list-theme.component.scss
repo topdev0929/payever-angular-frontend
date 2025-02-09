@@ -1,0 +1,21 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $confirm: map.get($color-config, 'confirm');
+  $active-text: map.get($color-config, 'active-text');
+
+  peb-font-list {
+    .font {
+      &__item {
+        &.selectable {
+          .font__item__title {
+            &:hover {
+              background-color: $confirm;
+              color: $active-text;
+            }
+          }
+        }
+      }
+    }
+  }
+}

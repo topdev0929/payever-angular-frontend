@@ -1,0 +1,93 @@
+<santander-de-inquiry-finish-style></santander-de-inquiry-finish-style>
+
+<checkout-sdk-finish-wrapper
+  [class.wrapper-success-link]="isSuccessAndNotClickAndCollectAndWithLink()"
+  [buttons]="buttons"
+  [darkMode]="darkMode"
+  [errorMessage]="errorMessage"
+  [iframeCallbackUrl]="getIframeCallbackUrl()"
+  [isLoading]="isLoading"
+  [isChangingPaymentMethod]="isChangingPaymentMethod"
+  [embeddedMode]="embeddedMode"
+  (close)="onClose()">
+  <div class="checkout-de-finish-wrapper">
+    <ng-container>
+      <ng-container *ngIf="isStatusSuccess() && !needsAdditionalSteps() && !showSiningStatus()">
+        <checkout-sdk-finish-status-success
+          [class.finish-success]="isSuccessAndNotClickAndCollectAndWithLink()"
+          [title]="getTitle()"
+          [text]="getText()"
+          [applicationNumber]="isSuccessAndNotClickAndCollectAndWithLink() ? null : applicationNumberEx"
+          [flowId]="flow?.id"
+          [isPosPayment]="isPosPayment()">
+        </checkout-sdk-finish-status-success>
+      </ng-container>
+
+      <ng-container *ngIf="isStatusPending() && !needsAdditionalSteps()">
+        <checkout-sdk-finish-status-pending
+          class="pending-status"
+          [title]="getTitle()"
+          [text]="getText()"
+          [flowId]="flow?.id"
+          [isPosPayment]="isPosPayment()">
+        </checkout-sdk-finish-status-pending>
+      </ng-container>
+
+      <ng-container *ngIf="needsAdditionalSteps()">
+        <santander-de-steps-container [finished]="isAdditionalStepsFinished()"></santander-de-steps-container>
+      </ng-container>
+
+      <ng-container *ngIf="showSiningStatus()">
+        <finish-sining-status
+          [canChangePaymentMethod]="canChangePaymentMethod()"
+          [specificStatus]="specificStatus"
+          (changePaymentMethod)="onChangePaymentMethod()"></finish-sining-status>
+      </ng-container>
+
+      <ng-container *ngIf="isStatusFail()">
+        <checkout-sdk-finish-status-fail
+          i18n-title="@@santander-de.inquiry.finish.application_fail.title"
+          title="santander-de.inquiry.finish.application_fail.title"
+          i18n-text="@@santander-de.inquiry.finish.application_fail.text"
+          text="santander-de.inquiry.finish.application_fail.text"
+          [canChangePaymentMethod]="canChangePaymentMethod()"
+          [applicationNumber]="applicationNumberEx"></checkout-sdk-finish-status-fail>
+      </ng-container>
+
+      <ng-container *ngIf="isStatusUnknown()">
+        <checkout-sdk-finish-status-unknown
+          [applicationNumber]="applicationNumberEx"></checkout-sdk-finish-status-unknown>
+      </ng-container>
+
+      <ng-container *ngIf="isSuccessAndNotClickAndCollectAndWithLink()">
+        <div
+          class="signing-qr"
+          *ngIf="merchantMode && nodeResult?.paymentDetails.signingCenterLink">
+          <ui-qr-box [url]="nodeResult.paymentDetails.signingCenterLink"></ui-qr-box>
+        </div>
+        <p>
+          <button
+            mat-button
+            (click)="handleLinkClick($event)"
+            target="_blank"
+            mat-button
+            class="cc-btn mat-button-gradient  finish-button"
+            i18n="@@santander-de.inquiry.finish.finish_application">
+            santander-de.inquiry.finish.finish_application
+          </button>
+        </p>
+      </ng-container>
+
+      <p
+        *ngIf="isSuccessAndNotClickAndCollectAndWithLink()"
+        class="cc-text text-secondary finish-description"
+        [innerHTML]="translations.applicationSuccessClickAndCollectFalse"></p>
+
+      <p
+        *ngIf="isTimerShown()"
+        #timer
+        [innerHTML]="timerText$ | async"
+        class="text-secondary finish-description timer"></p>
+    </ng-container>
+  </div>
+</checkout-sdk-finish-wrapper>

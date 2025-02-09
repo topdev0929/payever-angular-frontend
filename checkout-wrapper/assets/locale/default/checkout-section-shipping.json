@@ -1,0 +1,27 @@
+{
+  "checkout_shipping_types": {
+    "dhl": {
+      "title": "DHL"
+    },
+    "ups": {
+      "title": "UPS"
+    }
+  },
+  "checkout_shipping_edit": {
+    "delivery_type_labels": {
+      "delivers": "Delivers: In <strong>{{ deliveryTimeDays }} days</strong>",
+      "price": "Price: <strong>{{ price }}</strong>",
+      "weight_from_to": "from {{ from }} up to {{ to }}"
+    },
+    "errors": {
+      "unknown_error": "Cart is empty",
+      "no_shippings": "No shipping methods available"
+    }
+  },
+  "checkout_shipping_view": {
+    "delivery_type_labels": {
+      "delivers": "Delivers: In <strong>{{ deliveryTimeDays }} days</strong>",
+      "price": "Price: <strong>{{ price }}</strong>"
+    }
+  }
+}

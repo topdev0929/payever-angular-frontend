@@ -1,0 +1,16 @@
+<pe-table [dataSource]="transactions">
+  <ng-container peTableColumnDef="item">
+    <pe-table-header-cell *peHeaderCellDef> Item </pe-table-header-cell>
+    <pe-table-cell *peTableCellDef="let transaction">{{transaction.item}}</pe-table-cell>
+    <pe-table-footer-cell *peTableFooterCellDef>Total</pe-table-footer-cell>
+  </ng-container>
+  <ng-container peTableColumnDef="cost">
+    <pe-table-header-cell *peHeaderCellDef> Cost </pe-table-header-cell>
+    <pe-table-cell *peTableCellDef="let transaction">{{transaction.cost | currency}}</pe-table-cell>
+    <pe-table-footer-cell *peTableFooterCellDef>{{getTotalCost() | currency}}</pe-table-footer-cell>
+  </ng-container>
+
+  <pe-table-header-row  *peTableHeaderRowDef="displayedColumns"></pe-table-header-row>
+  <pe-table-row *peTableRowDef="let row; columns: displayedColumns;"></pe-table-row>
+  <pe-table-footer-row *peTableFooterRowDef="displayedColumns"></pe-table-footer-row>
+</pe-table>

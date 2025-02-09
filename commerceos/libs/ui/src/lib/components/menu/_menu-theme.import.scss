@@ -1,0 +1,8 @@
+@use 'pe_theming' as pet;
+@use './menu-theme' as menu;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include menu.color($color-config);
+}
+

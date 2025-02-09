@@ -1,0 +1,8 @@
+@use 'pe_theming' as pet;
+@use './checkbox-theme' as checkbox;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include checkbox.color($color-config);
+}
+

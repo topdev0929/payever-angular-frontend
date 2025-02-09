@@ -1,0 +1,8 @@
+@use 'pe_theming' as pet;
+@use './overlay-widget-theme.component' as overlay_widget;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include overlay_widget.color($color-config);
+}
+

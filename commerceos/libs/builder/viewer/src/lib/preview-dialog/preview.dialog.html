@@ -1,0 +1,40 @@
+<div class="controls">
+  <div class="controls__import">
+    <div class="controls__control" (click)="applyImport()">
+      {{ 'builder-app.viewer.apply_import' | translate }}
+    </div>
+  </div>
+  <div class="controls__preview">
+
+    <ng-container *ngIf="activeScreen$|async as activeScreen">
+      <ng-container *ngFor="let screen of (screens$|async)">
+
+        <div class="controls__control" [class.active]="activeScreen.key===screen.key" (click)="changeScreenType(screen)">
+          {{ screen.title}}
+        </div>
+        <div class="controls__divider"></div>
+  
+      </ng-container>
+    </ng-container>
+    
+  </div>
+  <div class="controls__control controls__control--transparent controls__control--back-icon" (click)="close()">
+    <mat-icon class="preview-back-icon" svgIcon="preview-back"></mat-icon>
+  </div>
+</div>
+
+<div
+  #frameWrapper
+  class="frame-wrapper"
+  [class]="frameScreenType$ | async">
+  <peb-viewer-device-frame
+    [type]="frameScreenType$ | async"
+    [style.transform] = "deviceFrameTransform$ | async"
+    [style.height]="deviceFrameHeight$ | async"
+  >
+    <peb-viewer
+      [screen]="activeScreen$ | async"
+      [themeSnapshot]="themeSnapshot"
+    ></peb-viewer>
+  </peb-viewer-device-frame>
+</div>

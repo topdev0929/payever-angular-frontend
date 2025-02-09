@@ -1,0 +1,55 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+    $accent-fill: map.get($color-config, 'accent-fill');
+    $text-color: map.get($color-config, 'text-color');
+    $label-color: map.get($color-config, 'label-color');
+    $box-shadow-color: map.get($color-config, 'box-shadow-color');
+    $overlay-background: map-get($color-config, 'overlay-background');
+    $row-background: map-get($color-config, 'row-background');
+
+    .contacts {
+        &-widget-global-modal {
+            .form-background-wrapper {
+                > div {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2px;
+                }
+            }
+            .overlay-widget-container {
+                > div {
+                    background-color: $overlay-background;
+                }
+                peb-select {
+                    background-color: $row-background;
+                }
+                peb-form-field-input {
+                    border-top: 1px solid $overlay-background;
+                }
+            }
+        }
+        &-widget-panel {
+            .overlay-widget-container {
+                & > div {
+                    padding-bottom: 0;
+                }
+            }
+        }
+        &__tool-label {
+            color: $text-color;
+        }
+        &__widgets {
+            pe-widget {
+                .pe-widget-main {
+                    box-shadow: 0 5px 20px 0 $box-shadow-color;
+                }
+            }
+        }
+        &__loader {
+            .mat-progress-spinner {
+                stroke: $text-color;
+            }
+        }
+    }
+}

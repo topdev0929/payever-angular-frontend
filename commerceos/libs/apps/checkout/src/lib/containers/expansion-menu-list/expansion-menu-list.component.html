@@ -1,0 +1,52 @@
+<mat-list class="mat-list-transparent expansion-conn-menu-list" [class.mat-list-padding-md]="sizeMd">
+  <ng-content></ng-content>
+  <ng-container *ngFor="let integration of integrations">
+    <mat-list-item [class.mat-list-item-no-padding-left]="noPaddingLeft">
+      <div class="mat-list-item-col">
+        <div class="icon-menu-wrapper">
+          <svg class="icon icon-16 icon-menu-item">
+            <use [attr.xlink:href]="integration.integration.displayOptions.icon"></use>
+          </svg>
+        </div>
+      </div>
+      <div class="mat-list-item-flex no-left-padding">
+        <div class="mat-list-item-content expansion-list-title">
+          <span class="pe-truncate-text">{{ integration.integration.displayOptions.title | translate }}</span>
+        </div>
+      </div>
+      <div class="mat-list-item-flex">
+        <div class="mat-list-item-col text-right">
+          <peb-button-toggle
+            *ngIf="isShowToggleButton && (noActionsIntegrations || []).indexOf(integration.integration.name) < 0"
+            [checked]="(enabledIntegrations || []).indexOf(integration.integration.name) >= 0"
+            [disabled]="!integration.enabled"
+            (changed)="toggleClick(integration)"
+          ></peb-button-toggle>
+        </div>
+        <div class="button-container">
+          <button peb-text-button
+                  *ngIf="(noActionsIntegrations || []).indexOf(integration.integration.name) < 0"
+                  (click)="onOpen(integration)"
+                  class="expansion-list-button"
+                  color="confirm">
+            <pe-progress-button-content class="mat-progress-spinner-light"
+                                        [spinnerDiameter]="15"
+                                        [spinnerStrokeWidth]="2"
+                                        [loading]="isLoading(integration)">
+              {{ 'actions.open' | translate }}
+            </pe-progress-button-content>
+          </button>
+        </div>
+      </div>
+    </mat-list-item>
+  </ng-container>
+
+  <mat-list-item *ngIf="isShowAddButton" class="add-button">
+    <button pe-form-button
+            color="confirm"
+            (click)="clickedAddButton.emit(category)">
+      {{ 'actions.addPlus' | translate }}
+    </button>
+
+  </mat-list-item>
+</mat-list>

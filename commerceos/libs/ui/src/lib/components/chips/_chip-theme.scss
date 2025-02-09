@@ -1,0 +1,15 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $badge-button: map.get($color-config, 'badge-button');
+  $text-color: map.get($color-config, 'text-color');
+  $filter-invert-light: map.get($color-config, 'filter-invert-light');
+
+  .chip {
+    background-color: $badge-button;
+    color: $text-color;
+    &__close-icon {
+      filter: $filter-invert-light;
+    }
+  }
+}

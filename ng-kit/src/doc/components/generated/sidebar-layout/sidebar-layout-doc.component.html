@@ -1,0 +1,105 @@
+<div class="chapter">
+  <h2>Sidebar Layout</h2>
+
+  <div id="sidebar-layout-default" class="main-block">
+    <h3>Default Sidebar Layout</h3>
+    <div class="doc-block">
+      <tabset>
+        <tab>
+          <ng-template tabHeading>View</ng-template>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="sidebar-container">
+                <doc-sidebar-layout-default></doc-sidebar-layout-default>
+              </div>
+            </div>
+          </div>
+        </tab>
+        <tab>
+          <ng-template tabHeading>Template</ng-template>
+          <div class="row">
+            <div class="col-xs-12">
+              <pre><code class="html" [innerHTML]="sidebarLayoutDefaultExampleTemplate | code"></code></pre>
+            </div>
+          </div>
+        </tab>
+        <tab>
+          <ng-template tabHeading>Component</ng-template>
+          <div class="row">
+            <div class="col-xs-12">
+              <pre><code class="html" [innerHTML]="sidebarLayoutDefaultExampleComponent | code"></code></pre>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+
+  <div id="sidebar-layout-transparent" class="main-block">
+    <h3>Transparent Sidebar Layout</h3>
+    <div class="doc-block">
+      <tabset>
+        <tab>
+          <ng-template tabHeading>View</ng-template>
+          <div class="row">
+            <div class="col-xs-12">
+              <doc-sidebar-layout-transparent></doc-sidebar-layout-transparent>
+            </div>
+          </div>
+        </tab>
+        <tab>
+          <ng-template tabHeading>Template</ng-template>
+          <div class="row">
+            <div class="col-xs-12">
+              <pre><code class="html" [innerHTML]="sidebarLayoutTransparentExampleTemplate | code"></code></pre>
+            </div>
+          </div>
+        </tab>
+        <tab>
+          <ng-template tabHeading>Component</ng-template>
+          <div class="row">
+            <div class="col-xs-12">
+              <pre><code class="html" [innerHTML]="sidebarLayoutTransparentExampleComponent | code"></code></pre>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+
+  <div id="sidebar-layout-fixed" class="main-block">
+    <h3>Fixed Sidebar Layout</h3>
+    <div class="doc-block">
+      <tabset>
+        <tab>
+          <ng-template tabHeading>View</ng-template>
+          <div class="row">
+            <div class="col-xs-12">
+              <doc-sidebar-layout-fixed></doc-sidebar-layout-fixed>
+            </div>
+          </div>
+        </tab>
+        <tab>
+          <ng-template tabHeading>Template</ng-template>
+          <div class="row">
+            <div class="col-xs-12">
+              <pre><code class="html" [innerHTML]="sidebarLayoutFixedExampleTemplate | code"></code></pre>
+            </div>
+          </div>
+        </tab>
+        <tab>
+          <ng-template tabHeading>Component</ng-template>
+          <div class="row">
+            <div class="col-xs-12">
+              <pre><code class="html" [innerHTML]="sidebarLayoutFixedExampleComponent | code"></code></pre>
+            </div>
+          </div>
+        </tab>
+      <tab heading="README">
+        <doc-viewer documentUrl="/assets/module-guides/sidebar-layout/sidebar-layout.html"></doc-viewer>
+      </tab>
+      </tabset>
+    </div>
+  </div>
+
+</div>

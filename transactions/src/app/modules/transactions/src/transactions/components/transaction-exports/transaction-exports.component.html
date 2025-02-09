@@ -1,0 +1,13 @@
+<span class="clickable" (click)="menuOpened = !menuOpened" [matMenuTriggerFor]="importsMenu">
+  Export
+</span>
+
+<mat-menu #importsMenu="matMenu" class="mat-menu-dark product-imports-menu"
+          [overlapTrigger]="true"
+          (closed)="menuOpened = false">
+  <span class="mat-menu-filter-caption">{{ 'export.format' | translate }}</span>
+  <button mat-menu-item (click)="downloadFile(ExportFormats.CSV)">CSV</button>
+  <button mat-menu-item (click)="downloadFile(ExportFormats.ODS)">ODS</button>
+  <button mat-menu-item (click)="downloadFile(ExportFormats.XLSX)">XLSX</button>
+  <button mat-menu-item (click)="downloadFile(ExportFormats.PDF)">PDF</button>
+</mat-menu>

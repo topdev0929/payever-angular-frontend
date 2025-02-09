@@ -1,0 +1,47 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+    $transparent-color: map.get($color-config, 'transparent-color');
+
+    .contact-status {
+        &__select {
+            .label-container {
+                .dropdown-arrow {
+                    background-color: $transparent-color;
+                }
+            }
+            .input-wrapper {
+                padding-top: 3px;
+                display: flex;
+                justify-content: flex-end;
+            }
+            .label-container {
+                height: 100%;
+                .dropdown-arrow {
+                    background-color: transparent;
+                    border-left: unset;
+                    margin-top: 3px;
+                }
+            }
+        }
+        .form-background-wrapper > *:last-child {
+            & .cdk-focused .label-input-content-wrapper:after,
+            & .label-input-content-wrapper .label-container.is-invalid:after{
+                width: calc(100% + 50px);
+            }
+        }
+        &__option {
+            &.peb-select-option {
+                min-width: 40px;
+            }
+            > span {
+                display: none;
+            }
+            svg {
+                width: 33px;
+                height: 22px;
+                transform: translateX(-13px);
+            }
+        }
+    }
+}

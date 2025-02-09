@@ -1,0 +1,28 @@
+<form
+  novalidate
+  class="form-table"
+  [formGroup]="formGroup"
+  analyticsForm>
+  <div *ngIf="formGroup.get('contractPdfUrl').value as contractPdfUrl">
+    <div class="form-block-docs">
+      <pe-payment-text
+        type="text"
+        [marginBottom]="true"
+        [customMarginTop]="0">
+        <span i18n="@@inquiry.docs.title">inquiry.docs.title</span>
+      </pe-payment-text>
+      <div class="h5">
+        <svg class="icon icon-24">
+          <use xlink:href="#icon-xls-24"></use>
+        </svg>
+        &nbsp;
+        <a
+          target="_blank"
+          i18n="@@inquiry.docs.download_contract"
+          [href]="contractPdfUrl">
+          inquiry.docs.download_contract
+        </a>
+      </div>
+    </div>
+  </div>
+</form>

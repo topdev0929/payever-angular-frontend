@@ -1,0 +1,10 @@
+@use "pe_variables" as pe_variables;
+
+.general {
+  margin: 0 auto;
+  display: block;
+  max-width: 560px;
+  @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+    max-width: unset;
+  }
+}

@@ -1,0 +1,14 @@
+@import "../../../../../styles/assets/ui-kit-styles/pe_variables";
+
+:host {
+  .code-block {
+    padding: $pe_vgrid_height * 2 0;
+    .h4 {
+      font-size: 20px;
+    }
+  }
+
+  .confirm-number {
+    margin: $margin_adjust * 3 0;
+  }
+}

@@ -1,0 +1,3 @@
+# builder-client
+
+jiraKey: CBUILD

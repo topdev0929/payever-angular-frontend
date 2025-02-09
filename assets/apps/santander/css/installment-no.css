@@ -1,0 +1,26 @@
+.active-payment-method-step-1 .desktop-checkout-items {
+  top: -96px;
+}
+
+.active-payment-method-step-2 .desktop-checkout-items {
+  top: -372px;
+}
+
+.active-additional-information-1 .desktop-checkout-items {
+  top: -158px;
+}
+
+.active-additional-information-2 .desktop-checkout-items,
+.active-additional-information-3 .desktop-checkout-items {
+  top: -448px;
+}
+
+.mobile .active-additional-information-2 .desktop-checkout-items,
+.mobile .active-additional-information-3 .desktop-checkout-items {
+  top: -526px;
+}
+
+.additional-information-step .continue-button-wrapper {
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--secondary-200);
+}

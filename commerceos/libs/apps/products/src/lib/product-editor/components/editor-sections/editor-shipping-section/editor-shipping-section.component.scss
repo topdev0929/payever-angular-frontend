@@ -1,0 +1,27 @@
+@use 'pe_variables' as pe_variables;
+
+.wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+
+  .shipping__row {
+    display: grid;
+    grid-gap: 1px;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 1px;
+  }
+}
+
+.shipping-form-field {
+  display: block;
+  border-bottom: 1px solid transparent;
+
+  .suffix {
+    min-width: 48px;
+    justify-content: center;
+    @media (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+      height: 100%;
+      min-width: 48px;
+    }
+  }
+}

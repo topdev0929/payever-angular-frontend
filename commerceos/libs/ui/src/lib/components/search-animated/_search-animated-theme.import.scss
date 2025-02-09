@@ -1,0 +1,8 @@
+@use 'pe_theming' as pet;
+@use './search-animated-theme.component' as search_animated;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include search_animated.color($color-config);
+}
+

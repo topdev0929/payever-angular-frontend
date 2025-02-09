@@ -1,0 +1,18 @@
+import { Component } from '@angular/core';
+import { ThemeCardComponent, ThemeCardActions } from '../../../../../modules/theme-card';
+
+@Component({
+  selector: 'doc-theme-card',
+  templateUrl: 'theme-card-doc.component.html'
+})
+export class ThemeCardDocComponent {
+  image: string = require('../../../assets/img/background_jpg_ed4f73.jpg');
+  cardActions: ThemeCardActions[] = [
+    {label: 'action 1', onSelect: (uuid) => null},
+    {label: 'action 2', onSelect: (uuid) => null}
+  ]
+
+  handleCardClick(uuid: string) {
+    
+  }
+}

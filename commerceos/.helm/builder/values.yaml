@@ -1,0 +1,122 @@
+namespace: default
+builderClientDeploy: true
+priorityClass: app-10stars
+microCheckoutVersion: 1.0.0
+microUrlCommerceosVersion: 1.0.0
+replicas:
+  http: 6
+  consumer: 6
+
+image:
+  nodejs: registry.devpayever.com/frontend/builder-shop-client
+  dist: registry.devpayever.com/frontend/builder-shop-client
+  pullSecretName: regsecret
+
+service:
+  externalPort: 80
+  containerPort: 3000
+  statusPort: 3000
+
+resourcestest:
+  app:
+    requests:
+      cpu: 10m
+      memory: 300Mi
+    limits:
+      memory: 500Mi
+      cpu: 450m
+  consumer:
+    requests:
+      cpu: 10m
+      memory: 300Mi
+    limits:
+      memory: 500Mi
+  job:
+    requests:
+      cpu: 50m
+      memory: 50Mi
+    limits:
+      memory: 450Mi
+      cpu: 450m
+resourcesstage:
+  app:
+    requests:
+      cpu: 10m
+      memory: 300Mi
+    limits:
+      memory: 500Mi
+      cpu: 450m
+  consumer:
+    requests:
+      cpu: 10m
+      memory: 300Mi
+    limits:
+      memory: 300Mi
+  job:
+    requests:
+      cpu: 50m
+      memory: 50Mi
+    limits:
+      memory: 450Mi
+      cpu: 450m
+resourceslive:
+  app:
+    requests:
+      cpu: 164m
+      memory: 150Mi
+    limits:
+      memory: 3Gi
+  consumer:
+    requests:
+      cpu: 150m
+      memory: 400Mi
+    limits:
+      memory: 1Gi
+  job:
+    requests:
+      cpu: 164m
+      memory: 150Mi
+    limits:
+      memory: 500Mi
+resourcesliveSiteShop:
+  app:
+    requests:
+      cpu: 164m
+      memory: 150Mi
+    limits:
+      memory: 12Gi
+istio:
+  proxyMemoryLimit: 300Mi
+hpa:
+  cpu:
+    tarUti: 75
+  mem:
+    tarUti: 85
+
+builderClientApps:
+  builderInvoiceClient:
+    name: invoice
+  builderShopClient:
+    name: shop
+    secondaryContainerPort: 3001
+    secondaryExternalPort: 8081
+  builderPosClient:
+    name: pos
+  builderSiteClient:
+    name: site
+    secondaryContainerPort: 3001
+    secondaryExternalPort: 8081
+  builderMailClient:
+    name: mail
+  builderBlogClient:
+    name: blog
+    secondaryContainerPort: 3001
+    secondaryExternalPort: 8081
+  builderAffiliatesClient:
+    name: affiliates
+    secondaryContainerPort: 3001
+    secondaryExternalPort: 8081
+  builderSubscriptionsClient:
+    name: subscriptions
+    secondaryContainerPort: 3001
+    secondaryExternalPort: 8081

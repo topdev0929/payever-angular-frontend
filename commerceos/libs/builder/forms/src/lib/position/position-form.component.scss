@@ -1,0 +1,48 @@
+@import '../../../../styles/src/lib/styles/_sidebars.scss';
+
+form {
+  position: relative;
+}
+
+.position-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+}
+
+.readonly {
+  position: absolute;
+  display: block;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  cursor: not-allowed;
+  z-index: 999;
+}
+
+.position {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 6px;
+
+  &__button {
+    align-items: center;
+    border-radius: 6px;
+    height: 28px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(36, 39, 46, 0.9);
+    color: #ffffff;
+  }
+}
+
+.label {
+  display: block;
+  font-size: 11px;
+  font-family: Roboto, sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  color: #7a7a7a;
+}

@@ -1,0 +1,86 @@
+@use "pe_variables" as pe_variables;
+
+.error-message-wrapper {
+  margin-top: 16px;
+}
+
+.login-security-question {
+  &__container {
+    padding-left: 13px;
+    padding-right: 13px;
+    @media (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+      padding: 0;
+      width: 100%;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 17px;
+    font-weight: normal;
+    line-height: 1.3333333333;
+    margin: 0 auto 22px auto;
+  }
+
+  &__description,
+  &__invalid {
+    font-size: 14px;
+    text-align: center;
+    line-height: normal;
+    margin: 16px auto 0;
+    max-width: 250px;
+  }
+
+  &__form {
+    margin-top: 16px;
+  }
+
+  &__description {
+    color: #ffffff;
+  }
+
+  &__invalid {
+    color: #ff3c30;
+  }
+
+  &__button {
+    display: block;
+    width: 100%;
+    border-radius: 12px;
+    background-color: #0371e2;
+    font-weight: 500;
+    color: white;
+    font-size: 14px;
+    outline: 0;
+    border: 0;
+    margin: 12px auto 0;
+    height: 44px;
+
+    &_gray {
+      background-color: #383b42;
+    }
+
+    @media (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+      height: 56px;
+      font-size: 17px;
+      font-weight: 400;
+      max-width: unset;
+    }
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  &__security-question {
+    font-size: 14px;
+    color: #7a7a7a;
+    margin: 12px auto 0;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 500;
+
+    &:hover {
+      color: rgb(142, 142, 142);
+    }
+  }
+}

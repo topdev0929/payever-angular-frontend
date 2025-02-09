@@ -1,0 +1,66 @@
+{
+  "santander-se-finexp-widget": {
+    "common": {
+      "month": {
+        "one": "{{ count }} månad",
+        "many": "{{ count }} månader"
+      },
+      "rate_param": {
+        "months": "Antal betalningar",
+        "monthly_cost": "Månatlig delbetalning",
+
+        "month_name": "Betala i",
+        "effective_interest": "Effektiv ränta vid 10.000 kr",
+        "total_cost": "Total kostnad",
+        "startup_fee": "Uppläggningsavgift",
+        "annual_fee": "Årlig avgift",
+        "interest_rate": "Interest rate"
+      }
+    },
+
+    "regular": {
+      "rate_param": {
+        "billing_fee": "Aviavgift"
+      },
+      "rate_title": "Betala {{ monthly_cost_with_currency }} per månad i {{ months_with_months }}",
+      "credit_details_text": "Delbetaling forutsetter inngåelse av kredittavtale med kredittkort etter kredittvurdering.",
+      "calculator": {
+        "header_text": "Delbetalning",
+        "header_text_extended": "Betala senare"
+      },
+      "finance-express": {
+        "header_text": "Delbetalning"
+      },
+      "introduction_text": "Dela upp din betalning enkelt och smidigt med Santander Räntefri Delbetalning.",
+      "show_checkout_wrapper": "Checkout with finance express",
+      "show_more_info": "Further information"
+    },
+
+    "bnpl": {
+      "rate_param": {
+        "billing_fee": "Aviavgift efter räntefri period"
+      },
+      "rate_title": "Betala {{ total_cost_with_currency }} i {{ month_name }}",
+      "credit_details_text": "Betalingsutsettelse forutsetter inngåelse av kredittavtale med kredittkort etter kredittvurdering. Om beløpet ikke betales etter endt betalingsutsettelse, går man over til delbetaling, eksempel: Eff . rente {{ effective_rate_with_persent }}, {{ amount_with_currency }} o/{{ duration }} mnd, kostnad {{ credit_price_with_currency }}, totalt {{ credit_purchase_with_currency }}.",
+      "calculator": {
+        "header_text": "Betala senare",
+        "header_text_extended": "Betala senare"
+      },
+      "finance-express": {
+        "header_text": "Köp nu - betala senare"
+      },
+      "introduction_text": "Köp nu, betal senare - om 4 eller 6 månader. För en liten avgift får du mer tid att betala din räkning.",
+      "show_checkout_wrapper": "Checkout with finance express",
+      "show_more_info": "Further information"
+    },
+
+    "button": {
+    },
+    "dropdown-calculator": {
+    },
+    "text": {
+    },
+    "two-fields-calculator": {
+    }
+  }
+}

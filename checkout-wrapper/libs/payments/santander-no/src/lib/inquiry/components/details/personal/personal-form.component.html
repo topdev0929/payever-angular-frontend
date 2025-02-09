@@ -1,0 +1,167 @@
+<form
+  *ngIf="options$ | async as options"
+  class="form-table"
+  [formGroup]="formGroup">
+  <div
+    class="h5"
+    i18n="@@santander-no.inquiry.step.section.personal.title">
+    Personal Information
+  </div>
+
+  <div class="form-fieldset-new">
+    <mat-form-field class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-no.inquiry.form.norwegian_citizen.label"> Norwegian citizen </mat-label>
+
+      <mat-select formControlName="norwegianCitizen">
+        <mat-option
+          *ngFor="let option of booleanOptions"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-no.inquiry.form.residential_status.label"> Residential status </mat-label>
+
+      <mat-select formControlName="residentialStatus">
+        <mat-option
+          *ngFor="let option of options.residentialStatuses"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-no.inquiry.form.marital_status.label"> Marital status </mat-label>
+
+      <mat-select formControlName="maritalStatus">
+        <mat-option
+          *ngFor="let option of options.maritalStatuses"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-no.inquiry.form.professional_status.label"> Professional status </mat-label>
+
+      <mat-select formControlName="professionalStatus">
+        <mat-option
+          *ngFor="let option of options.professionalStatuses"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('employer').enabled"
+      class="col-xs-12">
+      <mat-label i18n="@@santander-no.inquiry.form.employer.label"> Employer </mat-label>
+
+      <input
+        matInput
+        formControlName="employer"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('employedSince').enabled"
+      shortDateFormat
+      class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-no.inquiry.form.employed_since.label"> Employed since </mat-label>
+
+      <input
+        matInput
+        peDatePickerMask="shortDate"
+        formControlName="employedSince"
+        type="text"
+        [min]="pastDateConstraints.min"
+        [max]="pastDateConstraints.max"
+        [matDatepicker]="employedSinceDp" />
+
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="employedSinceDp">
+        <svg
+          matDatepickerToggleIcon
+          class="icon icon-16">
+          <use xlink:href="#icon-calendar-16"></use>
+        </svg>
+      </mat-datepicker-toggle>
+      <mat-datepicker
+        #employedSinceDp
+        startView="multi-year"
+        (monthSelected)="setMonthAndYear($event, employedSinceDp)">
+      </mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('employmentPercent').enabled"
+      class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-no.inquiry.form.employment_percent.label"> Employment percent </mat-label>
+
+      <input
+        matInput
+        formControlName="employmentPercent"
+        type="number" />
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('netMonthlyIncome').enabled"
+      class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-no.inquiry.form.net_monthly_income.label"> Monthly income </mat-label>
+
+      <span
+        matPrefix
+        #prefix
+        >{{ flow.currency | peCurrencySymbol }}
+      </span>
+      <input
+        matInput
+        [peInputCurrencyMask]="flow.currency"
+        formControlName="netMonthlyIncome"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('rentIncome').enabled"
+      class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-no.inquiry.form.rent_income.label"> Rental income </mat-label>
+
+      <span
+        matPrefix
+        #prefix
+        >{{ flow.currency | peCurrencySymbol }}
+      </span>
+      <input
+        matInput
+        [peInputCurrencyMask]="flow.currency"
+        formControlName="rentIncome"
+        type="text" />
+
+      <svg
+        matSuffix
+        class="icon icon-24"
+        [tooltip]="translations.rentIncome.tooltip">
+        <use
+          [attr.xmlns:xlink]="'http://www.w3.org/1999/xlink'"
+          [attr.xlink:href]="'#icon-help-24'"></use>
+      </svg>
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="formGroup.get('numberOfChildren').enabled"
+      class="col-xs-12">
+      <mat-label i18n="@@santander-no.inquiry.form.number_of_children.label"> Number of children </mat-label>
+
+      <input
+        matInput
+        formControlName="numberOfChildren"
+        type="text" />
+    </mat-form-field>
+  </div>
+</form>

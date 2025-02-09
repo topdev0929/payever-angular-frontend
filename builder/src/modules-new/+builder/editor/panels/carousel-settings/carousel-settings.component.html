@@ -1,0 +1,53 @@
+<form novalidate class="form-table form-table-horizontal">
+  <button
+    color="muted-dark"
+    mat-raised-button
+    [class.button-settings-toggle]="true"
+    [class.mat-button-xxs]="true"
+    [class.mat-button-menu]="true"
+    [class.mat-button-small-padding]="true"
+    [matMenuTriggerFor]="menu"
+    pe-qa-builder="images"
+  >
+    <span>Images</span>
+    <svg class="icon icon-16">
+      <use xlink:href="#icon-arrow-down-small-16"></use>
+    </svg>
+  </button>
+  <mat-menu #menu="matMenu" class="mat-menu-dark-muted mat-menu-editor-sm mat-menu-editor mat-menu-fieldset">
+    <ng-container *ngFor="let image of images; let i = index">
+      <div class="link-menu-item" (click)="select(i)" mat-menu-item>
+        <div class="link-menu-item-preview" [style.backgroundImage]="getPreviewImage(image)"></div>
+        <span class="link-menu-item-text">{{ getImageTitle(image) }}</span>
+        <button class="link-menu-item-btn" (click)="remove(i); $event.stopPropagation()" pe-qa-builder="remove-image">
+          <div class="link-menu-item-btn-icon">
+            <svg id="icon-x-24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMin slice" width="100%">
+              <path
+                class="path1"
+                fill="currentColor"
+                d="M13.6453 12.0012l8.0126 -8.0126c0.454724,-0.455906 0.454724,-1.19055 0,-1.64528 -0.454724,-0.455906 -1.18937,-0.455906 -1.64528,0l-8.0126 8.0126 -8.0126 -8.0126c-0.455906,-0.455906 -1.19055,-0.455906 -1.64528,0 -0.454724,0.454724 -0.454724,1.18937 0,1.64528l8.0126 8.0126 -8.0126 8.0126c-0.454724,0.455906 -0.454724,1.19055 0,1.64528 0.226772,0.226772 0.524409,0.341339 0.822047,0.341339 0.297638,0 0.596457,-0.114567 0.823228,-0.341339l8.0126 -8.0126 8.0126 8.0126c0.226772,0.226772 0.525591,0.341339 0.823228,0.341339 0.297638,0 0.595276,-0.114567 0.822047,-0.341339 0.454724,-0.454724 0.454724,-1.18937 0,-1.64528l-8.0126 -8.0126 0 0z"
+              ></path>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </ng-container>
+  </mat-menu>
+
+  <pe-builder-navbar-controls-button
+    [hasDropdownMenu]="false"
+    [label]="'carousel_settings.add_images' | translate"
+    (buttonClick)="add()"
+    class="add-button"
+  >
+  </pe-builder-navbar-controls-button>
+  
+  <pe-builder-navbar-controls-button
+    [hasDropdownMenu]="false"
+    label="Replace"
+    (buttonClick)="replace()"
+  >
+  </pe-builder-navbar-controls-button>
+
+  <pe-builder-navbar-spacer class="spacer"></pe-builder-navbar-spacer>
+</form>

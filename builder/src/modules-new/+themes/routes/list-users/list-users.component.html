@@ -1,0 +1,51 @@
+<div *ngIf="hasLoaded$ | async">
+  <ng-container [ngSwitch]="(themes$ | async)?.length > 0">
+
+    <div *ngSwitchCase="true" class="list">
+
+      <div class="create" (click)="onCreate()">
+        <div class="create__content">
+          <div class="create__icon">
+            <svg width="52px" height="64px" viewBox="0 0 52 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="STORE-1@3x" fill="#FFFFFF" fill-rule="nonzero">
+                        <path d="M45.772455,13.9805825 L42.6586826,13.9805825 C41.4131736,5.90291262 34.5628742,0 26.1556886,0 C17.748503,0 10.8982036,6.21359224 9.65269462,13.9805825 L6.53892216,13.9805825 C3.11377246,13.9805825 0,16.776699 0,20.5048544 L0,57.4757282 C0,60.8932038 2.8023952,64 6.53892216,64 L45.4610778,64 C48.8862276,64 52,61.2038834 52,57.4757282 L52,20.1941748 C52,16.776699 49.1976048,13.9805825 45.772455,13.9805825 Z M26.1556886,3.41747572 C32.3832336,3.41747572 37.6766468,8.0776699 38.9221556,13.9805825 L13.3892216,13.9805825 C14.6347306,7.7669903 19.9281438,3.41747572 26.1556886,3.41747572 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </svg>
+          </div>
+          <div class="create__button">
+            + Add Theme
+          </div>
+        </div>
+      </div>
+
+      <ng-container *ngFor="let theme of themes$ | async; trackBy: trackByThemeId">
+        <pe-builder-theme-card
+          [theme]="theme"
+          [actionsToHide]="actionsToHide"
+          [loading]="(mutatingThemeId$ | async) === theme.id"
+          (install)="onInstall($event)"
+          (edit)="onEdited($event)"
+          (delete)="onDeleted($event)"
+        ></pe-builder-theme-card>
+      </ng-container>
+    </div>
+
+    <div *ngSwitchCase="false" class="list-empty">
+      <h1>{{ 'theme.themes_list.placeholder' | translate }}.</h1>
+      <button mat-button (click)="onCreate()" *ngIf="!isAppTypePOS">
+        <mat-progress-spinner
+          *ngIf="isCreating$ | async; else addThemeText"
+          diameter="16"
+          mode="indeterminate"
+        ></mat-progress-spinner>
+
+        <ng-template #addThemeText>
+          {{ 'theme.theme_container.add_theme' | translate }}
+        </ng-template>
+      </button>
+    </div>
+
+  </ng-container>
+</div>

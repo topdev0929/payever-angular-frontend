@@ -1,0 +1,9 @@
+<pe-theme-card
+  [uuid]="'id-123'"
+  [title]="'Minimal'"
+  [subTitle]="'Installed'"
+  [image]="image"
+  [actions]="cardActions"
+  (onClick)="handleCardClick($event)"
+  >
+</pe-theme-card>

@@ -1,0 +1,19 @@
+<form
+  class="form-container"
+  [formGroup]="ownerForm"
+  #form="ngForm"
+  (ngSubmit)="onSave()"
+>
+  <peb-form-background>
+    <peb-form-field-input
+      animated="true"
+      [label]="'form.create_form.email.label' | translate"
+      [isFieldInvalid]="form.submitted && ownerForm.get('email').invalid"
+      [errorMessage]="errorMessage"
+      appearance="label"
+    >
+      <input formControlName="email" />
+    </peb-form-field-input>
+  </peb-form-background>
+  <button #submitTrigger type="submit" class="hidden"></button>
+</form>

@@ -1,0 +1,37 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup">
+  <div class="form-fieldset-new">
+    <mat-form-field class="col-xs-12">
+      <mat-label i18n="@@santander-no-invoice.inquiry.form.social_security_number.label">
+        Social security number
+      </mat-label>
+
+      <input
+        matInput
+        formControlName="socialSecurityNumber"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-no-invoice.inquiry.form.registered_post_number.label">
+        Registered post number
+      </mat-label>
+
+      <input
+        matInput
+        formControlName="registeredPostNumber"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-no-invoice.inquiry.form.telephone_mobile.label"> Social security number </mat-label>
+
+      <input
+        matInput
+        peInputMask
+        formControlName="telephoneMobile"
+        type="text" />
+    </mat-form-field>
+  </div>
+</form>

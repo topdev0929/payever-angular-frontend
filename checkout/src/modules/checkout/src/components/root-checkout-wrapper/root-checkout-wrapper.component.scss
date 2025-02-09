@@ -1,0 +1,8 @@
+@import "~@pe/ui-kit/scss/pe_variables.scss";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+.hidden {
+  position: absolute;
+  left: -100000px;
+  width: 0px;
+}

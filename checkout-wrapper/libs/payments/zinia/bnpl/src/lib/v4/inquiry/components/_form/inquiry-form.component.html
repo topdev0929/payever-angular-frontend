@@ -1,0 +1,23 @@
+<form
+  novalidate
+  analyticsForm
+  class="form-table"
+  [formGroup]="formGroup">
+  <div>
+    <details-form formControlName="detailsForm"></details-form>
+    <terms-form
+      class="terms-form"
+      *ngIf="terms$ | async as terms"
+      formControlName="termsForm"
+      [terms]="terms">
+    </terms-form>
+  </div>
+  <pe-payment-text
+    class="pe-payment-text"
+    [customMarginTop]="0"
+    type="text">
+    <span [innerHTML]="translations.customCheckbox"></span>
+  </pe-payment-text>
+
+  <pe-zinia-bnpl-promo class="pe-zinia-bnpl-promo"></pe-zinia-bnpl-promo>
+</form>

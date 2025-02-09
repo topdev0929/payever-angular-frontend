@@ -1,0 +1,41 @@
+@import "pe_colors_variables.scss";
+@import url('../../../../../../node_modules/normalize.css/normalize.css');
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+
+.root{
+  height: 100%
+}
+
+
+.root {
+  background-color: #24272e;
+}
+
+os-commerce .root-container {
+  padding: 0 !important;
+}
+
+pe-invoice-root {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  top: 0;
+  height: 100%;
+  overflow: hidden;
+  background: $color-background;
+}
+
+.invoice-container {
+  height: calc(100% - 56px);
+}
+
+
+.pe-context-menu ul li span {
+  font-weight: 400;
+}
+
+.builder-dialog .mat-dialog-container {
+  border-radius: 12px;
+}

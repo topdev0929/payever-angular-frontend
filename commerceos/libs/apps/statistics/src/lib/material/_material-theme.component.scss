@@ -1,0 +1,29 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $select-button: map.get($color-config, 'select-button');
+  $text-color: map.get($color-config, 'text-color');
+  $button: map.get($color-config, 'button');
+  $active-text: map.get($color-config, 'active-text');
+
+  peb-statistics-overlay {
+    .mat-tab-header {
+      background-color: $select-button;
+    }
+    .mat-tab-labels > div.mat-tab-label {
+      color: $text-color;
+      &-active {
+        opacity: 1;
+        .mat-tab-label-content {
+          color: $active-text;
+        }
+      }
+    }
+    
+    .mat-ink-bar {
+      background-color: $button;
+      color: $active-text;
+      z-index: -1;
+    }
+  }
+}

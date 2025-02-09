@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="HandheldFriendly" content="true">
+    <!--<meta name="token" content="ZmIxMzAzZGVlYzM1ODE1YTYyN2E1MjYxYTQ0NDNhOGJhYTNhOGZjOTk4OTdkZTg0MWQyNzU1N2ZlNmQ5YjY3ZQ">-->
+    <title>Builder</title>
+    <base href="/">
+  <link rel="stylesheet" type="text/css" href="https://commerceos.staging.devpayever.com/styles.67c86f642259d564efb4.css">
+    <!--<link rel="stylesheet" type="text/css" href="https://stage.payever.de/dist/platform.css">-->
+    <style>
+        /* TODO temp, make via ng-kit */
+        /*checkout-root .ui-layout-app {*/
+        /*background-color: transparent !important;*/
+        /*}*/
+
+        /*checkout-root .ui-layout-app .inner-wrap {*/
+        /*background-color: #ffffff !important;*/
+        /*border-top-left-radius: 0px !important;*/
+        /*border-top-right-radius: 0px !important;*/
+        /*top: 0px !important;*/
+        /*bottom: 0px !important;*/
+        /*right: 0px !important;*/
+        /*left: 0px !important;*/
+        /*}*/
+        /*checkout-root .loader-container.loader-fixed {*/
+        /*position: absolute !important;*/
+        /*background-color: transparent !important;*/
+        /*}*/
+        /*.pac-container {*/
+        /*z-index: 2000 !important;*/
+        /*}*/
+        /*body.pe-bootstrap div.dropdown-menu.datepicker-dropdown {*/
+        /*z-index: 2000 !important;*/
+        /*}*/
+
+        /*.platform-global-loader {*/
+        /*visibility: hidden;*/
+        /*}*/
+        .platform-background-wrap {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="pe-bootstrap">
+
+<!-- Plarform part for staginging -->
+  <div id="os-background-wrap" class="platform-background-wrap" style="background-image: url('https://commerceos.staging.devpayever.com/assets/images/commerseos-background-blurred.jpg');"></div>
+<div id="os-background"
+     class="platform-background"
+     style="display: none; background-image: url('https://commerceos.staging.devpayever.com/assets/images/commerseos-background-blurred.jpg');"
+     data-background-low="https://commerceos.staging.devpayever.com/assets/images/commerseos-background-blurred.jpg"
+     data-background-original="https://commerceos.staging.devpayever.com/assets/images/commerseos-background-blurred.jpg"
+     data-background-default="https://commerceos.staging.devpayever.com/assets/images/commerseos-background-blurred.jpg"
+></div>
+<script type="text/javascript" src="https://payeverstage.azureedge.net/js/pe-static.js"></script>
+
+<script>
+      (function() {
+        PayeverStatic.IconLoader.loadIcons([
+            'set',
+            'apps',
+            'settings',
+            'builder',
+            'dock',
+            'edit-panel',
+            'social',
+            'dashboard',
+            'notification',
+            'commerceos',
+            'widgets',
+            'payment-methods',
+            'shipping',
+            'finance-express'
+        ]);
+    })()
+</script>
+
+<div>
+    <div id="os-app-appearance-title" class="platform-app-appearance-title"></div>
+</div>
+<app-builder></app-builder>
+</body>
+</html>

@@ -1,0 +1,142 @@
+.product-picker-container {
+  overflow: hidden;
+
+  &__controls-box {
+    height: 44px;
+    display: flex;
+    flex-direction: row;
+
+    .input-with-label {
+      display: inherit;
+      flex-direction: column;
+      flex: 1;
+      padding: 4px 12px;
+
+      span {
+        font-family: "Roboto", sans-serif;
+        font-size: 11px;
+        height: 16px;
+      }
+
+      input {
+        font-family: "Roboto", sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.33;
+        height: 16px;
+        background-color: rgba(0, 0, 0, 0);
+        border: 0;
+        outline: 0;
+        padding: 0;
+      }
+    }
+
+    .button-container {
+      display: inherit;
+      width: 105px;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+
+      .peb-text-button {
+        font-size: 12px;
+        line-height: 130%;
+      }
+    }
+  }
+
+  .products-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    &__item {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-sizing: border-box;
+      padding: 4px 0 4px 12px;
+
+      & > div {
+        display: flex;
+        align-items: center;
+        width: calc(100% - 48px);
+
+        .product-image {
+          width: 40px;
+          min-width: 40px;
+          height: 40px;
+          border-radius: 9px;
+          margin-right: 12px;
+          overflow: hidden;
+
+          img {
+            width: 40px;
+            height: 40px;
+          }
+        }
+
+        .product-data {
+          border-radius: 12px 0 0 12px;
+          width: 50%;
+          height: 40px;
+          display: flex;
+          flex-direction: column;
+          align-items: baseline;
+          padding: 0 12px;
+          box-sizing: border-box;
+          overflow: hidden;
+
+          .product-price {
+            font-family: Roboto, sans-serif;
+            font-size: 11px;
+          }
+
+          .product-name {
+            font-family: Roboto, sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 1.33;
+            letter-spacing: normal;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 100%;
+          }
+        }
+
+        .quantity {
+          width: 50%;
+          height: 40px;
+          border-radius: 0 12px 12px 0;
+          display: flex;
+          flex-direction: column;
+          align-items: baseline;
+          box-sizing: border-box;
+          .quantity-select {
+            width: 100%;
+          }
+        }
+      }
+
+      .delete-btn {
+        width: 40px;
+        min-width: 40px;
+        height: 40px;
+        margin-left: 8px;
+        border-radius: 12px;
+        border: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+          width: 16px;
+          height: 18px;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+}

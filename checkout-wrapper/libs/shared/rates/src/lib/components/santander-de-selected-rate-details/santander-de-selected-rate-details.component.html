@@ -1,0 +1,22 @@
+<div #container>
+  <div
+    *ngIf="valueWrapClass$ | async as valueWrapClass"
+    class="selected-rate-info"
+    [class.no-mb]="noMarginBottom">
+    <ng-container *ngFor="let detail of details">
+      <div
+        [class]="valueWrapClass"
+        *ngIf="detail?.title">
+        <div class="item">
+          <div class="item-name pe-payment-line">{{ detail.title }}</div>
+          <div
+            class="item-value pe-payment-line"
+            *ngIf="detail.value !== undefined && detail.value !== null">
+            {{ detail.value }}
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <div class="clearfix"></div>
+  </div>
+</div>

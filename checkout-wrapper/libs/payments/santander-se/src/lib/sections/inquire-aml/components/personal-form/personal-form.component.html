@@ -1,0 +1,49 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup">
+  <div
+    class="h5"
+    i18n="@@santander-se.inquiry.step.section.app_details.title">
+    App Details
+  </div>
+  <div class="form-fieldset-new">
+    <mat-form-field class="col-xs-12">
+      <mat-label i18n="@@santander-se.inquiry.form.monthly_gross_income.label"> Monthly gross income </mat-label>
+
+      <span
+        #prefix
+        matPrefix>
+        {{ currency | peCurrencySymbol }}
+      </span>
+      <input
+        matInput
+        [peInputCurrencyMask]="flow.currency"
+        formControlName="monthlyGrossIncome"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-se.inquiry.form.citizenship.label"> Citizenship </mat-label>
+
+      <mat-select formControlName="citizenship">
+        <mat-option
+          *ngFor="let option of citizenshipOptions$ | async"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-se.inquiry.form.citizenship_second.label"> Other citizenship (optional) </mat-label>
+
+      <mat-select formControlName="citizenshipSecond">
+        <mat-option
+          *ngFor="let option of citizenshipOptions$ | async"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</form>

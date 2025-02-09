@@ -1,0 +1,71 @@
+<div #spritesContainer class="read-only-sprites">
+    <pe-icons-set></pe-icons-set>
+    <pe-icons-activity-tab></pe-icons-activity-tab>
+    <pe-icons-apps></pe-icons-apps>
+    <pe-icons-banners></pe-icons-banners>
+    <pe-icons-builder></pe-icons-builder>
+    <pe-icons-cards></pe-icons-cards>
+    <pe-icons-categories></pe-icons-categories>
+    <pe-icons-commerceos></pe-icons-commerceos>
+    <pe-icons-dashboard></pe-icons-dashboard>
+    <pe-icons-dock></pe-icons-dock>
+    <pe-icons-edit-panel></pe-icons-edit-panel>
+    <pe-icons-embed></pe-icons-embed>
+    <pe-icons-finance-express></pe-icons-finance-express>
+    <pe-icons-marketing></pe-icons-marketing>
+    <pe-icons-messenger></pe-icons-messenger>
+    <pe-icons-notification></pe-icons-notification>
+    <pe-icons-payment></pe-icons-payment>
+    <pe-icons-payment-methods></pe-icons-payment-methods>
+    <pe-icons-santander-flags></pe-icons-santander-flags>
+    <pe-icons-settings></pe-icons-settings>
+    <pe-icons-shipping></pe-icons-shipping>
+    <pe-icons-social></pe-icons-social>
+    <pe-icons-stat></pe-icons-stat>
+    <pe-icons-store-builder></pe-icons-store-builder>
+    <pe-icons-trust-app></pe-icons-trust-app>
+    <pe-images-payment-options></pe-images-payment-options>
+</div>
+<div class="chapter">
+    <h2>Icons</h2>
+  <div id="svg-usage" class="main-block">
+    <h3>SVG usage</h3>
+    <div class="doc-block">
+      <div class="row">
+        <div class="col-xs-12">
+          <p>We are using SVG sprites for vector icons. If you are not able to use sprite paste SVG inline.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+                        <pre>
+                            <code class="html" html-entities="true">// SVG sprite, include it right after open body tag
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+    <symbol id="icon-facebook-16" viewbox="0 0 16 16" preserveaspectratio="xMidYMin slice" width="100%">
+        <path class="path1" fill="currentColor" d="M 16 15"/>
+    </symbol>
+    <symbol id="icon-linkedin-16" viewbox="0 0 16 16" preserveaspectratio="xMidYMin slice" width="100%">
+        <path class="path1" fill="currentColor" d="M 6 16"/>
+    </symbol>
+    <symbol id="icon-linkedin-48" viewbox="0 0 48 48" preserveaspectratio="xMidYMin slice" width="100%">
+        <path class="path1" fill="currentColor" d="M 10 4"/>
+    </symbol>
+</svg>
+                            </code>
+                        </pre>
+          <p></p>
+          <pre>
+                          <code class="html" html-entities="true">// Usage in place
+// .icon mandatory class, .icon-16 (24, 32, 48, 64) icon size, .icon-facebook is optional
+<svg class="icon icon-16 icon-facebook">
+    // #icon-facebook-16 symbol id from sprite
+    <use xlink:href="#icon-facebook-16"/>
+</svg>
+                          </code>
+                        </pre>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

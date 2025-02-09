@@ -1,0 +1,51 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $label-color: map.get($color-config, 'label-color');
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $text-color: map.get($color-config, 'text-color');
+  $border: map.get($color-config, 'border');
+  $active-text: map.get($color-config, 'active-text');
+  $confirm: map.get($color-config, 'confirm');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $background: map.get($color-config, 'background');
+  $secondary-background: map.get($color-config, 'secondary-background');
+
+  .peb-size-input {
+    background-color: $overlay-background;
+    color: $text-color;
+    .units {
+      color: $label-color;
+    }
+  }
+
+  .pe-bootstrap {
+    .mat-menu-panel.size-input-menu {
+      border: solid 1px $border;
+      background-color: $transparent-color !important;
+      backdrop-filter: blur(25px);
+      .mat-menu-content {
+        background-color: $secondary-background;
+        .unit {
+          color: $text-color;
+          &:not(:last-child) {
+            border-bottom: solid 1px $background;
+          }
+          &:hover,
+          &.active {
+            &:not(:last-child) {
+              border-bottom: solid 1px $transparent-color;
+            }
+          }
+          &:hover {
+            background-color: $secondary-background;
+          }
+          &.active {
+            background-color: $confirm;
+            color: $active-text;
+          }
+        }
+      }
+    }
+  }
+}

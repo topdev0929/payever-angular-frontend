@@ -1,0 +1,119 @@
+<pe-modal #modal
+          *ngIf="error"
+          [baseViewConfig]="''"
+          [baseButtons]="''"
+          [buttons]="''"
+          [viewConfig]="viewConfig"
+          [showLoading]="false"
+          (onClose)="onCloseModal()">
+  <h1>form.edit.heading_error</h1>
+  <p class="text-danger">{{ error }}</p>
+</pe-modal>
+<div class="pe-info-box-container-fixed checkout-action-edit">
+  <pe-info-box class="pe-info-box-header-padding dark"
+               [showSpinner]="isLoading$ | async"
+               [transparent]="true"
+               [withHeader]="false"
+               [withFooter]="false"
+               [withPadding]="true"
+               [blurred]="false"
+               [fixed]="false"
+               [roundBorder]="true"
+               [large]="true"
+               [noBackgroundColor]="false"
+               [notFullwidthOnMobile]="true">
+    <ng-container content>
+      <div class="min-height-container">
+        <ng-container *ngIf="!error && clonedFlow">
+
+          <ng-container *ngIf="(editMode$ | async) === EditMode.Amount">
+            <div class="h3" translate>amount.header.amount</div>
+            <checkout-amount-edit
+              [flow]="clonedFlow"
+              (saved)="onAmountSaved($event)"
+              (isLoading)="isLoading$.next($event)"
+            ></checkout-amount-edit>
+          </ng-container>
+
+          <ng-container *ngIf="(editMode$ | async) === EditMode.Cart">
+            <div class="h3" translate>cart.header.cart</div>
+            <checkout-transaction-cart-edit
+              [flow]="clonedFlow"
+              (saved)="onAmountSaved($event)"
+              (isLoading)="isLoading$.next($event)"
+            ></checkout-transaction-cart-edit>
+          </ng-container>
+
+          <ng-container *ngIf="(editMode$ | async) === EditMode.Address">
+            <div class="h3" translate>address.header.billing_address</div>
+            <checkout-billing-address-edit
+              [flow]="clonedFlow"
+              (saved)="onAddressSaved()"
+              (isLoading)="isLoading$.next($event)"
+            ></checkout-billing-address-edit>
+          </ng-container>
+
+          <ng-container *ngIf="!(editMode$ | async)">
+
+            <ng-container *ngIf="!hasCart">
+              <div class="h3" translate>amount.header.amount</div>
+              <p>
+                <span [innerHtml]="clonedFlow.amount | peCurrency:clonedFlow.currency"></span>
+              </p>
+              <button
+                mat-button
+                class="mat-button-dark"
+                type="button"
+                (click)="editMode$.next(EditMode.Amount)"
+                translate
+              >amount.actions.edit_amount</button>
+            </ng-container>
+
+            <ng-container *ngIf="hasCart">
+              <div class="h3" translate>cart.header.cart</div>
+              <p>
+                <span [innerHtml]="clonedFlow.amount | peCurrency:clonedFlow.currency"></span>
+              </p>
+              <button
+                mat-button
+                class="mat-button-dark"
+                type="button"
+                (click)="editMode$.next(EditMode.Cart)"
+                translate
+              >cart.actions.edit_cart</button>
+            </ng-container>
+
+            <div class="h3" translate>address.header.billing_address</div>
+            <p>
+              <span [innerHtml]="clonedFlow.billing_address | peAddressFullName:clonedFlow.hide_salutation" *ngIf="clonedFlow.billing_address | peAddressFullName"></span>
+              <br>
+              <span [innerHtml]="clonedFlow.billing_address?.street" *ngIf="clonedFlow.billing_address?.street"></span>
+              <br>
+              <span [innerHtml]="clonedFlow.billing_address | peAddressLine" *ngIf="clonedFlow.billing_address | peAddressLine"></span>
+            </p>
+            <button
+              mat-button
+              class="mat-button-dark"
+              type="button"
+              (click)="editMode$.next(EditMode.Address)"
+              translate
+            >address.actions.edit_billing_address</button>
+
+            <!-- [attr.flow] should be the last one on list -->
+            <payment-santander-de-pos-inquiry
+              *ngIf="initialValues"
+              [attr.modalwindowmode]="false"
+              [attr.merchantmode]="true"
+              [attr.editmode]="true"
+              [attr.darkmode]="true"
+              [attr.initialvalues]="initialValues | json"
+              [attr.paymentid]="paymentId"
+              [attr.flow]="clonedFlow | json"
+              (serviceReady)="onServiceReadyChange($event)">
+            </payment-santander-de-pos-inquiry>
+          </ng-container>
+        </ng-container>
+      </div>
+    </ng-container>
+  </pe-info-box>
+</div>

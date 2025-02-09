@@ -1,0 +1,10 @@
+@use 'pe_theming' as pet;
+@use './checkout/checkout-theme.component' as checkout;
+@use './page-container-theme' as page_container;
+
+@mixin theme($theme-config) {
+    $color-config: pet.get-color-config-from-theme($theme-config);
+    @include checkout.color($color-config);
+    @include page_container.color($color-config);
+
+}

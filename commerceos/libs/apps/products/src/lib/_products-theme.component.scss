@@ -1,0 +1,259 @@
+@use 'SASS:map';
+@use 'pe_variables' as pe_variables;
+
+@mixin color($color-config) {
+  $background: map.get($color-config, 'background');
+  $label-color: map.get($color-config, 'label-color');
+  $hover-button: map.get($color-config, 'hover-button');
+  $separator: map.get($color-config, 'separator');
+  $active-text: map.get($color-config, 'active-text');
+  $text-color: map.get($color-config, 'text-color');
+  $box-shadow-color: map.get($color-config, 'box-shadow-color');
+  $content: map.get($color-config, 'content');
+  $border: map.get($color-config, 'border');
+  $confirm: map.get($color-config, 'confirm');
+  $row-background: map.get($color-config, 'row-background');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $tertiary-background: map.get($color-config, 'tertiary-background');
+  $primary: map.get($color-config, 'primary');
+  $dropdown-panel: map.get($color-config, 'dropdown-panel');
+
+  .pe-products-app {
+    .peb-select-options-container {
+      .peb-select-option {
+        &:hover {
+          color: $active-text;
+        }
+        color: $text-color;
+
+        &.selected {
+          color: $active-text !important;
+        }
+      }
+    }
+
+    .lib-products {
+      &__import-mat-menu + * .cdk-overlay-pane .mat-menu-panel {
+        .mat-menu-content {
+          background-color: $transparent-color;
+        }
+      }
+    }
+
+    .products-container {
+      #products-data-grid {
+        .new-item .item__projected-content {
+          background-image: linear-gradient(to bottom, #ededf4, #aeb0b7 98%);
+        }
+
+        .folder {
+          &__content {
+            color: $text-color;
+          }
+
+          &__placeholder {
+            background-color: $content;
+          }
+
+          &__button {
+            box-shadow: 0 1px 4px 0 $box-shadow-color;
+            background-color: #65646d;
+            color: #d4d3d9;
+          }
+        }
+      }
+
+      .overlay {
+        box-shadow: 0 2px 12px 0 $box-shadow-color;
+
+        &__button {
+          background-color: $transparent-color;
+          color: $confirm;
+
+          &_grey {
+            color: $label-color;
+          }
+        }
+
+        &__body {
+          .button-toggle,
+          .label-input-content-wrapper,
+          .peb-select {
+            background: $row-background;
+          }
+          .color-field {
+            .color-picker {
+              background-color: $transparent-color;
+            }
+          }
+        }
+      }
+
+      .item__button-spinner svg circle {
+        stroke: $active-text;
+      }
+    }
+
+    .cdk-drag-preview {
+      .form-fieldset .row {
+        .mat-form-field {
+          background-color: $row-background;
+
+          &-infix {
+            .mat-form-field-label {
+              &-wrapper {
+                label {
+                  color: $label-color !important;
+                }
+              }
+            }
+          }
+
+          input {
+            color: $text-color;
+          }
+        }
+      }
+    }
+
+    .products-container {
+      .backdrop {
+        background-color: $box-shadow-color;
+      }
+
+      .overlay {
+        background-color: $overlay-background;
+        backdrop-filter: blur(25px);
+        border: 1px solid $border;
+
+        &__title {
+          color: $text-color;
+        }
+
+        &__body {
+          .mat-expansion-panel {
+            .mat-expansion-panel-header,
+            .mat-expansion-panel-header:focus {
+              background-color: $content;
+            }
+
+            .mat-expansion-panel-header {
+              .mat-expansion-panel-title {
+                color: $text-color;
+              }
+            }
+          }
+
+          .expandable-panel {
+            &.open {
+              .expandable-panel__header {
+                border-radius: 12px 12px 0 0;
+              }
+            }
+            .expandable-panel__header {
+              border-bottom: 1px solid $overlay-background;
+              padding: 8px 12px;
+              border-radius: 12px;
+              span {
+                font-weight: 600;
+              }
+              background-color: $content;
+              color: $text-color;
+            }
+            &__content {
+              padding: 0;
+              border-radius: 0 0 12px 12px;
+            }
+          }
+
+          .label-input-content-wrapper,
+          .peb-select,
+          .text-editor > div,
+          .autocomplete-container,
+          .mat-form-field,
+          .option,
+          .option__handle,
+          .option__remove,
+          .variant button,
+          .color-field {
+            background-color: $row-background;
+
+            &.disabled {
+              background-color: $primary;
+            }
+          }
+
+          .text-editor > div,
+          .autocomplete-container input,
+          .mat-form-field input,
+          .option span {
+            color: $text-color;
+          }
+
+          .mat-option[id^='pe-products-option-'] {
+            color: $label-color;
+            background: $dropdown-panel;
+
+            &.mat-selected {
+              background-color: $dropdown-panel;
+            }
+          }
+
+          .button,
+          .add,
+          .option__add,
+          .option button {
+            background-color: $tertiary-background;
+            color: $confirm;
+          }
+
+          .form-field button {
+            background-color: $tertiary-background;
+          }
+
+          .category-section .category,
+          .recommendations-section .recommendation {
+            background-color: $tertiary-background;
+
+            span {
+              color: $text-color;
+            }
+          }
+        }
+      }
+
+      #import-menu {
+        .menu,
+        .menu-tooltip {
+          background-color: rgba($primary, 0.85);
+        }
+      }
+    }
+
+    .suffix {
+      @media (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+        min-width: 40px;
+        min-height: 100%;
+      }
+    }
+  }
+
+  .cdk-overlay-pane {
+    .mat-autocomplete-panel.pr-variants-autocomplete {
+      &:not(:hover) {
+        .mat-active {
+          background-color: $confirm;
+        }
+      }
+
+      .mat-option {
+        color: $text-color;
+
+        &:hover:not(.mat-option-disabled) {
+          background-color: $confirm;
+        }
+      }
+    }
+  }
+}

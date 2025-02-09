@@ -1,0 +1,20 @@
+{
+  "files": [
+    {
+      "path": "./dist/*/main-es2015*",
+      "maxSize": "190 kB"
+    },
+    {
+      "path": "./dist/*/main-es5*",
+      "maxSize": "200 kB"
+    },
+    {
+      "path": "./dist/**/checkout-main-ce/main-es2015*",
+      "maxSize": "200 kB"
+    },
+    {
+      "path": "./dist/**/checkout-main-ce/main-es5*",
+      "maxSize": "215 kB"
+    }
+  ]
+}

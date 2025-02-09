@@ -1,0 +1,114 @@
+//
+// Main components and mixins styles
+// -----------------------------------
+
+@import 'pe_base';
+
+// Mixins
+// -----------------------------
+
+@import 'mixins/pe_mixins';
+@import 'bootstrap-sass/assets/stylesheets/bootstrap/_mixins';
+
+// Bootstrap Components
+// Original Components
+// ---------------------------------
+
+//# Core CSS
+.pe-checkout-bootstrap {
+  @import 'bootstrap-sass/assets/stylesheets/bootstrap/normalize';
+
+  * {
+    // We have to reset all elements to static
+    // to fix styles for widgets broken at www.pedalatleten.dk
+    position: static;
+  }
+
+  $link-color: #333333;
+  $link-hover-color: #000000;
+  $link-hover-decoration: underline;
+
+  @import 'bootstrap-sass/assets/stylesheets/bootstrap/scaffolding';
+  @import 'bootstrap-sass/assets/stylesheets/bootstrap/type';
+  @import 'bootstrap-sass/assets/stylesheets/bootstrap/grid';
+  @import 'bootstrap-sass/assets/stylesheets/bootstrap/buttons';
+
+  a {
+    // We force use underline for all links
+    text-decoration: underline;
+  }
+
+  //# Components w/ JavaScript
+  @import 'bootstrap-sass/assets/stylesheets/bootstrap/modals';
+
+  //# Utility classes
+  @import 'bootstrap-sass/assets/stylesheets/bootstrap/utilities';
+  @import 'bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities';
+}
+
+// Base
+// -----------------------------
+
+@import 'blocks/base/type';
+
+// Bootstrap Components (bootstrap)
+// --------------------------------
+
+//# Core CSS
+@import 'blocks/bootstrap/scaffolding';
+@import 'blocks/bootstrap/forms';
+@import 'blocks/bootstrap/buttons';
+
+//# Components w/ JavaScript
+@import 'blocks/bootstrap/modals';
+
+// Material components
+// -----------------------------
+
+@import 'blocks/material/theming';
+@import 'blocks/material/autocomplete';
+@import 'blocks/material/button';
+@import 'blocks/material/button-toggle';
+@import 'blocks/material/card';
+@import 'blocks/material/cdk';
+@import 'blocks/material/checkbox';
+@import 'blocks/material/datepicker';
+@import 'blocks/material/divider';
+@import 'blocks/material/expansion-panel';
+@import 'blocks/material/form-field';
+@import 'blocks/material/input';
+@import 'blocks/material/radio';
+@import 'blocks/material/select';
+@import 'blocks/material/dialog';
+@import 'blocks/material/spinner';
+@import 'blocks/material/toolbar';
+@import 'blocks/material/tabs';
+@import 'blocks/material/tooltip';
+@import 'blocks/material/snack-bar';
+
+// PE Components (project)
+// -----------------------------
+
+@import 'blocks/project/spinner'; // We need it for loader at payment Finish page
+@import 'blocks/project/icons';
+@import 'blocks/project/native-submit';
+@import 'blocks/project/profile-container';
+@import 'blocks/project/app-container';
+@import 'blocks/project/builder-docker';
+@import 'blocks/project/ui-subdashboard-header';
+@import 'blocks/project/ui-carousel';
+@import 'blocks/project/ui-layout';
+@import 'blocks/project/form-table';
+@import 'blocks/project/form-table-custom';
+@import 'blocks/project/number-field';
+@import 'blocks/project/layout';
+@import 'blocks/project/toolbar';
+@import 'blocks/project/input-spinner';
+@import 'blocks/bootstrap/div-table';
+@import 'blocks/project/select';
+
+// Browser specific hacks
+@import 'blocks/project/browser-hacks';
+@import 'blocks/project/payments';
+@import 'blocks/project/terms.scss';
+@import 'blocks/project/button.scss';

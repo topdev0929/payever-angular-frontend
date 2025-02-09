@@ -1,0 +1,15 @@
+<form class="form">
+  <div class="group__row">
+    <label class="group__label">
+      <span>
+        {{ 'builder-app.forms.function.title' | translate }}
+      </span>
+    </label>
+  </div>
+  <div class="group__row">
+    <div class="function-form__button" (click)="openIntegrationForm()">
+      <span>{{ (( title$ | async ) || 'none') | titlecase }}</span>
+      <mat-icon svgIcon="arrow" class="sidebar__icon sidebar__icon__arrow"></mat-icon>
+    </div>
+  </div>
+</form>

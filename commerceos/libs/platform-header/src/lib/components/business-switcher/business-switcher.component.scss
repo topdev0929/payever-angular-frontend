@@ -1,0 +1,31 @@
+:host {
+  display: inline-block;
+  .business-switcher {
+    display: flex;
+    &__business-name {
+      font-size: 15px;
+      font-weight: 500;
+      margin-left: 8px;
+    }
+
+    .switch-icon {
+      height: auto;
+      width: 16px;
+    }
+    @media (max-width: 720px) {
+      &__business-name {
+        font-size: 17px;
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+      }
+      .switch-icon {
+        width: 22px;
+      }
+    }
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}

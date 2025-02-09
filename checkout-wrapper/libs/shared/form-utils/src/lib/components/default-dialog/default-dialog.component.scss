@@ -1,0 +1,29 @@
+@import "../../../../../styles/assets/ui-kit-styles/pe_variables";
+
+.dialog-container {
+  max-width: $viewport-breakpoint-sm-1;
+  .dialog-title {
+    color: $color-grey-1 !important;
+  }
+  ::ng-deep p {
+    color: $color-grey-1 !important;
+    font-size: 12px;
+    line-height: 140%;
+    text-align: justify;
+    @media (max-width: $viewport-breakpoint-sm-1 - 1) {
+      font-size: 11px;
+    }
+  }
+  ::ng-deep a {
+    text-decoration: underline !important;
+    color: $color-black !important;
+  }
+}
+
+:host ::ng-deep .mat-dialog-container {
+  max-width: $viewport-breakpoint-sm-1; // TODO Check, seems that doesn't work
+}
+
+:host ::ng-deep .mat-dialog-content {
+  padding-bottom: 0;
+}

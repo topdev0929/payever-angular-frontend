@@ -1,0 +1,10 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+    $spinner: map.get($color-config, 'spinner');
+
+    .message-loader div {
+        border-top: 2px solid $spinner;
+    }
+
+}

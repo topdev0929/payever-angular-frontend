@@ -1,0 +1,17 @@
+<santander-de-inquiry-finish
+  [darkMode]="false"
+  [isLoading]="(!paymentResponse || isWaitingForSignUrl) && !errorMessage"
+  [embeddedMode]="embeddedMode"
+  [nodeResult]="paymentResponse"
+  [showCloseButton]="showCloseButton"
+  [errorMessage]="errorMessage"
+  [isCheckStatusProcessing]="isCheckStatusProcessing"
+  [isWaitingForSignUrl]="isWaitingForSignUrl"
+  [isProcessingSigning]="isProcessingSigning"
+  [isUpdatePaymentTimeout]="isUpdatePaymentTimeout"
+  [showChangePaymentButton]="true"
+  (cleanUp)="cleanUp()"
+  (close)="close()"
+  (closeButtonClicked)="close()"
+  (changePaymentMethod)="changePayment($event)"
+  (tryAgain)="tryAgain()"></santander-de-inquiry-finish>

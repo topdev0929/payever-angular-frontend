@@ -1,0 +1,50 @@
+<div class="pe-info-box-container-fixed">
+  <pe-info-box class="pe-info-box-header-padding"
+               [transparent]="true"
+               [withHeader]="false"
+               [withPadding]="false"
+               [blurred]="false"
+               [fixed]="false"
+               [title]="heading"
+               [roundBorder]="true"
+               (onClose)="onClose()"
+               [noBackgroundColor]="false"
+               [notFullwidthOnMobile]="true">
+    <ng-content content></ng-content>
+    <ng-container footer>
+      <ng-container *ngIf="isSingleButton">
+        <div class="modal-actions-left">
+          <button mat-button
+                  class="mat-button-block"
+                  [disabled]="isLoading || singleButton.disabled"
+                  (click)="singleButton.isClose ? onClose() : singleButton.onClick()">
+            <pe-progress-button-content [spinnerDiameter]="26"
+                                        [spinnerStrokeWidth]="2"
+                                        [loading]="isLoading">
+              {{ singleButton.title }}
+            </pe-progress-button-content>
+          </button>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="!isSingleButton">
+        <div class="modal-actions-left" *ngIf="footerLeftButtons?.length > 0">
+          <button mat-button
+                  *ngFor="let button of footerLeftButtons; let idx = index"
+                  class="mat-button-link"
+                  [disabled]="idx === 0 ? (isLoading || button.disabled) : false"
+                  (click)="button.isClose ? onClose() : button.onClick()"
+          >{{ button.title }}</button>
+        </div>
+        <div class="modal-actions">
+          <button mat-button
+                  *ngFor="let button of footerRightButtons; let idx = index"
+                  class="mat-button-link"
+                  [ngClass]="button.class"
+                  [disabled]="idx === 0 ? (isLoading || button.disabled) : false"
+                  (click)="button.isClose ? onClose() : button.onClick()"
+          >{{ button.title }}</button>
+        </div>
+      </ng-container>
+    </ng-container>
+  </pe-info-box>
+</div>

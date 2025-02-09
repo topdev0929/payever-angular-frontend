@@ -1,0 +1,177 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+
+$viewport-breakpoint-xs-2: 480px;
+$viewport-breakpoint-sm-1: 600px;
+
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+.top-bar {
+  position: sticky;
+  top: 0px;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: 1fr 150px 1fr;
+  height: 55px;
+  background-color: #2c2c2c;
+  padding: 0 40px;
+
+  @media (max-width: 990px) {
+    grid-template-columns: 2fr 150px 1fr;
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+
+  .mat-button-rounded {
+    line-height: 22px;
+    margin-right: 20px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+
+    &--center {
+      margin: auto;
+
+      @media (max-width: 480px) {
+        display: none;
+      }
+    }
+
+    &--right {
+      margin: auto 0 auto auto;
+
+      @media (max-width: 480px) {
+        display: none;
+      }
+    }
+  }
+
+  .filter-button {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 15px;
+    padding: 16.5px 0;
+
+    @media (max-width: 800px) {
+      font-size: 12px;
+    }
+  }
+
+  .filter-button-separator {
+    background: rgba(95, 95, 95, 0.74);
+    display: inline-block;
+    height: 20px;
+    margin-left: 25px;
+    margin-right: 20px;
+    vertical-align: -5px;
+    width: 1px;
+  }
+
+  .filter-select {
+    font-size: 15px;
+
+    @media (max-width: 800px) {
+      font-size: 12px;
+    }
+  }
+}
+
+.desktop {
+  display: flex;
+  padding: 25px 40px;
+
+  @media (max-width: 600px) {
+    padding: 15px;
+  }
+
+  &__content {
+    width: 100%;
+
+    &--with-filters {
+      padding-left: 60px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  pe-builder-theme-card {
+    width: 33%;
+  }
+}
+
+.filter-select {
+  display: inline-block;
+  position: relative;
+  font-size: 15px;
+  margin: 0;
+
+  select {
+    max-width: 85px;
+    margin: 0;
+    text-align: center;
+    padding: 13px 5px;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 15px;
+    appearance: none;
+    text-overflow: '';
+
+    option {
+      color: black;
+    }
+
+    @media (max-width: 480px) {
+      max-width: 55px;
+      font-size: 12px;
+    }
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 5px;
+    height: 5px;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    transform: rotate(225deg);
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    right: -5px;
+  }
+}
+
+.filter-caption {
+  display: inline-block;
+  position: relative;
+  font-size: 16px;
+  margin: 0;
+}
+
+.filters {
+  position: sticky;
+  top: 80px;
+  align-self: flex-start;
+
+  @media (max-width: 480px) {
+    position: inherit;
+    top: 0;
+  }
+}
+
+.mat-select {
+  width: auto;
+}

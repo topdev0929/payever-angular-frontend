@@ -1,0 +1,11 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $background: map.get($color-config, 'background');
+  $backdrop-filter-transparent: map.get($color-config, 'backdrop-filter-transparent');
+
+  .statistics-root {
+    background-color: $background;
+    backdrop-filter: $backdrop-filter-transparent;
+  }
+}

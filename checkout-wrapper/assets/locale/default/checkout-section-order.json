@@ -1,0 +1,12 @@
+{
+  "checkout_order_summary": {
+    "down_payment": "Down payment",
+    "title": "Order",
+    "subtotal": "Subtotal",
+    "discount": "Discount",
+    "shipping": "Shipping",
+    "total": "Total",
+    "shop_total": "Incl. VAT",
+    "payment_costs": "Payment costs"
+  }
+}

@@ -1,0 +1,81 @@
+:host {
+  .mat-card-content {
+    margin: 0;
+  }
+
+  .selected-files {
+    margin: 12px 20px 0 20px;
+
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      margin: 6px 0;
+    }
+
+    .filename {
+      width: calc(100% - 12px);
+      border: 1px solid rgb(118, 118, 118);
+      padding: 6px;
+      margin: 0;
+      margin: 0;
+      border-radius: 4px;
+      max-width: 346px;
+      overflow: clip;
+      max-height: 30px;
+      text-wrap: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .remove {
+      cursor: pointer;
+      z-index: 1;
+      width: 28px;
+      height: 28px;
+      padding: 0;
+      outline: none;
+      background-color: rgb(239, 239, 239);
+      border: 1px solid rgb(118, 118, 118);
+      border-radius: 4px;
+      position: relative;
+
+      &:before,
+      &:after {
+        position: absolute;
+        top: calc(50% - 0.5px);
+        left: calc(50% - 8px);
+        display: block;
+        content: '';
+        width: 16px;
+        height: 1px;
+        background-color: rgba(17, 17, 17, 0.85);
+      }
+
+      &:before {
+        transform: rotate(45deg);
+      }
+
+      &:after {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  .docs-list {
+    padding: 0 12px;
+  }
+
+  .mat-card-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .top-text {
+    margin-bottom: 24px;
+
+    p {
+      text-align: center;
+    }
+  }
+}

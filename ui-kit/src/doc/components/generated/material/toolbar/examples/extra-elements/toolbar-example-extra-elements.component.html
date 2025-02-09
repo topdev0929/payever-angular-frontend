@@ -1,0 +1,198 @@
+<div class="doc-container doc-container-grey">
+  <mat-toolbar class="mat-toolbar-default">
+    <div class="mat-toolbar-left">
+      <button mat-button color="primary" class="mat-button mat-button-link mat-button-no-padding mat-toolbar-left-margin">
+        <svg class="icon icon-16"><use xlink:href="#icon-arrow-left-16"></use></svg>
+      </button>
+    </div>
+    <div class="mat-toolbar-center">
+      <span>Title</span>
+    </div>
+    <div class="mat-toolbar-right">
+      <button mat-button color="primary" class="mat-button mat-button-link mat-button-no-padding" color="primary">
+        Add product to store
+      </button>
+    </div>
+  </mat-toolbar>
+</div>
+
+<p>With pseudo element in center, can be located on the left/right side</p>
+
+<div class="doc-container doc-container-grey">
+  <mat-toolbar class="mat-toolbar-default">
+    <div class="mat-toolbar-center mat-toolbar-margin-between">
+      <button mat-button color="muted" class="mat-button-link mat-button-no-padding">
+        <svg class="icon icon-16"><use xlink:href="#icon-search-16"></use></svg>
+      </button>
+      <button mat-button color="muted" class="mat-button-link mat-button-no-padding">
+        <svg class="icon icon-16"><use xlink:href="#icon-linemode-16"></use></svg>
+      </button>
+      <mat-divider [vertical]="true"></mat-divider>
+      <button mat-button color="muted" class="mat-button-sm mat-button-link mat-button-no-padding">
+        Add filter
+      </button>
+    </div>
+    <div class="mat-toolbar-center">
+      <div class="mat-toolbar-pseudo">
+        <button mat-button [matMenuTriggerFor]="menu" class="mat-button-link mat-button-xl">
+          <img class="mat-toolbar-pseudo-left" src="../../../../../../../../icons-db/icon-contacts-colored-32.png">
+          <span>Title</span>&nbsp;
+          <svg class="icon icon-16"><use xlink:href="#icon-arrow-down-small-16"></use></svg>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item><mat-icon><svg class="icon icon-24"><use xlink:href="#flag-santander-de-24"></use></svg></mat-icon> Item 1</button>
+          <button mat-menu-item><mat-icon><svg class="icon icon-24"><use xlink:href="#flag-santander-dk-24"></use></svg></mat-icon> Item 2</button>
+          <button mat-menu-item><mat-icon><svg class="icon icon-24"><use xlink:href="#flag-santander-es-24"></use></svg></mat-icon> Item 3</button>
+          <button mat-menu-item><mat-icon><svg class="icon icon-24"><use xlink:href="#flag-santander-fin-24"></use></svg></mat-icon> Item 4</button>
+          <button mat-menu-item><mat-icon><svg class="icon icon-24"><use xlink:href="#flag-santander-no-24"></use></svg></mat-icon> Item 5</button>
+          <button mat-menu-item><mat-icon><svg class="icon icon-24"><use xlink:href="#flag-santander-se-24"></use></svg></mat-icon> Item 6</button>
+          <button mat-menu-item><mat-icon><svg class="icon icon-24"><use xlink:href="#flag-santander-us-24"></use></svg></mat-icon> Item 7</button>
+        </mat-menu>
+      </div>
+    </div>
+    <div class="mat-toolbar-right">
+      <button mat-button class="mat-toolbar-margin-right mat-button-link mat-button-no-padding" color="primary">Add product to store</button>
+      <button mat-button color="muted"[matMenuTriggerFor]="menu" class="mat-button-sm mat-button-link mat-button-no-padding">
+        <svg class="icon icon-24"><use xlink:href="#icon-dots-h-24"></use></svg>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item><mat-icon><svg class="icon icon-24"><use xlink:href="#flag-santander-de-24"></use></svg></mat-icon> Item 1</button>
+        <button mat-menu-item><mat-icon><svg class="icon icon-24"><use xlink:href="#flag-santander-dk-24"></use></svg></mat-icon> Item 2</button>
+        <button mat-menu-item><mat-icon><svg class="icon icon-24"><use xlink:href="#flag-santander-es-24"></use></svg></mat-icon> Item 3</button>
+        <button mat-menu-item><mat-icon><svg class="icon icon-24"><use xlink:href="#flag-santander-fin-24"></use></svg></mat-icon> Item 4</button>
+        <button mat-menu-item><mat-icon><svg class="icon icon-24"><use xlink:href="#flag-santander-no-24"></use></svg></mat-icon> Item 5</button>
+        <button mat-menu-item><mat-icon><svg class="icon icon-24"><use xlink:href="#flag-santander-se-24"></use></svg></mat-icon> Item 6</button>
+        <button mat-menu-item><mat-icon><svg class="icon icon-24"><use xlink:href="#flag-santander-us-24"></use></svg></mat-icon> Item 7</button>
+      </mat-menu>
+    </div>
+  </mat-toolbar>
+</div>
+
+<div class="doc-container doc-container-grey">
+  <mat-toolbar class="mat-toolbar-default">
+    <div class="mat-toolbar-left">
+    </div>
+    <div class="mat-toolbar-center">
+      <button mat-button [matMenuTriggerFor]="menu" class="mat-button-link mat-button-xl mat-button-no-padding">
+        <img src="../../../../../../../../icons-db/icon-contacts-colored-32.png">
+        <svg class="icon icon-16"><use xlink:href="#icon-arrow-down-small-16"></use></svg>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item><mat-icon><svg class="icon icon-24"><use xlink:href="#flag-santander-de-24"></use></svg></mat-icon> Item 1</button>
+        <button mat-menu-item><mat-icon><svg class="icon icon-24"><use xlink:href="#flag-santander-dk-24"></use></svg></mat-icon> Item 2</button>
+        <button mat-menu-item><mat-icon><svg class="icon icon-24"><use xlink:href="#flag-santander-es-24"></use></svg></mat-icon> Item 3</button>
+        <button mat-menu-item><mat-icon><svg class="icon icon-24"><use xlink:href="#flag-santander-fin-24"></use></svg></mat-icon> Item 4</button>
+        <button mat-menu-item><mat-icon><svg class="icon icon-24"><use xlink:href="#flag-santander-no-24"></use></svg></mat-icon> Item 5</button>
+        <button mat-menu-item><mat-icon><svg class="icon icon-24"><use xlink:href="#flag-santander-se-24"></use></svg></mat-icon> Item 6</button>
+        <button mat-menu-item><mat-icon><svg class="icon icon-24"><use xlink:href="#flag-santander-us-24"></use></svg></mat-icon> Item 7</button>
+      </mat-menu>
+    </div>
+    <div class="mat-toolbar-right">
+      <button mat-button color="primary" class="mat-button mat-button-link mat-button-no-padding">
+        <img src="../../../../../../../../icons-db/icon-market-colored-32.png">
+      </button>
+    </div>
+  </mat-toolbar>
+</div>
+
+<div class="doc-container doc-container-grey">
+  <mat-toolbar class="mat-toolbar-default">
+    <div class="mat-toolbar-left">
+    </div>
+    <div class="mat-toolbar-center">
+      <img src="../../../../../../../../icons-db/icon-orders-colored-32.png">
+    </div>
+    <div class="mat-toolbar-right">
+      <button mat-button class="mat-button-link mat-button-no-padding mat-toolbar-margin-right-small">Cancel</button>
+    </div>
+  </mat-toolbar>
+</div>
+
+<div class="doc-container doc-container-grey">
+  <mat-toolbar class="mat-toolbar-default">
+    <div class="mat-toolbar-left">
+    </div>
+    <div class="mat-toolbar-center"></div>
+    <div class="mat-toolbar-right">
+      <button mat-button class="mat-button-link mat-button-no-padding">Cancel</button>
+      <mat-divider [vertical]="true" class="mat-divider-indented"></mat-divider>
+      <button mat-button class="mat-button-link mat-button-bold mat-button-no-padding" color="primary">Save</button>
+    </div>
+  </mat-toolbar>
+</div>
+
+<div class="doc-container doc-container-grey">
+  <mat-toolbar class="mat-toolbar-default">
+    <div class="mat-toolbar-left">
+    </div>
+    <div class="mat-toolbar-center"></div>
+    <div class="mat-toolbar-right">
+      <button mat-button class="mat-button-sm mat-button-link  mat-button-no-padding" color="primary">Edit</button>
+      <mat-divider [vertical]="true" class="mat-divider-indented-small"></mat-divider>
+      <button mat-button class="mat-button-sm mat-button-link mat-button-no-padding" color="primary">Delete</button>
+    </div>
+  </mat-toolbar>
+</div>
+
+<div class="doc-container doc-container-grey">
+  <mat-toolbar class="mat-toolbar-default">
+    <div class="mat-toolbar-left">
+    </div>
+    <div class="mat-toolbar-center">
+      <button mat-raised-button color="muted" class="mat-button-sm">Off</button>
+      <button mat-raised-button color="muted" class="mat-button-sm">Off</button>
+      <button mat-raised-button color="muted" class="mat-button-sm">Off</button>
+    </div>
+    <div class="mat-toolbar-right">
+      <button mat-button class="mat-button mat-button-link mat-button-no-padding">Next</button>
+    </div>
+  </mat-toolbar>
+</div>
+
+<div class="doc-container doc-container-grey">
+  <mat-toolbar class="mat-toolbar-default">
+    <div class="mat-toolbar-left">
+    </div>
+    <div class="mat-toolbar-center">
+    </div>
+    <div class="mat-toolbar-right">
+      <button mat-button class="mat-button mat-button-link mat-button-no-padding">Search</button>
+    </div>
+  </mat-toolbar>
+</div>
+
+<div class="doc-container doc-container-grey">
+  <mat-toolbar class="mat-toolbar-default">
+    <div class="mat-toolbar-left">
+      <button mat-button color="primary" class="mat-button mat-button-link mat-button-no-padding mat-toolbar-left-margin">
+        <svg class="icon icon-16"><use xlink:href="#icon-arrow-left-16"></use></svg>
+      </button>
+    </div>
+    <div class="mat-toolbar-center">
+      <span>Title</span>
+    </div>
+    <div class="mat-toolbar-right">
+      <button mat-button color="primary" class="mat-button mat-button-link mat-button-no-padding" color="primary">
+        Add product to store
+      </button>
+    </div>
+  </mat-toolbar>
+</div>
+
+<div class="doc-container doc-container-grey">
+  <mat-toolbar class="mat-toolbar-default mat-toolbar-default-dark">
+    <div class="mat-toolbar-left">
+      <button mat-button color="primary" class="mat-button mat-button-link mat-button-no-padding mat-toolbar-left-margin">
+        <svg class="icon icon-16"><use xlink:href="#icon-arrow-left-16"></use></svg>
+      </button>
+    </div>
+    <div class="mat-toolbar-center">
+      <span>Title</span>
+    </div>
+    <div class="mat-toolbar-right">
+      <button mat-button color="primary" class="mat-button mat-button-link mat-button-no-padding" color="primary">
+        Add product to store
+      </button>
+    </div>
+  </mat-toolbar>
+</div>

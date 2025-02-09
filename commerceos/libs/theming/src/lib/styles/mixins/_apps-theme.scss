@@ -1,0 +1,35 @@
+@use 'libs/apps/settings/src/lib/_settings-theme.import.scss' as settings;
+@use 'libs/apps/connect/src/lib/connect-theme.import.scss' as connect;
+@use 'libs/message/src/lib/message-theme.import.scss' as message;
+@use 'libs/chat/src/lib/chat-theme.import.scss' as chat;
+@use 'libs/apps/products/src/lib/products-theme-import.scss' as products;
+@use 'libs/apps/social/src/lib/social-theme.import' as social;
+@use 'libs/apps/transactions/src/lib/transactions-theme-import' as transactions;
+@use 'libs/apps/contacts/src/lib/contacts-theme-import' as contacts;
+@use 'libs/apps/checkout/src/lib/checkout-theme.import.scss' as checkout;
+@use 'libs/builder-app/src/lib/builder-app-theme.import' as shop;
+@use 'libs/apps/pos/src/lib/pos-theme.import' as pos;
+@use 'libs/apps/statistics/src/lib/_statistic-theme.import.scss' as statistics;
+@use 'libs/apps/shipping/src/lib/shipping-theme.import' as shipping;
+@use 'libs/apps/studio/src/lib/studio-theme.import' as studio;
+@use 'libs/apps/coupons/src/lib/_coupons-theme.import.scss' as coupons;
+@use 'libs/apps/subscriptions/src/lib/_subscription-theme.import.scss' as subscriptions; 
+
+@mixin themes($theme) {
+  @include settings.theme($theme);
+  @include connect.theme($theme);
+  @include checkout.theme($theme);
+  @include shop.theme($theme);
+  @include message.theme($theme);
+  @include chat.theme($theme);
+  @include products.theme($theme);
+  @include social.theme($theme);
+  @include transactions.theme($theme);
+  @include contacts.theme($theme);
+  @include pos.theme($theme);
+  @include statistics.theme($theme);
+  @include coupons.theme($theme);
+  @include shipping.theme($theme);
+  @include studio.theme($theme);
+  @include subscriptions.theme($theme);
+}

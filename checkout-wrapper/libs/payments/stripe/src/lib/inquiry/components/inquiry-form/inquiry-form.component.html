@@ -1,0 +1,49 @@
+<form
+  #ngForm="ngForm"
+  class="form-table"
+  [formGroup]="formGroup"
+  analyticsForm>
+  <div class="form-fieldset-new">
+    <mat-form-field class="col-xs-12">
+      <mat-label i18n="@@payment-stripe.inquiry.form.cardNumber.label"> Card number </mat-label>
+
+      <input
+        matInput
+        peInputMask
+        [mask]="ccNumberMask"
+        [unmask]="ccNumberUnmask"
+        formControlName="cardNumber"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-5 col-xs-border-bottom-left-radius">
+      <mat-label i18n="@@payment-stripe.inquiry.form.cardHolderName.label"> Card holder name </mat-label>
+
+      <input
+        matInput
+        formControlName="cardHolderName"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-4">
+      <mat-label i18n="@@payment-stripe.inquiry.form.cardExpiration.label"> Card expiration </mat-label>
+
+      <input
+        matInput
+        peInputMask
+        [mask]="ccExpirationMask"
+        [unmask]="ccExpirationUnmask"
+        formControlName="cardExpiration"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-3">
+      <mat-label i18n="@@payment-stripe.inquiry.form.cardCvc.label"> Card cvc </mat-label>
+
+      <input
+        matInput
+        formControlName="cardCvc"
+        type="text" />
+    </mat-form-field>
+  </div>
+</form>

@@ -1,0 +1,63 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+    $label-color: map.get($color-config, 'label-color');
+    $confirm: map.get($color-config, 'confirm');
+    $text-color: map.get($color-config, 'text-color');
+    $warn: map.get($color-config, 'warn');
+    $border: map.get($color-config, 'border');
+    $confirm: map.get($color-config, 'confirm');
+    $dropdown-panel: map.get($color-config, 'dropdown-panel');
+    $box-shadow-color: map.get($color-config, 'box-shadow-color');
+    $x-button: map.get($color-config, 'x-button');
+    $active-text: map.get($color-config, 'active-text');
+    $active-button: map.get($color-config, 'active-button');
+
+
+    .pe-context-menu {
+
+        ul {
+
+            li {
+                &.no-selectable {
+                    hr {
+                        background-color: $border;
+                    }
+                }
+
+                &.red {
+                    span {
+                        color: $warn;
+                    }
+
+                    &:hover {
+                        background-color: $warn;
+                    }
+                }
+            }
+        }
+    }
+
+
+    .pe-context-menu {
+        background-color: $dropdown-panel;
+        border: 1px solid $border;
+        box-shadow: 0 2px 12px 0 $box-shadow-color;
+
+
+        .pe-context-menu {
+            &__title {
+                color: $text-color;
+            }
+
+            &__close path {
+                fill: $x-button;
+            }
+        }
+
+        ul li span {
+            color: $text-color;
+        }
+    }
+
+}

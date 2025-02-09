@@ -1,0 +1,172 @@
+<form
+  *ngIf="formGroup"
+  class="form-table"
+  analyticsForm
+  [formGroup]="formGroup">
+  <div class="form-fieldset-new">
+    <ng-container *ngIf="formGroup.get('customerType').enabled">
+      <mat-form-field class="col-xs-12 col-sm-12 col-sm-border-bottom-left-radius">
+        <mat-label i18n="@@checkout_address_edit.form.type.label">Type</mat-label>
+        <mat-select formControlName="customerType">
+          <mat-option
+            *ngFor="let option of customerTypes"
+            [value]="option.value">
+            {{ option.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </ng-container>
+
+    <ng-container *ngIf="formGroup.get('organizationName').enabled">
+      <mat-form-field class="col-xs-12 col-sm-12 col-sm-border-bottom-left-radius">
+        <mat-label i18n="@@checkout_address_edit.form.organizationName.label"> Organization </mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="organizationName" />
+      </mat-form-field>
+    </ng-container>
+
+    <mat-form-field class="col-xs-12">
+      <mat-label i18n="@@checkout_address_edit.form.email.label"> Email </mat-label>
+      <input
+        matInput
+        formControlName="email"
+        type="text" />
+    </mat-form-field>
+    <mat-form-field
+      *ngIf="!flow.hideSalutation"
+      class="col-xs-3 col-sm-3 pe-address-mobile-col-xs-12">
+      <mat-label i18n="@@checkout_address_edit.form.salutation.label"> Salutation </mat-label>
+      <mat-select formControlName="salutation">
+        <mat-option
+          *ngFor="let salutation of salutationFormOptions"
+          [value]="salutation.value">
+          {{ salutation.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field
+      class="{{ flow.hideSalutation
+      ? 'col-xs-12 col-sm-6'
+      : 'col-xs-4 col-sm-4' }} pe-address-mobile-col-xs-6">
+      <mat-label i18n="@@checkout_address_edit.form.first_name.label"> First Name </mat-label>
+      <input
+        matInput
+        formControlName="firstName"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field
+      class="{{ flow.hideSalutation
+      ? 'col-xs-12 col-sm-6'
+      : 'col-xs-5 col-sm-5' }} no-right-border pe-address-mobile-col-xs-6">
+      <mat-label i18n="@@checkout_address_edit.form.last_name.label"> Last Name </mat-label>
+      <input
+        matInput
+        formControlName="lastName"
+        type="text" />
+    </mat-form-field>
+
+    <ng-container *ngIf="formGroup.get('company').enabled">
+      <mat-form-field class="col-xs-12 col-sm-12 col-sm-border-bottom-left-radius">
+        <mat-label i18n="@@checkout_address_edit.form.company.label"> Company </mat-label>
+        <mat-spinner
+          matSuffix
+          *ngIf="companyLoading$ | async"
+          [strokeWidth]="2"
+          [diameter]="26"></mat-spinner>
+        <input
+          matInput
+          type="text"
+          formControlName="company"
+          [matAutocomplete]="auto"
+          (input)="onCompanyInput($event)" />
+        <mat-autocomplete
+          #auto="matAutocomplete"
+          [displayWith]="displayCompany"
+          (optionSelected)="onCompanySelected($event.option.value)">
+          <mat-option
+            *ngFor="let option of companies$ | async"
+            [value]="option">
+            {{ option.name }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </ng-container>
+
+    <mat-form-field class="col-xs-12">
+      <mat-label i18n="@@checkout_address_edit.form.full_address.label"> Address </mat-label>
+
+      <span
+        #prefix
+        matPrefix>
+        <pe-icon [icon]="'icon-geocoder-24'"> </pe-icon>
+      </span>
+      <input
+        matInput
+        peInputMask
+        peAddressAutocomplete
+        [matAutocomplete]="autoAddress"
+        formControlName="fullAddress"
+        [mask]="addressMask"
+        (addressChange)="fullAddressChange($event)"
+        autocomplete="off"
+        type="text" />
+
+      <mat-autocomplete #autoAddress="matAutocomplete">
+        <mat-option
+          *ngFor="let option of addresses$ | async"
+          [value]="option">
+          {{ option.address }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-6">
+      <mat-label i18n="@@checkout_address_edit.form.country.label"> Country </mat-label>
+      <mat-select formControlName="country">
+        <mat-option
+          *ngFor="let country of countriesOptions$ | async"
+          [value]="country.value">
+          {{ country.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-6">
+      <mat-label i18n="@@checkout_address_edit.form.city.label"> City </mat-label>
+      <input
+        matInput
+        formControlName="city"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12 col-sm-9">
+      <mat-label i18n="@@checkout_address_edit.form.street.label"> Street and number </mat-label>
+      <input
+        matInput
+        formControlName="street"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12 col-sm-3">
+      <mat-label i18n="@@checkout_address_edit.form.zip_code.label"> Post code </mat-label>
+      <input
+        matInput
+        formControlName="zipCode"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="!isPhoneFieldHidden()"
+      class="col-xs-12 col-sm-12 no-right-border">
+      <mat-label i18n="@@checkout_address_edit.form.phone.label"> Phone </mat-label>
+      <input
+        matInput
+        formControlName="phone"
+        type="text" />
+    </mat-form-field>
+  </div>
+</form>

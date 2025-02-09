@@ -1,0 +1,16 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $row-background: map.get($color-config, 'row-background');
+  $text-color: map.get($color-config, 'text-color');
+
+  pe-rule-list-item {
+    .rule-item {
+      &__name,
+      &__action {
+        background-color: $row-background;
+        color: $text-color;
+      }
+    }
+  }
+}

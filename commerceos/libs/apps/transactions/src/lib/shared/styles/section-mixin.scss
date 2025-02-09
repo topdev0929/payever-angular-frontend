@@ -1,0 +1,13 @@
+@mixin section() {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+@mixin sectionWithRow() {
+  @include section();
+
+  &__row {
+    width: 100%;
+    display: flex;
+  }
+}

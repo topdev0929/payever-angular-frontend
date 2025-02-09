@@ -1,0 +1,11 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $row-background: map.get($color-config, 'row-background');
+
+  .inventory {
+    .toggle-button {
+      background-color: $row-background;
+    }
+  }
+}

@@ -1,0 +1,464 @@
+:host {
+  display: block;
+}
+
+pe-coupons-form-group {
+  .form-background-wrapper {
+    background: #111;
+  }
+
+  .peb-select-options-container peb-select-option {
+    background-color: rgba(36, 39, 46, 0.85);
+    color: #fff;
+  }
+}
+
+peb-form-field-input {
+  .label-select-wrapper {
+    height: 40px;
+  }
+
+  .label-input-content-wrapper {
+    height: 40px;
+
+    .form-label {
+      align-self: center;
+    }
+  }
+
+  &:not(:last-child) {
+    .label-input-content-wrapper {
+      border-bottom: 1px solid rgba(36, 39, 46, 0.85);
+    }
+  }
+
+  .suffix__span,
+  .suffix__button {
+    background-color: #1c1d1e;
+    padding: 1em 1em;
+  }
+
+  .suffix__span {
+    padding: 0.7em 1em;
+  }
+}
+
+peb-button-toggle {
+  .button-toggle-container {
+    height: 38px !important;
+  }
+}
+
+.pe-coupons-overlay-backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.pe-coupons-overlay-panel {
+  background-color: #24272e;
+  border-radius: 1em;
+  box-shadow: 0 0.125em 0.75em 0 rgba(0, 0, 0, 0.5);
+  height: 100%;
+  overflow: auto;
+  margin-top: 3.9375em;
+  margin-bottom: 5.625em;
+  max-height: calc(100% - 105px);
+  max-width: 414px;
+  width: 100%;
+}
+
+#pe-coupons-data-grid pe-navbar {
+  display: block;
+}
+
+// coupons-autocomplete
+.mat-autocomplete-panel[id^="mat-autocomplete-"] {
+  background-color: #1c1d1e;
+  border-radius: 0.75em;
+
+  .mat-option.mat-selected:not(.mat-active):not(:hover):not(.mat-option-disabled) {
+    background-color: inherit;
+    color: rgba(255, 255, 255, 0.95);
+  }
+}
+
+peb-select {
+  .label-select-wrapper {
+    height: 40px !important;
+
+    .input {
+      height: 40px !important;
+    }
+  }
+
+  .dropdown-arrow {
+    svg.arrow-open {
+      width: 13px;
+      height: 13px;
+    }
+
+    mat-icon {
+      width: 0.625em;
+      height: 0.625em;
+      border-top: 0.125em solid white;
+      border-right: 0.125em solid white;
+      border-left: none;
+      transform: rotate(135deg);
+      margin: -1em 0.125em 0;
+      visibility: visible;
+    }
+  }
+
+  &:not(:last-child) {
+    .label-select-wrapper {
+      border-bottom: 1px solid rgba(36, 39, 46, 0.85);
+    }
+  }
+}
+
+.peb-select-options-container peb-select-option {
+  background-color: rgba(36, 39, 46, 0.85);
+  color: #fff;
+}
+
+// coupons-datepicker
+.mat-dialog-container[id^="mat-dialog-"] {
+  background-color: #24272e;
+  padding: 1em;
+  border-radius: 1em;
+  font-family: "Roboto", sans-serif;
+  pe-coupons-datepicker {
+    .mat-calendar-header {
+      padding: 0.125em 0;
+      margin-bottom: 1px;
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 0.75em 0.75em 0 0;
+    }
+
+    .mat-calendar-controls {
+      align-items: center;
+      justify-content: space-between;
+      margin: 0;
+
+      .mat-calendar-arrow {
+        display: none;
+      }
+    }
+
+    .mat-calendar-previous-button {
+      order: 1;
+      background-color: transparent;
+      color: #fff;
+    }
+
+    .mat-calendar-period-button {
+      order: 2;
+      background-color: transparent;
+      color: #fff;
+    }
+
+    .mat-calendar-next-button {
+      order: 3;
+      background-color: transparent;
+      color: #fff;
+    }
+    .mat-calendar-spacer {
+      display: none;
+    }
+
+    .mat-calendar-content {
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 0 0 0.75em 0.75em;
+      padding: 8px 0 0 0;
+    }
+
+    .mat-calendar-table-header-divider::after {
+      background: #979797;
+      opacity: 0.3;
+      left: 0;
+      right: 0;
+    }
+
+    .mat-calendar-table-header {
+      color: #ffffff;
+
+      th {
+        padding-bottom: 8px;
+      }
+    }
+
+    .mat-calendar-body-cell {
+      &:not(.mat-calendar-body-disabled) {
+        .mat-calendar-body-cell-content {
+          color: #ffffff;
+          border: none;
+        }
+      }
+
+      &.mat-calendar-body-disabled {
+        .mat-calendar-body-cell-content {
+          color: #78787d;
+          border: none;
+        }
+      }
+    }
+
+    .mat-calendar-previous-button[disabled],
+    .mat-calendar-next-button[disabled] {
+      color: #78787d;
+    }
+  }
+}
+
+// coupons-expansion-panel
+
+.pe-coupons-expansion-panel {
+  &-header-title {
+    color: #f5f5f7;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 0.9;
+    margin-right: 1.03em;
+  }
+
+  &-content {
+    pe-coupons-expansion-panel-content {
+      display: block;
+      margin-bottom: 1.25em;
+    }
+  }
+}
+
+// coupons-form-field
+
+.pe-coupons-form-field {
+  pe-coupons-form-field-label {
+    left: 13px;
+  }
+
+  &__infix {
+    pe-coupons-form-field-label {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.875em;
+      left: 16px;
+      line-height: 1.09;
+      top: 0;
+      position: absolute;
+
+      &.ng-invalid {
+        color: #eb4653;
+      }
+    }
+
+    .button-toggle-label {
+      position: absolute;
+      top: 4px;
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 22px;
+        height: 22px;
+        margin-right: 5px;
+      }
+
+      .icon {
+        align-items: center;
+        display: flex;
+        padding: 0px 10px 0px 0px;
+
+        svg {
+          height: 1.54em;
+          width: 1.54em;
+        }
+      }
+
+      span {
+        color: rgba(255, 255, 255, 0.95);
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.1;
+      }
+    }
+  }
+
+  &__suffix {
+    display: flex;
+    align-items: center;
+    .suffix__button,
+    .suffix__span {
+      background-color: rgba(28, 29, 30, 0.3);
+      display: block;
+      font-family: "Roboto", sans-serif;
+      font-size: 1em;
+      padding: 1em 1em;
+      white-space: nowrap;
+    }
+
+    .suffix__button {
+      color: rgb(0, 145, 223);
+
+      &:disabled {
+        cursor: default;
+        color: rgba(0, 145, 223, 0.5);
+      }
+    }
+
+    .suffix__span {
+      color: #ffffff;
+    }
+
+    .icon {
+      align-items: center;
+      display: flex;
+      padding: 0.3125em 0.875em 0.4375em;
+
+      svg {
+        height: 1.54em;
+        width: 1.54em;
+      }
+    }
+
+    .button-toggle-container {
+      margin-right: 4px;
+    }
+  }
+}
+
+// coupons-form-group
+.pe-coupons-form-group {
+  &__wrapper {
+    pe-coupons-form-field {
+      &:first-child .pe-coupons-form-field__flex {
+        margin-top: 0;
+      }
+
+      &:not(:first-child) .pe-coupons-form-field__flex {
+        margin-top: 0.0625em;
+      }
+
+      .pe-coupons-form-field__flex {
+        border-radius: 0;
+        height: 40px;
+      }
+    }
+  }
+}
+
+// coupons-select
+
+#pe-coupons-select-panel {
+  background-color: #1c1d1e;
+  border-radius: 0.75em;
+  margin-left: 0.5em;
+  min-width: calc(100% + 1.1875em);
+  min-width: calc(100% + 2em);
+  max-width: calc(100% + 2em);
+  transform: translate(-2px, 21px);
+  padding: 0;
+
+  .mat-option {
+    color: rgba(255, 255, 255, 0.95);
+    height: 2.875em;
+    font-family: "Roboto", sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.1;
+    padding-left: 0.625em;
+    padding-right: 0.625em;
+    margin-bottom: 0;
+
+    &:hover {
+      background-color: #393939;
+    }
+
+    &:not(:first-of-type) {
+      &::before {
+        background-color: #393939;
+        content: "";
+        height: 0.0625em;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+    }
+
+    &.mat-selected:not(.mat-option-multiple) {
+      background-color: #0371e2;
+    }
+  }
+}
+
+//coupons-grid
+#pe-coupons-data-grid {
+  pe-data-grid-sidebar {
+    top: unset;
+    height: calc(100% - 8.25em);
+  }
+
+  pe-data-grid-item {
+    min-height: 10em;
+
+    .item-header {
+      z-index: 0;
+    }
+
+    .item {
+      &__checkbox {
+        margin-top: 0;
+      }
+
+      .item-header__chips {
+        margin-right: 20px;
+
+        .item-header__chip {
+          max-height: 1.75em;
+        }
+      }
+    }
+  }
+
+  .sidebar-tree__node-image {
+    min-width: 1.375em;
+  }
+
+  .mat-menu-panel {
+    overflow: hidden;
+  }
+}
+
+peb-form-field-input {
+  &.ng-invalid {
+    .label-input-content-wrapper {
+      .label-container {
+        span.label-text {
+          color: #eb4653;
+        }
+      }
+
+      .input-field {
+        input {
+          &::placeholder {
+            color: rgba(235, 70, 83, 0.5);
+          }
+        }
+      }
+    }
+  }
+
+  .label-input-content-wrapper {
+    .label-container {
+      span.label-text {
+        color: #7a7a7a;
+      }
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .pe-coupons-overlay-panel {
+    margin-top: 0;
+    margin-bottom: 0;
+    max-height: calc(100% - 30px);
+  }
+}

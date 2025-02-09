@@ -1,0 +1,102 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $background: map.get($color-config, 'background');
+  $label-color: map.get($color-config, 'label-color');
+  $hover-button: map.get($color-config, 'hover-button');
+  $separator: map.get($color-config, 'separator');
+  $confirm: map.get($color-config, 'confirm');
+  $active-text: map.get($color-config, 'active-text');
+  $text-color: map.get($color-config, 'text-color');
+  $primary: map.get($color-config, 'primary');
+  $transparent-color: map.get($color-config, 'transparent-color');
+
+  pe-message-conversation {
+    &:not(:first-of-type):not(:hover) {
+      &::before {
+        background: $background;
+      }
+    }
+
+    &:hover {
+      &::before {
+        background: $transparent-color;
+      }
+
+      + pe-message-conversation {
+        &::before {
+          background-color: $transparent-color !important;
+        }
+      }
+
+      & + pe-message-conversation,
+      + pe-preview-container + pe-message-conversation {
+        &::before {
+          background-color: $transparent-color !important;
+        }
+      }
+
+      .pe-grid-conversation {
+        &:not(.pe-grid-conversation_active) {
+          background-color: $separator;
+
+          .pe-grid-conversation__last-message,
+          .pe-grid-conversation__last-message div {
+            color: $text-color;
+          }
+        }
+      }
+    }
+
+    &.active {
+      & + pe-message-conversation,
+      + pe-preview-container + pe-message-conversation {
+        &::before {
+          background-color: $transparent-color !important;
+        }
+      }
+
+      &::before {
+        background: $transparent-color!important;
+      }
+
+      &.pe-grid-conversation {
+        &.pe-grid-conversation_active {
+          background-color: $separator;
+        }
+
+        .pe-grid-conversation__last-message,
+        .pe-grid-conversation__last-message div {
+          color: $text-color;
+        }
+      }
+    }
+  }
+
+  .message-sidebar-folders-tree {
+    .mat-tree {
+      .sidebar-tree__node {
+        border-radius: 12px;
+        &:before {
+          background: $transparent-color;
+        }
+        &--active {
+          background: $confirm;
+          .sidebar-tree__node-container > .sidebar-tree__node-name {
+            color: $active-text;
+          }
+        }
+        &:not(.sidebar-tree__node--active):hover {
+          &:before {
+            background: $transparent-color;
+          }
+          background: rgba($label-color, 0.2);
+        }
+
+        &-container > .sidebar-tree__node-name {
+          color: $text-color;
+        }
+      }
+    }
+  }
+}

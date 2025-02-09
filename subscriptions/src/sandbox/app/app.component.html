@@ -1,0 +1,5 @@
+<pe-new-platform-header (resized)="onPlatformHeaderResized($event)"></pe-new-platform-header>
+<div class="subscriptions-app-content top-offset-fix data-grid-scroll-container"
+    [style.top.px]="(platformHeaderHeight$ | async) + (welcomeStepperHeight$ | async)">
+    <router-outlet></router-outlet>
+</div>

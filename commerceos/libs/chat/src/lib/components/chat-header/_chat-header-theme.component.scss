@@ -1,0 +1,138 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $primary: map.get($color-config, 'primary');
+  $confirm: map.get($color-config, 'confirm');
+  $divider: map.get($color-config, 'divider');
+  $icon-fill: map.get($color-config, 'icon-fill');
+  $text-color: map.get($color-config, 'text-color');
+  $active-text: map.get($color-config, 'active-text');
+  $label-color: map.get($color-config, 'label-color');
+  $button-fill: map.get($color-config, 'button-fill');
+  $dropdown-panel: map.get($color-config, 'dropdown-panel');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $box-shadow-color: map.get($color-config, 'box-shadow-color');
+  $extra-bg-color: map.get($color-config, 'extra-bg-color');
+  $default-avatar-background: map.get($color-config, 'default-avatar-background');
+  $filter-invert-light: map.get($color-config, 'filter-invert-light');
+
+  .pe-chat-header {
+    .chat-header {
+      &__title {
+        & .all-unread-messages {
+          color: $active-text;
+          background: $confirm;
+        }
+      }
+
+      &__row {
+        align-items: center;
+        border-top: 1px solid $extra-bg-color;
+
+        &:first-child  {
+          border: none;
+        }
+        &.pin {
+          background-color: $primary;
+        }
+      }
+
+      &__actions {
+        &__avatar {
+          color: $active-text;
+          background-image: $default-avatar-background;
+        }
+      }
+
+      &__autocomplete {
+        label {
+          color: $label-color;
+        }
+
+        input {
+          background-color: $transparent-color;
+          color: $text-color;
+        }
+
+        .pe-chat-header-autocomplete {
+          background-color: $dropdown-panel;
+        }
+      }
+
+      &__selected-action {
+        span {
+          color: $active-text;
+        }
+
+        &.cancel {
+            color: $label-color;
+            background: $transparent-color;
+        }
+      }
+
+      &__pin-icon >  mat-icon > svg  {
+         path, ellipse {
+            fill: $label-color;
+        }
+      }
+    }
+
+    .chat-header-pin {
+      &__dash {
+        background: rgba($confirm, 0.6);
+        &_active {
+          background: $confirm;
+        }
+      }
+      &__preview {
+        filter: $filter-invert-light;
+      }
+    }
+
+    .channel-menu {
+      background-color: $dropdown-panel;
+      box-shadow: 0 2px 12px 0 $box-shadow-color;
+      &__title {
+        color: $text-color;
+      }
+
+      &__item {
+        &:hover {
+          background-color: $confirm;
+        }
+
+        svg {
+          background-color: $icon-fill;
+          color: $text-color;
+        }
+
+        span {
+          color: $text-color;
+        }
+      }
+    }
+
+    .mat-option {
+      background-color: $transparent-color;
+      color: $text-color;
+
+      &:hover {
+        background-color: $confirm;
+      }
+
+      &:not(:last-of-type) {
+        border-bottom: 1px solid $divider;
+      }
+    }
+
+    &.mobile-view {
+      .chat-header {
+        &__actions {
+          .avatar__initials {
+            background: $default-avatar-background;
+          }
+        }
+      }
+    }
+  }
+}

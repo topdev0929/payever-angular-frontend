@@ -1,0 +1,19 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $background: map.get($color-config, 'background');
+
+  .two-column-form-wrapper > * {
+    > * >* {
+      overflow: hidden;
+    }
+    &:not(&:first-child) > * {
+      border-left-color: $background;
+    }
+  }
+  .columns {
+    .two-column-input {
+      border-bottom-color: $background;
+    }
+  }
+}

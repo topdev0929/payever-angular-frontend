@@ -1,0 +1,21 @@
+<div *ngIf="!rate" class="rate-view rate-view-loading">
+  <h3 class="rate-description">&nbsp;</h3>
+  <span class="loader-element">&nbsp;</span>
+</div>
+
+<div *ngIf="rate" class="rate-view">
+  <div class="rate-description h4"
+       [class.not-selected]="notSelected"
+       [innerHtml]="rate.title"
+  ></div>
+  <ng-container *ngIf="previewMode">
+    <ng-container *ngFor="let line of rate.lines; let idx = index">
+      <div class="rate-line small"
+           [ngClass]="'rate-line-'+idx"
+           [class.rate-line-as-single]="previewAsSingleLine"
+           [class.preview-mode]="previewMode"
+           [innerHtml]="line"
+      ></div>
+    </ng-container>
+  </ng-container>
+</div>

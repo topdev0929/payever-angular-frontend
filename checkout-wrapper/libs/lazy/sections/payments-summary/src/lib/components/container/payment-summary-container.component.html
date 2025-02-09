@@ -1,0 +1,7 @@
+<ng-template #container></ng-template>
+
+<ng-container *ngIf="showDefault$ | async">
+  <strong>
+    {{ payments[paymentMethod] }}
+  </strong>
+</ng-container>

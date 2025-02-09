@@ -1,0 +1,877 @@
+//
+@use '@angular/material' as mat;
+// Button
+// ----------------------------
+
+@include mat.button-theme($theme);
+
+.ignore-custom-styles {
+  border-radius: var(--checkout-button-border-radius, 3px);
+
+  @include payever-button-variant(
+    $color-btn: $color-white,
+    $color-btn-hover: $color-white,
+    $color-btn-focus: $color-white,
+    $color-btn-active: $color-white,
+    $color-btn-disabled: $color-white,
+    $color-btn-badge: $color-black-pe,
+
+    $background: $color-black-pe,
+    $background-hover: $color-black-pe,
+    $background-focus: $color-black-pe,
+    $background-active: $color-black-pe,
+    $background-disabled: $color-black-pe,
+    $background-badge: $color-white,
+
+    $border-color: transparent,
+    $border-hover: transparent,
+    $border-focus: transparent,
+    $border-active: transparent,
+    $border-disabled: transparent,
+
+    $opacity-disabled: 0.65,
+    $background-image: none,
+    $background-image-hover: none,
+    $background-image-focus: none,
+    $background-image-active: none,
+    $background-image-disabled: none,
+    $border-width: 0
+  );
+
+  &[disabled] {
+    color: $color-white !important;
+  }
+  &:hover {
+    opacity: 0.95;
+  }
+}
+
+.pe-checkout-bootstrap .pe-payment-micro {
+  .mat-button-gradient {
+    border-radius: var(--checkout-button-border-radius, 3px);
+
+    @include payever-button-variant(
+      $color-btn: var(--checkout-button-text-color, $color-white),
+      $color-btn-hover: var(--checkout-button-text-color, $color-white),
+      $color-btn-focus: var(--checkout-button-text-color, $color-white),
+      $color-btn-active: var(--checkout-button-text-color, $color-white),
+      $color-btn-disabled: var(--checkout-button-text-color, $color-white),
+      $color-btn-badge: var(--checkout-button-background-color, $color-black-pe),
+      $background: var(--checkout-button-background-color, $color-black-pe),
+      $background-hover: var(--checkout-button-background-color, $color-black-pe),
+      $background-focus: var(--checkout-button-background-color, $color-black-pe),
+      $background-active: var(--checkout-button-background-color, $color-black-pe),
+      $background-disabled: var(--checkout-button-background-disabled-color, $color-black-pe),
+      $background-badge: var(--checkout-button-text-color, $color-white),
+      $border-color: transparent,
+      $border-hover: transparent,
+      $border-focus: transparent,
+      $border-active: transparent,
+      $border-disabled: transparent,
+
+      $opacity-disabled: 0.65,
+      $background-image: none,
+      // $btn-checkout-background-image,
+      $background-image-hover: none,
+      // $btn-checkout-background-image,
+      $background-image-focus: none,
+      // $btn-checkout-background-image,
+      $background-image-active: none,
+      // $btn-checkout-background-image,
+      $background-image-disabled: none,
+      // $btn-checkout-background-image-disabled,
+      $border-width: 0
+    );
+
+    &[disabled] {
+      color: $color-white;
+    }
+  }
+}
+
+.pe-checkout-bootstrap {
+  .mat-button,
+  .mat-raised-button {
+    font-size: 15px; // $font-size-base;
+    border-radius: $border-radius-base;
+    line-height: $btn-height;
+    height: $btn-height;
+    font-weight: $font-weight-regular;
+    font-family: $font-family-sans-serif;
+    text-align: center;
+    @include box-shadow(none !important);
+    padding: 0 $grid-unit-x;
+
+    &[disabled] {
+      cursor: not-allowed;
+    }
+
+    .mat-button-wrapper {
+      height: 100%;
+      @include pe_flexbox;
+      @include pe_justify-content(center);
+      @include pe_align-items(center);
+    }
+
+    .mat-spinner {
+      margin: 0 auto;
+
+      & + .mat-button-wrapper {
+        display: none;
+      }
+    }
+
+    .mat-button-focus-overlay {
+      // to avoid height jumping during transitions
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+
+    // important fix for IOS to propagate touch events
+    &:not([disabled]) * {
+      cursor: pointer;
+    }
+  }
+
+  .mat-button {
+    .mat-button-focus-overlay {
+      background: transparent;
+    }
+
+    // Color variations
+    // -------------------
+
+    @mixin mat-button-disabled($color) {
+      &.disabled,
+      &[disabled],
+      fieldset[disabled] & {
+        &,
+        &:hover,
+        &:focus,
+        &.focus {
+          color: $color;
+          text-decoration: none;
+        }
+      }
+    }
+
+    @include mat-button-disabled(var(--checkout-button-text-color, $color-white));
+
+    &.mat-primary {
+      @include mat-button-disabled($color-dark-blue);
+    }
+
+    &.mat-accent {
+      @include mat-button-disabled($color-dark-green);
+    }
+
+    &.mat-warn {
+      @include mat-button-disabled($color-dark-red);
+    }
+
+    // Mobile variations
+    // --------------------
+    @media (max-width: $viewport-breakpoint-sm-1 - 1) {
+      &.mobile-padding-left {
+        &-16 {
+          padding-right: $padding-base-horizontal; // and switch button back to left
+          padding-left: $padding-large-horizontal;
+        }
+        &-24 {
+          padding-right: $padding-base-horizontal; // and switch button back to left
+          padding-left: $padding-base-horizontal * 2;
+        }
+      }
+    }
+
+    // Style Variations
+    // -------------------
+
+    &-rounded {
+      border-radius: $border-radius-large * 16 + 4;
+
+      &.mat-raised-button.mat-button-xxs {
+        width: 17px;
+        height: 17px;
+        padding: 0;
+      }
+    }
+
+    &-rect {
+      &-md {
+        height: 60px;
+        width: 115px;
+        border-radius: 8px;
+        font-size: 12px;
+      }
+
+      &-inner-vertical {
+        @include pe_flexbox;
+        @include pe_align-items(center);
+        @include pe_flex-direction(column);
+
+        svg:first-of-type {
+          margin-top: 14px;
+          margin-bottom: 8px;
+        }
+
+        span:first-of-type {
+          line-height: 1.42;
+        }
+      }
+
+      &-inner-horizontal {
+        @include pe_flexbox;
+        @include pe_align-items(center);
+
+        svg:first-of-type {
+          margin-right: 8px;
+        }
+      }
+    }
+
+    &-gradient {
+      .mat-spinner {
+        circle {
+          stroke: $color-primary-5;
+        }
+      }
+
+      border-radius: var(--checkout-button-border-radius, 3px);
+
+      @include payever-button-variant(
+        $color-btn: var(--checkout-button-text-color, $color-white),
+        $color-btn-hover: var(--checkout-button-text-color, $color-white),
+        $color-btn-focus: var(--checkout-button-text-color, $color-white),
+        $color-btn-active: var(--checkout-button-text-color, $color-white),
+        $color-btn-disabled: var(--checkout-button-text-color, $color-white),
+        $color-btn-badge: var(--checkout-button-background-color, $color-black-pe),
+        $background: var(--checkout-button-background-color, $color-black-pe),
+        $background-hover: var(--checkout-button-background-color, $color-black-pe),
+        $background-focus: var(--checkout-button-background-color, $color-black-pe),
+        $background-active: var(--checkout-button-background-color, $color-black-pe),
+        $background-disabled: var(--checkout-button-background-disabled-color, $color-black-pe),
+        $background-badge: var(--checkout-button-text-color, $color-white),
+        $border-color: transparent,
+        $border-hover: transparent,
+        $border-focus: transparent,
+        $border-active: transparent,
+        $border-disabled: transparent,
+
+        $opacity-disabled: 0.65,
+        $background-image: none,
+        // $btn-checkout-background-image,
+        $background-image-hover: none,
+        // $btn-checkout-background-image,
+        $background-image-focus: none,
+        // $btn-checkout-background-image,
+        $background-image-active: none,
+        // $btn-checkout-background-image,
+        $background-image-disabled: none,
+        // $btn-checkout-background-image-disabled,
+        $border-width: 0
+      );
+
+      &[disabled] {
+        color: var(--checkout-button-text-color, $color-white) !important;
+      }
+    }
+
+    &-secondary {
+      .mat-spinner {
+        circle {
+          stroke: $color-primary-5;
+        }
+      }
+
+      border-radius: var(--checkout-button-secondary-border-radius, 3px);
+
+      @include payever-button-variant(
+        $color-btn: var(--checkout-button-secondary-text-color, $color-blue),
+        $color-btn-hover: var(--checkout-button-secondary-text-color, $color-blue),
+        $color-btn-focus: var(--checkout-button-secondary-text-color, $color-blue),
+        $color-btn-active: var(--checkout-button-secondary-text-color, $color-blue),
+        $color-btn-disabled: var(--checkout-button-secondary-text-color, $color-blue),
+        $color-btn-badge: var(--checkout-button-secondary-background-color, #f7f7f7),
+        $background: var(--checkout-button-secondary-background-color, #f7f7f7),
+        $background-hover: var(--checkout-button-secondary-background-color, #f7f7f7),
+        $background-focus: var(--checkout-button-secondary-background-color, #f7f7f7),
+        $background-active: var(--checkout-button-secondary-background-color, #f7f7f7),
+        $background-disabled: var(--checkout-button-secondary-background-disabled-color, #f7f7f7),
+        $background-badge: var(--checkout-button-secondary-text-color, $color-blue),
+        $border-color: transparent,
+        $border-hover: transparent,
+        $border-focus: transparent,
+        $border-active: transparent,
+        $border-disabled: transparent,
+
+        $opacity-disabled: 0.65,
+        $background-image: none,
+        // $btn-checkout-background-image,
+        $background-image-hover: none,
+        // $btn-checkout-background-image,
+        $background-image-focus: none,
+        // $btn-checkout-background-image,
+        $background-image-active: none,
+        // $btn-checkout-background-image,
+        $background-image-disabled: none,
+        // $btn-checkout-background-image-disabled,
+        $border-width: 0
+      );
+
+      &[disabled] {
+        color: var(--checkout-button-secondary-text-color, $color-white) !important;
+      }
+    }
+
+    &-link {
+      .mat-button-focus-overlay {
+        background-color: transparent;
+      }
+
+      &:hover:not([disabled]) {
+        color: var(--checkout-page-text-primary-color, $color-black-pe);
+
+        &.mat-primary {
+          color: $color-dark-blue;
+        }
+
+        &.mat-accent {
+          color: $color-dark-green;
+        }
+
+        &.mat-warn {
+          color: $color-dark-red;
+        }
+
+        &.mat-muted {
+          color: $color-grey-2;
+        }
+
+        &.mat-muted-light {
+          color: $color-primary-4;
+        }
+
+        &.mat-dark {
+          color: $color-grey-1;
+        }
+
+        .mat-button-focus-overlay {
+          background: transparent;
+        }
+      }
+
+      &.mat-muted {
+        color: $color-grey-4;
+      }
+
+      &.mat-muted-light {
+        color: $color-primary-5;
+      }
+
+      &.mat-dark {
+        color: $color-grey-4;
+      }
+
+      &.mat-muted-white {
+        color: $color-secondary-7;
+
+        &:hover:not([disabled]) {
+          color: $color-secondary;
+        }
+      }
+    }
+
+    &-bold {
+      font-weight: $font-weight-medium;
+    }
+
+    &-block {
+      display: block;
+      width: 100%;
+    }
+
+    &-no-padding {
+      padding: 0;
+      margin: 0;
+      min-width: auto;
+
+      &-right {
+        padding-right: 0;
+      }
+    }
+
+    &-icon {
+      padding: 0;
+      min-width: $btn-height;
+
+      &.mat-button-xl {
+        min-width: $btn-height-xl;
+      }
+
+      &.mat-button-lg {
+        min-width: $btn-height-lg;
+      }
+
+      &.mat-button-sm {
+        min-width: $btn-height-sm;
+      }
+
+      &.mat-button-xs {
+        min-width: $btn-height-xs;
+      }
+    }
+
+    &-space-around {
+      .mat-button-wrapper {
+        @include pe_justify-content(space-around);
+      }
+    }
+
+    &-fit-content {
+      min-width: auto;
+      padding: 0;
+    }
+
+    &-small-padding {
+      padding: 0 $grid-unit-x * 0.5;
+    }
+
+    &-no-width {
+      min-width: auto;
+    }
+
+    &-space-between {
+      .mat-button-wrapper {
+        @include pe_justify-content(space-between);
+      }
+    }
+
+    &-with-arrow {
+      padding-right: 4px;
+    }
+
+    &-line-height-sm {
+      line-height: ceil($grid-unit-y * 1.5);
+    }
+
+    &-transparent {
+      &.mat-raised-button {
+        background-color: transparent;
+      }
+    }
+
+    &-menu {
+      transform: translate(0); // fix for safari
+
+      .mat-button-wrapper {
+        @include pe_justify-content(space-between);
+      }
+
+      &.mat-button-xxs {
+        min-width: $grid-unit-x * 5;
+      }
+
+      .icon {
+        margin-left: $grid-unit-x * 2;
+      }
+    }
+
+    &-set {
+      line-height: 0; // fix for: .pe-checkout-bootstrap has line-height 22 as default
+
+      .mat-button,
+      .mat-raised-button {
+        border-radius: unset;
+        margin-right: 1px;
+
+        &:first-of-type {
+          border-top-left-radius: $border-radius-base;
+          border-bottom-left-radius: $border-radius-base;
+        }
+
+        &:last-of-type {
+          border-top-right-radius: $border-radius-base;
+          border-bottom-right-radius: $border-radius-base;
+          margin-right: 0;
+        }
+      }
+    }
+
+    &-dark {
+      background-color: $color-grey-2;
+      color: $color-white-grey-6;
+    }
+
+    &-col-dir {
+      .mat-button-wrapper {
+        @include pe_flex-direction(column);
+      }
+    }
+
+    // Size Variations
+    // -------------------
+
+    @mixin button-size($height, $font-size) {
+      height: $height;
+      font-size: $font-size;
+
+      .mat-button-wrapper {
+        line-height: $height;
+      }
+    }
+
+    &-xl {
+      @include button-size($btn-height-xl, $font-size-large-2);
+    }
+
+    &-lg {
+      @include button-size($btn-height-lg, $font-size-large-2);
+    }
+
+    &-sm {
+      @include button-size($btn-height-sm, $font-size-small);
+    }
+
+    &-xs {
+      @include button-size($btn-height-xs, $font-size-micro-2);
+    }
+
+    &-xxs {
+      @include button-size($btn-height-xxs, $font-size-micro-2);
+      font-weight: $font-weight-regular;
+    }
+  }
+
+  .mat-raised-button {
+    border: 1px solid $color-grey-2;
+    @include payever-button-variant;
+    line-height: $btn-height-without-borders;
+    min-width: auto;
+
+    &.mat-primary {
+      @include payever-button-variant(
+        $color-white,
+        $color-white,
+        $color-white,
+        $color-white,
+        $color-white,
+        $color-blue,
+        $color-blue,
+        $color-blue,
+        $color-blue,
+        $color-blue,
+        $color-blue,
+        $color-white,
+        transparent,
+        transparent,
+        transparent,
+        transparent,
+        transparent
+      );
+    }
+
+    &.mat-accent {
+      @include payever-button-variant(
+        $color-white,
+        $color-white,
+        $color-white,
+        $color-white,
+        $color-white,
+        $color-green,
+        $color-green,
+        $color-green,
+        $color-green,
+        $color-green,
+        $color-green,
+        $color-white,
+        transparent,
+        transparent,
+        transparent,
+        transparent,
+        transparent,
+        0.5
+      );
+    }
+
+    &.mat-warn {
+      @include payever-button-variant(
+        $color-white,
+        $color-white,
+        $color-white,
+        $color-white,
+        $color-white,
+        $color-red,
+        $color-red,
+        $color-red,
+        $color-red,
+        $color-red,
+        $color-red,
+        $color-white,
+        transparent,
+        transparent,
+        transparent,
+        transparent,
+        transparent,
+        0.5
+      );
+    }
+
+    &.mat-muted {
+      @include payever-button-variant(
+        $color-white-grey-7,
+        $color-white-grey-7,
+        $color-white-grey-7,
+        $color-white-grey-7,
+        $color-white-grey-8,
+        $color-grey-3,
+        $color-grey-3,
+        $color-grey-3,
+        $color-grey-3,
+        $color-grey-4,
+        $color-grey-5,
+        $color-white,
+        transparent,
+        transparent,
+        transparent,
+        transparent,
+        transparent
+      );
+    }
+
+    &.mat-muted-light {
+      @include payever-button-variant(
+        $color-secondary-0,
+        $color-secondary-0,
+        $color-secondary-0,
+        $color-secondary-0,
+        $color-secondary-0,
+        $color-secondary-0,
+        $color-primary-4,
+        $color-primary-3,
+        $color-primary-3,
+        $color-primary-3,
+        $color-primary-3,
+        $color-primary-5,
+        transparent,
+        transparent,
+        transparent,
+        transparent,
+        transparent
+      );
+    }
+
+    &.mat-muted-light-themed {
+      @include payever-button-variant(
+        $color-secondary-0,
+        $color-secondary-0,
+        $color-secondary-0,
+        $color-secondary-0,
+        $color-secondary-0,
+        $color-secondary-0,
+        $color-primary-3,
+        $color-primary-2,
+        $color-primary-2,
+        $color-primary-2,
+        $color-primary-2,
+        $color-primary-4,
+        transparent,
+        transparent,
+        transparent,
+        transparent,
+        transparent
+      );
+    }
+
+    &.mat-muted-dark {
+      @include payever-button-variant(
+        $color-white-grey-7,
+        $color-white-grey-7,
+        $color-white-grey-7,
+        $color-white-grey-7,
+        $color-white-grey-7,
+        $color-white-grey-7,
+        $color-grey-4,
+        $color-grey-3,
+        $color-grey-3,
+        $color-grey-3,
+        $color-grey-3,
+        $color-grey-5,
+        transparent,
+        transparent,
+        transparent,
+        transparent,
+        transparent
+      );
+    }
+
+    &.mat-muted-white {
+      @include payever-button-variant(
+        $color-secondary-9,
+        $color-secondary-9,
+        $color-secondary-9,
+        $color-secondary-9,
+        $color-secondary-9,
+        $color-secondary-9,
+        $color-primary-4,
+        $color-primary-4,
+        $color-primary-4,
+        $color-primary-4,
+        $color-primary-4,
+        $color-primary-5,
+        transparent,
+        transparent,
+        transparent,
+        transparent,
+        transparent
+      );
+    }
+
+    &.mat-muted-transparent {
+      @include payever-button-variant(
+        $color-secondary-4,
+        $color-secondary-4,
+        $color-secondary-4,
+        $color-white-grey-4,
+        $color-secondary-4,
+        $color-secondary-4,
+        $color-secondary-1,
+        $color-secondary-2,
+        $color-secondary-1,
+        $color-secondary-1,
+        $color-secondary-1,
+        $color-secondary-2,
+        transparent,
+        transparent,
+        transparent,
+        transparent,
+        transparent
+      );
+    }
+
+    &.mat-muted-white-themed {
+      @include payever-button-variant(
+        $color-secondary-0,
+        $color-secondary-0,
+        $color-secondary-0,
+        $color-secondary-0,
+        $color-secondary-0,
+        $color-secondary-0,
+        $color-secondary-2,
+        $color-secondary-3,
+        $color-secondary-2,
+        $color-secondary-2,
+        $color-secondary-2,
+        $color-secondary-3,
+        transparent,
+        transparent,
+        transparent,
+        transparent,
+        transparent
+      );
+    }
+
+    &.mat-muted-transparent-themed {
+      @include payever-button-variant(
+        $color-secondary,
+        $color-secondary,
+        $color-secondary,
+        $color-secondary,
+        $color-secondary,
+        $color-secondary,
+        $color-secondary-2,
+        $color-secondary-4,
+        $color-secondary-2,
+        $color-secondary-2,
+        $color-secondary-2,
+        $color-secondary-4,
+        transparent,
+        transparent,
+        transparent,
+        transparent,
+        transparent
+      );
+    }
+
+    &.mat-dark {
+      @include payever-button-variant(
+        $color-white-grey-7,
+        $color-white-grey-7,
+        $color-white-grey-7,
+        $color-white-grey-7,
+        $color-white-grey-8,
+        $color-grey-3,
+        $color-grey-1,
+        $color-grey-1,
+        $color-grey-1,
+        $color-grey-2,
+        $color-grey-3,
+        $color-white,
+        transparent,
+        transparent,
+        transparent,
+        transparent,
+        transparent
+      );
+    }
+
+    &.mat-button-divider {
+      .mat-button-divider-icon-wrapper {
+        height: 100%;
+        padding: 0 $grid-unit-x;
+      }
+
+      .mat-button-divider-title {
+        height: 100%;
+        padding: 0 $grid-unit-x;
+        border-left: 1px solid $color-white-pe;
+      }
+    }
+
+    //# Sizes for raised buttons
+
+    &.mat-button-xl {
+      .mat-button-wrapper {
+        line-height: $btn-height-xl-without-borders;
+      }
+    }
+
+    &.mat-button-lg {
+      .mat-button-wrapper {
+        line-height: $btn-height-lg-without-borders;
+      }
+    }
+
+    &.mat-button-sm {
+      .mat-button-wrapper {
+        line-height: $btn-height-sm-without-borders;
+      }
+    }
+
+    &.mat-button-xs {
+      .mat-button-wrapper {
+        line-height: normal;
+      }
+    }
+
+    &.mat-button-xxs {
+      .mat-button-wrapper {
+        line-height: normal;
+      }
+    }
+
+    &.mat-button-line-height-inherit {
+      line-height: inherit;
+    }
+  }
+}
+
+.dark-action-button {
+  color: $color-white-pe !important;
+  background: $color-grey-dark !important;
+
+  &:hover {
+    background-color: $color-grey-8-light !important;
+    color: $color-white-pe !important;
+  }
+}

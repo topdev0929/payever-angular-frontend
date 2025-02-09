@@ -1,0 +1,15 @@
+@use 'pe_theming' as pet;
+@use './root/social-root-theme.component' as root;
+@use './social-theme-component' as social_component;
+@use './components/connect/connect-theme.component' as social_connect;
+@use './components/connect-list/connect-list-theme.component' as social_connect_list;
+
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+
+  @include root.color($color-config);
+  @include social_component.color($color-config);
+  @include social_connect.color($color-config);
+  @include social_connect_list.color($color-config);
+}

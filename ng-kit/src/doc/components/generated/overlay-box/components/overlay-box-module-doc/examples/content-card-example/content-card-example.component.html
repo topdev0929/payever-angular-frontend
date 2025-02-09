@@ -1,0 +1,21 @@
+<div style="display: flex;">
+  <pe-content-card [headingText]="headingText"
+                   [footerButtonText]="footerButtonText"
+                   [images]="nullImages"
+                   [placeholderText]="placeholderText"
+                   [placeholderIcon]="placeholderIcon"
+                   [cardButtonText]="cardButtonText"
+                   (footerButtonClicked)="onFooterClick()"
+                   (cardButtonClicked)="onCardClick()"
+  ></pe-content-card>
+
+  <pe-content-card [headingText]="headingText"
+                   [footerButtonText]="footerButtonText"
+                   [images]="images"
+                   [placeholderText]="placeholderText"
+                   [placeholderIcon]="placeholderIcon"
+                   [cardButtonText]="cardButtonText"
+                   (footerButtonClicked)="onFooterClick()"
+                   (cardButtonClicked)="onCardClick()"
+  ></pe-content-card>
+</div>

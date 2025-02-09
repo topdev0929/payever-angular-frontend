@@ -1,0 +1,59 @@
+@import "../../../../../../node_modules/@pe/ui-kit/scss/pe_variables";
+
+:host {
+  z-index: $zindex-navbar + 100;
+  background-color: rgba(0, 0, 0, .8);
+}
+.body {
+  margin-top: $pe_vgrid_height * 5;
+}
+.nav {
+  background: $color-very-light-gray;
+  padding: $pe_vgrid_height $pe_hgrid_gutter * 2;
+  a {
+    color: $color-gray;
+    &.-active {
+      color: $color-black;
+      font-weight: 600;
+    }
+    &:hover {
+      border-bottom: 0;
+    }
+  }
+}
+.content {
+  padding: $pe_vgrid_height $pe_hgrid_gutter * 2;
+}
+// SHITFIX
+// @todo fix it
+::ng-deep {
+  .modal-outlet {
+    // revert component styles
+    .modal-content .modal-body {
+      padding: 0;
+    }
+  }
+}
+// revert monolith styles
+::ng-deep {
+  .modal-dialog:not(.pe-bootstrap) .modal-body {
+    overflow-y: visible;
+  }
+  .modal-dialog:not(.pe-bootstrap) .modal-footer {
+    text-align: right;
+    padding: 0 36px;
+  }
+  .modal-dialog:not(.pe-bootstrap) .modal-footer .btn-link {
+    line-height: 32px;
+  }
+  .pe-bootstrap .btn-primary.btn-link {
+    color: $color-blue !important;
+    font-weight: 600 !important;
+  }
+  .pe-bootstrap .btn-default.btn-link {
+    color: $color-gray !important;
+  }
+  form .form-group {
+    overflow: visible;
+  }
+}

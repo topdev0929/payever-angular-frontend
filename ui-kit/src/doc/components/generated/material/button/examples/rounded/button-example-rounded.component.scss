@@ -1,0 +1,10 @@
+@import '../../../../../../../../scss/mixins/pe_mixins';
+
+.button-row {
+  @include pe_flexbox();
+  @include pe_align-items(center);
+
+  button {
+    margin-right: 12px;
+  }
+}

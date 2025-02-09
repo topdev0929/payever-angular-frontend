@@ -1,0 +1,15 @@
+@import "~@pe/ui/theming/theming";
+@import "~@pe/ui/theming/all-theme";
+
+$theme: peb-theme-choose('dark');
+
+@include peb-theme($theme);
+
+.product-container {
+  display: block;
+  height: calc(100% - 56px);
+}
+
+.cdk-overlay-pane {
+  margin-top: 0 !important;
+}

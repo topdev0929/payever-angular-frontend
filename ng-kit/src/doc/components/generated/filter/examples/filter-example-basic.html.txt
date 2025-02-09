@@ -1,0 +1,7 @@
+            <pe-filter
+              [itemsList]="itemsList"
+              [filterName]="filterName"
+              [filterTitle]="filterTitle"
+              [filterBtnClasses]="filterBtnClasses"
+              (selectItemEvent)="handleSelectedFilterItem($event)"
+            ></pe-filter>

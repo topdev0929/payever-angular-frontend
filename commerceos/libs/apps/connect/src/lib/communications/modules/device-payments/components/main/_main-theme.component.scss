@@ -1,0 +1,20 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $row-background: map.get($color-config, 'row-background');
+  $background: map.get($color-config, 'background');
+
+  .communication-main-wrap__settings {
+    background-color: $row-background;
+    &-item {
+      &:not(:last-child) {
+        .form-table {
+          border-bottom: solid 1px $background;
+        }
+      }
+      .form-table {
+        border-radius: 0 !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+@use "pe_variables" as pe_variables;
+@import "./../../components/panels/page-container";
+
+.checkout-menu-list {
+  &__empty {
+    margin: auto;
+    font-size: 12px;
+    font-weight: 500;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__item {
+    display: flex;
+    height: 40px;
+    align-items: center;
+    width: 100%;
+    padding-left: 12px;
+    
+    &-title {
+      font-size: 12px;
+      font-weight: 500;
+      flex: 1;
+    }
+    @media (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+      height: 44px;
+      &-title {
+        font-size: 16px;
+        font-weight: 400;
+      }
+    }
+
+    &-button {
+      margin-left: 12px;
+      width: unset;
+    }
+  }
+}

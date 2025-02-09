@@ -1,0 +1,510 @@
+<div class="doc">
+  <h2>Buttons</h2>
+
+  <div id="button-tags" class="doc-chapter">
+    <h3>Button Tags</h3>
+
+    <div class="doc-block">
+      <tabset>
+        <tab heading="View">
+          <div class="row">
+            <div class="col-xs-12">
+              <p>Use the button classes on an <code html-entities="true"><a></a></code>, <code html-entities="true">
+                <button></button></code>, or <code html-entities="true"><input></code> element.
+              </p>
+            </div>
+            <div class="col-xs-12">
+              <a class="btn btn-default" href="#" role="button">Link</a>
+              <button class="btn btn-default" type="submit">Button</button>
+              <input class="btn btn-default" type="button" value="Input">
+              <input class="btn btn-default" type="submit" value="Submit">
+            </div>
+          </div>
+        </tab>
+        <tab heading="Template">
+          <div class="row">
+            <div class="col-xs-12">
+              <pre><code class="html" html-entities="true" [innerHTML]="examples.tags | code"></code></pre>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+
+  <div id="button-style-variations" class="doc-chapter">
+    <h3>Style Variations</h3>
+
+    <div class="doc-block">
+      <tabset>
+        <tab heading="View">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="doc-container doc-container-padding-vertical padding-top-0">
+                <button type="button" class="btn btn-default">Default</button>
+                <button type="button" class="btn btn-blue">Blue</button>
+                <button type="button" class="btn btn-primary">Primary</button>
+                <button type="button" class="btn btn-success">Success</button>
+                <button type="button" class="btn btn-warning">Warning</button>
+                <button type="button" class="btn btn-danger">Danger</button>
+                <button type="button" class="btn btn-checkout">Checkout</button>
+                <button type="button" class="btn btn-dark">Dark</button>
+              </div>
+              <div class="doc-container doc-container-black">
+                <button type="button" class="btn btn-default btn-transparent">Default Tranparent</button>
+                <button type="button" class="btn btn-blue btn-semitransparent">Default Semitransparent</button>
+                <button type="button" class="btn btn-blue btn-transparent">Blue Transparent</button>
+                <button type="button" class="btn btn-dark btn-transparent">Dark Transparent</button>
+                <button type="button" class="btn btn-link btn-white">White link</button>
+              </div>
+              <div class="doc-container doc-container-padding-vertical">
+                <button type="button" class="btn btn-link">Link</button>
+                <button type="button" class="btn btn-default btn-link">Link Default</button>
+                <button type="button" class="btn btn-primary btn-link">Link Primary</button>
+                <button type="button" class="btn btn-link padding-0">Link Without Padding</button>
+              </div>
+              <div class="doc-container doc-container-padding-vertical">
+                some text <button type="button" class="btn btn-link btn-inline">Inline link</button> some text
+              </div>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Template">
+          <div class="row">
+            <div class="col-xs-12">
+              <pre><code class="html" html-entities="true" [innerHTML]="examples.styleVariations | code"></code></pre>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+
+  <div id="button-sizes" class="doc-chapter">
+    <h3>Sizes</h3>
+
+    <div class="doc-block">
+      <tabset>
+        <tab heading="View">
+          <div class="row">
+            <div class="col-xs-12">
+              <p>
+                <button type="button" class="btn btn-primary btn-xl">Extra Large Button</button>
+                <button type="button" class="btn btn-default btn-xl">Extra Large Button</button>
+              </p>
+              <p>
+                <button type="button" class="btn btn-primary btn-lg">Large Button</button>
+                <button type="button" class="btn btn-default btn-lg">Large Button</button>
+              </p>
+              <p>
+                <button type="button" class="btn btn-primary">Default Button</button>
+                <button type="button" class="btn btn-default">Default Button</button>
+              </p>
+              <p>
+                <button type="button" class="btn btn-primary btn-sm">Small Button</button>
+                <button type="button" class="btn btn-default btn-sm">Small Button</button>
+              </p>
+              <p>
+                <button type="button" class="btn btn-primary btn-xs">Extra Small Button</button>
+                <button type="button" class="btn btn-default btn-xs">Extra Small Button</button>
+              </p>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Template">
+          <div class="row">
+            <div class="col-xs-12">
+              <pre><code class="html" html-entities="true" [innerHTML]="examples.sizes | code"></code></pre>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+
+  <div id="button-block" class="doc-chapter">
+    <h3>Block (Full width)</h3>
+
+    <div class="doc-block">
+      <tabset>
+        <tab heading="View">
+          <div class="row">
+            <div class="col-xs-12">
+              <button type="button" class="btn btn-default btn-block">Default Block Button</button>
+              <button type="button" class="btn btn-primary btn-block">Primary Block Button</button>
+              <button type="button" class="btn btn-success btn-block">Success Block Button</button>
+              <button type="button" class="btn btn-warning btn-block">Warning Block Button</button>
+              <button type="button" class="btn btn-danger btn-block">Danger Block Button</button>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Template">
+          <div class="row">
+            <div class="col-xs-12">
+              <pre><code class="html" html-entities="true" [innerHTML]="examples.block | code"></code></pre>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+
+  <div id="button-rounded" class="doc-chapter">
+    <h3>Rounded Buttons</h3>
+
+    <div class="doc-block">
+      <tabset>
+        <tab heading="View">
+          <div class="row">
+            <div class="col-xs-12">
+              <button type="button" class="btn btn-default btn-rounded">Default Rounded Button</button>
+              <button type="button" class="btn btn-primary btn-rounded">Primary Rounded Button</button>
+              <button type="button" class="btn btn-success btn-rounded">Success Rounded Button</button>
+              <button type="button" class="btn btn-warning btn-rounded">Warning Rounded Button</button>
+              <button type="button" class="btn btn-danger btn-rounded">Danger Rounded Button</button>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Template">
+          <div class="row">
+            <div class="col-xs-12">
+              <pre><code class="html" html-entities="true" [innerHTML]="examples.rounded | code"></code></pre>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+
+  <div id="button-disabled" class="doc-chapter">
+    <h3>Disabled State</h3>
+
+    <div class="doc-block">
+      <tabset>
+        <tab heading="View">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="doc-container doc-container-padding-vertical padding-top-0">
+                <button type="button" class="btn btn-default" disabled="disabled">Default Button</button>
+                <button type="button" class="btn btn-primary" disabled="disabled">Primary Button</button>
+                <button type="button" class="btn btn-success" disabled="disabled">Success Button</button>
+                <button type="button" class="btn btn-warning" disabled="disabled">Warning Button</button>
+                <button type="button" class="btn btn-danger" disabled="disabled">Danger Button</button>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="doc-container doc-container-padding-vertical">
+                <button type="button" class="btn btn-checkout" disabled="disabled">Checkout Button</button>
+                <button type="button" class="btn btn-default" disabled="disabled">Default Button</button>
+                <a href="#" class="btn btn-primary btn-link disabled" role="button">Primary link</a>
+                <a href="#" class="btn btn-default btn-link disabled" role="button">Link</a>
+              </div>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Template">
+          <div class="row">
+            <div class="col-xs-12">
+              <pre><code class="html" html-entities="true" [innerHTML]="examples.disabled | code"></code></pre>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+
+  <div id="button-icons" class="doc-chapter">
+    <h3>Button With Icons</h3>
+
+    <div class="doc-block">
+      <tabset>
+        <tab heading="View">
+          <div class="row">
+            <div class="col-xs-12">
+              <p>
+                <button type="button" class="btn btn-primary btn-xl">
+                  <svg class="icon icon-48">
+                    <use xlink:href="#icon-twitter-48"/>
+                  </svg>
+                  <span>Primary XL</span>
+                </button>
+                <button type="button" class="btn btn-default btn-xl">
+                  <span>Default XL</span>
+                  <svg class="icon icon-48">
+                    <use xlink:href="#icon-twitter-48"/>
+                  </svg>
+                </button>
+                <button type="button" class="btn btn-default btn-xl">
+                  <svg class="icon icon-48">
+                    <use xlink:href="#icon-twitter-48"/>
+                  </svg>
+                </button>
+              </p>
+              <p>
+                <button type="button" class="btn btn-primary btn-lg">
+                  <svg class="icon icon-32">
+                    <use xlink:href="#icon-overlay-options-32"/>
+                  </svg>
+                  <span>Primary LG</span>
+                </button>
+                <button type="button" class="btn btn-default btn-lg">
+                  <span>Default LG</span>
+                  <svg class="icon icon-32">
+                    <use xlink:href="#icon-overlay-options-32"/>
+                  </svg>
+                </button>
+                <button type="button" class="btn btn-default btn-lg">
+                  <svg class="icon icon-32">
+                    <use xlink:href="#icon-overlay-options-32"/>
+                  </svg>
+                </button>
+              </p>
+              <p>
+                <button type="button" class="btn btn-primary">
+                  <svg class="icon icon-24">
+                    <use xlink:href="#icon-plus-circle-24"/>
+                  </svg>
+                  <span>Primary MD</span>
+                </button>
+                <button type="button" class="btn btn-default">
+                  <span>Default MD</span>
+                  <svg class="icon icon-24">
+                    <use xlink:href="#icon-plus-circle-24"/>
+                  </svg>
+                </button>
+                <button type="button" class="btn btn-default">
+                  <svg class="icon icon-24">
+                    <use xlink:href="#icon-plus-circle-24"/>
+                  </svg>
+                </button>
+              </p>
+              <p>
+                <button type="button" class="btn btn-primary btn-sm">
+                  <svg class="icon icon-16">
+                    <use xlink:href="#icon-plus-16"/>
+                  </svg>
+                  <span>Primary SM</span>
+                </button>
+                <button type="button" class="btn btn-default btn-sm">
+                  <span>Default SM</span>
+                  <svg class="icon icon-16">
+                    <use xlink:href="#icon-plus-16"/>
+                  </svg>
+                </button>
+                <button type="button" class="btn btn-default btn-sm">
+                  <svg class="icon icon-16">
+                    <use xlink:href="#icon-plus-16"/>
+                  </svg>
+                </button>
+              </p>
+              <p>
+                <button type="button" class="btn btn-primary btn-xs">
+                  <svg class="icon icon-16">
+                    <use xlink:href="#icon-settings-16"/>
+                  </svg>
+                  <span>Primary XS</span>
+                </button>
+                <button type="button" class="btn btn-default btn-xs">
+                  <span>Default XS</span>
+                  <svg class="icon icon-16">
+                    <use xlink:href="#icon-settings-16"/>
+                  </svg>
+                </button>
+                <button type="button" class="btn btn-default btn-xs">
+                  <svg class="icon icon-16">
+                    <use xlink:href="#icon-settings-16"/>
+                  </svg>
+                </button>
+              </p>
+              <p>
+                <button type="button" class="btn btn-primary btn-link">
+                  <svg class="icon icon-24">
+                    <use xlink:href="#icon-plus-circle-24"/>
+                  </svg>
+                  <span>Button Link Primary</span>
+                </button>
+                <button type="button" class="btn btn-default btn-link">
+                  <span>Button Link Default</span>&nbsp;
+                  <svg class="icon icon-24">
+                    <use xlink:href="#icon-plus-circle-24"/>
+                  </svg>
+                </button>
+                <button type="button" class="btn btn-default btn-link">
+                  <svg class="icon icon-24">
+                    <use xlink:href="#icon-plus-circle-24"/>
+                  </svg>
+                </button>
+              </p>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Template">
+          <div class="row">
+            <div class="col-xs-12">
+              <pre><code class="html" html-entities="true" [innerHTML]="examples.icons | code"></code></pre>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+
+  <div id="button-glow" class="doc-chapter">
+    <h3>Button Glow</h3>
+
+    <div class="doc-block">
+      <tabset>
+        <tab heading="View">
+          <div class="doc-container doc-container-gradient">
+            <div class="row">
+              <div class="col-xs-12 col-sm-6">
+                <button type="button" class="btn btn-glow btn-block">
+                  <span class="btn-icon">
+                    <svg class="icon icon-24">
+                      <use xlink:href="#icon-google-b-24"></use>
+                    </svg>
+                  </span>
+                  <span class="btn-title">Sign in with Google</span>
+                </button>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <button type="button" class="btn btn-glow btn-block btn-glow-right">
+                  <span class="btn-icon">
+                    <svg class="icon icon-24">
+                      <use xlink:href="#icon-facebook-2-24"/>
+                    </svg>
+                  </span>
+                  <span class="btn-title">Sign in with Facebook</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="doc-container doc-container-gradient">
+            <div class="row">
+              <div class="col-xs-12 col-sm-6">
+                <button type="button" class="btn btn-glow btn-block btn-lg">
+                  <span class="btn-icon">
+                    <svg class="icon icon-32">
+                      <use xlink:href="#icon-facebook-2-32"></use>
+                    </svg>
+                  </span>
+                  <span class="btn-title">Sign in with Google</span>
+                </button>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <button type="button" class="btn btn-glow btn-block btn-lg btn-glow-right">
+                  <span class="btn-icon">
+                    <svg class="icon icon-32">
+                      <use xlink:href="#icon-facebook-2-32"/>
+                    </svg>
+                  </span>
+                  <span class="btn-title">Sign in with Facebook</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Template">
+          <div class="row">
+            <div class="col-xs-12">
+              <pre><code class="html" html-entities="true" [innerHTML]="examples.glow | code"></code></pre>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+
+  <div id="button-file-input" class="doc-chapter">
+    <h3>Button File Input</h3>
+    
+    <div class="doc-block">
+      <tabset>
+        <tab heading="View">
+          <div class="row">
+            <div class="col-xs-12">
+              <button type="button" class="btn btn-primary btn-file">
+                <span>Select file</span>
+                <input type="file" multiple/>
+              </button>
+              <button type="button" class="btn btn-default btn-file">
+                <svg class="icon icon-24">
+                  <use xlink:href="#icon-plus-circle-24"/>
+                </svg>
+                <span>Add file</span>
+                <input type="file"/>
+              </button>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Template">
+          <div class="row">
+            <div class="col-xs-12">
+              <pre><code class="html" html-entities="true" [innerHTML]="examples.fileInput | code"></code></pre>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+
+  <div id="button-social" class="doc-chapter">
+    <h3>Social Buttons</h3>
+
+    <div class="doc-block">
+      <tabset>
+        <tab heading="View">
+          <div class="doc-container doc-container-padding-vertical padding-top-0">
+            <div class="row">
+              <div class="col-xs-12 col-lg-6 col-sm-6">
+                <a href="#" class="btn btn-primary btn-rounded btn-xl btn-block btn-facebook">
+                  <svg class="icon icon-48"><use xlink:href="#icon-facebook-48"/></svg>
+                  <span class="text-uppercase">Register with Facebook</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="doc-container doc-container-padding-vertical">
+            <div class="row">
+              <div class="col-xs-12 col-lg-6 col-sm-6">
+                <a href="#" class="btn btn-primary btn-rounded btn-xl btn-block btn-google">
+                  <svg class="icon icon-48"><use xlink:href="#icon-google-48"/></svg>
+                  <span class="text-uppercase">Register with Google</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="doc-container doc-container-padding-vertical">
+            <div class="row">
+              <div class="col-xs-12 col-lg-6 col-sm-6">
+                <a href="#" class="btn btn-primary btn-rounded btn-xl btn-block btn-twitter">
+                  <svg class="icon icon-48"><use xlink:href="#icon-twitter-48"/></svg>
+                  <span class="text-uppercase">Register with Twitter</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="doc-container doc-container-padding-vertical">
+            <div class="row">
+              <div class="col-xs-12 col-lg-6 col-sm-6">
+                <a href="#" class="btn btn-primary btn-rounded btn-xl btn-block btn-linkedin">
+                  <svg class="icon icon-48"><use xlink:href="#icon-linkedin-48"/></svg>
+                  <span class="text-uppercase">Register with LinkedIn</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Template">
+          <div class="row">
+            <div class="col-xs-12">
+              <pre><code class="html" html-entities="true" [innerHTML]="examples.social | code"></code></pre>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+</div>

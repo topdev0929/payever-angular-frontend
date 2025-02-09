@@ -1,0 +1,28 @@
+<doc-content-viewer [settings]="settings"></doc-content-viewer>
+
+<ng-template #overview>
+  <p>
+    If you detected that your test cases (inside <code>it('...')</code> block) has too long execution 
+    time - 1 or more seconds - usually it happens because of long module recomplication 
+    by <code>TestBed.configureTestingModule()</code> & <code>await TestBed.compileComponents()</code>.
+  </p>
+
+  <p>
+    One of better approaches here is to prevent Angular' TestBed full module recompilation 
+    per each spec file using this helper (see examples).
+  </p>
+
+  <br>
+
+  <p>
+    <strong>NOTE #1</strong>:
+    <span class="text-warning">
+      This module doesn't works well with Angular Router
+    </span>
+  </p>
+
+  <p>
+    <strong>HACK NOTE</strong>: 
+    Use <code>karma-spec-reporter</code> to measure tests execution time (but it not works with PhantomJS).
+  </p>
+</ng-template>

@@ -1,0 +1,13 @@
+@import "../../controls";
+
+.field {
+  @extend %navbar-field;
+}
+
+label {
+  @extend %navbar-field-label;
+}
+
+input[type="number"] {
+  @extend %navbar-field-input;
+}

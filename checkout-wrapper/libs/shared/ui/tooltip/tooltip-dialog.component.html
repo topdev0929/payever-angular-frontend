@@ -1,0 +1,34 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  style="display:none;">
+  <symbol
+    id="icon-forms-close-16"
+    viewBox="0 0 16 16"
+    width="100%">
+    <path
+      class="path1"
+      d="M16 .9l-.9-.9L8 7.1.9 0 0 .9 7.1 8 0 15.1l.9.9L8 8.9l7.1 7.1.9-.9L8.9 8z" />
+  </symbol>
+</svg>
+
+<button
+  type="button"
+  mat-button
+  mat-dialog-close
+  class="mat-button-no-padding mat-button-link mat-button-xs mat-dialog-close-icon">
+  <svg class="icon icon-16">
+    <use xlink:href="#icon-forms-close-16"></use>
+  </svg>
+</button>
+
+<div>
+  <div class="mat-dialog-content-wrapper">
+    <div>
+      <div mat-dialog-content>
+        <div class="dialog-container">
+          <p [innerHtml]="text"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

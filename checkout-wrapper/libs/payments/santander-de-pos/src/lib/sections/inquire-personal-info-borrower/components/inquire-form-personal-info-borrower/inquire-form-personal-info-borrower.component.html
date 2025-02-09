@@ -1,0 +1,34 @@
+<ng-container
+  *ngIf="options$ | async as options"
+  [ngSwitch]="mode">
+  <ng-container *ngSwitchCase="modeEnum.View">
+    <santander-de-pos-summary-personal-bank
+      class="mt-15"
+      [currency]="currency"
+      [formOptions]="options"></santander-de-pos-summary-personal-bank>
+  </ng-container>
+  <ng-container *ngSwitchCase="modeEnum.Edit">
+    <form
+      class="form-table"
+      [formGroup]="formGroup"
+      (ngSubmit)="onSubmit()">
+      <personal-form
+        formControlName="personalForm"
+        (togglePrevAddress)="togglePrevAddress($event)"></personal-form>
+      <prev-address-form
+        *ngIf="formGroup.get('prevAddressForm').enabled"
+        formControlName="prevAddressForm"
+        [maxDate]="addressResidentSince$ | async">
+      </prev-address-form>
+      <bank-form formControlName="bankForm"></bank-form>
+
+      <checkout-sdk-continue-button
+        *ngIf="!isExpandAll"
+        class="button-continue"
+        i18n-text="@@action.continue"
+        text="action.continue"
+        (clicked)="submit()">
+      </checkout-sdk-continue-button>
+    </form>
+  </ng-container>
+</ng-container>

@@ -1,0 +1,41 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $label-color: map.get($color-config, 'label-color');
+  $warn: map.get($color-config, 'warn');
+  $border: map.get($color-config, 'border');
+  $confirm: map.get($color-config, 'confirm');
+  $success: map.get($color-config, 'success');
+
+  .statistics-widgets-detailed-number {
+    .table-top {
+      &__currency {
+        color: $label-color;
+      }
+      &__title {
+        color: $text-color;
+      }
+    }
+    .detailed-numbers-table {
+      &__row {
+        border-bottom-color: $border;
+      }
+      &__cell {
+        color: $text-color;
+        &.positive {
+          color: $success;
+        }
+
+        &.negative {
+          color: $warn;
+        }
+      }
+    }
+    .top-table {
+      &__cell {
+        color: $label-color;
+      }
+    }
+  }
+}

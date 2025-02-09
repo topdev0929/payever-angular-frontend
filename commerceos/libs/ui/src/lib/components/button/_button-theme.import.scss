@@ -1,0 +1,8 @@
+@use 'pe_theming' as pet;
+@use './button-theme' as button;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include button.color($color-config);
+}
+

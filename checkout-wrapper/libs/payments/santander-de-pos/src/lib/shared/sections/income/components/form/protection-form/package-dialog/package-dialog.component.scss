@@ -1,0 +1,17 @@
+@import '../../../../../../../../../../../shared/styles/assets/ui-kit-styles/pe_variables.scss';
+.dialog-container {
+  max-width: $viewport-breakpoint-sm-1;
+  text-align: left;
+
+  .dialog-title {
+    color: $color-grey-1 !important;
+  }
+
+  .list {
+    margin-top: 15px;
+
+    &__item {
+      margin-top: 8px;
+    }
+  }
+}

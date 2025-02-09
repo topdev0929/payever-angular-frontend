@@ -1,0 +1,55 @@
+{
+  "form": {
+    "contentType": "accordion",
+    "connected": false,
+    "title": "Twilio",
+    "type": "info-box",
+    "content": {
+      "accordion": [
+        {
+          "title": "Authentication",
+          "html": {
+            "innerHtml": "Paste your Twillio Auth keys from Twillio Console (Dashboard) here"
+          },
+          "fieldset": [
+            {
+              "type": "input",
+              "name": "accountSid",
+              "fieldSettings": {
+                "classList": "col-xs-12"
+              },
+              "inputSettings": {
+                "placeholder": "Account SID"
+              }
+            },
+            {
+              "type": "input",
+              "name": "authToken",
+              "fieldSettings": {
+                "classList": "col-xs-12"
+              },
+              "inputSettings": {
+                "placeholder": "Auth token"
+              }
+            }
+          ],
+          "fieldsetData": {
+            "accountSid": "",
+            "authToken": ""
+          },
+          "operation": {
+            "action": "twillio-keys-save",
+            "text": "Connect",
+            "classes": "text-grey",
+            "isSubmit": true
+          },
+          "icon": "#icon-authentification-key"
+        }
+      ],
+      "html": {
+        "innerHtml": "Status: Not connected",
+        "icon": false
+      }
+    }
+  }
+}

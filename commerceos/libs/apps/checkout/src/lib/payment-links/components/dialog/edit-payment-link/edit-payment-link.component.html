@@ -1,0 +1,94 @@
+<form
+  *ngIf="!(isLoading$ | async) else skeleton"
+  [formGroup]="formGroup">
+<ng-container>
+  <peb-expandable-panel
+  class="language-sections-expandable-panel"
+  [headerLabel]="'paymentLinks.sections.language' | translate"
+  [isContentOpen]="true">
+  <peb-form-background>
+    <peb-select
+      selectType="label"
+      label="Language"
+      formControlName="language">
+      <peb-select-option
+        *ngFor="let option of options['language']"
+        value="{{ option.value }}"
+        label="{{ option.label }}"
+      ></peb-select-option>
+    </peb-select>
+  </peb-form-background>
+  <peb-form-background>
+    <peb-select
+      selectType="label"
+      label="Link Type"
+      formControlName="linkType">
+      <peb-select-option
+        *ngFor="let option of options['linkType']"
+        value="{{ option.value }}"
+        label="{{ option.label }}"
+      ></peb-select-option>
+    </peb-select>
+  </peb-form-background>
+
+  <peb-form-background>
+    <peb-select
+      selectType="label"
+      label="Expires at"
+      formControlName="expiresAt">
+      <peb-select-option
+        *ngFor="let option of options['expiresAt']"
+        value="{{ option.value }}"
+        label="{{ option.label }}"
+      ></peb-select-option>
+    </peb-select>
+  </peb-form-background>
+  </peb-expandable-panel>
+  <peb-expandable-panel
+    [headerLabel]="'paymentLinks.sections.paymentLink' | translate"
+    [isContentOpen]="true">
+    <div class="get-link peb-get-link">
+      <div class="share-list">
+        <div *ngFor="let item of socialMediaOptions" class="share-item" [class.disabled]="item.disabled"
+          (click)="shareTo(item)">
+          <div @fadeInAnimation class="share-item__icon">
+            <pe-icon class="share-item__icon-item" size="24" [icon]="item.icon"> </pe-icon>
+          </div>
+          <span @fadeInAnimation class="share-item__label">
+            {{ item.name | translate }}
+          </span>
+        </div>
+      </div>
+    </div>
+    <pe-info-box [withHeader]="false"
+      [withFooter]="false"
+      [fixed]="false"
+      [notFullwidthOnMobile]="true"
+      [roundBorder]="true"
+      id="payment-link-info-box"
+    >
+      <ng-container content>
+        <peb-form-background>
+          <div class="clipboard-copy-content" [innerHTML]="link()"></div>
+        </peb-form-background>
+
+      </ng-container>
+    </pe-info-box>
+    <button
+      class="copy-link-btn"
+      [ngClass]="{ 'copy-link-btn__clicked': copied$ | async }"
+      color="confirm"
+      pe-form-button
+      (click)="onCopyClick()"
+      >
+        {{ ((copied$ | async) ? 'paymentLinks.copied' : 'actions.copy_to_clipboard') | translate }}
+      </button>
+  </peb-expandable-panel>
+</ng-container>
+</form>
+
+
+<ng-template #skeleton>
+  <pe-edit-payment-link-skeleton></pe-edit-payment-link-skeleton>
+</ng-template>
+

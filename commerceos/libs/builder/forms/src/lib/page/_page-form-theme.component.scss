@@ -1,0 +1,32 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $text-color: map.get($color-config, 'text-color');
+  $border: map.get($color-config, 'border');
+  $label-color: map.get($color-config, 'label-color');
+
+  peb-page-form {
+    .form {
+      &__row {
+        > span {
+          color: $label-color;
+        }
+        input {
+          background-color: $overlay-background;
+          color: $text-color;
+        }
+        &.border {
+          &::before {
+            background-color: $border;
+          }
+        }
+      }
+    }
+    .add {
+      &::before {
+        background-color: $border;
+      }
+    }
+  }
+}

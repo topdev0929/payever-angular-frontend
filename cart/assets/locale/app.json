@@ -1,0 +1,38 @@
+{
+  "checkout_cart_edit": {
+    "form": {
+      "label": {
+        "amount": "Amount",
+        "price": "Price",
+        "product": "Product",
+        "qty": "Qty",
+        "reference": "Reference",
+        "shipping": "Shipping",
+        "shipping_free": "Free",
+        "subtotal": "Subtotal",
+        "tax": "Estimated tax",
+        "total": "Total",
+        "shop_total": "Incl. VAT"
+      }
+    },
+    "error": {
+      "card_is_empty": "Cart is empty",
+      "subtotal_must_be_positive": "Subtotal must be positive",
+      "cant_save_order": "Can't save order data",
+      "products_not_available": "Some products are out of stock"
+    },
+    "header.order_summary": "Order summary",
+
+    "header": "Thank you! Your order has been placed",
+    "header_number": "Order number"
+  },
+  "checkout_cart_view": {
+    "down_payment": "Down payment",
+    "title": "Order",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "total": "Total",
+    "shop_total": "Incl. VAT",
+    "payment_costs": "Payment costs"
+  }
+}

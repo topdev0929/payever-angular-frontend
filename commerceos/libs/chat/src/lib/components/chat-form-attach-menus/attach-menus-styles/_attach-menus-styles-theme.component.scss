@@ -1,0 +1,232 @@
+@use 'pe_variables.scss' as pe_variables;
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $primary: map.get($color-config, 'primary');
+  $text-color: map.get($color-config, 'text-color');
+  $active-button: map.get($color-config, 'active-button');
+  $confirm: map.get($color-config, 'confirm');
+  $border: map.get($color-config, 'border');
+  $background: map.get($color-config, 'background');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $box-shadow-color: map.get($color-config, 'box-shadow-color');
+  $button-fill: map.get($color-config, 'button-fill');
+  $dropdown-panel: map.get($color-config, 'dropdown-panel');
+  $x-button: map.get($color-config, 'x-button');
+  $button: map.get($color-config, 'button');
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $warn: map.get($color-config, 'warn');
+  $tertiary-button: map.get($color-config, 'tertiary-button');
+  $hover-button: map.get($color-config, 'hover-button');
+  $label-color: map.get($color-config, 'label-color');
+  $icon-background: map.get($color-config, 'icon-background');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $row-background: map.get($color-config, 'row-background');
+  $hover-icon: map.get($color-config, 'hover-icon');
+  $extra-bg-color: map.get($color-config, 'extra-bg-color');
+  $backdrop-color: map.get($color-config, 'backdrop-color');
+  $buttons-row-background: map.get($color-config, 'buttons-row-background');
+
+  .message-menu {
+    box-shadow: 0 2px 12px 0 $box-shadow-color;
+    border: solid 1px $border;
+    background-color: $dropdown-panel;
+
+    &__header {
+      color: $text-color;
+    }
+
+    &__close {
+      &-icon {
+        color: $x-button;
+      }
+    }
+
+    &__button {
+      color: $text-color;
+      background-color: $background;
+
+      &:hover {
+        background: $active-button;
+      }
+
+      &.active {
+        background-color: $confirm;
+      }
+    }
+  }
+
+  .attach-menu {
+    background-color: $primary;
+    backdrop-filter: blur(25px);
+    border-bottom: 1px solid $extra-bg-color;
+
+    button {
+      background: $transparent-color;
+    }
+
+    &__header {
+      &__cancel {
+        color: $label-color;
+      }
+
+      &__title {
+        &__title {
+          color: $text-color;
+        }
+
+        &__send {
+          color: $confirm;
+        }
+      }
+      & ~ div {
+        color: $text-color;
+        background-color: $buttons-row-background;
+      }
+    }
+
+    &__item {
+      svg {
+        color: $row-background;
+
+        rect + path {
+          fill: $row-background;
+        }
+        circle {
+          stroke: $row-background;
+          &:last-child {
+            fill: $row-background;
+            stroke: unset;
+          }
+        }
+      }
+    }
+  }
+
+  .plus-menu {
+    background-color: $primary;
+    backdrop-filter: blur(25px);
+    border-bottom: 1px solid $extra-bg-color;
+
+    button {
+      background: $transparent-color;
+    }
+
+    &__header {
+      &__cancel {
+        color: $label-color;
+      }
+
+      &__title {
+        color: $text-color;
+      }
+
+      &__send {
+        color: $confirm;
+      }
+
+      & ~ div {
+        background-color: $buttons-row-background;
+
+        .label-input-content-wrapper .label-container, .peb-form-field-input {
+          background-color: $buttons-row-background;
+        }
+      }
+    }
+
+    & &__drop-photo {
+      &_over {
+        background: $primary;
+      }
+
+      &_error {
+        border-color: $warn;
+      }
+    }
+
+    & &__add-more {
+      color: $confirm;
+    }
+
+    & &__compress {
+      color: $text-color;
+    }
+
+    & &__text,
+    & &__url {
+      .label-text {
+        color: $text-color;
+      }
+
+      input {
+        color: $text-color;
+        background: $transparent-color;
+      }
+
+      svg {
+        color: $x-button;
+      }
+    }
+
+    & &__dropdown {
+      .label-select-wrapper .input {
+        color: $text-color;
+
+        .label-text {
+          color: $text-color;
+        }
+      }
+    }
+  }
+
+  .pe-chat-tag-list {
+    box-shadow: 0 3px 7px 0 $box-shadow-color;
+    background-color: $background;
+    backdrop-filter: blur(25px);
+    border: 1px solid $border;
+
+    &_hide-border,
+    &:hover,
+    &_active {
+      background-color: $tertiary-button;
+    }
+
+    &__notification {
+      color: $label-color;
+    }
+
+    &__integration {
+      color: $text-color;
+    }
+  }
+
+  .pe-drop-box {
+    box-shadow: 0 3px 7px 0 $box-shadow-color;
+    background-color: $background;
+    backdrop-filter: blur(25px);
+    border: 1px solid $border;
+    color: $text-color;
+  }
+
+  .drag-over {
+    color: $confirm;
+  }
+
+  .emoji-mart-emoji {
+    user-select: none;
+    &:hover:before {
+      background-color: $hover-icon !important;
+      border-radius: 8px !important;
+    }
+  }
+
+  .cdk-overlay-backdrop.pe-chat-menu-backdrop {
+    @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+      background: $backdrop-color;
+    }
+  }
+
+  .cdk-overlay-pane .pe-chat-menu-panel {
+    backdrop-filter: blur(25px);
+  }
+}

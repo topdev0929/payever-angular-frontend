@@ -1,0 +1,99 @@
+@use 'SASS:map';
+@use "pe_variables" as pe_variables;
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $primary: map.get($color-config, 'primary');
+  $confirm: map.get($color-config, 'confirm');
+  $active-text: map.get($color-config, 'active-text');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $secondary-button: map.get($color-config, 'secondary-button');
+  $active-button: map.get($color-config, 'active-button');
+  $filter-invert-light: map.get($color-config, 'filter-invert-light');
+
+  pe-new-platform-header {
+    .header-container {
+      color: $text-color;
+      .section-left {
+        button {
+          &.dg-toggle {
+            svg {
+              path {
+                &:nth-child(1) {
+                  stroke: $text-color;
+                }
+                &:nth-child(2) {
+                  fill: $text-color;
+                }
+              }
+            }
+          }
+          span,
+          svg {
+            color: $text-color;
+          }
+        }
+        .left-section-button {
+          svg {
+            filter: $filter-invert-light;
+          }
+        }
+        .main-item-button {
+          &__label, >svg {
+            @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+              color: $confirm;
+            }
+          }
+          &__label {
+            padding-left: 4px;
+          }
+        }
+      }
+      .section-right {
+        .section-button {
+          svg,
+          use,
+          span {
+            color: $text-color;
+            &.section-button__label {
+              color: $active-text;
+            }
+          }
+          &:hover{
+            background-color: $active-button;
+          }
+          @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+            svg {
+              min-width: 28px !important;
+              height: 28px !important;
+            }
+            img {
+              width: 20px !important;
+              height: 20px !important;
+            }
+            &:hover {
+              background-color: $transparent-color;
+            }
+          }
+        }
+      }
+    }
+    .subheader-container {
+      background-color: $primary;
+    }
+    .user-button {
+      &__icon {
+        background-color: $text-color;
+      }
+    }
+    .close-button {
+      background-color: $secondary-button;
+      color: $text-color;
+      padding-right: 1px !important;
+      svg.icon-mobile {
+        width: 28px !important;
+        height: 34px !important;
+      }
+    }
+  }
+}

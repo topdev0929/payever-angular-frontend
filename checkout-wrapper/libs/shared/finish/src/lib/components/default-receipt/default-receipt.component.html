@@ -1,0 +1,59 @@
+<ng-template #receiptContent><ng-content></ng-content></ng-template>
+
+<ng-container [ngSwitch]="true">
+  <ng-container *ngSwitchCase="isStatusSuccess">
+    <div>
+      <p class="text-center icon-wrap">
+        <checkout-sdk-finish-status-icon [status]="'success'"> </checkout-sdk-finish-status-icon>
+      </p>
+      <div
+        class="large-1 text-center"
+        i18n="@@checkout_sdk.default_receipt.finish.order_success.title">
+        checkout_sdk.default_receipt.finish.order_success.title
+      </div>
+      <ng-container *ngTemplateOutlet="receiptContent"></ng-container>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="isStatusFail">
+    <div>
+      <p class="text-center icon-wrap">
+        <checkout-sdk-finish-status-icon [status]="'fail'"> </checkout-sdk-finish-status-icon>
+      </p>
+      <div
+        class="large-1 text-center"
+        i18n="@@checkout_sdk.default_receipt.finish.order_fail.title">
+        checkout_sdk.default_receipt.finish.order_fail.title
+      </div>
+      <ng-container *ngTemplateOutlet="receiptContent"></ng-container>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="isStatusUnknown">
+    <div>
+      <p class="text-center icon-wrap">
+        <svg class="icon icon-64"><use [attr.xlink:href]="'#icon-error-128'"></use></svg>
+      </p>
+      <div
+        class="large-1 text-center"
+        i18n="@@checkout_sdk.default_receipt.finish.order_unknown.title">
+        checkout_sdk.default_receipt.finish.order_unknown.title
+      </div>
+      <p i18n="@@checkout_sdk.default_receipt.finish.order_unknown.text">
+        checkout_sdk.default_receipt.finish.order_unknown.text
+      </p>
+    </div>
+  </ng-container>
+
+  <div
+    class="order-number-wrap"
+    *ngIf="isStatusSuccess">
+    <span
+      class="caption-2"
+      i18n="@@checkout_sdk.default_receipt.finish.labels.order_number">
+      checkout_sdk.default_receipt.finish.labels.order_number
+    </span>
+    <br />
+    <strong>{{ orderId }}</strong>
+  </div>
+</ng-container>

@@ -1,0 +1,14 @@
+<mat-checkbox [attr.pe-qa-checkbox]="controlQaId"
+              [class.mat-checkbox-error]="isErrorState"
+              [class.mat-checkbox-small]="size === 'small'"
+              [aria-label]="ariaLabel"
+              [formControl]="formControl"
+              [indeterminate]="indeterminate"
+              [labelPosition]="labelPosition"
+              [name]="name"
+              [required]="required"
+              [tabIndex]="tabIndex"
+              (change)="onChanged($event)"
+>
+  <span [class.text-danger]="errorMessage && isErrorState" [innerHtml]="label" (click)="labelClick.emit($event)"></span>
+</mat-checkbox>

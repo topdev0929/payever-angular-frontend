@@ -1,0 +1,16 @@
+{
+  "include": [
+    "./*.ts"
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "commonjs",
+    "target": "es5",
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "paths": {
+      "@pe/common": ["../../libs/common/src/index.ts"],
+    },
+  },
+}

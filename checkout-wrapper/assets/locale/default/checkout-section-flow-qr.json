@@ -1,0 +1,7 @@
+{
+  "checkout_flow_qr": {
+    "errors": {
+      "unknown": "Unknown error"
+    }
+  }
+}

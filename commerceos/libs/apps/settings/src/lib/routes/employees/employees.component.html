@@ -1,0 +1,99 @@
+<div class="data-grid-wrap employees-data-grid">
+  <pe-grid [items]="items" [embedMod]="true">
+    <pe-grid-sidenav
+      #sideNav
+      [sidenavTitle]="'pages.employees.sidebar.title' | translate"
+      [sidenavMenu]="sidenavMenu"
+      (menuItemSelected)="selectSideNavMenu($event)"
+    >
+      <pe-folders
+        [sideNav]="sideNav"
+        [rootFolder]="rootFolderData"
+        [folders]="sidebarCategories"
+        [selectFolder]="selectedFolder"
+        [openActionLabel]="'pages.employees.sidebar.groups.options.permissions' | translate"
+        (selectedRootFolder)="onSelectRootFolder()"
+        (selectedFolder)="selectFolder($event)"
+        (openFolder)="onOpenEmployeeGroup($event)"
+        (createFolder)="onCreateEmployeeGroup($event)"
+        (updateFolder)="onEditEmployeeGroup($event)"
+        (deleteFolder)="onDeleteEmployeeGroup($event)"
+      ></pe-folders>
+    </pe-grid-sidenav>
+    <pe-grid-content
+      [mobileTitle]="mobileTitle$ | async"
+    >
+      <pe-grid-toolbar
+        [totalItems]="totalItems$ | async"
+        [viewMenu]="viewMenu"
+        [filterConfig]="toolbar.filterConfig"
+        (filtersChange)="filtersChange($event)"
+        [optionsMenu]="optionsMenu$ | async"
+        (optionsChange)="optionsChange($event)"
+        [sortMenu]="toolbar.sortMenu"
+        [customMenus]="toolbarCustomMenu$ | async"
+        (sortChange)="sortChange($event)"
+        (viewChange)="viewChange($event)"
+        (create)="openNewUserDialog()"
+      ></pe-grid-toolbar>
+      <pe-grid-viewport
+        [selectable]="true"
+        [defaultLayout]="gridLayout"
+      >
+        <pe-grid-list
+          [noItemsPlaceholder]="'pages.employees_grid.item_placeholder' | translate"
+          [viewAdd]="true"
+          [scrollBottomOffset]="200"
+          (create)="openNewUserDialog()"
+          (scrolledToEnd)="onScrollLoad()"
+        >
+          <ng-template let-item="item">
+            <pe-grid-item
+              [peDropIntoFolder]="itemsToMove(item)"
+              [item]="item"
+              [itemContextMenu]="itemContextMenu(item)"
+              [defaultImageTemplate]="defaultImage"
+              (itemClick)="actionClick($event)"
+              (actionClick)="actionClick($event)"
+              (moveToFolder)="moveToFolder($event)"
+              (itemContextSelect)="onItemContentContextMenu($event)"
+            ></pe-grid-item>
+          </ng-template>
+        </pe-grid-list>
+        <pe-grid-table
+          [noItemsPlaceholder]="'pages.employees_gird.item_placeholder' | translate"
+          [isLoading]="isLoading$ | async"
+          [displayedColumns]="displayedColumns"
+          [scrollBottomOffset]="50"
+          (scrolledToEnd)="onScrollLoad()"
+        >
+          <ng-template let-item="item">
+            <pe-table-row
+              [peDropIntoFolder]="itemsToMove(item)"
+              [item]="item"
+              [itemContextMenu]="itemContextMenu(item)"
+              [defaultImageTemplate]="defaultImage"
+              (rowClicked)="actionClick($event)"
+              (actionClick)="actionClick($event)"
+              (moveToFolder)="moveToFolder($event)"
+              (itemContextSelect)="onItemContentContextMenu($event)"
+            >
+            </pe-table-row>
+          </ng-template>
+        </pe-grid-table>
+      </pe-grid-viewport>
+    </pe-grid-content>
+  </pe-grid>
+
+  <ng-template #importMenu let-menuRef="menuRef">
+    <pe-gex-import-file
+      [menuRef]="menuRef"
+      (chosenFile)="chosenFileForImport($event)"
+    ></pe-gex-import-file>
+  </ng-template>
+
+  <ng-template #defaultImage>
+    <img style="width: 100%; height: 100%; object-fit: cover;" src="./assets/icons/contact-grid.png" alt="contact grid">
+  </ng-template>
+</div>
+

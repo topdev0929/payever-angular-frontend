@@ -1,0 +1,25 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $active-text: map.get($color-config, 'active-text');
+  $warn: map.get($color-config, 'warn');
+  $content: map.get($color-config, 'content');
+
+  .form-container.create-checkout-form {
+    .fields {
+      &__validation {
+        &_invalid {
+          background-color: $warn;
+          color: $active-text;
+          .error-icon {
+            color: $active-text;
+          }
+        }
+      }
+    }
+    .delete-button {
+      background-color: $content;
+      color: $warn;
+    }
+  }
+}

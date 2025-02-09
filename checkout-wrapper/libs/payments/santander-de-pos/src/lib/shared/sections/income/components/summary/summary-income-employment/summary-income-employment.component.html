@@ -1,0 +1,49 @@
+<div
+  class="clearfix"
+  *ngIf="dataIncomeSummary?.netIncome as netIncome">
+  <span class="text-secondary">{{ makeFormKey(personType + '.netIncome') }}</span
+  >:
+  <span
+    class="text-primary"
+    [innerHTML]="netIncome | peCurrency:currency"></span>
+</div>
+
+<div
+  class="clearfix"
+  *ngIf="dataIncomeSummary?.typeOfResident as tor">
+  <span class="text-secondary">{{ makeFormKey(personType + '.typeOfResident') }}</span
+  >:
+  <span
+    class="text-primary"
+    [innerHTML]="tor | peTranslatedFormOptionsLabel:formOptions?.residentialTypes:makeFormKey(personType + '.typeOfResident')"></span>
+</div>
+
+<div
+  class="clearfix"
+  *ngIf="dataIncomeSummary?.housingCosts as housingCosts">
+  <span class="text-secondary">{{ makeFormKey(personType + '.housingCosts') }}</span
+  >:
+  <span
+    class="text-primary"
+    [innerHTML]="housingCosts | peCurrency:currency"></span>
+</div>
+
+<div
+  class="clearfix"
+  *ngIf="dataEmploymentSummary?.employer as employer">
+  <span class="text-secondary">{{ makeFormKey(personType + '.employer') }}</span
+  >:
+  <span
+    class="text-primary"
+    [innerHTML]="employer"></span>
+</div>
+
+<div
+  class="clearfix"
+  *ngIf="dataEmploymentSummary?.employedSince as employedSince">
+  <span class="text-secondary">{{ makeFormKey(personType + '.employedSince') }}</span
+  >:
+  <span
+    class="text-primary"
+    [innerHTML]="formatDateMemo(employedSince)"></span>
+</div>

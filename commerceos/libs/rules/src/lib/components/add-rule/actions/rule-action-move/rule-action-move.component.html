@@ -1,0 +1,13 @@
+<div class="block" [formGroup]="formGroup">
+  <peb-select
+    selectType='label'
+    [label]="'rules.folder' | translate"
+    animated='true'
+    formControlName='folderId'
+    [isFieldInvalid]="showErrors && formGroup.get('folderId').errors?.required"
+    [errorMessage]="'rules.condition-required' | translate"
+  >
+    <peb-select-option *ngFor='let item of folderList' [label]="item.name" [value]='item._id'>
+    </peb-select-option>
+  </peb-select>
+</div>

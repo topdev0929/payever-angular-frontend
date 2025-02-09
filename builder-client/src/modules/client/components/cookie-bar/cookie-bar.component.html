@@ -1,0 +1,16 @@
+<div class="cookie-bar" *ngIf="!hidden && labels">
+  <div class="cookie-bar-container">
+    <div class="cookie-bar-text">
+      {{ labels?.agreement }}
+      <a (click)="hide()" [innerHTML]="labels?.link"></a>
+    </div>
+
+    <div class="cookie-bar-close" (click)="hide()">
+      <svg id="icon_svg-close-small" viewBox="0 0 24 24">
+        <path
+          d="M13.099 12.038l3.977 3.978-1.06 1.06-3.978-3.977-3.977 3.977L7 16.016l3.977-3.978L7 8.061 8.06 7l3.978 3.977L16.016 7l1.06 1.06-3.977 3.978z"
+          fill="#666666" fill-rule="evenodd"></path>
+      </svg>
+    </div>
+  </div>
+</div>

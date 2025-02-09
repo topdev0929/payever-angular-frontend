@@ -1,0 +1,21 @@
+.desktop-checkout-items.with-offset {
+  position: relative;
+  top: -98px;
+  z-index: -1;
+}
+
+.mobile .desktop-checkout-items.with-offset {
+  top: -60px;
+}
+
+.active-order-step .payment-footer {
+  display: none;
+}
+
+.mobile .active-order-step .payment-footer {
+  display: flex;
+}
+
+.successful-modal .payment-icon {
+  width: 51px;
+}

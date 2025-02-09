@@ -1,0 +1,112 @@
+{
+  "form": {
+    "contentType": "accordion",
+    "title": "Configure QR",
+    "type": "info-box",
+    "content": {
+      "accordion": [
+        {
+          "title": "QR",
+          "data": [
+            [
+              {
+                "type": "image",
+                "value": "/qr.png",
+                "classes": "width-100-percent"
+              }
+            ]
+          ]
+        },
+        {
+          "title": "Iframe test",
+          "data": [
+            [
+              {
+                "type": "iframe",
+                "value": "http://localhost:8080/ng-kit",
+                "classes": "width-100-percent height-500-px"
+              }
+            ]
+          ]
+        },
+        {
+          "title": "Settings",
+          "operation": {
+            "action": "save",
+            "text": "Save",
+            "apiUrl": "https://dhl-backend.test.devpayever.com/api/flow/save",
+            "httpMethod": "post",
+            "classes": "text-grey"
+          },
+          "fieldset": [
+            {
+              "name": "url",
+              "type": "hidden",
+              "fieldSettings": {
+                "required": true
+              }
+            },
+            {
+              "name": "type",
+              "type": "select",
+              "fieldSettings": {
+                "classList": "col-xs-6",
+                "label": "Type",
+                "required": true
+              },
+              "selectSettings": {
+                "panelClass": "mat-select-dark",
+                "options": [
+                  {
+                    "label": "svg",
+                    "value": "svg"
+                  },
+                  {
+                    "label": "png",
+                    "value": "png"
+                  },
+                  {
+                    "label": "utf8",
+                    "value": "utf8"
+                  }
+                ],
+                "placeholder": "Type"
+              }
+            },
+            {
+              "name": "showLogo",
+              "type": "select",
+              "fieldSettings": {
+                "classList": "col-xs-6",
+                "label": "Show Logo",
+                "required": true
+              },
+              "selectSettings": {
+                "panelClass": "mat-select-dark",
+                "options": [
+                  {
+                    "label": "yes",
+                    "value": "yes"
+                  },
+                  {
+                    "label": "no",
+                    "value": "no"
+                  }
+                ],
+                "placeholder": "Show Logo"
+              }
+            }
+          ],
+          "fieldsetData": {
+            "url": "http://testurl.com",
+            "type": "png",
+            "showLogo": "yes"
+          }
+        }
+      ]
+    },
+    "actionContext": {
+      "id": "b231c27d-cd20-4f4c-b8f8-61d91aabe241"
+    }
+  }
+}

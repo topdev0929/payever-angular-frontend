@@ -1,0 +1,118 @@
+<form (keydown)="onChange()" (change)="onChange()">
+
+  <div class="row">
+    <div class="col-xs-4 col-sm-3 col-lg-2">
+      <div class="form-group">
+        <label for="channelSet">channelSet</label>
+        <input type="text" class="form-control" id="channelSet" [(ngModel)]="channelSet" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="col-xs-4 col-sm-3 col-lg-2">
+      <div class="form-group">
+        <label for="amount">amount</label>
+        <input type="number" class="form-control" id="amount" [(ngModel)]="amount" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="col-xs-4 col-sm-3 col-lg-2">
+      <div class="form-group">
+        <br>
+        <label>
+          <input type="checkbox" [(ngModel)]="isDebugMode" [ngModelOptions]="{standalone: true}">
+          isDebugMode
+        </label>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-4 col-sm-3 col-lg-2">
+      <div class="form-group">
+        <label for="successUrl">successUrl</label>
+        <input type="text" class="form-control" id="successUrl" [(ngModel)]="config.successUrl" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="col-xs-4 col-sm-3 col-lg-2">
+      <div class="form-group">
+        <label for="pendingUrl">pendingUrl</label>
+        <input type="text" class="form-control" id="pendingUrl" [(ngModel)]="config.pendingUrl" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="col-xs-4 col-sm-3 col-lg-2">
+      <div class="form-group">
+        <label for="cancelUrl">cancelUrl</label>
+        <input type="text" class="form-control" id="cancelUrl" [(ngModel)]="config.cancelUrl" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="col-xs-4 col-sm-3 col-lg-2">
+      <div class="form-group">
+        <label for="failureUrl">failureUrl</label>
+        <input type="text" class="form-control" id="failureUrl" [(ngModel)]="config.failureUrl" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="col-xs-4 col-sm-3 col-lg-2">
+      <div class="form-group">
+        <label for="noticeUrl">noticeUrl</label>
+        <input type="text" class="form-control" id="noticeUrl" [(ngModel)]="config.noticeUrl" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-4 col-sm-3 col-lg-2">
+      <div class="form-group">
+        <label for="checkoutMode">checkoutMode</label>
+        <select class="form-control" id="checkoutMode" [(ngModel)]="config.checkoutMode" [ngModelOptions]="{standalone: true}">
+          <option *ngFor="let mode of CheckoutModeKeys" [value]="mode">{{ mode }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-xs-4 col-sm-3 col-lg-2">
+      <div class="form-group">
+        <label for="ratesOrder">ratesOrder</label>
+        <select class="form-control" id="ratesOrder" [(ngModel)]="config.ratesOrder" [ngModelOptions]="{standalone: true}">
+          <option *ngFor="let oder of RatesOrderKeys" [value]="oder">{{ oder }}</option>
+        </select>
+      </div>
+    </div>
+    <div *ngIf="currentPayment && currentPayment.paymentMethod === PaymentMethodEnum.SANTANDER_INSTALLMENT_DK" class="col-xs-4 col-sm-3 col-lg-2">
+      <div class="form-group">
+        <label for="productId">Product ID (for DK)</label>
+        <input type="number" class="form-control" id="productId" [(ngModel)]="currentPayment.productId" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+  </div>
+  <ng-container *ngFor="let l of ['en', 'de', 'sv']">
+    <button type="btn btn-default"
+            [class.btn-default]="locale !== l"
+            [class.btn-primary]="locale === l"
+            (click)="onChangeLang(l)">{{ l.toUpperCase() }}</button>
+    &nbsp;
+  </ng-container>
+  <div *ngIf="hasBNPL && currentPayment" class="checkbox" style="display: inline-block; margin-left: 24px;">
+    <label>
+      <input type="checkbox" [(ngModel)]="currentPayment.isBNPL" [ngModelOptions]="{standalone: true}">
+      isBNPL
+    </label>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-4 col-sm-3 col-lg-2">
+      <div class="form-group">
+        <label for="minWidth">minWidth</label>
+        <input type="text" class="form-control" id="minWidth" [(ngModel)]="config.minWidth" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="col-xs-4 col-sm-3 col-lg-2">
+      <div class="form-group">
+        <label for="maxWidth">maxWidth</label>
+        <input type="text" class="form-control" id="maxWidth" [(ngModel)]="config.maxWidth" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="col-xs-4 col-sm-3 col-lg-2" *ngFor="let key of styleKeys">
+      <div class="form-group">
+        <label for="styles.{{key}}">styles.{{key}}</label>
+        <input type="text" class="form-control" id="styles.{{key}}" [(ngModel)]="config.styles[key]" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,54 @@
+<div class="pe-info-box-container-fixed callbacks-info-box">
+  <pe-info-box
+    [fixed]="false"
+    [roundBorder]="true"
+    [notFullwidthOnMobile]="true"
+    [withHeader]="false"
+    [withFooter]="false"
+    [title]="'settings.colorAndStyle.title' | translate">
+    <ng-container content>
+      <form class="form" [formGroup]="callbacksForm">
+        <div *ngFor="let panel of panels">
+          <peb-expandable-panel
+          [isContentOpen]="true"
+          [headerLabel]="panel.name | translate"
+          >
+            <ng-container *ngIf="panel.key === 'callbacks'" [ngTemplateOutlet]="callbacksRef"></ng-container>
+            <ng-container *ngIf="panel.key === 'webhook'" [ngTemplateOutlet]="webhookRef"></ng-container>
+          </peb-expandable-panel>
+        </div>
+      </form>
+
+    </ng-container>
+  </pe-info-box>
+</div>
+
+<ng-template #callbacksRef>
+  <peb-form-background>
+    <ng-container *ngFor="let control of callbacks">
+      <peb-form-field-input
+        class="field-input"
+        appearance="label"
+        [errorMessage]="(errors$ | async)[control.controlName] | translate"
+        [isFieldInvalid]="callbacksForm.controls[control.controlName].invalid && callbacksForm.controls[control.controlName].dirty"
+        [label]="control.title | translate">
+        <input class="input__value" type="text" [formControl]="callbacksForm.controls[control.controlName]">
+      </peb-form-field-input>
+    </ng-container>
+  </peb-form-background>
+</ng-template>
+
+<ng-template #webhookRef>
+  <peb-form-background>
+    <ng-container *ngFor="let control of webhooks">
+      <peb-form-field-input
+        class="field-input"
+        appearance="label"
+        [errorMessage]="(errors$ | async)[control.controlName] | translate"
+        [isFieldInvalid]="callbacksForm.controls[control.controlName].invalid && callbacksForm.controls[control.controlName].dirty"
+        [label]="control.title | translate">
+        <input class="input__value" type="text" [formControl]="callbacksForm.controls[control.controlName]">
+      </peb-form-field-input>
+    </ng-container>
+  </peb-form-background>
+</ng-template>

@@ -1,0 +1,22 @@
+@import '../../../../../../../shared/styles/assets/ui-kit-styles/pe_variables';
+@import '../../../../../../../shared/styles/assets/mixins';
+
+.loader-container {
+  position: relative !important;
+}
+
+.form-block-docs {
+  border: 1px solid #cccccc;
+  border-radius: $border-radius-default;
+  padding: $payment-grid-unit-y $pe_hgrid_gutter;
+  margin-bottom: $payment-grid-unit-y;
+
+  .h5 {
+    margin: 0;
+
+    a {
+      color: $color-black;
+      text-decoration: underline;
+    }
+  }
+}

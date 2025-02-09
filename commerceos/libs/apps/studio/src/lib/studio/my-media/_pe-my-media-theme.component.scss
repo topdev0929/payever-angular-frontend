@@ -1,0 +1,19 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $label-color: map.get($color-config, 'label-color');
+
+  .pe-studio-my-media {
+    backdrop-filter: blur(25px);
+    background-color: $overlay-background;
+
+    .navbar-detail {
+      .actions-detail {
+        .mat-icon svg g path {
+          fill: $label-color;
+        }
+      }
+    }
+  }
+}

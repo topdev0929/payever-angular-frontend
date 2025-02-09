@@ -1,0 +1,27 @@
+<div [class.checkbox-disabled]="disabled" class="peb-checkbox">
+  <label
+    role="checkbox"
+    [attr.aria-label]="ariaLabel || null"
+    [attr.aria-labelledby]="ariaLabelledby"
+    [attr.aria-checked]="getAriaChecked()"
+    [attr.aria-describedby]="ariaDescribedby"
+    class="checkbox-label-aria"
+    [for]="inputId"
+  >
+    <span
+      class="peb-checkbox-wrapper"
+      [attr.id]="inputId"
+      [class.label-checkbox]="type === 'label'"
+      (click)="onClick($event)"
+    >
+      <div class="check-box" [class.checked]="checked" [class.disable]="disabled">
+        <svg *ngIf="checked"  width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5.7998 9.00156L8.1998 11.4016L12.1998 6.60156" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span class="label-text" [class.small-label-text]="type === 'label'" [class.is-invalid]="isFieldInvalid">
+        <ng-content></ng-content>
+      </span>
+    </span>
+  </label>
+</div>

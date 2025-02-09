@@ -1,0 +1,45 @@
+<div class="pe-bootstrap" style="padding-bottom: 88px;">
+
+  <div style="margin-bottom: 33px;">
+    <label>
+      <div>Flow id</div>
+      <input type="text" class="form-control" placeholder="Flow id" [(ngModel)]="flowId" name="flowId">
+    </label>
+    <br>OR <button type="button" class="btn btn-primary btn-sm" (click)="createFlow()">Create new flow</button><br>
+    <label>
+      <div>Flow total</div>
+      <input type="text" class="form-control" placeholder="Force total" [(ngModel)]="forceTotal">
+      <hr>
+      <button type="button" class="btn btn-primary btn-sm" (click)="resetCartAmount()">Reset count via flowStateService</button>
+    </label>
+    <p>isUseInventory: {{ isUseInventory | json }}</p>
+    <p>isProductsRefreshDisabled: {{ isProductsRefreshDisabled | json }}</p>
+
+  </div>
+
+  <div class="row" *ngIf="flow$ | async">
+    <div class="col-md-10 col-md-offset-1">
+
+      <h3>Cart edit</h3>
+
+      <checkout-cart-edit
+         [attr.flowId]="(flow$ | async)?.id | json"
+         [attr.submit]="submit$ | async | json"
+         [attr.isUseInventory]="isUseInventory | json"
+         [attr.isProductsRefreshDisabled]="isProductsRefreshDisabled | json"
+         (loading)="onLoading($event)"
+         (submitted)="onSubmitted()"
+         (serviceReady)="onServiceReadyChange($event)">
+      </checkout-cart-edit>
+
+      <br>
+
+      <ng-container *ngIf="serviceAvailable">
+        <checkout-sdk-continue-button [text]="'Next step'"
+                                      [loading]="isLoading"
+                                      (clicked)="onConfirm()">
+        </checkout-sdk-continue-button>
+      </ng-container>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<ng-container [ngTemplateOutlet]="tile ? tiled : original"></ng-container>
+
+<ng-template #tiled>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="100%"
+    height="100%"
+    [attr.viewBox]="'0 0 ' + width + ' ' + height"
+  >
+    <defs>
+      <pattern
+        [pebHtml]="svgText$ | async"
+        id="{{pattern}}"
+        width="100%"
+        height="100%"
+        patternUnits="userSpaceOnUse"
+        [attr.patternTransform]="'scale(' + scale + ')'"
+      ></pattern>
+    </defs>
+
+    <rect [attr.fill]="'url(#' + pattern + ')'" width="100%" height="100%" />
+  </svg>
+</ng-template>
+
+<ng-template #original>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="100%"
+    height="100%"
+    preserveAspectRatio="xMidYMid slice"
+    [attr.viewBox]="'0 0 ' + width + ' ' + height"
+    [pebHtml]="svgText$ | async"
+    [attr.transform]="'scale(' + scale + ')'"
+  ></svg>
+</ng-template>

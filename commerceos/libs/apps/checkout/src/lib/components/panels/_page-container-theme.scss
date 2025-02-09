@@ -1,0 +1,42 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $background: map.get($color-config, 'background');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $icon-fill: map.get($color-config, 'icon-fill');
+  $label-color: map.get($color-config, 'label-color');
+  $primary: map.get($color-config, 'primary');
+
+  .checkout-app-container {
+    .checkout-content {
+      .page {
+        &__main-title {
+          color: $text-color;
+        }
+        &__description, &__title {
+          color: $label-color;
+        }
+      }
+    }
+
+    .pe-info-box-container-fixed {
+      .pe-info-box {
+        .info-box {
+          .content-wrapper {
+            background-color: $primary;
+          }
+        }
+      }
+    }
+  }
+  .mat-list-item:not(:last-child),
+  .custom-drag-wrapper {
+    .mat-list-item-flex {
+      border-bottom-color: $background;
+    }
+  }
+  .mat-list-item-open-icon {
+    color: $label-color;
+  }
+}

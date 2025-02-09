@@ -1,0 +1,55 @@
+<div class="toolbar">
+  <div class="toolbar__section toolbar__section--start">
+    <div class="toolbar__group">
+      <button class="toolbar__button" [disabled]="undoDisabled$ | async" (click)="undo()">
+        <mat-icon svgIcon="undo" class="toolbar__icon"></mat-icon>
+      </button>
+      <button class="toolbar__button" [disabled]="redoDisabled$ | async" (click)="redo()">
+        <mat-icon svgIcon="redo" class="toolbar__icon"></mat-icon>
+      </button>
+    </div>
+    <div class="toolbar__group">
+      <button class="toolbar__button" [pebOverlay]="zoomTemplateRef">
+        <mat-icon svgIcon="zoom" class="toolbar__icon"></mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="toolbar__section toolbar__section--center">
+    <div class="toolbar__group" routerLink="./insert" queryParamsHandling="merge">
+      <button class="toolbar__button insert">
+        <mat-icon svgIcon="plus" class="insert__icon"></mat-icon>
+        <span class="insert__title">
+          {{ 'builder-app.toolbar.insert' | translate }}
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div class="toolbar__section toolbar__section--end">
+    <div class="toolbar__group">
+      <button class="toolbar__button" [pebOverlay]="screenMenuTemplateRef">
+        <ng-container *ngIf="screen$ | async as screen">
+           <span class="toolbar__button__title">{{ screen.title }}</span> 
+           <mat-icon class="toolbar__icon" [svgIcon]="screen.icon ?? 'desktop'"></mat-icon>
+        </ng-container>
+      </button>
+    </div>
+  </div>
+</div>
+
+<ng-template #zoomTemplateRef>
+  <div class="peb-dialog">
+    <div class="peb-dialog__header">
+      <div class="peb-dialog__title">{{ 'builder-app.toolbar.zoom' | translate }}</div>
+      <mat-icon class="peb-dialog__close" svgIcon="button-close" pebOverlayClose></mat-icon>
+    </div>
+    <div class="peb-dialog__body">
+      <peb-zoom-dialog></peb-zoom-dialog>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #screenMenuTemplateRef>
+  <peb-screen-dialog></peb-screen-dialog>
+</ng-template>

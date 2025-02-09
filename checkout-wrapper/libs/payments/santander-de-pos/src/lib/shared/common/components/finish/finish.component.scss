@@ -1,0 +1,9 @@
+@import "../../../../../../../../shared/styles/assets/ui-kit-styles/pe_variables";
+@import "../../../../../../../../shared/styles/assets/ui-kit-styles/mixins/pe_mixins.scss";
+
+.verify-iframe {
+  border: none;
+  width: 100%;
+  height: 100vh;
+  max-height: 680px;
+}

@@ -1,0 +1,85 @@
+<div class="list__header">
+  <span class="list__headline">{{ 'builder-app.pages.title' | translate }}</span>
+  <mat-icon (click)="close()" class="list__close" svgIcon="small-close-icon"></mat-icon>
+</div>
+
+<mat-tree
+  class="list__content"
+  [dataSource]="dataSource"
+  [treeControl]="treeControl"
+  cdkDropList
+  [cdkDropListData]="pageList$ | async"
+  (cdkDropListDropped)="drop($event)"
+  [cdkDropListSortingDisabled]="true"
+  [cdkDropListLockAxis]="'y'"
+>
+  <mat-tree-node *matTreeNodeDef="let page" cdkDrag [cdkDragData]="page" (cdkDragMoved)="dragMoved($event)">
+    <span *cdkDragPreview></span>
+    <ng-container *ngTemplateOutlet="pageTreeItemTemplate; context: { $implicit: page }"></ng-container>
+  </mat-tree-node>
+
+  <mat-tree-node *matTreeNodeDef="let page; when: hasChild" cdkDrag [cdkDragData]="page" (cdkDragMoved)="dragMoved($event)">
+    <span *cdkDragPreview></span>
+    <ng-container *ngTemplateOutlet="pageTreeItemTemplate; context: { $implicit: page }"></ng-container>
+  </mat-tree-node>
+</mat-tree>
+
+<div class="list__footer">
+  <button class="list__button" (click)="openDialog()">
+    <mat-icon class="list__plus" svgIcon="side-menu-icon-cc"></mat-icon>
+  </button>
+</div>
+
+<ng-template #pageTreeItemTemplate let-page>
+  <div
+    class="list__container"
+    [class.list__container--child]="page.level > 0"
+    [id]="page.id"
+  >
+    <mat-icon *ngIf="!page.expandable" svgIcon="minus" [style.visibility]="'hidden'"></mat-icon>
+    <mat-icon
+      *ngIf="page.expandable"
+      svgIcon="triangle-right"
+      [class.icon-down]="treeControl.isExpanded(page)"
+      (click)="toggleExpand(page)"
+    ></mat-icon>
+    <a
+      class="list__item"
+      routerLink="."
+      (click)="navigateToPage(page.id)"
+      [class.active]="!isDragging && page.active"
+      (contextmenu)="openContextMenu($event, page)"
+      draggable="true"
+      (dragstart)="dragStarted($event, page)"
+      (dragover)="handleDragOver($event, page)"
+      (dragend)="dragEnd($event, page)"
+      [ngClass]="{
+        'list__item__above': draggedOverPage?.id === page.id && draggedOverPosition === pebDraggedOverPosition.Above,
+        'list__item__center': draggedOverPage?.id === page.id && draggedOverPosition === pebDraggedOverPosition.Center,
+        'list__item__below': draggedOverPage?.id === page.id && draggedOverPosition === pebDraggedOverPosition.Below
+      }"
+      [title]="page.name"
+    >
+      <span class="list__thumbnail">
+        <img *ngIf="!previewImages.has(page.id)" [src]="page.preview" [alt]="page.name"/>
+        <div *ngIf="previewImages.has(page.id)" [pebHtml]="previewImages.get(page.id)"></div>
+      </span>
+      <span class="list__label">{{ page.name }}</span>
+    </a>
+  </div>
+</ng-template>
+
+<ng-template #pageMenu let-page>
+  <div class="menu">
+    <div class="menu__header">
+      <div class="menu__headline">{{ 'builder-app.common.options' | translate }}</div>
+      <mat-icon (click)="closeContextMenu()" class="menu__close" svgIcon="small-close-icon"></mat-icon>
+    </div>
+    <ul class="menu__list">
+      <li class="menu__item" (click)="editMaster(page)" *ngIf="page.master?.page">{{ 'builder-app.pages.edit_master_page' | translate }}</li>
+      <li class="menu__item" (click)="duplicate(page)">{{ 'builder-app.actions.duplicate' | translate }}</li>
+      <li class="menu__item menu__item--danger" (click)="delete(page)">{{ 'builder-app.actions.delete' | translate }}</li>
+
+    </ul>
+  </div>
+</ng-template>

@@ -1,0 +1,25 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $gradient-skeleton: map.get($color-config, 'gradient-skeleton');
+  $text-color: map.get($color-config, 'text-color');
+
+  .pe-message-chat-room-list {
+
+    &__icon {
+      .text__dark {
+        color: $text-color;
+      }
+    }
+
+    &__initials {
+      background: $gradient-skeleton;
+      color: $text-color;
+    }
+
+    &__title {
+      color: $text-color;
+    }
+  }
+
+}

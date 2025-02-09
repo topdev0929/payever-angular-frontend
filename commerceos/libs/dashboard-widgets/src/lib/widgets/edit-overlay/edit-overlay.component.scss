@@ -1,0 +1,108 @@
+@use 'pe_variables' as pe_variables;
+
+peb-overlay-widget {
+    .overlay-widget-container {
+      > div {
+        width: 100%;
+      }
+    }
+  }
+
+  .edit-overlay-container {
+    max-height: 300px;
+    @media (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+      max-height: unset;
+    }
+    overflow: overlay;
+    border-radius: 13px;
+
+    .item {
+      padding: 0 12px;
+      @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+        padding: 0 16px;
+      }
+      display: flex;
+      align-items: center;
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+      &:first-child {
+        border-top-left-radius: 13px;
+        border-top-right-radius: 13px;
+      }
+      &:last-child {
+        border-bottom-left-radius: 13px;
+        border-bottom-right-radius: 13px;
+      }
+      &-icon {
+        width: 28px;
+        height: 28px;
+        @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+          width: 30px;
+          height: 30px;
+        }
+        display: inline-block;
+        border-radius: 5px;
+        padding: 5px;
+        svg {
+          width: 18px;
+          height: 18px;
+          @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+      &-title {
+        flex-grow: 1;
+        font-weight: 400;
+        display: inline-block;
+        margin-left: 16px;
+        @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+        font-size: 17px;
+        }
+      }
+      &-toggle {
+        .button-toggle-container {
+          margin: 0;
+          padding: 0;
+          @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .editor-toggle {
+    width: 249px;
+    padding: 2px;
+    border-radius: 9px;
+    margin: 0 auto 18px;
+    display: flex;
+    .toggle-button {
+      cursor: pointer;
+      text-align: center;
+      flex: 1;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 3px;
+      @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+        padding: 6px;
+      }
+      &.active {
+        border-radius: 7.5px;
+      }
+    }
+  }
+  .toggle-install {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 0 !important;
+    height: 44px;
+    @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+      height: 56px;
+      margin: 0;
+      padding: 0;
+    }
+  }

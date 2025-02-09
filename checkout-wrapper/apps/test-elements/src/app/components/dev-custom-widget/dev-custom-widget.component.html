@@ -1,0 +1,97 @@
+<form
+  [formGroup]="loginForm"
+  (ngSubmit)="login()">
+  <input
+    type="text"
+    formControlName="email" />
+  <br />
+  <br />
+  <input
+    type="password"
+    formControlName="plainPassword" />
+  <br />
+  <br />
+  <button type="submit">Submit</button>
+  <button
+    type="button"
+    [routerLink]="'../'">
+    back
+  </button>
+</form>
+
+<br />
+<br />
+<br />
+
+<form [formGroup]="formGroup">
+  <input
+    type="number"
+    formControlName="minWidth" />
+  <input
+    type="number"
+    formControlName="maxWidth" />
+  <br />
+  <br />
+  <input
+    type="text"
+    formControlName="amount" />
+  <input
+    type="text"
+    formControlName="channelSetId" />
+  <br />
+  <br />
+  <select
+    class="form-control"
+    formControlName="paymentMethod">
+    <option
+      *ngFor="let pm of options"
+      [value]="pm">
+      {{ pm }}
+    </option>
+  </select>
+  <br />
+  <br />
+  <select
+    class="form-control"
+    formControlName="checkoutMode">
+    <option
+      *ngFor="let type of checkoutModeTypes"
+      [value]="type">
+      {{ type }}
+    </option>
+  </select>
+  <select
+    class="form-control"
+    formControlName="type">
+    <option
+      *ngFor="let type of widgetTypes"
+      [value]="type">
+      {{ type }}
+    </option>
+  </select>
+  <select
+    class="form-control"
+    formControlName="theme">
+    <option
+      *ngFor="let theme of themes"
+      [value]="theme">
+      {{ theme | titlecase }}
+    </option>
+  </select>
+</form>
+
+<br />
+<br />
+
+<ng-container *ngIf="channelSetId$ | async as channelSetId">
+  <pe-checkout-widget
+    [attr.channelset]="channelSetId"
+    [attr.type]="type$ | async"
+    [attr.amount]="amount$ | async"
+    [attr.cart]="cart | json"
+    [attr.isdebugmode]="false"
+    [attr.config]="config$ | async | json"
+    [attr.env]="env | json"
+    [attr.paymentmethod]="selectedPayment$ | async"
+    [attr.theme]="theme$ | async"></pe-checkout-widget>
+</ng-container>

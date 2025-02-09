@@ -1,0 +1,9 @@
+$scale: var(--scale);
+
+@function scale($value) {
+  @if ($scale != 1) {
+    @return calc(#{$value} * #{$scale});
+  }
+
+  @return $value;
+}

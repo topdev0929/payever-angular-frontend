@@ -1,0 +1,5 @@
+          <pe-payment-options-list
+            [itemsList]="paymentOptions"
+            (selectItemEvent)="onSelectItem($event)"
+            >
+          </pe-payment-options-list>

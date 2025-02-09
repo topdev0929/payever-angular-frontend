@@ -1,0 +1,40 @@
+<peb-edit-security-question-styles></peb-edit-security-question-styles>
+<form class="form-container"
+  [formGroup]="securityForm"
+  #form="ngForm"
+  (ngSubmit)="onSave()"
+>
+  <peb-form-background>
+    <peb-select
+      selectType="label"
+      label="{{ 'form.create_form.security_question.question' | translate }}"
+      [selected]="editSecurityQuestionService.selectedQuestion$ | async"
+      [isFieldInvalid]="form.submitted && securityForm.get('question').invalid"
+      errorMessage="{{ 'common.forms.validations.required' | translate }}"
+      formControlName="question"
+    >
+      <peb-select-option
+        class="select-options security-question-option"
+        *ngFor="let item of editSecurityQuestionService.questions$ | async"
+        [value]="item"
+        label="{{ item | translate }}"
+      ></peb-select-option>
+    </peb-select>
+    <peb-form-field-input
+      label="{{ 'form.create_form.security_question.answer' | translate }}"
+      [isFieldInvalid]="form.submitted && securityForm.get('answer').invalid"
+      errorMessage="{{ 'common.forms.validations.required' | translate }}"
+      appearance="label"
+      [animated]="!(editSecurityQuestionService.selectedQuestion$ | async)"
+    >
+      <input
+        type="text"
+        class="security-placeholder"
+        pebInput
+        formControlName="answer"
+        placeholder="{{(editSecurityQuestionService.selectedQuestion$ | async) ? '&#8226;&#8226;&#8226;&#8226;' : ''}}"
+      />
+    </peb-form-field-input>
+  </peb-form-background>
+  <button #submitTrigger type="submit" class="hidden"></button>
+</form>

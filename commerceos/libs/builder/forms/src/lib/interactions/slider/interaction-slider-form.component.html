@@ -1,0 +1,80 @@
+<form [formGroup]="form" *ngIf="formOptions$ | async as formOptions">
+  <div formGroupName="slider">
+
+    <div class="form__row_border" *ngIf="formOptions.showPlaceholderElement">
+      <label class="field__label">Placeholder</label>
+      <peb-select class="field-control" formControlName="placeholderElementId" [options]="placeholderElements$|async">
+      </peb-select>
+    </div>
+
+    <div *ngIf="formOptions.showContentElement" formGroupName="contentElement">
+      <label class="field__label">Content</label>
+      <peb-select class="field-control" formControlName="pageId" [options]="contentPages$|async">
+      </peb-select>
+      <peb-select class="field-control" formControlName="elementId" [options]="contentElements$|async">
+      </peb-select>
+    </div>
+
+    <div class="form__row_border" *ngIf="formOptions.showSlideChange">
+      <label class="group__label">slide</label>
+      <peb-select class="field-control" formControlName="slideType" [options]="indexChangeTypes">
+      </peb-select>
+
+      <div class="form__row inline" *ngIf="formOptions.showSlideNumber">
+        <label class="group__label">Slide Number</label>
+        <peb-number-input formControlName="slideNumber"></peb-number-input>
+      </div>
+
+      <peb-slide-toggle class="field__slide-toggle" formControlName="slideLoop" *ngIf="formOptions.showSlideLoop">
+        Loop
+      </peb-slide-toggle>
+    </div>
+
+    <div class="form__row_border" formGroupName="slideAnimation" *ngIf="formOptions.showSlideAnimation">
+      <label class="group__label">Slide Timing</label>
+
+      <peb-select label="Timing" class="field-control" formControlName="timing" placeholder="Timing"
+        [options]="animationTimings">
+      </peb-select>
+
+      <div class="form__row inline">
+        <label class="group__label">{{ 'builder-app.forms.animation.delay' | translate }}</label>
+        <peb-number-input formControlName="delay" units="ms"></peb-number-input>
+      </div>
+
+      <div class="form__row inline">
+        <label class="group__label">{{ 'builder-app.forms.animation.duration' | translate }}</label>
+        <peb-number-input formControlName="duration" units="ms"></peb-number-input>
+      </div>
+    </div>
+
+    <div class="form__row_border" formGroupName="slideAlign" *ngIf="formOptions.showSlideAlign">
+      <label class="group__label">Slide Align</label>
+      <div class="grid-2-columns">
+        <peb-select class="field-control" formControlName="vertical" [options]="verticalAligns">
+        </peb-select>
+
+        <peb-select class="field-control" formControlName="horizontal" [options]="horizontalAligns">
+        </peb-select>
+      </div>
+    </div>
+
+    <div class="form__row_border" formGroupName="autoPlay" *ngIf="formOptions.showAutoplayOnloadOption">
+      <peb-slide-toggle class="field__slide-toggle" formControlName="onLoad">
+        Autoplay
+      </peb-slide-toggle>
+    </div>
+
+    <div class="form__row_border" formGroupName="autoPlay" *ngIf="formOptions.showPlayOptions">
+      <label class="group__label">Duration</label>
+      <div class="grid-2-columns">
+        <peb-number-input formControlName="duration" units="ms"></peb-number-input>
+      </div>
+    
+      <peb-slide-toggle class="field__slide-toggle" formControlName="loop">
+        Loop
+      </peb-slide-toggle>
+    </div>
+
+  </div>
+</form>

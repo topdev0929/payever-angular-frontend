@@ -1,0 +1,26 @@
+<h4>Default</h4>
+
+<button mat-button [matMenuTriggerFor]="menu1">Menu</button>
+<mat-menu #menu1="matMenu" class="mat-menu-xs">
+  <button mat-menu-item><svg class="icon icon-24"><use xlink:href="#icon-device-desktop-24"></use></svg></button>
+  <button mat-menu-item><svg class="icon icon-24"><use xlink:href="#icon-device-tablet-24"></use></svg></button>
+  <button mat-menu-item><svg class="icon icon-24"><use xlink:href="#icon-device-mobile-24"></use></svg></button>
+</mat-menu>
+
+<h4>Light</h4>
+
+<button mat-button [matMenuTriggerFor]="menu2">Menu</button>
+<mat-menu #menu2="matMenu" class="mat-menu-xs mat-menu-light">
+  <button mat-menu-item><svg class="icon icon-24"><use xlink:href="#icon-device-desktop-24"></use></svg></button>
+  <button mat-menu-item><svg class="icon icon-24"><use xlink:href="#icon-device-tablet-24"></use></svg></button>
+  <button mat-menu-item><svg class="icon icon-24"><use xlink:href="#icon-device-mobile-24"></use></svg></button>
+</mat-menu>
+
+<h4>Dark</h4>
+<button mat-button [matMenuTriggerFor]="menu3">Menu</button>
+<mat-menu #menu3="matMenu" class="mat-menu-dark">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>

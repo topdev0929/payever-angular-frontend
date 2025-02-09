@@ -1,0 +1,39 @@
+<button *ngIf="hasCloseIcon"
+        type="button"
+        mat-button mat-dialog-close
+        class="mat-button mat-button-no-padding mat-button-link mat-button-xs mat-dialog-close-icon"
+>
+  <svg class="icon icon-16"><use xlink:href="#icon-close-16"></use></svg>
+</button>
+<div class="mat-dialog-toolbar" *ngIf="hasToolbar">
+  <ng-content select="[toolbar]"></ng-content>
+</div>
+
+<div [class.mat-dialog-wrapper]="hasToolbar">
+  <div class="mat-dialog-content-wrapper">
+    <div class="mat-dialog-content-wrapper-loader" *ngIf="loading">
+      <mat-spinner [strokeWidth]="spinnerStrokeWidth" [diameter]="spinnerDiameter"></mat-spinner>
+    </div>
+
+    <div [class.transparent-content]="loading">
+      <h4 mat-dialog-title *ngIf="title">{{ title }}</h4>
+      <ng-content></ng-content>
+    </div>
+  </div>
+
+  <pe-dialog-actions *ngIf="orderedButtons && orderedButtons.length !== 0">
+    <ng-container *ngFor="let button of orderedButtons">
+      <button class="mat-button-link"
+              mat-button
+              type="button"
+              [color]="button.color"
+              [disabled]="isButtonDisabled(button)"
+              [ngClass]="button.classes"
+              (click)="processButtonClick(button)"
+      >{{ button.text }}</button>
+      <mat-divider *ngIf="orderedButtons.indexOf(button) < orderedButtons.length - 1" [vertical]="true"></mat-divider>
+    </ng-container>
+  </pe-dialog-actions>
+
+  <div *ngIf="!noMarginBottom && (!orderedButtons || orderedButtons.length === 0)"><br></div>
+</div>

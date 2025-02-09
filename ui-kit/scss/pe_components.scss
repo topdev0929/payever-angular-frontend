@@ -1,0 +1,228 @@
+//
+// Main components and mixins styles
+// -----------------------------------
+
+@import 'pe_fonts';
+@import 'pe_base';
+
+
+// Mixins
+// -----------------------------
+
+@import 'mixins/pe_mixins';
+@import 'mixins/avatar';
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+
+
+// Bootstrap Components
+// Original Components
+// ---------------------------------
+
+//# Reset and dependencies
+.pe-bootstrap {
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/normalize";
+}
+// @import "~bootstrap-sass/assets/stylesheets/bootstrap/normalize";
+// @import "~bootstrap-sass/assets/stylesheets/bootstrap/print";
+// @import "~bootstrap-sass/assets/stylesheets/bootstrap/glyphicons";
+
+//# Core CSS
+.pe-bootstrap {
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/forms";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/scaffolding";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/type";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/code";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/grid";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/tables";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/buttons";
+}
+
+//# Components
+// @import "~bootstrap-sass/assets/stylesheets/bootstrap/navbar"; // Can't be added because bootstrap/forms is removed
+.pe-bootstrap {
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/component-animations";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/dropdowns";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/button-groups";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/input-groups";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/navs";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/breadcrumbs";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/pagination";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/pager";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/labels";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/badges";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/jumbotron";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/thumbnails";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/alerts";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/progress-bars";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/media";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/list-group";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/panels";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/responsive-embed";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/wells";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/close";
+}
+
+//# Components w/ JavaScript
+.pe-bootstrap {
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/modals";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/tooltip";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/popovers";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/carousel";
+}
+
+//# Utility classes
+.pe-bootstrap {
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/utilities";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
+}
+
+// Base
+// -----------------------------
+
+@import "blocks/base/type";
+
+// Bootstrap Components (bootstrap)
+// --------------------------------
+
+//# Reset and dependencies
+@import "blocks/bootstrap/print";
+
+//# Core CSS
+@import "blocks/bootstrap/scaffolding";
+@import "blocks/bootstrap/code";
+@import "blocks/bootstrap/grid";
+@import "blocks/bootstrap/tables";
+@import "blocks/bootstrap/forms";
+@import "blocks/bootstrap/buttons";
+
+//# Components
+@import "blocks/bootstrap/component-animations";
+@import "blocks/bootstrap/dropdowns";
+@import "blocks/bootstrap/button-groups";
+@import "blocks/bootstrap/input-groups";
+@import "blocks/bootstrap/navs";
+@import "blocks/bootstrap/navbar";
+@import "blocks/bootstrap/pagination";
+@import "blocks/bootstrap/pager";
+@import "blocks/bootstrap/jumbotron";
+@import "blocks/bootstrap/alerts";
+@import "blocks/bootstrap/progress-bars";
+
+//# Components w/ JavaScript
+@import "blocks/bootstrap/modals";
+
+//# Utility classes
+@import "blocks/bootstrap/utilities";
+
+// Third party Components (plugins)
+// ------------------------------------
+
+@import 'blocks/plugins/datepicker';
+@import 'blocks/plugins/datepicker_ngx';
+@import 'blocks/plugins/medium_editor';
+@import 'blocks/plugins/colorpicker';
+
+
+// Material components
+// -----------------------------
+
+@import "blocks/material/theming";
+
+@import "blocks/material/autocomplete";
+@import "blocks/material/button";
+@import "blocks/material/button-toggle";
+@import 'blocks/material/card';
+@import "blocks/material/cdk";
+@import "blocks/material/checkbox";
+@import 'blocks/material/datepicker';
+@import 'blocks/material/divider';
+@import 'blocks/material/expansion-panel';
+@import 'blocks/material/form-field';
+@import 'blocks/material/grid-list';
+@import 'blocks/material/input';
+@import 'blocks/material/menu';
+@import 'blocks/material/progress-bar';
+@import 'blocks/material/radio';
+@import 'blocks/material/select';
+@import 'blocks/material/sidenav';
+@import 'blocks/material/dialog';
+@import 'blocks/material/spinner';
+@import 'blocks/material/table';
+@import 'blocks/material/toolbar';
+@import 'blocks/material/tabs';
+@import 'blocks/material/tooltip';
+@import 'blocks/material/tabs';
+@import 'blocks/material/autocomplete';
+@import 'blocks/material/slide-toggle';
+@import 'blocks/material/list';
+@import 'blocks/material/chip';
+@import 'blocks/material/slider';
+@import 'blocks/material/snack-bar';
+@import 'blocks/material/tree';
+@import 'blocks/material/badge';
+
+// PE Components (project)
+// -----------------------------
+
+@import "blocks/project/spinner";
+@import "blocks/project/icons";
+@import "blocks/project/notify";
+@import "blocks/project/toggle-settings-item";
+@import "blocks/project/block-thumb";
+@import "blocks/project/card";
+@import "blocks/project/card-breakpoints";
+@import "blocks/project/data-grid";
+@import "blocks/project/rate";
+@import "blocks/project/native-submit";
+@import "blocks/project/chart";
+@import "blocks/project/terminal-list";
+@import "blocks/project/pe-slider";
+@import "blocks/project/general-dashboard";
+@import "blocks/project/ui-readmore";
+@import "blocks/project/ui-accordion";
+@import "blocks/project/docker";
+@import "blocks/project/docker-pos";
+@import "blocks/project/builder";
+@import "blocks/project/content-editor";
+@import "blocks/project/profile-container";
+@import "blocks/project/app-container";
+@import "blocks/project/overlay-container";
+@import "blocks/project/builder-docker";
+@import "blocks/project/dashboard";
+@import "blocks/project/wallpapers";
+@import "blocks/project/spotlight";
+@import "blocks/project/ui-search";
+@import "blocks/project/ui-subdashboard-header";
+@import "blocks/project/ui-platform-header";
+@import "blocks/project/ui-carousel";
+@import "blocks/project/ui-layout";
+@import "blocks/project/cards-container";
+@import "blocks/project/ui-paragraph-editor";
+@import "blocks/project/ui-tags-input";
+@import "blocks/project/scrollbars";
+@import "blocks/project/form-table";
+@import "blocks/project/form-field";
+@import "blocks/project/form-table-breakpoints";
+@import "blocks/project/form-table-dark";
+@import "blocks/project/form-table-horizontal";
+@import "blocks/project/avatar";
+@import "blocks/project/error-message";
+@import "blocks/project/file-picker";
+@import "blocks/project/image-picker";
+@import "blocks/project/number-field";
+@import "blocks/project/layout";
+@import "blocks/project/border-highlight";
+@import "blocks/project/info-box";
+@import "blocks/project/welcome-screen";
+@import "blocks/project/toolbar";
+@import "blocks/project/micro-addon";
+@import "blocks/project/input-spinner";
+@import "blocks/bootstrap/div-table";
+@import "blocks/project/autocomplete-chips";
+@import "blocks/project/select";
+
+@import "blocks/project/checkout-hot-fixes";
+
+// Browser specific hacks
+@import "blocks/project/browser-hacks";
+

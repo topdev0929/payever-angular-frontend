@@ -1,0 +1,327 @@
+// ##
+// Overwrite bootstrap variables
+// ##
+
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+
+$brand-primary: #0084ff;
+
+//** Global text color on `<body>`.
+$text-color: #3d3d3d;
+
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+
+$font-family-sans-serif: "Helvetica Neue", "Open Sans PE", "Arial", sans-serif;
+$font-family-serif: "Times New Roman", "Times", serif;
+
+$font-size-base: 14px;
+$font-size-h5: $font-size-base + 1px;
+
+
+//== Forms
+//
+//##
+
+//** Text color for `<input>`s
+$input-color: #3d3d3d;
+//** `<input>` border color
+$input-border: rgba($input-color,.2);
+
+//** `.form-control` type 'link' background color
+$input-bg-link: transparent;
+//** `.form-control`  type 'link' background color
+$input-bg-disabled-link: transparent;
+
+//** `.form-control`  type 'link' border radius
+// This has no effect on `<select>`s in some browsers, due to the limited stylability of `<select>`s in CSS.
+$input-border-radius-link: 0;
+
+//** `.form-control` type 'link' border color
+$input-border-link: transparent;
+
+//** Border color for `.form-control` type 'link' on focus
+$input-border-focus-link: transparent;
+
+
+//== Grid system
+//
+//## Define your custom responsive grid.
+
+//** Padding between columns. Gets divided in half for the left and right.
+$grid-gutter-width: 24px;
+
+
+//== Form states and alerts
+//
+//## Define colors for form feedback states and, by default, alerts.
+
+$state-danger-text: #ff3c30;
+$state-danger-hover-text: #c02f1d;
+$state-danger-border: #ff3c30;
+
+
+//== Popovers
+//
+//##
+
+//** Popover maximum width
+$popover-max-width: 320px;
+//** Popover border color
+$popover-border-color: #fff;
+
+//** Popover title background color
+$popover-title-bg: #fff;
+
+
+//== Modals
+//
+//##
+
+//** Padding applied to the modal body
+$modal-inner-padding: 30px;
+
+//** Padding applied to the modal title
+$modal-title-padding: $modal-inner-padding;
+
+//** Modal content border color
+$modal-content-border-color: #fff;
+//** Modal content border color **for IE8**
+$modal-content-fallback-border-color: #fff;
+
+//** Modal backdrop background color
+$modal-backdrop-bg: #f7f7f7;
+//** Modal backdrop opacity
+$modal-backdrop-opacity: .79;
+//** Modal header border color
+$modal-header-border-color: #fff;
+//** Modal footer border color
+$modal-footer-border-color: #fff;
+
+$modal-md: 630px;
+
+
+// ##
+// Project custom variables
+// ##
+
+$body_width: 960px;
+$max_content_width: 1200px;
+$page_nav_width: 200px;
+$user_nav_width: 300px;
+$settings-menu-width: 200px;
+$private-settings-width-max: 1000px;
+$modal-settings-form-width-max: 620px;
+$content_horisontal_margin: 20px;
+$size-switch-item-icon: 48px;
+
+$modal-ms: 900px;
+$edit-dialog-header-padding-top: 48px;
+$edit-dialog-header-padding-bottom: 10px;
+$edit-dialog-header-padding-left: 34px;
+$edit-dialog-header-padding-right: 34px;
+$edit-dialog-header-padding: $edit-dialog-header-padding-top $edit-dialog-header-padding-right $edit-dialog-header-padding-bottom $edit-dialog-header-padding-left;
+$edit-dialog-header-line-height: 34px;
+$edit-dialog-header-font-size: 28px;
+$edit-dialog-body-padding-top: 0;
+$edit-dialog-body-padding-bottom: 56px;
+$edit-dialog-body-padding-left: 34px;
+$edit-dialog-body-padding-right: 34px;
+$edit-dialog-body-padding: $edit-dialog-body-padding-top $edit-dialog-body-padding-right $edit-dialog-body-padding-bottom $edit-dialog-body-padding-left;
+$edit-dialog-footer-padding: 18px;
+$btn-modal-footer-height: 24px;
+
+$font-size-headline-title: 28px;
+$font-size-note: 13px;
+$line-height-note: 16px;
+
+//** Color
+$color-button-disabled: #e1e1e1;
+$color-button-border-disabled: #e7e7e7;
+$color-black-tab-active: #565656;
+$color-button-modal-submit: $brand-primary;
+$color-button-close: #979797;
+$color-confirmation: #3d3d3d;
+$color-headline-title: #3d3d3d;
+$color-headline-subtitle: #b3b3b3;
+$color-block-title: #4a4a4a;
+$color-block-border: #e1e1e1;
+$color-block-info: #848485;
+$color-info-icon: #c2c2c2;
+$color-link: #007aff;
+$color-avatar-camera: #e1e1e1;
+$color-avatar-plus: $brand-primary;
+$color-form-placeholder: #b3b3b3;
+$color-form-icon: darken($color-form-placeholder, 10%);
+$color-inline-label: #b3b3b3;
+$color-note: #959ba2;
+$color-status-icon: #e1e1e1;
+$color-status-icon-granted: #75b636;
+$color-status-active: #75b636;
+$color-note-text: #6d6d6d;
+$color-status-enabled: #057b05;
+$color-status-pending: #f5a623;
+$color-btn-link-hover: #4a4a4a;
+$color-bunner-structure-icon: #e1e1e1;
+$color-bunner-structure-icon-active: #0048ff;
+$color-table-even-tr-bg: #f9f9f9;
+$color-secondary-text: #b3b3b3;
+$color-active-menu-item-border: #969696;
+$color-list-view-head-bg: #e1e1e1;
+
+//** Size
+$height-navbar: 58px;
+
+
+$light_gray_bg: #f8f8f8;
+
+//** Borders
+$border-block: 1px solid $color-block-border;
+$border-block-title: $border-block;
+$border-modal-footer: 1px solid #e7e7e7;
+$border-inline-buttons: 1px solid #e1e1e1;
+
+//** Forms
+$font-size-form-control-base: 15px;
+$line-height-form-control-base: 21px;
+$padding-form-control-base: 0 0 10px 0;
+$input-height-form-control-base: $line-height-form-control-base + 12px;
+$padding-form-widget-design: 64px - $input-height-form-control-base;
+
+//** Carousel
+$carousel-control-font-size: 13px;
+$carousel-control-color: #0084ff;
+$carousel-indicator-active-bg: $carousel-control-color;
+$carousel-control-opacity: 1;
+$carousel-text-shadow: none;
+
+//** Payment options
+$payment-option-height: 130px;
+$payment-option-padding: 27px;
+
+
+//** Old variables. TODO: remove while not needed
+$light_light_gray: #E8EBEF;
+$dark_gray: #5d5d5d;
+$dark_gray1: #676e75;
+$light_grey: #d8d8d8;
+$light_grey1: #9ba2b1;
+$light_grey2: #8b8f94;
+$light_grey3: #f5f6f7;
+$light_grey4: #e0e2e3;
+$light_grey5: #b0b8c1;
+$light_grey6: #b5b9be;
+$light_grey7: #959ba3;
+$light_grey8: #aaaaaa;
+$light_grey9: #afafaf;
+$very_light_gray: #fdfdfd;
+$very_light_gray2: #f0f0f0;
+
+$primary_menu_hover: #282D35;
+$red: #9C0032;
+$error_bg: #e40516;
+$error_bg_color: #faf3f3;
+$dark_red: #80002A;
+$green : green;
+$green_light: #20c929;
+$green_yellow: #95bf15;
+$dark_blue: #3e8cb7;
+$white: #ffffff;
+$granny_apple: #b4dcbc;
+$contact_list_height: 40px;
+$facebook: #45619d;
+$twitter: #50abf1;
+$linkedin: #0077b5;
+
+// /* NEW SCHEME */
+$light_grey_background: #f9fafb;
+$light_grey2_background: #f3f3f3;
+$gray_text: #959ba2;
+$gray_text_hover: #525A5E;
+$orange: #ffa02f;
+$orange_dark_hover: mix($orange, #222);
+$line: #e5e5e5;
+$frame_border: #dfe4e6;
+$cyan: #2fb3ff;
+$grayblue_background: #6b7888;
+$grayblue_link: #e4eaf1;
+$alert: #ff261a;
+$red_background: #f2dedd;
+$text-orange: #e7b663;
+$blue: #0084ff;
+$blue_light: #73BAFF;
+$black: #000000;
+$app_gray: #3d454d;
+
+$transparent_gray_background: rgba(248, 248, 248, 0.95);
+
+$line_light: 1px #f4f4f4 solid;
+$line_gray: 1px #e8e8e8 solid;
+$line_gray2: 1px #cccccc solid;
+$line_gray_dark: 1px #575b63 solid;
+$line_black: 1px $black solid;
+
+// Logo sizes
+$logo-size-medium: 70px;
+
+// Icon sizes
+$icon-size-128: 128px;
+$icon-size-96: 96px;
+$icon-size-64: 64px;
+$icon-size-48: 48px;
+$icon-size-32: 32px;
+$icon-size-24: 24px;
+$icon-size-20: 20px;
+$icon-size-16: 16px;
+
+//shop definitions
+
+$shop_width: 460px;
+$shop_padding: 0;
+$shop_page_border_radius: 5px;
+
+$price: #333;
+$empty_color: #808080;
+$indicator_color: #989898;
+$indicator_hover_color: #3fa2d5;
+
+$shop_athens_grey: $line;
+$shop_border: 1px solid $shop_athens_grey;
+$shop_border_radius: 4px;
+
+$header_height: 54px;
+$footer_height: 50px;
+$border_radius: 4px;
+$shop_header_height: 60px;
+$shop_header_menu_button_height: 36px;
+$shop_header_menu_icon_size: 30px;
+$shop_header_logo_width: 60px;
+$shop_header_radius: $shop_header_menu_button_height / 2;
+$shop_header_font: 14px;
+$shop_header_color: $gray_text;
+
+$shop_footer_background: $light_grey_background;
+$shop_footer_icon_size: 20px;
+$shop_footer_height: 48px;
+
+$shop_footer_logo_height: 30px;
+
+// mobile-xs
+$mobile-xs-icon-width: 60px;
+$mobile-xs-icon-height: 60px;
+$mobile-xs-icon-list-padding: 14px 14px 0 14px;
+$mobile-xs-icon-list-height: 100px;
+
+// mobile-sm
+$mobile-sm-icon-width: 55px;
+$mobile-sm-icon-height: 55px;
+$mobile-sm-icon-list-padding: 10px 7px 0 7px;
+$mobile-sm-icon-list-height: 84px;
+
+// transitions
+$transition-duration: .2s;
+$transition-function: linear;

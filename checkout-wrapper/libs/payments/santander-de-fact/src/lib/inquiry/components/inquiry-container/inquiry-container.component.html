@@ -1,0 +1,28 @@
+<ng-container
+  *ngIf="{
+  docs: docs$ | async,
+  loading: loading$ | async
+} as vm">
+  <ng-container *ngIf="showInquiryForm">
+    <santander-de-fact-inquiry-form
+      [paymentData]="vm.docs"
+      (submitted)="onSend($event)">
+    </santander-de-fact-inquiry-form>
+
+    <checkout-sdk-continue-button
+      *ngIf="vm.docs"
+      [text]="translations.sendInquiryText"
+      [loading]="vm.loading"
+      (clicked)="submit()">
+    </checkout-sdk-continue-button>
+  </ng-container>
+
+  <santander-de-fact-inquiry-finish
+    *ngIf="(!showInquiryForm || errorMessage)"
+    [isLoading]="vm.loading || !showInquiryForm"
+    [embeddedMode]="embeddedMode"
+    [merchantMode]="merchantMode"
+    [errorMessage]="errorMessage"
+    (tryAgain)="tryAgain()">
+  </santander-de-fact-inquiry-finish>
+</ng-container>

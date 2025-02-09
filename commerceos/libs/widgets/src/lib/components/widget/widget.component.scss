@@ -1,0 +1,35 @@
+pe-widget {
+  &:not(.pe-apps-widget) {
+    .pe-widget-main, .pe-widget-start {
+      transition: box-shadow 0.2s cubic-bezier(0.32, 0.08, 0.24, 1),
+      transform 0.2s cubic-bezier(0.32, 0.08, 0.24, 1);
+      &:hover {
+        box-shadow: 20px 20px 41px rgba(10, 10, 10, 0.32);
+        transform: scale(1.019);
+      }
+    }
+  }
+}
+
+.widgets-dashboard-wrapper-container {
+  >* {
+    &:not(apps-widget) {
+      .pe-widget-main, .pe-widget-start {
+        transition: box-shadow 0.2s cubic-bezier(0.32, 0.08, 0.24, 1),
+        transform 0.2s cubic-bezier(0.32, 0.08, 0.24, 1);
+        &:hover {
+          box-shadow: 20px 20px 41px rgba(10, 10, 10, 0.32);
+          transform: scale(1.019);
+        }
+      }
+      &::before {
+        transition: transform 0.2s cubic-bezier(0.32, 0.08, 0.24, 1);
+      }
+      &:hover {
+        &::before {
+          transform: scale(1.019);
+        }
+      }
+    }
+  }
+}

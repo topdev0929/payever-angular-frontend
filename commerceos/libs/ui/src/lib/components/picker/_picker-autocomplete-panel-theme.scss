@@ -1,0 +1,30 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $primary: map.get($color-config, 'primary');
+  $border: map.get($color-config, 'border');
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $text-color: map.get($color-config, 'text-color');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $hover-button: map.get($color-config, 'hover-button');
+  $active-text: map.get($color-config, 'active-text');
+
+  .picker-autocomplete-panel {
+    background-color: $secondary-background;
+
+    .mat-option {
+      color: $text-color;
+      &:hover {
+        background-color: $hover-button;
+        color: $active-text;
+      }
+
+      &:not(:first-of-type, :hover, .active, .mat-selected) {
+        &::before {
+          background-color: $border;
+        }
+      }
+    }
+  }
+}

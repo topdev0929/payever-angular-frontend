@@ -1,0 +1,19 @@
+<div class="tabs">
+  <div class="tabs__header">
+    <nav
+      class="tabs__nav"
+      [ngClass]="position">
+      <ui-button
+        *ngFor="let tab of tabs; let i = index"
+        class="tabs__pill"
+        (click)="tabSelectionChange(tab, i)"
+        [class.active]="tab.active">
+        <span class="tab-title">{{ tab.title }}</span>
+      </ui-button>
+    </nav>
+  </div>
+
+  <div class="tab-content">
+    <ng-content></ng-content>
+  </div>
+</div>

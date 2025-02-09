@@ -1,0 +1,35 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $scrollbar: map.get($color-config, 'scrollbar');
+  $row-background: map.get($color-config, 'row-background');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $scrollbar-thumb: map.get($color-config, 'scrollbar-thumb');
+  $scrollbar-thumb-hover: map.get($color-config, 'scrollbar-thumb-hover');
+
+  ::-webkit-scrollbar {
+    background-color: $transparent-color;
+    &-thumb {
+      background-color: $scrollbar-thumb !important;
+      transition: background-color 0.3s;
+      &:hover {
+        background-color: $scrollbar-thumb-hover !important;
+      }
+    }
+  }
+  .scrollbar {
+    &::-webkit-scrollbar-corner, &::-webkit-scrollbar {
+      background-color: $scrollbar;
+      border-radius: 0;
+    }
+  }
+  .pe-scrollbar-thumb {
+    background-color: $scrollbar-thumb !important;
+    transition: background-color 0.3s;
+
+    &:hover,
+    &:active {
+      background-color: $scrollbar-thumb-hover !important;
+    }
+  }
+}

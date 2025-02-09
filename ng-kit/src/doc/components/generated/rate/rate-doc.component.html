@@ -1,0 +1,42 @@
+<div class="chapter">
+  <h2>RateComponent</h2>
+  <div class="main-block">
+    <tabset>
+      <tab heading="Overview">
+        <h3>Import RateModule</h3>
+        <pre><code class="typescript" [innerHTML]="'import {RateModule } from \'@pe/ng-kit/modules/rate\';'"></code></pre>
+        <p>&nbsp;</p>
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          [tsExample]="tsExample">
+          <pe-rate
+            rateAmount="75,50&nbsp;NOK"
+            [rateOptions]="rateOptions"
+            [isSelected]="true"
+            (onSelect)="handleRateSelect($event)">
+          </pe-rate>
+        </example-viewer>
+      </tab>
+      <tab heading="API">
+        <component-api-renderer [path]="'rate/src/components/rate/rate.component'"></component-api-renderer>
+      </tab>
+      <tab heading="Examples">
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          [tsExample]="tsExample">
+          <pe-rate
+            rateAmount="75,50&nbsp;NOK"
+            [rateOptions]="rateOptions"
+            [isSelected]="true"
+            (onSelect)="handleRateSelect($event)">
+          </pe-rate>
+        </example-viewer>
+      </tab>
+      <tab heading="README">
+        <doc-viewer documentUrl="/assets/module-guides/rate/rate.html"></doc-viewer>
+      </tab>
+    </tabset>
+  </div>
+</div>

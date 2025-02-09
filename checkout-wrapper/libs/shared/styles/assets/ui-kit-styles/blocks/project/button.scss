@@ -1,0 +1,39 @@
+button {
+  &.share {
+    border-radius: var(--checkout-button-share-border-radius, 3px);
+    font-weight: var(--checkout-button-share-font-weight, 500) !important;
+
+    @include payever-button-variant(
+      $color-btn: var(--checkout-button-share-text-color, $color-blue) !important,
+      $color-btn-hover: var(--checkout-button-share-text-color, $color-blue),
+      $color-btn-focus: var(--checkout-button-share-text-color, $color-blue),
+      $color-btn-active: var(--checkout-button-share-text-color, $color-blue),
+      $color-btn-disabled: var(--checkout-button-share-text-color, $color-blue),
+      $color-btn-badge: var(--checkout-button-share-background-color, #f7f7f7),
+
+      $background: var(--checkout-button-share-background-color, #f7f7f7),
+      $background-hover: var(--checkout-button-share-background-color, #f7f7f7),
+      $background-focus: var(--checkout-button-share-background-color, #f7f7f7),
+      $background-active: var(--checkout-button-share-background-color, #f7f7f7),
+      $background-disabled: var(--checkout-button-share-background-disabled-color, #f7f7f7),
+      $background-badge: var(--checkout-button-share-text-color, $color-blue),
+
+      $border-color: transparent,
+      $border-hover: transparent,
+      $border-focus: transparent,
+      $border-active: transparent,
+      $border-disabled: transparent,
+
+      $opacity-disabled: .65,
+      $background-image: none, // $btn-checkout-background-image,
+      $background-image-hover: none, // $btn-checkout-background-image,
+      $background-image-focus: none, // $btn-checkout-background-image,
+      $background-image-active: none, // $btn-checkout-background-image,
+      $background-image-disabled: none, // $btn-checkout-background-image-disabled,
+      $border-width: 0);
+
+    &[disabled] {
+      color: var(--checkout-button-share-text-color, $color-white) !important;
+    }
+  }
+}

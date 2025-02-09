@@ -1,0 +1,13 @@
+
+step 1: <br/> click to activate env config:
+<button (click)="stubNavigate()">
+    <span *ngIf="!activated">activate</span>
+    <span *ngIf="activated" [style.color]="'green'">activated</span>
+</button>
+<br/>
+step 2:<br/>
+*pe_auth_token <em>from cookies</em><input #inputToken  [style.width]="'100%'" /> <br/>
+?pe_refresh_token <em>from cookies</em><input #inputRefreshToken [style.width]="'100%'" /> <br/>
+*products route <em>business/:businessId/products/list</em><input #inputRoute  [style.width]="'100%'"/> <br/><br/>
+<button [disabled]="!activated" (click)="go()">{{activated ? 'go' : 'please click Activate in top'}}</button>
+<br/><br/><br/>

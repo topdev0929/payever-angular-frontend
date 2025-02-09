@@ -1,0 +1,45 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $primary: map.get($color-config, 'primary');
+  $confirm: map.get($color-config, 'confirm');
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $border: map.get($color-config, 'border');
+  $active-button: map.get($color-config, 'active-button');
+  $badge-button: map.get($color-config, 'badge-button');
+  $gray-background: map.get($color-config, 'gray-background');
+  $active-text: map.get($color-config, 'active-text');
+  $label-color: map.get($color-config, 'label-color');
+  $text-color: map.get($color-config, 'text-color');
+
+  .screens-selector.mat-menu-panel {
+    backdrop-filter: blur(25px);
+    background-color: $secondary-background;
+    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.4);
+    border: solid 1px $border;
+    color: $text-color;
+    .screens-selector {
+        &__body {
+            &__item {
+                color: $text-color;
+                &.selected {
+                    background-color: $confirm;
+                    color: $active-text;
+                }
+                &:hover {
+                    background-color: $active-button;
+                    &.selected {
+                        background-color: rgba($confirm, 0.9);
+                        color: $active-text;
+                    }
+                }
+            }
+        }
+        &__header {
+            mat-icon {
+                color: $label-color;
+            }
+        }
+    }
+  }
+}

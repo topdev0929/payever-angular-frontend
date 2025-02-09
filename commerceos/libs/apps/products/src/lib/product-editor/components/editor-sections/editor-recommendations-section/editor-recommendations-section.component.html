@@ -1,0 +1,94 @@
+<form
+  *ngIf="form"
+  novalidate
+  [formGroup]="form"
+  (submit)="onSubmit()">
+  <button #submitTrigger id="submitTrigger" name="submitButton" type="submit" hidden></button>
+  <peb-button-toggle
+    class="allow-recommendations button-toggle"
+    formControlName="allowRecommendations"
+    label="{{ 'recommendations.allow_recommendations' | translate }}"
+    labelPosition="before"
+    (ngModelChange)="this.onToggleChanged($event)"
+  ></peb-button-toggle>
+  <peb-form-background *ngIf="form.get('allowRecommendations').value">
+    <peb-select
+      [animated]='true'
+      formControlName="recommendationTag"
+      selectType="label"
+      label="{{ 'recommendations.recommendation_type' | translate }}"
+      class='peb-select'
+      selected="none">
+      <peb-select-option
+        label="{{ 'filters.labels.category' | translate }}"
+        value="{{ tags.byCategory }}"
+        class='peb-select-option'>
+      </peb-select-option>
+      <peb-select-option
+        label="{{ 'products' | translate }}"
+        value="{{ tags.byProduct }}"
+        class='peb-select-option'>
+      </peb-select-option>
+      <peb-select-option
+        label="{{ 'folders' | translate }}"
+        value="{{ tags.byFolder }}"
+        class='peb-select-option'>
+      </peb-select-option>
+    </peb-select>
+
+    <ng-container *ngIf="form.get('recommendationTag').value === tags.byProduct; then product"></ng-container>
+    <ng-container *ngIf="form.get('recommendationTag').value === tags.byCategory; then category"></ng-container>
+    <ng-container *ngIf="form.get('recommendationTag').value === tags.byFolder; then collection"></ng-container>
+
+    <ng-template #product>
+
+      <div class="form-field-input">
+        <pe-search
+        [errorMessage]="('product-app.product_editor.recomendation.error') | translate"
+        (filterChanged)="onChangeFilter($event)"
+        [isFieldInvalid]="form.controls.productRecommendation.invalid"
+        [items]="recommendationSearchItems$ | async"
+        [label]="'products' | translate "
+        [placeholder]="'recommendations.add_products' | translate"
+        (selected)="addRecommendation($event)"></pe-search>
+      </div>
+    </ng-template>
+
+    <ng-template #category>
+      <div class="form-field-input">
+        <pe-search
+        [errorMessage]="('product-app.product_editor.recomendation.error') | translate"
+        (filterChanged)="onChangeFilter($event)"
+        [isFieldInvalid]="form.controls.categoryRecommendation.invalid"
+        [items]="recommendationSearchItems$ | async"
+        [label]="'filters.labels.category' | translate "
+        [placeholder]="'recommendations.enter_category' | translate"
+        (selected)="addRecommendation($event)"></pe-search>
+      </div>
+    </ng-template>
+
+    <ng-template #collection>
+      <div class="form-field-input">
+        <pe-search
+        [errorMessage]="('product-app.product_editor.recomendation.error') | translate"
+        (filterChanged)="onChangeFilter($event)"
+        [isFieldInvalid]="form.controls.categoryRecommendation.invalid"
+        [items]="recommendationSearchItems$ | async"
+        [label]="'folder' | translate "
+        [placeholder]="'recommendations.enter_collection' | translate"
+        (selected)="addRecommendation($event)"></pe-search>
+      </div>
+    </ng-template>
+
+    <pe-search-list>
+      <pe-search-list-item
+        *ngFor="let recommendation of this.recommendationsSection.currentRecommendations; let i = index; trackBy: trackItem"
+        [image]="getRecommendationDisplayImage(recommendation)"
+        [removeButtonLabel]="'actions.remove' | translate"
+        (remove)="removeRecommendation(recommendation)">
+        {{recommendation.name}}
+      </pe-search-list-item>
+    </pe-search-list>
+
+  </peb-form-background>
+</form>

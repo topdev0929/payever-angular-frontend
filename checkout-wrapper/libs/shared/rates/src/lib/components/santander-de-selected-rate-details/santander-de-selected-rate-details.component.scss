@@ -1,0 +1,39 @@
+@import '../../../../../styles/assets/ui-kit-styles/pe_variables';
+@import '../../../../../styles/assets/ui-kit-styles/mixins/pe_mixins.scss';
+
+.selected-rate-info {
+  display: flex;
+  column-gap: 60px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  &.no-mb {
+    margin-bottom: 0 !important;
+  }
+
+  .item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    line-height: $payment-line-height;
+    .item-name {
+      padding-right: 4px;
+    }
+    .item-value {
+      font-weight: bold;
+    }
+  }
+
+  .col-xs-4,
+  .col-xs-6 {
+    padding: 0;
+  }
+
+  .col-xs-4 {
+    width: calc(33.333% - 30px);
+  }
+
+  .col-xs-6 {
+    width: calc(50% - 30px);
+  }
+}

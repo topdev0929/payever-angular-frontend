@@ -1,0 +1,20 @@
+<form
+  *ngIf="formGroup.enabled"
+  class="form-table"
+  [formGroup]="formGroup">
+  <div class="form-fieldset-new">
+    <mat-form-field class="col-xs-12">
+      <mat-label i18n="@@santander-dk.inquiry.form.political_exposed_person.label">
+        Politically exposed person?
+      </mat-label>
+
+      <mat-select formControlName="politicalExposedPerson">
+        <mat-option
+          *ngFor="let option of booleanOptions"
+          [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</form>

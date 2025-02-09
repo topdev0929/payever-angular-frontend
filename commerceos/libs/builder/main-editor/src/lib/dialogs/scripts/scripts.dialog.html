@@ -1,0 +1,55 @@
+<div class="scripts-dialog">
+  <div class="scripts-dialog__header">
+    <div class="scripts-dialog__header-action" (click)="close()">Cancel</div>
+    <div class="scripts-dialog__title">
+      Scripts
+    </div>
+    <div class="scripts-dialog__header-action scripts-dialog__header-action--success" (click)="close()">Done</div>
+  </div>
+  <div class="scripts-dialog__content" *ngIf="sections$ | async as sections">
+    <div class="scripts-dialog__list" *ngIf="sections.length; else noScriptsTpl" [@.disabled]="disableAnimation">
+      <div *ngFor="let section of sections; trackBy:trackById">
+        <peb-expandable-panel
+        [isContentOpen]="false"
+        [headerLabel]="section.name"
+        >
+        <div class="scripts-dialog__scripts">
+          <peb-form-background>
+            <div *ngFor="let script of section.scripts; trackBy:trackById">
+              <div class="scripts-dialog__script-item">
+                <div class="scripts-dialog__script-title">
+                  {{ script.name }}
+                </div>
+                <div class="scripts-dialog__script-actions">
+                  <div class="scripts-dialog__script-action">
+                    <peb-button-toggle
+                    [noPadding]="true"
+                    [checked]="script.isEnable"
+                    (changed)="toggleScript(script, section)">
+                  </peb-button-toggle>
+                  </div>
+                  <button peb-text-button color="confirm"
+                   class="scripts-dialog__script-action" (click)="openScript(script)">
+                    Open
+                  </button>
+                </div>
+              </div>
+            </div>
+          </peb-form-background>
+        </div>
+        </peb-expandable-panel>
+      </div>
+    </div>
+    <ng-template #noScriptsTpl>
+      <div class="scripts-dialog__empty">
+        <mat-icon svgIcon="white-alert" class="scripts-dialog__empty-icon"></mat-icon>
+        <div class="scripts-dialog__empty-message">No scripts</div>
+      </div>
+    </ng-template>
+  </div>
+  <div class="scripts-dialog__actions">
+    <button pe-form-button color="confirm" class="scripts-dialog__action" (click)="openScript()">
+      <span>Add script</span>
+    </button>
+  </div>
+</div>

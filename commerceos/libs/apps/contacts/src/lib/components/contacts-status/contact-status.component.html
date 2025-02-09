@@ -1,0 +1,44 @@
+<form [formGroup]="statusForm" [class.loading]="isLoading" [ngClass]="theme" class="contact-status">
+  <peb-form-background>
+    <div class="contact-status__container">
+      <peb-form-field-input
+        appearance="label"
+        [label]="'contacts-app.actions.status.form.status_name' | translate"
+        [errorMessage]="nameErrorMessage"
+        [isFieldInvalid]="showError"
+        class="contact-status__name-input"
+      >
+        <input formControlName="name" type="text" />
+      </peb-form-field-input>
+      <div class="contact-status__select">
+        <peb-select
+          formControlName="color"
+          [placeholder]="'contacts-app.actions.status.title' | translate"
+          [hideLabel]="true"
+        >
+          <peb-select-option
+            *ngFor="let icon of colorsWithIcon"
+            [style.width.px]="50"
+            [icon]="icon"
+            [value]="icon.color"
+            [label]="icon.id"
+            class="contact-status__option"
+          >
+          </peb-select-option>
+        </peb-select>
+      </div>
+      <div class="contact-status__selected-container">
+        <svg [style.color]="selectedColor" class="contact-status__selected-icon">
+          <use xlink:href="#icon-n-indicator-64"></use>
+        </svg>
+      </div>
+    </div>
+  </peb-form-background>
+  <div *ngIf="editMode" class="contact-status__edit">
+    <peb-form-background>
+      <button pe-form-button peb-base-button (click)="showConfirmDialogForDelete()" color="warn">
+        {{ 'contacts-app.actions.status.form.delete' | translate }}
+      </button>
+    </peb-form-background>
+  </div>
+</form>

@@ -1,0 +1,121 @@
+<div
+  *ngIf="{
+    loading: loading$ | async,
+    resend: resend$ | async,
+    resendBlock: resendBlock$ | async
+  } as vm"
+  class="otp-container">
+  <button
+    *ngIf="!vm.loading"
+    type="button"
+    mat-button
+    class="mat-button
+      mat-button-no-padding
+      mat-button-link
+      mat-button-xs
+      mat-dialog-close-icon
+    "
+    (click)="closed.emit()">
+    <svg class="icon icon-16"><use xlink:href="#icon-close-16"></use></svg>
+  </button>
+  <div class="otp-container__header">
+    <div class="d-flex flex-col gap-8">
+      <svg class="otp-icon">
+        <use xlink:href="#icon-lock-16"></use>
+      </svg>
+      <p
+        class="otp-title-text"
+        [innerHTML]="translations.title"></p>
+    </div>
+    <span
+      *ngIf="error"
+      class="otp-container__invalid">
+      <ng-container *ngIf="error.code === 412">
+        <span [innerHTML]="translations.incorrectCode"></span>
+      </ng-container>
+      <ng-container *ngIf="error.code !== 412">
+        {{ translations.defaultError }}
+      </ng-container>
+    </span>
+  </div>
+  <form
+    #ngForm="ngForm"
+    class="form"
+    [formGroup]="formGroup"
+    (ngSubmit)="onSubmit()">
+    <div
+      *ngIf="{
+        activeIdx: activeIdx$ | async
+      } as formVm"
+      class="otp-container__form"
+      formArrayName="code">
+      <input
+        *ngFor="
+          let control of controls;
+          index as index
+        "
+        autocomplete="off"
+        class="col-xs-12 input form-fieldset-field-padding-24"
+        peInputMask
+        [formControlName]="index"
+        [peAutoFocus]="formVm.activeIdx === index"
+        [mask]="numberMask"
+        [peNoError]="true" />
+    </div>
+    <p
+      class="otp-info-text"
+      [innerHTML]="translations.infoText"></p>
+    <p
+      *ngIf="resendError"
+      class="otp-container__invalid"
+      [innerHTML]="resendError"></p>
+    <ui-button
+      class="resend-button mat-secondary-button"
+      [disableRipple]="true"
+      [disabled]="vm.resendBlock"
+      (click)="resend()">
+      <pe-progress-button-content [loading]="vm.resend">
+        <span
+          class="button-text"
+          [attr.disabled]="vm.resendBlock"
+          [innerHtml]="translations.resend">
+        </span>
+      </pe-progress-button-content>
+    </ui-button>
+    <div
+      *ngIf="showConsent"
+      class="terms">
+      <ng-container formArrayName="consentsForm">
+        <mat-checkbox
+          *ngFor="
+            let control of consentsForm.controls;
+            let i = index;
+          "
+          [formControlName]="i">
+          <span
+            class="terms-text"
+            [innerHtml]="consents[i].label">
+          </span>
+        </mat-checkbox>
+      </ng-container>
+    </div>
+  </form>
+  <checkout-sdk-continue-button
+    class="button-continue"
+    i18n-text="@@action.continue"
+    text="action.continue"
+    [loading]="!!vm.loading"
+    [disabled]="!!vm.loading || ngForm.invalid"
+    (clicked)="onSendCode()">
+  </checkout-sdk-continue-button>
+  <ui-button
+    *ngIf="flow.apiCall.cancelUrl"
+    skin="secondary"
+    type="submit"
+    [disableRipple]="true"
+    (click)="cancel()">
+    <span>
+      {{ translations.cancel }}
+    </span>
+  </ui-button>
+</div>

@@ -1,0 +1,54 @@
+<div id="overlay" *ngIf="modalShown">
+  <div id="modal">
+    <section>
+      <div class="field">
+        <label for="user">User: </label>
+        <input id="user" type="text" [(ngModel)]="user" />
+      </div>
+
+      <div class="field">
+        <label for="password">Password: </label>
+        <input id="password" type="password" [(ngModel)]="password" />
+      </div>
+
+      <div class="field">
+        <!--<button (click)="onCredentialsLog()">Log</button>-->
+        <span></span>
+        <button (click)="onLoginSubmit()" [disabled]="loginProcessing">Login</button>
+      </div>
+    </section>
+
+    <section>
+      <div class="field">
+        <label for="business">Business: </label>
+        <select
+            id="business"
+            [disabled]="businessesLoading || businesses.length === 0"
+            [(ngModel)]="businessSelected"
+            (ngModelChange)="onBusinessSelected($event)"
+        >
+          <option disabled hidden
+                  [value]="null"
+                  [selected]="!businessSelected"
+          >
+            Select a business
+          </option>
+          <option *ngFor="let b of businesses" [value]="b._id">{{b.name}}</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="controls">
+      <button (click)="modalShown = false">X</button>
+
+      <span>
+        <button
+            [disabled]="!businessSelected"
+            (click)="onNavigate('editor')"
+        >
+          Open
+        </button>
+      </span>
+    </section>
+  </div>
+</div>

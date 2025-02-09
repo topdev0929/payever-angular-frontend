@@ -1,0 +1,23 @@
+<form
+  *ngIf="formGroup.enabled"
+  class="form-table"
+  [formGroup]="formGroup">
+  <div class="form-fieldset-new">
+    <mat-form-field
+      *ngIf="formGroup.get('totalDebt').enabled"
+      class="col-xs-12">
+      <mat-label i18n="@@santander-no.inquiry.form.total_debt.label"> Total Debt </mat-label>
+
+      <span
+        matPrefix
+        #prefix
+        >{{ flow.currency | peCurrencySymbol }}
+      </span>
+      <input
+        matInput
+        [peInputCurrencyMask]="flow.currency"
+        formControlName="totalDebt"
+        type="text" />
+    </mat-form-field>
+  </div>
+</form>

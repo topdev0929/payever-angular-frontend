@@ -1,0 +1,66 @@
+@use 'pe_variables.scss' as pe_variables;
+@import 'pe_skeleton.scss';
+
+:host {
+  display: flex;
+  height: calc(100% - 0px);
+  width: 100%;
+  padding: 0 16px;
+}
+
+.pe-grid-conversation-empty-list {
+  padding: 8px 0 8px 6px;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  .empty-list-note {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.pe-grid-conversation__skeleton {
+  height: 56px;
+  width: calc(100% - 6px);
+  background-color: $skeleton-color-transparent;
+  @include skeleton-animation();
+  margin-top: 4px;
+  border: 1px transparent;
+  border-radius: 12px;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  &__logo {
+    border-radius: 50%;
+    margin-right: 6px;
+    overflow: hidden;
+    height: 32px;
+    max-height: 32px;
+    min-height: 32px;
+    width: 32px;
+    background-color: $skeleton-color-transparent;
+    @include skeleton-animation();
+    min-width: 32px;
+    max-width: 32px;
+  }
+  &__content {
+    height: 100%;
+    width: calc(100% - 37px);
+    max-height: 32px;
+    &__title {
+      background-color: $skeleton-color-transparent;
+      @include skeleton-animation();
+      margin-bottom: 2px;
+      height: 16px;
+    }
+  }
+}

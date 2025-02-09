@@ -1,0 +1,70 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $active-text: map.get($color-config, 'active-text');
+  $spinner-background: map.get($color-config, 'spinner-background');
+  $label-color: map.get($color-config, 'label-color');
+  $text-color: map.get($color-config, 'text-color');
+
+  .status-cell {
+    color: $active-text;
+    .input-wrapper .input {
+      svg, .select-text {
+        color: #ffffff;
+      }
+    } 
+
+
+    &__select {
+    .input-wrapper {
+        margin-right: 3px;
+    }
+    .select-text.select-placeholder {
+        color: #fff;
+    }
+    }
+
+  &__option {
+      svg {
+          order: -1;
+          width: 30px;
+          height: 22px;
+          margin-top: 2px;
+          transform: translateX(-10px);
+      }
+
+      .action-text {
+          margin-left: auto;
+      }
+    }
+    .status-loading-container {
+      background-color: $spinner-background;
+
+      .loader-white {
+        background-color: $label-color;
+      }
+
+      .loader-white::before {
+        background-color: $label-color;
+      }
+
+      .loader-white::after {
+        background-color: $label-color;
+      }
+
+      @keyframes doLoading {
+        0% {
+          background-color: $label-color;
+        }
+        50%,
+        100% {
+          background-color: $active-text;
+        }
+      }
+    }
+  }
+
+  .peb-select-options-container {
+    width: 100%;
+  }
+}

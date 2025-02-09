@@ -1,0 +1,10 @@
+.pe-checkout-bootstrap {
+  .ui-readmore {
+    cursor: pointer;
+    color: $color-gray;
+    white-space: nowrap;
+    &:hover {
+      color: $color-black;
+    }
+  }
+}

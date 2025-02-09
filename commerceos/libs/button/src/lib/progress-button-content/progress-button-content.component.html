@@ -1,0 +1,5 @@
+<pe-progress-button-content-styles></pe-progress-button-content-styles>
+<mat-spinner *ngIf="loading" [strokeWidth]="spinnerStrokeWidth" [diameter]="spinnerDiameter"></mat-spinner>
+<div [class.hidden-content]="loading">
+  <ng-content></ng-content>
+</div>

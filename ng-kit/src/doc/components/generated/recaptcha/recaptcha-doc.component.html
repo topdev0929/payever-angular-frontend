@@ -1,0 +1,46 @@
+<div class="chapter">
+  <h2>ReCaptchaComponent</h2>
+  <div class="main-block">
+    <tabset>
+      <tab heading="Overview">
+        <h3>Import ReCaptchaModule</h3>
+        <pre><code class="typescript" [innerHTML]="'import { ReCaptchaModule } from \'@pe/ng-kit/modules/recaptcha\';'"></code></pre>
+        <p>&nbsp;</p>
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          >
+          <form [formGroup]="formGroup">
+            <div class="row">
+              <div class="col-xs-6">
+                <pe-checkbox [formControlRef]="formGroup.get('compact')" [label]="'Compact'"></pe-checkbox>
+              </div>
+              <div class="col-xs-6">
+                <pe-checkbox [formControlRef]="formGroup.get('dark')" [label]="'Dark'"></pe-checkbox>
+              </div>
+            </div>
+          </form>
+          <p *ngIf="verified" class="text-success">Verified! Token is:<br><small style="font-size: 9px;">{{ verified }}</small></p>
+          <p *ngIf="verified === false" class="danger">Not verified!</p>
+          <pe-recaptcha [key]="publicKey" [size]="getSize()" [theme]="getTheme()" (verified)="onVerified($event)"></pe-recaptcha>
+        </example-viewer>
+      </tab>
+      <tab heading="API">
+        <component-api-renderer [path]="'recaptcha/recaptcha.component'"></component-api-renderer>
+      </tab>
+      <tab heading="Examples">
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          >
+          <p *ngIf="verified" class="text-success">Verified! Token is:<br><small style="font-size: 9px;">{{ verified }}</small></p>
+          <p *ngIf="verified === false" class="danger">Not verified!</p>
+          <pe-recaptcha [key]="publicKey" [size]="getSize()" [theme]="getTheme()" (verified)="onVerified($event)"></pe-recaptcha>
+        </example-viewer>
+      </tab>
+      <tab heading="README">
+        <doc-viewer documentUrl="/assets/module-guides/recaptcha/recaptcha.html"></doc-viewer>
+      </tab>
+    </tabset>
+  </div>
+</div>

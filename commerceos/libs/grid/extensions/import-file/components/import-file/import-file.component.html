@@ -1,0 +1,23 @@
+<pe-gex-import-menu
+  [options]="options"
+  (importCSV)="selectImportFile(FileType.CSV, $event)"
+  (importXML)="selectImportFile(FileType.XML, $event)"
+></pe-gex-import-menu>
+
+<div hidden>
+  <input
+    #csvFileInput
+    type="file"
+    class="file-input"
+    accept="text/plain, .csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+    (change)="export($event)"
+  />
+
+  <input
+    #xmlFileInput
+    type="file"
+    class="file-input"
+    accept="text/xml"
+    (change)="export($event)"
+  />
+</div>

@@ -1,0 +1,203 @@
+{
+  "form": {
+    "title": "Adding numbers",
+    "type": "info-box",
+    "operations": [
+      {
+        "action": "search-numbers",
+        "text": "Search",
+        "align": "right",
+        "isSubmit": true
+      }
+    ],
+    "content": {
+      "fieldset": [
+        {
+          "name": "country",
+          "type": "select",
+          "fieldSettings": {
+            "classList": "col-xs-6",
+            "label": "Country",
+            "required": true
+          },
+          "selectSettings": {
+            "panelClass": "mat-select-dark",
+            "options": [
+              {
+                "label": "Germany",
+                "value": "DE"
+              },
+              {
+                "label": "USA",
+                "value": "US"
+              },
+              {
+                "label": "Sweden",
+                "value": "SE"
+              },
+              {
+                "label": "Denmark",
+                "value": "DK"
+              },
+              {
+                "label": "Norway",
+                "value": "NO"
+              }
+            ],
+            "placeholder": "Country"
+          }
+        },
+        {
+          "name": "phoneNumber",
+          "type": "input",
+          "fieldSettings": {
+            "classList": "col-xs-6",
+            "label": "Number (Optional)",
+            "required": false
+          },
+          "inputSettings": {
+            "placeholder": "Number (Optional)"
+          }
+        },
+        {
+          "name": "excludeAny",
+          "type": "checkbox",
+          "fieldSettings": {
+            "classList": "col-xs-4 form-fieldset-field-padding",
+            "label": "Exclude Any",
+            "required": false
+          }
+        },
+        {
+          "name": "excludeLocal",
+          "type": "checkbox",
+          "fieldSettings": {
+            "classList": "col-xs-4 form-fieldset-field-padding",
+            "label": "Exclude Local",
+            "required": false
+          }
+        },
+        {
+          "name": "excludeForeign",
+          "type": "checkbox",
+          "fieldSettings": {
+            "classList": "col-xs-4 form-fieldset-field-padding",
+            "label": "Exclude Foreign",
+            "required": false
+          }
+        }
+      ],
+      "fieldsetData": {
+        "country": "US",
+        "phoneNumber": "",
+        "excludeLocal": false,
+        "excludeForeign": false
+      },
+      "data": [
+        [
+          {
+            "type": "text",
+            "value": "(406) 946-4453"
+          },
+          {
+            "classes": "text-grey text-center",
+            "type": "text",
+            "value": "$1.00 / Month"
+          },
+          {
+            "text": "Buy",
+            "type": "button",
+            "classes": "btn-wide",
+            "color": "muted-light",
+            "rounded": true,
+            "size": "xs",
+            "action": "purchase-number-form"
+          }
+        ],
+        [
+          {
+            "type": "text",
+            "value": "(423) 435-9226"
+          },
+          {
+            "classes": "text-grey text-center",
+            "type": "text",
+            "value": "$1.00 / Month"
+          },
+          {
+            "text": "Buy",
+            "type": "button",
+            "classes": "btn-wide",
+            "color": "muted-light",
+            "rounded": true,
+            "size": "xs",
+            "action": "purchase-number-form"
+          }
+        ],
+        [
+          {
+            "type": "text",
+            "value": "(870) 619-1855"
+          },
+          {
+            "classes": "text-grey text-center",
+            "type": "text",
+            "value": "$1.00 / Month"
+          },
+          {
+            "text": "Buy",
+            "type": "button",
+            "classes": "btn-wide",
+            "color": "muted-light",
+            "rounded": true,
+            "size": "xs",
+            "action": "purchase-number-form"
+          }
+        ],
+        [
+          {
+            "type": "text",
+            "value": "(973) 775-9998"
+          },
+          {
+            "classes": "text-grey text-center",
+            "type": "text",
+            "value": "$1.00 / Month"
+          },
+          {
+            "text": "Buy",
+            "type": "button",
+            "classes": "btn-wide",
+            "color": "muted-light",
+            "rounded": true,
+            "size": "xs",
+            "action": "purchase-number-form"
+          }
+        ],
+        [
+          {
+            "type": "text",
+            "value": "(630) 313-4855"
+          },
+          {
+            "classes": "text-grey text-center",
+            "type": "text",
+            "value": "$1.00 / Month"
+          },
+          {
+            "text": "Buy",
+            "type": "button",
+            "classes": "btn-wide",
+            "color": "muted-light",
+            "rounded": true,
+            "size": "xs",
+            "action": "purchase-number-form"
+          }
+        ]
+      ]
+    },
+    "actionContext": {
+      "id": "67c1eabc-6fe8-4fe6-9a3e-b926f93c3f67"
+    }
+  }
+}

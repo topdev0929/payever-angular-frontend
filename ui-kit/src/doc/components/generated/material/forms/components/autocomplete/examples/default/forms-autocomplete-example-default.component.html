@@ -1,0 +1,11 @@
+<mat-form-field class="mat-form-field-has-prefix">
+  <input matInput placeholder="City" [matAutocomplete]="autocomplete" [formControl]="city" type="text" >
+  <mat-autocomplete #autocomplete="matAutocomplete">
+    <mat-option *ngFor="let option of cities" [value]="option">
+      {{ option }}
+    </mat-option>
+  </mat-autocomplete>
+  <mat-error *ngIf="city.hasError('required')">
+    City is <strong>required</strong>
+  </mat-error>
+</mat-form-field>

@@ -1,0 +1,144 @@
+<checkout-sdk-finish-wrapper
+  [buttons]="buttons"
+  [errorMessage]="errorMessage"
+  [iframeCallbackUrl]="getIframeCallbackUrl()"
+  [isLoading]="isLoading"
+  [isChangingPaymentMethod]="isChangingPaymentMethod"
+  [asSinglePayment]="asSinglePayment"
+  [embeddedMode]="embeddedMode"
+  (close)="onClose()">
+  <ng-container *ngIf="nodeResult">
+    <default-receipt
+      [isStatusSuccess]="isStatusSuccess() || isStatusPending()"
+      [isStatusFail]="isStatusFail()"
+      [isStatusUnknown]="isStatusUnknown()"
+      [orderId]="orderId">
+      <ng-container *ngIf="isStatusSuccess() || isStatusPending()">
+        <br />
+        <div
+          class="row"
+          *ngIf="nodeResult.payment?.total">
+          <div class="col-xs-12">
+            <span
+              class="text-secondary pull-left"
+              i18n="@@payment-wiretransfer.inquiry.finish.labels.total">
+              payment-wiretransfer.inquiry.finish.labels.total
+            </span>
+            <span
+              class="pull-right"
+              data-test-id="totalAmount"
+              ><span [outerHTML]="nodeResult.payment.total | peCurrency:flow.currency:'symbol-narrow':'1.2-2'"></span
+            ></span>
+          </div>
+        </div>
+
+        <hr />
+
+        <div
+          class="row"
+          *ngIf="paymentDetails?.accountHolder">
+          <div class="col-xs-12">
+            <div
+              class="text-secondary pull-left"
+              i18n="@@payment-wiretransfer.inquiry.finish.labels.merchant_bank_account_holder">
+              payment-wiretransfer.inquiry.finish.labels.merchant_bank_account_holder
+            </div>
+            <div
+              class="pull-right"
+              data-test-id="accountHolder">
+              {{ paymentDetails?.accountHolder }}
+            </div>
+          </div>
+        </div>
+        <div
+          class="row"
+          *ngIf="paymentDetails?.bankName">
+          <div class="col-xs-12">
+            <div
+              class="text-secondary pull-left"
+              i18n="@@payment-wiretransfer.inquiry.finish.labels.merchant_bank_name">
+              payment-wiretransfer.inquiry.finish.labels.merchant_bank_name
+            </div>
+            <div
+              class="pull-right"
+              data-test-id="bankName">
+              {{ paymentDetails?.bankName }}
+            </div>
+          </div>
+        </div>
+        <div
+          class="row"
+          *ngIf="paymentDetails?.bankCity">
+          <div class="col-xs-12">
+            <div
+              class="text-secondary pull-left"
+              i18n="@@payment-wiretransfer.inquiry.finish.labels.merchant_bank_city">
+              payment-wiretransfer.inquiry.finish.labels.merchant_bank_city
+            </div>
+            <div
+              class="pull-right"
+              data-test-id="bankCity">
+              {{ paymentDetails?.bankCity }}
+            </div>
+          </div>
+        </div>
+        <div
+          class="row"
+          *ngIf="paymentDetails?.iban">
+          <div class="col-xs-12">
+            <div
+              class="text-secondary pull-left"
+              i18n="@@payment-wiretransfer.inquiry.finish.labels.bank_account_iban">
+              payment-wiretransfer.inquiry.finish.labels.bank_account_iban
+            </div>
+            <!-- .fs-hide is class for FullStory plugin. Don't remove it! -->
+            <div
+              class="pull-right fs-hide"
+              data-test-id="iban">
+              {{ paymentDetails?.iban }}
+            </div>
+          </div>
+        </div>
+        <div
+          class="row"
+          *ngIf="paymentDetails?.bic">
+          <div class="col-xs-12">
+            <div
+              class="text-secondary pull-left"
+              i18n="@@payment-wiretransfer.inquiry.finish.labels.bank_account_bic">
+              payment-wiretransfer.inquiry.finish.labels.bank_account_bic
+            </div>
+            <div
+              class="pull-right"
+              data-test-id="bic">
+              {{ paymentDetails?.bic }}
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="row">
+          <div>
+            <div
+              class="col-xs-6 text-secondary text-left text-left"
+              data-test-id="businessName">
+              {{ nodeResult.payment?.businessName || '---' }}
+            </div>
+            <div
+              class="col-xs-6 text-right"
+              data-test-id="createdAt">
+              {{ createdAt || '---' }}
+            </div>
+          </div>
+          <div
+            *ngIf="addressLine()"
+            class="col-xs-12 text-secondary text-left"
+            data-test-id="addressLine">
+            {{ addressLine() }}
+          </div>
+        </div>
+      </ng-container>
+    </default-receipt>
+  </ng-container>
+</checkout-sdk-finish-wrapper>

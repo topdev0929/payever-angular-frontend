@@ -1,0 +1,22 @@
+@use 'SASS:map';
+@use 'pe_variables' as pe_variables;
+
+@mixin color($color-config) {
+  $primary: map.get($color-config, 'primary');
+  $skeleton: map.get($color-config, 'skeleton');
+
+  pe-folders-skeleton {
+    @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+      padding: 0 16px;
+    }
+    .skeleton-container {
+      .skeleton-item {
+        .headline,
+        .folder__icon,
+        .folder__name {
+          background-color: $skeleton;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,83 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $confirm: map.get($color-config, 'confirm');
+  $active-button: map.get($color-config, 'active-button');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $select-button: map.get($color-config, 'select-button');
+  $border: map.get($color-config, 'border');
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $label-color: map.get($color-config, 'label-color');
+  $active-text: map.get($color-config, 'active-text');
+  $label-color: map.get($color-config, 'label-color');
+
+  .mat-builder-publish {
+    background-color: $secondary-background;
+    border: solid 1px $border;
+    .viewer__widget {
+      &__title {
+        color: $text-color;
+      }
+      &__close {
+        color: $label-color;
+        &:hover {
+          color: $text-color;
+        }
+      }
+      &__body {
+        .theme {
+          &__body {
+            background-color: $select-button;
+            .mat-form-field-underline {
+              background-color: $transparent-color;
+
+            }
+          }
+          &__name {
+            background-color: $transparent-color;
+            color: $text-color;
+            &:focus {
+              outline: 1px solid $confirm;
+            }
+          }
+          &__tags {
+            label, input {
+              color: $text-color;
+            }
+            input:focus {
+              outline: 1px solid $confirm;
+            }
+            .mat-chip {
+              background-color: $transparent-color;
+              color: $text-color;
+              border-color: $border;
+            }
+            div.mat-chip-remove {
+              color: $active-text;
+              background-color: $label-color;
+            }
+          }
+          &__publish {
+            &:disabled {
+              background-color: $label-color;
+            }
+          }
+        }
+        .publishing {
+          &__divider {
+            background-color: $border;
+          }
+          &__button {
+            span {
+              color: $text-color;
+            }
+            &:hover {
+              background-color: $active-button;
+            }
+          }
+        }
+      }
+    }
+  }
+}

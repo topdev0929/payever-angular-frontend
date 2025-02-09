@@ -1,0 +1,18 @@
+.button-icon {
+  width: 16px;
+  height: 16px;
+  color: #ffffff;
+}
+
+.menu-button {
+  display: flex;
+  justify-content: center;
+}
+
+.menu-button {
+  color: #ffffff;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}

@@ -1,0 +1,145 @@
+<form novalidate class="form-table form-table-horizontal" (keydown)="onFormKey($event)" [formGroup]="form" *ngIf="form">
+  <ng-container *ngIf="hasPagesBlock">
+    <button
+      color="muted-dark"
+      mat-raised-button
+      [class.button-settings-toggle]="true"
+      [class.mat-button-xxs]="true"
+      [class.mat-button-menu]="true"
+      [class.mat-button-small-padding]="true"
+      [matMenuTriggerFor]="menu"
+      pe-qa-builder="link-to"
+    >
+      <span [innerHtml]="currentPageName"></span>
+      <svg class="icon icon-16">
+        <use xlink:href="#icon-arrow-down-small-16"></use>
+      </svg>
+    </button>
+    <mat-menu #menu="matMenu" class="mat-menu-dark-muted mat-menu-editor-sm mat-menu-editor mat-menu-fieldset">
+      <div class="form-table mat-toolbar-append-item-md" (click)="$event.stopPropagation()">
+        <pe-form-fieldset
+          [isSubmitted]="isSubmitted"
+          [fields]="hrefFieldset"
+          [formGroup]="form"
+          [errors]="errors$ | async"
+          [formStyle]="'dark'"
+          [orientation]="'horizontal'"
+        ></pe-form-fieldset>
+      </div>
+
+      <ng-container *ngFor="let page of pageRoutes">
+        <button mat-menu-item (click)="setCurrentPage(page); $event.stopPropagation()" pe-qa-builder="link-to-option">
+          <span class="link-menu-item-text">{{ page.title }}</span>
+          <svg class="icon icon-12 icon-checkmark" *ngIf="isActiveLink(page)">
+            <use xlink:href="#icon-checkmark-24"></use>
+          </svg>
+        </button>
+      </ng-container>
+    </mat-menu>
+  </ng-container>
+
+  <!-- Bold -->
+  <button
+    class="text-decoration"
+    (click)="updateData({ style: { fontWeight: component.styleFontWeight === 'bold' ? '' : 'bold' } })"
+    [ngClass]="{ active: component.styleFontWeight === 'bold' }"
+    pe-qa-builder="bold"
+  >
+    <svg class="icon icon-16">
+      <use xlink:href="#icon-me-bold-16"></use>
+    </svg>
+  </button>
+
+  <!-- Italic -->
+  <button
+    class="text-decoration"
+    (click)="updateData({ style: { fontStyle: component.styleFontStyle === 'italic' ? '' : 'italic' } })"
+    [ngClass]="{ active: component.styleFontStyle === 'italic' }"
+    pe-qa-builder="italic"
+  >
+    <svg class="icon icon-16">
+      <use xlink:href="#icon-me-italic-16"></use>
+    </svg>
+  </button>
+
+  <!-- Underline -->
+  <button
+    class="text-decoration"
+    (click)="
+      updateData({ style: { textDecoration: component.styleTextDecoration === 'underline' ? '' : 'underline' } })
+    "
+    [ngClass]="{ active: component.styleTextDecoration === 'underline' }"
+    pe-qa-builder="text-underline"
+  >
+    <svg class="icon icon-16">
+      <use xlink:href="#icon-me-underline-16"></use>
+    </svg>
+  </button>
+
+  <pe-builder-navbar-spacer></pe-builder-navbar-spacer>
+  <span class="form-fieldset-horizontal-label" [innerHtml]="'button_settings.size'" translate></span>
+
+  <pe-form-fieldset
+    [isSubmitted]="isSubmitted"
+    [fields]="textStylesFieldset"
+    [formGroup]="form"
+    [errors]="errors$ | async"
+    [formStyle]="'dark'"
+    [orientation]="'horizontal'"
+  ></pe-form-fieldset>
+
+  <pe-builder-navbar-spacer style="padding-right: 12px"></pe-builder-navbar-spacer>
+
+  <!-- Corners -->
+  <span
+    class="form-fieldset-horizontal-label"
+    [innerHtml]="'content_editor.base_widget_settings.btn_config.corners'"
+    translate
+  ></span>
+  <pe-form-fieldset
+    [isSubmitted]="isSubmitted"
+    [fields]="cornersFieldset"
+    [formGroup]="form"
+    [errors]="errors$ | async"
+    [formStyle]="'dark'"
+    [orientation]="'horizontal'"
+  ></pe-form-fieldset>
+
+  <!-- Border width -->
+  <span
+    class="form-fieldset-horizontal-label"
+    [innerHtml]="'content_editor.base_widget_settings.border_width'"
+    translate
+  ></span>
+  <pe-form-fieldset
+    [isSubmitted]="isSubmitted"
+    [fields]="borderWidthFieldset"
+    [formGroup]="form"
+    [errors]="errors$ | async"
+    [formStyle]="'dark'"
+    [orientation]="'horizontal'"
+  ></pe-form-fieldset>
+
+  <pe-builder-navbar-spacer style="padding-right: 12px"></pe-builder-navbar-spacer>
+
+  <!-- Color -->
+  <pe-form-fieldset
+    [isSubmitted]="isSubmitted"
+    [fields]="colorFieldset"
+    [formGroup]="form"
+    [errors]="errors$ | async"
+    [formStyle]="'dark'"
+    [orientation]="'horizontal'"
+  ></pe-form-fieldset>
+
+  <pe-builder-navbar-separator></pe-builder-navbar-separator>
+
+  <pe-builder-element-visibility-toggle
+    [editor]="editor"
+    [pageStore]="pageStore"
+  ></pe-builder-element-visibility-toggle>
+
+  <pe-builder-element-pinned-toggle [editor]="editor" [pageStore]="pageStore"></pe-builder-element-pinned-toggle>
+
+  <pe-builder-navbar-spacer style="padding-right: 12px"></pe-builder-navbar-spacer>
+</form>

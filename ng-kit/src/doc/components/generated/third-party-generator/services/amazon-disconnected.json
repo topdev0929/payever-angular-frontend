@@ -1,0 +1,83 @@
+{
+  "contentType": "accordion",
+  "connected": false,
+  "title": "Amazon",
+  "closeUrl": "https://amazon-backend.test.devpayever.com/api/flow/close-app",
+  "type": "info-box",
+  "content": {
+    "accordion": [
+      {
+        "title": "Authentication",
+        "action": {
+          "actionId": "start",
+          "text": "Connect",
+          "apiUrl": "https://amazon-backend.test.devpayever.com/api/flow/auth-success",
+          "httpMethod": "post",
+          "classes": "text-grey"
+        },
+        "fieldsetCaption": {
+          "text": "Please authorize us as a developer from the User Permissions page in Seller Central. Then enter here your Auth token,  Seller Id and Marketplace Id"
+        },
+        "fieldset": [
+          {
+            "fieldSettings": {
+              "classList": "col-xs-12",
+              "readonly": true
+            },
+            "inputSettings": {
+              "placeholder": "Developer Id"
+            },
+            "name": "developerId",
+            "type": "input"
+          },
+          {
+            "fieldSettings": {
+              "classList": "col-xs-12",
+              "readonly": false,
+              "required": true
+            },
+            "inputSettings": {
+              "placeholder": "MWS Auth Token"
+            },
+            "name": "mwsAuthToken",
+            "type": "input"
+          },
+          {
+            "fieldSettings": {
+              "classList": "col-xs-12",
+              "readonly": false,
+              "required": true
+            },
+            "inputSettings": {
+              "placeholder": "Seller Id"
+            },
+            "name": "sellerId",
+            "type": "input"
+          },
+          {
+            "fieldSettings": {
+              "classList": "col-xs-12",
+              "readonly": false,
+              "required": true
+            },
+            "inputSettings": {
+              "placeholder": "Marketplace Id"
+            },
+            "name": "marketplaceId",
+            "type": "input"
+          }
+        ],
+        "fieldsetData": {
+          "developerId": "19111232141",
+          "marketplaceId": "",
+          "mwsAuthToken": "",
+          "sellerId": ""
+        }
+      }
+    ],
+    "html": {
+      "icon": false,
+      "innerHtml": "Status: Not connected"
+    }
+  }
+}

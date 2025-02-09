@@ -1,0 +1,37 @@
+pe-chat-autocomplete {
+  width: 100%;
+}
+
+.mat-option[id^="pe-chat-autocomplete__option-"] {
+  background-color: #1c1d1e;
+  color: white;
+  font-size: 12px;
+  height: 41px;
+  line-height: 1.33;
+  padding: 4px 18px 5px;
+
+  &:hover:not(.mat-option-disabled),
+  &:focus:not(.mat-option-disabled),
+  &.mat-active {
+    color: white;
+    background-color: #292929;
+  }
+
+  &.mat-selected:not(.mat-active):not(:hover):not(.mat-option-disabled) {
+    color: white;
+  }
+
+  &.mat-selected:not(.mat-active):not(:hover),
+  &.mat-selected:not(.mat-active):hover {
+    background-color: #0371e2;
+  }
+
+  .pe-chat-autocomplete__option {
+    align-items: center;
+    display: flex;
+
+    svg {
+      margin-right: 8px;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+:host {
+  display: inline-flex;
+  height: 28px;
+}
+
+.input-value {
+  display: flex;
+  border-radius: 6px;
+  font-size: 11px;
+  box-sizing: border-box;
+  padding: 0 6px;
+  user-select: none;
+
+  .units {
+    display: flex;
+    padding: 0 4px 0 10px;
+    align-items: center;
+  }
+}
+
+input {
+  appearance: none;
+  font-size: 11px;
+  line-height: normal;
+  text-align: right;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  min-width: 0;
+  width: 100%;
+}
+
+:host(.multiple) .input-value {
+  font-style: italic;
+  color: #757575;
+}

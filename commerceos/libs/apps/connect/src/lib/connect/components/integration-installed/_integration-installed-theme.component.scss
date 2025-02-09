@@ -1,0 +1,11 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+
+  .integrations-installed {
+    &__title,&__message {
+        color: $text-color;
+    }
+  } 
+}

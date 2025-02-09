@@ -1,0 +1,32 @@
+<div class="chapter">
+  <h2>SnackBarService</h2>
+  <div class="main-block">
+    <tabset>
+      <tab heading="Overview">
+        <h3>Import SnackBarModule</h3>
+        <pre><code class="typescript" [innerHTML]="'import { SnackBarModule } from \'@pe/ng-kit/modules/snack-bar\';'"></code></pre>
+        <p>&nbsp;</p>
+        <doc-snack-bar-default-example></doc-snack-bar-default-example>
+      </tab>
+      <tab heading="Template">
+        <div class="row">
+          <div class="col-xs-12">
+            <pre><code class="html" [innerHTML]="snackBarDefaultExampleTemplate | code"></code></pre>
+          </div>
+        </div>
+      </tab>
+      <tab heading="Component">
+        <div class="row">
+          <div class="col-xs-12">
+            <pre><code class="html" [innerHTML]="snackBarDefaultExampleComponent | code"></code></pre>
+          </div>
+        </div>
+      </tab>
+      <tab heading="API">
+        <component-api-renderer [path]="'snack-bar/src/services/snack-bar/snack-bar.service'"></component-api-renderer>
+      </tab>
+    </tabset>
+  </div>
+</div>
+
+<pe-icons-set></pe-icons-set>

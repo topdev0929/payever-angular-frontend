@@ -1,0 +1,18 @@
+<div class="rates-container">
+  <span [ngSwitch]="mode">
+    <ng-container *ngIf="nodeFormOptions$ | async as nodeFormOptions">
+      <ng-container *ngSwitchCase="modeEnum.View">
+        <santander-de-pos-summary-rates-primary
+          [currency]="currency"
+          [formOptions]="nodeFormOptions"></santander-de-pos-summary-rates-primary>
+      </ng-container>
+      <ng-container *ngSwitchCase="modeEnum.Edit">
+        <santander-de-pos-form
+          #ratesForm
+          [extraDuration]="extraDuration"
+          (rateSelected)="onSelectRate($event)"
+          (submitted)="onSubmitted()"></santander-de-pos-form>
+      </ng-container>
+    </ng-container>
+  </span>
+</div>

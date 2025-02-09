@@ -1,0 +1,16 @@
+<checkout-sdk-finish-wrapper [buttons]="buttons">
+  <checkout-sdk-finish-status-icon [status]="'success'"> </checkout-sdk-finish-status-icon>
+  <div
+    class="large-1"
+    i18n="@@payment-santander-de-pos.inquiry.finish.pending.title">
+    payment-santander-de-pos.inquiry.finish.pending.title
+  </div>
+  <p i18n="@@payment-santander-de-pos.inquiry.finish.pending.text">
+    payment-santander-de-pos.inquiry.finish.pending.text
+  </p>
+  <p
+    class="small text-secondary"
+    *ngIf="orderNumber">
+    {{ orderNumberText }}
+  </p>
+</checkout-sdk-finish-wrapper>

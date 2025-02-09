@@ -1,0 +1,51 @@
+<ng-container *pebRender="elements; template: elementTemplateRef;"></ng-container>
+
+<ng-template #elementTemplateRef let-element>
+  <ng-container *ngTemplateOutlet="element.link? linkTemplate: noLinkTemplate; context: { $implicit: element }">
+  </ng-container>
+</ng-template>
+
+<ng-template #noLinkTemplate let-element>
+  <div
+    #elementRef
+    [pebClientElement]="element"
+    [pebAnimation]="element"
+    [pebStyle]="element.style?.host"
+    [ngClass]="element.style.class"
+    (click)="elementClicked(element, elementRef)"
+    (mouseenter)="mouseEntered(element, elementRef)"
+    (mouseleave)="mouseLeaved(element, elementRef)"  
+  >
+  <ng-container *ngTemplateOutlet="contentTemplateRef; context: { $implicit: element }"></ng-container>
+  </div>
+</ng-template>
+
+<ng-template #linkTemplate let-element>
+  <a
+    #elementRef
+    [pebClientElement]="element"
+    [pebAnimation]="element"
+    [pebLink]="element.link"
+    [pebStyle]="element.style?.host"
+    [ngClass]="element.style.class"
+    (click)="elementClicked(element, elementRef)"
+    (mouseenter)="mouseEntered(element, elementRef)"
+    (mouseleave)="mouseLeaved(element, elementRef)"    
+  >
+    <ng-container *ngTemplateOutlet="contentTemplateRef; context: {$implicit: element}"></ng-container>
+  </a>
+</ng-template>
+
+<ng-template #contentTemplateRef let-element>
+    <div class="text ql-editor" *ngIf="!!element.text" [pebStyle]="element.style?.inner"
+      [pebHtml]="element.text"></div>
+    <peb-vector-element *ngIf="element.vector" 
+      [id]="element.id" 
+      [vector]="element.vector"
+      [container]="container"
+    ></peb-vector-element>
+    <peb-fill *ngIf="element.fill && element.fill.type!=='solid' && element.fill.type!=='gradient'" 
+      [element]="element"
+      [fill]="element.fill" 
+      [container]="container"></peb-fill>
+</ng-template>

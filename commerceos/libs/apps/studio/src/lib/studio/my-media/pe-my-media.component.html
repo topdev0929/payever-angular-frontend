@@ -1,0 +1,42 @@
+<div class="navbar-detail">
+  <div class="actions-detail">
+    <div (click)="downloadImage()">
+      <mat-icon svgIcon="download"></mat-icon>
+    </div>
+
+    <div (click)="openPreviewDialog()">
+      <mat-icon svgIcon="vertical-dots"></mat-icon>
+    </div>
+    <button matDialogClose class="navbar-detail__close">
+      <mat-icon svgIcon="close"></mat-icon>
+    </button>
+  </div>
+</div>
+
+<div class="container-fluid" [ngClass]="theme">
+  <ng-container [ngSwitch]="mediaData?.mediaType">
+    <ng-container *ngSwitchCase="mediaType.Video">
+      <video controls autoplay>
+        <source [src]="mediaData.data.url">
+        Your browser does not support the video tag.
+      </video>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="mediaType.Image">
+      <div
+        class="bg-preview preview"
+        [ngStyle]="{'background-image': 'url(' + mediaData.data.url + ')'}">
+      </div>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="mediaType.Model">
+      <div class="threejs-viewer">
+        <div #rendererContainer></div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngSwitchDefault>
+      <p>No media available</p>
+    </ng-container>
+  </ng-container>
+</div>

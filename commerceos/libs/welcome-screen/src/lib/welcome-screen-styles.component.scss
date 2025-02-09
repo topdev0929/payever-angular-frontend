@@ -1,0 +1,60 @@
+@use  'pe_screen_variables.scss' as pe_variables;
+@use 'pe_mixins' as pe_mixins;
+
+.cdk-dark-backdrop + .cdk-global-overlay-wrapper {
+    z-index: 2000;
+}
+
+.welcome_panel {
+  @media (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+    width: 100%;
+    height: 100%;
+    welcome-screen {
+      width: 100%;
+      display: flex;
+      align-items: flex-end;
+      .welcome-screen {
+        width: var(--app-width);
+        height: calc(var(--app-height) * 3 / 4 );
+        margin: 0;
+        border-radius: 10px 10px 0 0;
+        border: none;
+        @include pe_mixins.payever_bottom-sheet();
+        &-image {
+          min-width: 64px;
+          min-height: 64px;
+          width: 64px;
+          height: 64px;
+        }
+        &-content {
+          max-width: 100%;
+          width: 100%;
+          height: 100%;
+          &-description {
+            height: 100%;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 20px;
+          }
+          &-title {
+            font-size: 34px;
+            font-weight: 700;
+            margin: 6px 0 24px;
+          }
+          &-button {
+            min-height: 44px;
+            height: 44px;
+            font-size: 17px;
+            font-weight: 600;
+          }
+          &-aclaration {
+            font-size: 15px;
+            font-weight: 400;
+            line-height: normal;
+            line-height: 20px;
+          }
+        }
+      }
+    }
+  }
+}

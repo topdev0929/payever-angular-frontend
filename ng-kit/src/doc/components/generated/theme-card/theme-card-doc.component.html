@@ -1,0 +1,50 @@
+<div class="chapter">
+  <h2>ThemeCardComponent</h2>
+  <div class="main-block">
+    <tabset>
+      <tab heading="Overview">
+        <h3>Import ThemeCardModule</h3>
+        <pre><code class="typescript" [innerHTML]="'import {ThemeCardModule} from \'@pe/ng-kit/modules/theme-card\';'"></code></pre>
+        <p>&nbsp;</p>
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          [tsExample]="tsExample"
+          >
+          <pe-theme-card
+            [uuid]="'id-123'"
+            [title]="'Minimal'"
+            [subTitle]="'Installed'"
+            [image]="image"
+            [actions]="cardActions"
+            (onClick)="handleCardClick($event)"
+            >
+          </pe-theme-card>
+        </example-viewer>
+      </tab>
+      <tab heading="API">
+        <component-api-renderer [path]="'theme-card/src/theme-card.component'"></component-api-renderer>
+      </tab>
+      <tab heading="Examples">
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          [tsExample]="tsExample"
+          >
+          <pe-theme-card
+            [uuid]="'id-123'"
+            [title]="'Minimal'"
+            [subTitle]="'Installed'"
+            [image]="image"
+            [actions]="cardActions"
+            (onClick)="handleCardClick($event)"
+            >
+          </pe-theme-card>
+        </example-viewer>
+      </tab>
+      <tab heading="README">
+        <doc-viewer documentUrl="/assets/module-guides/theme-card/theme-card.html"></doc-viewer>
+      </tab>
+    </tabset>
+  </div>
+</div>

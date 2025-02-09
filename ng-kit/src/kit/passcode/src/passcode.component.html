@@ -1,0 +1,40 @@
+<div class="ui-passcode" [class.newpass]="newPasscode" [class.dark-passcode]="darkTheme">
+  <h2 class="title" [innerHtml]="title" *ngIf="!onlyPad"></h2>
+  <div class="indicators" [class.pe-buzz-out]="shouldBuzz" *ngIf="!onlyPad">
+    <span *ngFor="let item of passcode" class="indicator" [class.active]="item !== null && item !== undefined">{{ item }}</span>
+  </div>
+  <div class="dialpad">
+    <div class="row">
+      <div class="col-xs-4"><div class="dialpad-num" (click)="dial(1)" (touchend)="onTouchEnd($event, 1)">1</div></div>
+      <div class="col-xs-4"><div class="dialpad-num" (click)="dial(2)" (touchend)="onTouchEnd($event, 2)">2</div></div>
+      <div class="col-xs-4"><div class="dialpad-num" (click)="dial(3)" (touchend)="onTouchEnd($event, 3)">3</div></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4"><div class="dialpad-num" (click)="dial(4)" (touchend)="onTouchEnd($event, 4)">4</div></div>
+      <div class="col-xs-4"><div class="dialpad-num" (click)="dial(5)" (touchend)="onTouchEnd($event, 5)">5</div></div>
+      <div class="col-xs-4"><div class="dialpad-num" (click)="dial(6)" (touchend)="onTouchEnd($event, 6)">6</div></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4"><div class="dialpad-num" (click)="dial(7)" (touchend)="onTouchEnd($event, 7)">7</div></div>
+      <div class="col-xs-4"><div class="dialpad-num" (click)="dial(8)" (touchend)="onTouchEnd($event, 8)">8</div></div>
+      <div class="col-xs-4"><div class="dialpad-num" (click)="dial(9)" (touchend)="onTouchEnd($event, 9)">9</div></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4"><div class="dialpad-num" (click)="dial('.')" (touchend)="onTouchEnd($event, '.')" *ngIf="withDot">.</div></div>
+      <div class="col-xs-4"><div class="dialpad-num" (click)="dial(0)" (touchend)="onTouchEnd($event, 0)">0</div></div>
+      <div class="col-xs-4">
+        <div class="dialpad-num dialpad-clear" (click)="reset()" *ngIf="!onlyPad"><svg class="icon icon-24"><use xlink:href="#icon-x-24"></use></svg></div>
+        <div class="dialpad-num dialpad-clear" (click)="remove()" *ngIf="onlyPad"><svg class="icon icon-24"><use xlink:href="#icon-arrow-left-24"></use></svg></div>
+      </div>
+    </div>
+  </div>
+  <div class="save" *ngIf="newPasscode && !labelError && !onlyPad">
+    <span (click)="save()">{{ labelSave }}</span>
+  </div>
+  <div class="error" *ngIf="labelError && !onlyPad">
+    <span>{{ labelError }}</span>
+  </div>
+  <div class="cancel" *ngIf="!onlyPad">
+    <span (click)="cancel()">{{ labelCancel }}</span>
+  </div>
+</div>

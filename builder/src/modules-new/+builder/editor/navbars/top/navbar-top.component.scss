@@ -1,0 +1,20 @@
+@import '../../../builder.styles';
+
+mat-toolbar.builder-editor-navbar {
+  @extend %builder-editor-navbar;
+  height: 49px;
+
+  mat-toolbar-row.mat-toolbar-row {
+    height: 49px;
+  }
+}
+
+.top-navbar-column {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+.button {
+  margin-right: 10px;
+}

@@ -1,0 +1,7 @@
+@use 'pe_theming' as pet;
+@use './components/components-theme.import' as components;
+
+@mixin theme($theme-config) {
+    @include components.theme($theme-config);
+    $color-config: pet.get-color-config-from-theme($theme-config);
+}

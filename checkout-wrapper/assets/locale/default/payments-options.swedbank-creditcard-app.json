@@ -1,0 +1,33 @@
+{
+  "swedbank-cc": {
+    "action": {
+      "next": "Next"
+    },
+    "inquiry": {
+      "form": {
+        "phone": {
+          "label": "Phone",
+          "placeholder": "Phone"
+        }
+      },
+      "finish": {
+        "status_success": {
+          "title": "Thank you for your purchase",
+          "text": "Order Confirmed"
+        },
+        "status_fail": {
+          "title": "Sorry. Your application was declined",
+          "text": "Please go back to the online shop and select a different payment option"
+        },
+        "status_processing": {
+          "title": "Thank you for your purchase",
+          "text": "Your payment will be accepted after verification"
+        }
+      }
+    }
+  },
+  "salutation": {
+    "SALUTATION_MR": "Mr",
+    "SALUTATION_MRS": "Mrs"
+  }
+}

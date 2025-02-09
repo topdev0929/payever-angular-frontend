@@ -1,0 +1,66 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+
+:host {
+  .mat-accordion {
+    .mat-expansion-panel {
+      .icon-plus {
+        right: 0;
+        min-width: 16px;
+      }
+      .icon-minus {
+        min-width: 16px;
+        display: none;
+      }
+
+      &.mat-expanded {
+        .icon-plus {
+          display: none;
+        }
+        .icon-minus {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .content-wrapper {
+    display: flex;
+    overflow: hidden;
+    height: 100%;
+
+    .sidebar-content {
+      min-width: 25%;
+
+      .mat-list {
+        height: 100%;
+        background-color: $color-white-grey-1;
+
+        .mat-list-item {
+          cursor: pointer;
+          height: $grid-unit-y * 5;
+
+          &.selected {
+            background-color: rgba($color-white, .05);
+          }
+        }
+      }
+    }
+
+    .main-content {
+      flex-grow: 1;
+      margin: 0 $grid-unit-x * 2;
+      overflow: hidden;
+      position: relative;
+
+      .scroll-container {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+    }
+  }
+}

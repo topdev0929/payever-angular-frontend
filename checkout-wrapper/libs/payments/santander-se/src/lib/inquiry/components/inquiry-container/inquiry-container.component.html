@@ -1,0 +1,22 @@
+<checkout-sdk-payment-sections
+  *ngIf="nodeFormOptions$ | async as nodeFormOptions"
+  [sectionsConfig]="sectionsConfig"
+  [formSections]="formSectionsData"
+  [flow]="flow$ | async"
+  [nodeFormOptions]="nodeFormOptions"
+  [doSubmit$]="doSubmit$"
+  [paymentMethod]="paymentMethod"
+  [merchantMode]="merchantMode"
+  [embeddedMode]="embeddedMode"
+  (checkStepsLogic)="checkStepsLogic($event)"
+  (changePaymentMethod)="changePayment($event)"
+  (finishedModalShown)="finishedModalShown($event)"
+  (loadedLazyModule)="loadedLazyModule($event)">
+</checkout-sdk-payment-sections>
+
+<santander-se-shared-finish
+  *ngIf="isSendingPayment$ | async"
+  [embeddedMode]="embeddedMode"
+  [merchantMode]="merchantMode"
+  [isLoading]="true">
+</santander-se-shared-finish>

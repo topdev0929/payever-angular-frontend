@@ -1,0 +1,8 @@
+<entry-create-business-form
+[businessRegistrationData]="businessRegistrationData" 
+[isLoading]="isLoading"
+(formDataEmitter)="onFormDataReceive($event)"
+(formHasErrorsEmitter)="onFormErrorReceive($event)"
+[allowValidation]="allowValidation"
+[detectChanges$]="errorBag$"
+></entry-create-business-form>

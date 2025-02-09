@@ -1,0 +1,93 @@
+<form
+  [formGroup]="bankForm"
+  #form="ngForm"
+  (ngSubmit)="onSave()"
+>
+  <div class="main-form">
+    <div class="form-margins">
+      <peb-form-background>
+        <peb-form-field-input
+          label="{{ formTranslationsService.getFormControlLabel('owner') }}"
+          appearance="label"
+          [isFieldInvalid]="form.submitted && bankForm.get('owner').invalid"
+          [errorMessage]="fieldErrorMessage('owner')"
+        >
+          <input
+            formControlName="owner"
+          />
+        </peb-form-field-input>
+        <div class="columns">
+          <peb-select
+            class="two-column-input"
+            selectType="label"
+            label="{{ formTranslationsService.getFormControlLabel('country')}}"
+            formControlName="country"
+            [isFieldInvalid]="form.submitted && bankForm.get('country').invalid"
+            [errorMessage]="fieldErrorMessage('country')"
+          >
+            <peb-select-option
+              class="select-options"
+              *ngFor="let item of countries"
+              value="{{ item.value }}"
+              label="{{ item.label }}"
+            ></peb-select-option>
+          </peb-select>
+          <div class="divider"></div>
+          <peb-form-field-input
+            class="two-column-input"
+            label="{{ formTranslationsService.getFormControlLabel('city') }}"
+            appearance="label"
+            [isFieldInvalid]="form.submitted && bankForm.get('city').invalid"
+            [errorMessage]="fieldErrorMessage('city')"
+          >
+            <input
+              formControlName="city"
+            />
+          </peb-form-field-input>
+        </div>
+        <div class="columns">
+          <peb-form-field-input
+            class="two-column-input"
+            label="{{ formTranslationsService.getFormControlLabel('bankName') }}"
+            [isFieldInvalid]="form.submitted && bankForm.get('bankName').invalid"
+            [errorMessage]="fieldErrorMessage('bankName')"
+            appearance="label"
+          >
+            <input
+              type="text"
+              formControlName="bankName"
+            />
+          </peb-form-field-input>
+          <div class="divider"></div>
+          <peb-form-field-input
+            class="two-column-input"
+            label="{{ formTranslationsService.getFormControlLabel('bankCode') }}"
+            [isFieldInvalid]="form.submitted && bankForm.get('bic').invalid"
+            [errorMessage]="fieldErrorMessage('bic')"
+            appearance="label"
+          >
+            <input
+              type="text"
+              formControlName="bic"
+            />
+          </peb-form-field-input>
+        </div>
+        <peb-form-field-input
+          label="{{ formTranslationsService.getFormControlLabel('accountNumber') }}"
+          appearance="label"
+          [isFieldInvalid]="form.submitted && bankForm.get('iban').invalid"
+          [errorMessage]="fieldErrorMessage('iban')"
+        >
+          <input
+            peInputMask
+            [mask]="ibanMask"
+            [unmask]="ibanUnmask"
+            type="text"
+            formControlName="iban"
+          />
+        </peb-form-field-input>
+      </peb-form-background>
+    </div>
+  </div>
+  <button #submitTrigger type="submit" class="hidden"></button>
+</form>

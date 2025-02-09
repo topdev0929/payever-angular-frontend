@@ -1,0 +1,27 @@
+{
+  "name": "@pe/transactions",
+  "version": "0.1.17",
+  "description": "Payever Transactions",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.devpayever.com:10022/frontend/transactions.git"
+  },
+  "license": "LicenseRef-payever",
+  "dependencies": {
+    "tslib": "^1.10.0",
+    "@pe/ng-kit": "10.0.8",
+    "@pe/checkout-sdk": "10.0.4"
+  },
+  "peerDependencies": {
+    "@angular/common": "^10.0.8",
+    "@angular/core": "^10.0.8",
+    "@angular/material": "^10.0.2",
+    "@angular/cdk": "^10.0.2",
+    "@ngrx/effects": "^9.1.0",
+    "@ngrx/store": "^9.1.0",
+    "moment": "latest",
+    "lodash-es": "latest",
+    "rxjs": "latest",
+    "@pe/platform-header": "latest"
+  }
+}

@@ -1,0 +1,150 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+:host-context([data-position="top-right"]){
+  .ui-notification-item {
+    @include payever_transform_translate(100%, 0);
+    &.in {
+      @include payever_transform_translate(0, 0);
+    }
+  }
+}
+:host-context([data-position="top-left"]){
+  .ui-notification-item {
+    @include payever_transform_translate(-100%, 0);
+    &.in {
+      @include payever_transform_translate(0, 0);
+    }
+  }
+}
+:host-context([data-position="bottom-right"]){
+  .ui-notification-item {
+    @include payever_transform_translate(100%, 0);
+    &.in {
+      @include payever_transform_translate(0, 0);
+    }
+  }
+}
+:host-context([data-position="bottom-left"]){
+  .ui-notification-item {
+    @include payever_transform_translate(-100%, 0);
+    &.in {
+      @include payever_transform_translate(0, 0);
+    }
+  }
+}
+:host-context([data-position="center-center"]){
+  .ui-notification-item {
+    @include payever_transform_translate(0, 100%);
+    &.in {
+      @include payever_transform_translate(0, 0);
+    }
+  }
+}
+
+.ui-notification-item {
+  background-color: $color-black-opacity-3;
+  border-radius: $border-radius-base * 2;
+  padding: $pe_vgrid_height $pe_hgrid_gutter / 2 $pe_vgrid_height $pe_hgrid_gutter;
+  width: $pe_hgrid_gutter * 16.5;
+  max-width: 90%;
+  color: $color-white;
+  margin-bottom: $pe_vgrid_height * 1.5;
+  position: relative;
+  cursor: default;
+  @include payever_transition(transform, $animation-duration-slide-in, $animation-effect-ease-out);
+  &.in {
+    @include payever_transform_translate(0, 0);
+  }
+  &.standalone {
+    border-radius: 0;
+    margin-bottom: 0;
+    background-color: transparent;
+    width: auto;
+    max-width: none;
+    .btn-close {
+      color: $color-black;
+      position: absolute;
+      top: 0;
+      right: 0;
+      opacity: 0;
+    }
+    &:hover {
+      background-color: $color-black-opacity-3;
+      @include payever_transition(background-color, $animation-duration-slide-in / 2, $animation-effect-ease-out);
+      .ui-notification-item-date,
+      .ui-notification-item-status {
+        opacity: 0;
+        @include payever_transition(opacity, $animation-duration-slide-in / 2, $animation-effect-ease-out);
+      }
+      .btn-close {
+        opacity: 1;
+      }
+    }
+  }
+  &.is-clickable {
+    cursor: pointer;
+  }
+  .content-wrap {
+    @include pe_flexbox();
+  }
+  .btn-close {
+    cursor: pointer;
+    margin-left: $pe_hgrid_gutter / 4;
+    @include payever_transition(opacity, $animation-duration-slide-in / 2, $animation-effect-ease-out);
+    opacity: .7; //$pe-opacity-inactive;
+    &:hover {
+      opacity: 1; //$pe-opacity-active;
+    }
+  }
+  .ui-notification-item-icon {
+    padding-right: $pe_hgrid_gutter / 4;
+    margin-top: $pe_vgrid_height / 2;
+    line-height: 0;
+  }
+  .ui-notification-item-text {
+    padding: 0 $pe_hgrid_gutter / 4;
+    overflow: hidden;
+  }
+}
+.ui-notification-item-subtitle {
+  text-transform: uppercase;
+  font-size: 11px;
+  color: $color-white-opacity-6;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: $pe_hgrid_gutter * 3;
+}
+.ui-notification-item-title {
+  font-size: 13px;
+  color: $color-white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ui-notification-item-desc {
+  font-size: 13px;
+  color: $color-white-opacity-5;
+}
+.ui-notification-item-icon {
+
+}
+.ui-notification-item-toolbar {
+  position: absolute;
+  top: $pe_vgrid_height;
+  right: $pe_hgrid_gutter / 2;
+}
+.ui-notification-item-date {
+  font-size: 12px;
+  color: $color-white-opacity-5;
+}
+.ui-notification-item-status {
+  display: inline-block;
+  width: $icon-size-24 / 4;
+  height: $icon-size-24 / 4;
+  border-radius: 100%;
+  background-color: $color-white;
+  vertical-align: middle;
+  margin-right: $pe_hgrid_gutter / 4;
+}

@@ -1,0 +1,10 @@
+@use 'pe_theming' as pet;
+@use './picker-theme' as picker;
+@use './picker-autocomplete-panel-theme' as picker_autocomplete_panel;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include picker.color($color-config);
+  @include picker_autocomplete_panel.color($color-config); 
+}
+

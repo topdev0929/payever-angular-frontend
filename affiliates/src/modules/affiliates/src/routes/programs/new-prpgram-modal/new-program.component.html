@@ -1,0 +1,118 @@
+<form [ngClass]="theme" [formGroup]="newProgramForm">
+  <div class="main-form">    
+    <peb-expandable-panel headerLabel="General" class="daily-budget" [isContentOpen]="true">   
+      <div class="error-msg-container">
+        <div class="form-margins__error text-area-error">
+          <peb-messages
+            *ngIf="newProgramForm.get('programName').invalid"
+            message="Program Name is invalid"
+          ></peb-messages>        
+        </div>
+        <div class="form-margins__error text-area-error">
+          <peb-messages
+            *ngIf="newProgramForm.get('programApiId').invalid"
+            message="Program API ID is invalid"
+          ></peb-messages>        
+        </div>
+      </div>
+      <peb-form-background>                 
+        <peb-form-field-input label="Program name" appearance="label">
+          <input id="programName" formControlName="programName" placeholder="Enter Program Name" />
+        </peb-form-field-input>
+        <div class="box-container">
+          <peb-form-field-input label="Program API ID" appearance="label">
+            <input id="programApiId" formControlName="programApiId" placeholder="Enter API ID" />
+          </peb-form-field-input>
+          <peb-form-field-input label="Started" appearance="label" >
+            <input placeholder="DD.MM.YYYY" id="startedDate" formControlName="startedDate" [(ngModel)]="startedDate" />
+            <div class="suffix-icon" (click)="onOpenDatepicker($event)">
+              <mat-icon svgIcon="datetime-picker"></mat-icon>
+            </div>
+          </peb-form-field-input>
+        </div>
+        <div class="box-container">
+          <peb-form-field-input label="No. assets" appearance="label">
+            <input value="0" type="number" />
+          </peb-form-field-input>
+          <peb-form-field-input label="Cookie time" appearance="label">
+            <input value="45 days" />
+          </peb-form-field-input>
+        </div>        
+        <div class="select-wrap">
+          <peb-select label="Currency" selected="usd">
+            <peb-select-option label="USD - $" value="usd"></peb-select-option>
+            <peb-select-option label="GBP - £" value="gbp"></peb-select-option>
+            <peb-select-option label="EUR - €" value="eur"></peb-select-option>
+          </peb-select>         
+        </div>
+        <div class="select-wrap">
+          <peb-select label="Default commission form" selected="percentage30">
+            <peb-select-option label="Percentage (30%)" value="percentage30"></peb-select-option>
+            <peb-select-option label="Percentage (50%)" value="percentage50"></peb-select-option>
+            <peb-select-option label="Percentage (100%)" value="percentage100"></peb-select-option>
+          </peb-select>         
+        </div>
+        <peb-form-field-input label="Total commission types" appearance="label">
+          <input value="1" />
+        </peb-form-field-input>
+        <peb-form-field-input label="Default commission recurrence" appearance="label">
+          <input placeholder="Enter" />
+        </peb-form-field-input>
+      </peb-form-background>         
+    </peb-expandable-panel>
+    <peb-expandable-panel headerLabel="Recruit affiliates" class="audience" [isContentOpen]="true">
+      <peb-form-background> 
+        <div class="select-wrap">
+          <peb-select label="Add Products " selected="product1">
+            <peb-select-option label="Product 1" value="product1"></peb-select-option>            
+          </peb-select>           
+        </div>
+        <pe-picker label="Products" placeholder="Search" [data]="products" buttonLabel="Upload Image"></pe-picker>              
+      </peb-form-background>
+    </peb-expandable-panel>    
+    <peb-expandable-panel headerLabel="Recruit affiliates" class="audience">       
+      <peb-form-background> 
+        <peb-form-field-input label="Invite link" appearance="label">
+          <input value="https://superpenguin.getpayever.com/programs/bananas-inc-affiliate" />
+        </peb-form-field-input>
+      </peb-form-background>
+    </peb-expandable-panel>    
+    <peb-expandable-panel headerLabel="Commission Structure" class="audience" [isContentOpen]="true">  
+      <peb-form-background> 
+        <peb-form-field-input label="Title" appearance="label">
+          <input value="Standard" />
+        </peb-form-field-input>
+        <peb-form-field-input label="Identifier" appearance="label">
+          <input value="Standard" />
+        </peb-form-field-input>
+        <peb-form-field-input label="Commission form" appearance="label">
+          <input value="Percentage" />
+        </peb-form-field-input>
+        <peb-form-field-input label="Commission" appearance="label">
+          <input value="1%" />
+        </peb-form-field-input>        
+      </peb-form-background>   
+      <div class="button-wrap"> 
+        <button peb-text-button color="warn">Remove</button>
+      </div>          
+      <div class="button-wrap"> 
+        <button peb-text-button color="confirm">Add New</button>
+      </div>             
+    </peb-expandable-panel>    
+    <peb-expandable-panel headerLabel="Levels" class="audience" [isContentOpen]="true">
+      <peb-form-background> 
+        <div class="three-box-container">
+          <peb-form-field-input label="Title" appearance="label">
+            <input value="No levels yet..." type="number" />
+          </peb-form-field-input>
+          <peb-form-field-input label="Commission form" appearance="label">
+            <input placeholder="" />
+          </peb-form-field-input>
+          <peb-form-field-input label="Commission" appearance="label">
+            <input placeholder="" />
+          </peb-form-field-input>
+        </div>                
+      </peb-form-background>
+    </peb-expandable-panel>    
+  </div>
+</form>

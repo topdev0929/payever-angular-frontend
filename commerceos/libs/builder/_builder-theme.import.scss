@@ -1,0 +1,43 @@
+@use 'pe_theming' as pet;
+@use './publishing/src/lib/publish-dialog/publish-dialog-theme.component' as publish;
+@use './main-editor/src/lib/editor-theme.import' as main_editor;
+@use './form-controls/src/lib/form-controls-theme.import' as form_control;
+@use './shapes/src/lib/shapes-theme.component' as shapes;
+@use './pages/src/lib/pages-theme.component' as pages;
+@use './page-list/src/lib/page-list-theme.component' as page_list;
+@use './styles/src/lib/styles/sidebars-theme' as sidebar;
+@use './toolbar/src/lib/screens/screens-dialog-theme.component' as screens;
+@use './toolbar/src/lib/toolbar-theme.component' as toolbar;
+@use './toolbar/src/lib/dialog-theme' as dialog;
+@use './toolbar/src/lib/zoom/zoom-dialog-theme.component' as zoom;
+@use './old/src/lib/tabs/tabs-theme.component' as tabs;
+@use './forms/src/lib/forms-theme.import' as forms;
+@use './sidebar/src/lib/sidebar-theme.import' as sidebars;
+@use './media/src/lib/media-theme.component' as media;
+@use './viewer/src/lib/preview-dialog/preview-theme.dialog' as preview_dialog;
+@use "./toolbar/src/lib/screen/screen-dialog-theme.component" as screen_dialog;
+@use "./layers/src/lib/layers-theme.component" as layers;
+@use "./styles/src/lib/styles/context-menu-theme" as contextMenu;
+
+@mixin theme($theme-config) {
+    @include main_editor.theme($theme-config);
+    @include form_control.theme($theme-config);
+    @include forms.theme($theme-config);
+    @include sidebars.theme($theme-config);
+    $color-config: pet.get-color-config-from-theme($theme-config);
+    @include publish.color($color-config);
+    @include shapes.color($color-config);
+    @include pages.color($color-config);
+    @include sidebar.color($color-config);
+    @include page_list.color($color-config);
+    @include toolbar.color($color-config);
+    @include screens.color($color-config);
+    @include dialog.color($color-config);
+    @include zoom.color($color-config);
+    @include tabs.color($color-config);
+    @include media.color($color-config);
+    @include preview_dialog.color($color-config);
+    @include screen_dialog.color($color-config);
+    @include layers.color($color-config);
+    @include contextMenu.color($color-config);
+}

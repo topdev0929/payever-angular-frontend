@@ -1,0 +1,162 @@
+//
+@use '@angular/material' as mat;
+// Form Field
+// ----------------------------
+
+@include mat.form-field-theme($theme);
+
+.pe-checkout-bootstrap {
+  .form-fieldset-new {
+    .mat-form-field {
+      font-family: $font-family-sans-serif;
+      font-size: 14px; // $font-size-base;
+      font-weight: 300;
+
+      &-textarea {
+        .mat-form-field-wrapper {
+          height: auto;
+        }
+      }
+
+      &-wrapper {
+        padding: ceil($grid-unit-y - 2px) 0;
+        min-height: $mat-form-field-height - 2;
+        height: $mat-form-field-height - 2;
+        margin-bottom: -1px;
+      }
+
+      &-underline {
+        bottom: 0px;
+        left: 0;
+        right: 0;
+        background-color: transparent;
+        z-index: -1;
+        width: auto;
+      }
+
+      &-flex {
+        @include pe_align-items(center);
+      }
+
+      &-prefix,
+      &-suffix {
+        .mat-icon {
+          width: auto;
+          line-height: 0;
+          height: auto;
+          .icon {
+            vertical-align: middle;
+          }
+        }
+      }
+
+      &-prefix {
+        margin-right: $grid-unit-x;
+      }
+
+      &-infix {
+        padding-bottom: 0;
+        padding-top: ceil($grid-unit-y * 0.5) + 1;
+        border-top-width: $grid-unit-y + 2;
+        font-weight: $font-weight-light;
+
+        .mat-input-element {
+          color: var(--checkout-input-text-primary-color, $color-black-pe);
+          box-shadow: none;
+        }
+      }
+
+      &-label {
+        -webkit-font-smoothing: antialiased;
+        padding-bottom: 1px;
+        z-index: -1;
+        color: $mat-form-field-label-color;
+      }
+
+      &-label-wrapper {
+        z-index: 3;
+      }
+
+      &-ripple {
+        height: 1px;
+      }
+
+      &:not(.mat-form-field-should-float) {
+        .mat-form-field-label {
+          @include payever_transform_translate(0, ceil(-$grid-unit-x * 0.75));
+        }
+      }
+
+      .icon {
+        color: $mat-form-field-label-empty-color;
+      }
+
+      &.mat-focused {
+        .mat-form-field-required-marker {
+          color: $color-blue;
+        }
+      }
+
+      &-hint-wrapper {
+        display: none;
+      }
+
+      &-empty {
+        color: $mat-form-field-label-empty-color;
+      }
+
+      // Invalid
+
+      &.mat-form-field-invalid {
+        .mat-form-field-subscript-wrapper {
+          top: $grid-unit-y - 2px;
+          margin-top: 0;
+          width: auto;
+          overflow: hidden;
+
+          .mat-error {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+          }
+        }
+
+        .mat-form-field-label {
+          transition-duration: 0ms;
+          @include payever_transform_translate(0, 0);
+          opacity: 0;
+        }
+
+        &.mat-focused {
+          .mat-form-field-label {
+            opacity: 0;
+          }
+        }
+
+        &.mat-form-field-has-prefix {
+          .mat-error {
+            margin-left: $grid-unit-x * 3;
+          }
+        }
+      }
+
+      // States
+      // -------------------------
+
+      &.mat-form-field-disabled {
+        .mat-form-field-underline {
+          background-image: none;
+        }
+      }
+
+      .mat-form-field-subscript-wrapper {
+        position: absolute;
+      }
+    }
+
+    .mat-input-with-addon-inline-prepend-wrapper {
+      @include pe_flexbox();
+      @include pe_align-items(left);
+    }
+  }
+}

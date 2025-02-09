@@ -1,0 +1,19 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $skeleton: map.get($color-config, 'skeleton');
+
+  pe-grid-viewport {
+    .pe-grid-viewport {
+      &__title {
+        p {
+          color: $text-color;
+        }
+        .skeleton-title {
+          background-color: $skeleton;
+        }
+      }
+    }
+  }
+}

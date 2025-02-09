@@ -1,0 +1,23 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $row-background: map.get($color-config, 'row-background');
+  $content: map.get($color-config, 'content');
+
+  .channel-container {
+    .expandable-panel__content {
+      background: $content;
+      .button-toggle.channel-button-toggle {
+        border-radius: 0;
+      }
+    }
+  }
+
+  .channel-button-toggle {
+    background-color: $row-background;
+  }
+
+  .market-toggle {
+    background-color: $row-background;
+  }
+}

@@ -1,0 +1,10 @@
+.widget {
+  width: content-box;
+  border: 1px solid grey;
+  margin: 2em;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #848791;
+  }
+}

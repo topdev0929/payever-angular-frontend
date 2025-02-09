@@ -1,0 +1,25 @@
+@use 'pe_theming' as pet;
+@use './background/background-form-theme.component' as background_form;
+@use './page/page-form-theme.component' as page;
+@use './animation/animation-form-theme.component' as animation;
+@use './integrations/function-form-theme.component' as function_form;
+@use './section/section-form-theme.component' as section;
+@use './video/video-form-theme.component' as video;
+@use './border-style/border-style-form-theme.component' as border;
+@use './languages/language-form-theme.component' as language;
+@use './link/link-form-theme.component' as link_form;
+@use './text/font-list-theme.component' as font_list;
+
+@mixin theme($theme-config) {
+    $color-config: pet.get-color-config-from-theme($theme-config);
+    @include background_form.color($color-config);
+    @include page.color($color-config);
+    @include animation.color($color-config);
+    @include function_form.color($color-config);
+    @include section.color($color-config);
+    @include video.color($color-config);
+    @include border.color($color-config);
+    @include language.color($color-config);
+    @include link_form.color($color-config);
+    @include font_list.color($color-config);
+}

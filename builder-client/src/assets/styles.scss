@@ -1,0 +1,153 @@
+// Need just for one or few mixins like "box-shadow". So need to avoid using it
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+@import "~@angular/material/theming";
+
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+@import '~@pe/ui-kit/scss/pe_fonts';
+@import '~@pe/ui-kit/scss/pe_base';
+
+@import "~@pe/ui-kit/scss/blocks/material/theming";
+
+@import "~@pe/ui-kit/scss/blocks/project/icons";
+@import "~@pe/ui-kit/scss/blocks/bootstrap/scaffolding";
+
+// These two imports need because Material creates dialogs and menues outside of app and we have to use global styles
+@import "~@pe/ui-kit/scss/blocks/material/dialog";
+@import "~@pe/ui-kit/scss/blocks/material/menu";
+
+body {
+  font-family: Roboto, sans-serif; // cannot find where it is decalred in ui-kit
+}
+
+.pe-bootstrap {
+  overflow-x: hidden;
+}
+
+.cdk-global-scrollblock {
+	position: unset;
+	width: unset;
+	overflow: unset;
+}
+
+.slide-top {
+	overflow: hidden !important;
+}
+
+.slide-top .mat-dialog-container {
+	overflow: hidden !important;
+}
+
+.slide-top .mat-dialog-content {
+	max-height: initial !important;
+	overflow: visible !important;
+}
+
+.mat-menu-panel {
+  transform: none !important;
+}
+
+.mat-expansion-panel-content {
+
+  .mat-expansion-panel-body {
+    padding: 0;
+  }
+
+  .mat-form-field-label {
+    padding-left: 15px;
+  }
+}
+
+.mat-form-field.ng-invalid {
+
+  .mat-form-field-wrapper {
+    border-bottom: 1px solid #ff3c30;
+  }
+
+  .mat-form-field-label-wrapper {
+    display: none;
+  }
+}
+
+.mat-form-field {
+
+  .mat-form-field-wrapper {
+    padding-bottom: 1px;
+  
+    .mat-form-field-subscript-wrapper {
+      margin-top: -22px;
+    }
+  
+    .mat-input-element {
+      padding-left: 12px;
+    }
+  
+   .mat-form-field-label {
+      padding-left: 15px;
+    }
+  }
+
+  &:not(.mat-form-field-should-float) {
+    
+    .mat-form-field-label-wrapper {
+      margin-top: -5px;
+    }
+  }
+}
+
+.mat-error {
+  color: #ff3c30;
+  margin-left: 12px;
+}
+
+.mat-form-field-infix {
+	padding-bottom: 0;
+}
+
+.password-dialog {
+  border-radius: 11px;
+  -webkit-backdrop-filter: blur(40px);
+  backdrop-filter: blur(40px);
+  background: rgba(0,0,0,.22);
+  color: white;
+  font-family: Roboto,sans-serif;
+  margin: 120px auto;
+  padding: 15px 0 0 0;
+  position: relative;
+  width: 422px;
+
+  &.collapsed {
+    padding-bottom: 15px;
+  }
+	
+  .mat-button-block {
+    border-bottom-left-radius: 11px;
+    border-bottom-right-radius: 11px;
+    width: 100%;
+    text-align: center;
+    height: 44px;
+    background: #6c6c6c4d;
+    outline: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+}
+
+.overlay-logo {
+  background-image: url('/assets/images/logo_payever_white.svg');
+  background-size: contain;
+  cursor: pointer;
+  height: 22px;
+  left: 24px;
+  position: absolute;
+  top: 12px;
+  width: 99px;
+}
+
+.shop-background {
+  height: 100%;
+  position: fixed;
+  width: 100%;
+}

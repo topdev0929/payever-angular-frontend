@@ -1,0 +1,33 @@
+<div class="ui-layout-content"
+     [class.has-sidebar]="showSidebar" 
+     [class.no-padding]="noPadding" 
+     [class.sidebar-open]="layoutService.sidebarToggleEvent | async">
+
+  <div class="ui-layout-content-main scrollbar-dark"
+       [class.light-grey]="contentLightGrey"
+       [class.collapsed]="collapsed"
+       [class.no-scroll]="noScroll"
+       [class.transparent]="bodyTransparent">
+
+    <div *ngIf="showCaution" class="caution-container">
+      <ng-content select="[caution]"></ng-content>
+    </div>
+
+    <div class="ui-layout-content-main-inner">
+      <div class="no-collapse-container">
+        <ng-content select="[no-collapse]"></ng-content>
+      </div>
+
+      <div *ngIf="!collapsed">
+        <ng-content></ng-content>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+
+  <div *ngIf="showSidebar" 
+       class="ui-layout-content-sidebar" 
+       [class.transparent]="sidebarTransparent">
+    <ng-content select="[sidebar]"></ng-content>
+  </div>
+</div>

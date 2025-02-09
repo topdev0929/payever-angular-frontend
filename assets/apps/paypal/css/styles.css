@@ -1,0 +1,214 @@
+:root {
+  --paypal-primary: #0070E0;
+  --paypal-primary-100: #0544B5;
+  --paypal-secondary: #001435;
+  --paypal-light: #EAECED;
+  --paypal-light-100: #9198A0;
+}
+
+.desktop-checkout-items.with-offset {
+  position: relative;
+  top: -142px;
+  z-index: -1;
+}
+
+.mobile .desktop-checkout-items.with-offset {
+  top: -90px;
+}
+
+.active-order-step .payment-footer {
+  display: none;
+}
+
+.mobile .active-order-step .payment-footer {
+  display: flex;
+}
+
+.outer-frame {
+  width: 100%;
+  max-width: 308px;
+  height: 100%;
+  padding: 18px 12px;
+}
+
+.mobile .outer-frame {
+  padding: 35px 11px;
+}
+
+.outer-frame .outer-frame-inner {
+  display: flex;
+  flex-direction: column;
+  padding: 18px 16px;
+  border: 1px solid var(--paypal-light);
+  border-radius: 8px;
+  background: var(--light);
+}
+
+.mobile .outer-frame .outer-frame-inner {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.outer-frame-body {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  align-items: center;
+  width: 100%
+}
+
+.outer-frame-title {
+  color: var(--paypal-secondary);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.outer-frame-logo {
+  width: 15px;
+  height: 18px;
+}
+
+.outer-frame-info {
+  max-width: 232px;
+  width: 100%;
+  margin: 0 auto;
+  color: var(--paypal-secondary);
+  text-align: center;
+  font-size: 10px;
+}
+
+.outer-frame-info span {
+  color: var(--paypal-primary);
+  font-family: Roboto;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.outer-frame-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.outer-frame-form .field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 39px;
+  padding: 0 13px;
+  border-radius: 3px;
+  border: 1px solid var(--paypal-light-100);
+}
+
+.outer-frame-form .field .label {
+  color: var(--secondary-300);
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.outer-frame-form .field .value {
+  color: var(--secondary-700);
+  font-size: 9px;
+}
+
+.outer-frame-form .field .password-value {
+  display: flex;
+  gap: 3px;
+  padding: 3px 0;
+}
+
+.outer-frame-form .field .password-value div {
+  width: 5px;
+  height: 5px;
+  background-color: var(--secondary-700);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.outer-frame-forgot-password {
+  width: 100%;
+  color: var(--paypal-primary);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.outer-frame-auth-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 31px;
+  border-radius: 42px;
+  font-weight: 700;
+}
+
+.outer-frame-auth-button.solid-button {
+  background: var(--paypal-primary-100);
+  color: var(--light);
+}
+
+.outer-frame-auth-button.outline-button {
+  background: var(--light);
+  color: var(--paypal-secondary);
+  border: 1px solid var(--paypal-secondary);
+}
+
+.outer-frame-divider {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.outer-frame-divider .divider-line {
+  flex: 1;
+  height: 1px;
+  background-color: var(--secondary-300);
+}
+
+.outer-frame-divider .divider-info {
+  margin: 0 6px;
+  font-size: 8px;
+}
+
+.outer-frame-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  margin-top: 35px;
+}
+
+.outer-frame-back-link {
+  color: var(--paypal-primary);
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.outer-frame-lang-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  color: var(--secondary-300);
+  font-size: 8px;
+}
+
+.outer-frame-lang-nav .lang-active {
+  color: var(--paypal-secondary);
+}
+
+.outer-frame-lang-nav .divider {
+  width: 1px;
+  height: 8px;
+  background: var(--secondary-300);
+}
+
+.success-modal .payment-icon {
+  width: 58px;
+  height: 15px;
+  flex-shrink: 0;
+  object-fit: contain;
+}

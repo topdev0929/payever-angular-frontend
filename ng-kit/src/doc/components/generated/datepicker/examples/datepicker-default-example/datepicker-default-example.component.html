@@ -1,0 +1,10 @@
+<form novalidate [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="pe-datepicker">
+    <pe-datepicker [errorMessage]="'Please enter a valid date'"
+                   [formGroup]="form"
+                   [formControlRef]="form.get('date')"
+    >
+    </pe-datepicker>
+  </div>
+  <button>Submit</button>
+</form>

@@ -1,0 +1,32 @@
+@use "pe_variables" as pe_variables;
+
+.style-modal-item {
+  width: 100%;
+  max-height: 44px;
+  height: 44px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+    height: 56px;
+    max-height: 56px;
+  }
+
+  &__label {
+    font-size: 14px;
+    font-weight: 500;
+    flex: 1;
+    padding: 10px;
+  }
+  &__button {
+    display: flex;
+    width: 105px;
+    min-width: 105px;
+    align-items: center;
+    justify-content: center;
+    border-left-width: 1px;
+    border-left-style: solid;
+    font-size: 14px;
+    height: 100%;
+  }
+}

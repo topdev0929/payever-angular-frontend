@@ -1,0 +1,17 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $tertiary-background: map.get($color-config, 'tertiary-background');
+  $text-color: map.get($color-config, 'text-color');
+
+  .statistics-apps-widget {
+    .app {
+      &__icon {
+        background-color: $tertiary-background;
+      }
+      &__name {
+        color: $text-color;
+      }
+    }
+  }
+}

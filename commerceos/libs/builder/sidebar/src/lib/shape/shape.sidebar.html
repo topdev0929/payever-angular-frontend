@@ -1,0 +1,115 @@
+<peb-editor-sidebar-tabs>
+  <peb-editor-sidebar-tab [title]="'builder-app.sidebar.style' | translate">
+    
+    <div class="form__row">
+      <div class="palette-row" [formGroup]="backgroundForm" (change)="onSubmit()">
+        <peb-color-palette formControlName="color"></peb-color-palette>
+      </div>
+    </div>
+
+    <div class="form__row_border">
+      <div class="group__row">
+        <label class="group__label">Fill</label>
+        <div class="peb-fill" (click)="showBackgroundForm()">
+          <div class="peb-fill__thumbnail" [ngStyle]="background$ | async"></div>
+          <mat-icon svgIcon="arrow" class="sidebar__icon sidebar__icon__arrow sidebar__icon__arrow--fill"></mat-icon>
+        </div>
+      </div>
+    </div>
+
+    <div class="form__row_border">
+      <div class="group__row">
+        <label class="group__label">
+          {{ 'builder-app.sidebar.link' | translate }}
+        </label>
+      </div>
+      <peb-link-form></peb-link-form>
+    </div>
+
+    <div class="form__row_border">
+      <peb-function-form></peb-function-form>
+    </div>
+
+    <div *ngIf="!isCell" class="form__row_border">
+      <peb-shadow-form></peb-shadow-form>
+    </div>
+
+    <div *ngIf="!isCell" class="form__row_border">
+      <peb-blur-form></peb-blur-form>
+    </div>
+
+    <div *ngIf="!isCell" class="form__row_border">
+      <peb-backdrop-filter-form></peb-backdrop-filter-form>
+    </div>
+
+    <div class="form__row_border">
+      <peb-shape-border></peb-shape-border>
+    </div>
+
+    <div class="form__row_border">
+      <peb-opacity-form></peb-opacity-form>
+    </div>
+
+    <div *ngIf="showRadiusForm$ |async" class="form__row_border">
+      <peb-border-radius-form></peb-border-radius-form>
+    </div>
+  </peb-editor-sidebar-tab>
+
+  <peb-editor-sidebar-tab [title]="'builder-app.sidebar.text' | translate">
+    <peb-text-form></peb-text-form>
+  </peb-editor-sidebar-tab>
+
+  <peb-editor-sidebar-tab [title]="'builder-app.sidebar.video' | translate" *ngIf="showVideoForm$ | async">
+    <peb-video-form></peb-video-form>
+  </peb-editor-sidebar-tab>
+
+  <peb-editor-sidebar-tab [title]="'builder-app.sidebar.image' | translate"
+    [hidden]="(activeMediaType$ | async) !== mediaType.Image && (activeMediaType$ | async) !== mediaType.Studio"
+    *ngIf="showImageForm$ | async">
+    <div class="image-form">
+      <button class="image-form__studio" (click)="openStudio()">Choose media from payever Studio</button>
+
+      <div class="form__row">
+        <input type="file" accept="image/jpeg,image/png,image/gif,image/svg+xml" #bgImageInput hidden
+          (change)="changeBgInputHandler($event)" />
+        <button class="image-from__replace" (click)="bgImageInput.click()">
+          {{ backgroundForm.get('file').value ? 'Replace image' : 'Upload image' }}
+        </button>
+      </div>
+    </div>
+
+  </peb-editor-sidebar-tab>
+
+  <peb-editor-sidebar-tab *ngIf="!isCell" [title]="'builder-app.sidebar.arrange' | translate">
+
+    <div class="group__row">
+      <peb-position-form></peb-position-form>
+    </div>
+
+    <div class="form__row_border">
+      <peb-dimensions-form></peb-dimensions-form>
+    </div>
+
+    <div class="form__row_border layout-index" *ngIf="showLayoutIndexForm$ | async">
+      <peb-layout-index-form></peb-layout-index-form>
+    </div>
+
+    <div class="group__row">
+      <peb-alignment-form class="select-100"></peb-alignment-form>
+    </div>
+
+    <div class="form__row_border">
+      <peb-layout-form></peb-layout-form>
+    </div>
+
+    <div class="form__row_border">
+      <peb-padding-form></peb-padding-form>
+    </div>
+
+    <div class="form__row_border">
+      <peb-content-align-form></peb-content-align-form>
+    </div>
+
+  </peb-editor-sidebar-tab>
+
+</peb-editor-sidebar-tabs>

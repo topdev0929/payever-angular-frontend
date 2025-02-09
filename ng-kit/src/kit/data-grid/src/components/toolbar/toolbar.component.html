@@ -1,0 +1,25 @@
+<mat-toolbar class="mat-toolbar-transparent">
+  <div class="mat-toolbar-left">
+    <pe-data-grid-search *ngIf="showSearchBar"
+                         [searchValue]="searchValue"
+                         (inputSearch)="onInputSearch($event)"
+    ></pe-data-grid-search>
+    <ng-content select="[col-left]"></ng-content>
+  </div>
+  <div class="mat-toolbar-center">
+    <ng-content select="[col-center]"></ng-content>
+  </div>
+  <div class="mat-toolbar-right">
+    <ng-content select="[col-right]"></ng-content>
+    <pe-data-grid-view-switcher *ngIf="showViewSwitcher"
+                                [viewMode]="viewMode"
+                                (viewChanged)="onViewChanged($event)"
+    ></pe-data-grid-view-switcher>
+    <pe-data-grid-column-switcher *ngIf="showColumnSwitcher && viewMode === dataViewMode.List"
+                                  [columns]="columns"
+                                  [isShowArrow]="isShowColumnSwitcherArrow"
+                                  [title]="columnSwitcherTitle"
+                                  (columnsChanged)="onColumnsChanged($event)"
+    ></pe-data-grid-column-switcher>
+  </div>
+</mat-toolbar>

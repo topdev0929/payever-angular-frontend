@@ -1,0 +1,41 @@
+<form
+  *ngIf="form"
+  class="form-table form-table-checkout"
+  novalidate
+  [formGroup]="form"
+  analyticsForm
+  (ngSubmit)="onSubmit()">
+  <div class="form-fieldset-new">
+    <mat-form-field class="col-xs-12">
+      <mat-label i18n="@@checkout_cart_edit.form.label.amount"> Amount </mat-label>
+      <span
+        matPrefix
+        #prefix
+        >{{ flow.currency | peCurrencySymbol }}</span
+      >
+      <input
+        formControlName="amount"
+        matInput
+        [peInputCurrencyMask]="flow.currency"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="!params?.forceHideReference"
+      class="col-xs-12">
+      <mat-label i18n="@@checkout_cart_edit.form.label.reference"> Reference </mat-label>
+      <input
+        matInput
+        formControlName="reference"
+        type="text" />
+    </mat-form-field>
+  </div>
+
+  <checkout-sdk-continue-button
+    class="button-continue"
+    type="submit"
+    [text]="submitText"
+    [loading]="loading$ | async"
+    (clicked)="onSubmit()">
+  </checkout-sdk-continue-button>
+</form>

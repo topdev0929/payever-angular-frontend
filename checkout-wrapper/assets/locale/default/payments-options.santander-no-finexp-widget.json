@@ -1,0 +1,66 @@
+{
+  "santander-no-finexp-widget": {
+    "common": {
+      "month": {
+        "one": "{{ count }} måned",
+        "many": "{{ count }} måneder"
+      },
+      "introduction_text": "Vælg Santander som betalingsløsning og del betalingen op.",
+      "rate_param": {
+        "effective_rate": "Eff. Rente",
+        "credit_purchase": "Totalt",
+        "credit_price": "Kostnad",
+        "credit_purchase_with_currency": "Total kr",
+        "credit_price_with_currency": "Cost kr"
+      }
+    },
+
+    "regular": {
+      "rate_param": {
+        "duration": "Nedbetalingstid",
+        "monthly_amount": "Månedsbeløp",
+
+        "effective_rate": "Eff. Rente",
+        "credit_purchase": "Totalt",
+        "credit_price": "Kostnad",
+        "credit_purchase_with_currency": "Total kr",
+        "credit_price_with_currency": "Cost kr"
+      },
+      "rate_title": "{{ monthly_amount_with_currency }}/month for {{ duration }} months",
+      "credit_details_text": "Delbetaling forutsetter inngåelse av kredittavtale med kredittkort etter kredittvurdering.",
+      "calculator": {
+        "header_text": "Delbetaling"
+      },
+      "finance-express": {
+        "header_text": "Delbetaling kan velges i kassen"
+      },
+      "show_checkout_wrapper": "Checkout with finance express",
+      "show_more_info": "Further information"
+    },
+    "bnpl": {
+      "rate_param": {
+        "duration": "Postponed for",
+        "credit_price": "fee kr"
+      },
+      "rate_title": "Postponed for {{ duration }} months, fee kr {{ credit_price_with_currency }}",
+      "credit_details_text": "Betalingsutsettelse forutsetter inngåelse av kredittavtale med kredittkort etter kredittvurdering. Om beløpet ikke betales etter endt betalingsutsettelse, går man over til delbetaling, eksempel: Eff . rente {{ effective_rate_with_persent }}, {{ amount_with_currency }} o/{{ duration }} mnd, kostnad {{ credit_price_with_currency }}, totalt {{ credit_purchase_with_currency }}.",
+      "calculator": {
+        "header_text": "Delbetaling"
+      },
+      "finance-express": {
+        "header_text": "Betalingsutsettelse kan velges i kassen"
+      },
+      "show_checkout_wrapper": "Checkout with finance express",
+      "show_more_info": "Further information"
+    },
+
+    "button": {
+    },
+    "dropdown-calculator": {
+    },
+    "text": {
+    },
+    "two-fields-calculator": {
+    }
+  }
+}

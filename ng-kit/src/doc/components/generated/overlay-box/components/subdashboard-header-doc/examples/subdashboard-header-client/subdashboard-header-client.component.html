@@ -1,0 +1,59 @@
+<mat-accordion class="mat-accordion-xl" class="subhdashboard-header-container">
+  <pe-subdashboard-header
+    title="SubdashboardHeaderComponent Example"
+    [translationScope]="translationScope"
+    [subtitleAction]="showSubtitleAction ? subtitleAction : null"
+    [logoSrc]="useLogo ? logoSrc : ''"
+    [buttons]="showButtons ? buttons : null"
+    [height]="useHeight ? height : false"
+    [isLoading]="isLoading$ | async"
+    [dropdownItems]="showDropdownItems ? dropdownItems : null">
+  </pe-subdashboard-header>
+</mat-accordion>
+
+<hr>
+
+<p>
+  <strong>Feedback message:</strong>
+  <code>{{feedback}}</code>
+</p>
+
+<p>
+  <mat-checkbox [(ngModel)]="useLogo">
+    Use Logo
+  </mat-checkbox>
+  
+  <br />
+
+  <mat-checkbox [(ngModel)]="showSubtitleAction">
+    Show subtitle action
+  </mat-checkbox>
+  
+  <br />
+  
+  <mat-checkbox [(ngModel)]="showButtons">
+    Show right action buttons
+  </mat-checkbox>
+  
+  <br />
+  
+  <mat-checkbox [(ngModel)]="showDropdownItems" >
+    Show dropdown menu items
+  </mat-checkbox>
+  
+  <br />
+  
+  <mat-checkbox [(ngModel)]="useHeight" >
+    Fit height to <code>{{ height }}</code>
+  </mat-checkbox>
+</p>
+
+<p>
+  <button mat-button mat-raised-button color="accent" (click)="setTranslations()">
+    Set Translations
+  </button>
+  &nbsp;
+  <button mat-button mat-raised-button color="accent" (click)="toggleLoading()">
+    Toggle Loading
+  </button>
+</p>

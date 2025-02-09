@@ -1,0 +1,36 @@
+<div>
+  <div [formGroup]="formGroup" class="scale__control">
+    <peb-range-input
+      class="combined-range-input"
+      [min]="minZoom"
+      [max]="maxZoom"
+      formControlName="zoom"
+    ></peb-range-input>
+    <peb-number-input
+      class="combined-number-input"
+      [min]="minZoom"
+      [max]="maxZoom"
+      formControlName="zoom"
+      units="%"
+    ></peb-number-input>
+  </div>
+  <div
+    class="zoom-level"
+    (click)="fitToScale()"
+    [class.zoom-level--active]="toFit$ | async"
+    pebOverlayClose
+  >
+    <mat-icon svgIcon="button-fit" class="zoom-level__icon"></mat-icon>
+    <div class="zoom-level__title">{{ 'builder-app.toolbar.fit' | translate }}</div>
+  </div>
+  <div
+    class="zoom-level"
+    *ngFor="let zoomLevel of zoomLevels$ | async"
+    [class.zoom-level--active]="zoomLevel.active"
+    (click)="setZoom(zoomLevel.value)"
+    pebOverlayClose
+  >
+    <div class="zoom-level__icon"></div>
+    <div class="zoom-level__title">{{ zoomLevel.value }}%</div>
+  </div>
+</div>

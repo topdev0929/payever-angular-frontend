@@ -1,0 +1,13 @@
+<form [formGroup]="form" *ngIf="formOptions$ | async as formOptions">
+  <div formGroupName="video">
+    <div class="form__row_border" *ngIf="formOptions.showVideoElements">
+      <label class="field__label">Video</label>
+      <peb-select class="field-control" formControlName="videoElementId" [options]="videoElements$|async">
+      </peb-select>
+    </div>
+    
+    <peb-slide-toggle class="field__slide-toggle" formControlName="reset" *ngIf="formOptions.showReset">
+      Reset Time
+    </peb-slide-toggle>
+  </div>
+</form>

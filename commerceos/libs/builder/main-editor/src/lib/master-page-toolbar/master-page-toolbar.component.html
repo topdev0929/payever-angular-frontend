@@ -1,0 +1,8 @@
+<div class="wrapper" [ngClass]="{'hide': isHidden$|async}">
+  <div class="message">
+    {{ 'builder-app.main_editor.edit_master_page' | translate }}: {{(activePage$ | async)?.name}}
+  </div>
+  <button pe-form-button (click)="done()" class="done" color="warn">
+    {{ 'builder-app.actions.done' | translate }}
+  </button>
+</div>

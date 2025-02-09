@@ -1,0 +1,15 @@
+<wiretransfer-shared-finish
+  [class.has-empty-space]="embeddedMode"
+  [embeddedMode]="embeddedMode"
+  [merchantMode]="merchantMode"
+  [showCloseButton]="showCloseButton"
+  [asSinglePayment]="asSinglePayment"
+  [nodeResult]="paymentResponse"
+  [errorMessage]="errorMessage"
+  [isLoading]="!paymentResponse && !errorMessage"
+  (cleanUp)="cleanUp()"
+  (close)="close()"
+  (closeButtonClicked)="close()"
+  (changePaymentMethod)="changePayment($event)"
+  (tryAgain)="tryAgain()"
+></wiretransfer-shared-finish>

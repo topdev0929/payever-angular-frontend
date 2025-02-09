@@ -1,0 +1,152 @@
+<div style="width: 100%; height: 100%">
+
+  <div class="settings__container peb_settings_container">
+    <div class="page-header">{{appEnv.type + '-app.settings.title'|translate}}</div>
+    <div class="scrollbar">
+      <div class="content">
+        <section class="settings__section">
+          <div class="settings__section__header">{{ (appEnv.type + '-app.settings.publishing') | translate }}</div>
+          <div class="settings__section__content">
+            <div class="settings__section__content-item no-hover">
+              <div class="item-icon">
+                <svg>
+                  <use [attr.xlink:href]="'#icon-settings-livestatus'"></use>
+                </svg>
+              </div>
+              <div class="item-content">
+                <div>{{ (appEnv.type + '-app.settings.live_status') | translate }}</div>
+                <div>
+                  <peb-button-toggle [ngModel]="isLive" (ngModelChange)="toggleShopLive($event)"></peb-button-toggle>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="settings__section">
+          <div class="settings__section__header">{{ (appEnv.type + '-app.settings.domains') | translate }}</div>
+          <div class="settings__section__content">
+            <div class="settings__section__content-item" (click)="openOverlay(components.payeverDomain)">
+              <div class="item-icon">
+                <svg>
+                  <use [attr.xlink:href]="'#icon-settings-globe'"></use>
+                </svg>
+              </div>
+              <div class="item-content">
+                <div>{{ (appEnv.type + '-app.settings.payever_domain') | translate }}</div>
+                <div>
+                  <svg>
+                    <use [attr.xlink:href]="'#icon-arrow-right-2-16'"></use>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="settings__section__content-item" (click)="openOverlay(components.personalDomain)">
+              <div class="item-icon">
+                <svg>
+                  <use [attr.xlink:href]="'#icon-settings-globe'"></use>
+                </svg>
+              </div>
+              <div class="item-content">
+                <div>{{ (appEnv.type + '-app.settings.personal_domain') | translate }}</div>
+                <div>
+                  <svg>
+                    <use [attr.xlink:href]="'#icon-arrow-right-2-16'"></use>
+                  </svg>
+                </div>
+
+              </div>
+            </div>
+            <div class="settings__section__content-item" (click)="openOverlay(components.connectExisting)">
+              <div class="item-icon">
+                <svg>
+                  <use [attr.xlink:href]="'#icon-settings-globe'"></use>
+                </svg>
+              </div>
+              <div class="item-content">
+                <div>{{ (appEnv.type + '-app.settings.connect_existing') | translate }}</div>
+                <div>
+                  <svg>
+                    <use [attr.xlink:href]="'#icon-arrow-right-2-16'"></use>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="settings__section">
+          <div class="settings__section__header">{{ (appEnv.type + '-app.settings.safety') | translate }}</div>
+          <div class="settings__section__content">
+            <div class="settings__section__content-item" (click)="openOverlay(components.passwordProtection)">
+              <div class="item-icon">
+                <svg>
+                  <use [attr.xlink:href]="'#icon-settings-lock'"></use>
+                </svg>
+              </div>
+              <div class="item-content">
+                <div>{{ (appEnv.type + '-app.settings.password_protection') | translate }}</div>
+                <div>
+                  <svg>
+                    <use [attr.xlink:href]="'#icon-arrow-right-2-16'"></use>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="settings__section">
+          <div class="settings__section__header">{{ (appEnv.type + '-app.settings.social') | translate }}</div>
+          <div class="settings__section__content">
+            <div class="settings__section__content-item" (click)="openOverlay(components.socialImage)">
+              <div class="item-icon">
+                <svg>
+                  <use [attr.xlink:href]="'#icon-settings-image'"></use>
+                </svg>
+              </div>
+              <div class="item-content">
+                <div>{{ (appEnv.type + '-app.settings.social_image') | translate }}</div>
+                <div>
+                  <svg>
+                    <use [attr.xlink:href]="'#icon-arrow-right-2-16'"></use>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="settings__section">
+          <div class="settings__section__header">{{ (appEnv.type + '-app.settings.all_' + appEnv.type + 's') | translate }}</div>
+          <div class="settings__section__content">
+            <div class="settings__section__content-item" *ngFor="let shop of shopList" [class.active]="shop.isDefault"
+                 (click)="openOverlay(components.createApp,shop)"
+            >
+              <div class="item-icon">
+                <img [src]="shop.picture" *ngIf="shop.picture" [alt]="shop.name | abbreviation">
+                <div *ngIf="!shop.picture" class="abbreviation">
+                  <span class="abbreviation__name">{{ shop.name | abbreviation }}</span>
+                </div>
+              </div>
+              <div class="item-content">
+                <div>{{shop.name}}</div>
+                <div>
+                  <svg>
+                    <use [attr.xlink:href]="'#icon-arrow-right-2-16'"></use>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button pe-form-button color="confirm" class="new-button" (click)="openOverlay(components.createApp,{})">
+            {{ (appEnv.type + '-app.actions.create_new') | translate }}
+          </button>
+        </section>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

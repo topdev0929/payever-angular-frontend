@@ -1,0 +1,9 @@
+@use 'pe_theming' as pet;
+@use 'switcher-theme.component' as switcher;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @if $color-config != null {
+    @include switcher.color($color-config);
+  }
+}

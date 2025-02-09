@@ -1,0 +1,14 @@
+<form novalidate [formGroup]="form" *ngIf="form">
+
+  <div class="second-section text-center">
+    <label>
+      {{ 'transactions.form.verify.labels.enter_digit_code' | translate }}
+    </label>
+    <pe-auth-code
+      [formControlName]="field.name"
+      [numberOfDigits]="field.numberOfDigits"
+      [numberOnly]="false"
+    >
+    </pe-auth-code>
+  </div>
+</form>

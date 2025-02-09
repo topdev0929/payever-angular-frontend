@@ -1,0 +1,54 @@
+<div class="chapter">
+  <h2>CarouselComponent</h2>
+  <div class="main-block">
+    <tabset>
+      <tab heading="Overview">
+        <h3>Import CarouselModule</h3>
+        <pre><code class="typescript" [innerHTML]="'import { CarouselModule } from \'@pe/ng-kit/modules/carousel\';'"></code></pre>
+        <p>&nbsp;</p>
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          [tsExample]="tsExample"
+          >
+          <pe-carousel>
+            <carousel [interval]="false">
+              <slide *ngFor="let image of carouselImage">
+                <img [src]="image" alt="Sample Text">
+              </slide>
+            </carousel>
+          </pe-carousel>
+
+          <div class="row">
+            <a class="btn btn-primary" (click)="showCarousel()">Show Fullscreen Carousel</a>
+          </div>
+        </example-viewer>
+      </tab>
+      <tab heading="API">
+        <component-api-renderer [path]="'carousel/src/carousel.component'"></component-api-renderer>
+      </tab>
+      <tab heading="Examples">
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          [tsExample]="tsExample"
+          >
+          <pe-carousel>
+            <carousel [interval]="false">
+              <slide *ngFor="let image of carouselImage">
+                <img [src]="image" alt="Sample Text">
+              </slide>
+            </carousel>
+          </pe-carousel>
+
+          <div class="row">
+            <a class="btn btn-primary" (click)="showCarousel()">Show Fullscreen Carousel</a>
+          </div>
+        </example-viewer>
+      </tab>
+      <tab heading="README">
+        <doc-viewer documentUrl="/assets/module-guides/carousel/carousel.html"></doc-viewer>
+      </tab>
+    </tabset>
+  </div>
+</div>

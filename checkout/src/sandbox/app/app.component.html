@@ -1,0 +1,5 @@
+<div class="checkout-app-container top-offset-fix"
+     [style.top.px]="(platformHeaderHeight$ | async) + (welcomeStepperHeight$ | async)">
+  <pe-new-platform-header class="checkout-header"></pe-new-platform-header>
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,73 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+
+form {
+  padding: 6px 0;
+}
+.btn-centered {
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: $margin_adjust * 2.5;
+}
+.upload-select {
+  margin-top: $margin_adjust * 1.25;
+  margin-bottom: $margin_adjust * 1.25;
+  border: none;
+}
+.file-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  display: inline-block;
+}
+.file-wrapper {
+  padding-top: $grid-unit-y;
+}
+.error {
+  padding: $grid-unit-x 2*$grid-unit-x;
+  white-space: pre-wrap;
+}
+.remove-col {
+  text-align: right;
+  padding-top: 5px;
+  padding-left: 0;
+  .mat-button-rounded {
+    padding: 0 $grid-unit-x/2;
+    margin-top: $grid-unit-y/2;
+    margin-right: -3px;
+  }
+}
+.mat-expansion-panel-dark {
+  .mat-expansion-panel-header {
+    padding-top: 2 * $grid-unit-y;
+    height: 5 * $grid-unit-y;
+    padding-left: 2 * $grid-unit-x;
+  }
+  .mat-content {
+    overflow: visible;
+    width: 100%;
+    > .row {
+      width: calc(100% + #{2*$grid-unit-x});
+    }
+    .form-fieldset {
+      .row {
+        padding-right: $grid-unit-x;
+      }
+    }
+  }
+}
+
+// ::ng-deep .mat-card-content-padding-sm {
+//   padding: 0 !important;
+// }
+.form-fieldset {
+  padding-right: 0 !important;
+  .select-column {
+    height: 44px !important;
+    min-height: 44px !important;
+  }
+}
+
+::ng-deep .mat-form-field-underline {
+  bottom: $grid-unit-y !important;
+}

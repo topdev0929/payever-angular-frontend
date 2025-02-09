@@ -1,0 +1,46 @@
+<div class="chapter">
+  <h2>PriceComponent</h2>
+  <div class="main-block">
+    <tabset>
+      <tab heading="Overview">
+        <h3>Import PriceModule</h3>
+        <pre><code class="typescript" [innerHTML]="'import {PriceModule } from \'@pe/ng-kit/modules/price\';'"></code></pre>
+        <p>&nbsp;</p>
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          [tsExample]="tsExample">
+            <pe-price
+              [currency]="'USD'"
+              [initialValue]="'234.30'"
+              [min]="0" 
+              [max]="1000000"
+              [autoFocus]="true"
+              (priceValueChange)="handlePriceValue($event)"
+            ></pe-price>
+        </example-viewer>
+      </tab>
+      <tab heading="API">
+        <component-api-renderer [path]="'price/price.component'"></component-api-renderer>
+      </tab>
+      <tab heading="Examples">
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          [tsExample]="tsExample">
+            <pe-price
+              [currency]="'USD'"
+              [initialValue]="'234.30'"
+              [min]="0"
+              [max]="1000000"
+              [autoFocus]="true"
+              (priceValueChange)="handlePriceValue($event)"
+            ></pe-price>
+        </example-viewer>
+      </tab>
+      <tab heading="README">
+        <doc-viewer documentUrl="/assets/module-guides/price/price.html"></doc-viewer>
+      </tab>
+    </tabset>
+  </div>
+</div>

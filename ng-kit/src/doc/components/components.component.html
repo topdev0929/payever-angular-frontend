@@ -1,0 +1,303 @@
+<div class="row" [class.menu-is-open]="isMenuOpen">
+  <div class="col-md-3 docsidebar" (click)="closeMenu()">
+    <div class="wrapper">
+      <div class="nav-group-title">Google Angular Material Components</div>
+      <ul class="nav nav-accordion">
+        <li [routerLinkActive]="['active', 'collapsed']" class="has-children">
+          <a>Form Controls</a>
+          <ul class="sub-nav">
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/mat-button-toggle']">Button toggle</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/mat-checkbox']">Checkbox</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/mat-datepicker']">Datepicker</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/mat-input']">Input</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/mat-radio']">Radio button</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/mat-phone-input']">Phone Input</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/mat-select']">Select</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/mat-slide-toggle']">Slide toggle</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/mat-slider']">Slider</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/mat-fieldset']">Fieldset</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/mat-tabs']">Tabs</a></li>
+          </ul>
+        </li>
+        <li [routerLinkActive]="['active', 'collapsed']" class="has-children">
+          <a>Navigation</a>
+          <ul class="sub-nav">
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/menu']">Menu</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/mat-sidenav']">Sidenav</a></li>
+          </ul>
+        </li>
+        <li [routerLinkActive]="['active', 'collapsed']" class="has-children">
+          <a>Layout</a>
+          <ul class="sub-nav">
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/card']">Card</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/list']">List</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/mat-tree']">Tree</a></li>
+          </ul>
+        </li>
+        <li [routerLinkActive]="['active', 'collapsed']" class="has-children">
+          <a>Buttons & Indicators</a>
+          <ul class="sub-nav">
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/mat-button-toggle']">Button toggle</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/button/progress-buttons']">Progress Buttons</a></li>
+          </ul>
+        </li>
+        <li [routerLinkActive]="['active', 'collapsed']" class="has-children">
+          <a>Popups & Modals</a>
+          <ul class="sub-nav">
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/dialog']">Dialog</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/mat-tooltip']">Tooltip</a></li>
+          </ul>
+        </li>
+        <li [routerLinkActive]="['active', 'collapsed']" class="has-children">
+          <a>Data table</a>
+          <ul class="sub-nav">
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/mat-table']">Table</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="nav-group-title">Own payever Components</div>
+      <ul class="nav nav-accordion">
+        <li [routerLinkActive]="['active', 'collapsed']" class="has-children">
+          <a>Address</a>
+          <ul class="sub-nav">
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/address-service']">AddressService</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/google-autocomplete-service']">GoogleAutocompleteService</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/google-autocomplete-directive']">GoogleAutocompleteDirective</a></li>
+          </ul>
+        </li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/app-container']">AppContainer</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/badge-set']">BadgeSet</a></li>
+        <li [routerLinkActive]="['active', 'collapsed']" class="has-children">
+          <a>BuilderDocker</a>
+          <ul class="sub-nav">
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/builder-docker']">BuilderDocker</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/builder-docker-item']">BuilderDockerItem</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/builder-docker-service']">BuilderDockerService</a></li>
+          </ul>
+        </li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/business-service']">BusinessService</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/cards-container']">CardsContainer</a></li>
+        <li [routerLinkActive]="['active', 'collapsed']" class="has-children">
+          <a>Carousel</a>
+          <ul class="sub-nav">
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/carousel']">Carousel</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/carousel-service']">CarouselService</a></li>
+          </ul>
+        </li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/color-picker']">ColorPicker</a></li>
+        <li [routerLinkActive]="['active', 'collapsed']" class="has-children">
+          <a>Common</a>
+          <ul class="sub-nav">
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/auth-token-service']">AuthTokenService</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/event-bus-service']">EventBusService</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/loader-manager-service']">LoaderManagerService</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/platform-service']">PlatformService</a></li>
+          </ul>
+        </li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/counter']">Counter</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/custom-element-wrapper']">CustomElementWrapper</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/dashboard-menu']">DashboardMenu</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/data-grid']">DataGrid</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/docker']">Docker</a></li>
+        <li [routerLinkActive]="['active', 'collapsed']" class="has-children">
+          <a>DockerPos</a>
+          <ul class="sub-nav">
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/docker-pos']">DockerPos</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/docker-pos-item']">DockerPosItem</a></li>
+          </ul>
+        </li>
+        <li [routerLinkActive]="['active', 'collapsed']" class="has-children">
+          <a>DockerStore</a>
+          <ul class="sub-nav">
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/docker-store']">DockerStore</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/docker-store-item']">DockerStoreItem</a></li>
+          </ul>
+        </li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/text-editor']">Text Editor</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/error']">Error</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/feedback']">Feedback</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/filter']">Filter</a></li>
+        <li [routerLinkActive]="['active', 'collapsed']" class="has-children">
+          <a>Form</a>
+          <ul class="sub-nav">
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/form']">Form</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/form-fieldset']">FormFieldset</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/form-addon']">FormAddon</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/form-abstract']">FormAbstract</a></li>
+          </ul>
+        </li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/full-story-service']">FullStoryService</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/general-dashboard']">GeneralDashboard</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/i18n']">i18n</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/image-slider']">ImageSlider</a></li>
+        <li [routerLinkActive]="['active', 'collapsed']" class="has-children">
+          <a>Layout</a>
+          <ul class="sub-nav">
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/layout']">Layout</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/layout-app']">App</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/back']">Back</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/layout-content']">LayoutContent</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/header']">Header</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/layout-sidebar']">LayoutSidebar</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/spinner']">Spinner</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/layout-tab']">LayoutTab</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/layout-tabset']">LayoutTabset</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/layout-service']">LayoutService</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/mat-divider']">Divider</a></li>
+          </ul>
+        </li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/local-storage-service']">LocalStorageService</a></li>
+        <li [routerLinkActive]="['active', 'collapsed']" class="has-children">
+          <a>Micro</a>
+          <ul class="sub-nav">
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/micro-addon']">MicroAddon</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/message-bus-service']">MessageBusService</a></li>
+          </ul>
+        </li>
+        <li [routerLinkActive]="['active', 'collapsed']" class="has-children">
+          <a>Modal</a>
+          <ul class="sub-nav">
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/modal']">ModalComponent</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/confirmation-dialog']">ConfirmationDialogComponent</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/confirmation-dialog-directive']">ConfirmationDialogDirective</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/confirmation-dialog-service']">ConfirmationDialogService</a></li>
+          </ul>
+        </li>
+        <li [routerLinkActive]="['active', 'collapsed']" class="has-children">
+          <a>RouterModal</a>
+          <ul class="sub-nav">
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/router-modal']">ModalComponent</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/router-modal-service']">RouterModalService</a></li>
+          </ul>
+        </li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/navbar']">Navbar</a></li>
+        <li [routerLinkActive]="['active', 'collapsed']" class="has-children">
+          <a>Notification</a>
+          <ul class="sub-nav">
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/notification']">Notification</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/notification-item']">NotificationItem</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/notification-wrapper']">NotificationWrapper</a></li>
+          </ul>
+        </li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/paragraph-editor']">ParagraphEditor</a></li>
+        <li [routerLinkActive]="['active', 'collapsed']" class="has-children">
+          <a>Passcode</a>
+          <ul class="sub-nav">
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/passcode']">Passcode</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/passcode-service']">PasscodeService</a></li>
+          </ul>
+        </li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/payment-option']">PaymentOption</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/payment-option-list']">PaymentOptionList</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/price']">Price</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/profile-service']">ProfileService</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/profile-container']">ProfileContainer</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/profile-switcher']">ProfileSwitcher</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/app-switcher']">AppSwitcher</a></li>
+        <li [routerLinkActive]="['active', 'collapsed']" class="has-children">
+          <a>Rate</a>
+          <ul class="sub-nav">
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/choose-rate']">Choose rate</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/choose-rate-accordion']">Choose rate accordion</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/rate']">Rate</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/rate-simple']">RateSimple</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/rate-loading']">RateLoading</a></li>
+          </ul>
+        </li>
+        <li [routerLinkActive]="['active', 'collapsed']" class="has-children">
+          <a>Overlay box</a>
+          <ul class="sub-nav">
+            <li><a [routerLink]="['/components/overlay-box/overlay-box-module']">OverlayBoxModule</a></li>
+            <li><a [routerLink]="['/components/overlay-box/subdashboard-header']">SubdashboardHeader</a></li>
+          </ul>
+        </li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/read-more-directive']">ReadMoreDirective</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/recaptcha']">Recaptcha</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/scroll-end-detection']">ScrollEndDetectionDirective</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/search']">Search</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/search-results']">SearchResults</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/session-storage-service']">SessionStorageService</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/shortcuts']">Shortcuts</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/sidebar']">Sidebar</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/snack-bar']">SnackBar</a></li>
+        <li [routerLinkActive]="['active', 'collapsed']" class="has-children">
+          <a>StoreSlider</a>
+          <ul class="sub-nav">
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/store-slider']">StoreSlider</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/components/store-slider-service']">StoreSliderService</a></li>
+          </ul>
+        </li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/terminal-list']">TerminalList</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/theme-card']">ThemeCard</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/theme-switcher']">ThemeSwitcher</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/third-party-generator']">ThirdPartyGenerator</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/welcome-screen']">WelcomeScreen</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/window-service']">WindowService</a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['/components/toast']">Toast</a></li>
+      </ul>
+
+      <div class="nav-group-title">Other Modules</div>
+
+      <ul class="nav nav-accordion">
+        <li [routerLinkActive]="['active', 'collapsed']" class="has-children">
+          <a><code>modules/dev</code></a>
+          <ul class="sub-nav">
+            <li [routerLinkActive]="['active']">
+              <a [routerLink]="['/modules/dev', 'dev-mode-service']">DevModeService</a>
+            </li>
+            <li [routerLinkActive]="['active']">
+              <a [routerLink]="['/modules/dev', 'dev-mode-service-stub']">DevModeServiceStub</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul class="nav nav-accordion">
+        <li [routerLinkActive]="['active', 'collapsed']" class="has-children">
+          <a><code>modules/location</code></a>
+          <ul class="sub-nav">
+            <li [routerLinkActive]="['active']">
+              <a [routerLink]="['/modules/location', 'location-service']">LocationService</a>
+            </li>
+            <li [routerLinkActive]="['active']">
+              <a [routerLink]="['/modules/location', 'location-service-stub']">LocationStubService</a>
+            </li>
+            <li [routerLinkActive]="['active']">
+              <a [routerLink]="['/modules/location', 'top-location-service']">TopLocationService</a>
+            </li>
+            <li [routerLinkActive]="['active']">
+              <a [routerLink]="['/modules/location', 'top-location-service-stub']">TopLocationStubService</a>
+            </li>
+          </ul>
+        </li>
+
+        <li [routerLinkActive]="['active', 'collapsed']" class="has-children">
+          <a><code>modules/test</code></a>
+          <ul class="sub-nav">
+            <li [routerLinkActive]="['active']">
+              <a [routerLink]="['/modules/test', 'non-recompilable-test-module-helper']">nonRecompilableTestModuleHelper()</a>
+            </li>
+            <li [routerLinkActive]="['active']">
+              <a [routerLink]="['/modules/test', 'override-change-detection-strategy-helper']">overrideChangeDetectionStrategyHelper()</a>
+            </li>
+            <li [routerLinkActive]="['active']">
+              <a [routerLink]="['/modules/test', 'fake-overlay-container']">fakeOverlayContainer()</a>
+            </li>
+            <li [routerLinkActive]="['active']">
+              <a [routerLink]="['/modules/test', 'noop-component']">NoopComponent</a>
+            </li>
+            <li [routerLinkActive]="['active']">
+              <a [routerLink]="['/modules/test', 'image-url-base64-fixture']">imageUrlBase64Fixture()</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-sm-12 col-md-9 col-md-offset-3">
+    <router-outlet></router-outlet>
+    <router-outlet name="modal"></router-outlet>
+  </div>
+</div>

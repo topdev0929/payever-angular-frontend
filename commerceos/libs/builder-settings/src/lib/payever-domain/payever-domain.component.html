@@ -1,0 +1,44 @@
+<div class="container" [ngClass]="config.theme">
+  <div class="container__domain">
+      <peb-form-field-input
+        animated="true"
+        [label]="env.type + '-app.settings.domain_label' | translate"
+        appearance="label"
+        [isFieldInvalid]="!!this.errorMsg"
+        [errorMessage]="this.errorMsg"
+      >
+        <input
+          [value]="domainConfig.domainName"
+          (input)="validateDomain($event)"
+          [placeholder]="env.type + '-app.settings.domain_placeholder' | translate"
+        />
+        <div class="suffix">
+          <p>.{{env.host}}</p>
+        </div>
+      </peb-form-field-input>
+  </div>
+
+  <peb-form-background>
+    <peb-form-field-input
+      animated="true"
+      [label]="env.type + '-app.settings.date_label' | translate"
+      appearance="label"
+    >
+      <input
+        [value]="domainConfig.creationDate|date:'longDate'" disabled
+        [placeholder]="env.type + '-app.settings.date_placeholder' | translate"
+      />
+    </peb-form-field-input>
+    <peb-form-field-input
+      animated="true"
+      [label]="env.type + '-app.settings.provider_label' | translate"
+      appearance="label"
+    >
+      <input
+        [value]="domainConfig.provider" disabled
+        [placeholder]="env.type + '-app.settings.provider_placeholder' | translate"
+      />
+    </peb-form-field-input>
+  </peb-form-background>
+
+</div>

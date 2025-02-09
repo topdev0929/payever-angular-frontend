@@ -1,0 +1,15 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.data-grid-footer {
+  height: 64px;
+  background-color: var(--color-solid-header-1,#2a2a2a);
+}
+
+.data-grid-view-grid-with-footer {
+  height: calc(100% - 120px);
+}

@@ -1,0 +1,195 @@
+<form class="form main-form peb-editor-animation-sidebar" [formGroup]="form"
+  *ngIf="formOptions$ | async as formOptions">
+  <button pe-form-button class="preview" (click)="previewAnimation()">
+    {{ 'builder-app.forms.animation.preview' | translate }}
+  </button>
+
+  <div class="form__row">
+    <div class="group__row">
+      <label class="group__label">{{ 'builder-app.forms.animation.trigger' | translate }}</label>
+    </div>
+
+    <peb-select label="Trigger" class="field-control" formControlName="trigger" placeholder="Trigger"
+      [options]="triggers">
+    </peb-select>
+
+  </div>
+
+  <div formGroupName="triggerSetting" class="form__row" *ngIf="formOptions.showTriggerSetting">
+    <div *ngIf="formOptions.showTriggerSourceElement">
+      <div class="group__row form__row_border">
+        <label class="group__label">Event Source Element</label>
+      </div>
+      <peb-select class="field-control" formControlName="sourceElementId" [options]="sourceElements$|async">
+      </peb-select>
+    </div>
+    
+    <div class="group__row form__row_border">
+      <label class="group__label">Binding Type</label>
+    </div>
+    <peb-select class="field-control" formControlName="bindingType" [options]="animationBindingTypes"></peb-select>
+
+    <div *ngIf="formOptions.showKeyframeMapper">
+      <div class="group__row form__row_border">
+        <label class="group__label">Keyframe Mapper</label>
+      </div>
+      <peb-select class="field-control" formControlName="keyframeMapper"
+        [options]="keyframeMapperProviders[form.value.trigger]">
+      </peb-select>
+    </div>
+
+    <div class="form__row inline" *ngIf="formOptions.showTriggerEqualNumber">
+      <label class="group__label">Equal Number</label>
+      <peb-number-input formControlName="equalNumber"></peb-number-input>
+    </div>
+
+    <div *ngIf="formOptions.showTriggerContentElement">
+      <div class="group__row top-padding">
+        <label class="group__label">Content Element</label>
+      </div>
+      <peb-select class="field-control" formControlName="contentElementId" [options]="contentElements$|async">
+      </peb-select>
+    </div>
+
+    <div *ngIf="formOptions.showContextTag" class="group">
+      <div class="group__row top-padding">
+        <label class="group__label">Integration Data</label>
+      </div>
+      <peb-item-bar [titles]="['Data', contextTitle$|async]" (click)="selectContextTag()"
+        [description]="contextTitle$|async"></peb-item-bar>
+    </div>
+    
+    <div *ngIf="formOptions.showContextField" class="group">
+      <div class="group__row top-padding">
+        <label class="group__label">Context Field</label>
+      </div>
+      <peb-item-bar [titles]="['Field', contextFieldTitle$|async]" (click)="selectContextField()"
+        [description]="selectContextField$|async"></peb-item-bar>
+    </div>
+
+  </div>
+
+  <div formGroupName="scrollBinding" class="form__row" *ngIf="formOptions.showScrollBinding">
+    <div class="group__row">
+      <label class="group__label">Target</label>
+    </div>
+    <peb-select class="field-control" formControlName="target" [options]="scrollBindingTargets"></peb-select>
+  
+    <div class="form__row inline">
+      <peb-size-input class="section-height" [precision]="2" prefix="S" [units]="['px','%','auto']"
+        formControlName="start" title="Start Offset">
+      </peb-size-input>
+      <peb-size-input class="section-height" [precision]="2" prefix="E" [units]="['px','%','auto']" formControlName="end"
+        title="End Offset">
+      </peb-size-input>
+    </div>
+  </div>
+
+  <div class="form__row_border">
+    <div class="group__row">
+      <label class="group__label">{{ 'builder-app.forms.animation.timing' | translate }}</label>
+    </div>
+    <peb-select label="Timing" class="field-control" formControlName="timing" placeholder="Timing" [options]="timings">
+    </peb-select>
+  </div>
+
+  <div class="form__row_border" *ngIf="(isScrollBinding$|async)===false">
+    <div class="group__row">
+      <label class="group__label">{{ 'builder-app.forms.animation.fill_mode' | translate }}</label>
+    </div>
+    <peb-select label="Fill Mode" class="field-control" formControlName="fill" placeholder="Fill Mode"
+      [options]="fillModes">
+    </peb-select>
+  </div>
+
+  <div class="form__row inline" *ngIf="(isScrollBinding$|async)===false">
+    <label class="group__label">{{ 'builder-app.forms.animation.delay' | translate }}</label>
+    <peb-number-input formControlName="delay" units="ms"></peb-number-input>
+  </div>
+
+  <div class="form__row inline" *ngIf="(isScrollBinding$|async)===false">
+    <label class="group__label">{{ 'builder-app.forms.animation.duration' | translate }}</label>
+    <peb-number-input formControlName="duration" units="ms"></peb-number-input>
+  </div>
+
+  <div class="form__row inline" *ngIf="(isScrollBinding$|async)===false">
+    <label class="group__label">{{ 'builder-app.forms.animation.loop' | translate }}</label>
+    <peb-slide-toggle formControlName="infiniteLoop"></peb-slide-toggle>
+  </div>
+
+  <div class="form__row inline" *ngIf="!form.value.infiniteLoop && (isScrollBinding$|async)===false">
+    <label class="group__label">{{ 'builder-app.forms.animation.iteration' | translate }}</label>
+    <peb-number-input formControlName="iteration"></peb-number-input>
+  </div>
+
+  <ng-container formArrayName="keyframes">
+    <div class="form__row_border">
+      <ng-container *ngFor="let keyframe of keyframesControl.controls; let keyframeIndex = index">
+        <div class="keyframe">
+          <div class="keyframe__title">
+            <span></span>
+            <span>
+              {{ 'builder-app.forms.animation.keyframe' | translate:{ number: '#' + (keyframeIndex + 1) } }} -
+              {{form.value.keyframes[keyframeIndex].offset.value}}%
+            </span>
+            <div (click)="keyframesControl.controls.length > 1 && removeKeyframe(keyframeIndex)">
+              <mat-icon *ngIf="keyframesControl.controls.length > 1" svgIcon="small-close-icon" class="remove-button">
+              </mat-icon>
+            </div>
+          </div>
+
+          <div class="keyframe-wrap__item" [formGroup]="keyframe">
+            <div class="form__row property_inline">
+              <label class="group__label">Offset</label>
+              <peb-size-input formControlName="offset" [precision]="0" [units]="['%']"></peb-size-input>
+            </div>
+
+            <ng-container formArrayName="properties">
+              <ng-container *ngFor="let prop of getPropertiesControl(keyframe).controls; let propertyIndex = index">
+                <div class="property">
+                  <div class="property-wrap__item" [formGroup]="prop">
+                    <div class="form__row property_inline">
+                      <peb-select label="Property" class="field-control" formControlName="key" [options]="properties"></peb-select>
+
+                      <ng-container formGroupName="values" [ngSwitch]="propertiesMap[prop.value.key]?.inputType">
+                        <div *ngSwitchCase="'size'">
+                          <peb-size-input formControlName="size" prefix="" [precision]="2"
+                            [units]="propertiesMap[prop.value.key]?.units"></peb-size-input>
+                        </div>
+
+                        <div class="property-xy-group" *ngSwitchCase="'xy'">
+                          <div formGroupName="xy">
+                            <peb-number-input precision="2" units="x" formControlName="x"></peb-number-input>
+                            <peb-number-input precision="2" units="y" formControlName="y"></peb-number-input>
+                          </div>
+                        </div>
+
+                        <div *ngSwitchCase="'color'">
+                          <div class="peb-fill" (click)="showColorForm(prop)">
+                            <div class="peb-fill__thumbnail" [style.background]="prop.value.values.color | rgbCss">
+                            </div>
+                          </div>
+                        </div>
+                      </ng-container>
+
+                      <div (click)="removeProperty(keyframeIndex, propertyIndex)">
+                        <mat-icon svgIcon="small-close-icon" class="remove-button">
+                        </mat-icon>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+              <button pe-form-button class="keyframe-button" (click)="addProperty(keyframe)">
+                {{ 'builder-app.forms.animation.add_property' | translate }}
+              </button>
+            </ng-container>
+
+          </div>
+        </div>
+      </ng-container>
+      <button pe-form-button (click)="addKeyframe()">{{ 'builder-app.forms.animation.add_keyframe' | translate
+        }}</button>
+    </div>
+  </ng-container>
+</form>

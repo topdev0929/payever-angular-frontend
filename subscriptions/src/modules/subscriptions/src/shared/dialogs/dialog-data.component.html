@@ -1,0 +1,18 @@
+<div class="wrapper" style="text-align: center;">
+  <div class="content">
+    <svg class="icon icon-24">
+      <use [attr.xlink:href]="'#' + icon"></use>
+    </svg>
+
+    <h2 style="color:white;">{{data.title}}</h2>
+
+    <div>{{data.subtitle}}</div>
+
+
+    <div class="buttons">
+      <button  (click)="onCancelClick()" mat-dialog-close>{{data.cancelButtonTitle}}</button>
+      <button (click)="onConfirmClick()">{{data.confirmButtonTitle}}</button>
+    </div>
+  </div>
+
+</div>

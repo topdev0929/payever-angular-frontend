@@ -1,0 +1,89 @@
+<form class="form" [formGroup]="form" novalidate *ngIf="(isMasterPage$|async)===false;else masterPageForm">
+
+  <peb-slide-toggle formControlName="frontPage" >
+    {{ 'builder-app.forms.page.home' | translate }}
+  </peb-slide-toggle>
+
+  <div class="form__row border">
+    <div class="group__row">
+      <label class="group__label">
+        {{ 'builder-app.forms.page.name' | translate }}
+      </label>
+    </div>
+    <input
+      type="text"
+      placeholder="Name"
+      formControlName="name"
+    />
+  </div>
+
+  <div class="form__row border" *ngIf="canChangeType$ | async">
+    <div class="group__row">
+      <label class="group__label">
+        {{ 'builder-app.forms.page.type' | translate }}
+      </label>
+    </div>
+    <peb-select
+      class="field-control"
+      formControlName="variant"
+      [options]="pageVariants"
+    ></peb-select>
+  </div>
+
+  <div class="form__row border">
+    <div class="group__row">
+      <label class="group__label">
+        {{ 'builder-app.forms.page.link' | translate }}
+      </label>
+    </div>
+    <input
+      type="text"
+      placeholder="Link"
+      formControlName="url"
+    />
+  </div>
+<div class="form__row border">
+    <div class="group__row">
+      <label class="group__label">
+        {{ 'builder-app.forms.page.master' | translate }}
+      </label>
+    </div>
+
+    <peb-select class="field-control" label="Maser page" formControlName="masterPage" [options]="masterPages$|async">
+    </peb-select>
+  </div>
+
+  <div class="form__row border" *ngIf="(isMasterPage$ | async) === false">
+    <div class="group__row">
+      <label class="group__label">
+        {{ 'builder-app.forms.page.parent' | translate }}
+      </label>
+    </div>
+
+    <peb-select class="field-control" label="Parent page" formControlName="parentId" [options]="parents$|async">
+    </peb-select>
+  </div>
+
+  <div class="form__row_border">
+    <div class="group__row">
+      <span class="group__label">{{ 'builder-app.forms.language.default' | translate }}</span>
+    </div>
+
+    <peb-select label="Default Language" class="field-control" formControlName="defaultLanguage"
+      [options]="languages$ | async">
+      ></peb-select>
+  </div>
+
+</form>
+
+<ng-template #masterPageForm>
+  <form class="form" [formGroup]="form" novalidate>
+    <div class="form__row">
+      <div class="group__row">
+        <label class="group__label">{{ 'builder-app.forms.page.name' | translate }}</label>
+      </div>
+      <input type="text" placeholder="Name" formControlName="name" />
+    </div>
+  </form>
+
+</ng-template>

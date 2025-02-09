@@ -1,0 +1,15 @@
+@import '../../../../../../../../shared/styles/assets/ui-kit-styles/pe_variables';
+
+.verify-iframe {
+  border: none;
+  width: 100%;
+  height: 100vh;
+  max-height: 680px;
+}
+
+.finish-container {
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

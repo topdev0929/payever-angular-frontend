@@ -1,0 +1,9 @@
+<mat-nav-list>
+  <mat-divider *ngIf="vegetableList && vegetableList.length !== 0"></mat-divider>
+  <ng-container *ngFor="let vegetable of vegetableList">
+    <mat-list-item>
+      <a matLine href="javascript:void(0)" (click)="onClick(vegetable)">{{ vegetable }}</a>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </ng-container>
+</mat-nav-list>

@@ -1,0 +1,34 @@
+<form
+  class="dialog"
+  [formGroup]="form"
+  #formGroup="ngForm"
+  (ngSubmit)="createEmployeeGroup()"
+>
+    <div class="dialog__body">
+        <peb-form-background class="form-margin">
+            <peb-form-field-input
+                    [isFieldInvalid]="formGroup.submitted && form.get('name').invalid"
+                    [errorMessage]="nameErrorMessage"
+                    class="divider-border form-group__input"
+                    appearance="label"
+                    [label]="'form.create_form.groups.name.label' | translate">
+                <input [placeholder]="'form.create_form.groups.name.placeholder' | translate" formControlName="name"/>
+            </peb-form-field-input>
+        </peb-form-background>
+
+        <peb-expandable-panel
+                class="employee-panel"
+                [headerLabel]="'dialogs.new_employee.panels.app_items_rights.title' | translate"
+                [lightHeader]="true"
+        >
+            <peb-employee-app-access-setter
+                    class="employee-panel__app"
+                    *ngFor="let appControlItem of aclsGroup.controls | keyvalue"
+                    [code]="appControlItem.key"
+                    [title]="aclsService.appsTitle.get(appControlItem.key)"
+                    [message]="aclsService.getAccessMessage(appControlItem.value)"
+            ></peb-employee-app-access-setter>
+        </peb-expandable-panel>
+    </div>
+    <button #submitTrigger type="submit" class="hidden"></button>
+</form>

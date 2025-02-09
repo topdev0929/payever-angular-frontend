@@ -1,0 +1,64 @@
+::ng-deep .pe-simple-stepper {
+  // TODO Find better solution (have to have it to see top menu in sandbox mode at local machine)
+  top: 26px !important;
+}
+
+::ng-deep .cdk-overlay-container .mat-snack-bar-container {
+  // TODO Find better solution
+  background: #888;
+}
+
+::ng-deep body.pe-bootstrap {
+  padding: 0 0 !important;
+
+  .mat-menu-content {
+    background-color: transparent;
+  }
+}
+
+:host {
+  pe-simple-welcome-stepper {
+    position: static;
+    display: flex;
+    ::ng-deep .pe-simple-stepper {
+      position: static;
+      width: 100%;
+    }
+  }
+
+  .top-offset-fix {
+    transform: translateX(0);
+  }
+
+  .connect-app-content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    &__outlet {
+      height: calc(100% - 56px);
+      max-height: calc(100% - 56px);
+    }
+  }
+}
+
+::ng-deep pe-new-platform-header.connect-header {
+  height: 56px;
+  display: flex;
+  justify-content: center;
+
+  .close-button.checkout-header__close-button {
+    height: 24px;
+    flex-direction: row-reverse;
+    padding: 2px 8px;
+
+    svg {
+      width: 20px;
+      height: 20px;
+      margin-right: 4px;
+      display: inline-block !important;
+    }
+  }
+}

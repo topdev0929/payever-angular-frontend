@@ -1,0 +1,16 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $primary: map.get($color-config, 'primary');
+  $confirm: map.get($color-config, 'confirm');
+
+  .toolbar {
+    background-color: $primary;
+    color: $confirm;
+    &__button {
+      &:active {
+        color: $confirm;
+      }
+    }
+  }
+}

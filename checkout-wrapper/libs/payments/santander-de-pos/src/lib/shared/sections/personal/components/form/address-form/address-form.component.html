@@ -1,0 +1,113 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup"
+  analyticsForm>
+  <div class="h5">
+    <span i18n="@@payment-santander-de-pos.inquiry.sections.prev_address.title"> Previous address </span>
+  </div>
+  <div class="form-fieldset-new">
+    <mat-form-field
+      *ngIf="formGroup.get('prevAddressResidentSince').enabled"
+      shortDateFormat
+      class="col-xs-12">
+      <mat-label i18n="@@payment-santander-de-pos.inquiry.form.customer.prevAddressResidentSince.label">
+        Previous address resident since
+      </mat-label>
+
+      <input
+        matInput
+        peDatePickerMask="shortDate"
+        formControlName="prevAddressResidentSince"
+        type="text"
+        [min]="pastDateConstraints.min"
+        [max]="maxDate$ | async"
+        [matDatepicker]="addressResidentSinceDp" />
+
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="addressResidentSinceDp">
+        <svg
+          matDatepickerToggleIcon
+          class="icon icon-16">
+          <use xlink:href="#icon-calendar-16"></use>
+        </svg>
+      </mat-datepicker-toggle>
+      <mat-datepicker
+        #addressResidentSinceDp
+        startView="multi-year"
+        (monthSelected)="selectPrevAddressResidentSince($event, addressResidentSinceDp)">
+      </mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12">
+      <mat-label i18n="@@checkout_address_edit.form.full_address.label"> Address </mat-label>
+
+      <span
+        #prefix
+        matPrefix>
+        <pe-icon [icon]="'icon-geocoder-24'"> </pe-icon>
+      </span>
+      <input
+        matInput
+        peInputMask
+        peAddressAutocomplete
+        [matAutocomplete]="auto"
+        formControlName="_prevAddressLine"
+        [mask]="addressMask"
+        (addressChange)="fullAddressChange($event)"
+        type="text" />
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option
+          *ngFor="let option of addressItems$ | async"
+          [value]="option">
+          {{ option.address }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-6">
+      <mat-label i18n="@@checkout_address_edit.form.country.label"> Country </mat-label>
+      <mat-select formControlName="prevAddressCountry">
+        <mat-option
+          *ngFor="let country of countries$ | async; trackBy: trackByFn"
+          [value]="country.value">
+          {{ country.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-6">
+      <mat-label i18n="@@checkout_address_edit.form.city.label"> City </mat-label>
+      <input
+        matInput
+        formControlName="prevAddressCity"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12">
+      <mat-label i18n="@@payment-santander-de-pos.inquiry.form.customer.prevAddressStreet.label"> Street </mat-label>
+      <input
+        matInput
+        formControlName="prevAddressStreet"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-6">
+      <mat-label i18n="@@payment-santander-de-pos.inquiry.form.customer.prevAddressStreetNumber.label">
+        Street Number
+      </mat-label>
+      <input
+        matInput
+        formControlName="prevAddressStreetNumber"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-6">
+      <mat-label i18n="@@checkout_address_edit.form.zipCode.label"> Post code </mat-label>
+      <input
+        matInput
+        formControlName="prevAddressZip"
+        type="text" />
+    </mat-form-field>
+  </div>
+</form>

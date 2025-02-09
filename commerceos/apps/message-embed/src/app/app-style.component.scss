@@ -1,0 +1,23 @@
+@import '~@angular/material/theming';
+@import '~swiper/swiper-bundle';
+@include mat-core();
+
+$sandbox-primary: mat-palette($mat-indigo);
+$sandbox-accent: mat-palette($mat-pink, A200, A100, A400);
+$sandbox-warn: mat-palette($mat-red);
+$sandbox-theme: mat-light-theme((
+  color: (
+    primary: $sandbox-primary,
+    accent: $sandbox-accent,
+    warn: $sandbox-warn,
+  )
+));
+
+@include angular-material-theme($sandbox-theme);
+
+
+
+
+* {
+  box-sizing: border-box;
+}

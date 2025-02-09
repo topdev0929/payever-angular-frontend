@@ -1,0 +1,25 @@
+<form class="form-container" [formGroup]="whitelistForm">
+  <peb-form-background>
+    <pe-picker
+      class="form-container__domain-picker"
+      #picker
+      type="text"
+      [label]="formTranslationsService.getFormControlLabel('whitelist')"
+      [buttonLabel]="'form.create_form.whitelist.button' | translate"
+      (buttonClick)="addDomain()"
+      formControlName="domains"
+      (onKeyUp)="onKeyUpPicker($event)"
+      [isFieldInvalid]="incorrectDomain || sameDomain"
+      [errorMessage]="domainErrorMessage"
+    >
+    </pe-picker>
+  </peb-form-background>
+  <ng-container *ngFor="let buttonCopyLink of (buttonsCopyLink$ | async)">
+    <button
+      color="confirm"
+      pe-form-button
+      class="form-container__copy-link"
+      [cdkCopyToClipboard]="buttonCopyLink.url"
+      (click)="copyLink(buttonCopyLink.type)">{{buttonCopyLink.text}}</button>
+  </ng-container>
+</form>

@@ -1,0 +1,39 @@
+<div
+  *ngIf="{
+    cancelUrl: cancelUrl$ | async
+  } as vm">
+  <div class="top-text-1">
+    <p>
+      <svg class="icon icon-96 text-primary">
+        <use [attr.xlink:href]="icon"></use>
+      </svg>
+    </p>
+    <p class="dark-text title">{{translations.headerCardTitle}}</p>
+  </div>
+  <div class="top-text-2">
+    <p
+      *ngIf="!isDeclined()"
+      class="large-1 dark-text text-bold">
+      {{translations.descriptionCardTitle}}
+    </p>
+    <p class="dark-text large-1">{{translations.descriptionCardSubtitle}}</p>
+    <p
+      class="large-1"
+      *ngIf="isDeclined()"
+      class="subtitle dark-text">
+      {{translations.descriptionCardFootnote}}
+    </p>
+  </div>
+
+  <div class="actions-wrapper" *ngIf="!!vm.cancelUrl">
+    <button
+      mat-button
+      (click)="onClicked(vm.cancelUrl)"
+      target="_blank"
+      mat-button
+      class="mat-button-gradient action-button"
+      i18n="@@flow_common_finish.back_to_shop">
+      flow_common_finish.back_to_shop
+    </button>
+  </div>
+</div>

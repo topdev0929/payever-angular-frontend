@@ -1,0 +1,80 @@
+<form novalidate class="form-table form-table-horizontal no-padding" (keydown)="onFormKey($event)" [formGroup]="form" *ngIf="form">
+  <button
+    color="muted-dark"
+    mat-raised-button
+    [class.button-settings-toggle]="true"
+    [class.mat-button-xxs]="true"
+    [class.mat-button-menu]="true"
+    [class.mat-button-small-padding]="true"
+    [matMenuTriggerFor]="menu"
+    pe-qa-builder="link-to"
+  >
+    <span [innerHtml]="currentPageName || component?.customLink"></span>
+    <svg class="icon icon-16">
+      <use xlink:href="#icon-arrow-down-small-16"></use>
+    </svg>
+  </button>
+  <mat-menu #menu="matMenu" class="mat-menu-dark-muted mat-menu-editor-sm mat-menu-editor mat-menu-fieldset">
+    <div class="form-table mat-toolbar-append-item-md" (click)="$event.stopPropagation()">
+      <pe-form-fieldset
+        [isSubmitted]="isSubmitted"
+        [fields]="hrefFieldset"
+        [formGroup]="form"
+        [errors]="errors$ | async"
+        [formStyle]="'dark'"
+        [orientation]="'horizontal'"
+      ></pe-form-fieldset>
+    </div>
+
+    <ng-container *ngFor="let page of pages">
+      <button mat-menu-item (click)="setCurrentPage(page); $event.stopPropagation()" pe-qa-builder="link-to-option">
+        <span class="link-menu-item-text">{{ page.title }}</span>
+        <svg class="icon icon-12 icon-checkmark" *ngIf="isActiveLink(page)">
+          <use xlink:href="#icon-checkmark-24"></use>
+        </svg>
+      </button>
+    </ng-container>
+  </mat-menu>
+
+  <!-- <pe-builder-navbar-controls-button
+    label="Replace"
+    (buttonClick)="onReplaceImage()"
+    [disabled]="!(editor.selectedElements$ | async).length"
+  ></pe-builder-navbar-controls-button> -->
+
+  <span class="form-fieldset-horizontal-label" style="margin-left: 10px;">Width</span>
+  <pe-form-fieldset
+    [fields]="widthInputFieldset"
+    [formGroup]="form"
+    formStyle="dark"
+    orientation="horizontal"
+  ></pe-form-fieldset>
+
+  <span class="form-fieldset-horizontal-label">Height</span>
+  <pe-form-fieldset
+    [fields]="heightInputFieldset"
+    [formGroup]="form"
+    formStyle="dark"
+    orientation="horizontal"
+  ></pe-form-fieldset>
+
+  <pe-builder-navbar-separator style="margin-left: 10px;"></pe-builder-navbar-separator>
+
+  <pe-builder-element-keep-aspect-toggle
+    [editor]="editor"
+    [pageStore]="pageStore"
+  ></pe-builder-element-keep-aspect-toggle>
+
+  <pe-builder-element-visibility-toggle
+    [style.marginLeft.px]="10"
+    [editor]="editor"
+    [pageStore]="pageStore"
+  ></pe-builder-element-visibility-toggle>
+
+  <pe-builder-element-pinned-toggle
+    [editor]="editor"
+    [pageStore]="pageStore"
+  ></pe-builder-element-pinned-toggle>
+
+  <pe-builder-navbar-spacer style="padding-right: 12px"></pe-builder-navbar-spacer>
+</form>

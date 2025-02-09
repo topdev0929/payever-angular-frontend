@@ -1,0 +1,4701 @@
+{
+  "version": 1,
+  "projects": {
+    "access": {
+      "projectType": "library",
+      "root": "libs/access",
+      "sourceRoot": "libs/access/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/access/src/**/*.ts", "libs/access/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/access/src/test.ts",
+            "tsConfig": "libs/access/tsconfig.spec.json",
+            "karmaConfig": "libs/access/karma.conf.js"
+          }
+        }
+      }
+    },
+    "alert-dialog": {
+      "projectType": "library",
+      "root": "libs/alert-dialog",
+      "sourceRoot": "libs/alert-dialog/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/alert-dialog/src/**/*.ts", "libs/alert-dialog/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/alert-dialog/src/test.ts",
+            "tsConfig": "libs/alert-dialog/tsconfig.spec.json",
+            "karmaConfig": "libs/alert-dialog/karma.conf.js"
+          }
+        }
+      }
+    },
+    "api": {
+      "projectType": "library",
+      "root": "libs/api",
+      "sourceRoot": "libs/api/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/api/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/api/src/test.ts",
+            "tsConfig": "libs/api/tsconfig.spec.json",
+            "karmaConfig": "libs/api/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "app-env": {
+      "projectType": "library",
+      "root": "libs/app-env",
+      "sourceRoot": "libs/app-env/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/app-env/src/**/*.ts", "libs/app-env/src/**/*.html"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app-env"],
+          "options": {
+            "jestConfig": "libs/app-env/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "app-launcher": {
+      "projectType": "library",
+      "root": "libs/app-launcher",
+      "sourceRoot": "libs/app-launcher/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/app-launcher/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/app-launcher/src/test.ts",
+            "tsConfig": "libs/app-launcher/tsconfig.spec.json",
+            "karmaConfig": "libs/app-launcher/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "apps-affiliates": {
+      "projectType": "library",
+      "root": "libs/apps/affiliates",
+      "sourceRoot": "libs/apps/affiliates/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apps/affiliates/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/apps/affiliates/src/test.ts",
+            "tsConfig": "libs/apps/affiliates/tsconfig.spec.json",
+            "karmaConfig": "libs/apps/affiliates/karma.conf.js"
+          }
+        }
+      }
+    },
+    "apps-appointments": {
+      "projectType": "library",
+      "root": "libs/apps/appointments",
+      "sourceRoot": "libs/apps/appointments/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apps/appointments/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/apps/appointments/src/test.ts",
+            "tsConfig": "libs/apps/appointments/tsconfig.spec.json",
+            "karmaConfig": "libs/apps/appointments/karma.conf.js"
+          }
+        }
+      }
+    },
+    "apps-blog": {
+      "projectType": "library",
+      "root": "libs/apps/blog",
+      "sourceRoot": "libs/apps/blog/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apps/blog/src/**/*.ts", "libs/apps/blog/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/apps/blog/src/test.ts",
+            "tsConfig": "libs/apps/blog/tsconfig.spec.json",
+            "karmaConfig": "libs/apps/blog/karma.conf.js"
+          }
+        }
+      }
+    },
+    "apps-checkout": {
+      "projectType": "library",
+      "root": "libs/apps/checkout",
+      "sourceRoot": "libs/apps/checkout/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apps/checkout/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/apps/checkout/src/test.ts",
+            "tsConfig": "libs/apps/checkout/tsconfig.spec.json",
+            "karmaConfig": "libs/apps/checkout/karma.conf.js"
+          }
+        }
+      }
+    },
+    "apps-connect": {
+      "projectType": "library",
+      "root": "libs/apps/connect",
+      "sourceRoot": "libs/apps/connect/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apps/connect/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/apps/connect/src/test.ts",
+            "tsConfig": "libs/apps/connect/tsconfig.spec.json",
+            "karmaConfig": "libs/apps/connect/karma.conf.js"
+          }
+        }
+      }
+    },
+    "apps-contacts": {
+      "projectType": "library",
+      "root": "libs/apps/contacts",
+      "sourceRoot": "libs/apps/contacts/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apps/contacts/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/apps/contacts/src/test.ts",
+            "tsConfig": "libs/apps/contacts/tsconfig.spec.json",
+            "karmaConfig": "libs/apps/contacts/karma.conf.js"
+          }
+        }
+      }
+    },
+    "apps-coupons": {
+      "projectType": "library",
+      "root": "libs/apps/coupons",
+      "sourceRoot": "libs/apps/coupons/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apps/coupons/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "stylePreprocessorOptions": {
+              "includePaths": ["libs/ui-styles/src/", "libs/ui/src/lib/components"]
+            },
+            "main": "libs/apps/coupons/src/test.ts",
+            "tsConfig": "libs/apps/coupons/tsconfig.spec.json",
+            "karmaConfig": "libs/apps/coupons/karma.conf.js"
+          }
+        }
+      }
+    },
+    "apps-invoice": {
+      "projectType": "library",
+      "root": "libs/apps/invoice",
+      "sourceRoot": "libs/apps/invoice/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apps/invoice/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/apps/invoice/src/test.ts",
+            "tsConfig": "libs/apps/invoice/tsconfig.spec.json",
+            "karmaConfig": "libs/apps/invoice/karma.conf.js"
+          }
+        }
+      }
+    },
+    "apps-message": {
+      "projectType": "library",
+      "root": "libs/apps/message",
+      "sourceRoot": "libs/apps/message/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apps/message/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/apps/message/src/test.ts",
+            "tsConfig": "libs/apps/message/tsconfig.spec.json",
+            "karmaConfig": "libs/apps/message/karma.conf.js"
+          }
+        }
+      }
+    },
+    "apps-pos": {
+      "projectType": "library",
+      "root": "libs/apps/pos",
+      "sourceRoot": "libs/apps/pos/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apps/pos/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/apps/pos/src/test.ts",
+            "tsConfig": "libs/apps/pos/tsconfig.spec.json",
+            "karmaConfig": "libs/apps/pos/karma.conf.js"
+          }
+        }
+      }
+    },
+    "apps-products": {
+      "projectType": "library",
+      "root": "libs/apps/products",
+      "sourceRoot": "libs/apps/products/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apps/products/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "stylePreprocessorOptions": {
+              "includePaths": ["libs/ui-styles/src/", "libs/ui/src/lib/components"]
+            },
+            "main": "libs/apps/products/src/test.ts",
+            "tsConfig": "libs/apps/products/tsconfig.spec.json",
+            "karmaConfig": "libs/apps/products/karma.conf.js"
+          }
+        }
+      }
+    },
+    "apps-settings": {
+      "projectType": "library",
+      "root": "libs/apps/settings",
+      "sourceRoot": "libs/apps/settings/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apps/settings/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/apps/settings/src/test.ts",
+            "tsConfig": "libs/apps/settings/tsconfig.spec.json",
+            "karmaConfig": "libs/apps/settings/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "apps-shipping": {
+      "projectType": "library",
+      "root": "libs/apps/shipping",
+      "sourceRoot": "libs/apps/shipping/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apps/shipping/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/apps/shipping/src/test.ts",
+            "tsConfig": "libs/apps/shipping/tsconfig.spec.json",
+            "karmaConfig": "libs/apps/shipping/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "apps-shop": {
+      "projectType": "library",
+      "root": "libs/apps/shop",
+      "sourceRoot": "libs/apps/shop/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apps/shop/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/apps/shop/src/test.ts",
+            "tsConfig": "libs/apps/shop/tsconfig.spec.json",
+            "karmaConfig": "libs/apps/shop/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "apps-site": {
+      "projectType": "library",
+      "root": "libs/apps/site",
+      "sourceRoot": "libs/apps/site/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apps/site/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/apps/site/src/test.ts",
+            "tsConfig": "libs/apps/site/tsconfig.spec.json",
+            "karmaConfig": "libs/apps/site/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "apps-social": {
+      "projectType": "library",
+      "root": "libs/apps/social",
+      "sourceRoot": "libs/apps/social/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apps/social/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/apps/social/src/test.ts",
+            "tsConfig": "libs/apps/social/tsconfig.spec.json",
+            "karmaConfig": "libs/apps/social/karma.conf.js",
+            "styles": [
+              {
+                "bundleName": "lazy-styles",
+                "inject": false,
+                "input": "libs/ui-styles/src/pe_styles.scss"
+              }
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["libs/ui-styles/src/", "libs/ui/src/lib/components"]
+            }
+          }
+        }
+      }
+    },
+    "apps-statistics": {
+      "projectType": "library",
+      "root": "libs/apps/statistics",
+      "sourceRoot": "libs/apps/statistics/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apps/statistics/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/apps/statistics/src/test.ts",
+            "tsConfig": "libs/apps/statistics/tsconfig.spec.json",
+            "karmaConfig": "libs/apps/statistics/karma.conf.js"
+          }
+        }
+      }
+    },
+    "apps-studio": {
+      "projectType": "library",
+      "root": "libs/apps/studio",
+      "sourceRoot": "libs/apps/studio/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apps/studio/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/apps/studio/src/test.ts",
+            "tsConfig": "libs/apps/studio/tsconfig.spec.json",
+            "karmaConfig": "libs/apps/studio/karma.conf.js"
+          }
+        }
+      }
+    },
+    "apps-subscriptions": {
+      "projectType": "library",
+      "root": "libs/apps/subscriptions",
+      "sourceRoot": "libs/apps/subscriptions/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apps/subscriptions/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/apps/subscriptions/src/test.ts",
+            "tsConfig": "libs/apps/subscriptions/tsconfig.spec.json",
+            "karmaConfig": "libs/apps/subscriptions/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "apps-transactions": {
+      "projectType": "library",
+      "root": "libs/apps/transactions",
+      "sourceRoot": "libs/apps/transactions/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apps/transactions/src/**/*.ts", "libs/apps/transactions/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/apps/transactions/src/test.ts",
+            "tsConfig": "libs/apps/transactions/tsconfig.spec.json",
+            "karmaConfig": "libs/apps/transactions/karma.conf.js"
+          }
+        }
+      }
+    },
+    "auth": {
+      "projectType": "library",
+      "root": "libs/auth",
+      "sourceRoot": "libs/auth/src",
+      "prefix": "pe",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/auth"],
+          "options": {
+            "jestConfig": "libs/auth/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/auth/src/**/*.ts", "libs/auth/src/**/*.html"]
+          }
+        }
+      }
+    },
+    "base": {
+      "projectType": "library",
+      "root": "libs/base",
+      "sourceRoot": "libs/base/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/base/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/base/src/test.ts",
+            "tsConfig": "libs/base/tsconfig.spec.json",
+            "karmaConfig": "libs/base/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "base-dashboard": {
+      "projectType": "library",
+      "root": "libs/base-dashboard",
+      "sourceRoot": "libs/base-dashboard/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/base-dashboard/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "stylePreprocessorOptions": {
+              "includePaths": ["libs/ui-styles/src/", "libs/ui/src/lib/components"]
+            },
+            "main": "libs/base-dashboard/src/test.ts",
+            "tsConfig": "libs/base-dashboard/tsconfig.spec.json",
+            "karmaConfig": "libs/base-dashboard/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "browser": {
+      "projectType": "library",
+      "root": "libs/browser",
+      "sourceRoot": "libs/browser/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/browser/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/browser/src/test.ts",
+            "tsConfig": "libs/browser/tsconfig.spec.json",
+            "karmaConfig": "libs/browser/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "builder-app": {
+      "projectType": "library",
+      "root": "libs/builder-app",
+      "sourceRoot": "libs/builder-app/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder-app/src/**/*.ts", "libs/builder-app/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/builder-app"],
+          "options": {
+            "jestConfig": "libs/builder-app/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "builder-settings": {
+      "projectType": "library",
+      "root": "libs/builder-settings",
+      "sourceRoot": "libs/builder-settings/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder-settings/src/**/*.ts", "libs/builder-settings/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/builder-settings"],
+          "options": {
+            "jestConfig": "libs/builder-settings/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "builder-share": {
+      "projectType": "library",
+      "root": "libs/builder-share",
+      "sourceRoot": "libs/builder-share/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder-share/src/**/*.ts", "libs/builder-share/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/builder-share/src/test.ts",
+            "tsConfig": "libs/builder-share/tsconfig.spec.json",
+            "karmaConfig": "libs/builder-share/karma.conf.js"
+          }
+        }
+      }
+    },
+    "builder-shop-plugins": {
+      "projectType": "library",
+      "root": "libs/builder/shop-plugins",
+      "sourceRoot": "libs/builder/shop-plugins/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/shop-plugins/src/**/*.ts", "libs/builder/shop-plugins/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/builder/shop-plugins/src/test.ts",
+            "tsConfig": "libs/builder/shop-plugins/tsconfig.spec.json",
+            "karmaConfig": "libs/builder/shop-plugins/karma.conf.js"
+          }
+        }
+      }
+    },
+    "builder/abstract": {
+      "projectType": "library",
+      "root": "libs/builder/abstract",
+      "sourceRoot": "libs/builder/abstract/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/abstract/src/**/*.ts", "libs/builder/abstract/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/builder/abstract/src/test.ts",
+            "tsConfig": "libs/builder/abstract/tsconfig.spec.json",
+            "karmaConfig": "libs/builder/abstract/karma.conf.js"
+          }
+        }
+      }
+    },
+    "builder/action-handlers": {
+      "projectType": "library",
+      "root": "libs/builder/action-handlers",
+      "sourceRoot": "libs/builder/action-handlers/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/builder/action-handlers/src/**/*.ts",
+              "libs/builder/action-handlers/src/**/*.html"
+            ]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/builder/action-handlers"],
+          "options": {
+            "jestConfig": "libs/builder/action-handlers/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "builder/actions": {
+      "projectType": "library",
+      "root": "libs/builder/actions",
+      "sourceRoot": "libs/builder/actions/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/actions/src/**/*.ts", "libs/builder/actions/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/builder/actions"],
+          "options": {
+            "jestConfig": "libs/builder/actions/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "builder/animations": {
+      "projectType": "library",
+      "root": "libs/builder/animations",
+      "sourceRoot": "libs/builder/animations/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/animations/src/**/*.ts", "libs/builder/animations/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/builder/animations/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "builder/view-actions": {
+      "projectType": "library",
+      "root": "libs/builder/view-actions",
+      "sourceRoot": "libs/builder/view-actions/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/view-actions/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        }
+      }
+    },
+    "builder/view-state": {
+      "projectType": "library",
+      "root": "libs/builder/view-state",
+      "sourceRoot": "libs/builder/view-state/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/view-state/src/**/*.ts", "libs/builder/view-state/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/builder/view-state/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "builder/view-handlers": {
+      "projectType": "library",
+      "root": "libs/builder/view-handlers",
+      "sourceRoot": "libs/builder/view-handlers/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/view-handlers/src/**/*.ts", "libs/builder/view-handlers/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/builder/view-handlers/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "builder/api": {
+      "projectType": "library",
+      "root": "libs/builder/api",
+      "sourceRoot": "libs/builder/api/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/api/src/**/*.ts", "libs/builder/api/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/builder/api/src/test.ts",
+            "tsConfig": "libs/builder/api/tsconfig.spec.json",
+            "karmaConfig": "libs/builder/api/karma.conf.js"
+          }
+        }
+      }
+    },
+    "builder/background-activity": {
+      "projectType": "library",
+      "root": "libs/builder/background-activity",
+      "sourceRoot": "libs/builder/background-activity/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/builder/background-activity/src/**/*.ts",
+              "libs/builder/background-activity/src/**/*.html"
+            ]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/builder/background-activity"],
+          "options": {
+            "jestConfig": "libs/builder/background-activity/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "builder/color-picker": {
+      "projectType": "library",
+      "root": "libs/builder/color-utils",
+      "sourceRoot": "libs/builder/color-utils/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/color-picker/src/**/*.ts", "libs/builder/color-picker/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/builder/color-utils"],
+          "options": {
+            "jestConfig": "libs/builder/color-utils/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "builder/color-utils": {
+      "projectType": "library",
+      "root": "libs/builder/color-utils",
+      "sourceRoot": "libs/builder/color-utils/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/color-utils/src/**/*.ts", "libs/builder/color-utils/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/builder/color-utils"],
+          "options": {
+            "jestConfig": "libs/builder/color-utils/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "builder/context": {
+      "projectType": "library",
+      "root": "libs/builder/context",
+      "sourceRoot": "libs/builder/context/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/context/src/**/*.ts", "libs/builder/context/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/builder/context/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "builder/controls": {
+      "projectType": "library",
+      "root": "libs/builder/controls",
+      "sourceRoot": "libs/builder/controls/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/controls/src/**/*.ts", "libs/builder/controls/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/builder/controls/src/test.ts",
+            "tsConfig": "libs/builder/controls/tsconfig.spec.json",
+            "karmaConfig": "libs/builder/controls/karma.conf.js"
+          }
+        }
+      }
+    },
+    "builder/core": {
+      "projectType": "library",
+      "root": "libs/builder/core",
+      "sourceRoot": "libs/builder/core/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/core/src/**/*.ts", "libs/builder/core/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/builder/core/src/test.ts",
+            "tsConfig": "libs/builder/core/tsconfig.spec.json",
+            "karmaConfig": "libs/builder/core/karma.conf.js"
+          }
+        }
+      }
+    },
+    "builder/delta-renderer": {
+      "projectType": "library",
+      "root": "libs/builder/delta-renderer",
+      "sourceRoot": "libs/builder/delta-renderer/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/delta-renderer/src/**/*.ts", "libs/builder/delta-renderer/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/builder/delta-renderer"],
+          "options": {
+            "jestConfig": "libs/builder/delta-renderer/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "builder/directives": {
+      "projectType": "library",
+      "root": "libs/builder/directives",
+      "sourceRoot": "libs/builder/directives/src",
+      "prefix": "peb",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/builder/directives"],
+          "options": {
+            "jestConfig": "libs/builder/directives/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/directives/src/**/*.ts", "libs/builder/directives/src/**/*.html"]
+          }
+        }
+      }
+    },
+    "builder/editor-utils": {
+      "projectType": "library",
+      "root": "libs/builder/editor-utils",
+      "sourceRoot": "libs/builder/editor-utils/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/editor-utils/src/**/*.ts", "libs/builder/editor-utils/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/builder/editor-utils"],
+          "options": {
+            "jestConfig": "libs/builder/editor-utils/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "builder/events": {
+      "projectType": "library",
+      "root": "libs/builder/events",
+      "sourceRoot": "libs/builder/events/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/events/src/**/*.ts", "libs/builder/events/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/builder/events"],
+          "options": {
+            "jestConfig": "libs/builder/events/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "builder/font-loader": {
+      "projectType": "library",
+      "root": "libs/builder/font-loader",
+      "sourceRoot": "libs/builder/font-loader/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/font-loader/src/**/*.ts", "libs/builder/font-loader/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/builder/font-loader/src/test.ts",
+            "tsConfig": "libs/builder/font-loader/tsconfig.spec.json",
+            "karmaConfig": "libs/builder/font-loader/karma.conf.js"
+          }
+        }
+      }
+    },
+    "builder/form-controls": {
+      "projectType": "library",
+      "root": "libs/builder/form-controls",
+      "sourceRoot": "libs/builder/form-controls/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/form-controls/src/**/*.ts", "libs/builder/form-controls/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/builder/form-controls"],
+          "options": {
+            "jestConfig": "libs/builder/form-controls/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "builder/forms": {
+      "projectType": "library",
+      "root": "libs/builder/forms",
+      "sourceRoot": "libs/builder/forms/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/forms/src/**/*.ts", "libs/builder/forms/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/builder/forms"],
+          "options": {
+            "jestConfig": "libs/builder/forms/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "builder/integrations": {
+      "projectType": "library",
+      "root": "libs/builder/integrations",
+      "sourceRoot": "libs/builder/integrations/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/integrations/src/**/*.ts", "libs/builder/integrations/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/builder/integrations/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "builder/layers": {
+      "projectType": "library",
+      "root": "libs/builder/layers",
+      "sourceRoot": "libs/builder/layers/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/layers/src/**/*.ts", "libs/builder/layers/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/builder/layers/src/test.ts",
+            "tsConfig": "libs/builder/layers/tsconfig.spec.json",
+            "karmaConfig": "libs/builder/layers/karma.conf.js"
+          }
+        }
+      }
+    },
+    "builder/main-editor": {
+      "projectType": "library",
+      "root": "libs/builder/main-editor",
+      "sourceRoot": "libs/builder/main-editor/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/main-editor/src/**/*.ts", "libs/builder/main-editor/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/builder/main-editor/src/test.ts",
+            "tsConfig": "libs/builder/main-editor/tsconfig.spec.json",
+            "karmaConfig": "libs/builder/main-editor/karma.conf.js"
+          }
+        }
+      }
+    },
+    "builder/media": {
+      "projectType": "library",
+      "root": "libs/builder/media",
+      "sourceRoot": "libs/builder/media/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/media/src/**/*.ts", "libs/builder/media/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/builder/media/src/test.ts",
+            "tsConfig": "libs/builder/media/tsconfig.spec.json",
+            "karmaConfig": "libs/builder/media/karma.conf.js"
+          }
+        }
+      }
+    },
+    "builder/migrations": {
+      "projectType": "library",
+      "root": "libs/builder/migrations",
+      "sourceRoot": "libs/builder/migrations/src",
+      "prefix": "peb",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/builder/migrations"],
+          "options": {
+            "project": "libs/builder/migrations/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/builder/migrations/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/builder/migrations/tsconfig.lib.json"
+            },
+            "publish": {
+              "tsConfig": "libs/builder/migrations/tsconfig.lib.publish.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/builder/migrations"],
+          "options": {
+            "jestConfig": "libs/builder/migrations/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/migrations/src/**/*.ts", "libs/builder/migrations/src/**/*.html"]
+          }
+        }
+      }
+    },
+    "builder/old": {
+      "projectType": "library",
+      "root": "libs/builder/old",
+      "sourceRoot": "libs/builder/old/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/old/src/**/*.ts", "libs/builder/old/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/builder/old/src/test.ts",
+            "tsConfig": "libs/builder/old/tsconfig.spec.json",
+            "karmaConfig": "libs/builder/old/karma.conf.js"
+          }
+        }
+      }
+    },
+    "builder/page-list": {
+      "projectType": "library",
+      "root": "libs/builder/page-list",
+      "sourceRoot": "libs/builder/page-list/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/page-list/src/**/*.ts", "libs/builder/page-list/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/builder/page-list"],
+          "options": {
+            "jestConfig": "libs/builder/page-list/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "builder/pages": {
+      "projectType": "library",
+      "root": "libs/builder/pages",
+      "sourceRoot": "libs/builder/pages/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/pages/src/**/*.ts", "libs/builder/pages/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/builder/pages/src/test.ts",
+            "tsConfig": "libs/builder/pages/tsconfig.spec.json",
+            "karmaConfig": "libs/builder/pages/karma.conf.js"
+          }
+        }
+      }
+    },
+    "builder/pipes": {
+      "projectType": "library",
+      "root": "libs/builder/pipes",
+      "sourceRoot": "libs/builder/pipes/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/pipes/src/**/*.ts", "libs/builder/pipes/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/builder/pipes"],
+          "options": {
+            "jestConfig": "libs/builder/pipes/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "builder/preview-renderer": {
+      "projectType": "library",
+      "root": "libs/builder/preview-renderer",
+      "sourceRoot": "libs/builder/preview-renderer/src",
+      "prefix": "pep",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/builder/preview-renderer/src/**/*.ts",
+              "libs/builder/preview-renderer/src/**/*.html"
+            ]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/builder/preview-renderer"],
+          "options": {
+            "jestConfig": "libs/builder/preview-renderer/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "builder/publishing": {
+      "projectType": "library",
+      "root": "libs/builder/publishing",
+      "sourceRoot": "libs/builder/publishing/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/publishing/src/**/*.ts", "libs/builder/publishing/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/builder/publishing/src/test.ts",
+            "tsConfig": "libs/builder/publishing/tsconfig.spec.json",
+            "karmaConfig": "libs/builder/publishing/karma.conf.js"
+          }
+        }
+      }
+    },
+    "builder/render-utils": {
+      "projectType": "library",
+      "root": "libs/builder/render-utils",
+      "sourceRoot": "libs/builder/render-utils/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/render-utils/src/**/*.ts", "libs/builder/render-utils/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/builder/render-utils"],
+          "options": {
+            "jestConfig": "libs/builder/render-utils/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "builder/renderer": {
+      "projectType": "library",
+      "root": "libs/builder/renderer",
+      "sourceRoot": "libs/builder/renderer/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/renderer/src/**/*.ts", "libs/builder/renderer/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/builder/renderer/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "builder/renderer-fill": {
+      "projectType": "library",
+      "root": "libs/builder/renderer-fill",
+      "sourceRoot": "libs/builder/renderer-fill/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/renderer-fill/src/**/*.ts", "libs/builder/renderer-fill/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/builder/renderer-fill/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "builder/resolvers": {
+      "projectType": "library",
+      "root": "libs/builder/resolvers",
+      "sourceRoot": "libs/builder/resolvers/src",
+      "prefix": "peb",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/builder/resolvers"],
+          "options": {
+            "jestConfig": "libs/builder/resolvers/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/resolvers/src/**/*.ts", "libs/builder/resolvers/src/**/*.html"]
+          }
+        }
+      }
+    },
+    "builder/services": {
+      "projectType": "library",
+      "root": "libs/builder/services",
+      "sourceRoot": "libs/builder/services/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/services/src/**/*.ts", "libs/builder/services/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/builder/services/src/test.ts",
+            "tsConfig": "libs/builder/services/tsconfig.spec.json",
+            "karmaConfig": "libs/builder/services/karma.conf.js"
+          }
+        }
+      }
+    },
+    "builder/shapes": {
+      "projectType": "library",
+      "root": "libs/builder/shapes",
+      "sourceRoot": "libs/builder/shapes/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/shapes/src/**/*.ts", "libs/builder/shapes/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/builder/shapes/src/test.ts",
+            "tsConfig": "libs/builder/shapes/tsconfig.spec.json",
+            "karmaConfig": "libs/builder/shapes/karma.conf.js"
+          }
+        }
+      }
+    },
+    "builder/shared": {
+      "projectType": "library",
+      "root": "libs/builder/shared",
+      "sourceRoot": "libs/builder/shared/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/shared/src/**/*.ts", "libs/builder/shared/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/builder/shared/src/test.ts",
+            "tsConfig": "libs/builder/shared/tsconfig.spec.json",
+            "karmaConfig": "libs/builder/shared/karma.conf.js"
+          }
+        }
+      }
+    },
+    "builder/sidebar": {
+      "projectType": "library",
+      "root": "libs/builder/sidebar",
+      "sourceRoot": "libs/builder/sidebar/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/sidebar/src/**/*.ts", "libs/builder/sidebar/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/builder/sidebar"],
+          "options": {
+            "jestConfig": "libs/builder/sidebar/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "builder/state": {
+      "projectType": "library",
+      "root": "libs/builder/state",
+      "sourceRoot": "libs/builder/state/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/state/src/**/*.ts", "libs/builder/state/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/builder/state/src/test.ts",
+            "tsConfig": "libs/builder/state/tsconfig.spec.json",
+            "karmaConfig": "libs/builder/state/karma.conf.js"
+          }
+        }
+      }
+    },
+    "builder/styles": {
+      "projectType": "library",
+      "root": "libs/builder/styles",
+      "sourceRoot": "libs/builder/styles/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/styles/src/**/*.ts", "libs/builder/styles/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/builder/styles/src/test.ts",
+            "tsConfig": "libs/builder/styles/tsconfig.spec.json",
+            "karmaConfig": "libs/builder/styles/karma.conf.js"
+          }
+        }
+      }
+    },
+    "builder/toolbar": {
+      "projectType": "library",
+      "root": "libs/builder/toolbar",
+      "sourceRoot": "libs/builder/toolbar/src",
+      "prefix": "peb",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/builder/toolbar"],
+          "options": {
+            "jestConfig": "libs/builder/toolbar/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/toolbar/src/**/*.ts", "libs/builder/toolbar/src/**/*.html"]
+          }
+        }
+      }
+    },
+    "builder/tree": {
+      "projectType": "library",
+      "root": "libs/builder/tree",
+      "sourceRoot": "libs/builder/tree/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/tree/src/**/*.ts", "libs/builder/tree/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/builder/tree"],
+          "options": {
+            "jestConfig": "libs/builder/tree/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "builder/viewer": {
+      "projectType": "library",
+      "root": "libs/builder/viewer",
+      "sourceRoot": "libs/builder/viewer/src",
+      "prefix": "peb",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/viewer/src/**/*.ts", "libs/builder/viewer/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/builder/viewer/src/test.ts",
+            "tsConfig": "libs/builder/viewer/tsconfig.spec.json",
+            "karmaConfig": "libs/builder/viewer/karma.conf.js"
+          }
+        }
+      }
+    },
+    "builder/yaml": {
+      "projectType": "library",
+      "root": "libs/builder/yaml",
+      "sourceRoot": "libs/builder/yaml/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/builder/yaml/src/**/*.ts", "libs/builder/yaml/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/builder/yaml"],
+          "options": {
+            "jestConfig": "libs/builder/yaml/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "business": {
+      "projectType": "library",
+      "root": "libs/business",
+      "sourceRoot": "libs/business/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/business/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/business/src/test.ts",
+            "tsConfig": "libs/business/tsconfig.spec.json",
+            "karmaConfig": "libs/business/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "entry-business-form": {
+      "projectType": "library",
+      "root": "libs/entry/business-form",
+      "sourceRoot": "libs/entry/business-form/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/entry/business-form/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/entry/business-form/src/test.ts",
+            "tsConfig": "libs/entry/business-form/tsconfig.spec.json",
+            "karmaConfig": "libs/entry/business-form/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "button": {
+      "projectType": "library",
+      "root": "libs/button",
+      "sourceRoot": "libs/button/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/button/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/button/src/test.ts",
+            "tsConfig": "libs/button/tsconfig.spec.json",
+            "karmaConfig": "libs/button/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "chat": {
+      "projectType": "library",
+      "root": "libs/chat",
+      "sourceRoot": "libs/chat/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/chat/src/**/*.ts", "libs/chat/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/chat/src/test.ts",
+            "tsConfig": "libs/chat/tsconfig.spec.json",
+            "karmaConfig": "libs/chat/karma.conf.js",
+            "stylePreprocessorOptions": {
+              "includePaths": ["libs/ui-styles/src/", "libs/ui/src/lib/components"]
+            }
+          }
+        }
+      }
+    },
+    "common": {
+      "projectType": "library",
+      "root": "libs/common",
+      "sourceRoot": "libs/common/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/common/src/**/*.ts", "libs/common/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/common/src/test.ts",
+            "tsConfig": "libs/common/tsconfig.spec.json",
+            "karmaConfig": "libs/common/karma.conf.js"
+          }
+        }
+      }
+    },
+    "confirm-action-dialog": {
+      "projectType": "library",
+      "root": "libs/confirm-action-dialog",
+      "sourceRoot": "libs/confirm-action-dialog/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/confirm-action-dialog/src/**/*.ts", "libs/confirm-action-dialog/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/confirm-action-dialog/src/test.ts",
+            "tsConfig": "libs/confirm-action-dialog/tsconfig.spec.json",
+            "karmaConfig": "libs/confirm-action-dialog/karma.conf.js"
+          }
+        }
+      }
+    },
+    "confirmation-screen": {
+      "projectType": "library",
+      "root": "libs/confirmation-screen",
+      "sourceRoot": "libs/confirmation-screen/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/confirmation-screen/src/**/*.ts", "libs/confirmation-screen/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/confirmation-screen/src/test.ts",
+            "tsConfig": "libs/confirmation-screen/tsconfig.spec.json",
+            "karmaConfig": "libs/confirmation-screen/karma.conf.js"
+          }
+        }
+      }
+    },
+    "threejs": {
+      "projectType": "library",
+      "root": "libs/threejs",
+      "sourceRoot": "libs/threejs/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/threejs/src/**/*.ts", "libs/threejs/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/threejs/src/test.ts",
+            "tsConfig": "libs/threejs/tsconfig.spec.json",
+            "karmaConfig": "libs/threejs/karma.conf.js"
+          }
+        }
+      }
+    },
+    "tpm": {
+      "projectType": "library",
+      "root": "libs/tpm",
+      "sourceRoot": "libs/tpm/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/tpm/src/**/*.ts", "libs/tpm/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/tpm/src/test.ts",
+            "tsConfig": "libs/tpm/tsconfig.spec.json",
+            "karmaConfig": "libs/tpm/karma.conf.js"
+          }
+        }
+      }
+    },
+    "dashboard": {
+      "projectType": "library",
+      "root": "libs/dashboard",
+      "sourceRoot": "libs/dashboard/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/dashboard/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/dashboard/src/test.ts",
+            "tsConfig": "libs/dashboard/tsconfig.spec.json",
+            "karmaConfig": "libs/dashboard/karma.conf.js"
+          }
+        }
+      }
+    },
+    "dashboard-widgets": {
+      "projectType": "library",
+      "root": "libs/dashboard-widgets",
+      "sourceRoot": "libs/dashboard-widgets/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/dashboard-widgets/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/dashboard-widgets/src/test.ts",
+            "tsConfig": "libs/dashboard-widgets/tsconfig.spec.json",
+            "karmaConfig": "libs/dashboard-widgets/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "docker": {
+      "projectType": "library",
+      "root": "libs/docker",
+      "sourceRoot": "libs/docker/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/docker/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/docker/src/test.ts",
+            "tsConfig": "libs/docker/tsconfig.spec.json",
+            "karmaConfig": "libs/docker/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "domains": {
+      "projectType": "library",
+      "root": "libs/domains",
+      "sourceRoot": "libs/domains/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/domains/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/domains/src/test.ts",
+            "tsConfig": "libs/domains/tsconfig.spec.json",
+            "karmaConfig": "libs/domains/karma.conf.js"
+          }
+        }
+      }
+    },
+    "editor": {
+      "projectType": "library",
+      "root": "libs/editor",
+      "sourceRoot": "libs/editor/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/editor/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/editor/src/test.ts",
+            "tsConfig": "libs/editor/tsconfig.spec.json",
+            "karmaConfig": "libs/editor/karma.conf.js"
+          }
+        }
+      }
+    },
+    "encryption": {
+      "projectType": "library",
+      "root": "libs/encryption",
+      "sourceRoot": "libs/encryption/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/encryption/src/**/*.ts", "libs/encryption/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        }
+      }
+    },
+    "entry-confirmation": {
+      "projectType": "library",
+      "root": "libs/entry/confirmation",
+      "sourceRoot": "libs/entry/confirmation/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/entry/confirmation/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/entry/confirmation/src/test.ts",
+            "tsConfig": "libs/entry/confirmation/tsconfig.spec.json",
+            "karmaConfig": "libs/entry/confirmation/karma.conf.js"
+          }
+        }
+      }
+    },
+    "entry-shared": {
+      "projectType": "library",
+      "root": "libs/entry/shared",
+      "sourceRoot": "libs/entry/shared/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/entry/shared/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/entry/shared/src/test.ts",
+            "tsConfig": "libs/entry/shared/tsconfig.spec.json",
+            "karmaConfig": "libs/entry/shared/karma.conf.js"
+          }
+        }
+      }
+    },
+    "entry-verification": {
+      "projectType": "library",
+      "root": "libs/entry/verification",
+      "sourceRoot": "libs/entry/verification/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/entry/verification/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/entry/verification/src/test.ts",
+            "tsConfig": "libs/entry/verification/tsconfig.spec.json",
+            "karmaConfig": "libs/entry/verification/karma.conf.js"
+          }
+        }
+      }
+    },
+    "finexp": {
+      "projectType": "library",
+      "root": "libs/finexp",
+      "sourceRoot": "libs/finexp/src",
+      "prefix": "pe",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/finexp"],
+          "options": {
+            "jestConfig": "libs/finexp/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/finexp/src/**/*.ts", "libs/finexp/src/**/*.html"]
+          }
+        }
+      }
+    },
+    "folders": {
+      "projectType": "library",
+      "root": "libs/folders",
+      "sourceRoot": "libs/folders/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/folders/src/**/*.ts", "libs/folders/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/folders/src/test.ts",
+            "tsConfig": "libs/folders/tsconfig.spec.json",
+            "karmaConfig": "libs/folders/karma.conf.js"
+          }
+        }
+      }
+    },
+    "grid": {
+      "projectType": "library",
+      "root": "libs/grid/core",
+      "sourceRoot": "libs/grid/core/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/grid/core/src/**/*.ts", "libs/grid/core/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/grid/core/src/test.ts",
+            "tsConfig": "libs/grid/core/tsconfig.spec.json",
+            "karmaConfig": "libs/grid/core/karma.conf.js"
+          }
+        }
+      }
+    },
+    "header": {
+      "projectType": "library",
+      "root": "libs/header",
+      "sourceRoot": "libs/header/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/header/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/header/src/test.ts",
+            "tsConfig": "libs/header/tsconfig.spec.json",
+            "karmaConfig": "libs/header/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "invitation": {
+      "projectType": "library",
+      "root": "libs/invitation",
+      "sourceRoot": "libs/invitation/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/invitation/src/**/*.ts", "libs/invitation/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/invitation/src/test.ts",
+            "tsConfig": "libs/invitation/tsconfig.spec.json",
+            "karmaConfig": "libs/invitation/karma.conf.js"
+          }
+        }
+      }
+    },
+    "lazy-styles-loader": {
+      "projectType": "library",
+      "root": "libs/lazy-styles-loader",
+      "sourceRoot": "libs/lazy-styles-loader/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/lazy-styles-loader/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/lazy-styles-loader/src/test.ts",
+            "tsConfig": "libs/lazy-styles-loader/tsconfig.spec.json",
+            "karmaConfig": "libs/lazy-styles-loader/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "entry-login": {
+      "projectType": "library",
+      "root": "libs/entry/login",
+      "sourceRoot": "libs/entry/login/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/entry/login/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/entry/login/src/test.ts",
+            "tsConfig": "libs/entry/login/tsconfig.spec.json",
+            "karmaConfig": "libs/entry/login/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "main": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/commerceos",
+      "sourceRoot": "apps/commerceos/src",
+      "prefix": "pe",
+      "architect": {
+        "build": {
+          "builder": "@angular-builders/custom-webpack:browser",
+          "options": {
+            "outputPath": "dist",
+            "index": "apps/commerceos/src/index/dev/index.html",
+            "main": "apps/commerceos/src/main.ts",
+            "polyfills": "apps/commerceos/src/polyfills.ts",
+            "tsConfig": "apps/commerceos/tsconfig.app.json",
+            "deployUrl": "/",
+            "aot": true,
+            "preserveSymlinks": true,
+            "assets": [
+              "apps/commerceos/src/favicon.ico",
+              "apps/commerceos/src/assets",
+              "apps/commerceos/src/env.json",
+              {
+                "glob": "**/*",
+                "input": "libs/apps/affiliates/src/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/apps/appointments/src/assets",
+                "output": "./assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/apps/blog/src/assets/icons",
+                "output": "assets/icons"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/apps/connect/src/assets",
+                "output": "./assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/apps/contacts/src/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/apps/connect/src/assets/icons",
+                "output": "./assets/icons"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/apps/coupons/src/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/apps/invoice/src/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/apps/invoice/src/assets/icons",
+                "output": "assets/icons"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/apps/products/src/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/apps/settings/src/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/builder-app/src/assets/builder-app",
+                "output": "assets/builder-app"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/builder-app/src/assets/builder-share",
+                "output": "assets/builder-share"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/apps/shipping/src/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/apps/social/src/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/apps/subscriptions/src/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/chat/src/lib/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/confirmation-screen/src/lib/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/editor/src/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/folders/src/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/grid/extensions/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/media/src/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/notifications/src/lib/assets",
+                "output": "assets/notifications"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/text-editor/src/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/themes/src/lib/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/platform-header/src/lib/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/message/src/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/builder/layers/src/lib/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/builder/main-editor/src/lib/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/builder/shapes/src/lib/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/builder-shop/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/builder/pages/src/lib/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/builder/media/src/lib/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/chat/src/lib/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/apps/connect/src/assets/icons",
+                "output": "assets/icons"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/filters/filter-icons",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/ui/src/lib/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/sidebar/sidebar-icons",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/builder-pos/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/builder-pos/assets/pos/icons/",
+                "output": "assets/pos/icons"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/builder/shapes/src/lib/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/builder-app/src/lib/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/builder/forms/src/lib/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/builder/publishing/src/lib/assets",
+                "output": "assets/icons"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/builder/toolbar/src/lib/assets",
+                "output": "assets/icons"
+              }
+            ],
+            "styles": [
+              "apps/commerceos/src/styles.scss",
+              "libs/entry/login/src/assets/entry.scss",
+              "libs/builder/renderer/src/lib/text-editor/quill.scss",
+              "libs/builder/toolbar/src/lib/dialog.scss",
+              {
+                "bundleName": "lazy-styles",
+                "inject": false,
+                "input": "libs/ui-styles/src/pe_styles.scss"
+              },
+              {
+                "bundleName": "dark",
+                "inject": true,
+                "input": "libs/theming/src/lib/styles/themes/dark.scss"
+              },
+              {
+                "bundleName": "default",
+                "inject": false,
+                "input": "libs/theming/src/lib/styles/themes/dark.scss"
+              },
+              {
+                "bundleName": "transparent",
+                "inject": false,
+                "input": "libs/theming/src/lib/styles/themes/transparent.scss"
+              },
+              {
+                "bundleName": "light",
+                "inject": false,
+                "input": "libs/theming/src/lib/styles/themes/light.scss"
+              }
+            ],
+            "customWebpackConfig": {
+              "path": "apps/commerceos/webpack.config.ts"
+            },
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": ["libs/ui-styles/src/", "libs/ui/src/lib/components"]
+            },
+            "allowedCommonJsDependencies": [
+              "@pe/finexp-app",
+              "@pe/i18n",
+              "@pe/i18n-core",
+              "angular2-moment",
+              "angular2-text-mask",
+              "body-scroll-lock",
+              "buffer",
+              "chart.js",
+              "class-transformer",
+              "country-data-list",
+              "crypto",
+              "css-element-queries",
+              "deep-object-diff",
+              "error-stack-parser",
+              "es-checker",
+              "file-saver",
+              "hammerjs",
+              "iban",
+              "image-conversion",
+              "js-yaml",
+              "lodash",
+              "moment-timezone",
+              "moment/locale/da",
+              "moment/locale/de",
+              "moment/locale/nb",
+              "moment/locale/sv",
+              "opentracing/lib/span",
+              "opentracing/lib/tracer",
+              "quill-delta",
+              "socket.io-client",
+              "uuid",
+              "voronoi-diagram",
+              "webfontloader",
+              "zen-observable",
+              "zone.js/dist/zone-patch-rxjs"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "deployUrl": "MICRO_COMMERCEOS_VERSION/",
+              "fileReplacements": [
+                {
+                  "replace": "apps/commerceos/src/environments/environment.ts",
+                  "with": "apps/commerceos/src/environments/environment.prod.ts"
+                }
+              ],
+              "index": {
+                "input": "apps/commerceos/src/index/production/index.html",
+                "output": "index.html"
+              },
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": false,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "10mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10mb"
+                }
+              ]
+            },
+            "development": {
+              "sourceMap": true,
+              "namedChunks": true,
+              "vendorChunk": true,
+              "buildOptimizer": false,
+              "optimization": false
+            },
+            "bundle": {
+              "fileReplacements": [
+                {
+                  "replace": "libs/micro/core/remotes/mf-remotes.ts",
+                  "with": "libs/micro/core/remotes/mf-remotes.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "namedChunks": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "optimization": true
+            }
+          },
+          "defaultConfiguration": "development",
+          "outputs": ["{options.outputPath}"]
+        },
+        "serve": {
+          "builder": "@angular-builders/custom-webpack:dev-server",
+          "options": {
+            "browserTarget": "main:build",
+            "port": 8088
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "main:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "main:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/commerceos/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-builders/custom-webpack:karma",
+          "options": {
+            "main": "apps/commerceos/src/test.ts",
+            "tsConfig": "apps/commerceos/tsconfig.spec.json",
+            "karmaConfig": "apps/commerceos/karma.conf.js",
+            "assets": [
+              "apps/commerceos/src/favicon.ico",
+              "apps/commerceos/src/assets",
+              "apps/commerceos/src/env.json",
+              {
+                "glob": "**/*",
+                "input": "libs/apps/affiliates/src/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/apps/appointments/src/assets",
+                "output": "./assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/apps/blog/src/assets/icons",
+                "output": "assets/icons"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/apps/connect/src/assets",
+                "output": "./assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/apps/contacts/src/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/apps/connect/src/assets/icons",
+                "output": "./assets/icons"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/apps/coupons/src/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/apps/invoice/src/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/apps/invoice/src/assets/icons",
+                "output": "assets/icons"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/apps/products/src/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/apps/settings/src/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/builder-app/src/assets/builder-app",
+                "output": "assets/builder-app"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/builder-app/src/assets/builder-share",
+                "output": "assets/builder-share"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/apps/shipping/src/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/apps/social/src/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/apps/subscriptions/src/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/chat/src/lib/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/confirmation-screen/src/lib/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/editor/src/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/folders/src/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/grid/src/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/media/src/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/notifications/src/lib/assets",
+                "output": "assets/notifications"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/text-editor/src/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/themes/src/lib/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/platform-header/src/lib/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/message/src/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/builder/main-editor/src/lib/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/builder/shapes/src/lib/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/builder-shop/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/builder/pages/src/lib/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/builder/media/src/lib/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/chat/src/lib/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/apps/connect/src/assets/icons",
+                "output": "assets/icons"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/filters/filter-icons",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/ui/src/lib/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/sidebar/sidebar-icons",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/builder-pos/assets",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/builder-pos/assets/pos/icons/",
+                "output": "assets/pos/icons"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/builder/shapes/src/lib/assets",
+                "output": "assets/"
+              }
+            ],
+            "styles": [
+              "apps/commerceos/src/styles.scss",
+              "libs/entry/login/src/assets/entry.scss",
+              "libs/builder/renderer/src/lib/text-editor/quill.scss",
+              {
+                "bundleName": "lazy-styles",
+                "inject": false,
+                "input": "libs/ui-styles/src/pe_styles.scss"
+              }
+            ],
+            "customWebpackConfig": {
+              "path": "webpack.extra.ts",
+              "mergeStrategies": {
+                "devtool": "replace"
+              }
+            },
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": ["libs/ui-styles/src/", "libs/ui/src/lib/components"]
+            }
+          }
+        }
+      }
+    },
+    "media": {
+      "projectType": "library",
+      "root": "libs/media",
+      "sourceRoot": "libs/media/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/media/src/**/*.ts", "libs/media/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/media/src/test.ts",
+            "tsConfig": "libs/media/tsconfig.spec.json",
+            "karmaConfig": "libs/media/karma.conf.js"
+          }
+        }
+      }
+    },
+    "message": {
+      "projectType": "library",
+      "root": "libs/message",
+      "sourceRoot": "libs/message/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/message/src/**/*.ts", "libs/message/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/message/src/test.ts",
+            "tsConfig": "libs/message/tsconfig.spec.json",
+            "karmaConfig": "libs/message/karma.conf.js",
+            "styles": [
+              "apps/commerceos/src/styles.scss",
+              "libs/entry/login/src/assets/entry.scss",
+              "libs/builder/renderer/src/lib/text-editor/quill.scss",
+              {
+                "bundleName": "lazy-styles",
+                "inject": false,
+                "input": "libs/ui-styles/src/pe_styles.scss"
+              }
+            ],
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": ["libs/ui-styles/src/", "libs/ui/src/lib/components"]
+            }
+          }
+        }
+      }
+    },
+    "message-embed": {
+      "projectType": "application",
+      "root": "apps/message-embed",
+      "sourceRoot": "apps/message-embed/src",
+      "architect": {
+        "build": {
+          "builder": "@angular-builders/custom-webpack:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/message-embed",
+            "index": "apps/message-embed/src/index.html",
+            "main": "apps/message-embed/src/main.ts",
+            "polyfills": "apps/message-embed/src/polyfills.ts",
+            "tsConfig": "apps/message-embed/tsconfig.app.json",
+            "assets": [
+              "apps/message-embed/src/favicon.ico",
+              "apps/message-embed/src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/filters/filter-icons",
+                "output": "./assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@pe/sidebar/sidebar-icons",
+                "output": "./assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/ui/src/lib/assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/message/src/assets/icons",
+                "output": "./assets/icons"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/chat/src/lib/assets/icons",
+                "output": "./assets/icons"
+              }
+            ],
+            "styles": ["apps/message-embed/src/styles.scss"],
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": ["libs/ui-styles/src/", "libs/ui/src/lib/components"]
+            },
+            "allowedCommonJsDependencies": [
+              "lodash",
+              "@pe/i18n-core",
+              "socket.io-client",
+              "opentracing/lib/tracer",
+              "opentracing/lib/span",
+              "iban",
+              "error-stack-parser",
+              "quill-delta",
+              "zen-observable",
+              "angular2-moment",
+              "angular2-text-mask",
+              "es-checker",
+              "voronoi-diagram",
+              "hammerjs"
+            ],
+            "customWebpackConfig": {
+              "path": "apps/message-embed/webpack.config.ts"
+            },
+            "aot": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/message-embed/src/environments/environment.ts",
+                  "with": "apps/message-embed/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "none",
+              "baseHref": "/",
+              "sourceMap": false,
+              "progress": true,
+              "namedChunks": false,
+              "vendorChunk": false
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "message-embed:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "message-embed:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/message-embed/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/message-embed/src/test.ts",
+            "tsConfig": "apps/message-embed/tsconfig.spec.json",
+            "karmaConfig": "apps/message-embed/karma.conf.js"
+          }
+        }
+      }
+    },
+    "micro": {
+      "projectType": "library",
+      "root": "libs/micro",
+      "sourceRoot": "libs/micro",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/micro/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/micro"],
+          "options": {
+            "jestConfig": "libs/micro/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "micro-container": {
+      "projectType": "library",
+      "root": "libs/micro-container",
+      "sourceRoot": "libs/micro-container/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/micro-container/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/micro-container/src/test.ts",
+            "tsConfig": "libs/micro-container/tsconfig.spec.json",
+            "karmaConfig": "libs/micro-container/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "notifications": {
+      "projectType": "library",
+      "root": "libs/notifications",
+      "sourceRoot": "libs/notifications/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/notifications/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/notifications/src/test.ts",
+            "tsConfig": "libs/notifications/tsconfig.spec.json",
+            "karmaConfig": "libs/notifications/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "peb-client": {
+      "projectType": "application",
+      "root": "apps/peb-client",
+      "sourceRoot": "apps/peb-client/src",
+      "prefix": "pe",
+      "architect": {
+        "build": {
+          "builder": "@angular-builders/custom-webpack:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/peb-client/browser",
+            "index": "apps/peb-client/src/index.html",
+            "main": "apps/peb-client/src/main.ts",
+            "polyfills": "apps/peb-client/src/polyfills.ts",
+            "tsConfig": "apps/peb-client/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/peb-client/src/favicon.ico",
+              "apps/peb-client/src/lazy-load.js",
+              "apps/peb-client/src/assets",
+              {
+                "glob": "**/*",
+                "input": "libs/chat/src/lib/assets",
+                "output": "assets/"
+              }
+            ],
+            "styles": ["apps/peb-client/src/styles.scss", "libs/builder/renderer/src/lib/text-editor/quill.scss"],
+            "scripts": [],
+            "customWebpackConfig": {
+              "path": "apps/peb-client/webpack.browser.config.js"
+            },
+            "allowedCommonJsDependencies": ["opentracing/lib/span", "opentracing/lib/tracer", "uuid", "es-checker", "three"]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1.5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/peb-client/src/environments/environment.ts",
+                  "with": "apps/peb-client/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-builders/custom-webpack:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "peb-client:build:production"
+            },
+            "development": {
+              "browserTarget": "peb-client:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "peb-client:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/peb-client/src/**/*.ts", "apps/peb-client/src/**/*.html"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/peb-client"],
+          "options": {
+            "jestConfig": "apps/peb-client/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "server": {
+          "builder": "@angular-builders/custom-webpack:server",
+          "options": {
+            "outputPath": "dist/peb-client/server",
+            "main": "apps/peb-client/server.ts",
+            "tsConfig": "apps/peb-client/tsconfig.server.json",
+            "inlineStyleLanguage": "scss",
+            "customWebpackConfig": {
+              "path": "apps/peb-client/webpack.server.config.js"
+            }
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "apps/peb-client/src/environments/environment.ts",
+                  "with": "apps/peb-client/src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "peb-client:build:development",
+              "serverTarget": "peb-client:server:development"
+            },
+            "production": {
+              "browserTarget": "peb-client:build:production",
+              "serverTarget": "peb-client:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": ["/"]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "peb-client:build:production",
+              "serverTarget": "peb-client:server:production"
+            },
+            "development": {
+              "browserTarget": "peb-client:build:development",
+              "serverTarget": "peb-client:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
+        }
+      }
+    },
+    "personal": {
+      "projectType": "library",
+      "root": "libs/personal",
+      "sourceRoot": "libs/personal/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/personal/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/personal/src/test.ts",
+            "tsConfig": "libs/personal/tsconfig.spec.json",
+            "karmaConfig": "libs/personal/karma.conf.js"
+          }
+        }
+      }
+    },
+    "entry-personal-form": {
+      "projectType": "library",
+      "root": "libs/entry/personal-form",
+      "sourceRoot": "libs/entry/personal-form/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/entry/personal-form/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/entry/personal-form/src/test.ts",
+            "tsConfig": "libs/entrypersonal-form/tsconfig.spec.json",
+            "karmaConfig": "libs/entry/personal-form/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "platform": {
+      "projectType": "library",
+      "root": "libs/platform",
+      "sourceRoot": "libs/platform/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/platform/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/platform/src/test.ts",
+            "tsConfig": "libs/platform/tsconfig.spec.json",
+            "karmaConfig": "libs/platform/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "platform-header": {
+      "projectType": "library",
+      "root": "libs/platform-header",
+      "sourceRoot": "libs/platform-header/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/platform-header/src/**/*.ts", "libs/platform-header/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/platform-header/src/test.ts",
+            "tsConfig": "libs/platform-header/tsconfig.spec.json",
+            "karmaConfig": "libs/platform-header/karma.conf.js"
+          }
+        }
+      }
+    },
+    "profile-switcher": {
+      "projectType": "library",
+      "root": "libs/profile-switcher",
+      "sourceRoot": "libs/profile-switcher/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/profile-switcher/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/profile-switcher/src/test.ts",
+            "tsConfig": "libs/profile-switcher/tsconfig.spec.json",
+            "karmaConfig": "libs/profile-switcher/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "entry-registration": {
+      "projectType": "library",
+      "root": "libs/entry/registration",
+      "sourceRoot": "libs/entry/registration/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/entry/registration/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/entry/registration/src/test.ts",
+            "tsConfig": "libs/entry/registration/tsconfig.spec.json",
+            "karmaConfig": "libs/entry/registration/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "entry-reset-password": {
+      "projectType": "library",
+      "root": "libs/entry/reset-password",
+      "sourceRoot": "libs/entry/reset-password/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/entry/reset-password/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/entry/reset-password/src/test.ts",
+            "tsConfig": "libs/entry/reset-password/tsconfig.spec.json",
+            "karmaConfig": "libs/entry/reset-password/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "rules": {
+      "projectType": "library",
+      "root": "libs/rules",
+      "sourceRoot": "libs/rules/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/rules/src/**/*.ts", "libs/rules/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        }
+      }
+    },
+    "search-dashboard": {
+      "projectType": "library",
+      "root": "libs/search-dashboard",
+      "sourceRoot": "libs/search-dashboard/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/search-dashboard/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/search-dashboard/src/test.ts",
+            "tsConfig": "libs/search-dashboard/tsconfig.spec.json",
+            "karmaConfig": "libs/search-dashboard/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "entry-second-factor-code": {
+      "projectType": "library",
+      "root": "libs/entry/second-factor-code",
+      "sourceRoot": "libs/entry/second-factor-code/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/entry/second-factor-code/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/entry/second-factor-code/src/test.ts",
+            "tsConfig": "libs/entry/second-factor-code/tsconfig.spec.json",
+            "karmaConfig": "libs/entry/second-factor-code/karma.conf.js"
+          }
+        }
+      }
+    },
+    "entry-security-question": {
+      "projectType": "library",
+      "root": "libs/entry/security-question",
+      "sourceRoot": "libs/entry/security-question/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/entry/security-question/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/entry/security-question/src/test.ts",
+            "tsConfig": "libs/entry/security-question/tsconfig.spec.json",
+            "karmaConfig": "libs/entry/security-question/karma.conf.js"
+          }
+        }
+      }
+    },
+    "shared-appointments": {
+      "projectType": "library",
+      "root": "libs/shared/appointments",
+      "sourceRoot": "libs/shared/appointments/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/appointments/src/**/*.ts", "libs/shared/appointments/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/shared/appointments/src/test.ts",
+            "tsConfig": "libs/shared/appointments/tsconfig.spec.json",
+            "karmaConfig": "libs/shared/appointments/karma.conf.js"
+          }
+        }
+      }
+    },
+    "shared-base": {
+      "projectType": "library",
+      "root": "libs/shared/env-service",
+      "sourceRoot": "libs/shared/env-service/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/env-service/src/**/*.ts", "libs/shared/env-service/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/shared/env-service/src/test.ts",
+            "tsConfig": "libs/shared/env-service/tsconfig.spec.json",
+            "karmaConfig": "libs/shared/env-service/karma.conf.js"
+          }
+        }
+      }
+    },
+    "shared-business": {
+      "projectType": "library",
+      "root": "libs/shared/business",
+      "sourceRoot": "libs/shared/business/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/business/src/**/*.ts", "libs/shared/business/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/shared/business/src/test.ts",
+            "tsConfig": "libs/shared/business/tsconfig.spec.json",
+            "karmaConfig": "libs/shared/business/karma.conf.js"
+          }
+        }
+      }
+    },
+    "shared-business-form": {
+      "projectType": "library",
+      "root": "libs/shared/business-form",
+      "sourceRoot": "libs/shared/business-form/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/business-form/src/**/*.ts", "libs/shared/business-form/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/business-form"],
+          "options": {
+            "jestConfig": "libs/shared/business-form/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-chat": {
+      "projectType": "library",
+      "root": "libs/shared/chat",
+      "sourceRoot": "libs/shared/chat/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/chat/src/**/*.ts", "libs/shared/chat/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "outputs": ["coverage/libs/shared/chat"],
+          "options": {
+            "main": "libs/shared/chat/src/test.ts",
+            "tsConfig": "libs/shared/chat/tsconfig.spec.json",
+            "karmaConfig": "libs/shared/chat/karma.conf.js"
+          }
+        }
+      }
+    },
+    "shared-checkout": {
+      "projectType": "library",
+      "root": "libs/shared/checkout",
+      "sourceRoot": "libs/shared/checkout/src",
+      "prefix": "pe",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/apps/settings"],
+          "options": {
+            "jestConfig": "libs/shared/checkout/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/checkout/src/**/*.ts", "libs/shared/checkout/src/**/*.html"]
+          }
+        }
+      }
+    },
+    "shared-contacts": {
+      "projectType": "library",
+      "root": "libs/shared/contacts",
+      "sourceRoot": "libs/shared/contacts/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/contacts/src/**/*.ts", "libs/shared/contacts/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/shared/contacts/src/test.ts",
+            "tsConfig": "libs/shared/contacts/tsconfig.spec.json",
+            "karmaConfig": "libs/shared/contacts/karma.conf.js"
+          }
+        }
+      }
+    },
+    "shared-custom-validators": {
+      "projectType": "library",
+      "root": "libs/shared/custom-validators",
+      "sourceRoot": "libs/shared/custom-validators/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/custom-validators/src/**/*.ts",
+              "libs/shared/custom-validators/src/**/*.html"
+            ]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/apps/settings"],
+          "options": {
+            "jestConfig": "libs/shared/custom-validators/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-folders": {
+      "projectType": "library",
+      "root": "libs/shared/folders",
+      "sourceRoot": "libs/shared/folders/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/folders/src/**/*.ts", "libs/shared/folders/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/shared/folders/src/test.ts",
+            "tsConfig": "libs/shared/folders/tsconfig.spec.json",
+            "karmaConfig": "libs/shared/folders/karma.conf.js"
+          }
+        }
+      }
+    },
+    "shared-grid": {
+      "projectType": "library",
+      "root": "libs/shared/grid",
+      "sourceRoot": "libs/shared/grid/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/grid/src/**/*.ts", "libs/shared/grid/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/shared/grid/src/test.ts",
+            "tsConfig": "libs/shared/grid/tsconfig.spec.json",
+            "karmaConfig": "libs/shared/grid/karma.conf.js"
+          }
+        }
+      }
+    },
+    "shared-header": {
+      "projectType": "library",
+      "root": "libs/shared/header",
+      "sourceRoot": "libs/shared/header/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/header/src/**/*.ts", "libs/shared/header/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/shared/header/src/test.ts",
+            "tsConfig": "libs/shared/header/tsconfig.spec.json",
+            "karmaConfig": "libs/shared/header/karma.conf.js"
+          }
+        }
+      }
+    },
+    "shared-message": {
+      "projectType": "library",
+      "root": "libs/shared/message",
+      "sourceRoot": "libs/shared/message/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/message/src/**/*.ts", "libs/shared/message/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/shared/message/src/test.ts",
+            "tsConfig": "libs/shared/message/tsconfig.spec.json",
+            "karmaConfig": "libs/shared/message/karma.conf.js"
+          }
+        }
+      }
+    },
+    "shared-onboarding": {
+      "projectType": "library",
+      "root": "libs/shared/onboarding",
+      "sourceRoot": "libs/shared/onboarding/src",
+      "prefix": "pe",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/shared/onboarding/src/test.ts",
+            "tsConfig": "libs/shared/onboarding/tsconfig.spec.json",
+            "karmaConfig": "libs/shared/onboarding/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/onboarding/src/**/*.ts", "libs/shared/onboarding/src/**/*.html"]
+          }
+        }
+      }
+    },
+    "shared-personal": {
+      "projectType": "library",
+      "root": "libs/shared/personal",
+      "sourceRoot": "libs/shared/personal/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/personal/src/**/*.ts", "libs/shared/personal/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/shared/personal/src/test.ts",
+            "tsConfig": "libs/shared/personal/tsconfig.spec.json",
+            "karmaConfig": "libs/shared/personal/karma.conf.js"
+          }
+        }
+      }
+    },
+    "shared-pipes": {
+      "projectType": "library",
+      "root": "libs/shared/pipes",
+      "sourceRoot": "libs/shared/pipes/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/pipes/src/**/*.ts", "libs/shared/pipes/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/pipes"],
+          "options": {
+            "jestConfig": "libs/shared/pipes/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-products": {
+      "projectType": "library",
+      "root": "libs/shared/products",
+      "sourceRoot": "libs/shared/products/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/products/src/**/*.ts", "libs/shared/products/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/shared/products/src/test.ts",
+            "tsConfig": "libs/shared/products/tsconfig.spec.json",
+            "karmaConfig": "libs/shared/products/karma.conf.js"
+          }
+        }
+      }
+    },
+    "shared-registration": {
+      "projectType": "library",
+      "root": "libs/shared/registration",
+      "sourceRoot": "libs/shared/registration/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/registration/src/**/*.ts", "libs/shared/registration/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/shared/registration/src/test.ts",
+            "tsConfig": "libs/shared/registration/tsconfig.spec.json",
+            "karmaConfig": "libs/shared/registration/karma.conf.js"
+          }
+        }
+      }
+    },
+    "shared-resources": {
+      "projectType": "library",
+      "root": "libs/shared/resources",
+      "sourceRoot": "libs/shared/resources/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/resources/src/**/*.ts", "libs/shared/resources/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/shared/resources/src/test.ts",
+            "tsConfig": "libs/shared/resources/tsconfig.spec.json",
+            "karmaConfig": "libs/shared/resources/karma.conf.js"
+          }
+        }
+      }
+    },
+    "shared-studio": {
+      "projectType": "library",
+      "root": "libs/shared/studio",
+      "sourceRoot": "libs/shared/studio/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/studio/src/**/*.ts", "libs/shared/studio/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/shared/studio/src/test.ts",
+            "tsConfig": "libs/shared/studio/tsconfig.spec.json",
+            "karmaConfig": "libs/shared/studio/karma.conf.js"
+          }
+        }
+      }
+    },
+    "shared-traffic-service": {
+      "projectType": "library",
+      "root": "libs/shared/traffic-service",
+      "sourceRoot": "libs/shared/traffic-service/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/traffic-service/src/**/*.ts", "libs/shared/traffic-service/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/shared/traffic-service/src/test.ts",
+            "tsConfig": "libs/shared/traffic-service/tsconfig.spec.json",
+            "karmaConfig": "libs/shared/traffic-service/karma.conf.js"
+          }
+        }
+      }
+    },
+    "shared-user": {
+      "projectType": "library",
+      "root": "libs/shared/user",
+      "sourceRoot": "libs/shared/user/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/user/src/**/*.ts", "libs/shared/user/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/shared/user/src/test.ts",
+            "tsConfig": "libs/shared/user/tsconfig.spec.json",
+            "karmaConfig": "libs/shared/user/karma.conf.js"
+          }
+        }
+      }
+    },
+    "shared-utils": {
+      "projectType": "library",
+      "root": "libs/shared/utils",
+      "sourceRoot": "libs/shared/utils/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/utils/src/**/*.ts", "libs/shared/utils/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        }
+      }
+    },
+    "shared-utils-file-size": {
+      "projectType": "library",
+      "root": "libs/shared/utils/file-size",
+      "sourceRoot": "libs/shared/utils/file-size/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/utils/file-size/src/**/*.ts", "libs/shared/utils/file-size/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        }
+      }
+    },
+    "shared-utils-media-validators": {
+      "projectType": "library",
+      "root": "libs/shared/utils/media-validators",
+      "sourceRoot": "libs/shared/utils/media-validators/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/utils/media-validators/src/**/*.ts",
+              "libs/shared/utils/media-validators/src/**/*.html"
+            ]
+          },
+          "outputs": ["{options.outputFile}"]
+        }
+      }
+    },
+    "shared-widget": {
+      "projectType": "library",
+      "root": "libs/shared/widget",
+      "sourceRoot": "libs/shared/widget/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/widget/src/**/*.ts", "libs/shared/widget/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/shared/widget/src/test.ts",
+            "tsConfig": "libs/shared/widget/tsconfig.spec.json",
+            "karmaConfig": "libs/shared/widget/karma.conf.js"
+          }
+        }
+      }
+    },
+    "snackbar": {
+      "projectType": "library",
+      "root": "libs/snackbar",
+      "sourceRoot": "libs/snackbar/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/snackbar/src/**/*.ts", "libs/snackbar/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/snackbar/src/test.ts",
+            "tsConfig": "libs/snackbar/tsconfig.spec.json",
+            "karmaConfig": "libs/snackbar/karma.conf.js"
+          }
+        }
+      }
+    },
+    "text-editor": {
+      "projectType": "library",
+      "root": "libs/text-editor",
+      "sourceRoot": "libs/text-editor/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/text-editor/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/text-editor/src/test.ts",
+            "tsConfig": "libs/text-editor/tsconfig.spec.json",
+            "karmaConfig": "libs/text-editor/karma.conf.js"
+          }
+        }
+      }
+    },
+    "themes": {
+      "projectType": "library",
+      "root": "libs/themes",
+      "sourceRoot": "libs/themes/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/themes/src/**/*.ts", "libs/themes/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/themes/src/test.ts",
+            "tsConfig": "libs/themes/tsconfig.spec.json",
+            "karmaConfig": "libs/themes/karma.conf.js"
+          }
+        }
+      }
+    },
+    "translate-loader": {
+      "projectType": "library",
+      "root": "libs/translate-loader",
+      "sourceRoot": "libs/translate-loader/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/translate-loader/src/**/*.ts", "libs/translate-loader/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/translate-loader/src/test.ts",
+            "tsConfig": "libs/translate-loader/tsconfig.spec.json",
+            "karmaConfig": "libs/translate-loader/karma.conf.js"
+          }
+        }
+      }
+    },
+    "ui": {
+      "projectType": "library",
+      "root": "libs/ui",
+      "sourceRoot": "libs/ui/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/ui/src/**/*.ts", "libs/ui/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/ui/src/test.ts",
+            "tsConfig": "libs/ui/tsconfig.spec.json",
+            "karmaConfig": "libs/ui/karma.conf.js"
+          }
+        }
+      }
+    },
+    "user": {
+      "projectType": "library",
+      "root": "libs/user",
+      "sourceRoot": "libs/user/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/user/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/user/src/test.ts",
+            "tsConfig": "libs/user/tsconfig.spec.json",
+            "karmaConfig": "libs/user/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "wallpaper": {
+      "projectType": "library",
+      "root": "libs/wallpaper",
+      "sourceRoot": "libs/wallpaper/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/wallpaper/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/wallpaper/src/test.ts",
+            "tsConfig": "libs/wallpaper/tsconfig.spec.json",
+            "karmaConfig": "libs/wallpaper/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "welcome-screen": {
+      "projectType": "library",
+      "root": "libs/welcome-screen",
+      "sourceRoot": "libs/welcome-screen/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/welcome-screen/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/welcome-screen/src/test.ts",
+            "tsConfig": "libs/welcome-screen/tsconfig.spec.json",
+            "karmaConfig": "libs/welcome-screen/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "widgets": {
+      "projectType": "library",
+      "root": "libs/widgets",
+      "sourceRoot": "libs/widgets/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/widgets/src/**/*.ts", "libs/widgets/src/**/*.html"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/widgets/src/test.ts",
+            "tsConfig": "libs/widgets/tsconfig.spec.json",
+            "karmaConfig": "libs/widgets/karma.conf.js"
+          }
+        }
+      }
+    },
+    "window": {
+      "projectType": "library",
+      "root": "libs/window",
+      "sourceRoot": "libs/window/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/window/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/window/src/test.ts",
+            "tsConfig": "libs/window/tsconfig.spec.json",
+            "karmaConfig": "libs/window/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "zendesk": {
+      "projectType": "library",
+      "root": "libs/zendesk",
+      "sourceRoot": "libs/zendesk/src",
+      "prefix": "pe",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/zendesk/src/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/zendesk/src/test.ts",
+            "tsConfig": "libs/zendesk/tsconfig.spec.json",
+            "karmaConfig": "libs/zendesk/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "strict": true
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    },
+    "@nrwl/web:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/web:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "main"
+}

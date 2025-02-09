@@ -1,0 +1,115 @@
+@use "pe_variables" as pe_variables;
+
+.appearance {
+  margin: 0 auto;
+  display: block;
+  max-width: 560px;
+  @media (max-width: pe_variables.$viewport-breakpoint-sm-2) {
+    max-width: unset;
+  }
+  min-width: 200px;
+  &__title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 17px;
+    @media (max-width: 720px) {
+      display: none;
+    }
+  }
+  &__wrapper {
+    border-radius: 9px;
+    &__content {
+      margin-top: 17px;
+      @media (max-height: pe_variables.$viewport-breakpoint-sm-2) {
+          margin-top: 0;
+      }
+      height: 329px;
+      display: flex;
+      max-width: 720px;
+      padding: 32px 16px;
+
+      justify-content: space-evenly;
+      .appearance-item {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .item-content {
+          width: 105px;
+          height: 150px;
+          background-color: rgba(0, 0, 0, 0);
+          border-radius: 9px;
+          margin-bottom: 12px;
+
+          img {
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .item-title {
+          font-family: 'Roboto', sans-serif;
+          font-size: 16px;
+          text-align: center;
+          margin-bottom: 18px;
+        }
+        .item-radio {
+          width: 18px;
+          height: 18px;
+          span {
+            border: unset;
+          }
+        }
+        .loading-box {
+          width: 18px;
+          height: 18px;
+          border-style: solid;
+          border-width: 1.5px;
+          border-radius: 100%;
+          position: relative;
+          .mat-spinner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin-top: -2px;
+            margin-left: -2px;
+          }
+        }
+      }
+
+      @media (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+        height: 100%;
+        .appearance-item .item-content {
+          width: 80px;
+          height: 114px;
+        }
+      }
+    }
+  }
+  .appearance__auto {
+    height: 57px;
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4px 0 16px;
+    label {
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+    }
+  }
+  .options-list {
+    margin-top: 5px;
+  }
+}
+
+.appearance {
+  &__auto {
+    border-top-style: solid;
+    border-top-width: 1px;
+  }
+}

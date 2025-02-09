@@ -1,0 +1,73 @@
+<div class="switcher-container">
+  <div class="business-items-container">
+    <div class="header">
+      <div (click)="backClick()" class="header-back">
+        <svg class="header-back-icon" viewBox="0 0 48 48" preserveAspectRatio="xMidYMin slice" width="100%">
+          <path class="path1" fill="currentColor"
+            d="M14,24 C14,23.4881554 14.1952621,22.9763107 14.5857864,22.5857864 L30.5857864,6.58578644 C31.366835,5.80473785 32.633165,5.80473785 33.4142136,6.58578644 C34.1952621,7.36683502 34.1952621,8.63316498 33.4142136,9.41421356 L18.8284271,24 L33.4142136,38.5857864 C34.1952621,39.366835 34.1952621,40.633165 33.4142136,41.4142136 C32.633165,42.1952621 31.366835,42.1952621 30.5857864,41.4142136 L14.5857864,25.4142136 C14.1952621,25.0236893 14,24.5118446 14,24 Z">
+          </path>
+        </svg>
+        <span>Back</span>
+      </div>
+      <div class="header-title">
+        {{ 'switcher.choose_business' | translate }}
+      </div>
+    </div>
+    <div class="content">
+      <peb-expandable-panel [headerLabel]="'switcher.current_business' | translate" [isContentOpen]="true">
+        <div class="profile-card" *ngIf="profileCardConfig$ | async as defaultBusines">
+          <div class="card-image" (click)="onProfileCardClick()">
+            <img *ngIf="defaultBusines?.images && defaultBusines?.images[0] && !hasBusinessLogoErrors(defaultBusines._id)"
+                 class="logo img-circle"
+                 [src]="defaultBusines?.images[0]"
+                 alt="default business"
+                 (error)="businessWithLogoErrors.push(defaultBusines._id)">
+            <div *ngIf="!defaultBusines?.images || !defaultBusines?.images[0] || hasBusinessLogoErrors(defaultBusines._id)" class="logo">
+              <ng-container *ngIf="defaultBusines?.type === profileCardType.Personal">
+                <svg class="icon icon-48">
+                  <use xlink:href="#icon-user-4-128"></use>
+                </svg>
+              </ng-container>
+              <ng-container
+                *ngIf="defaultBusines?.type === profileCardType.Business || defaultBusines?.type === profileCardType.App">
+                <div class="abbreviation">{{ defaultBusines?.placeholderTitle | abbreviation | uppercase }}</div>
+              </ng-container>
+            </div>
+            <pe-profile-card-spinner *ngIf="showBusinessLoader$ | async"></pe-profile-card-spinner>
+          </div>
+          <div class="card-title">{{defaultBusines.placeholderTitle }}</div>
+        </div>
+      </peb-expandable-panel>
+      <peb-expandable-panel class="business-list-panel"
+        [headerLabel]="'switcher.other_businesses' | translate:{ count: total - 1 }" [isContentOpen]="true">
+        <pe-search-animated (searchString)="filterBusiness($event)"></pe-search-animated>
+        <div class="business-list">
+          <ng-container *ngIf="businessesInfo$ | async as businessInfo">
+            <cdk-virtual-scroll-viewport #scroller [itemSize]="isMobile ? 44 : 40" class="scroll-viewport">
+              <div *cdkVirtualFor="let item of businessInfo.businesses" class="business-item" (click)="onProfileFromListClick(item)">
+                <div class="business-logo">
+                  <img
+                    *ngIf="item?.logo && !hasBusinessLogoErrors(item._id)"
+                    [src]="item?.logo"
+                    [alt]="item.name | abbreviation"
+                    (error)="businessWithLogoErrors.push(item._id)">
+                  <div *ngIf="!item?.logo || hasBusinessLogoErrors(item._id)">{{ item.name | abbreviation }}</div>
+                  <pe-profile-card-spinner *ngIf="item._id===businessWithLoader"></pe-profile-card-spinner>
+                </div>
+                <div class="business-title">{{item.name}}</div>
+                <div class="icon-arrow">
+                  <svg>
+                    <use xlink:href="#icon-arrow-right-2-16"></use>
+                  </svg>
+                </div>
+              </div>
+            </cdk-virtual-scroll-viewport>
+          </ng-container>
+          <div class="no-data" *ngIf="!(businessesInfo$ | async) && !(isloading$ | async)">
+            {{ switcher.no_result }}
+          </div>
+        </div>
+      </peb-expandable-panel>
+    </div>
+  </div>
+</div>

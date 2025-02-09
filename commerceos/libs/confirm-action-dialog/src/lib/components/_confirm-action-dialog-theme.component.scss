@@ -1,0 +1,45 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $active-text: map.get($color-config, 'active-text');
+  $border: map.get($color-config, 'border');
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $secondary-button: map.get($color-config, 'secondary-button');
+  $button: map.get($color-config, 'button');
+  $big-button-text: map.get($color-config, 'big-button-text');
+  $gray-button: map.get($color-config, 'gray-button');
+  $warn: map.get($color-config, 'warn');
+  $box-shadow-color: map.get($color-config, 'box-shadow-color');
+
+  pe-confirm-action-dialog {
+    .confirm-action-dialog,
+    .mat-dialog-container {
+      background-color: $overlay-background !important;
+      box-shadow: 0 5px 20px 0 $box-shadow-color !important;
+      border: solid 1px $border;
+
+      &__title,
+      &__subtitle {
+        color: $text-color;
+      }
+
+      .button {
+        &:not(&.red) {
+          background-color: $gray-button;
+          color: $big-button-text;
+        }
+        .confirm-action-dialog__button:not(&.red) {
+          background-color: $gray-button;
+          color: $text-color;
+          &:first-child {
+            color: $active-text;
+          }
+        }
+      }
+    }
+  }
+  .confirm-dialog-backdrop {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}

@@ -1,0 +1,1 @@
+export { BusinessDetailModule } from './business-detail.module';

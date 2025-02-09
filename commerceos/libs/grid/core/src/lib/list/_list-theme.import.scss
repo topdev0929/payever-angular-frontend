@@ -1,0 +1,15 @@
+@use 'pe_theming' as pet;
+@use 'list-theme.component' as list;
+@use './list-item/list-item-theme.component' as list_item;
+@use './mobile-item/mobile-item-theme.component' as mobile_item;
+@use './skeleton/skeleton-theme.component' as skeleton_item;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @if $color-config != null {
+    @include list.color($color-config);
+    @include list_item.color($color-config);
+    @include mobile_item.color($color-config);
+    @include skeleton_item.color($color-config);
+  }
+}

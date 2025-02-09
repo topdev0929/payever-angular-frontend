@@ -1,0 +1,35 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $accent-border: map.get($color-config, 'accent-border');
+  $accent: map.get($color-config, 'accent');
+  $confirm: map.get($color-config, 'confirm');
+  $active-text: map.get($color-config, 'active-text');
+
+  .radio-button-container {
+    label {
+      &.label-text {
+        color: $text-color;
+      }
+    }
+    .radio-box {
+      border-color: $accent-border;
+    }
+    .checked {
+      background-color: $confirm;
+      path {
+        stroke: $active-text;
+      }
+    }
+    .unchecked {
+      background-color: $accent;
+    }
+    &.disable {
+      .radio-button-wrapper {
+        opacity: 0.58;
+      }
+    }
+  }
+}
+

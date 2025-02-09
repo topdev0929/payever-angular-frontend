@@ -1,0 +1,138 @@
+<div class="integration-import-dialog">
+  <div class="integration-import-dialog__form">
+    <div class="integration-import-dialog__header">
+      <div class="integration-import-dialog__header-action integration-import-dialog__header-action--cancel"
+        (click)="closeForm()" *ngIf="!pageSelectionState">
+        {{ 'builder-app.actions.cancel' | translate }}
+      </div>
+      <div class="integration-import-dialog__header-action integration-import-dialog__header-action--cancel"
+        (click)="goToFileSelector()" *ngIf="pageSelectionState">
+        {{ 'builder-app.main_editor.select_another_file' | translate }}
+      </div>
+      <div class="integration-import-dialog__title">
+        <span>{{ title }}</span>
+      </div>
+      <div>
+        <div
+          class="integration-import-dialog__header-action integration-import-dialog__header-action--success select-pages"
+          [class.disabled]="(selectedFile$ | async) === null || (importing$ | async) || (loading$ | async)"
+          *ngIf="themeImportMode" (click)="submitForm()">
+          {{ 
+            ((importing$ | async) ? 'builder-app.main_editor.importing' : 'builder-app.main_editor.import_as_theme') | translate
+          }}
+        </div>
+        <div class="integration-import-dialog__header-action integration-import-dialog__header-action--success import"
+          [class.disabled]="
+          (selectedFile$ | async) === null || 
+          (importing$ | async) || 
+          selectedPages.length === 0 ||
+          (loading$ | async)" *ngIf="pageImportMode" (click)="importPages()">
+          {{
+            (importing$ | async) ?
+              ('builder-app.main_editor.importing' | translate) :
+              ('builder-app.main_editor.import_pages' | translate:{pageNumber: (selectedPagesCount > 0 ? (' ' + selectedPagesCount) : '')}) 
+          }}
+        </div>
+      </div>
+    </div>
+    <div class="integration-import-dialog__content">
+      <div class="integration-import-dialog__fields">
+        <div class="integration-import-dialog__field integration-import-dialog__field-big">
+          <ng-container *ngIf="!(pageSelectionState)">
+            <ng-container *ngTemplateOutlet="designSelectorTemplate"></ng-container>
+          </ng-container>
+          <ng-container *ngIf="pageSelectionState">
+            <ng-container *ngTemplateOutlet="pageSelectorTemplate"></ng-container>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #designSelectorTemplate>
+  <div class="integration-import-dialog__content__description" *ngIf=" (files$ | async).length > 0">
+    <span>
+      {{ 
+        (themeImportMode ? 'builder-app.main_editor.select_file_and_import' : 'builder-app.main_editor.select_file_to_see_pages') 
+          | translate
+      }}
+    </span>
+  </div>
+  <div class="files-skelton" *ngIf="(loading$ | async)">
+    {{ 'builder-app.common.loading' | translate }}...
+  </div>
+  <ng-container *ngIf="(loading$ | async) === false">
+    <div class="no-subscription-message" *ngIf="(message$ | async)!==''">
+      <span>
+        {{(message$ | async)}}
+      </span>
+    </div>
+
+    <div class="integration-import-dialog__content__description">
+      <span>
+        {{ (files$ | async).length > 0 ? 'Figma Files' : ''}}
+      </span>
+    </div>
+
+    <div class="files-container">
+      <div class="file-item" *ngFor="let item of (files$ | async)" (click)="toggleSelectFile(item)">
+        <div class="file-preview" [style.background-image]="'url('+item.thumbnailUrl+')'"
+          [class.selected]="(selectedFile$ | async) !== null && item.fileId === (selectedFile$ | async).fileId">
+        </div>
+        <div class="file-description">
+          <span>{{item.fileName}}</span>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ng-template>
+
+
+<ng-template #pageSelectorTemplate>
+  <div class="integration-import-dialog__field integration-import-dialog__field-big">
+    <div class="selected-file-description">
+      {{(selectedFile$ | async).fileName}}
+    </div>
+
+    <div class="integration-import-dialog__content__description" *ngIf=" (files$ | async).length > 0">
+      <span>
+        {{ 'builder-app.main_editor.select_pages_and_import' | translate }}
+      </span>
+    </div>
+    <div class="files-skelton" *ngIf="(loading$ | async)">
+      {{ 'builder-app.common.loading' | translate }}...
+    </div>
+    <ng-container *ngIf="(loading$ | async) === false">
+      <div class="no-subscription-message" *ngIf="(message$ | async)!==''">
+        <span>
+          {{(message$ | async)}}
+        </span>
+      </div>
+
+      <div class="integration-import-dialog__content__description selected-file-preview">
+        <div class="files-container">
+          <div class="file-item" (click)="toggleSelectAllPages()" >
+            <div class="file-preview" [style.background-image]="'url('+(selectedFile$ | async).thumbnailUrl+')'"
+            [class.selected]="(selectAllPages$ | async) === true">
+            </div>
+            <div class="selected-file-description">
+              {{ 'builder-app.main_editor.import_all_pages' | translate }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="files-container">
+        <div class="file-item" *ngFor="let item of (pages$ | async)" (click)="toggleSelectPage(item)">
+          <div class="file-preview" [style.background-image]="'url('+item.thumbnailUrl+')'"
+            [class.selected]="isPageSelected(item)">
+          </div>
+          <div class="file-description">
+            <span>{{item.name}}</span>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</ng-template>

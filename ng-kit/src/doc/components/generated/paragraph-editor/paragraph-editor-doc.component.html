@@ -1,0 +1,46 @@
+<div class="chapter">
+  <h2>ParagraphEditorComponent</h2>
+  <div class="main-block">
+    <tabset>
+      <tab heading="Overview">
+        <h3>Import ParagraphEditorModule</h3>
+        <pre><code class="typescript" [innerHTML]="'import {ParagraphEditorModule } from \'@pe/ng-kit/modules/paragraph-editor\';'"></code></pre>
+        <p>&nbsp;</p>
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          >
+          <div class="paragraph-editor-example-wrap">
+            <pe-paragraph-editor
+                [isEditorActive]="true"
+                [finishButtonName]="'Done'"
+                (onEditorClosed)="onEditorClosed()">
+                <p>some text</p>
+            </pe-paragraph-editor>
+          </div>
+        </example-viewer>
+      </tab>
+      <tab heading="API">
+        <component-api-renderer [path]="'notification/src/notification-item/notification-item.component'"></component-api-renderer>
+      </tab>
+      <tab heading="Examples">
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          >
+          <div class="paragraph-editor-example-wrap">
+            <pe-paragraph-editor
+                [isEditorActive]="true"
+                [finishButtonName]="'Done'"
+                (onEditorClosed)="onEditorClosed()">
+                <p>some text</p>
+            </pe-paragraph-editor>
+          </div>
+        </example-viewer>
+      </tab>
+      <tab heading="README">
+        <doc-viewer documentUrl="/assets/module-guides/paragraph-editor/paragraph-editor.html"></doc-viewer>
+      </tab>
+    </tabset>
+  </div>
+</div>

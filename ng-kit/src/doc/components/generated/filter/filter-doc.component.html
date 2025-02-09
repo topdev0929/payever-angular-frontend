@@ -1,0 +1,50 @@
+<div class="chapter">
+  <h2>FilterComponent</h2>
+  <div class="main-block">
+    <tabset>
+      <tab heading="Overview">
+        <h3>Import FilterModule</h3>
+        <pre><code class="typescript" [innerHTML]="'import {FilterModule } from \'@pe/ng-kit/modules/filter\';'"></code></pre>
+        <p>&nbsp;</p>
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          [tsExample]="tsExample"
+          >
+          <div class="filter-example-wrap">
+            <pe-filter
+              [itemsList]="itemsList"
+              [filterName]="filterName"
+              [filterTitle]="filterTitle"
+              [filterBtnClasses]="filterBtnClasses"
+              (selectItemEvent)="handleSelectedFilterItem($event)"
+            ></pe-filter>
+          </div>
+        </example-viewer>
+      </tab>
+      <tab heading="API">
+        <component-api-renderer [path]="'filter/src/filter.component'"></component-api-renderer>
+      </tab>
+      <tab heading="Examples">
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          [tsExample]="tsExample"
+          >
+          <div class="filter-example-wrap">
+            <pe-filter
+              [itemsList]="itemsList"
+              [filterName]="filterName"
+              [filterTitle]="filterTitle"
+              [filterBtnClasses]="filterBtnClasses"
+              (selectItemEvent)="handleSelectedFilterItem($event)"
+            ></pe-filter>
+          </div>
+        </example-viewer>
+      </tab>
+      <tab heading="README">
+        <doc-viewer documentUrl="/assets/module-guides/filter/filter.html"></doc-viewer>
+      </tab>
+    </tabset>
+  </div>
+</div>

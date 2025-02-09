@@ -1,0 +1,17 @@
+<div class="checkout-main-content">
+  <pe-checkout-wrapper-by-channel-set-id
+    *ngIf="(remote$ | async)"
+    [class.hidden]="isHidden$ | async"
+    [attr.saveflowtostorage]="wrapperService.saveFlowToStorage$ | async | json"
+    [attr.params]="wrapperService.params$ | async | json"
+    [attr.createflowparams]="createFlowParams$ | async | json"
+    [attr.recreateflow]="wrapperService.reCreateFlow$ | async | json"
+    [attr.updatesettings]="wrapperService.updateSettings$ | async | json"
+    (layoutshown)="wrapperService.setCustomElementReady(true)"
+    (eventemitted)="wrapperService.onEventEmitted($event)">
+  </pe-checkout-wrapper-by-channel-set-id>
+  <div class="loading-wrapper" *ngIf="isHidden$ | async">
+    <mat-spinner [strokeWidth]="2" [diameter]="48"></mat-spinner>
+  </div>
+</div>
+

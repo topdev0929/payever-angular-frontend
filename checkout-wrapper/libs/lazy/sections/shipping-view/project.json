@@ -1,0 +1,29 @@
+{
+  "name": "shipping-view",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/lazy/sections/shipping-view/src",
+  "prefix": "pe",
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/lazy/sections/shipping-view"],
+      "options": {
+        "jestConfig": "libs/lazy/sections/shipping-view/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/lazy/sections/shipping-view/src/**/*.ts",
+          "libs/lazy/sections/shipping-view/src/**/*.html"
+        ]
+      },
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": ["scope:libs", "type:selector"],
+  "implicitDependencies": []
+}

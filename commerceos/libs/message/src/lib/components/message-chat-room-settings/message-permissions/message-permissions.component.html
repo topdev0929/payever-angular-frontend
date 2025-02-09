@@ -1,0 +1,37 @@
+<div class="channel-member-permission">
+ <div style="margin-bottom: 23px;">
+  <div class="chat-room-settings__icon">
+    <img
+      *ngIf="member?.avatar"
+      class="chat-room-settings__avatar"
+      [src]="member?.avatar"
+      alt="member avatar"
+    />
+    <div *ngIf="!member?.avatar" class="chat-room-settings__initials">{{ member.initials }}</div>
+  </div>
+ </div>
+  <div *ngIf="!isNotEditable" class="channel-member-permission__container" [formGroup]="memberPermissionsForm">
+      <ng-container *ngFor="let permission of memberPermissions">
+        <div class="channel-member-permission__item" *ngIf="!isHideOption(permission.name)">
+          <peb-button-toggle
+            class="channel-member-permission__switch"
+            [formControlName]="permission.name"
+            label="{{ permission.label | translate }}"
+            labelPosition="before"
+            [spacer]="true"
+          ></peb-button-toggle>
+        </div>
+      </ng-container>
+  </div>
+  <button
+    pe-form-button
+    color="warn"
+    class="channel-member-permission__danger-button"
+    (click)="dismissMember()"
+  >
+    {{ removeMemberButtonText }}
+  </button>
+  <div *ngIf="isNotEditable" class="channel-member-permission_owner">
+    <p>{{ 'message-app.channel.settings.owner-protect' | translate }}</p>
+  </div>
+</div>

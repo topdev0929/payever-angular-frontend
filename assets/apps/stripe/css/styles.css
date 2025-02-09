@@ -1,0 +1,50 @@
+.desktop-checkout-items.with-offset {
+  position: relative;
+  top: -98px;
+  z-index: -1;
+}
+
+.mobile .desktop-checkout-items.with-offset {
+  top: -60px;
+}
+
+.active-order-step .payment-footer {
+  display: none;
+}
+
+.mobile .active-order-step .payment-footer {
+  display: flex;
+}
+
+.payment-info-content {
+  margin-top: 11px;
+  line-height: 150%;
+}
+
+.payment-methods .content {
+  width: 100%;
+}
+
+.form-group-desktop-view {
+  display: block;
+}
+
+.form-group-mobile-view {
+  display: none;
+}
+
+.mobile .form-group-desktop-view {
+  display: none;
+}
+
+.mobile .form-group-mobile-view {
+  display: block;
+}
+
+.stripe-debit-card-success-modal .payment-icon {
+  width: 16px;
+}
+
+.stripe-credit-card-success-modal .payment-icon {
+  width: 58px;
+}

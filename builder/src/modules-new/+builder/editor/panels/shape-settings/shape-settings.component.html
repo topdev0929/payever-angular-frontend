@@ -1,0 +1,180 @@
+<form
+  novalidate
+  class="form-table form-table-horizontal no-padding"
+  [formGroup]="form"
+  *ngIf="form"
+  (keydown)="onFormKey($event)"
+>
+  <button
+    mat-button
+    class="mat-button mat-button-link mat-button-bold mat-button-sm mat-button-no-width mat-button-section no-padding-left"
+    [matMenuTriggerFor]="colorSelectMenu"
+  >
+    Defaults
+  </button>
+  <mat-menu
+    class="mat-menu-dark mat-menu-fit-content mat-menu-no-padding mat-menu-no-scroll"
+    #colorSelectMenu="matMenu"
+  >
+    <form
+      novalidate
+      class="form-table form-table-horizontal direction-column form-color-panel"
+      [formGroup]="form"
+      *ngIf="form"
+    >
+      <pe-form-fieldset
+        [fields]="colorPanelFieldset"
+        [formGroup]="form"
+        [formStyle]="'dark'"
+        [orientation]="'horizontal'"
+      ></pe-form-fieldset>
+    </form>
+  </mat-menu>
+  <!--Colors-->
+  <span class="form-fieldset-horizontal-label">{{ 'shape_settings.background' | translate }}</span>
+  <pe-form-fieldset
+    [fields]="backgroundColorFieldset"
+    [formGroup]="form"
+    [formStyle]="'dark'"
+    [orientation]="'horizontal'"
+    (mousedown)="openColorPicker($event)"
+  ></pe-form-fieldset>
+  <span class="form-fieldset-horizontal-label">
+    {{ 'shape_settings.hover' | translate }}
+  </span>
+  <pe-form-fieldset
+    [fields]="hoverColorFieldset"
+    [formGroup]="form"
+    [formStyle]="'dark'"
+    [orientation]="'horizontal'"
+    (mousedown)="openColorPicker($event)"
+  ></pe-form-fieldset>
+
+  <pe-builder-navbar-controls-button
+    *ngIf="hoverColor"
+    [hasDropdownMenu]="false"
+    [label]="'shape_settings.remove_hover' | translate"
+    (buttonClick)="removeHover()"
+    class="mr-space"
+  >
+  </pe-builder-navbar-controls-button>
+
+  <!--Border styles-->
+  <mat-divider [vertical]="true" class="mr-space" *ngIf="shapeType !== 'line'"></mat-divider>
+
+  <pe-form-fieldset
+    *ngIf="shapeType !== 'line'"
+    [fields]="borderCategoryFieldset"
+    [formGroup]="form"
+    [formStyle]="'dark'"
+    [orientation]="'horizontal'"
+  ></pe-form-fieldset>
+
+  <pe-form-fieldset
+    *ngIf="form.get('borderCategory').value === 'line'"
+    [fields]="borderStyleFieldset"
+    [formGroup]="form"
+    [formStyle]="'dark'"
+    [orientation]="'horizontal'"
+  ></pe-form-fieldset>
+
+  <pe-form-fieldset
+    *ngIf="form.get('borderCategory').value === 'line'"
+    [fields]="borderColorFieldset"
+    [formGroup]="form"
+    [formStyle]="'dark'"
+    [orientation]="'horizontal'"
+    (mousedown)="openColorPicker($event)"
+  ></pe-form-fieldset>
+
+  <pe-form-fieldset
+    *ngIf="form.get('borderCategory').value === 'line'"
+    [fields]="borderWidthFieldset"
+    [formGroup]="form"
+    [formStyle]="'dark'"
+    [orientation]="'horizontal'"
+  ></pe-form-fieldset>
+
+  <!--Shadow-->
+  <mat-divider [vertical]="true" *ngIf="shapeType !== 'line'"></mat-divider>
+
+  <pe-form-fieldset
+    *ngIf="shapeType !== 'line'"
+    [fields]="shadowCategoryFieldset"
+    [formGroup]="form"
+    [formStyle]="'dark'"
+    [orientation]="'horizontal'"
+  ></pe-form-fieldset>
+  <pe-form-fieldset
+    *ngIf="form.get('shadowCategory').value !== 'no-shadow'"
+    [fields]="boxShadowColorFieldset"
+    [formGroup]="form"
+    [formStyle]="'dark'"
+    [orientation]="'horizontal'"
+    (mousedown)="openColorPicker($event)"
+  ></pe-form-fieldset>
+  <span class="form-fieldset-horizontal-label" *ngIf="form.get('shadowCategory').value !== 'no-shadow'">{{
+    'shape_settings.blur' | translate
+  }}</span>
+  <pe-form-fieldset
+    *ngIf="form.get('shadowCategory').value !== 'no-shadow'"
+    [fields]="boxShadowBlurFieldset"
+    [formGroup]="form"
+    [formStyle]="'dark'"
+    [orientation]="'horizontal'"
+  ></pe-form-fieldset>
+  <span class="form-fieldset-horizontal-label" *ngIf="form.get('shadowCategory').value !== 'no-shadow'">{{
+    'shape_settings.offset' | translate
+  }}</span>
+  <pe-form-fieldset
+    *ngIf="form.get('shadowCategory').value !== 'no-shadow'"
+    [fields]="boxShadowOffsetYFieldset"
+    [formGroup]="form"
+    [formStyle]="'dark'"
+    [orientation]="'horizontal'"
+  ></pe-form-fieldset>
+
+  <mat-divider [vertical]="true"></mat-divider>
+
+  <!--Round-->
+  <span class="form-fieldset-horizontal-label" *ngIf="component?.element.data.type === 'round'">{{
+    'shape_settings.corners' | translate
+  }}</span>
+  <pe-form-fieldset
+    *ngIf="component?.element.data.type === 'round'"
+    [fields]="cornersFieldset"
+    [formGroup]="form"
+    [formStyle]="'dark'"
+    [orientation]="'horizontal'"
+  ></pe-form-fieldset>
+  <!--Line-->
+  <span class="form-fieldset-horizontal-label" *ngIf="component?.element.data.type === 'line'">{{
+    'shape_settings.line_height' | translate
+  }}</span>
+  <pe-form-fieldset
+    *ngIf="component?.element.data.type === 'line'"
+    [fields]="lineHeightFieldset"
+    [formGroup]="form"
+    [formStyle]="'dark'"
+    [orientation]="'horizontal'"
+  ></pe-form-fieldset>
+
+  <span class="form-fieldset-horizontal-label">{{ 'shape_settings.opacity' | translate }}</span>
+  <pe-form-fieldset
+    [fields]="opacityInputFieldset"
+    [formGroup]="form"
+    [formStyle]="'dark'"
+    [orientation]="'horizontal'"
+  ></pe-form-fieldset>
+
+  <pe-builder-navbar-separator></pe-builder-navbar-separator>
+
+  <pe-builder-element-visibility-toggle
+    [editor]="editor"
+    [pageStore]="pageStore"
+  ></pe-builder-element-visibility-toggle>
+
+  <pe-builder-element-pinned-toggle [editor]="editor" [pageStore]="pageStore"></pe-builder-element-pinned-toggle>
+
+  <pe-builder-navbar-spacer style="padding-right: 12px"></pe-builder-navbar-spacer>
+</form>

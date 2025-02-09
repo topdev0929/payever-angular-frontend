@@ -1,0 +1,14 @@
+version: '3'
+services:
+  builder-shop-app:
+    image: shop
+    build:
+      context: https://payever:oBY_T8o19cu5D59WXoz7@gitlab.devpayever.com/nodejs-backend/shop.git
+      args:
+        BUILD_NODE_IMAGE: node:12.20
+        PROD_NODE_IMAGE: node:12.20
+    command: [ "/bin/bash", "-c", "/payever/deploy/deploy.sh" ]
+    env_file:
+      - .env.shop
+    ports:
+      - 3000:3000

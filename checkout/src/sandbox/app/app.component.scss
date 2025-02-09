@@ -1,0 +1,37 @@
+::ng-deep .pe-simple-stepper {
+  // TODO Find better solution (have to have it to see top menu in sandbox mode at local machine)
+  top: 26px !important;
+}
+
+::ng-deep .cdk-overlay-container .mat-snack-bar-container {
+  // TODO Find better solution
+  background: #888;
+}
+
+::ng-deep body.pe-bootstrap {
+  padding: 0 0 !important;
+}
+
+:host {
+  pe-simple-welcome-stepper {
+    position: static;
+    display: flex;
+
+    ::ng-deep .pe-simple-stepper {
+      position: static;
+      width: 100%;
+    }
+  }
+
+  .top-offset-fix {
+    transform: translateX(0);
+  }
+
+  .checkout-app-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}

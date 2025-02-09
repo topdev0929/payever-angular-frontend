@@ -1,0 +1,79 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $confirm: map.get($color-config, 'confirm');
+  $warn: map.get($color-config, 'warn');
+  $border: map.get($color-config, 'border');
+  $active-button: map.get($color-config, 'active-button');
+  $secondary-background: map.get($color-config, 'secondary-background');
+  $secondary: map.get($color-config, 'secondary');
+  $hover-icon: map.get($color-config, 'hover-icon');
+  $label-color: map.get($color-config, 'label-color');
+  $active-text: map.get($color-config, 'active-text');
+
+  peb-page-list {
+    .list {
+      &__item {
+        &:not(.active) {
+          &:hover {
+            background-color: $active-button;
+          }
+        }
+        &.active {
+          background-color: $confirm;
+          .list__label {
+            color: $active-text;
+          }
+          &:hover {
+            background-color: $confirm;
+          }
+        }
+      }
+      &__label {
+        color: $text-color;
+      }
+      &__button {
+        background-color: $secondary;
+        color: $text-color;
+        svg {
+          g,
+          path {
+            &:last-child {
+              fill: $text-color;
+            }
+          }
+        }
+        &:hover {
+          background-color: $hover-icon;
+        }
+      }
+    }
+  }
+  .peb-page-menu + .cdk-overlay-connected-position-bounding-box {
+    .menu {
+      color: $text-color;
+      background-color: $secondary-background;
+      border: solid 1px $border;
+      &__headline {
+        color: $text-color;
+      }
+      &__item {
+        &--disabled {
+          color: $label-color;
+        }
+        &:hover:not(.menu__item_disabled) {
+          background-color: $active-button;
+        }
+        &--danger {
+          color: $warn;
+
+          &:hover:not(.menu__item_disabled) {
+            color: $active-text;
+            background-color: $warn;
+          }
+        }
+      }
+    }
+  }
+}

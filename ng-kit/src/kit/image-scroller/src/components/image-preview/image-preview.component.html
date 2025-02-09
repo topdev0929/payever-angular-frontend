@@ -1,0 +1,23 @@
+<div class="image-wrapper" [class.selected]="selected"
+                           [style.width]="selected ? ((width + 6) + 'px') : (width + 'px')"
+                           [style.height]="selected ? ((width/1.8 + 6) + 'px') : (width/1.8 + 'px')"
+                           (click)="imageSelected.emit($event)">
+  <img [attr.src]="imageSrc" *ngIf="imageSrc && (!uploadInProgress || uploadProgress === 100)">
+  <div class="image-wrapper-loader" *ngIf="uploadInProgress">
+    <pe-progress-spinner [diameter]="spinnerDiameter"
+                         [value]="uploadProgress"
+                         [mode]="spinnerMode">
+    </pe-progress-spinner>
+    <p *ngIf="uploadProgress < 100">{{ 'ng_kit.image_scroller.uploading_with_progress' | translate:{progress:uploadProgressInt} }}</p>
+    <p *ngIf="uploadProgress === 100">{{ 'ng_kit.image_scroller.done' | translate }}</p>
+  </div>
+  <button mat-raised-button
+          class="image-wrapper-delete mat-button-rounded mat-button-icon mat-button-xs"
+          color="dark"
+          type="button"
+          *ngIf="deleteAvailable"
+          (click)="deleteButtonClick.emit($event)"
+  >
+    <svg class="icon-8"><use [attr.xlink:href]="'#icon-b-remove-16'"></use></svg>
+  </button>
+</div>

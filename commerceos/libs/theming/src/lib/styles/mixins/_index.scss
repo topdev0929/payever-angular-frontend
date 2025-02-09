@@ -1,0 +1,6 @@
+@use "./components-theme" as components;
+@use "./apps-theme" as apps;
+@mixin themes($theme) {
+    @include components.themes($theme);
+    @include apps.themes($theme);
+}

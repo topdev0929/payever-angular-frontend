@@ -1,0 +1,13 @@
+<santander-invoice-de-shared-finish
+  [embeddedMode]="embeddedMode"
+  [merchantMode]="merchantMode"
+  [showCloseButton]="showCloseButton"
+  [nodeResult]="paymentResponse"
+  [errorMessage]="errorMessage"
+  [isLoading]="!paymentResponse && !errorMessage"
+  (cleanUp)="cleanUp()"
+  (close)="close()"
+  (closeButtonClicked)="close()"
+  (changePaymentMethod)="changePayment($event)"
+  (tryAgain)="tryAgain()"
+></santander-invoice-de-shared-finish>

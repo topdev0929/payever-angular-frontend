@@ -1,0 +1,59 @@
+@import '../../../../../../../../../../shared/styles/assets/ui-kit-styles/pe_variables';
+@import '../../../../../../../../../../shared/styles/assets/ui-kit-styles/mixins/pe_mixins.scss';
+
+.identify-wrap {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: $payment-grid-unit-y 18px;
+  margin-bottom: $payment-grid-unit-y;
+
+  .subhead-3 {
+    margin-bottom: 6px;
+    margin-top: -4px;
+
+    &.title {
+      margin-top: -7px;
+    }
+    .icon-24 {
+      margin-top: -4px;
+      margin-right: 4px;
+    }
+  }
+
+  .pe-payment-text {
+    margin-top: -4px;
+  }
+
+  .subhead-2 {
+    margin-bottom: 1px;
+    .icon-16 {
+      margin-top: -4px;
+      margin-right: 2px;
+    }
+  }
+
+  .agreement-details {
+    margin-top: 6px;
+  }
+
+  .continue-button {
+    width: 100%;
+    max-width: 284px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 1px;
+    &:not(:first-child) {
+      margin-top: 9px;
+    }
+  }
+
+  .skip-button {
+    height: 30px;
+    margin: 8px auto 0;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+  }
+}

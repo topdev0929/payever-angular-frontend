@@ -1,0 +1,47 @@
+<div class="dashboard-header" [ngClass]="theme">
+  <div class="dashboard-header__title">Subscriptions Dashboard</div>
+  <button class="dashboard-header__open" (click)="onOpenClick()">
+    Open
+  </button>
+  <button class="dashboard-header__menu" [matMenuTriggerFor]="itemMenu">
+    <svg>
+      <use [attr.xlink:href]="'#icon-dots-h-24'"></use>
+    </svg>
+  </button>
+
+  <mat-menu #itemMenu="matMenu" backdropClass="dashboard__backdrop" [classList]="'dashboard__menu ' + theme">
+    <button
+      mat-menu-item
+      (click)="onEditClick()">
+      Edit
+    </button>
+  </mat-menu>
+</div>
+
+<div class="dashboard-viewer-container">
+  <mat-spinner
+    *ngIf="(preview$ | async) === false"
+    class="mat-spinner-themed dashboard-spinner"
+    [strokeWidth]="2"
+    [diameter]="22"
+  ></mat-spinner>
+
+  <div class="scrollbar">
+    <ng-container *ngIf="(preview$ | async) as preview">
+      <h2 *ngIf="!preview.published && !preview.current">
+        No published Subscription
+      </h2>
+      <peb-viewer
+        *ngIf="preview.published"
+        class="dashboard-viewer"
+        [themeCompiled]="preview.published"
+      ></peb-viewer>
+      <peb-viewer
+        *ngIf="!preview.published && preview.current"
+        class="dashboard-viewer"
+        [themeSnapshot]="preview.current"
+      ></peb-viewer>
+    </ng-container>
+  </div>
+</div>
+

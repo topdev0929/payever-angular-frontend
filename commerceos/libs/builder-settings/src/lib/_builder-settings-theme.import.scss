@@ -1,0 +1,11 @@
+@use 'pe_theming' as pet;
+@use './connect-existing/connect-existing-theme.component' as connect_existing;
+@use './password-protection/password-protection-theme.component' as password_protection;
+@use './social-image/social-image-theme.component' as social_image;
+
+@mixin theme($theme-config) {
+    $color-config: pet.get-color-config-from-theme($theme-config);
+    @include connect_existing.color($color-config);
+    @include password_protection.color($color-config);
+    @include social_image.color($color-config);
+}

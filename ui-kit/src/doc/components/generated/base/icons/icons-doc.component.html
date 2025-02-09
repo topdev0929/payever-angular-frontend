@@ -1,0 +1,788 @@
+<div #spritesContainer class="read-only-sprites">
+    <ui-icons-set></ui-icons-set>
+    <ui-icons-activity-tab></ui-icons-activity-tab>
+    <ui-icons-apps></ui-icons-apps>
+    <ui-icons-banners></ui-icons-banners>
+    <ui-icons-builder></ui-icons-builder>
+    <ui-icons-cards></ui-icons-cards>
+    <ui-icons-categories></ui-icons-categories>
+    <ui-icons-commerceos></ui-icons-commerceos>
+    <ui-icons-dashboard></ui-icons-dashboard>
+    <ui-icons-dock></ui-icons-dock>
+    <ui-icons-edit-panel></ui-icons-edit-panel>
+    <ui-icons-embed></ui-icons-embed>
+    <ui-icons-finance-express></ui-icons-finance-express>
+    <ui-icons-marketing></ui-icons-marketing>
+    <ui-icons-messenger></ui-icons-messenger>
+    <ui-icons-notification></ui-icons-notification>
+    <ui-icons-payment></ui-icons-payment>
+    <ui-icons-payment-methods></ui-icons-payment-methods>
+    <ui-icons-santander-flags></ui-icons-santander-flags>
+    <ui-icons-settings></ui-icons-settings>
+    <ui-icons-shipping></ui-icons-shipping>
+    <ui-icons-social></ui-icons-social>
+    <ui-icons-stat></ui-icons-stat>
+    <ui-icons-store-builder></ui-icons-store-builder>
+    <ui-icons-trust-app></ui-icons-trust-app>
+    <ui-icons-widgets></ui-icons-widgets>
+    <ui-images-payment-options></ui-images-payment-options>
+</div>
+<div class="doc">
+    <h2>Icons</h2>
+
+    <div id="svg-usage" class="main-block">
+            <h3>SVG usage</h3>
+            <div class="doc-block">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p>We are using SVG sprites for vector icons. If you are not able to use sprite paste SVG inline.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <pre>
+                            <code class="html" html-entities="true">// SVG sprite, include it right after open body tag
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+    <symbol id="icon-facebook-16" viewbox="0 0 16 16" preserveaspectratio="xMidYMin slice" width="100%">
+        <path class="path1" fill="currentColor" d="M 16 15"/>
+    </symbol>
+    <symbol id="icon-linkedin-16" viewbox="0 0 16 16" preserveaspectratio="xMidYMin slice" width="100%">
+        <path class="path1" fill="currentColor" d="M 6 16"/>
+    </symbol>
+    <symbol id="icon-linkedin-48" viewbox="0 0 48 48" preserveaspectratio="xMidYMin slice" width="100%">
+        <path class="path1" fill="currentColor" d="M 10 4"/>
+    </symbol>
+</svg>
+                            </code>
+                        </pre>
+                        <p></p>
+                        <pre>
+                          <code class="html" html-entities="true">// Usage in place
+// .icon mandatory class, .icon-16 (24, 32, 48, 64) icon size, .icon-facebook is optional
+<svg class="icon icon-16 icon-facebook">
+    // #icon-facebook-16 symbol id from sprite
+    <use xlink:href="#icon-facebook-16"/>
+</svg>
+                          </code>
+                        </pre>
+                      <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="svg-set" class="main-block">
+            <h3>SVG icons templates</h3>
+            <div class="doc-block">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <tabset type="pills">
+                      <tab *ngFor="let item of svgSpritesList" [heading]="item.title">
+                        <div *ngFor="let icon of item.icons" class="col-sm-2 col-xs-4 col-lg-2 text-center" >
+                          <svg [ngStyle]="iconStyle(icon.id)">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" [attr.xlink:href]="icon.id"></use>
+                          </svg>
+                          <a href-lang="image/svg+xml" target="_blank"
+                            [attr.href]="'data:image/svg+xml;utf8,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;'+ icon.raw +'&lt;/svg&gt;' | safeUrl " title="Download">Download</a>
+                            <button
+                              title="Copy code of {{icon.id}} to clipboard"
+                              class="btn btn-default btn-xs copy-to-clipboard"
+                              attr.data-clipboard-text="<svg class=&quot;icon icon-{{ icon.size }}&quot;><use xlink:href=&quot;{{ icon.id }}&quot;></use></svg>" [innerHTML]="icon.id"></button>
+
+                            <div id="copy-icon-add-people-16">&lt;svg class=&quot;icon icon-16"&gt;&lt;use xlink:href="#icon-add-people-16"&gt;&lt;/use&gt;&lt;/svg&gt;</div>
+                        </div>
+                      </tab>
+                    </tabset>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+
+        <h3>Notification Count icon</h3>
+        <div class="doc-block">
+            <div class="row">
+                <div class="col-xs-12">
+                    <tabset>
+                        <tab heading="View">
+                            <div class="icon-notification-count">1</div>
+                            <div class="icon-notification-count icon-32">1</div>
+                            <div class="icon-notification-count icon-64">1</div>
+                            <div class="icon-notification-count icon-blue ">1</div>
+                            <div class="icon-notification-count icon-blue icon-32">1</div>
+                            <div class="icon-notification-count icon-blue icon-64">1</div>
+                        </tab>
+                        <tab heading="Tempalte">
+<pre>
+<code class="html" html-entities="true">
+    <div class="icon-notification-count">1</div>
+    <div class="icon-notification-count icon-32">1</div>
+    <div class="icon-notification-count icon-64">1</div>
+    <div class="icon-notification-count icon-blue ">1</div>
+    <div class="icon-notification-count icon-blue icon-32">1</div>
+    <div class="icon-notification-count icon-blue icon-64">1</div>
+</code>
+</pre>
+                        </tab>
+                    </tabset>
+                </div>
+            </div>
+        </div>
+
+        <div id="applications" class="main-block">
+        <h3>Applications</h3>
+        <div class="doc-block">
+            <div class="row">
+                <div class="col-sm-5 col-xs-12">
+                    <p>Applications icons are full colored and not vector. With border radius and shadow.</p>
+                    <pre>
+                      <code class="html" html-entities="true">
+<img src="/" class="icon-app-lg" />
+<img src="/" class="icon-app-md" />
+<img src="/" class="icon-app-xs" />
+                      </code>
+                    </pre>
+                  <p></p>
+                </div>
+                <div class="col-sm-1 hidden-xs"></div>
+                <div class="col-sm-6 col-xs-12">
+                    <div class="row icons-container">
+                        <div class="col-sm-4 col-xs-12 text-center"><img src="../../../../assets/img/items_app.png" class="icon-app-lg"></div>
+                        <div class="col-sm-4 col-xs-12 text-center"><img src="../../../../assets/img/add_channel.png" class="icon-app-lg"></div>
+                        <div class="col-sm-4 col-xs-12 text-center"><img src="../../../../assets/img/statistics.png" class="icon-app-lg"></div>
+                    </div>
+                    <p>&nbsp;</p>
+                    <div class="row icons-container-3">
+                        <div class="col-sm-4 col-xs-12 text-center"><img src="../../../../assets/img/debitoor.png" class="icon-app-lg"></div>
+                        <div class="col-sm-4 col-xs-12 text-center"><img src="../../../../assets/img/my_stores.png" class="icon-app-lg"></div>
+                        <div class="col-sm-4 col-xs-12 text-center"><img src="../../../../assets/img/pos.png" class="icon-app-lg"></div>
+                    </div>
+                    <p>&nbsp;</p>
+                    <div class="row icons-container-3">
+                        <div class="col-sm-3 col-xs-6 text-center"><img src="../../../../assets/img/my_stores.png" class="icon-app-md"></div>
+                        <div class="col-sm-3 col-xs-6 text-center"><img src="../../../../assets/img/items_app.png" class="icon-app-md"></div>
+                        <div class="col-sm-3 col-xs-6 text-center"><img src="../../../../assets/img/statistics.png" class="icon-app-md"></div>
+                        <div class="col-sm-3 col-xs-6 text-center"><img src="../../../../assets/img/pos.png" class="icon-app-md"></div>
+                    </div>
+                    <p>&nbsp;</p>
+                    <div class="row icons-container-2">
+                        <div class="col-xs-12 text-center"><img src="../../../../assets/img/my_stores.png" class="icon-app-xs"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="apps-logos-set" class="main-block">
+        <h3>Applications logos</h3>
+        <div class="doc-block clearfix">
+            <ul class="nav nav-pills">
+                <li role="presentation" class="active"><a href="#logo-set" attr.aria-controls="logo-set" role="tab" data-toggle="tab">logo-set</a></li>
+                <li role="presentation"><a href="#mobile-set" attr.aria-controls="mobile-set" role="tab" data-toggle="tab">mobile-set</a></li>
+                <li role="presentation"><a href="#mac-set" attr.aria-controls="mac-set" role="tab" data-toggle="tab">mac-set</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane img-set active" id="logo-set">
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/ad.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/ad.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/ad.png">ad.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/add_channel.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/add_channel.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/add_channel.png">add_channel.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/all_channels.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/all_channels.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/all_channels.png">all_channels.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/communication.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/communication.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/communication.png">communication.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/contacts_app.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/contacts_app.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/contacts_app.png">contacts_app.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/contacts.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/contacts.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/contacts.png">contacts.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/dashboard.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/dashboard.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/dashboard.png">dashboard.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/debitoor.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/debitoor.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/debitoor.png">debitoor.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/e-conomic.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/e-conomic.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/e-conomic.png">e-conomic.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/edit.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/edit.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/edit.png">edit.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/facebook.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/facebook.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/facebook.png">facebook.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/finance_express.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/finance_express.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/finance_express.png">finance_express.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/google_analytics.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/google_analytics.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/google_analytics.png">google_analytics.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/home.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/home.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/home.png">home.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/items_app.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/items_app.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/items_app.png">items_app.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/jtl.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/jtl.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/jtl.png">jtl.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/live_support.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/live_support.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/live_support.png">live_support.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/location.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/location.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/location.png">location.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/magento.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/magento.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/magento.png">magento.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/marketing_ad_app.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/marketing_ad_app.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/marketing_ad_app.png">marketing_ad_app.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/marketing.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/marketing.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/marketing.png">marketing.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/my_stores.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/my_stores.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/my_stores.png">my_stores.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/next_forward.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/next_forward.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/next_forward.png">next_forward.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/other_shopsystem.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/other_shopsystem.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/other_shopsystem.png">other_shopsystem.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/oxid.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/oxid.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/oxid.png">oxid.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/payment_options.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/payment_options.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/payment_options.png">payment_options.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/payments.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/payments.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/payments.png">payments.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/pos.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/pos.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/pos.png">pos.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/presta.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/presta.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/presta.png">presta.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/products.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/products.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/products.png">products.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/purchases.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/purchases.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/purchases.png">purchases.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/santander.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/santander.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/santander.png">santander.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/settings.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/settings.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/settings.png">settings.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/shopware.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/shopware.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/shopware.png">shopware.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/statistics.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/statistics.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/statistics.png">statistics.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/store.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/store.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/store.png">store.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/summary.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/summary.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/summary.png">summary.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/transactions.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/transactions.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/transactions.png">transactions.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/weebly.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/weebly.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/weebly.png">weebly.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/wooCommerce.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/wooCommerce.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/wooCommerce.png">wooCommerce.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/xt_commerce.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/xt_commerce.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/xt_commerce.png">xt_commerce.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/dashboard-apps@2x.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/dashboard-apps@2x.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                                data-clipboard-text="~@pe/ui-kit/icons-apps/dashboard-apps@2x.png">dashboard-apps@2x.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/dashboard-settings@2x.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/dashboard-settings@2x.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                                data-clipboard-text="~@pe/ui-kit/icons-apps/dashboard-settings@2x.png">dashboard-settings@2x.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/dashboard-store@2x.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/dashboard-store@2x.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                                data-clipboard-text="~@pe/ui-kit/icons-apps/dashboard-store@2x.png">dashboard-store@2x.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/dashboard-talk@2x.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/dashboard-talk@2x.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                                data-clipboard-text="~@pe/ui-kit/icons-apps/dashboard-talk@2x.png">dashboard-talk@2x.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/dashboard-todos@2x.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/dashboard-todos@2x.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                                data-clipboard-text="~@pe/ui-kit/icons-apps/dashboard-todos@2x.png">dashboard-todos@2x.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/plentymarkets_264.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/plentymarkets_264.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                                data-clipboard-text="~@pe/ui-kit/icons-apps/plentymarkets_264.png">plentymarkets_264.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/plentymarkets_300.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/plentymarkets_300.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                                data-clipboard-text="~@pe/ui-kit/icons-apps/plentymarkets_300.png">plentymarkets_300.png</button>
+                    </div>
+                </div><!-- tab -->
+                <div role="tabpanel" class="tab-pane img-set" id="mobile-set">
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/add_channel_mobile.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/add_channel_mobile.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/add_channel_mobile.png">add_channel_mobile.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/communication_mobile.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/communication_mobile.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/communication_mobile.png">communication_mobile.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/contacts_app_mobile.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/contacts_app_mobile.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/contacts_app_mobile.png">contacts_app_mobile.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/items_app_mobile.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/items_app_mobile.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/items_app_mobile.png">items_app_mobile.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/my_stores_mobile.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/my_stores_mobile.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/my_stores_mobile.png">my_stores_mobile.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/payment_options_mobile.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/payment_options_mobile.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/payment_options_mobile.png">payment_options_mobile.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/pos_mobile.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/pos_mobile.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/pos_mobile.png">pos_mobile.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/settings_mobile.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/settings_mobile.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/settings_mobile.png">settings_mobile.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/statistics_mobile.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/statistics_mobile.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/statistics_mobile.png">statistics_mobile.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/store_mobile.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/store_mobile.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/store_mobile.png">store_mobile.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/transactions_mobile.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/transactions_mobile.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/transactions_mobile.png">transactions_mobile.png</button>
+                    </div>
+                </div><!-- tab -->
+                <div role="tabpanel" class="tab-pane img-set" id="mac-set">
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/add_channel_mac.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/add_channel_mac.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/add_channel_mac.png">add_channel_mac.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/communication_mac.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/communication_mac.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/communication_mac.png">communication_mac.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/contacts_app_mac.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/contacts_app_mac.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/contacts_app_mac.png">contacts_app_mac.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/debitoor_mac.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/debitoor_mac.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/debitoor_mac.png">debitoor_mac.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/items_app_mac.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/items_app_mac.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/items_app_mac.png">items_app_mac.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/magento_mac.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/magento_mac.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/magento_mac.png">magento_mac.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/my_stores_mac.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/my_stores_mac.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/my_stores_mac.png">my_stores_mac.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/payment_options_mac.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/payment_options_mac.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/payment_options_mac.png">payment_options_mac.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/pos_mac.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/pos_mac.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/pos_mac.png">pos_mac.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/purchases_mac.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/purchases_mac.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/purchases_mac.png">purchases_mac.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/settings_mac.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/settings_mac.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/settings_mac.png">settings_mac.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/statistics_mac.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/statistics_mac.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/statistics_mac.png">statistics_mac.png</button>
+                    </div>
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                        <img src="../../../../assets/icons-apps/transactions_mac.png" >
+                        <button title="Copy path of ~@pe/ui-kit/icons-apps/transactions_mac.png to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                            data-clipboard-text="~@pe/ui-kit/icons-apps/transactions_mac.png">transactions_mac.png</button>
+                    </div>
+                </div><!-- tab -->
+            </div>
+        </div>
+    </div>
+
+    <div id="payment-options-icons" class="main-block">
+        <h3>Payment options icons</h3>
+        <div class="doc-block">
+            <div class="img-set clearfix">
+                <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                    <svg class="icon" width="18px" height="18px"><use xlink:href="#payment-option-american-express-18-18"/></svg>
+                    <button title="Copy code of #payment-option-american-express-18-18 to clipboard" class="btn btn-default btn-xs copy-to-clipboard" data-clipboard-target="#copy-payment-option-american-express-18-18">#payment-option-american-express-18-18</button>
+                    <div id="copy-payment-option-american-express-18-18">&lt;svg class="icon" width="18px" height="18px"&gt;&lt;use xlink:href="#payment-option-american-express-18-18"&gt;&lt;/use&gt;&lt;/svg&gt;</div>
+                </div>
+                <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                    <svg class="icon" width="20px" height="20px"><use xlink:href="#payment-option-cash-20-20"/></svg>
+                    <button title="Copy code of #payment-option-cash-20-20 to clipboard" class="btn btn-default btn-xs copy-to-clipboard" data-clipboard-target="#copy-payment-option-cash-20-20">#payment-option-cash-20-20</button>
+                    <div id="copy-payment-option-cash-20-20">&lt;svg class="icon" width="20px" height="20px"&gt;&lt;use xlink:href="#payment-option-cash-20-20"&gt;&lt;/use&gt;&lt;/svg&gt;</div>
+                </div>
+                <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                    <svg class="icon" width="21px" height="20px"><use xlink:href="#payment-option-direct-debit-21-20"/></svg>
+                    <button title="Copy code of #payment-option-direct-debit-21-20 to clipboard" class="btn btn-default btn-xs copy-to-clipboard" data-clipboard-target="#copy-payment-option-direct-debit-21-20">#payment-option-direct-debit-21-20</button>
+                    <div id="copy-payment-option-direct-debit-21-20">&lt;svg class="icon" width="21px" height="20px"&gt;&lt;use xlink:href="#payment-option-direct-debit-21-20"&gt;&lt;/use&gt;&lt;/svg&gt;</div>
+                </div>
+                <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                    <svg class="icon" width="22px" height="20px"><use xlink:href="#payment-option-invoice-22-20"/></svg>
+                    <button title="Copy code of #payment-option-invoice-22-20 to clipboard" class="btn btn-default btn-xs copy-to-clipboard" data-clipboard-target="#copy-payment-option-invoice-22-20">#payment-option-invoice-22-20</button>
+                    <div id="copy-payment-option-invoice-22-20">&lt;svg class="icon" width="22px" height="20px"&gt;&lt;use xlink:href="#payment-option-invoice-22-20"&gt;&lt;/use&gt;&lt;/svg&gt;</div>
+                </div>
+                <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                    <svg class="icon" width="21px" height="16px"><use xlink:href="#payment-option-mastercard-21-16"/></svg>
+                    <button title="Copy code of #payment-option-mastercard-21-16 to clipboard" class="btn btn-default btn-xs copy-to-clipboard" data-clipboard-target="#copy-payment-option-mastercard-21-16">#payment-option-mastercard-21-16</button>
+                    <div id="copy-payment-option-mastercard-21-16">&lt;svg class="icon" width="21px" height="16px"&gt;&lt;use xlink:href="#payment-option-mastercard-21-16"&gt;&lt;/use&gt;&lt;/svg&gt;</div>
+                </div>
+                <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                    <svg class="icon" width="54px" height="18px"><use xlink:href="#payment-option-payex-54-18"/></svg>
+                    <button title="Copy code of #payment-option-payex-54-18 to clipboard" class="btn btn-default btn-xs copy-to-clipboard" data-clipboard-target="#copy-payment-option-payex-54-18">#payment-payment-option-payex-54-18</button>
+                    <div id="copy-payment-option-payex-54-18">&lt;svg class="icon" width="54px" height="18px"&gt;&lt;use xlink:href="#payment-option-payex-54-18"&gt;&lt;/use&gt;&lt;/svg&gt;</div>
+                </div>
+                <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                    <svg class="icon" width="75px" height="14px"><use xlink:href="#payment-option-paymill-75-14"/></svg>
+                    <button title="Copy code of #payment-option-paymill-75-14 to clipboard" class="btn btn-default btn-xs copy-to-clipboard" data-clipboard-target="#copy-payment-option-paymill-75-14">#payment-payment-option-paymill-75-14</button>
+                    <div id="copy-payment-option-paymill-75-14">&lt;svg class="icon" width="75px" height="14px"&gt;&lt;use xlink:href="#payment-option-paymill-75-14"&gt;&lt;/use&gt;&lt;/svg&gt;</div>
+                </div>
+                <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                    <svg class="icon" width="63px" height="18px"><use xlink:href="#payment-option-paypall-63-18"/></svg>
+                    <button title="Copy code of #payment-option-paypall-63-18 to clipboard" class="btn btn-default btn-xs copy-to-clipboard" data-clipboard-target="#copy-payment-option-paypall-63-18">#payment-option-paypall-63-18</button>
+                    <div id="copy-payment-option-paypall-63-18">&lt;svg class="icon" width="63px" height="18px"&gt;&lt;use xlink:href="#payment-option-paypall-63-18"&gt;&lt;/use&gt;&lt;/svg&gt;</div>
+                </div>
+                <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                    <svg class="icon" width="98px" height="20px"><use xlink:href="#payment-option-santander-98-20"/></svg>
+                    <button title="Copy code of #payment-option-santander-98-20 to clipboard" class="btn btn-default btn-xs copy-to-clipboard" data-clipboard-target="#copy-payment-option-santander-98-20">#payment-option-santander-98-20</button>
+                    <div id="copy-payment-option-santander-98-20"><svg class="icon"><use xlink:href="#payment-method-santander_installment_dk"></use></svg></div>
+                </div>
+                <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                    <svg class="icon" width="22px" height="20px"><use xlink:href="#payment-option-santander-22-20"/></svg>
+                    <button title="Copy code of #payment-option-santander-22-20 to clipboard" class="btn btn-default btn-xs copy-to-clipboard" data-clipboard-target="#copy-payment-option-santander-22-20">#payment-option-santander-22-20</button>
+                    <div id="copy-payment-option-santander-22-20">&lt;svg class="icon" width="22px" height="20px"&gt;&lt;use xlink:href="#payment-option-santander-22-20"&gt;&lt;/use&gt;&lt;/svg&gt;</div>
+                </div>
+                <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                    <svg class="icon" width="49px" height="20px"><use xlink:href="#payment-option-sofort-66-12"/></svg>
+                    <button title="Copy code of #payment-option-sofort-66-12 to clipboard" class="btn btn-default btn-xs copy-to-clipboard" data-clipboard-target="#copy-payment-option-sofort-66-12">#payment-option-sofort-66-12</button>
+                    <div id="copy-payment-option-sofort-66-12">&lt;svg class="icon" width="49px" height="20px"&gt;&lt;use xlink:href="#payment-option-sofort-66-12"&gt;&lt;/use&gt;&lt;/svg&gt;</div>
+                </div>
+                <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                    <svg class="icon" width="30px" height="10px"><use xlink:href="#payment-option-visa-30-10"/></svg>
+                    <button title="Copy code of #payment-option-visa-30-10 to clipboard" class="btn btn-default btn-xs copy-to-clipboard" data-clipboard-target="#copy-payment-option-visa-30-10">#payment-option-visa-30-10</button>
+                    <div id="copy-payment-option-visa-30-10">&lt;svg class="icon" width="30px" height="10px"&gt;&lt;use xlink:href="#payment-option-visa-30-10"&gt;&lt;/use&gt;&lt;/svg&gt;</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="product-options-icons" class="main-block">
+      <h3>Product options icons</h3>
+      <div class="doc-block">
+        <div class="img-set clearfix">
+          <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+            <svg class="icon" width="62"><use xlink:href="#icon-products-ebay"/></svg>
+            <button title="Copy code of #icon-products-ebay to clipboard" class="btn btn-default btn-xs copy-to-clipboard" data-clipboard-target="#icon-products-ebay">#icon-products-ebay</button>
+            <div id="icon-products-ebay">&lt;svg class="icon" width="18px" height="18px"&gt;&lt;use xlink:href="#icon-products-ebay"&gt;&lt;/use&gt;&lt;/svg&gt;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="shipping-options-icons" class="main-block">
+      <h3>Shipping options icons</h3>
+      <div class="doc-block">
+        <div class="img-set clearfix">
+          <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+            <svg class="icon" width="62"><use xlink:href="#icon-shipping-hermes-white"/></svg>
+            <button title="Copy code of #icon-shipping-hermes-white to clipboard" class="btn btn-default btn-xs copy-to-clipboard" data-clipboard-target="#icon-shipping-hermes-white">#icon-shipping-hermes-white</button>
+            <div id="icon-shipping-hermes-white">&lt;svg class="icon" width="18px" height="18px"&gt;&lt;use xlink:href="#icon-shipping-hermes-white"&gt;&lt;/use&gt;&lt;/svg&gt;</div>
+          </div>
+      </div>
+    </div>
+
+    <div id="dashboard-icons" class="main-block" >
+        <h3>Dashboard icons</h3>
+        <p>For colored version add class .colored ex: class="icon icon-db colored"'</p>
+        <div class="doc-block" >
+            <div class="img-set clearfix" style="background-color: #6D6D6D;">
+                <div *ngFor="let item of iconsDashboardPng" class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center">
+                    <span class="icon icon-db {{item}}"></span>
+                    <button title="Copy <span class='icon icon-db {{item}}'></span> to clipboard" class="btn btn-default btn-xs copy-to-clipboard"
+                        attr.data-clipboard-text="<span class='icon icon-db {{item}}'></span>">{{item}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="brand-logos" class="main-block">
+        <h3>Logos of brands</h3>
+        <div class="doc-block">
+            <div class="img-set clearfix">
+                <div class="col-xs-6 col-sm-4 text-center">
+                    <div class="img-biz">
+                        <img src="../../../../assets/logos/santander.png">
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-4 text-center">
+                    <div class="img-biz">
+                        <img src="../../../../assets/logos/santander-short.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="png-set-dashboard-apps" class="main-block">
+      <h3>Dashboard App Png Icons</h3>
+      <p>icons with spacing around then, please use the ones from PNG icons set dashboard below</p>
+      <div class="doc-block clearfix">
+
+        <tabset type="pills">
+          <tab heading="32x32">
+            <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center" *ngFor="let item of iconsPng; let i = index">
+              <img [src]="iconsPngImg32[i]" class="icon icon-32" />
+              <br>
+              <button title="'Copy path of ~@pe/ui-kit/icons-db/icon-{{item}}-colored-32.png to clipboard'"
+                      class="btn btn-default btn-xs copy-to-clipboard"
+                      [attr.data-clipboard-text]="'~@pe/ui-kit/icons-db/icon-' + item + '-colored-32.png'">icons-{{item}}.png</button>
+            </div>
+          </tab>
+          <tab heading="64x64">
+            <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center" *ngFor="let item of iconsPng; let i = index">
+              <img [src]="iconsPngImg64[i]" class="icon icon-64" />
+              <br>
+              <button title="'Copy path of ~@pe/ui-kit/icons-db/icon-{{item}}-colored-64.png to clipboard'"
+                      class="btn btn-default btn-xs copy-to-clipboard"
+                      [attr.data-clipboard-text]="'~@pe/ui-kit/icons-db/icon-' + item + '-colored-64.png'">icons-{{item}}.png</button>
+            </div>
+          </tab>
+          <tab heading="128x128">
+            <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center" *ngFor="let item of iconsPng; let i = index">
+              <img [src]="iconsPngImg128[i]" class="icon icon-128" />
+              <br>
+              <button title="'Copy path of ~@pe/ui-kit/icons-db/icon-{{item}}-colored-128.png to clipboard'"
+                      class="btn btn-default btn-xs copy-to-clipboard"
+                      [attr.data-clipboard-text]="'~@pe/ui-kit/icons-db/icon-' + item + '-colored-128.png'">icons-{{item}}.png</button>
+            </div>
+          </tab>
+        </tabset>
+
+      </div>
+    </div>
+
+    <div id="png-icons-set" class="main-block">
+      <h3>Png Icons sets</h3>
+      <div class="doc-block clearfix">
+        <p>for payments rectangle icons use class .icon-p-square to get the border and background fill</p>
+
+        <tabset type="pills">
+          <tab [heading]="set.name" *ngFor="let set of pngIconsSetList">
+            <tabset>
+              <tab *ngFor="let size of set.sizes" [heading]="size.size +'x'+ size.size">
+                <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center" *ngFor="let icon of size.icons">
+                  <img [src]="icon.src" class="icon icon-{{ size.size }} {{ set.classes }}" />
+                  <br>
+                  <button title="'Copy path of ~@pe/ui-kit/icons-png/icon-'+ set.prefix + icon.name +'-'+ size.size +'.png to clipboard'"
+                      class="btn btn-default btn-xs copy-to-clipboard"
+                      [attr.data-clipboard-text]="'~@pe/ui-kit/icons-png/icon-'+ set.prefix + icon.name +'-'+ size.size +'.png'">icon-{{ set.prefix + icon.name +'-'+ size.size }}.png</button>
+                </div>
+              </tab>
+            </tabset>
+          </tab>
+        </tabset>
+
+      </div>
+    </div>
+
+    <div id="commerceos-icons" class="main-block">
+        <h3>CommerceOS Icons</h3>
+        <p>icons with spacing around then, please use the ones from PNG icons set dashboard below</p>
+        <div class="doc-block clearfix">
+            <tabset type="pills">
+                <tab heading="Colored">
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center"
+                         *ngFor="let item of commerceOsIcons; let i = index">
+                        <img [src]="getCommerceColoredUrls(item)"/>
+                        <br>
+                        <button title="'Copy path of /ui-kit/icons-png/icon-commerceos-{{item}}-32.png to clipboard'"
+                                class="btn btn-default btn-xs copy-to-clipboard"
+                                [attr.data-clipboard-text]="'/ui-kit/icons-png/icon-commerceos-'+ item +'-32.png'">
+                            icons-{{item}}.png
+                        </button>
+                    </div>
+                </tab>
+                <tab heading="White">
+                    <div style="background-color: #555;" class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center"
+                         *ngFor="let item of commerceOsIcons; let i = index">
+                        <img [src]="getCommerceWhiteUrls(item)"/>
+                        <br>
+                        <button title="'Copy path of ~@pe/ui-kit/icons-png/icon-commerceos-{{item}}-32-white.png to clipboard'"
+                                class="btn btn-default btn-xs copy-to-clipboard"
+                                [attr.data-clipboard-text]="'/ui-kit/icons-png/icon-commerceos-' + item + '-32-white.png'">
+                            icons-{{item}}.png
+                        </button>
+                    </div>
+                </tab>
+
+                <tab heading="Colored Retina">
+                    <div class="col-xs-6 col-lg-2 col-md-3 col-sm-4 text-center"
+                         *ngFor="let item of commerceOsIcons; let i = index">
+                        <img [src]="getCommerceColoredRetinaUrls(item)"/>
+                        <br>
+                        <button title="'Copy path of ~@pe/ui-kit/icons-png/icon-commerceos-{{item}}-32-white.png to clipboard'"
+                                class="btn btn-default btn-xs copy-to-clipboard"
+                                [attr.data-clipboard-text]="'/ui-kit/icons-png/icon-commerceos-' + item + '-32-white.png'">
+                            icons-{{item}}.png
+                        </button>
+                    </div>
+                </tab>
+            </tabset>
+        </div>
+    </div>
+</div>
+
+

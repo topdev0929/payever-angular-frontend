@@ -1,0 +1,74 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+
+:host {
+  &.is-mobile {
+    .status {
+      min-width: calc(100% - 8px) !important;
+    }
+  }
+
+  &.is-list-mobile {
+    font-weight: bold;
+    width: fit-content;
+    position: absolute;
+    right: 0;
+
+
+    .status {
+      min-width: fit-content !important;
+      padding: 2px 8px;
+      border-radius: 16px;
+      color: #ffffff;
+      &.status-red {
+        background-color: $color-status-red;
+      }
+
+      &.status-yellow {
+        background-color: $color-status-yellow;
+      }
+
+      &.status-green {
+        background-color: $color-status-green;
+      }
+    }
+  }
+
+  &:not(.is-list-mobile) {
+    .status {
+      position: relative;
+      border-radius: 6px;
+      padding: 4px 8px;
+      width: fit-content;
+      height: 24px;
+      font-weight: 500;
+      box-sizing: border-box;
+      font-family: Roboto, sans-serif;
+      font-size: 12px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-transform: uppercase;
+
+      span {
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: normal;
+        white-space: nowrap;
+      }
+
+      &.status-red {
+        background-color: $color-status-red;
+      }
+
+      &.status-yellow {
+        background-color: $color-status-yellow;
+      }
+
+      &.status-green {
+        background-color: $color-status-green;
+      }
+    }
+  }
+}

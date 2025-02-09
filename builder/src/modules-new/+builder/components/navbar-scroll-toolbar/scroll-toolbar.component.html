@@ -1,0 +1,25 @@
+<mat-toolbar class="mat-toolbar-xs mat-toolbar-no-padding">
+  <div
+    class="arrow-container left-arrow"
+    [class.hidden]="!(showScroll$ | async)"
+    [class.visibility-hidden]="!allowScroll(ArrowPosition.Left)"
+  >
+    <button mat-button #leftArrow class="mat-button-xs mat-button-icon button-arrow">
+      <svg class="icon icon-16"><use xlink:href="#icon-arrow-left-48"></use></svg>
+    </button>
+  </div>
+
+  <div #contentWrapper class="content-wrapper">
+    <ng-content></ng-content>
+  </div>
+
+  <div
+    class="arrow-container right-arrow"
+    [class.hidden]="!(showScroll$ | async)"
+    [class.visibility-hidden]="!allowScroll(ArrowPosition.Right)"
+  >
+    <button mat-button #rightArrow class="mat-button-xs mat-button-icon button-arrow">
+      <svg class="icon icon-16"><use xlink:href="#icon-arrow-right-48"></use></svg>
+    </button>
+  </div>
+</mat-toolbar>

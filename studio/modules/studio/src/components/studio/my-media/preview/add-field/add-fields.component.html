@@ -1,0 +1,30 @@
+<div [ngClass]="theme">
+    <peb-form-background>
+        <peb-form-field-input  [label]="'Field label'" appearance="label">
+            <input [(ngModel)]="attribute.label"/>
+        </peb-form-field-input>
+    </peb-form-background>
+
+    <peb-form-background style="margin: 16px;">
+        <peb-select selectType="label" [label]="'Field type'"  [(ngModel)]="attribute.type">
+            <peb-select-option *ngFor="let item of fieldTypes" [value]="item.value"
+                [label]="item.label">
+            </peb-select-option>
+        </peb-select>
+    </peb-form-background>
+
+    <peb-form-background>
+        <peb-button-toggle
+        [(ngModel)]="attribute.filterable"
+        label="Filterable"
+        [spacer]="true"
+        labelPosition="before"
+      ></peb-button-toggle>
+      <peb-button-toggle
+      [(ngModel)]="attribute.editable"
+      label="Value editable only by admin"
+      [spacer]="true"
+      labelPosition="before"
+    ></peb-button-toggle>
+    </peb-form-background>
+</div>

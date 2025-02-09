@@ -1,0 +1,52 @@
+<mat-form-field *ngIf="formControl" 
+                [floatLabel]="floatLabel"
+                [hideRequiredMarker]="hideRequiredMarker"
+                [class.mat-form-field-has-prefix]="addonPrepend">
+  <input #input
+         matInput
+         type="text"
+         inputmode="numeric"
+         class="pe-datepicker-input"
+         [attr.pe-qa-datepicker]="controlQaId"
+         [attr.tabindex]="tabIndex"
+         [errorStateMatcher]="errorStateMatcher"
+         [formControl]="formControl"
+         [matDatepicker]="datepicker"
+         [matDatepickerFilter]="filter"
+         [max]="max"
+         [min]="min"
+         [placeholder]="placeholder"
+         [readonly]="disabled || readonly"
+         [required]="required"
+         [peBlockCopyPaste]="blockCopyPaste"
+         (dateChange)="onDateChanged($event)"
+         (focus)="onFocus($event)"
+         (blur)="onBlur($event)"
+  >
+
+  <mat-datepicker-toggle
+    matSuffix
+    [attr.pe-qa-datepicker]="controlQaId+':toggle'"
+    [style.margin-right.px]="-3"
+    [for]="datepicker"
+    [disabled]="disabled">
+    <mat-icon matDatepickerToggleIcon>
+      <svg class="icon icon-16"><use xlink:href="#icon-calendar-16"></use></svg>
+    </mat-icon>
+  </mat-datepicker-toggle>
+
+  <mat-datepicker #datepicker
+                  [panelClass]="[panelClass || '', ' pe-bootstrap']"
+                  [disabled]="disabled"
+                  [startAt]="startAt"
+                  [startView]="startView"
+                  [touchUi]="touchUi"
+                  (yearSelected)="chosenYearHandler($event)"
+                  (monthSelected)="chosenMonthHandler($event)"
+                  (closed)="onClosed()">
+  </mat-datepicker>
+
+  <mat-error *ngIf="errorMessage && formControl?.invalid">{{ errorMessage }}</mat-error>
+  
+  <pe-form-addon matPrefix [addon]="addonPrepend" *ngIf="hasAddonPrepend"></pe-form-addon>
+</mat-form-field>

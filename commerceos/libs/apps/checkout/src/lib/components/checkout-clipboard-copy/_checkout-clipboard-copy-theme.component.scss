@@ -1,0 +1,9 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $label-color: map.get($color-config, 'label-color');
+
+  .clipboard-copy-content {
+     color: $label-color;
+  }
+}

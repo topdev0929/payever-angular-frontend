@@ -1,0 +1,69 @@
+<button
+  #ivyButton
+  *ngIf="fetchIvy$ | async"
+  id="ivy-checkout-button"
+  [style.maxWidth.px]="config.maxWidth"
+  [style.minWidth.px]="config.minWidth"
+  class="ivy-checkout-button">
+  <ng-container *ngIf="settings$ | async as settings">
+    <ng-container
+      *ngIf="{
+        loading: loading$ | async,
+        config: buttonConfig$ | async
+      } as vm
+      ">
+      <div
+        class="checkout-button checkout-main-button"
+        (click)="startIvy()"
+        [ngStyle]="vm.config.styles">
+        <span
+          *ngIf="!vm.loading"
+          class="main-text">
+          <span>
+            {{ bankSelected ? translations.chooseBankWith : translations.chooseBank }}
+          </span>
+          <img
+            *ngIf="vm.config.logo"
+            class="bank-img"
+            alt="Payment ico"
+            [src]="vm.config.logo" />
+        </span>
+        <mat-progress-spinner
+          *ngIf="vm.loading"
+          class="spinner"
+          mode="indeterminate"
+          diameter="26"
+          strokeWidth="2">
+        </mat-progress-spinner>
+      </div>
+      <div
+        #bankButton
+        class="checkout-button checkout-side-button"
+        (click)="openBankSelection(bankButton)">
+        <div
+          *ngIf="!savedBank && !bankSelected"
+          class="open-bank-selection">
+          <img
+            *ngFor="let img of banks"
+            class="bank-img"
+            alt="logo"
+            [src]="img.src" />
+        </div>
+        <svg
+          width="11"
+          height="6"
+          viewBox="0 0 11 6"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M1.5 1L5.5 5L9.5 1"
+            stroke="#757575"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+      </div>
+    </ng-container>
+  </ng-container>
+</button>
+<tooltip></tooltip>

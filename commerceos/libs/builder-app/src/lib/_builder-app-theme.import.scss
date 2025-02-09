@@ -1,0 +1,25 @@
+@use 'pe_theming' as pet;
+@use './app-theme.component' as root;
+@use './nav/nav-theme.component' as nav;
+@use './main/settings/settings-theme.component' as settings;
+@use '../../../builder-settings/src/lib/builder-settings-theme.import' as builder_settings;
+@use '../../../builder/builder-theme.import' as builder;
+@use './main/dashboard/dashboard-theme.component' as dashboard;
+@use '../lib/header/header-theme.import' as header;
+@use '../../../builder-share/src/lib/get-link/get-link-theme.component' as builder_share;
+@use './main/dashboard/screen-selector/screen-selector-theme.component' as screen_selector;
+@use '../../../themes/src/lib/components/theme-editor/theme-editor-theme.import' as theme;
+
+@mixin theme($theme-config) {
+    @include builder_settings.theme($theme-config);
+    @include builder.theme($theme-config);
+    @include header.theme($theme-config);
+    @include theme.theme($theme-config);
+    $color-config: pet.get-color-config-from-theme($theme-config);
+    @include root.color($color-config);
+    @include nav.color($color-config);
+    @include settings.color($color-config);
+    @include dashboard.color($color-config);
+    @include builder_share.color($color-config);
+    @include screen_selector.color($color-config);
+}

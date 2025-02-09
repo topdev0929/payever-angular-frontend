@@ -1,0 +1,13 @@
+<or-action-modal [close$]="close$"
+                 [heading]="'form.paid.heading' | translate"
+                 [buttons]="modalButtons"
+                 [loading]="loading"
+                 class="dark"
+>
+  <form novalidate (ngSubmit)="onSubmit()" [formGroup]="form" *ngIf="form !== null">
+    <input formControlName="status" type="hidden">
+    <div class="inner-padding">
+      <div [innerHtml]="'form.paid.note' | translate"></div>
+    </div>
+  </form>
+</or-action-modal>

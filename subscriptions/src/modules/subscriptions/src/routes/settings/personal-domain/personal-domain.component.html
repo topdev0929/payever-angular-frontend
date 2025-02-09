@@ -1,0 +1,35 @@
+<div class="container" [ngClass]="config.theme">
+  <div *ngIf="!domainList?.length && !isloading" class="no-domain">
+    <peb-messages [showIcon]="true" message="No domains connected"></peb-messages>
+    <button class="setting-button confirm" (click)="addDomain()">Add domain</button>
+  </div>
+  <peb-expandable-panel
+    [headerLabel]="domain.name"
+    [isContentOpen]="!i"
+    *ngFor="let domain of domainList; let i = index"
+  >
+    <div style="margin-bottom: 11px">
+      <peb-form-background>
+        <peb-form-field-input label="Domain" appearance="label">
+          <input [(ngModel)]="domain.name" pebInput placeholder="Enter Domain" disabled />
+        </peb-form-field-input>
+      </peb-form-background>
+    </div>
+    <peb-form-background>
+      <peb-form-field-input label="Date Added" appearance="label">
+        <input [ngModel]="domain.createdAt" disabled placeholder="Enter Date" />
+      </peb-form-field-input>
+      <peb-form-field-input label="Provider" appearance="label">
+        <input [(ngModel)]="domain.provider" disabled placeholder="Enter Provider" />
+      </peb-form-field-input>
+    </peb-form-background>
+    <div style="margin-top: 16px">
+      <peb-messages
+        [showIcon]="!domain.isConnected"
+        message="Domain connected"
+        [color]="domain.isConnected ? 'confirm' : 'warning'"
+      ></peb-messages>
+    </div>
+    <button class="setting-button" (click)="removeDomain(domain, i)">Remove domain</button>
+  </peb-expandable-panel>
+</div>

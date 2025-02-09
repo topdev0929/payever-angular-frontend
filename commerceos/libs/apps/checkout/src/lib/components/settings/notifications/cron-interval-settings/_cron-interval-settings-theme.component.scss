@@ -1,0 +1,36 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $warn: map.get($color-config, 'warn');
+  $background: map.get($color-config, 'background');
+  $select-button: map.get($color-config, 'select-button');
+  $content: map.get($color-config, 'content');
+  $text-color: map.get($color-config, 'text-color');
+  $active-text: map.get($color-config, 'active-text');
+  $label-color: map.get($color-config, 'label-color');
+
+  .cdk-overlay-backdrop.settings-modal + .cdk-global-overlay-wrapper {
+    .cron-interval-error {
+        color: $warn;
+    }
+    .overlay-widget .cron-interval-settings {
+        &_container {
+            &-invalid {
+              border-color: $warn;
+            }
+        }
+        &_item {
+            border-bottom-color: $background;
+            &:nth-of-type(2n - 1) {
+                border-right-color: $background;
+              }
+        }
+        &_button {
+            background-color: $content;
+            svg {
+                color: $warn;
+            }
+        }
+    }
+  }
+}

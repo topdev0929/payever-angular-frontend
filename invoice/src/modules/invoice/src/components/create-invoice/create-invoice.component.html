@@ -1,0 +1,111 @@
+<div class="container" [ngClass]="config.theme">
+
+  <peb-expandable-panel (opened)="panelStateTrigger('customer')" [isContentOpen]="panelState.customer" headerLabel="Customer information">
+    <peb-form-background>
+      <peb-product-select
+        [class.is-invalid]="errors.customer.hasError"
+        [data]="contacts"
+        [formControl]="invoiceForm.get('customer')"
+        (onInput)="contactInputChanged($event)"
+        [multiple]="false"
+        buttonName="Add customer"
+        [label]="errors.customer.errorMessage || 'Customer'"
+        [buttonFunction]="openContactDialog"
+        placeholder="Search"
+      ></peb-product-select>
+    </peb-form-background>
+  </peb-expandable-panel>
+  <peb-expandable-panel (opened)="panelStateTrigger('details')" [isContentOpen]="panelState.details" headerLabel="Invoice details">
+    <peb-form-background>
+      <peb-form-field-input label="Invoice date" appearance="label" [animated]="true"
+      [isFieldInvalid]="errors.invoice_date.hasError" [errorMessage]="errors.invoice_date.errorMessage">
+        <input
+          #invoiceDate
+          type="datetime"
+          [formControl]="invoiceForm.get('invoice_date')"
+          placeholder="DD.MM.YYYY"
+          (click)="openDatepicker($event, 'invoice_date')" />
+        <div class="suffix-icon">
+          <mat-icon svgIcon="datetime-picker" (click)="openDatepicker({ target: invoiceDate }, 'invoice_date')"></mat-icon>
+        </div>
+      </peb-form-field-input>
+      <peb-form-field-input label="Invoice No" appearance="label" [animated]="true"
+      [isFieldInvalid]="errors.invoice_no.hasError" [errorMessage]="errors.invoice_no.errorMessage">
+        <input [formControl]="invoiceForm.get('invoice_no')" />
+      </peb-form-field-input>
+      <peb-select [formControl]="invoiceForm.get('payment_terms')" selectType="label" label="Payment Terms" [animated]="true">
+        <peb-select-option *ngFor="let term of paymentTerms" [value]="term.value" [label]="term.label"></peb-select-option>
+      </peb-select>
+      <peb-form-field-input label="Due Date" appearance="label" [animated]="true"
+      [isFieldInvalid]="errors.due_date.hasError" [errorMessage]="errors.due_date.errorMessage">
+        <input
+          #dueDate
+          [formControl]="invoiceForm.get('due_date')"
+          placeholder="DD.MM.YYYY"
+          type="datetime"
+          (click)="openDatepicker($event, 'due_date')" />
+        <div class="suffix-icon">
+          <mat-icon svgIcon="datetime-picker" (click)="openDatepicker({ target: dueDate }, 'due_date')"></mat-icon>
+        </div>
+      </peb-form-field-input>
+      <peb-form-field-input label="Notes" appearance="label" [animated]="true">
+        <input [formControl]="invoiceForm.get('notes')" />
+      </peb-form-field-input>
+    </peb-form-background>
+
+  </peb-expandable-panel>
+  <peb-expandable-panel (opened)="panelStateTrigger('items')" [isContentOpen]="panelState.items" headerLabel="Items">
+    <peb-form-background>
+        <peb-product-select
+        [class.is-invalid]="errors.products.hasError"
+        [formControl]="invoiceForm.get('products')"
+        [data]="products"
+        (onInput)="inputChanged($event)"
+        buttonName="Add items"
+        [label]="errors.products.errorMessage || 'Items'"
+        [buttonFunction]="openProductDialog"
+        placeholder="Search"
+      ></peb-product-select>
+    </peb-form-background>
+  </peb-expandable-panel>
+  <peb-expandable-panel (opened)="panelStateTrigger('options')" [isContentOpen]="panelState.options" headerLabel="Invoice options" [isContentOpen]="false">
+    <peb-form-background>
+      <peb-select [formControl]="invoiceForm.get('price_format')" selectType="label" label="Price Format" [animated]="true">
+        <peb-select-option [value]="priceFormats.NET" [label]="priceFormats.NET"></peb-select-option>
+        <peb-select-option [value]="priceFormats.GROSS" [label]="priceFormats.GROSS"></peb-select-option>
+      </peb-select>
+    <two-column-form>
+        <peb-form-field-input label="Discount (%)" appearance="label" [animated]="true">
+          <input type="number" [formControl]="invoiceForm.get('discount')" />
+        </peb-form-field-input>
+        <peb-select [formControl]="invoiceForm.get('language')" selectType="label" label="Language" [animated]="true">
+          <peb-select-option *ngFor="let language of languagesList" [value]="language.englishName" [label]="language.englishName"></peb-select-option>
+        </peb-select>
+    </two-column-form>
+    <two-column-form>
+        <peb-select [formControl]="invoiceForm.get('currency')" selectType="label" label="Currency" [animated]="true">
+          <peb-select-option *ngFor="let curr of currencyList" [value]="curr.code" [label]="curr.code + ' - ' + curr.name"></peb-select-option>
+        </peb-select>
+        <peb-form-field-input label="Exchange Rate" appearance="label" [animated]="true">
+          <input type="number" [formControl]="invoiceForm.get('exchange_rate')"  />
+        </peb-form-field-input>
+      </two-column-form>
+    </peb-form-background>
+
+  </peb-expandable-panel>
+  <peb-expandable-panel (opened)="panelStateTrigger('terms')" [isContentOpen]="panelState.terms" headerLabel="Invoice terms">
+    <peb-form-background>
+      <peb-form-field-input label="Terms" appearance="label" [animated]="true">
+        <pe-text-editor
+          [theme]="config.theme"
+          placeholder="Enter terms, payment instructions or any additional notes."
+          [formControl]="invoiceForm.get('terms')"
+          [editable]="true">
+        </pe-text-editor>
+      </peb-form-field-input>
+    </peb-form-background>
+  </peb-expandable-panel>
+  <peb-expandable-panel (opened)="panelStateTrigger('attachments')" [isContentOpen]="panelState.attachments" headerLabel="Attachments">
+    <peb-files-upload [formControl]="invoiceForm.get('attachments')"></peb-files-upload>
+  </peb-expandable-panel>
+</div>

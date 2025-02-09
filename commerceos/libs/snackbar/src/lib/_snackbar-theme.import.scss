@@ -1,0 +1,7 @@
+@use 'pe_theming' as pet;
+@use './snackbar-theme.component' as snack_bar;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include snack_bar.color($color-config);
+}

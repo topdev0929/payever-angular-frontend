@@ -1,0 +1,8 @@
+@use 'pe_theming' as pet;
+@use './subscript-theme.component' as subscript;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @include subscript.color($color-config);
+}
+

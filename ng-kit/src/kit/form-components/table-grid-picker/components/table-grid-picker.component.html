@@ -1,0 +1,11 @@
+<mat-grid-list cols="3" rowHeight="fit" class="table-grid-container"
+    style="width: 120px; height:120px;border-radius: 10px;background: #6c6b68;margin: 0px;">
+    <mat-grid-tile class="table-grid-tile" *ngFor="let option of allGridOptions; let i = index">
+        <button type="button" class="btn btn-link picker-button" [ngClass]="{'active': selected === option}"
+            (click)="onSelectChange($event, option)">
+            <svg class="icon icon-24">
+                <use attr.xlink:href="{{'#icon-grid-' + (i + 1)+ '-24'}}"></use>
+            </svg>
+        </button>
+    </mat-grid-tile>
+</mat-grid-list>

@@ -1,0 +1,29 @@
+.column {
+  display: flex;
+  justify-content: space-between;
+
+  & > div {
+    flex: 1;
+    padding-bottom: 1rem;
+  }
+
+  & > div:not(:first-child) {
+    border-left-style: solid;
+    border-left-width: 1px;
+    padding-left: 1rem;
+  }
+
+  .title {
+    margin-top: 0px;
+    padding-top: 0px;
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+  }
+
+  .subtitle {
+    margin: 8px 35px 0 0;
+    font-family: Roboto, sans-serif;
+    font-size: 44px;
+    font-weight: 500;
+  }
+}

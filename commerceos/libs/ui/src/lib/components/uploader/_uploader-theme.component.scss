@@ -1,0 +1,28 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $confirm: map.get($color-config, 'confirm');
+  $content: map.get($color-config, 'content');
+  $box-shadow-color: map.get($color-config, 'box-shadow-color');
+
+  pe-uploader {
+    box-shadow: 3px 3px 30px 0 $box-shadow-color;
+    background-color: $content;
+
+    .row-uploader {
+      .cancel {
+        color: $confirm;
+      }
+      p {
+        color: $text-color;
+      }
+      mat-progress-spinner {
+        circle,
+        .mat-spinner circle {
+          stroke: $text-color;
+        }
+      }
+    }
+  }
+}

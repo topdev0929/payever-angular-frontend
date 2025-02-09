@@ -1,0 +1,57 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+$switcher-width: ($pe_hgrid_gutter * 6) - $pe_hgrid_gutter / 2;
+
+.ui-theme-switcher {
+  border: 1px solid $color-light-gray-1;
+  display: inline-block;
+  border-radius: $pe_hgrid_gutter * 3;
+  cursor: pointer;
+  position: relative;
+  width: $switcher-width;
+  height: $icon-size-32;
+  &:after {
+    content: '';
+    background-color: rgba(red, .5);
+    background-color: $color-dark-gray;
+    width: $pe_hgrid_gutter * 3;
+    height: $icon-size-32;
+    border-radius: $pe_hgrid_gutter * 3;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    z-index: 101;
+    transition: left $animation-duration-slide-in/2 $animation-effect-ease-in;
+  }
+  .item {
+    border-radius: $pe_hgrid_gutter * 3;
+    display: inline-block;
+    width: $pe_hgrid_gutter * 3;
+    text-align: center;
+    color: $color-light-gray-1;
+    position: absolute;
+    top: 0;
+    z-index: 103;
+  }
+
+  .item-desktop {
+    left: 0;
+    color: $color-white;
+  }
+
+  .item-mobile {
+    right: 0;
+  }
+
+  &.is-mobile {
+    &:after {
+      left: ($switcher-width - $pe_hgrid_gutter * 3) - 1px;
+    }
+    .item-mobile {
+      color: $color-white;
+    }
+    .item-desktop {
+      color: $color-light-gray-1;
+    }
+  }
+}

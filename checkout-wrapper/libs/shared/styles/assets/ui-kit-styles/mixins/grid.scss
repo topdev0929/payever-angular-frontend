@@ -1,0 +1,40 @@
+//
+// Grid
+// ----------------------------
+
+@mixin streching($gutter) {
+  .container {
+    padding-right: $gutter;
+    padding-left: $gutter;
+  }
+
+  .container-fluid {
+    padding-right: $gutter;
+    padding-left: $gutter;
+  }
+
+  .row {
+    margin-right: -$gutter;
+    margin-left: -$gutter;
+    &.no-gutter {
+      margin-left: 0;
+      margin-right: 0;
+      & > [class*='col-']:not(:first-child),
+      & > [class*='col-']:not(:last-child) {
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+  }
+
+  @for $i from 1 through 12 {
+    .col-xs-#{$i},
+    .col-sm-#{$i},
+    .col-md-#{$i},
+    .col-lg-#{$i},
+    col-#{$i} {
+      padding-right: $gutter;
+      padding-left: $gutter;
+    }
+  }
+}

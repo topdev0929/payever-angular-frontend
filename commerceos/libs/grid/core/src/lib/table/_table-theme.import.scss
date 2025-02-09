@@ -1,0 +1,21 @@
+@use 'pe_theming' as pet;
+@use 'table-theme.component' as table;
+@use 'skeleton/skeleton-theme.component' as skeleton;
+@use 'row/row-theme.component' as row;
+@use './cell-components-host/components/action/action-theme.component' as action-btn;
+@use './cell-components-host/components/badge/badge-theme.component' as badge-btn;
+@use './cell-components-host/components/more/more-theme.component' as more-btn;
+@use './cell-components-host/components/preview/preview-theme.component' as preview-btn;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @if $color-config != null {
+    @include table.color($color-config);
+    @include skeleton.color($color-config);
+    @include row.color($color-config);
+    @include action-btn.color($color-config);
+    @include badge-btn.color($color-config);
+    @include more-btn.color($color-config);
+    @include preview-btn.color($color-config);
+  }
+}

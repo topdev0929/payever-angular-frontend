@@ -1,0 +1,50 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $border: map.get($color-config, 'border');
+  $background: map.get($color-config, 'background');
+  $warn: map.get($color-config, 'warn');
+  $confirm: map.get($color-config, 'confirm');
+  $label-color: map.get($color-config, 'label-color');
+  $text-color: map.get($color-config, 'text-color');
+  $row-background: map.get($color-config, 'row-background');
+
+  .plugin-api-accordion-container {
+    .mat-expansion-panel-header svg {
+        color: $text-color;
+      }
+    .key {
+      .key-info {
+        background-color: $row-background;
+        .small-2 {
+            color: $text-color;
+          }
+        .row {
+          border-bottom-color: $background;
+          & > [class*='col'] {
+            color: $text-color;
+          }
+        }
+        &__title {
+          color: $text-color;
+        }
+        .key-value {
+          color: $label-color !important;
+          .btn-copy {
+            color: $confirm;
+          }
+        }
+      }
+    }
+    .delete-button {
+      .mat-button-wrapper {
+        color: $warn;
+      }
+    }
+  }
+
+  .text.text-danger.loading-error {
+    background-color: $row-background;
+    color: $warn;
+  }
+}

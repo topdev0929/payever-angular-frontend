@@ -1,0 +1,35 @@
+{
+  "santander-de-finexp-widget": {
+    "common": {
+      "rate_param": {
+        "duration": "Term",
+        "monthly_rate": "Monthly rate",
+        "interest_rate": "Annual rate",
+        "total_amount": "Total amount",
+        "price": "Purchase price",
+        "rate_pa": "Borrowing rate",
+        "bank_interest": "Bank interest",
+        "cpi": "CPI"
+      },
+      "month": {
+        "one": "{{ count }} month",
+        "many": "{{ count }} months"
+      },
+      "rate_title": "{{ monthly_rate_with_currency }}/mo. for {{ duration_with_months }}",
+      "header_text": "In Raten bezahlen",
+      "header_text_extended": "Ratenkredit",
+      "introduction_text": "Wänlen Sie als Zahlungsart den Santander Ratenkredit aus und bestätigen Sie Ihre Bestellung. Danach können Sie Ihre Wunsch-Rate und die passende Laufzeit auswählen. Schicken Sie nun den Antrag ab. Schon nach wenigen Sekunden erfahren Sie, ob Ihr Antrag vorläufig genehmigt wurde.<br>Bei einer vorläufigen Genehmigung wird Innen ein Button “Antrag abschließen” angezeigt, der Sie zu unserem digitalen Vertragscenter weiterleitet. Befolgen Sie die dortigen Anweisungen zur Gänze (i.d.R. ist eine Identitätsbestätigung via Videochat oder Post-Ident erforderlich, bei der Abholung im Ladengeschäft entfällt dies zu Gunsten einer Ausweisprüfung vor Ort durch das Ladenpersonal). Nach Versand oder Abholung der Ware beginnt der<br>monatliche Einzug der Raten per Lastschrift-Verfahren.\n\nBitte haben Sie Verständnis, dass der Ratenkredit nur von Privatpersonen genutzt werden kann, und dass bei einer Bestellung per Santander Ratenkredit weder Gutschriften verrechnet noch von der Rechnungsadresse abweichende Lieferadressen angeben werden können.",
+      "credit_details_text": "Letzte Rate kann jeweils abweichen. Bonität vorausgesetzt. Darlehensgeber ist die Santander Consumer Bank AG, Santander-Platz 1, 41061 Mönchengladbach. Obiges Beispiel bildet zugleich das 2/3-Beispiel nach § 6a Abs. 4 PAngV.",
+      "show_checkout_wrapper": "Checkout with finance express",
+      "show_more_info": "Further information"
+    },
+    "button": {
+    },
+    "dropdown-calculator": {
+    },
+    "text": {
+    },
+    "two-fields-calculator": {
+    }
+  }
+}

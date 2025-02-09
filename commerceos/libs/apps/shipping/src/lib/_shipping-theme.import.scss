@@ -1,0 +1,17 @@
+@use 'pe_theming' as pet;
+@use './root/shipping-root-theme.component' as root;
+@use './routes/settings-shipping-theme' as setting;
+@use './routes/packaging-slip/packaging-slip-theme.component' as packaging_slip;
+@use './routes/connect/shipping-connect.component' as connect;
+@use './routes/shipping-profiles/browse-products/products/shipping-products.component' as products;
+
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+
+  @include root.color($color-config);
+  @include setting.color($color-config);
+  @include packaging_slip.color($color-config);
+  @include connect.color($color-config);
+  @include products.color($color-config);
+}

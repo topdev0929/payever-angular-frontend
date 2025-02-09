@@ -1,0 +1,11 @@
+<pe-carousel>
+  <carousel [interval]="false">
+    <slide *ngFor="let image of carouselImage">
+      <img [src]="image" alt="Sample Text">
+    </slide>
+  </carousel>
+</pe-carousel>
+
+<div class="row">
+  <a class="btn btn-primary" (click)="showCarousel()">Show Fullscreen Carousel</a>
+</div>

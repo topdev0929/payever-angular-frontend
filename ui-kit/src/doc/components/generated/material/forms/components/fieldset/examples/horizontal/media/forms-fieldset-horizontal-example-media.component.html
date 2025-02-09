@@ -1,0 +1,64 @@
+<div class="doc-container doc-container-black">
+  <div class="form-table">
+    <div class="form-fieldset form-fieldset-horizontal dark form-fieldset-media-controls">
+      <div class="row">
+        <div class="col-xs-4">
+          <div class="slider-wrapper">
+            <span class="slider-wrapper-label">Opacity</span>
+            <mat-slider min="0" max="100" step="1" [ngModel]="sliderWithLabelValue"
+                        (input)="sliderWithLabelValue = $event.value"></mat-slider>
+            <div class="slider-wrapper-value">{{ sliderWithLabelValue }} %</div>
+          </div>
+        </div>
+        <div class="col-xs-1">
+          <mat-slide-toggle class="mat-slide-toggle-xs" [labelPosition]="'before'">Slide me!</mat-slide-toggle>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">
+          <div class="image-picker image-picker-with-description">
+            <div class="image-picker-container">
+              <div class="image-picker-empty">
+                <svg class="icon icon-16">
+                  <use xlink:href="#icon-plus-thin-16"></use>
+                </svg>
+                <p class="image-picker-empty-label">Add your own image</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <button
+          mat-raised-button
+          color="muted-light"
+          [class.mat-button-xxs]="true"
+          [class.mat-button-no-width]="true"
+          [class.mat-button-menu]="true"
+          [class.mat-button-small-padding]="true"
+          (click)="clicked = !clicked"
+          [matMenuTriggerFor]="menu"
+          (menuClosed)="clicked = !clicked"
+        >
+          <span>Description</span>
+          <svg *ngIf="!clicked" class="icon icon-16"><use xlink:href="#icon-arrow-down-small-16"></use></svg>
+          <svg *ngIf="clicked" class="icon icon-16"><use xlink:href="#icon-arrow-up-small-16"></use></svg>
+        </button>
+        <mat-menu #menu="matMenu"  [overlapTrigger]="false" class="mat-menu-editor-textarea mat-menu-dark-muted mat-menu-fieldset">
+          <div (click)="$event.stopPropagation()">
+            <form class="form-table">
+              <div class="form-fieldset form-fieldset-horizontal dark form-fieldset-space-between">
+                <div class="row">
+                  <div class="col-xs-12 pe-textarea">
+                    <mat-form-field>
+                      <textarea matInput placeholder="Leave a comment"></textarea>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </mat-menu>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,296 @@
+<div class="add-contact" >
+  <div class="add-contact__loader" *ngIf="isLoading">
+    <mat-spinner [strokeWidth]="2" [diameter]="26"></mat-spinner>
+  </div>
+
+  <form [formGroup]="form" [class.loading]="isLoading">
+    <mat-accordion multi>
+      <mat-expansion-panel hideToggle [(expanded)]="isGeneralPanelExpanded">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <div class="flex-space-between">
+              <div>
+                General
+              </div>
+              <div>
+                <svg class="icon" *ngIf="!isGeneralPanelExpanded">
+                  <use xlink:href="#icon-plus-8"></use>
+                </svg>
+                <svg class="icon" *ngIf="isGeneralPanelExpanded">
+                  <use xlink:href="#icon-minus-big-16"></use>
+                </svg>
+              </div>
+            </div>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div>
+          <div class="add-contact__image">
+
+            <img *ngIf="form.value.imageUrl; else defaultImg" [src]="form.value.imageUrl" alt="">
+
+            <ng-template #defaultImg>
+              <div class="add-contact__default-image">
+                <mat-progress-spinner
+                  *ngIf="isLoadingImage"
+                  class="add-contact__spinner mat-spinner-themed"
+                  [strokeWidth]="2"
+                  [value]="uploadProgress"
+                  [diameter]="100"
+                ></mat-progress-spinner>
+                <svg xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 140 140">
+                  <defs>
+                    <linearGradient id="contact-info-icon__a" x1="50%" x2="50%" y1="0%" y2="100%">
+                      <stop offset="0%" stop-color="#A3A9B8"/>
+                      <stop offset="100%" stop-color="#898994"/>
+                    </linearGradient>
+                    <linearGradient id="contact-info-icon__b" x1="50.522%" x2="50.522%" y1="105.31%" y2="-6.354%">
+                      <stop offset="0%" stop-color="#838895"/>
+                      <stop offset="100%" stop-color="#A3AAB8"/>
+                    </linearGradient>
+                  </defs>
+                  <g fill="none">
+                    <circle cx="70" cy="70" r="68.056" stroke="url(#contact-info-icon__a)" stroke-width="3.889"/>
+                    <path fill="url(#contact-info-icon__b)"
+                          d="M73.83 139.897c-1.268.068-2.545.103-3.83.103-1.151 0-2.296-.028-3.434-.083l5.742-.016zM70 0c38.66 0 70 31.34 70 70 0 17.45-6.385 33.408-16.946 45.667-2.63-2.05-5.435-3.286-6.304-3.712-1.365-.667-6.142-3.338-12.967-4.674-6.825-.667-11.602-1.335-15.015-3.338-3.412-2.003-3.412-11.352-3.412-14.69 2.047-2.003 3.412-4.674 4.095-6.01.682-1.335 1.365-9.348 2.047-10.683.683-1.336 2.048-1.336 2.73-2.004 1.365-.667 1.365-3.338 1.365-4.006 0-.668 1.365-5.342 2.048-8.013 0-2.67-1.365-4.674-1.365-4.674l-1.299.636-.066.032s1.365-5.342 2.047-10.016c.683-4.674.683-10.016 0-12.687-.682-2.67-2.047-4.006-2.047-5.342-1.365-1.335-2.73-3.338-4.778-4.674-2.73-.667-5.46-1.335-8.19-2.67-2.73-1.336-6.824-2.671-10.237-2.671-4.095 0-6.142 2.003-8.19 2.003-2.047 0-6.824 1.335-8.19 2.67l-4.094 4.007s-2.048.668-3.413 0c-1.365 1.335-2.73 5.342-3.412 8.013-.683 2.003 0 6.01 0 9.348.682 3.339 1.365 8.68 2.047 10.684 0 0-1.365 0-2.047.667-.683 1.336 0 4.007 0 5.342 0 1.336 2.047 6.01 2.047 8.013s2.048 3.338 2.73 4.006c.683.668 1.365 4.674 2.048 9.348 0 5.342 4.095 8.013 4.095 8.013s.682 10.016-2.73 14.022c-3.413 4.007-11.603 2.671-17.745 5.342-5.627 2.447-10.68 3.213-17.26 8.456C6.646 104.053 0 87.802 0 70 0 31.34 31.34 0 70 0z"/>
+                  </g>
+                </svg>
+              </div>
+            </ng-template>
+            <div class="add-contact__add-media-wrapper">
+              <div class="add-contact__add-media" (click)="fileInput.click()">
+                <svg class="plus-icon">
+                  <use xlink:href="#icon-plus-circle-bold"></use>
+                </svg>
+                <span class="add-contact__add-media-label">Add Media</span>
+                <input #fileInput class="add-contact__upload-input"
+                       type="file"
+                       accept="image/*"
+                       hidden
+                       (change)="addMedia($event)"/>
+              </div>
+
+              <div class="add-contact__status">
+                <div class="add-contact__status-value">{{form.get('status')?.value?.name || 'Status'}}</div>
+                <div class="add-contact__status-btn" [mat-menu-trigger-for]="statusMenu">
+                  <svg class="arrow-icon">
+                    <use xlink:href="#icon-arrow-down-16"></use>
+                  </svg>
+                </div>
+
+                <mat-menu #statusMenu="matMenu" class="dark-mode status-menu" yPosition="below" xPosition="after">
+                  <div *ngFor="let status of statusFields" mat-menu-item class="add-contact__status-option"
+                       (click)="setStatus(status)">
+                    <span class="add-contact__status-option-text">{{status.name}}</span>
+                    <span class="add-contact__status-option-edit" (click)="addStatus($event, status)">Edit</span>
+                  </div>
+                  <div mat-menu-item (click)="addStatus($event)">
+                    <span>Add Status...</span>
+                  </div>
+                </mat-menu>
+              </div>
+            </div>
+          </div>
+          <div class="card-block mb-0">
+            <div class="form-field-wrap">
+              <peb-select selectType="label" animated="true" formControlName="type" label="Type">
+                <peb-select-option *ngFor="let typeOption of typeOptions" [value]="typeOption.name" [label]="typeOption.value"></peb-select-option>
+              </peb-select>
+            </div>
+            <ng-container *ngIf="form.get('type').value === contactTypes.Company">
+              <peb-form-field-input animated="true" label="Company">
+                <input formControlName="company"  type="text">
+              </peb-form-field-input>
+            </ng-container>
+
+            <div class="two-column-row">
+              <div class="form-field-wrap">
+                <peb-form-field-input animated="true" label="First Name" appearance="label"
+                                      [isFieldInvalid]="getFieldValidity('firstName')"
+                                      [errorMessage]="getFieldErrorText('firstName')">
+                  <input formControlName="firstName" type="text">
+                </peb-form-field-input>
+              </div>
+              <div class="form-field-wrap">
+                <peb-form-field-input animated="true" label="Last Name" appearance="label"
+                                      [isFieldInvalid]="getFieldValidity('lastName')"
+                                      [errorMessage]="getFieldErrorText('lastName')">
+                  <input formControlName="lastName" type="text">
+                </peb-form-field-input>
+              </div>
+            </div>
+
+            <div class="two-column-row">
+              <div class="form-field-wrap">
+                <peb-form-field-input animated="true" label="Mobile Phone" appearance="label"
+                                      [isFieldInvalid]="getFieldValidity('mobilePhone')"
+                                      [errorMessage]="getFieldErrorText('mobilePhone')">
+                  <input formControlName="mobilePhone" type="text">
+                  <div class="add-contact__field-suffix" matSuffix *ngIf="!!contact" (click)="telAnchor.click()">
+                    <a style="display: none" [attr.href]="'tel:' + form.get('tel')?.value" #telAnchor></a>
+                    <span>Call</span>
+                  </div>
+                </peb-form-field-input>
+              </div>
+              <div class="form-field-wrap">
+                <peb-form-field-input animated="true" label="Email" appearance="label"
+                                      [isFieldInvalid]="getFieldValidity('email')"
+                                      [errorMessage]="getFieldErrorText('email')">
+                  <input formControlName="email" type="text">
+                  <div class="add-contact__field-suffix" matSuffix *ngIf="!!contact"
+                       [cdkCopyToClipboard]="form.get('email').value">
+                    <span>Copy</span>
+                  </div>
+                </peb-form-field-input>
+              </div>
+            </div>
+            <div class="form-field-wrap">
+              <peb-form-field-input animated="true" label="Homepage" appearance="label">
+                <input formControlName="homepage" type="url">
+                <div class="add-contact__field-suffix" matSuffix *ngIf="!!contact" (click)="visitHomepage()">
+                  <span>Visit</span>
+                </div>
+              </peb-form-field-input>
+            </div>
+            <div class="form-field-wrap">
+              <peb-form-field-input animated="true" label="Street" appearance="label">
+                <input formControlName="street" placeholder="" type="text" pe-google-autocomplete
+                  (address)="addressOn($event)">
+              </peb-form-field-input>
+            </div>
+            <div class="two-column-row">
+              <div class="form-field-wrap">
+                <peb-form-field-input animated="true" label="City" appearance="label">
+                  <input formControlName="city" type="text">
+                </peb-form-field-input>
+              </div>
+              <div class="form-field-wrap">
+                <peb-form-field-input animated="true" label="State" appearance="label">
+                  <input formControlName="state" type="text">
+                </peb-form-field-input>
+              </div>
+            </div>
+
+            <div class="two-column-row">
+              <div class="form-field-wrap">
+                <peb-form-field-input animated="true" label="ZIP" appearance="label">
+                  <input formControlName="zip" type="text">
+                </peb-form-field-input>
+              </div>
+
+              <div class="form-field-wrap">
+                <peb-select animated="true" formControlName="country" selectType="label" label="Country">
+                  <peb-select-option *ngFor="let country of countries" [value]="country.name" [label]="country.name"></peb-select-option>
+                </peb-select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel hideToggle class="additional-fields" [(expanded)]="isAdditionalPanelExpanded">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <div class="flex-space-between">
+              <div>
+                Additional
+              </div>
+              <div>
+                <svg class="icon" *ngIf="!isAdditionalPanelExpanded">
+                  <use xlink:href="#icon-plus-8"></use>
+                </svg>
+                <svg class="icon" *ngIf="isAdditionalPanelExpanded">
+                  <use xlink:href="#icon-minus-big-16"></use>
+                </svg>
+              </div>
+            </div>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="add-contact__additional-info" formArrayName="customFields">
+          <div class="form__row" *ngFor="let field of getCustomFields().controls; let i = index" [formGroupName]="i">
+            <ng-container [ngSwitch]="field.value.fieldType">
+              <ng-container *ngSwitchCase="fieldTypes.Input">
+                <mat-form-field floatLabel="always">
+                  <mat-label>{{ field.value.fieldLabel }}</mat-label>
+                  <input matInput type="text" placeholder="{{ field.value.fieldLabel }}" formControlName="fieldValue">
+                </mat-form-field>
+              </ng-container>
+              <ng-container *ngSwitchCase="fieldTypes.Checkbox">
+                <mat-checkbox formControlName="fieldValue">{{ field.value.fieldLabel }}</mat-checkbox>
+              </ng-container>
+              <ng-container *ngSwitchCase="fieldTypes.Dropdown">
+                <mat-form-field floatLabel="always">
+                  <mat-label>{{ field.value.fieldLabel }}</mat-label>
+                  <mat-select panelClass="add-field__select" disableOptionCentering="true"
+                              placeholder="{{ field.value.fieldLabel }}" formControlName="fieldValue">
+                    <mat-option *ngFor="let option of field.value.defaultValues" [value]="option">
+                      {{ option }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </ng-container>
+              <ng-container *ngSwitchCase="fieldTypes.Number">
+                <mat-form-field floatLabel="always">
+                  <mat-label>{{ field.value.fieldLabel }}</mat-label>
+                  <input matInput type="number" placeholder="{{ field.value.fieldLabel }}" formControlName="fieldValue">
+                </mat-form-field>
+              </ng-container>
+              <ng-container *ngSwitchCase="fieldTypes.Paragraph">
+                <mat-form-field floatLabel="always">
+                  <mat-label>{{ field.value.fieldLabel }}</mat-label>
+                  <textarea matInput rows="10" placeholder="{{ field.value.fieldLabel }}"
+                            formControlName="fieldValue"></textarea>
+                </mat-form-field>
+              </ng-container>
+              <ng-container *ngSwitchCase="fieldTypes.Multiselect">
+                <mat-form-field floatLabel="always">
+                  <mat-label>{{ field.value.fieldLabel }}</mat-label>
+                  <mat-select multiple panelClass="add-field__select add-field__multi-select"
+                              disableOptionCentering="true" placeholder="{{ field.value.fieldLabel }}"
+                              formControlName="fieldValue">
+                    <mat-option *ngFor="let option of field.value.defaultValues" [value]="option">
+                      {{ option }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </ng-container>
+            </ng-container>
+            <div class="form__edit-actions">
+              <div class="form__action-buttons">
+                <div class="form__edit-field" (click)="addNewField(field)">Edit</div>
+                <div class="form__delete-field">
+                  <svg class="icon icon-16" *ngIf="isAdditionalPanelExpanded" (click)="deleteField(field.value)">
+                    <use xlink:href="#icon-minus-circle"></use>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div #customFieldsMenuTrigger [matMenuTriggerFor]="customFieldsMenu"></div>
+
+          <div class="contact__option-button" [matMenuTriggerFor]="optionMenu">
+            <span>Options</span>
+          </div>
+
+          <mat-menu #optionMenu="matMenu" class="dark-mode" yPosition="above">
+            <div mat-menu-item (click)="addNewField()">
+              Add new field
+            </div>
+            <button mat-menu-item (click)="openCustomFieldsMenu()">
+              Choose previous fields
+            </button>
+          </mat-menu>
+
+          <mat-menu #customFieldsMenu="matMenu" class="dark-mode" yPosition="above">
+            <button *ngFor="let option of fieldGroups" mat-menu-item (click)="selectOption(option)">
+              {{ option.name }}
+            </button>
+          </mat-menu>
+
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </form>
+</div>

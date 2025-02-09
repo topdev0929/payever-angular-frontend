@@ -1,0 +1,23 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "baseUrl": "./",
+    "experimentalDecorators": true,
+    "types": [
+      "node",
+      "jasmine"
+    ]
+  },
+  "include": [
+    "./**/*.ts"
+  ],
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts",
+    "**/*.mock.ts",
+    "**/*.stub.ts",
+    "../node_modules/@pe/**/*.spec.ts",
+    "../node_modules/@pe/**/*.mock.ts"
+  ]
+}

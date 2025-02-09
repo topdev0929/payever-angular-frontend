@@ -1,0 +1,13 @@
+<div class="docker-pos">
+
+  <div class="docker-menu">
+
+    <pe-docker-pos-item
+      *ngFor="let item of getItemsList()"
+      [dockerItem]="item"
+      (click)="onSelect(item)"
+      >
+    </pe-docker-pos-item>
+
+  </div>
+</div>

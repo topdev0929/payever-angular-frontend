@@ -1,0 +1,100 @@
+.wrapper {
+  text-align: center;
+}
+.my-panel-dark, .my-panel-light, .my-panel-transparent {
+  .mat-dialog-container {
+    padding: 64px 32px 64px 32px;
+    border-radius: 12px;
+    max-width: 408px;
+    backdrop-filter: blur(50px);
+  }
+
+  h2 {
+    color: white;
+    margin-top: 15px;
+    margin-bottom: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 32px;
+  }
+
+  p {
+    margin-top: 8px;
+    margin-bottom: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: white;
+  }
+
+  .buttons {
+    margin-top: 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    button {
+      height: 32px;
+      border: none;
+      outline: none;
+      padding: 0;
+      border-radius: 8px;
+      margin-top: 8px;
+      max-width: 216px;
+      width: 100%;
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: white;
+      cursor: pointer;
+
+      &.red {
+        background-color: #eb4653;
+        color: white;
+      }
+    }
+  }
+}
+
+.my-panel-dark {
+  .mat-dialog-container {
+    background-color: rgba(36, 39, 46, 0.85);
+  }
+
+  h2, p {
+    color: white;
+  }
+
+  .buttons {
+    button {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+  }
+}
+
+.my-panel-light {
+  .mat-dialog-container {
+    background-color: rgba(255, 255, 255, 0.75);
+  }
+
+  h2, p {
+    color: black;
+  }
+
+  .buttons {
+    button {
+      background-color: #f2f2f2;
+      color: black;
+    }
+  }
+}
+
+.my-panel-transparent {
+  h2, p {
+    color: white;
+  }
+
+  .buttons {
+    button {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $tertiary-button: map.get($color-config, 'tertiary-button');
+
+  .pe-widget-social-table {
+    .style_img {
+      background-color: $tertiary-button;
+    }
+  }
+}

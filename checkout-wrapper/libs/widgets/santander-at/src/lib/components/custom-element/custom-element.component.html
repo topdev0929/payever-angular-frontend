@@ -1,0 +1,34 @@
+<ng-container *ngIf="isReady$ | async">
+  <ng-container *ngIf="type === WidgetTypeEnum.Button">
+    <widget-santander-at-button
+      [amount]="amount"
+      [channelSet]="channelSet"
+      [config]="config"
+      (clicked)="onClicked()"
+      (failed)="onFailed()"></widget-santander-at-button>
+  </ng-container>
+  <ng-container *ngIf="type === WidgetTypeEnum.DropdownCalculator">
+    <widget-santander-at-dropdown-calculator
+      [amount]="amount"
+      [channelSet]="channelSet"
+      [config]="config"
+      (clicked)="onClicked()"
+      (failed)="onFailed()"></widget-santander-at-dropdown-calculator>
+  </ng-container>
+  <ng-container *ngIf="type === WidgetTypeEnum.Text">
+    <widget-santander-at-text
+      [amount]="amount"
+      [channelSet]="channelSet"
+      [config]="config"
+      (clicked)="onClicked()"
+      (failed)="onFailed()"></widget-santander-at-text>
+  </ng-container>
+  <ng-container *ngIf="type === WidgetTypeEnum.TwoFieldsCalculator">
+    <widget-santander-at-two-fields-calculator
+      [amount]="amount"
+      [channelSet]="channelSet"
+      [config]="config"
+      (clicked)="onClicked()"
+      (failed)="onFailed()"></widget-santander-at-two-fields-calculator>
+  </ng-container>
+</ng-container>

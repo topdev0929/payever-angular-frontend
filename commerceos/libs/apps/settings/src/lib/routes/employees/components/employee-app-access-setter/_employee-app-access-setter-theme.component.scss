@@ -1,0 +1,11 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $background: map.get($color-config, 'background');
+
+  .employee-panel__app {
+    .expandable-panel__header {
+        border-bottom-color: $background;
+    }
+  }
+}

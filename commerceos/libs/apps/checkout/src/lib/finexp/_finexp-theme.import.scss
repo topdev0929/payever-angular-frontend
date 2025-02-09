@@ -1,0 +1,16 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $row-background: map.get($color-config, 'row-background');
+  $background: map.get($color-config, 'background');
+
+  .checkout-style-item-menu {
+    background-color: $background;
+    color: $text-color;
+
+    &__option {
+      color: $text-color;
+    }
+  }
+}

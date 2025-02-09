@@ -1,0 +1,40 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $primary: map.get($color-config, 'primary');
+  $skeleton: map.get($color-config, 'skeleton');
+
+  pe-table-skeleton {
+    background: $primary;
+    .skeleton-wrapper {
+      &.is-table-width-scroll {
+        background-color: $primary;
+      }
+      .skeleton-container {
+        background: $primary;
+
+        .skeleton-item {
+          background: $skeleton;
+          &.small-circle,
+          &.square,
+          &.thumbnail-with-name::before,
+          &.thumbnail-with-name::after,
+          &.thumbnail-circle-with-name::before,
+          &.thumbnail-circle-with-name::after {
+            background-color: $skeleton;
+          }
+        }
+      }
+    }
+    .mobile-skeleton-wrapper {
+      background: $primary;
+      .checkbox,
+      .thumbnail,
+      .content::before,
+      .content::after,
+      .button {
+        background-color: $skeleton;
+      }
+    }
+  }
+}

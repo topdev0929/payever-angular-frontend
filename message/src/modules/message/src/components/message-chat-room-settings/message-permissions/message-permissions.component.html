@@ -1,0 +1,68 @@
+<div class="channel-member-permission">
+  <div *ngIf="!owner" [formGroup]="permissionMember">
+    <div class="channel-member-permission__switch">
+      <peb-button-toggle
+        formControlName="sendMessages"
+        label="{{ 'message-app.channel.settings.send-messages' | translate }}"
+        [spacer]="true"
+        labelPosition="before"
+      ></peb-button-toggle>
+    </div>
+    <div class="channel-member-permission__switch">
+      <peb-button-toggle
+        formControlName="sendMedia"
+        label="{{ 'message-app.channel.settings.send-media' | translate }}"
+        [spacer]="true"
+        labelPosition="before"
+      ></peb-button-toggle>
+    </div>
+    <div class="channel-member-permission__switch">
+      <peb-button-toggle
+        formControlName="sendStickers"
+        label="{{ 'message-app.channel.settings.send-stickers' | translate }}"
+        [spacer]="true"
+        labelPosition="before"
+      ></peb-button-toggle>
+    </div>
+    <div class="channel-member-permission__switch">
+      <peb-button-toggle
+        formControlName="sendEmbedLinks"
+        label="{{ 'message-app.channel.settings.embed-links' | translate }}"
+        [spacer]="true"
+        labelPosition="before"
+      ></peb-button-toggle>
+    </div>
+    <div class="channel-member-permission__switch">
+      <peb-button-toggle
+        formControlName="addMembers"
+        label="{{ 'message-app.channel.settings.add-members' | translate }}"
+        [spacer]="true"
+        labelPosition="before"
+      ></peb-button-toggle>
+    </div>
+    <div class="channel-member-permission__switch">
+      <peb-button-toggle
+        formControlName="pinMessages"
+        label="{{ 'message-app.channel.settings.pin-message' | translate }}"
+        [spacer]="true"
+        labelPosition="before"
+      ></peb-button-toggle>
+    </div>
+    <div class="channel-member-permission__switch">
+      <peb-button-toggle
+        formControlName="changeGroupInfo"
+        label="{{ 'message-app.channel.settings.change-group-info' | translate }}"
+        [spacer]="true"
+        labelPosition="before"
+      ></peb-button-toggle>
+    </div>
+
+    <button
+      class="channel-member-permission__danger-button"
+      (click)="dismissMember()">{{ 'message-app.channel.settings.dismiss-admin' | translate }}</button>
+  </div>
+  <div class="channel-member-permission_owner" *ngIf="owner">
+    <p>{{ 'message-app.channel.settings.owner-protect' | translate }}</p>
+  </div>
+</div>
+

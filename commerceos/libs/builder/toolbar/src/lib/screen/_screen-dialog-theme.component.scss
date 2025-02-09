@@ -1,0 +1,23 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $active-button: map.get($color-config, 'active-button');
+  $confirm: map.get($color-config, 'confirm');
+  $active-text: map.get($color-config, 'active-text');
+  $text-color: map.get($color-config, 'text-color');
+
+.peb-screen-dialog {
+    .screen {
+        &__item {
+            color: $text-color;
+            &:hover {
+                background-color: $active-button;
+            }
+            &.active {
+                background-color: $confirm;
+                color: $active-text;
+            }
+        }
+    }
+}
+}

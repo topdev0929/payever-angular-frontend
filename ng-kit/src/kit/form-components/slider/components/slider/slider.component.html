@@ -1,0 +1,15 @@
+<div class="slider-wrapper">
+  <span *ngIf="label" class="slider-wrapper-label" [class.text-danger]="errorMessage && isErrorState" [innerHtml]="label"></span>
+  <mat-slider [class.mat-slider-error]="isErrorState"
+              [displayWith]="formatValueLabelFunction"
+              [formControl]="formControl"
+              [max]="max"
+              [min]="min"
+              [step]="step"
+              [tabIndex]="tabIndex"
+              [thumbLabel]="thumbLabel"
+              (input)="onInput($event)"
+              (change)="onValueChange($event)"
+  ></mat-slider>
+  <div class="slider-wrapper-value" *ngIf="showValueLabel">{{ valueLabel }}</div>
+</div>

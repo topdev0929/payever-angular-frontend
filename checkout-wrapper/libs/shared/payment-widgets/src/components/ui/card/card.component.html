@@ -1,0 +1,40 @@
+<finexp-ui-card-style></finexp-ui-card-style>
+<ng-container *ngIf="!isRefreshing">
+  <div class="pe-hidden-for-modal">
+    <ng-template #modalContentTemplate>
+      <button
+        (click)="close()"
+        class="pe-widget-modal-close-icon"
+        type="button">
+        <mat-icon
+          class="icon icon-16"
+          svgIcon="close-16"></mat-icon>
+      </button>
+      <ng-container *ngIf="asModal">
+        <finexp-ui-shadow-root-wrapper>
+          <ng-container *ngTemplateOutlet="cardContent"></ng-container>
+        </finexp-ui-shadow-root-wrapper>
+      </ng-container>
+    </ng-template>
+  </div>
+
+  <div
+    *ngIf="!asModal"
+    #peWidgetCard
+    [style.border-color]="borderColor"
+    [style.background-color]="backgroundColor"
+    [style.max-width.px]="maxWidth"
+    [style.min-width.px]="minWidth"
+    (resized)="onResize($event)"
+    class="pe-widget-card">
+    <ng-container *ngTemplateOutlet="cardContent"></ng-container>
+  </div>
+</ng-container>
+<ng-template #cardContent>
+  <div
+    #wrapperContent
+    class="wrapper-content"
+    (resized)="onContentResize($event)">
+    <ng-content></ng-content>
+  </div>
+</ng-template>

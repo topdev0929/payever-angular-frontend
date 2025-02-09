@@ -1,0 +1,31 @@
+  <div class="pos-product-list top-bar-wrapper">
+    <div class="top-bar-container">
+      <div class="left-buttons">
+        <button (click)="showAmountCheckout()" class="button"><img src="assets/icons/amount.png" alt="amount"/></button>
+        <button (click)="showQrClicked()"  class="button"><img src="assets/icons/qr.png" alt="qr"/></button>
+      </div>
+      <div class="right-buttons">
+        <button (click)="showCartClicked()" [class.not-empty]="isCartNotEmpty$ | async" class="button cart-button">
+          <img src="assets/icons/cart.png" alt="cart" />
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="product-list-container">
+    <div class="product-list-wrapper">
+      <div
+        class="product-list-item"
+        *ngFor="let item of products; trackBy: trackByProductId"
+        (click)="onProductClicked(item)"
+      >
+        <div class="product-list-item__image">
+          <img [src]="item.image" [alt]="item.name">
+        </div>
+        <div class="product-list-item__info">
+          <div class="product-list-item__title">{{item.name}}</div>
+          <div class="product-list-item__price">{{item.currency}} {{item.price.toFixed(2)}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+

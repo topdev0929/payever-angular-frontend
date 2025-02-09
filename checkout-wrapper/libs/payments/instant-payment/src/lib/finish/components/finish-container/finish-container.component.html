@@ -1,0 +1,24 @@
+<instant-payment-finish-container-style></instant-payment-finish-container-style>
+<instant-payment-shared-finish
+  [errorMessage]="errorMessage"
+  [embeddedMode]="embeddedMode"
+  [merchantMode]="merchantMode"
+  [asSinglePayment]="asSinglePayment"
+  [nodeResult]="paymentResponse"
+  [showCloseButton]="showCloseButton"
+  [isLoading]="!paymentResponse && !errorMessage"
+  (cleanUp)="cleanUp()"
+  (close)="close()"
+  (closeButtonClicked)="close()"
+  (changePaymentMethod)="changePayment($event)"
+  (tryAgain)="tryAgain()"
+  [template]="wizard"
+  [showTemplate]="isShowWizardContainer"></instant-payment-shared-finish>
+
+<ng-template #wizard>
+  <div *ngIf="isShowWizardContainer" class="wizard-container-wrapper pe-payment-micro">
+    <div #form>
+      <div id="XS2A-Form" [attr.data-xs2a]="wizardSessionKey$ | async"></div>
+    </div>
+  </div>
+</ng-template>

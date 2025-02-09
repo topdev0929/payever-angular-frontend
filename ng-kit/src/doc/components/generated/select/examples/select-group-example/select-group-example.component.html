@@ -1,0 +1,6 @@
+<form novalidate [formGroup]="form">
+  <pe-select [placeholder]="'Select city'"
+             [formControlRef]="form.get('city')"
+             [options]="citiesOptions"
+             [optionGroups]="countryGroup"></pe-select>
+</form>

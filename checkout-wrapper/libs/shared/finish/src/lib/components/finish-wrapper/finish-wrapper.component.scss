@@ -1,0 +1,71 @@
+@import '../../../../../styles/assets/ui-kit-styles/pe_variables';
+
+.subheading {
+  color: $color-grey-1;
+  font-size: 14px;
+  line-height: 130%;
+  margin-bottom: 12px;
+}
+
+.processing-note {
+  line-height: 130%;
+  font-size: 11px;
+}
+
+.finish-wrapper-content {
+  & > p:last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+.processing-request-loader {
+  position: relative !important;
+  min-height: 10px;
+  margin-top: 20px;
+}
+
+.checkout-sdk-finish-modal-mode-container {
+  z-index: 10000;
+  background: var(--checkout-page-background-color, $color-white);
+
+  .bg-container {
+    background: #f7f7f7;
+    padding: 75px 0;
+    margin-bottom: 11px;
+
+    &.is-fit-content {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .valign {
+      position: relative !important;
+
+      &.is-fit-content {
+        transform: none;
+      }
+
+      text-align: center;
+      .finish-wrapper-content {
+        max-width: $screen-xs;
+        width: 100%;
+        display: inline-block;
+      }
+    }
+  }
+
+  .button-group {
+    text-align: center;
+    margin-top: $grid-unit-y * 3;
+
+    button {
+      margin-right: $grid-unit-x;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

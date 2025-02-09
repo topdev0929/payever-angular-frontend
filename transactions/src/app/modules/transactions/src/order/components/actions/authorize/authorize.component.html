@@ -1,0 +1,51 @@
+<or-action-modal [close$]="close$"
+                 [heading]="(order._isPaymill ? 'form.charge.heading' : 'form.invoice.heading') | translate"
+                 [buttons]="modalButtons"
+                 [loading]="loading"
+                 class="dark"
+>
+  <div class="inner-padding" *ngIf="error">
+    <div class="text-danger" [innerHtml]="error"></div>
+  </div>
+  <form novalidate (ngSubmit)="onSubmit()" [formGroup]="form" *ngIf="form !== null">
+    <div class="inner-padding">
+      <div *ngIf="!order._isPaymill" [innerHtml]="'form.invoice.note' | translate"></div>
+      <div *ngIf="order._isPaymill" [innerHtml]="'form.charge.note' | translate"></div>
+    </div>
+    <div class="form-table" *ngIf="!order._isPaymill && !order._isPayex && !order._isSwedbank">
+      <fieldset class="transparent-form">
+        <div class="clearfix">
+          <div class="col-xs-12 col-sm-6" [ngClass]="{'has-error': form.get('customerId').errors, 'filled': form.get('customerId').value}">
+            <input class="form-control fs-hide"
+                   id="input_customer_id"
+                   placeholder="{{ 'form.invoice.labels.customer_id' | translate }}"
+                   formControlName="customerId"
+                   type="text">
+            <label for="input_customer_id">{{ 'form.invoice.labels.customer_id' | translate }}</label>
+            <span class="error small" [innerHtml]="form.get('customerId').errors" *ngIf="form.get('customerId').errors"></span>
+          </div>
+          <div class="col-xs-12 col-sm-6 filled" [ngClass]="{'has-error': form.get('invoiceDate').errors}">
+            <input class="form-control fs-hide"
+                   id="input_invoice_date"
+                   placeholder="{{ 'form.invoice.labels.invoice_date' | translate }}"
+                   type="text"
+                   value="{{ currentDate }}"
+                   #invoiceDateInput>
+            <label for="input_invoice_date">{{ 'form.invoice.labels.invoice_date' | translate }}</label>
+            <span class="error small" [innerHtml]="form.get('invoiceDate').errors" *ngIf="form.get('invoiceDate').errors"></span>
+          </div>
+          <div class="col-xs-12" [ngClass]="{'has-error': form.get('invoiceId').errors, 'filled': form.get('invoiceId').value}">
+            <input class="form-control fs-hide"
+                   id="input_invoice_id"
+                   placeholder="{{ 'form.invoice.labels.invoice_id' | translate }}"
+                   formControlName="invoiceId"
+                   type="text">
+            <label for="input_invoice_id">{{ 'form.invoice.labels.invoice_id' | translate }}</label>
+            <span class="error small" [innerHtml]="form.get('invoiceId').errors" *ngIf="form.get('invoiceId').errors"></span>
+          </div>
+        </div>
+      </fieldset>
+      <input type="hidden" formControlName="invoiceDate">
+    </div>
+  </form>
+</or-action-modal>

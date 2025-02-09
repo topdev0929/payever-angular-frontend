@@ -1,0 +1,26 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../dist/app",
+    "types": [
+      "node",
+      "swiper"
+    ],
+    "paths": {
+      "@pe/finexp": ["src/modules/finexp/src"]
+    }
+  },
+  "include": [
+    "**/*.ts",
+  ],
+  "exclude": [
+    "**/*test.ts",
+    "**/*.spec.ts",
+    "node_modules",
+    "tmp",
+    "types",
+    "**/*.stub*",
+    "dist/**",
+    "dist-libs",
+  ]
+}

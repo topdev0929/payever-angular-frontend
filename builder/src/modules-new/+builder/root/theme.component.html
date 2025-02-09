@@ -1,0 +1,66 @@
+<pe-editor
+  [source]="themeStore.activePage$ | async"
+  [activeLogo]="activeLogo$ | async"
+  [productWidgetSources]="activePageType !== PebPageType.Master ? (cachedPageProductWidgets$ | async) : null"
+  (documentChanged)="onPageChange($event)"
+  (applyMasterChanges)="applyMasterChanges($event)"
+  (changeReplicaMergeStatus)="changeReplicaMergeStatus($event)"
+  (togglePageType)="onTogglePagesType()"
+>
+  <pe-builder-navbar-top
+    *peEditorNavbarDef="let editor = editor; let pageStore = document; let registry = registry"
+    [editor]="editor"
+    [pageStore]="pageStore"
+    [pages]="themeStore.pagesCollectionSubject$ | async"
+    (undo)="pageStore.undo()"
+    (redo)="pageStore.redo()"
+    (togglePagesType)="onTogglePagesType()"
+  ></pe-builder-navbar-top>
+
+  <pe-builder-navbar-controls
+    *peEditorNavbarDef="let editor = editor; let pageStore = document; let registry = registry"
+    [editor]="editor"
+    [pageStore]="pageStore"
+    [registry]="registry"
+    [pageRoutings]="pageRoutings$ | async"
+    [theme]="themeStore.theme$ | async"
+  ></pe-builder-navbar-controls>
+
+  <peb-ui-pages-list
+    *peEditorSidebarDef="let document = document; position: 'left'"
+    [theme]="themeStore.theme$ | async"
+    [activeType]="activePageType"
+    [activePage]="(themeStore.activePage$ | async).id"
+    (createPage)="onCreatePage($event)"
+    (selectPage)="onPageSelect($event)"
+    (copyPage)="onCopyPage($event)"
+    (deletePage)="onDeletePage($event)"
+  ></peb-ui-pages-list>
+
+  <ng-container *peEditorSidebarDef="let editor = editor; let document = document; position: 'right'">
+    <ng-container [ngSwitch]="(activeComponent$ | async)?.type">
+      <!-- <ng-container *ngSwitchCase="PebElementType.Image">
+        <peb-ui-media-sidebar
+          [pageStore]="document"
+          [editor]="editor"
+          [mediaSidebarApi]="mediaSidebarApi"
+          type="image"
+        ></peb-ui-media-sidebar>
+      </ng-container>
+      <ng-container *ngSwitchCase="PebElementType.Video">
+        <peb-ui-media-sidebar
+          [pageStore]="document"
+          [editor]="editor"
+          [mediaSidebarApi]="mediaSidebarApi"
+          type="video"
+        ></peb-ui-media-sidebar>
+      </ng-container> -->
+      <ng-container *ngSwitchDefault>
+        <peb-ui-document-tree
+          [document]="document.state$ | async"
+          [editor]="editor"
+        ></peb-ui-document-tree>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</pe-editor>

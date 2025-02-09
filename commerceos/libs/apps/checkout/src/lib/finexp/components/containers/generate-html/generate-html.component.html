@@ -1,0 +1,19 @@
+<pe-checkout-modal
+  [rightSideActions]="modalActions"
+  [title]="title"
+  [width]="'450px'">
+  <div class="generate-box full-width-pe-info-box">
+    <div class="content">
+<!--      we need to leave it in one line, because 'white-space: pre-wrap' will add spaces around -->
+      <div class="generated-code"><span class="generated-code__title">{{ 'finexp.channels.generateHtml.title' | translate }}</span><span class="generated-code__snippet">{{formattedCode}}</span></div>
+    </div>
+
+    <button
+      class="generate-box__button" 
+      [class.generate-box__button--active]="copied$ | async"
+      (click)="onCopyClick()"
+    >
+        {{ ((copied$ | async) ? 'finexp.channels.generateHtml.copied' : 'finexp.channels.generateHtml.copy') | translate }}
+    </button>
+  </div>
+</pe-checkout-modal>

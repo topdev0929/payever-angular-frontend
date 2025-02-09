@@ -1,0 +1,16 @@
+<div *ngIf="locales" class="dropdown pull-right locale-switcher" [ngClass]="{'dropup': dropUp}">
+  <button class="btn btn-default btn-link dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <pe-locale-flag [code]="currentLocale.code"></pe-locale-flag>
+  </button>
+  <div class="dropdown-menu locales-switcher-menu">
+    <ul>
+      <li *ngFor="let locale of locales">
+        <span (click)="changeLocale(locale)" class="dropdown-item text-left locales-switcher-item">
+          <pe-locale-flag [code]="locale.code" *ngIf="!dropUp"></pe-locale-flag>
+          <span>{{ locale.name }}</span>
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>
+

@@ -1,0 +1,20 @@
+<div class="upload-card-container">
+  <div class="upload-card">
+    <div class="upload-card__title">Upload media</div>
+    <div class="upload-card__desc">Choose platform or drag & drop here.</div>
+    <button class="upload-card__btn upload-card__device" (click)="fileSelector.click()">
+      <input #fileSelector accept="image/*, video/*" type="file" style="display: none;" multiple
+             (change)="uploadMedia($event)">
+      <span>From Device</span>
+    </button>
+    <button class="upload-card__btn upload-card__dropbox">
+      <span>From Dropbox</span>
+    </button>
+    <button class="upload-card__btn upload-card__google">
+      <span>From Google Drive</span>
+    </button>
+    <button class="upload-card__btn cancel" mat-dialog-close>
+      <span>Cancel</span>
+    </button>
+  </div>
+</div>

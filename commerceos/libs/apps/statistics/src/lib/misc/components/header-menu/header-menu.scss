@@ -1,0 +1,121 @@
+.header-menu-container {
+  max-width: 230px;
+  max-height: 136px;
+  border-radius: 12px;
+  box-sizing: border-box;
+  width: 100vw;
+  margin-top: 2vh;
+  padding: 16px 8px;
+  border-style: solid;
+  border-width: 1px;
+  backdrop-filter: blur(25px);
+  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2);
+
+  &__header {
+    width: 100%;
+    display: flex;
+    height: 32px;
+    font-family: Roboto, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    margin-bottom: 8px;
+    &-item {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 8px;
+
+      &:first-of-type {
+        justify-content: flex-start;
+      }
+
+      .title {
+        font-family: 'Roboto', sans-serif;
+        font-size: 22px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: center;
+        color: #ffffff;
+        height: fit-content;
+      }
+      .cancel-btn {
+        border: 0;
+        outline: 0;
+        padding: 0;
+        background-color: rgba(0, 0, 0, 0);
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: right;
+        color: #78787d;
+        margin-left: 12px;
+      }
+      .done-btn {
+        border: 0;
+        outline: 0;
+        padding: 0;
+        background-color: rgba(0, 0, 0, 0);
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: right;
+        color: #0091df;
+        margin-right: 12px;
+      }
+    }
+  }
+  &__content {
+    margin-top: 0;
+
+    .menu-item {
+      cursor: pointer;
+      display: flex;
+      height: 32px;
+      max-width: 214px;
+      align-items: center;
+      padding: 0 8px;
+      border-radius: 7px;
+      border-bottom: none;
+      box-sizing: border-box;
+
+      &__text {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        font-family: 'Roboto', sans-serif;
+        font-stretch: normal;
+        font-style: normal;
+        letter-spacing: normal;
+        color: #ffffff;
+        max-width: 183px;
+        max-height: 20px;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: normal;
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+.close-icon {
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 5px;
+}

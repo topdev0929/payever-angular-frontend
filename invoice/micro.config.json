@@ -1,0 +1,10 @@
+{
+  "code": "invoice",
+  "dashboardInfo": {
+    "title": "dashboard.apps.invoice",
+    "icon": "#icon-apps-invoice"
+  },
+  "tag": "<invoice-root></invoice-root>",
+  "url": "/business/{uuid}/invoice",
+  "bootstrapScriptUrl": "https://invoice-frontend.devpayever.com/micro.{hash}.js"
+}

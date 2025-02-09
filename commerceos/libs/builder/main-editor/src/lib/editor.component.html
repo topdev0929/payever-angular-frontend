@@ -1,0 +1,57 @@
+<div class="post-toolbar peb-main-editor">
+  <main class="container">
+    <section class="sidebar sidebar--left" [@openClose]="(showPages$ | async) ? 'openLeft' : 'closeLeft'">
+      <peb-page-list></peb-page-list>
+    </section>
+
+    <section class="sidebar sidebar--left" [@openClose]="(showMasterPages$ | async) ? 'openLeft' : 'closeLeft'">
+      <peb-master-page-list></peb-master-page-list>
+    </section>
+
+    <section
+      pebAutoHideScrollBar
+      class="sidebar sidebar--additional-left"
+      [@openClose]="(sidebarsActivityLayers$ | async) ? 'openLeft' : 'closeLeft'"
+    >
+      <pe-layers></pe-layers>
+    </section>
+
+    <div class="content-wrap">
+      
+      <section class="toolbar">
+        <router-outlet name="toolbar"></router-outlet>
+      </section>
+
+      <peb-master-page-toolbar *ngIf="isMasterPage$ | async"></peb-master-page-toolbar>
+
+      <section #contentContainer id="content">
+        <peb-editor-renderer></peb-editor-renderer>
+        <ng-template #contentSpinner>
+          <div class="spinner"></div>
+        </ng-template>
+        <ng-container #contentContainerSlot></ng-container>
+      </section>
+    </div>
+
+    <section
+      class="sidebar sidebar--right"
+      [@openClose]="
+        (sidebars$ | async).inspector
+          ? deviceService.isMobile && !deviceService.landscape ? 'openBottom' : 'openRight'
+          : deviceService.isMobile && !deviceService.landscape ? 'closeBottom' : 'closeRight'
+      "
+    >
+      <peb-editor-right-sidebar></peb-editor-right-sidebar>
+    </section>
+  </main>
+</div>
+<router-outlet></router-outlet>
+
+<ng-template #skeletonTemplate>
+  <div class="pages">
+    <div *ngFor="let i of skeletonPages" class="page page--skeleton" onclick="">
+      <div class="page__preview"></div>
+      <div class="page__name"></div>
+    </div>
+  </div>
+</ng-template>

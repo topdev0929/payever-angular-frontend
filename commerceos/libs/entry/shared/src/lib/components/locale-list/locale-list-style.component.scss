@@ -1,0 +1,9 @@
+@use 'pe_variables' as pe_variables;
+
+.pe-locale-switcher {
+  .overlay-widget-container {
+    @media (max-width: pe_variables.$viewport-breakpoint-xs-2) {
+      border: none;
+    }
+  }
+}

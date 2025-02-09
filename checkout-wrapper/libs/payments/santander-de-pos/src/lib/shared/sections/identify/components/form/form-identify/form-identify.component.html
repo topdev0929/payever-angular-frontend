@@ -1,0 +1,86 @@
+<p
+  *ngIf="formGroup.invalid && isSubmitted && !editMode"
+  class="small text-danger"
+  i18n="@@payment-santander-de-pos.inquiry.identify.textDanger">
+  Danger
+</p>
+
+<div class="identify-wrap">
+  <div class="subhead-3 title">
+    <svg
+      class="icon icon-32"
+      style="margin-top: -6px;">
+      <use xlink:href="#icon-profile-badge2"></use>
+    </svg>
+    &nbsp;&nbsp;
+    <span i18n="@@payment-santander-de-pos.inquiry.identify.title"> Personal details </span>
+  </div>
+
+  <p class="pe-payment-text small-text">
+    {{ merchantMode ? translates.pleaseProvideDocsMerchant : translates.pleaseProvideDocs }}
+  </p>
+
+  <files-picker
+    [nodeFormOptions]="options"
+    [formControl]="docsMarkAsUploadedControl"
+    [identificationType]="idType$ | async"
+    [docOtherType]="docsOtherType$ | async"
+    (changeIdentificationType)="changeIdType($event)"
+    (changeOtherDocType)="changeOtherType($event)"
+    (filesReady)="onFilesReady($event)"
+    (sendDocsRequired)="onSendDocsRequired($event)"></files-picker>
+
+  <div class="subhead-3">
+    <svg class="icon icon-24"><use xlink:href="#icon-shield-checked"></use></svg>
+    <span i18n="@@payment-santander-de-pos.inquiry.identify.safetyNote"> Safety note </span>
+  </div>
+
+  <p
+    class="pe-payment-text small-text agreement-details"
+    i18n="@@payment-santander-de-pos.inquiry.identify.agreementDetails">
+    Agreement details
+  </p>
+
+  <div class="text-center">
+    <p
+      *ngIf="isShowSavedSign"
+      i18n="@@payment-santander-de-pos.inquiry.identify.dataSaved">
+      Data saved
+    </p>
+    <ng-container
+      *ngIf="{
+      isUploadingFiles: isUploadingFiles$ | async,
+      isSkipButton: isSkipButton$ | async
+    } as vm">
+      <button
+        *ngIf="!isShowSavedSign"
+        mat-button
+        class="mat-button-md mat-button-gradient continue-button"
+        type="button"
+        [disabled]="vm.isUploadingFiles || !filesReady"
+        (click)="onContinue()">
+        <pe-progress-button-content [loading]="vm.isUploadingFiles">
+          <span
+            *ngIf="!(idPassed && !isExpandAll)"
+            i18n="@@payment-santander-de-pos.inquiry.identify.actions.submitData">
+            Submit data
+          </span>
+          <span
+            *ngIf="idPassed && !isExpandAll"
+            i18n="@@payment-santander-de-pos.inquiry.identify.actions.continue">
+            Continue
+          </span>
+        </pe-progress-button-content>
+      </button>
+      <br />
+      <ng-container *ngIf="vm.isSkipButton">
+        <button
+          class="skip-button"
+          i18n="@@payment-santander-de-pos.inquiry.identify.actions.skip"
+          (click)="skip()">
+          Skip
+        </button>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>

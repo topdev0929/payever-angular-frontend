@@ -1,0 +1,40 @@
+<checkout-sdk-finish-wrapper
+  [buttons]="buttons"
+  [errorMessage]="errorMessage"
+  [iframeCallbackUrl]="getIframeCallbackUrl()"
+  [isLoading]="isLoading || isStatusNew()"
+  [isChangingPaymentMethod]="isChangingPaymentMethod"
+  [embeddedMode]="embeddedMode"
+  [processingTitle]="translations.processingTitle"
+  [processingText]="translations.processingText"
+  [template]="template"
+  (close)="onClose()">
+  <ng-container *ngIf="nodeResult">
+    <checkout-sdk-finish-status-success
+      *ngIf="isStatusSuccess() || isStatusPending()"
+      i18n-title="@@checkout_sdk.default_receipt.finish.order_success.title"
+      title="checkout_sdk.default_receipt.finish.order_success.title"
+      [total]="nodeResult.payment?.total"
+      [currency]="flow?.currency"
+      [storeName]="nodeResult.payment?.businessName || '---'"
+      [createdAt]="nodeResult.createdAt"
+      [billingAddressName]="isPosPayment() ? billingAddressName() : null"
+      [orderId]="orderId"
+      [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"
+      [flowId]="flow?.id"
+      [isPosPayment]="isPosPayment()"></checkout-sdk-finish-status-success>
+
+    <checkout-sdk-finish-status-fail
+      *ngIf="isStatusFail()"
+      i18n-title="@@checkout_sdk.default_receipt.finish.order_fail.title"
+      title="checkout_sdk.default_receipt.finish.order_fail.title"
+      [canChangePaymentMethod]="canChangePaymentMethod()"
+      [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"></checkout-sdk-finish-status-fail>
+
+    <checkout-sdk-finish-status-unknown
+      *ngIf="isStatusUnknown()"
+      [nodeResult]="nodeResult"
+      [orderId]="orderId"
+      [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"></checkout-sdk-finish-status-unknown>
+  </ng-container>
+</checkout-sdk-finish-wrapper>

@@ -1,0 +1,31 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $confirm: map.get($color-config, 'confirm');
+  $background: map.get($color-config, 'background');
+  $box-shadow-color: map.get($color-config, 'box-shadow-color');
+  $text-color: map.get($color-config, 'text-color');
+  $active-button: map.get($color-config, 'active-button');
+  $label-color: map.get($color-config, 'label-color');
+  $icon-background: map.get($color-config, 'icon-background');
+
+  .nav-content {
+    .active {
+      background-color: $confirm;
+    }
+
+    .sidebar-item {
+      color: $text-color;
+
+      &:not(.active):hover {
+        background-color: $active-button;
+      }
+
+    }
+
+    .dialog-ctr mat-dialog-container {
+      box-shadow: 0 2px 8px 0 $box-shadow-color !important;
+      background-color: $background !important;
+    }
+  }
+}

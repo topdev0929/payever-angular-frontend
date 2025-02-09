@@ -1,0 +1,10 @@
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+// TODO: move this styles to ui-kit
+.child-elements-as-rows {
+  @include pe_flex-direction(column);
+  @include pe_align-items(baseline);
+
+  height: 100%;
+  width: 100%;
+}

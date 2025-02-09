@@ -1,0 +1,49 @@
+<div class="divider"></div>
+<div class="button" #menuTrigger="matMenuTrigger" [mat-menu-trigger-for]="leftPaneButtonMenu" (menuClosed)="onMenuClosed()">Import</div>
+<mat-menu #leftPaneButtonMenu="matMenu" backdropClass="pe-data-grid-mat-menu">
+  <div class="menu">
+    <div class="menu-header" (click)="$event.stopPropagation()">
+      <div class="menu-header__title">Import</div>
+      <pf-close-icon (click)="menuTrigger.closeMenu()" class="close-icon"></pf-close-icon>
+    </div>
+    <div class="menu__button" (click)="$event.stopPropagation()">
+      <span (click)="overwrite = !overwrite">Overwrite existing products</span>
+      <div class="toggle">
+        <input type="checkbox" id="toggle" [(ngModel)]="overwrite" />
+        <label for="toggle"><em></em></label>
+      </div>
+    </div>
+    <div class="horizontal-divider"></div>
+    <button class="menu__button" (click)="importCSV.emit({ overwrite: overwrite })">
+      <span>Import CSV</span>
+      <pf-help-icon (click)="$event.stopPropagation(); showCSVTooltip = !showCSVTooltip"></pf-help-icon>
+    </button>
+    <div class="horizontal-divider"></div>
+    <button class="menu__button" (click)="importXML.emit({ overwrite: overwrite })">
+      <span>Import XML</span>
+      <pf-help-icon (click)="$event.stopPropagation(); showXMLTooltip = !showXMLTooltip"></pf-help-icon>
+    </button>
+  </div>
+  <div class="menu-tooltip menu-tooltip__csv" [class.active]="showCSVTooltip" (click)="$event.stopPropagation()">
+    <div class="menu-tooltip__content">
+      <span>Please import a CSV file based on this example (</span>
+      <a href="#" (click)="downloadFile($event, 'product.example.valid.csv')">download</a>
+      <span>).</span>
+    </div>
+    <pf-close-icon
+      (click)="$event.stopPropagation(); showCSVTooltip = false"
+      class='close-icon'>
+    </pf-close-icon>
+  </div>
+  <div class="menu-tooltip menu-tooltip__xml" [class.active]="showXMLTooltip" (click)="$event.stopPropagation()">
+    <div class="menu-tooltip__content">
+      <span>Please import a XML file based on this example (</span>
+      <a href="#" (click)="downloadFile($event, 'product.example.valid.xml')">download</a>
+      <span>).</span>
+    </div>
+    <pf-close-icon
+      (click)="$event.stopPropagation(); showXMLTooltip = false"
+      class='close-icon'>
+    </pf-close-icon>
+  </div>
+</mat-menu>

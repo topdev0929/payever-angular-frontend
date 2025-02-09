@@ -1,0 +1,31 @@
+<button mat-button
+        class="mat-button-fit-content"
+        [class.mat-default]="true"
+        [class.mat-button-bold]="true"
+        [matMenuTriggerFor]="mainMenu"
+        (click)="$event.stopPropagation()"
+>
+  <svg class="icon icon-16"><use xlink:href="#icon-triangle-hamburger-16"></use></svg>&nbsp;
+  <span *ngIf="isShowAddText" class="filter-text">{{ 'ng_kit.data_grid.filter.actions.add' | translate }}</span>
+</button>
+<mat-menu #mainMenu="matMenu" panelClass="pe-bootstrap" class="mat-menu-dark" (closed)="onClose()">
+  <ng-template matMenuContent>
+    <span *ngIf="title" class="mat-menu-filter-caption">{{ title }}</span>
+    <div>
+      <ng-container *ngIf="!filterToAdd">
+        <button mat-menu-item
+                *ngFor="let filterSchema of filtersSchema"
+                (click)="onAddFilter($event, filterSchema)"
+                >{{ filterSchema.fieldLabel | translate }}</button>
+      </ng-container>
+      <ng-container *ngIf="filterToAdd">
+        <pe-data-grid-filter-type-container
+          [activeFilters]="activeFilters"
+          [filter]="filterToAdd"
+          [filterSchema]="getFilterSchema(filterToAdd)"
+          (filterAdded)="filterAdded.emit($event)"
+        ></pe-data-grid-filter-type-container>
+      </ng-container>
+    </div>
+  </ng-template>
+</mat-menu>

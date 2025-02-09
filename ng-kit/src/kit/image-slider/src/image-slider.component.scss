@@ -1,0 +1,133 @@
+@import "~swiper/dist/css/swiper.min";
+@import "~@pe/ui-kit/scss/pe_variables";
+
+$prevNextHeight : $pe_hgrid_gutter * 2;
+$prevNextWidth: $pe_vgrid_height * 4;
+$prevNextMarginTopAndBottom: 2 * $margin_adjust;
+$prevNextMarginRightAndLeft: 2 * $margin_adjust;
+$paginationHeight: $pe_vgrid_height * 4;
+
+.main-swiper-container {
+  .button-next, .button-prev {
+    background-color: $color-light-gray-1_rgba;
+    background-image: none;
+    width: $prevNextWidth;
+    height: $prevNextHeight;
+    margin-top: -0.5 * $prevNextHeight;
+
+    svg {
+      width: $prevNextWidth - 20;
+      height: $prevNextHeight - 2*$prevNextMarginTopAndBottom;
+      margin-top: $prevNextMarginTopAndBottom;
+      margin-bottom: $prevNextMarginTopAndBottom;
+      use {
+        color: $color-very-light-gray;
+      }
+    }
+  }
+
+  .button-next {
+    @extend .swiper-button-next; 
+    padding-left: $prevNextMarginRightAndLeft;
+    right: 0px;
+  }
+
+  .button-prev {
+    @extend .swiper-button-prev; 
+    padding-left: $prevNextMarginRightAndLeft;
+    left: 0px;
+  }
+
+  .fitToWidth {
+    width: 100%;
+  }
+
+  .fitToHeight {
+    height: 100%;
+  }
+
+  .swiper-slide {
+    margin: auto;
+    white-space: nowrap;
+    overflow-x: hidden;
+
+    img {
+      margin: auto;
+      display: block;
+      transform: translate(-50%,-50%);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+    }
+
+    .slide-inline-span {
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+  }
+}
+
+#swiper-bottom-space {
+  height: $paginationHeight;
+}
+
+.swiper-pagination {
+  left: 0;
+  width: 100%;
+  height: $paginationHeight;
+  padding: 0.25 * $paginationHeight 0px;
+
+  .swiper-pagination-bullet {
+    margin: 0px $pe_vgrid_height*0.5;
+    background-color: $color-gray;
+  }
+}
+
+
+/* Thumbnails styles */
+
+.gallery-thumbs {
+  height: 5*$pe_vgrid_height;
+  width: 100%;
+
+  button:focus {
+    outline:0; // it removes blue highligh after set focus in Chrome
+  }
+
+  .swiper-wrapper {    
+    transform: initial !important;
+  }
+
+  .swiper-slide {
+    margin: auto;
+    width: 5*$pe_vgrid_height;
+    height: 5*$pe_vgrid_height;
+  }
+
+  .swiper-slider-btn-clickable {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: $color-white;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  img {
+    margin: 0 auto;
+  }
+
+  ul {
+    width: 600%;
+    text-align: center;
+    padding: 0px;
+  }
+
+  li, li div.swiper-slide {
+    display: inline-block;
+    margin-right: $pe_vgrid_height*0.5;
+  }
+}
+

@@ -1,0 +1,24 @@
+<form
+  *ngIf="{ campaignCode: campaignCode$ | async } as vm"
+  class="form-table"
+  [formGroup]="formGroup"
+  analyticsForm>
+  <p
+    *ngIf="!vm.campaignCode"
+    class="small text-danger"
+    i18n="@@santander-se.credit_rates.error.rate_not_selected">
+    Rate not selected
+  </p>
+  <santander-se-rates-edit-list
+    [flowId]="flow.id"
+    [paymentMethod]="paymentMethod"
+    [total]="flow.total"
+    [currency]="flow.currency"
+    [extraDuration]="extraDuration"
+    [initialData]="vm"
+    (hasFetchError)="ratesLoadingError.emit($event)"
+    (selected)="onRateSelected($event)">
+  </santander-se-rates-edit-list>
+  <ssn-form formControlName="ssnForm"> </ssn-form>
+  <terms-form formControlName="termsForm"> </terms-form>
+</form>

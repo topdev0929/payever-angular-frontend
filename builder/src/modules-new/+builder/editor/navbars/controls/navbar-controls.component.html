@@ -1,0 +1,188 @@
+<pe-builder-scroll-toolbar class="builder-editor-navbar">
+  <ng-container [ngSwitch]="activePebElement?.type">
+    <ng-container *ngSwitchCase="PebElementType.Shape">
+      <pe-builder-shape-settings
+        [editor]="editor"
+        [pageStore]="pageStore"
+        [registry]="registry"
+      ></pe-builder-shape-settings>
+    </ng-container>
+    <ng-container *ngSwitchCase="PebElementType.Product">
+      <pe-builder-product-settings
+        *ngFor="let element of productElementsActive; trackBy: trackProduct"
+        [editor]="editor"
+        [pageStore]="pageStore"
+        [registry]="registry"
+      >
+      </pe-builder-product-settings>
+    </ng-container>
+    <ng-container *ngSwitchCase="PebElementType.Carousel">
+      <pe-builder-carousel-settings
+        [editor]="editor"
+        [pageStore]="pageStore"
+        [registry]="registry"
+        [activePebElement]="activePebElement"
+      ></pe-builder-carousel-settings>
+    </ng-container>
+    <ng-container *ngSwitchCase="PebElementType.Text">
+      <peb-ui-text-toolbar
+        [theme]="themeStore.theme$ | async"
+        [page]="themeStore.activePage$ | async"
+        [links]="links"
+        (change)="onPageDataChanged($event)"
+      ></peb-ui-text-toolbar>
+      <pe-builder-element-visibility-toggle
+        [style.margin-left.px]="10"
+        [editor]="editor"
+        [pageStore]="pageStore"
+      ></pe-builder-element-visibility-toggle>
+      <pe-builder-element-pinned-toggle [editor]="editor" [pageStore]="pageStore"></pe-builder-element-pinned-toggle>
+    </ng-container>
+    <ng-container *ngSwitchCase="PebElementType.Amount">
+      <pe-builder-amount-settings
+        [editor]="editor"
+        [pageStore]="pageStore"
+        [registry]="registry"
+      ></pe-builder-amount-settings>
+    </ng-container>
+    <ng-container *ngSwitchCase="PebElementType.Button">
+      <pe-builder-button-settings
+        [editor]="editor"
+        [pageStore]="pageStore"
+        [registry]="registry"
+        [pageRoutes]="links"
+      ></pe-builder-button-settings>
+    </ng-container>
+    <ng-container *ngSwitchCase="PebElementType.Cart">
+      <pe-builder-cart-icon-settings
+        [editor]="editor"
+        [pageStore]="pageStore"
+        [registry]="registry"
+      ></pe-builder-cart-icon-settings>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="PebElementType.Section">
+      <ng-container *ngIf="!isFooter">
+        <ng-container *peFeatureFlag="'add_section'">
+          <pe-builder-navbar-controls-button
+            [disabled]="footerSectionElementActive"
+            [hasDropdownMenu]="false"
+            [label]="'navbar_controls.add_section' | translate"
+            (buttonClick)="onSectionCreate()"
+          >
+          </pe-builder-navbar-controls-button>
+          <mat-divider [vertical]="true"></mat-divider>
+        </ng-container>
+      </ng-container>
+      <pe-builder-element-visibility-toggle
+        [editor]="editor"
+        [pageStore]="pageStore"
+      ></pe-builder-element-visibility-toggle>
+      <pe-builder-section-settings
+        [editor]="editor"
+        [pageStore]="pageStore"
+        [registry]="registry"
+        style="padding: 0 6px;"
+      ></pe-builder-section-settings>
+    </ng-container>
+    <ng-container *ngSwitchCase="PebElementType.Image">
+      <pe-builder-image-settings
+        [editor]="editor"
+        [pageStore]="pageStore"
+        [registry]="registry"
+        [pages]="links"
+      ></pe-builder-image-settings>
+    </ng-container>
+    <ng-container *ngSwitchCase="PebElementType.Logo">
+      <peb-ui-logo-toolbar
+        [activeElement]="editor.activeElement"
+        [pageStore]="pageStore"
+        [registry]="registry"
+      ></peb-ui-logo-toolbar>
+      <pe-builder-element-link-home-toggle
+        [editor]="editor"
+        [pageStore]="pageStore"
+      ></pe-builder-element-link-home-toggle>
+      <pe-builder-element-keep-aspect-toggle
+        [editor]="editor"
+        [pageStore]="pageStore"
+      ></pe-builder-element-keep-aspect-toggle>
+      <pe-builder-element-visibility-toggle
+        [editor]="editor"
+        [pageStore]="pageStore"
+      ></pe-builder-element-visibility-toggle>
+    </ng-container>
+    <ng-container *ngSwitchCase="PebElementType.ProductPage">
+      <peb-ui-product-page-toolbar
+        [activeElement]="editor.activeElement"
+        [pageStore]="pageStore"
+        [registry]="registry"
+      ></peb-ui-product-page-toolbar>
+      <pe-builder-element-keep-aspect-toggle
+        [editor]="editor"
+        [pageStore]="pageStore"
+      ></pe-builder-element-keep-aspect-toggle>
+      <pe-builder-element-visibility-toggle
+        [editor]="editor"
+        [pageStore]="pageStore"
+        [style.margin-left.px]="10"
+      ></pe-builder-element-visibility-toggle>
+      <pe-builder-element-pinned-toggle [editor]="editor" [pageStore]="pageStore"></pe-builder-element-pinned-toggle>
+    </ng-container>
+    <!-- <ng-container *ngSwitchCase="PebElementType.Video">
+      <peb-ui-video-toolbar
+        [theme]="themeStore.theme$ | async"
+        [pageStore]="pageStore"
+        [registry]="registry"
+        [activeElement]="editor.activeElement"
+      ></peb-ui-video-toolbar>
+      <pe-builder-navbar-separator [style.marginLeft.px]="10"></pe-builder-navbar-separator>
+      <pe-builder-element-keep-aspect-toggle
+        [editor]="editor"
+        [pageStore]="pageStore"
+      ></pe-builder-element-keep-aspect-toggle>
+      <pe-builder-element-visibility-toggle
+        [editor]="editor"
+        [pageStore]="pageStore"
+        [style.margin-left.px]="10"
+      ></pe-builder-element-visibility-toggle>
+      <pe-builder-element-pinned-toggle [editor]="editor" [pageStore]="pageStore"></pe-builder-element-pinned-toggle>
+    </ng-container> -->
+    <ng-container *ngSwitchDefault>
+      <peb-ui-page-toolbar
+        [theme]="themeStore.theme$ | async"
+        [page]="themeStore.activePage$ | async"
+        (toolbarInfoChanged)="onPageDataChanged($event)"
+      ></peb-ui-page-toolbar>
+      <pe-builder-section-settings
+        [editor]="editor"
+        [pageStore]="pageStore"
+        [registry]="registry"
+        style="padding: 0 6px;"
+      ></pe-builder-section-settings>
+    </ng-container>
+  </ng-container>
+
+  <div class="button-group right-buttons">
+    <pe-builder-navbar-controls-button
+      class="button"
+      label="Copy"
+      (buttonClick)="onCopy()"
+      [disabled]="!(editor.selectedElements$ | async).length"
+    ></pe-builder-navbar-controls-button>
+
+    <pe-builder-navbar-controls-button
+      class="button"
+      label="Paste"
+      (buttonClick)="onPaste()"
+      [disabled]="!editor.copiedElements?.length"
+    ></pe-builder-navbar-controls-button>
+
+    <pe-builder-navbar-controls-button
+      class="button"
+      (buttonClick)="onDelete()"
+      [disabled]="isDeleteDisabled$ | async"
+      label="Delete"
+    ></pe-builder-navbar-controls-button>
+  </div>
+</pe-builder-scroll-toolbar>

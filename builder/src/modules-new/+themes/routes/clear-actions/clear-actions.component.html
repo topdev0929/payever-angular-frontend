@@ -1,0 +1,37 @@
+<div style="display: flex">
+  <table>
+    <tr>
+      <td>Theme name</td>
+      <td>Clear actions</td>
+    </tr>
+    <tr *ngFor="let theme of themes$ | async">
+      <td>{{ theme.name }}</td>
+      <td>
+        <button
+          mat-button
+          class="add-new mat-raised-button mat-button-xs mat-muted-light mat-button-rounded mat-button mat-button-base mat-muted-white"
+          (click)="clearActions(theme)"
+        >
+          Clear actions
+        </button>
+        <button
+          mat-button
+          class="add-new mat-raised-button mat-button-xs mat-muted-light mat-button-rounded mat-button mat-button-base mat-muted-white"
+          (click)="revertClearActions(theme)"
+        >
+          Revert
+        </button>
+      </td>
+    </tr>
+  </table>
+  <div style="padding-left: 20px;">
+    Response:
+    <div *ngFor="let data of (response$ | async)">
+      <div>Page: {{ data.name }} - {{ data.pageId }}</div>
+      <div>Actions: before {{ data.actions.oldCount }}, after {{ data.actions.newCount }}</div>
+      <br><br>
+    </div>
+  </div>
+</div>
+
+

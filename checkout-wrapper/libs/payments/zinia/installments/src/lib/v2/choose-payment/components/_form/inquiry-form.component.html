@@ -1,0 +1,13 @@
+<form
+  novalidate
+  class="form-table"
+  [formGroup]="formGroup"
+  analyticsForm>
+  <rates-form formControlName="ratesForm"></rates-form>
+  <details-form formControlName="detailsForm"></details-form>
+  <terms-form
+    *ngIf="terms$ | async as terms"
+    formControlName="termsForm"
+    [terms]="terms">
+  </terms-form>
+</form>

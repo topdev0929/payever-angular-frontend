@@ -1,0 +1,61 @@
+<form class="color-picker-form" novalidate [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div>
+    <pe-color-picker [align]="align" [alpha]="firstAlpha" [complex]="firstComplex" [format]="format" [formControlRef]="form.controls['colorPickerFirst']"></pe-color-picker>
+  </div>
+  <div class="clearfix"></div>
+  <br>
+  <div>
+    <pe-color-picker [alpha]="secondAlpha" [align]="align" [complex]="secondComplex" [format]="format" [formControlRef]="form.controls['colorPickerSecond']"></pe-color-picker>
+  </div>
+  <div class="clearfix"></div>
+  <hr>
+
+  <p>
+    <button class="btn btn-sm btn-primary" (click)="align = ColorPickerAlign.Left" type="button">Set align left</button> &nbsp;
+    <button class="btn btn-sm btn-primary" (click)="align = ColorPickerAlign.Right" type="button">Set align right</button>
+  </p>
+  <hr>
+
+  <p>
+    Current format: <strong>{{ format }}</strong>
+  </p>
+  <p>
+    <button class="btn btn-sm btn-primary" (click)="format = ColorPickerFormat.AUTO" type="button">To AUTO format</button> &nbsp;
+    <button class="btn btn-sm btn-primary" (click)="format = ColorPickerFormat.HEX" type="button">To HEX format</button> &nbsp;
+    <button class="btn btn-sm btn-primary" (click)="format = ColorPickerFormat.RGBA" type="button">To RGBA format</button> &nbsp;
+    <button class="btn btn-sm btn-primary" (click)="format = ColorPickerFormat.HSLA" type="button">To HSLA format</button>
+  </p>
+  <hr>
+
+  <p>
+    First alpha: <strong>{{ firstAlpha }}</strong>
+    <br>
+    Second alpha: <strong>{{ secondAlpha }}</strong>
+  </p>
+  <p>
+    <button class="btn btn-sm btn-primary" (click)="firstAlpha = true" type="button">Set first alpha true</button> &nbsp;
+    <button class="btn btn-sm btn-primary" (click)="firstAlpha = false" type="button">Set first alpha false</button> &nbsp;
+    <button class="btn btn-sm btn-primary" (click)="secondAlpha = true" type="button">Set second alpha true</button> &nbsp;
+    <button class="btn btn-sm btn-primary" (click)="secondAlpha = false" type="button">Set second alpha false</button>
+  </p>
+  <hr>
+
+  <p>
+    First complex: <strong>{{ firstComplex }}</strong>
+    <br>
+    Second complex: <strong>{{ secondComplex }}</strong>
+  </p>
+  <p>
+    <button class="btn btn-sm btn-primary" (click)="firstComplex = true" type="button">Set first complex true</button> &nbsp;
+    <button class="btn btn-sm btn-primary" (click)="firstComplex = false" type="button">Set first complex false</button> &nbsp;
+    <button class="btn btn-sm btn-primary" (click)="secondComplex = true" type="button">Set second complex true</button> &nbsp;
+    <button class="btn btn-sm btn-primary" (click)="secondComplex = false" type="button">Set second complex false</button>
+  </p>
+  <hr>
+
+  <p>Form values: <strong>{{ form.value | json }}</strong></p>
+  <div>
+    <button mat-raised-button>Submit</button>
+  </div>
+  <div class="clearfix"></div>
+</form>

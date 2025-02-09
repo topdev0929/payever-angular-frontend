@@ -1,0 +1,10 @@
+@import "../../../../../../../../scss/pe_variables.scss";
+
+:host {
+  display: block;
+  max-width: 400px;
+
+  .example-dark {
+    background-color: $color-black-pe;
+  }
+}

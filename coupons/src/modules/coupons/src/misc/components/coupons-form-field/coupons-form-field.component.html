@@ -1,0 +1,15 @@
+<div class="pe-coupons-form-field__flex">
+  <div class="pe-coupons-form-field__prefix" #prefix [hidden]="!showPrefix">
+    <ng-content select="pe-coupons-form-field-prefix"></ng-content>
+  </div>
+  <div class="pe-coupons-form-field__infix">
+    <ng-content select="pe-coupons-form-field-label"></ng-content>
+    <ng-content></ng-content>
+  </div>
+  <div class="pe-coupons-form-field__suffix" #suffix [hidden]="!showSuffix">
+    <ng-content select="pe-coupons-form-field-suffix"></ng-content>
+  </div>
+</div>
+<div class="pe-coupons-form-field__subscript" #subscript [hidden]="!showSubscript">
+  <ng-content select="pe-coupons-form-field-subscript"></ng-content>
+</div>

@@ -1,0 +1,26 @@
+<form [formGroup]="form" *ngIf="formOptions$ | async as formOptions">
+  <div>
+    <label class="field__label">Element</label>
+    <peb-select class="field-control" formControlName="placeholderElementId" [options]="placeholderElements$|async">
+    </peb-select>
+  </div>
+
+  <div formGroupName="animation" class="form__row_border" *ngIf="formOptions.showKeyframeChange">
+    <div formGroupName="keyframeChange">
+      <label class="group__label">Keyframe</label>
+      <peb-select class="field-control" formControlName="type" [options]="indexChangeTypes">
+      </peb-select>
+
+      <div class="form__row inline" *ngIf="formOptions.showKeyframeNumber">
+        <label class="group__label">Keyframe Number</label>
+        <peb-number-input formControlName="number"></peb-number-input>
+      </div>
+
+      <peb-slide-toggle class="field__slide-toggle" formControlName="slideLoop" *ngIf="formOptions.showKeyframeLoop">
+        Loop
+      </peb-slide-toggle>
+    </div>
+
+  </div>
+
+</form>

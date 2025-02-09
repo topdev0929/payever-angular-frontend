@@ -1,0 +1,80 @@
+<div *ngIf="isFieldsetVisible()"
+     [formGroup]="formGroup"
+     class="form-fieldset"
+     [class.form-fieldset-no-border]="noBorder || formStyle === 'no-border'"
+     [class.form-fieldset-no-border-radius]="noBorderRadius"
+     [class.form-fieldset-no-margin]="noMargin"
+     [class.form-fieldset-horizontal]="orientation === 'horizontal'"
+     [class.dark]="formStyle === 'dark'">
+  <div class="row">
+    <ng-container *ngFor="let field of fields">
+      <div *ngIf="isFieldVisible(field.name)"
+        [ngClass]="(asObservable(field?.fieldSettings) | async)?.classList"
+        [class.form-fieldset-field-readonly]="isFieldReadonly(field)"
+        [class.force-no-transparent]="field.type === 'checkbox' && formStyle === 'transparent' && noBorder"
+        [class.fs-hide]="(asObservable(field?.fieldSettings) | async)?.fullStoryHide">
+        <ng-container [ngSwitch]="field.type">
+          <ng-template *ngSwitchCase="FormFieldType.Input" [ngTemplateOutlet]="inputField" [ngTemplateOutletContext]="getFieldContext(field)"></ng-template>
+          <ng-template *ngSwitchCase="FormFieldType.InputPassword" [ngTemplateOutlet]="inputPasswordField" [ngTemplateOutletContext]="getFieldContext(field)"></ng-template>
+        </ng-container>
+        <pe-tooltip-icon *ngIf="asObservable(field?.tooltipIcon) | async" [config]="asObservable(field?.tooltipIcon) | async"></pe-tooltip-icon>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<!-- Input field -->
+<!-- @deprecated field.nameAttribute. Use field.inputSettings.nameAttribute instead -->
+<!-- @deprecated field.autocompleteAttribute. Use field.inputSettings.autocompleteAttribute instead -->
+<ng-template #inputField let-f="f">
+  <pe-input *ngIf="((asObservable(f.field?.inputSettings) | async) || {}) as inputSettings"
+            [addonAppend]="f.addonAppend$ | async"
+            [addonPrepend]="f.addonPrepend$ | async"
+            [errorMessage]="getFieldError(f.field)"
+            [errorStateMatcher]="errorStateMatcher"
+            [formControlRef]="formGroup.get(f.field.name)"
+            [required]="isFieldRequired(f.field)"
+            [readonly]="isFieldReadonly(f.field)"
+            [blockCopyPaste]="isBlockCopyPaste(f.field)"
+            [scopeQaId]="scopeQaId"
+            [tabIndex]="f.tabIndex$ | async"
+            [placeholder]="translate(inputSettings.placeholder) || f.placeholder"
+            [type]="inputSettings.type"
+            [minLength]="inputSettings.minLength"
+            [maxLength]="inputSettings.maxLength"
+            [numberMin]="inputSettings.numberMin"
+            [numberMax]="inputSettings.numberMax"
+            [numberIsInteger]="inputSettings.numberIsInteger"
+            [showNumberControls]="inputSettings.showNumberControls"
+            [nameAttribute]="inputSettings.nameAttribute || f.field?.nameAttribute"
+            [autocompleteAttribute]="inputSettings.autocompleteAttribute || f.field?.autocompleteAttribute"
+            (valueChange)="executeCallback(inputSettings, 'onValueChange', $event)"
+            (focus)="executeCallback(inputSettings, 'onFocus', $event)"
+            (blur)="executeCallback(inputSettings, 'onBlur', $event)"
+  ></pe-input>
+</ng-template>
+  
+<!-- Password input field -->
+<ng-template #inputPasswordField let-f="f">
+  <pe-input-password *ngIf="((asObservable(f.field?.inputPasswordSettings) | async) || {}) as inputPasswordSettings"
+                     [addonAppend]="f.addonAppend$ | async"
+                     [addonPrepend]="f.addonPrepend$ | async"
+                     [nameAttribute]="'Password'"
+                     [autocompleteAttribute]="'current-password'"
+                     [errorMessage]="getFieldError(f.field)"
+                     [errorStateMatcher]="errorStateMatcher"
+                     [formControlRef]="formGroup.get(f.field.name)"
+                     [placeholder]="translate(inputPasswordSettings.placeholder) || translate((asObservable(f.field?.inputSettings) | async)?.placeholder) || translate(f.placeholder)"
+                     [required]="isFieldRequired(f.field)"
+                     [readonly]="isFieldReadonly(f.field)"
+                     [blockCopyPaste]="isBlockCopyPaste(f.field)"
+                     [scopeQaId]="scopeQaId"
+                     [showPasswordRequirements]="inputPasswordSettings.showPasswordRequirements"
+                     [showForgotPassword]="inputPasswordSettings.showForgotPassword"
+                     [tabIndex]="f.tabIndex$ | async"
+                     (forgotPasswordClick)="executeCallback(inputPasswordSettings.forgotPasswordClick ? inputPasswordSettings : f.field?.inputSettings, 'forgotPasswordClick', $event)"
+                     (valueChange)="executeCallback(inputPasswordSettings.onValueChange ? inputPasswordSettings : f.field?.inputSettings, 'onValueChange', $event)"
+                     (focus)="executeCallback(inputPasswordSettings.onFocus ? inputPasswordSettings : f.field?.inputSettings, 'onFocus', $event)"
+                     (blur)="executeCallback(inputPasswordSettings.onBlur ? inputPasswordSettings : f.field?.inputSettings, 'onBlur', $event)"
+  ></pe-input-password>
+</ng-template>

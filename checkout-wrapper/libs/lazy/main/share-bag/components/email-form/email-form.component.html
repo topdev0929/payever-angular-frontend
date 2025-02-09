@@ -1,0 +1,25 @@
+<div>
+  <form
+    class="qr-share-form form-table"
+    #form="ngForm"
+    [formGroup]="formGroup"
+    (ngSubmit)="submit()">
+    <div class="form-fieldset-new">
+      <mat-form-field>
+        <mat-label>
+          {{ translations.email }}
+        </mat-label>
+        <input
+          matInput
+          formControlName="email"
+          type="text" />
+      </mat-form-field>
+    </div>
+    <ui-button
+      skin="primary"
+      type="submit"
+      (click)="submitBtn()">
+      <span class="button-text">{{ translations.shareEmail }}</span>
+    </ui-button>
+  </form>
+</div>

@@ -1,0 +1,31 @@
+:host {
+  display: block;
+  position: relative;
+  min-width: 30vw;
+  left: 50%;
+  transform: translateX(-50%);
+  @media (max-width: 767px) {
+    width: 80vw;
+  }
+}
+
+.snackbar-wrapper {
+  width: 100%;
+}
+
+.snackbar-close-circle {
+  cursor: pointer;
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  left: 0;
+  position: absolute;
+  top: 2px;
+  background-color: #777;
+  border-radius: 50%;
+  svg {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+  }
+}

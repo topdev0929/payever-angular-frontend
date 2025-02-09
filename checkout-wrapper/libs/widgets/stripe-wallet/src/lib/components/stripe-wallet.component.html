@@ -1,0 +1,25 @@
+<ng-container *ngIf="isReady$ | async">
+  <ng-container
+    *ngIf="
+    isAllowed;
+    else noWidget;
+    ">
+    <stripe-wallet-widget
+      [amount]="amount"
+      [channelSet]="channelSet"
+      [config]="config"
+      [theme]="theme"
+      [cart]="cart"
+      [isDebugMode]="isDebugMode"
+      [paymentMethod]="paymentMethod"
+      (clicked)="onClicked()"
+      (failed)="onFailed()">
+    </stripe-wallet-widget>
+  </ng-container>
+</ng-container>
+
+<ng-template #noWidget>
+  <ng-container *ngIf="error">
+    {{ error }}
+  </ng-container>
+</ng-template>

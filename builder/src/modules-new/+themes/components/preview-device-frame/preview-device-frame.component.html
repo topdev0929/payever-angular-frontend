@@ -1,0 +1,48 @@
+<ng-container [ngSwitch]="type">
+  <ng-container *ngSwitchCase="PebScreen.Desktop">
+    <div class="desktop" [@inOutAnimation]>
+      <div class="desktop__top">
+        <div class="desktop__controls">
+          <div class="desktop__control"></div>
+          <div class="desktop__control"></div>
+          <div class="desktop__control"></div>
+        </div>
+      </div>
+      <div class="desktop__content">
+        <ng-container *ngTemplateOutlet="contentTpl"></ng-container>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="PebScreen.Tablet">
+    <div class="tablet" [@inOutAnimation]>
+      <div class="tablet__controls">
+        <div class="tablet__control"></div>
+      </div>
+      <div class="tablet__content">
+        <div class="tablet__wrapper">
+          <ng-container *ngTemplateOutlet="contentTpl"></ng-container>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="PebScreen.Mobile">
+    <div class="mobile" [@inOutAnimation]>
+      <div class="mobile__controls mobile__controls--top">
+        <div class="mobile__control--top"></div>
+        <div class="mobile__control--top"></div>
+      </div>
+      <div class="mobile__content">
+        <div class="mobile__wrapper">
+        <ng-container *ngTemplateOutlet="contentTpl"></ng-container>
+        </div>
+      </div>
+      <div class="mobile__controls">
+        <div class="mobile__control--bottom"></div>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>
+
+<ng-template #contentTpl>
+  <ng-content></ng-content>
+</ng-template>

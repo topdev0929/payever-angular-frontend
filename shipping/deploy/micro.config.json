@@ -1,0 +1,18 @@
+{
+  "code": "shipping",
+  "dashboardInfo": {
+    "title": "dashboard.apps.shipping",
+    "icon": "icon-commerceos-shipping-32.png"
+  },
+  "tag": "<shipping-app></shipping-app>",
+  "url": "/business/{uuid}/shipping",
+  "bootstrapScriptUrl": "${MICRO_URL_FRONTEND_SHIPPING}/micro.js?{hash}",
+  "innerMicros": {
+    "checkout": {
+      "bootstrapScriptUrl": "${MICRO_URL_FRONTEND_SHIPPING}/checkout-shipping/micro.js?{hash}"
+    },
+    "package-slip": {
+      "bootstrapScriptUrl": "${MICRO_URL_FRONTEND_SHIPPING}/package-slip/micro.js?{hash}"
+    }
+  }
+}

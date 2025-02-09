@@ -1,0 +1,32 @@
+<div class="doc-container-black doc-container-padding-vertical">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <mat-nav-list>
+        <mat-tree [dataSource]="data" [treeControl]="tc" [class.mat-tree-dark]="true">
+          <mat-tree-node class="mat-tree-item" *matTreeNodeDef="let node" matTreeNodeToggle>
+            <div>
+              <span class="mat-tree-text">{{node.name}}</span>
+            </div>
+          </mat-tree-node>
+
+          <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+            <a mat-list-item matTreeNodeToggle class="mat-tree-node mat-tree-item" [class.mat-tree-border-top]="tc2.getLevel(node) === 0">
+              <svg *ngIf="tc2.getLevel(node) !== 0" class="icon icon-16 mat-tree-grey dots-width"><use xlink:href="#icon-dots-v-16"></use></svg>
+              <div class="mat-tree-node-space">
+                <span class="mat-tree-text">{{node.name}}</span>
+                <div class="mat-tree-node-right">
+                  <span class="mat-tree-node-right-item mat-tree-text mat-tree-grey">Variable</span>
+                  <svg *ngIf="!tc.isExpanded(node)" class="icon icon-16 mat-tree-grey"><use xlink:href="#icon-arrow-right-ios-16"></use></svg>
+                  <svg *ngIf="tc.isExpanded(node)" class="icon icon-16 mat-tree-grey"><use xlink:href="#icon-close-bold-12"></use></svg>
+                </div>
+              </div>
+            </a>
+            <ul [hidden]="!tc.isExpanded(node)" class="mat-tree-list" [class.mat-tree-scheme]="tc2.getLevel(node) > 0">
+              <ng-container matTreeNodeOutlet></ng-container>
+            </ul>
+          </mat-nested-tree-node>
+        </mat-tree>
+      </mat-nav-list>
+    </div>
+  </div>
+</div>

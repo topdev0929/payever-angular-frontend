@@ -1,0 +1,15 @@
+@use 'pe_theming' as pet;
+@use './builder-theme/builder-theme-theme.component' as theme;
+@use './builder-view/builder-view-theme.component' as view;
+@use './builder-edit/builder-edit-theme.component' as edit;
+@use './builder-insert/builder-insert-theme.component' as insert;
+@use './builder-integration/builder-integration-theme.component' as builder_integration;
+
+@mixin theme($theme-config) {
+    $color-config: pet.get-color-config-from-theme($theme-config);
+    @include theme.color($color-config);
+    @include view.color($color-config);
+    @include edit.color($color-config);
+    @include insert.color($color-config);
+    @include builder_integration.color($color-config);
+}

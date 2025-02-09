@@ -1,0 +1,6 @@
+@import '../../../../shared/styles/details-section.scss';
+@import '../../../../shared/styles/section-mixin.scss';
+
+.seller-section {
+  @include sectionWithRow();
+}

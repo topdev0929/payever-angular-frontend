@@ -1,0 +1,23 @@
+:host {
+  font-family: Roboto, sans-serif;
+}
+
+.rate-button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #333333;
+  background: #e8e8e8;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  ::ng-deep finexp-ui-santander-icon-short {
+    margin-right: 12px;
+    height: 23px;
+  }
+  &-small {
+    padding: 12px 12px;
+  }
+}

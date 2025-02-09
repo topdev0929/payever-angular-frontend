@@ -1,0 +1,51 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+.ui-theme-card {
+  max-width: $viewport-breakpoint-xs-1;
+  height: $pe_vgrid_height * 30;
+  padding-top: $pe_vgrid_height;
+  border-radius: $border-radius-base;
+  background-color: rgba($color-white, .4);
+  position: relative;
+  margin: 0 auto $pe_vgrid_height * 3 / 2;
+  .card-body {
+    height: $pe_vgrid_height * 22;
+    background-size: cover;
+    background-position: center;
+  }
+  .card-title {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .card-footer {
+    padding-top: $pe_vgrid_height;
+    padding-bottom: $pe_vgrid_height;
+  }
+
+  .card-overlay {
+    position: absolute;
+    z-index: 101;
+    @include payever_absolute();
+    cursor: pointer;
+  }
+
+  .dropdown {
+    position: relative;
+    z-index: 404;
+  }
+
+  .dropdown-menu {
+    left: - floor($pe_vgrid_height * 2 / 3);
+
+    &-right {
+      right: - floor($pe_vgrid_height * 2 / 3);
+      left: auto;
+
+      > ul:before {
+        right: $pe_vgrid_height;
+        left: auto;
+      }
+    }
+  }
+}

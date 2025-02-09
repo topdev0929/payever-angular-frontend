@@ -1,0 +1,47 @@
+<or-action-modal *ngIf="form"
+                 [close$]="close$"
+                 [heading]="'form.verify.heading' | translate"
+                 [buttons]="modalButtons"
+                 [loading]="loading"
+                 class="dark"
+>
+  <div class="inner-padding">
+    <div *ngIf="loading" class="loader_48"></div>
+    <div [class.transparent]="loading">
+      <ng-template [ngTemplateOutlet]="dataRow" [ngTemplateOutletContext]="{ label: 'form.verify.labels.paid' | translate, value: '<strong>' + (order.transaction.amount | currency:order.transaction.currency) + '</strong>' }"></ng-template>
+      <ng-template [ngTemplateOutlet]="dataRow" [ngTemplateOutletContext]="{ label: 'details.billing.name' | translate, value: billingAddressName }"></ng-template>
+      <ng-template [ngTemplateOutlet]="dataRow" [ngTemplateOutletContext]="{ label: 'details.billing.email' | translate, value: order.billing_address.email }"></ng-template>
+      <ng-container *ngIf="birthday">
+        <ng-template [ngTemplateOutlet]="dataRow" [ngTemplateOutletContext]="{ label: 'details.order_details.birthday' | translate, value: birthday }"></ng-template>
+      </ng-container>
+      <ng-template [ngTemplateOutlet]="dataRow" [ngTemplateOutletContext]="{ label: 'details.billing.address' | translate, value: billingAddressLine }"></ng-template>
+    </div>
+  </div>
+  <div class="inner-padding" *ngIf="error">
+    <div class="error">{{ error }}</div>
+  </div>
+  <form novalidate [formGroup]="form" *ngIf="form !== null"  [class.transparent]="loading">
+    <div class="clearfix transparent-nested hidden">
+    </div>
+    <div class="clearfix transparent-nested">
+      <fieldset [class.active]="true">
+        <div class="form-widget form-design">
+          <div>
+            <input id="checkbox_confirm" name="confirm" formControlName="confirm" type="checkbox">
+            <label for="checkbox_confirm" class="white">{{ 'form.verify.labels.confirm' | translate }}</label>
+          </div>
+        </div>
+        <div class="form-widget form-design" *ngIf="isShowSignedField">
+          <div>
+            <input id="checkbox_signed" name="signed" formControlName="signed" type="checkbox">
+            <label for="checkbox_signed" class="white">{{ 'form.verify.labels.signed' | translate }}</label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </form>
+</or-action-modal>
+
+<ng-template #dataRow let-label="label" let-value="value">
+  <div class="mat-list-item-subtitle mat-list-item-subtitle-xs verify-details-line"><span class="text-secondary">{{ label }}: </span> <span class="highlight" [innerHtml]="value"></span></div>
+</ng-template>

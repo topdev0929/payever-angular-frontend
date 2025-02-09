@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": true,
+    "noImplicitAny": true,
+    "skipLibCheck": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "lib": [
+      "es7",
+      "es2017",
+      "dom"
+    ],
+    "types": [
+      "node",
+      "jasmine"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@angular/*": [
+        "./node_modules/@angular/*"
+      ],
+      "ngx-bootstrap/*": [
+        "./node_modules/ngx-bootstrap/*"
+      ],
+      "@pe/*": [
+        "./node_modules/@pe/*"
+      ]
+    }
+  },
+  "awesomeTypescriptLoaderOptions": {
+    "useWebpackText": true,
+    "silent": true
+  },
+  "compileOnSave": false,
+  "buildOnSave": false
+}

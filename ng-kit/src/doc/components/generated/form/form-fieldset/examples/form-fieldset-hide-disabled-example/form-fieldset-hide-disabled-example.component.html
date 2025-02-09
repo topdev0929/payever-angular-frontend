@@ -1,0 +1,19 @@
+<form novalidate class="form-table" (ngSubmit)="onSubmit()" [formGroup]="form" *ngIf="form">
+
+  <pe-form-fieldset
+    [isSubmitted]="isSubmitted"
+    [fields]="testFieldset"
+    [formGroup]="form"
+    [translationScope]="formTranslationsScope"
+    [errors]="errors$ | async"
+    [formStyle]="'default'"
+    [hideDisabled]="true"
+  ></pe-form-fieldset>
+
+  <h3>Some buttons for testing</h3>
+
+  <button type="submit" (click)="onSubmit()">Submit</button>
+  <button type="button" (click)="disableSomeFields()">Disable some fields</button>
+  <button type="button" (click)="enableSomeFields()">Enable some fields</button>
+
+</form>

@@ -1,0 +1,3 @@
+<div class="docker-store-example-wrap">
+  <pe-docker-store [itemsList]="itemsList"></pe-docker-store>
+</div>

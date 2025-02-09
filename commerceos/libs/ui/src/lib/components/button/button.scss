@@ -1,0 +1,78 @@
+@mixin button-reset {
+  user-select: none;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+}
+
+@mixin peb-base-button {
+  @include button-reset();
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 0;
+  margin: 0;
+  min-width: 64px;
+  line-height: normal;
+  padding: 0 12px;
+  height: fit-content;
+  &.button-disabled {
+    cursor: default;
+  }
+  &::-moz-focus-inner {
+    border: 0;
+  }
+  &:hover:not(.button-disabled) {
+    opacity: 0.9;
+  }
+}
+
+.pe-form-button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 12px;
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  overflow: hidden;
+  outline: 0;
+  width: 100%;
+  &:hover:not(.button-disabled) {
+    opacity: 0.9;
+  }
+  @media (max-width: 720px) {
+    height: 56px;
+    font-size: 17px;
+    font-weight: 500;
+  }
+}
+
+.peb-button {
+  @include peb-base-button;
+  border-radius: 12px;
+  overflow: hidden;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.peb-text-button {
+  @include peb-base-button;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 100%;
+  width: 100%;
+  padding: 0 6px;
+
+  @media (max-width: 720px) {
+    font-size: 17px;
+  }
+}

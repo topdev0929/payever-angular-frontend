@@ -1,0 +1,20 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $row-background: map.get($color-config, 'row-background');
+  $text-color: map.get($color-config, 'text-color');
+  $skeleton: map.get($color-config, 'skeleton');
+
+  .actionable-text {
+    border: none;
+    background-color: $row-background;
+
+    &__content {
+      color: $text-color;
+    }
+
+    &-skeleton {
+      background-color: $skeleton;
+    }
+  }
+}

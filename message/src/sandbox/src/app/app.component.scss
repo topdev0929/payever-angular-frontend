@@ -1,0 +1,63 @@
+.app-root {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+
+  .pe-message {
+    min-height: calc(100% - 56px);
+  }
+}
+
+.settings-menu {
+  backdrop-filter: blur(50px);
+  background-color: rgba(36, 39, 46, 0.85);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.5);
+  min-width: 267px;
+  padding: 16px 8px 12px 16px;
+
+  &__title {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.3333333333;
+  }
+
+  &__item {
+    align-items: center;
+    border-radius: 7px;
+    cursor: pointer;
+    display: flex;
+    margin-top: 11px;
+    margin-left: -8px;
+    padding: 6px 8px;
+
+    &:hover {
+      background-color: #0371e2;
+    }
+
+    svg {
+      color: white;
+      height: 20px;
+      margin-right: 8px;
+      width: 20px;
+    }
+  
+    span {
+      color: white;
+      font-size: 16px;
+    }
+  }
+}
+
+.appearance-widget-panel {
+  min-width: 436px;
+
+  .overlay-widget__content {
+    padding: 0 0 12px!important;
+  }
+
+  .overlay-widget__title {
+    font-size: 15px!important;
+  }
+}

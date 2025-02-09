@@ -1,0 +1,512 @@
+{
+  "npmScope": "pe",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "angular.json": "*",
+    "workspace.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.base.json": "*",
+    ".eslintrc.json": "*",
+    "nx.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
+  },
+  "projects": {
+    "access": {
+      "tags": ["scope:apps"]
+    },
+    "alert-dialog": {
+      "tags": ["scope:libs", "type:ui"]
+    },
+    "api": {
+      "tags": ["scope:libs", "type:utils"]
+    },
+    "app-env": {
+      "tags": ["scope:libs", "scope:shared"]
+    },
+    "app-launcher": {
+      "tags": ["scope:libs", "type:launcher"]
+    },
+    "apps-affiliates": {
+      "tags": ["scope:apps", "app:affiliates"]
+    },
+    "apps-appointments": {
+      "tags": ["scope:apps", "app:appointments"]
+    },
+    "apps-blog": {
+      "tags": ["scope:apps", "app:blog"]
+    },
+    "apps-checkout": {
+      "tags": ["scope:apps", "app:checkout"]
+    },
+    "apps-connect": {
+      "tags": ["scope:apps", "app:connect"]
+    },
+    "apps-contacts": {
+      "tags": ["scope:apps", "app:contacts"]
+    },
+    "apps-coupons": {
+      "tags": ["scope:apps", "app:coupons"]
+    },
+    "apps-invoice": {
+      "tags": ["scope:apps", "app:invoice"]
+    },
+    "apps-message": {
+      "tags": ["scope:apps", "app:message"]
+    },
+    "apps-pos": {
+      "tags": ["scope:apps", "app:pos"]
+    },
+    "apps-products": {
+      "tags": ["scope:apps", "app:products"]
+    },
+    "apps-settings": {
+      "tags": ["scope:apps", "app:settings"]
+    },
+    "apps-shipping": {
+      "tags": ["scope:apps", "app:shipping"]
+    },
+    "apps-shop": {
+      "tags": ["scope:apps", "app:shop"]
+    },
+    "apps-site": {
+      "tags": ["scope:apps", "app:site"]
+    },
+    "apps-social": {
+      "tags": ["scope:apps", "app:social"]
+    },
+    "apps-statistics": {
+      "tags": ["scope:apps", "app:statistics"]
+    },
+    "apps-studio": {
+      "tags": ["scope:apps", "app:studio"]
+    },
+    "apps-subscriptions": {
+      "tags": ["scope:apps", "app:subscriptions"]
+    },
+    "apps-transactions": {
+      "tags": ["scope:apps", "app:transactions"]
+    },
+    "auth": {
+      "tags": ["scope:libs", "type:utils"]
+    },
+    "base": {
+      "tags": ["scope:libs", "type:utils"]
+    },
+    "base-dashboard": {
+      "tags": ["scope:libs", "type:feature"]
+    },
+    "browser": {
+      "tags": ["scope:libs", "type:utils"]
+    },
+    "builder-app": {
+      "tags": ["scope:libs"]
+    },
+    "builder-settings": {
+      "tags": ["scope:libs"]
+    },
+    "builder-share": {
+      "tags": ["scope:libs"]
+    },
+    "builder-shop-plugins": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/abstract": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/action-handlers": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/actions": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/animations": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/view-actions": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/view-state": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/view-handlers": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/api": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/background-activity": {
+      "tags": ["scope:shared", "type:builder"]
+    },
+    "builder/color-picker": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/color-utils": {
+      "tags": ["scope:shared", "type:builder"]
+    },
+    "builder/context": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/controls": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/core": {
+      "tags": ["scope:shared", "type:builder"]
+    },
+    "builder/delta-renderer": {
+      "tags": ["scope:shared", "type:builder"]
+    },
+    "builder/directives": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/editor-utils": {
+      "tags": ["scope:shared", "type:builder"]
+    },
+    "builder/events": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/font-loader": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/form-controls": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/forms": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/integrations": {
+      "tags": ["scope:libs", "type:builder", "scope:builder-integration"]
+    },
+    "builder/layers": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/main-editor": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/media": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/migrations": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/old": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/page-list": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/pages": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/pipes": {
+      "tags": ["scope:shared", "type:builder"]
+    },
+    "builder/preview-renderer": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/publishing": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/render-utils": {
+      "tags": ["scope:shared", "type:builder"]
+    },
+    "builder/renderer": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/renderer-fill": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/resolvers": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/services": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/shapes": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/shared": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/sidebar": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/state": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/styles": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/toolbar": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/tree": {
+      "tags": ["scope:shared", "type:builder"]
+    },
+    "builder/viewer": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "builder/yaml": {
+      "tags": ["scope:libs", "type:builder"]
+    },
+    "business": {
+      "tags": ["scope:libs", "type:data-access"]
+    },
+    "button": {
+      "tags": ["scope:libs", "type:ui"]
+    },
+    "chat": {
+      "tags": ["scope:libs", "type:feature", "type:ui"]
+    },
+    "common": {
+      "tags": ["scope:shared", "type:utils"]
+    },
+    "threejs": {
+      "tags": ["scope:shared", "type:utils"]
+    },
+    "tpm": {
+      "tags": ["scope:shared", "type:utils"]
+    },
+    "confirm-action-dialog": {
+      "tags": ["scope:shared", "type:ui"]
+    },
+    "confirmation-screen": {
+      "tags": ["scope:shared", "type:ui"]
+    },
+    "dashboard": {
+      "tags": ["scope:libs", "type:feature"]
+    },
+    "dashboard-widgets": {
+      "tags": ["scope:libs", "type:feature"]
+    },
+    "docker": {
+      "tags": ["scope:libs", "type:data-access"]
+    },
+    "domains": {
+      "tags": ["scope:libs", "type:feature"]
+    },
+    "editor": {
+      "tags": ["scope:libs", "type:feature"]
+    },
+    "encryption": {
+      "tags": ["scope:shared", "type:util"]
+    },
+    "entry-business-form": {
+      "tags": ["scope:libs", "type:ui"]
+    },
+    "entry-confirmation": {
+      "tags": ["scope:libs", "type:ui"]
+    },
+    "entry-shared": {
+      "tags": ["scope:libs", "type:ui"]
+    },
+    "entry-verification": {
+      "tags": ["scope:libs", "type:ui"]
+    },
+    "finexp": {
+      "tags": ["scope:libs", "type:feature"]
+    },
+    "folders": {
+      "tags": ["scope:libs", "type:feature", "type:ui"]
+    },
+    "grid": {
+      "tags": ["scope:libs", "type:utils"]
+    },
+    "header": {
+      "tags": ["scope:libs", "type:feature"]
+    },
+    "invitation": {
+      "tags": ["scope:libs", "type:feature"]
+    },
+    "lazy-styles-loader": {
+      "tags": ["scope:libs", "type:utils"]
+    },
+    "entry-login": {
+      "tags": ["scope:libs", "type:feature"]
+    },
+    "main": {
+      "tags": ["scope:libs", "type:feature"]
+    },
+    "media": {
+      "tags": ["scope:libs", "type:utils"]
+    },
+    "message": {
+      "tags": ["scope:libs", "type:feature"]
+    },
+    "message-embed": {
+      "tags": ["scope:libs"]
+    },
+    "micro": {
+      "tags": ["scope:shared", "type:utils"]
+    },
+    "micro-container": {
+      "tags": ["scope:libs", "type:feature"]
+    },
+    "notifications": {
+      "tags": ["scope:libs", "type:feature"]
+    },
+    "peb-client": {
+      "tags": ["scope:apps"]
+    },
+    "personal": {
+      "tags": ["scope:libs", "type:feature"]
+    },
+    "entry-personal-form": {
+      "tags": ["scope:libs", "type:ui"]
+    },
+    "platform": {
+      "tags": ["scope:libs", "type:utils"]
+    },
+    "platform-header": {
+      "tags": ["scope:libs", "type:feature"]
+    },
+    "profile-switcher": {
+      "tags": ["scope:libs", "type:feature"]
+    },
+    "entry-registration": {
+      "tags": ["scope:libs", "type:feature"]
+    },
+    "entry-reset-password": {
+      "tags": ["scope:libs", "type:feature"]
+    },
+    "rules": {
+      "tags": ["scope:libs", "type:utils"]
+    },
+    "search-dashboard": {
+      "tags": ["scope:libs", "type:feature"]
+    },
+    "entry-second-factor-code": {
+      "tags": ["scope:libs", "type:feature"]
+    },
+    "entry-security-question": {
+      "tags": ["scope:libs", "type:feature"]
+    },
+    "shared-appointments": {
+      "tags": ["scope:shared", "type:data-access"]
+    },
+    "shared-base": {
+      "tags": ["scope:shared", "type:utils"]
+    },
+    "shared-business": {
+      "tags": ["scope:shared", "type:utils"]
+    },
+    "shared-business-form": {
+      "tags": ["scope:shared", "type:util"]
+    },
+    "shared-chat": {
+      "tags": ["scope:shared", "type:utils"]
+    },
+    "shared-checkout": {
+      "tags": ["scope:shared", "scope:builder-connector"]
+    },
+    "shared-contacts": {
+      "tags": ["scope:shared", "type:data-access"]
+    },
+    "shared-custom-validators": {
+      "tags": ["scope:shared", "type:utils"]
+    },
+    "shared-folders": {
+      "tags": ["scope:shared", "type:data-access"]
+    },
+    "shared-grid": {
+      "tags": ["scope:shared", "type:data-access"]
+    },
+    "shared-header": {
+      "tags": ["scope:shared", "type:data-utils"]
+    },
+    "shared-message": {
+      "tags": ["scope:shared", "type:data-utils"]
+    },
+    "shared-onboarding": {
+      "tags": ["scope:shared", "type:utils"]
+    },
+    "shared-personal": {
+      "tags": ["scope:libs", "type:data-access"]
+    },
+    "shared-pipes": {
+      "tags": ["scope:libs"]
+    },
+    "shared-products": {
+      "tags": ["scope:libs", "type:data-access"]
+    },
+    "shared-registration": {
+      "tags": ["scope:shared", "type:utils"]
+    },
+    "shared-resources": {
+      "tags": ["scope:shared", "type:data-access"]
+    },
+    "shared-studio": {
+      "tags": ["scope:shared", "type:data-access"]
+    },
+    "shared-traffic-service": {
+      "tags": ["scope:shared", "type:utils"]
+    },
+    "shared-user": {
+      "tags": ["scope:shared", "type:utils"]
+    },
+    "shared-utils": {
+      "tags": ["scope:libs", "type:util"]
+    },
+    "shared-utils-file-size": {
+      "tags": ["scope:shared", "type:util"]
+    },
+    "shared-utils-media-validators": {
+      "tags": ["scope:shared", "type:util"]
+    },
+    "shared-widget": {
+      "tags": ["scope:shared", "type:utils"]
+    },
+    "snackbar": {
+      "tags": ["scope:shared", "type:ui"]
+    },
+    "text-editor": {
+      "tags": ["scope:libs", "type:utils"]
+    },
+    "themes": {
+      "tags": ["scope:libs", "type:feature", "type:utils"]
+    },
+    "translate-loader": {
+      "tags": ["scope:libs", "type:utils"]
+    },
+    "ui": {
+      "tags": ["scope:libs", "type:ui"]
+    },
+    "user": {
+      "tags": ["scope:libs", "type:data-access"]
+    },
+    "wallpaper": {
+      "tags": ["scope:libs", "type:utils"]
+    },
+    "welcome-screen": {
+      "tags": ["scope:libs", "type:ui"]
+    },
+    "widgets": {
+      "tags": ["scope:libs", "type:feature"]
+    },
+    "window": {
+      "tags": ["scope:libs", "type:utils"]
+    },
+    "zendesk": {
+      "tags": ["scope:libs", "type:feature"]
+    }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
+  }
+}

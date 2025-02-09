@@ -1,0 +1,118 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+    $text-color: map.get($color-config, 'text-color');
+    $primary: map.get($color-config, 'primary');
+    $gray-button: map.get($color-config, 'gray-button');
+    $label-color: map.get($color-config, 'label-color');
+    $extra-bg-color: map.get($color-config, 'extra-bg-color');
+    $border: map.get($color-config, 'border');
+    $tertiary-button: map.get($color-config, 'tertiary-button');
+    $extra-bg-color: map.get($color-config, 'extra-bg-color');
+    $tertiary-button: map.get($color-config, 'tertiary-button');
+    $box-shadow-color: map.get($color-config, 'box-shadow-color');
+    $label-color: map.get($color-config, 'label-color');
+    $warn: map.get($color-config, 'warn');
+    $confirm: map.get($color-config, 'confirm');
+    $active-text: map.get($color-config, 'active-text');
+    $widget-background: map.get($color-config, '$widget-background');
+
+    .pe-message-chat-room-list {
+        &__row {
+
+            &:hover {
+                &:not(.pe-message-chat-room-list__row_active) {
+                    &::before {
+                        background-color: $tertiary-button;
+                        border: 1px solid $border;
+                    }
+                }
+            }
+
+            &_active {
+                &::before {
+                    background-color: $confirm;
+                }
+
+                .pe-message-chat-room-list {
+
+                    &__title,
+                    &__draft-message>.draft-title,
+                    &__time {
+                        color: $text-color;
+                    }
+
+                    &__last-message {
+                        color: $text-color;
+                    }
+
+                    &__unread,
+                    &__tag {
+                        color: $confirm;
+                        background-color: $text-color;
+                    }
+                }
+            }
+        }
+
+        &__icon {
+            color: $extra-bg-color;
+
+            &.no-info div {
+                box-shadow: 0px 0px 8px -3px $box-shadow-color;
+            }
+        }
+
+        &__initials {
+            background: $widget-background;
+            color: $text-color;
+        }
+
+        &__title {
+            color: $text-color;
+        }
+
+        &__time {
+            color: $label-color;
+        }
+
+        &__body {
+
+            .draft-heading {
+                color: $warn;
+            }
+
+            .draft-title {
+                color: $label-color;
+            }
+        }
+
+        &__last-message {
+            color: $label-color;
+        }
+
+        &__tag {
+            color: $active-text;
+            background-color: $confirm;
+        }
+
+        &__unread {
+            color: $active-text;
+            background: $confirm;
+        }
+
+        &__private-chat {
+            .icon {
+                color: $label-color;
+            }
+        }
+
+        &__notification {
+            color: $label-color;
+        }
+
+        &__integration {
+            color: $text-color;
+        }
+    }
+}

@@ -1,0 +1,76 @@
+<div [formGroup]="formGroup" class="rule-action-email">
+  <ng-container>
+    <div class="block">
+      <peb-form-field-input [label]="'rules.email.to' | translate" appearance='label' animated='true' disabled>
+        <input class="rule-action-email__to" [value]="'rules.email.to_value' | translate" disabled />
+      </peb-form-field-input>
+    </div>
+    <div class="block">
+      <peb-form-field-input appearance="label" [label]="'rules.email.CC' | translate" appearance='label' animated='true'
+        [isFieldInvalid]="(showErrors || showCCError) && ccControl.hasError('email')"
+        [errorMessage]="(showErrors || showCCError) && ('rules.email.errors.invalid' | translate)"
+        class="rule-action-email__cc"
+      >
+        <div class="chips-container" *ngIf="ccChips.length">
+          <div class='chips-data'>
+            <ng-container *ngFor='let value of ccChips; let i = index'>
+              <span class='chip'>
+                {{ value }}
+                <span class='chip__close-icon' (click)='onChipDelete(i)'>
+                  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fit='' height='100%' width='100%'
+                        preserveAspectRatio='xMidYMid meet' focusable='false'>
+                    <use xlink:href="#icon-chip-close" />
+                  </svg>
+                </span>
+              </span>
+            </ng-container>
+          </div>
+        </div>
+        <input pebInput 
+          [formControl]="ccControl" 
+          (keydown.enter)="onAddValue()"
+          (blur)="onAddValue()"
+          class="rule-action-email__cc-input" 
+        />
+      </peb-form-field-input>
+      
+    </div>
+    <div class="block">
+      <peb-form-field-input [label]="'rules.email.subject' | translate" appearance='label' animated='true'
+        [isFieldInvalid]="showErrors && formGroup.get('email.subject').errors?.required"
+        [errorMessage]="showErrors && ('rules.email.subject-required' | translate)">
+        <input pebInput [formControl]="formGroup.get('email.subject')" />
+      </peb-form-field-input>
+    </div>
+    <div class="block">
+      <peb-form-field-input [label]="'rules.email.from' | translate" appearance='label' animated='true' disabled>
+        <input type="text" style="display: none;">
+        <div class="rule-action-email__from">no-reply@payever.org</div>
+      </peb-form-field-input>
+    </div>
+  </ng-container>
+
+  <ng-container>
+    <div class="block">
+      <pe-text-editor-toolbar
+        #editorToolbar
+        [placeholderData]="placeholderItems"
+        [hideLink]="true"
+        [hideOpenNewTab]="true"
+        [hideColorPicker]="true"
+        [hideFontSize]="true"
+        (actionClicked)="onTextEditorAction($event)"
+        (click)="editorFocused = true"
+        >
+      </pe-text-editor-toolbar>
+      <div class="text-editor-container">
+        <pe-text-editor
+          class='text-editor'
+          [formControl]="formGroup.get('email.body')"
+          [editable]="true"
+          (editorClick)="$event.stopPropagation()">
+        </pe-text-editor>
+      </div>
+    </div>
+  </ng-container>
+</div>

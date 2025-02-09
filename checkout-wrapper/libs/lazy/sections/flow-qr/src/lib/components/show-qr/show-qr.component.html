@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-xs-12">
+    <div
+      class="loading"
+      *ngIf="loading$ | async">
+      <div class="loader_48"></div>
+    </div>
+    <ng-container *ngIf="(loading$ | async) !== true">
+      <div
+        class="alert alert-danger"
+        *ngIf="globalError">
+        {{ globalError }}
+      </div>
+      <div
+        class="qr-image"
+        *ngIf="image$ | async">
+        <img
+          alt="QR"
+          [src]="image$ | async" />
+      </div>
+    </ng-container>
+  </div>
+</div>

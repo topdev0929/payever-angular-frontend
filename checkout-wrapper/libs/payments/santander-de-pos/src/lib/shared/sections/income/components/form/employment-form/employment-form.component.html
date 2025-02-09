@@ -1,0 +1,92 @@
+<form
+  *ngIf="translations$ | async as translations"
+  class="form-table"
+  [formGroup]="formGroup">
+  <ng-container *ngIf="formGroup.enabled">
+    <div class="h5">{{ translations.title }}</div>
+    <div class="form-fieldset-new">
+      <mat-form-field
+        *ngIf="formGroup.get('employer').enabled"
+        class="col-xs-6">
+        <mat-label>{{translations[personType].employer}}</mat-label>
+
+        <input
+          matInput
+          formControlName="employer"
+          type="text" />
+      </mat-form-field>
+
+      <mat-form-field
+        *ngIf="formGroup.get('employedSince').enabled"
+        shortDateFormat
+        class="col-xs-6">
+        <mat-label>{{translations[personType].employedSince}}</mat-label>
+
+        <input
+          matInput
+          peDatePickerMask="shortDate"
+          formControlName="employedSince"
+          type="text"
+          [min]="pastDateConstraints.min"
+          [max]="pastDateConstraints.max"
+          [matDatepicker]="employedSinceDp" />
+
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="employedSinceDp">
+          <svg
+            matDatepickerToggleIcon
+            class="icon icon-16">
+            <use xlink:href="#icon-calendar-16"></use>
+          </svg>
+        </mat-datepicker-toggle>
+        <mat-datepicker
+          #employedSinceDp
+          (monthSelected)="onShortDateSelected($event, employedSinceDp, 'employedSince')"
+          startView="multi-year">
+        </mat-datepicker>
+      </mat-form-field>
+
+      <mat-checkbox
+        formControlName="_isTemporaryUntil"
+        analyticFieldName="Is temporary until"
+        [class]="formGroup.get('_isTemporaryUntil').value
+          ? 'col-xs-12 col-sm-6'
+          : 'col-xs-12'
+          ">
+        <span [innerHTML]="translations._isTemporaryUntil"></span>
+      </mat-checkbox>
+
+      <mat-form-field
+        *ngIf="formGroup.get('temporaryEmployedUntil').enabled"
+        shortDateFormat
+        class="col-xs-6">
+        <mat-label>{{translations[personType].temporaryEmployedUntil}}</mat-label>
+
+        <input
+          matInput
+          peDatePickerMask="shortDate"
+          formControlName="temporaryEmployedUntil"
+          type="text"
+          [min]="futureDateConstraints.min"
+          [max]="futureDateConstraints.max"
+          [matDatepicker]="temporaryEmployedUntilDp" />
+
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="temporaryEmployedUntilDp">
+          <svg
+            matDatepickerToggleIcon
+            class="icon icon-16">
+            <use xlink:href="#icon-calendar-16"></use>
+          </svg>
+        </mat-datepicker-toggle>
+        <mat-datepicker
+          #temporaryEmployedUntilDp
+          (monthSelected)="onShortDateSelected($event, temporaryEmployedUntilDp, 'temporaryEmployedUntil')"
+          startView="multi-year">
+        </mat-datepicker>
+      </mat-form-field>
+    </div>
+  </ng-container>
+</form>

@@ -1,0 +1,80 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $text-color: map.get($color-config, 'text-color');
+  $border: map.get($color-config, 'border');
+  $content: map.get($color-config, 'content');
+  $warn: map.get($color-config, 'warn');
+  $row-background: map.get($color-config, 'row-background');
+  $icon-background: map.get($color-config, 'icon-background');
+  $label-color: map.get($color-config, 'label-color');
+  $confirm: map.get($color-config, 'confirm');
+  $gray-button: map.get($color-config, 'gray-button');
+
+  .peb-screens-dialog {
+    background-color: $overlay-background;
+    color: $text-color;
+    border: solid 1px $border;
+    .screens {
+        &__header {
+            &__title {
+              color: $text-color;
+            }
+            &__button {
+                &--submit {
+                    color: $confirm;
+                }
+                &--cancel {
+                    color: $label-color;
+                  }
+            }
+        }
+        &__list {
+            &__row {
+                &__icon {
+                    background-color: $row-background
+                }
+                &__form {
+                    &__cell {
+                        background-color: $row-background;
+                        color: $text-color;
+                        &__form-field {
+                            label, span {
+                                color: $label-color;
+                            }
+                            input {
+                                &.ng-invalid {
+                                    border-bottom-color: $warn;
+                                }
+                            }
+                        }
+                        &:not(:last-child) {
+                            border-right-color: $border;
+                        }
+                        &--read-only {
+                            background-color: $content;
+                        }
+                    }
+                }
+                &__actions {
+                    button {
+                        background-color: $row-background;
+                    }
+                    &__button {
+                        &--delete {
+                            color: $warn;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__close.mat-icon {
+      color: $gray-button;
+      &:hover {
+        color: $text-color;
+      }
+    }
+  }
+}

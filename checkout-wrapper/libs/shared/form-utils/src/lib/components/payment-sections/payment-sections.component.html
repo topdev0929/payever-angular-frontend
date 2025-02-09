@@ -1,0 +1,83 @@
+<mat-accordion *ngIf="!isExpandAll && (sectionsConfig$ | async) as sectionsConfig">
+  <ng-container *ngFor="let section of (panels$ | async); let idx = index">
+    <ng-container *ngIf="!section.isDisabled">
+      <mat-expansion-panel
+        [expanded]="section.isActive"
+        [disabled]="idx > getActiveStepIndex() || (isFinishModalShown$ | async)"
+        (opened)="edit(idx)">
+        <mat-expansion-panel-header
+          [collapsedHeight]="'auto'"
+          [expandedHeight]="'auto'"
+          [class.expansion-panel-header-align-top]="true">
+          <mat-panel-title [class.expansion-panel-header-title-only]="!isShowStepDescription(idx)">
+            <span
+              *ngIf="sectionsConfig[idx].title"
+              [innerHtml]="sectionsConfig[idx].title"></span>
+            <span
+              *ngIf="sectionsConfig[idx].title$"
+              [innerHtml]="sectionsConfig[idx].title$ | async"></span>
+          </mat-panel-title>
+          <mat-panel-description *ngIf="isShowStepDescription(idx)">
+            <section-container
+              [step]="section.name"
+              [flowId]="flow.id"
+              [flow]="flow"
+              [nodeFormOptions]="nodeFormOptions"
+              [mode]="sectionMode(section)"
+              [paymentMethod]="paymentMethod"></section-container>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <section-container
+          *ngIf="section.isActive"
+          [doSubmit$]="doSubmit$"
+          [step]="section.name"
+          [flowId]="flow.id"
+          [flow]="flow"
+          [nodeFormOptions]="nodeFormOptions"
+          [merchantMode]="merchantMode"
+          [embeddedMode]="embeddedMode"
+          [mode]="sectionMode(section)"
+          [paymentMethod]="paymentMethod"
+          [isBillingAddressStepVisible]="isBillingAddressStepVisible"
+          [isLastStep]="isLastStep()"
+          (continue)="continue($event)">
+        </section-container>
+
+        <div class="clearfix"></div>
+        <checkout-sdk-continue-button
+          *ngIf="(section.isActive) && !sectionsConfig[idx].isButtonHidden"
+          [loading]="isFinishModalShown$ | async"
+          [text]="isLastStep()
+            ? submitButtonText || submitButtonTranslation
+            : sectionsConfig[idx].continueButtonTitle || continueButtonTranslation"
+          (clicked)="onSubmit()"></checkout-sdk-continue-button>
+      </mat-expansion-panel>
+    </ng-container>
+  </ng-container>
+</mat-accordion>
+<ng-container *ngIf="isExpandAll && (isFinishModalShown$ | async) === false">
+  <ng-container *ngFor="let section of (panels$ | async); let idx = index">
+    <ng-container *ngIf="!section.isDisabled">
+      <section-container
+        [doSubmit$]="doSubmit$"
+        [step]="section.name"
+        [flowId]="flow.id"
+        [flow]="flow"
+        [nodeFormOptions]="nodeFormOptions"
+        [embeddedMode]="embeddedMode"
+        [merchantMode]="merchantMode"
+        [mode]="sectionMode(section)"
+        [isExpandAll]="true"
+        [paymentMethod]="paymentMethod"
+        (updateFormData)="updateFormData.emit($event)"></section-container>
+    </ng-container>
+  </ng-container>
+</ng-container>
+<checkout-sdk-continue-button
+  *ngIf="isExpandAll"
+  [loading]="isFinishModalShown$ | async"
+  i18n-text="@@payment-santander-de-pos.actions.sendInquiry"
+  text="@@payment-santander-de-pos.actions.sendInquiry"
+  (clicked)="continue()">
+</checkout-sdk-continue-button>

@@ -1,0 +1,131 @@
+<div
+  [ngSwitch]="!!(!isLoading && !isCheckStatusProcessing && isStatusSuccess() && isShowApprovedIframe && contractUrl && isApproved)">
+  <ng-container *ngSwitchCase="true">
+    <div class="contract-iframe-wrap">
+      <iframe
+        i18n-title="@@santander-dk.inquiry.iframe.title"
+        title="santander-dk.inquiry.iframe.title"
+        [src]="contractUrl | safeUrl"
+        sandbox="allow-same-origin allow-forms allow-scripts"
+        class="contract-iframe">
+      </iframe>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="false">
+    <checkout-sdk-finish-wrapper
+      [buttons]="buttons"
+      [errorMessage]="errorMessage"
+      [iframeCallbackUrl]="getIframeCallbackUrl()"
+      [isLoading]="isLoading || isCheckStatusProcessing"
+      [isChangingPaymentMethod]="isChangingPaymentMethod"
+      [embeddedMode]="embeddedMode"
+      [processingTitle]="isCheckStatusProcessing ? translations.processingTitle : null"
+      [processingText]="isCheckStatusProcessing ? translations.processingText : null"
+      [asSinglePayment]="asSinglePayment"
+      (close)="onClose()">
+      <ng-container *ngIf="nodeResult && !isLoading">
+        <ng-container>
+          <ng-container *ngIf="isStatusSuccess() && (!isShowApprovedIframe || !isApproved)">
+            <checkout-sdk-finish-status-success
+              i18n-title="@@santander-dk.inquiry.finish.application_success.title"
+              title="santander-dk.inquiry.finish.application_success.title"
+              [total]="nodeResult.payment?.total"
+              [currency]="flow?.currency"
+              [storeName]="nodeResult.payment?.businessName || '---'"
+              [createdAt]="nodeResult.createdAt"
+              [billingAddressName]="isPosPayment() ? billingAddressName() : null"
+              [applicationNumber]="applicationNumber"
+              [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"
+              [flowId]="flow?.id"
+              [isPosPayment]="isPosPayment()"></checkout-sdk-finish-status-success>
+            <ng-container *ngIf="isValidUrl(successLink)">
+              <div
+                class="signing-qr"
+                *ngIf="merchantMode">
+                <ui-qr-box [url]="successLink"></ui-qr-box>
+              </div>
+
+              <button
+                mat-button
+                i18n="@@santander-dk.inquiry.finish.application_success.finish_application"
+                class="mat-button-gradient finish-button"
+                (click)="handleLinkClick()">
+                santander-dk.inquiry.finish.application_success.finish_application
+              </button>
+              <p class="text-secondary finish-description">
+                {{ translations.finishDescription }}
+              </p>
+              <p
+                *ngIf="!isPosPayment()"
+                #timer
+                class="text-secondary finish-description timer"
+                [innerHTML]="timerText$ | async"></p>
+            </ng-container>
+          </ng-container>
+
+          <ng-container *ngIf="isStatusPending()">
+            <checkout-sdk-finish-status-pending
+              i18n-title="@@santander-dk.inquiry.finish.application_pending.title"
+              i18n-text="@@santander-dk.inquiry.finish.application_pending.text"
+              title="santander-dk.inquiry.finish.application_pending.title"
+              text="santander-dk.inquiry.finish.application_pending.text"
+              [total]="payment?.total"
+              [currency]="flow?.currency"
+              [storeName]="payment?.store_name"
+              [createdAt]="payment?.created_at"
+              [billingAddressName]="isPosPayment() ? billingAddressName() : null"
+              [applicationNumber]="applicationNumber"
+              [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"
+              [flowId]="flow?.id"
+              [isPosPayment]="isPosPayment()">
+              <p [innerHtml]="translations.contactsNote"></p>
+
+              <br />
+              <p
+                class="large-3"
+                [innerHtml]="translations.openingHoursTitle"></p>
+              <div class="opening-hours">
+                <div
+                  class="opening-hours-day"
+                  *ngFor="let workday of translations.workdays">
+                  <div
+                    [innerHtml]="workday.title"
+                    class="small"></div>
+                  <div [innerHtml]="workday.hours"></div>
+                </div>
+                <div class="opening-hours-day">
+                  <div
+                    [innerHtml]="translations.saturdayTitle"
+                    class="small"></div>
+                  <div [innerHtml]="translations.saturdayHours"></div>
+                </div>
+                <div class="opening-hours-day">
+                  <div
+                    [innerHtml]="translations.sundayTitle"
+                    class="small"></div>
+                  <div [innerHtml]="translations.sundayHours"></div>
+                </div>
+              </div>
+            </checkout-sdk-finish-status-pending>
+          </ng-container>
+
+          <ng-container *ngIf="isStatusFail()">
+            <checkout-sdk-finish-status-fail
+              i18n-title="@@santander-dk.inquiry.finish.application_fail.title"
+              title="santander-dk.inquiry.finish.application_fail.title"
+              [canChangePaymentMethod]="canChangePaymentMethod()"
+              [applicationNumber]="applicationNumber"
+              [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"></checkout-sdk-finish-status-fail>
+          </ng-container>
+
+          <ng-container *ngIf="isStatusUnknown()">
+            <checkout-sdk-finish-status-unknown
+              [nodeResult]="nodeResult"
+              [applicationNumber]="applicationNumber"
+              [transactionLink]="isCanShowTransactionLink() ? transactionLink : null"></checkout-sdk-finish-status-unknown>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </checkout-sdk-finish-wrapper>
+  </ng-container>
+</div>

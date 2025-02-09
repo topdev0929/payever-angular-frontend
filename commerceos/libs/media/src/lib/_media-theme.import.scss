@@ -1,0 +1,9 @@
+@use 'pe_theming' as pet;
+@use './media-editor/media-editor-theme' as media_editor;
+
+@mixin theme($theme-config) {
+  $color-config: pet.get-color-config-from-theme($theme-config);
+  @if $color-config != null {
+    @include media_editor.color($color-config);
+  }
+}

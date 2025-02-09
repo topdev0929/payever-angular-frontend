@@ -1,0 +1,16 @@
+{
+  "code": "connect",
+  "dashboardInfo": {
+    "title": "dashboard.apps.connect",
+    "icon": "icon-commerceos-connect-32.png"
+  },
+  "tag": "<connect-root></connect-root>",
+  "access" : {
+    "business" : {
+        "url" : "/business/{uuid}/connect", 
+        "defaultInstalled" : true, 
+        "isDefault" : true
+    }
+  },
+  "bootstrapScriptUrl": "${MICRO_URL_FRONTEND_CONNECT}/micro.js?{hash}"
+}

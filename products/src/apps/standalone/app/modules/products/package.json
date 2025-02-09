@@ -1,0 +1,17 @@
+{
+  "name": "@pe/products-app",
+  "version": "1.2.58",
+  "dependencies": {
+    "tslib": "^2.0.0",
+    "@pe/data-grid": "11.0.20",
+    "@pe/filters": "2.0.20",
+    "@pe/forms-core": "1.0.11"
+  },
+  "peerDependencies": {
+    "@angular/common": "^9.1.1",
+    "@angular/core": "^9.1.1",
+    "@pe/common": "0.0.10",
+    "@pe/sidebar": "1.0.22"
+  }
+}
+

@@ -1,0 +1,75 @@
+
+<pe-grid [items]="listService.items$ | async">
+  <pe-grid-sidenav [style.display]="'none'"></pe-grid-sidenav>
+  <pe-grid-content
+    [totalData]="{
+      label: 'paymentLinks.title' | translate,
+      value: totalValue$ | async
+    }"
+  >
+  <pe-grid-toolbar
+    #toolbarElem
+    [viewAdd]="true"
+    (create)="createNewLink()"
+    [filterConfig]="filterItems$ | async"
+    [searchItems]="searchItems"
+    [totalItems]="totalItems$ | async"
+    (filtersChange)="onFiltersChange($event)"
+    [optionsMenu]="toolbar.optionsMenu"
+    [sortMenu]="toolbar.sortMenu"
+    [hideLayoutSwitcher]="true"
+    (sortChange)="sortChange($event)"
+    columnSwitcherClass="payment-links-column-switcher"
+  ></pe-grid-toolbar>
+    <pe-grid-viewport
+      [selectable]="false"
+      [viewportTitle]="'paymentLinks.title' | translate"
+      [defaultLayout]="gridLayout"
+      [allowSetQueryPArams]="true"
+      [totalValue]="totalValue$ | async"
+      [allowSetQueryPArams]="true"
+    >
+      <pe-grid-table
+        [noItemsPlaceholder]="'paymentLinks.grid.item_placeholder' | translate"
+        [displayedColumns]="tableColumns"
+        [scrollBottomOffset]="50"
+        [showHeadInMobile]="true"
+        [isLoading]="(isLoading$ | async)"
+        (scrolledToEnd)="onScrollLoad()"
+      >
+        <ng-template let-item="item">
+          <pe-table-row
+            [moreIconOnMobile]="false"
+            [item]="item"
+            [itemContextMenu]="itemContextMenu(item)"
+            (itemContextSelect)="onItemContentContextMenu($event)"
+            (actionClick)="actionClick($event)"
+            (rowClicked)="actionClick($event)"
+          >
+            <ng-container *ngFor="let column of tableColumns; trackBy: tableColumnsTrackBy">
+              <ng-container *ngIf="!column.selected$ || (column.selected$ && column.selected$.value)">
+                <ng-container >
+                  <ng-container *ngIf="!column.cellComponentFactory">
+                    <ng-template  #contentRow>{{getCellValue(item, column.name)}}</ng-template>
+                  </ng-container>
+                  <ng-container *ngIf="column.cellComponentFactory">
+                    <ng-template  #contentRow>
+                      <pe-table-row-cell-component-host
+                        [inputData]="{
+                          item: item,
+                          componentFactory: column.cellComponentFactory,
+                          key: column.name
+                        }"
+                      >
+                      </pe-table-row-cell-component-host>
+                    </ng-template>
+                  </ng-container>
+                </ng-container>
+              </ng-container>
+            </ng-container>
+          </pe-table-row>
+        </ng-template>
+      </pe-grid-table>
+    </pe-grid-viewport>
+  </pe-grid-content>
+</pe-grid>

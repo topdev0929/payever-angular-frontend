@@ -1,0 +1,13 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+
+  pe-credit-answer-action {
+    .overlay {
+      .note {
+        color: $text-color;
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+<button mat-raised-button color="primary" [matMenuTriggerFor]="menu.childMenu">
+  <span *ngIf="title" [innerHtml]="title"></span>
+  <mat-icon>{{icon}}</mat-icon>
+</button>
+<pe-menu-item #menu [items]="menuItems"></pe-menu-item>

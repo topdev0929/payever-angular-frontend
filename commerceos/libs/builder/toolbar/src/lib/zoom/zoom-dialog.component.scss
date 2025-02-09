@@ -1,0 +1,45 @@
+.zoom-level {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 7px;
+  transition: all .2s;
+  padding: 6px 8px;
+  cursor: pointer;
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+  }
+
+  &__title {
+    margin-left: 8px;
+    font-size: 16px;
+    width: 100%;
+    line-height: 16px;
+    font-weight: 400;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.scale__control {
+  display: inline-grid;
+  grid-template-columns: 1fr 65px;
+  grid-gap: 10px;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.combined-range-input {
+  width: 100%;
+  margin-right: 10px;
+}
+
+.combined-number-input {
+  max-width: 65px;
+}

@@ -1,0 +1,29 @@
+<ng-container *ngIf="hasDropdownMenu; then buttonWithMenu; else button"></ng-container>
+
+<ng-template #button>
+  <button mat-button class="button-control" [disableRipple]="true" [disabled]="disabled" (click)="buttonClick.emit()"
+    [attr.pe-qa-builder]="getTestingAttribute(label)">
+    <svg class="button-icon" *ngIf="icon">
+      <use [attr.xlink:href]="icon"></use>
+    </svg>
+    <span>{{ label }}</span>
+  </button>
+</ng-template>
+
+<ng-template #buttonWithMenu>
+  <button
+    mat-button
+    class="button-control"
+    [matMenuTriggerFor]="menu"
+    [disableRipple]="true"
+    [disabled]="disabled"
+    (click)="buttonClick.emit()"
+    [attr.pe-qa-builder]="getTestingAttribute(icon)">
+    <svg class="button-icon" *ngIf="icon">
+      <use [attr.xlink:href]="icon"></use>
+    </svg>
+    <mat-menu #menu="matMenu" class="mat-menu-dark">
+      <ng-content></ng-content>
+    </mat-menu>
+  </button>
+</ng-template>

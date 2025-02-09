@@ -1,0 +1,45 @@
+<div class="connect-dialog peb-integrartion-connect">
+  <div class="connect-dialog__form">
+<div class="connect-dialog__header">
+      <div class="connect-dialog__header-action connect-dialog__header-action--cancel" (click)="closeForm()">
+        {{ 'builder-app.actions.close' | translate }}
+      </div>
+      <div class="connect-dialog__title">
+        <span>{{ title }}</span>
+      </div>
+      <div class="connect-dialog__header-action connect-dialog__header-action--success"
+        [class.disabled]="(saving$ | async) || (loading$ | async)"
+        (click)="submitForm()">
+        {{ (saving$ | async) ? 'Loading' : 'Done' }}
+      </div>
+    </div>
+    <div class="connect-dialog__content">
+      <div class="connect-dialog__fields">
+        <div class="connect-dialog__field connect-dialog__field-big">          
+
+          <div *ngIf="(loading$ | async) === false">
+            <peb-form-background>
+              <div>
+                <div [formGroup]="formGroup" class="row" *ngFor="let subscription of (subscriptions$ | async)">
+                  <peb-button-toggle class="peb-button-toggle" [formControlName]="subscription.integration.app"
+                    [label]="subscription.integration.title" [spacer]="true" labelPosition="before"></peb-button-toggle>
+                  <span class="link" (click)="openIntegration(subscription)">
+                    {{ 'builder-app.actions.open' | translate }}
+                  </span>
+                </div>
+              </div>
+            </peb-form-background>
+          </div>
+
+          <div class="loading" *ngIf="(loading$ | async)">
+            Loading...
+          </div>
+
+          <button pe-form-button color="confirm" class="install-connection" (click)="add()">
+            {{ 'builder-app.actions.add' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

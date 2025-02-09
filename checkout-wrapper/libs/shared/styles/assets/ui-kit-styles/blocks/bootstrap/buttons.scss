@@ -1,0 +1,15 @@
+//
+// Buttons
+// ----------------------------
+
+.pe-checkout-bootstrap {
+  .btn {
+
+    &.btn-primary {
+      color: $color-white;
+      background-color: $color-black-pe;
+      border-color: $color-black-pe;
+      border-radius: 4px;
+    }
+  }
+}

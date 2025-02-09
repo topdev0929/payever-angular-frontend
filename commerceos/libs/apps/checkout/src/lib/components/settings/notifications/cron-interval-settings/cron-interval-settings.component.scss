@@ -1,0 +1,57 @@
+.cdk-overlay-backdrop.settings-modal + .cdk-global-overlay-wrapper {
+  .cron-interval-error {
+    font-size: 12px;
+  }
+  .overlay-widget .cron-interval-settings {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+
+    &_container {
+      &-invalid {
+        border-width: 1px;
+        border-style: solid;
+      }
+      display: flex;
+      flex-wrap: wrap;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    &_item {
+      width: 50%;
+      box-sizing: border-box;
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+
+      &:nth-of-type(2n - 1) {
+        border-right-width: 1px;
+        border-right-style: solid;
+      }
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+    &_item_fullwidth {
+      border-right: none !important;
+      width: 100%;
+    }
+
+    &_button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 12px;
+      min-width: 40px;
+      min-height: 163px;
+      margin-left: 12px;
+      cursor: pointer;
+
+      svg {
+        height: 20px;
+        width: 17px;
+      }
+    }
+  }
+}

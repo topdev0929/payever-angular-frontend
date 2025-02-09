@@ -1,0 +1,165 @@
+<div class="viewer__widget">
+  <div class="viewer__widget__header">
+    <div class="viewer__widget__title">Publish</div>
+    <div class="viewer__widget__close" (click)="onCloseClick()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+        <g fill="none" fill-rule="evenodd">
+          <g>
+            <g>
+              <g>
+                <path fill="currentColor" d="M9.75 0c5.385 0 9.75 4.365 9.75 9.75s-4.365 9.75-9.75 9.75S0 15.135 0 9.75 4.365 0 9.75 0zm4.303 5.447c-.325-.324-.833-.354-1.19-.088l-.103.088-3.01 3.01-3.01-3.01-.102-.088c-.358-.266-.866-.236-1.19.088-.358.357-.358.936 0 1.293l3.009 3.01-3.01 3.01-.081.094c-.273.358-.246.871.081 1.199.325.324.833.354 1.19.088l.103-.088 3.01-3.011 3.01 3.01.102.09c.358.265.866.235 1.19-.09.358-.356.358-.935 0-1.292l-3.01-3.01 3.01-3.01.082-.094c.273-.358.246-.871-.081-1.199z" transform="translate(-283 -67) translate(52 47) translate(231 20)"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div class="viewer__widget__body">
+    <mat-spinner *ngIf="this.loading" [diameter]="30" [strokeWidth]="2" class="mat-spinner-themed dashboard-spinner"></mat-spinner>
+    <div class="theme" *ngIf="!this.loading&&errorMsg">
+      <peb-messages [message]="errorMsg">
+
+      </peb-messages>
+    </div>
+    <div class="theme" *ngIf="!this.loading&&!errorMsg">
+      <div class="theme__image">
+        <div class="image__overlay" (click)="fileInput.click()">
+          <div class="round-container">
+            <svg>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-apps-small-imgae"></use>
+            </svg>
+          </div>
+        </div>
+        <mat-spinner [diameter]="30" *ngIf="isPictureLoadingSubject|async" [strokeWidth]="2" class="mat-spinner-themed"></mat-spinner>
+
+        <img [src]="theme.picture" alt="" *ngIf="theme?.picture" (load)="onload()">
+        <img [src]="preview?.data?.preview?.desktop" alt=""  (load)="onload()"  *ngIf="!theme.picture && preview?.data?.preview?.desktop">
+
+      </div>
+
+      <div class="theme__body">
+            <input class="theme__name" placeholder="Theme name" [value]="theme?.name || ''" (blur)="updateThemeName($event.target?.value)">
+        <div class="theme__tags">
+          <mat-form-field class="tags-input">
+            <mat-chip-list #chipList aria-label="Fruit selection">
+              <mat-chip *ngFor="let tag of tags; let i=index"
+                        [selectable]="true"
+                        [removable]="true"
+                        (removed)="remove(i)"
+              >
+                {{tag}}
+                <div matChipRemove>x</div>
+              </mat-chip>
+              <input
+                    placeholder="No tags"
+                    [matChipInputFor]="chipList"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                    [matChipInputAddOnBlur]="true"
+                    (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+          </mat-form-field>
+        </div>
+      </div>
+      <button class="theme__publish-btn radius__top"
+        [disabled]='publishing || !publishable'
+        (click)="onPublish()"
+        [class.disabled]="!publishable">
+        <span>Publish</span>
+        <!-- <mat-spinner [diameter]="30" *ngIf="publishing" [strokeWidth]="2" class="mat-spinner-themed"></mat-spinner> -->
+      </button>
+    </div>
+    <div class="publishing" *ngIf="!this.loading && publishable && reviewable">
+      <div class="publishing__divider"></div>
+      <div class="publishing__button" (click)="onPublish()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+          <g fill="none" fill-rule="evenodd">
+            <g>
+              <g>
+                <g transform="translate(-125 -377) translate(109 52) translate(16 325)">
+                  <rect width="20" height="20" fill="#86868B" rx="5"/>
+                  <g fill="#FFF" fill-rule="nonzero">
+                    <path d="M3.969 11.25c-.165 0-.322-.068-.437-.187L.181 7.656c-.241-.245-.241-.641 0-.886s.632-.245.873 0L3.97 9.734l7.834-7.943c.156-.159.383-.22.596-.162.214.057.38.226.437.443.057.216-.004.446-.16.605l-8.258 8.386c-.118.122-.28.19-.45.187z" transform="translate(3.571 3.571)"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+        <span>Review Changes and Publish</span>
+      </div>
+      <!-- <div class="publishing__button" (click)="onViewUrl()">
+        <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <title>F7D803E4-AEF6-42C7-A134-B3C1FF32DB94</title>
+          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="0-Builder---Publish-5" transform="translate(-125.000000, -413.000000)">
+              <g id="Group-10-Copy-9" transform="translate(109.000000, 52.000000)">
+                <g id="view" transform="translate(16.000000, 361.000000)">
+                  <rect id="bg-icon-copy-3" fill="#86868B" x="0" y="0" width="20" height="20" rx="5"></rect>
+                  <path d="M3.60201773,8.26881836 C7.66738029,3.24372721 12.3139203,3.24372721 16.3792829,8.26881836 L16.3792829,8.26881836 L16.3979823,8.29193221 C17.2093158,9.29480093 17.2093158,10.7283129 16.3979823,11.7311816 C12.3326197,16.7562728 7.68607969,16.7562728 3.62071714,11.7311816 L3.62071714,11.7311816 L3.60201773,11.7080678 C2.79068421,10.7051991 2.79068421,9.27168707 3.60201773,8.26881836 Z M10,6.33333333 C8.07810668,6.33333333 6.5145442,7.97818634 6.5145442,10 C6.5145442,12.0218137 8.07810668,13.6666667 10,13.6666667 C11.9218933,13.6666667 13.4854558,12.0218137 13.4854558,10 C13.4854558,7.97818634 11.9218933,6.33333333 10,6.33333333 Z M10,8.16666667 C10.9609505,8.16666667 11.7427279,8.98908911 11.7427279,10 C11.7427279,11.0109109 10.9609505,11.8333333 10,11.8333333 C9.03904948,11.8333333 8.2572721,11.0109109 8.2572721,10 C8.2572721,8.98908911 9.03904948,8.16666667 10,8.16666667 Z" fill="#FFFFFF"></path>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+        <span>View Published URL</span>
+      </div> -->
+      <div class="publishing__divider"></div>
+      <!-- TODO: Enable when functionality for the buttons is implemented -->
+      <!-- <div class="publishing__button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+          <g fill="none" fill-rule="evenodd">
+            <g>
+              <g>
+                <g transform="translate(-125 -450) translate(109 52) translate(16 398)">
+                  <rect width="20" height="20" fill="#86868B" rx="5"/>
+                  <path fill="#FFF" fill-rule="nonzero" d="M4.172 4.175c.23-.233.606-.234.837-.002L10 9.161l4.99-4.988c.232-.232.607-.23.838.002.207.21.227.536.06.768l-.062.073L10.839 10l4.987 4.984.062.073c.167.232.147.558-.06.768-.23.233-.606.234-.837.002L10 10.838l-4.99 4.989c-.232.232-.607.23-.838-.002-.207-.21-.227-.536-.06-.768l.062-.073L9.16 10 4.174 5.016l-.062-.073c-.167-.232-.147-.558.06-.768z"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+        <span>Unpublish</span>
+      </div>
+      <div class="divider"></div>
+      <div class="publishing__button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+          <g fill="none" fill-rule="evenodd">
+            <g>
+              <g>
+                <g transform="translate(-125 -487) translate(109 52) translate(16 435)">
+                  <rect width="20" height="20" fill="#86868B" rx="5"/>
+                  <path fill="#FFF" d="M15.068 9.437l-2.253 2.252c-1.244 1.244-3.26 1.244-4.504 0-.196-.195-.35-.415-.484-.642L8.874 10c.05-.05.111-.079.17-.113.072.247.199.482.393.676.62.621 1.631.62 2.252 0L13.94 8.31c.621-.621.621-1.631 0-2.252-.62-.621-1.63-.621-2.252 0l-.801.801c-.65-.253-1.35-.32-2.031-.22l1.706-1.707c1.244-1.244 3.26-1.244 4.505 0 1.243 1.244 1.243 3.26 0 4.504zM9.112 13.14l-.801.802c-.62.62-1.631.62-2.252 0-.621-.622-.621-1.632 0-2.253L8.31 9.437c.621-.621 1.631-.621 2.252 0 .194.194.32.428.393.675.06-.034.12-.062.17-.112l1.047-1.046c-.134-.228-.288-.447-.484-.643-1.244-1.244-3.26-1.244-4.504 0l-2.252 2.252c-1.244 1.244-1.244 3.26 0 4.504 1.244 1.244 3.26 1.244 4.504 0l1.707-1.706c-.682.1-1.382.032-2.032-.221z"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+        <span>Share</span>
+      </div>
+      <div class="publishing__button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+          <g fill="none" fill-rule="evenodd">
+            <g>
+              <g>
+                <g transform="translate(-125 -487) translate(109 52) translate(16 435)">
+                  <rect width="20" height="20" fill="#86868B" rx="5"/>
+                  <path fill="#FFF" d="M15.068 9.437l-2.253 2.252c-1.244 1.244-3.26 1.244-4.504 0-.196-.195-.35-.415-.484-.642L8.874 10c.05-.05.111-.079.17-.113.072.247.199.482.393.676.62.621 1.631.62 2.252 0L13.94 8.31c.621-.621.621-1.631 0-2.252-.62-.621-1.63-.621-2.252 0l-.801.801c-.65-.253-1.35-.32-2.031-.22l1.706-1.707c1.244-1.244 3.26-1.244 4.505 0 1.243 1.244 1.243 3.26 0 4.504zM9.112 13.14l-.801.802c-.62.62-1.631.62-2.252 0-.621-.622-.621-1.632 0-2.253L8.31 9.437c.621-.621 1.631-.621 2.252 0 .194.194.32.428.393.675.06-.034.12-.062.17-.112l1.047-1.046c-.134-.228-.288-.447-.484-.643-1.244-1.244-3.26-1.244-4.504 0l-2.252 2.252c-1.244 1.244-1.244 3.26 0 4.504 1.244 1.244 3.26 1.244 4.504 0l1.707-1.706c-.682.1-1.382.032-2.032-.221z"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+        <span>Embed</span>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<input
+  #fileInput
+  style="display: none"
+  type="file"
+  accept="image/*"
+  (change)="onImageUpload($event)"
+/>

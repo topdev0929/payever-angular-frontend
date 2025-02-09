@@ -1,0 +1,20 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+    $secondary: map.get($color-config, 'secondary');
+    $text-color: map.get($color-config, 'text-color');
+    $confirm: map.get($color-config, 'confirm');
+
+    .pe-message-product-list {
+        .header {
+            button {
+                background-color: $secondary;
+                color: $text-color;
+
+                &.add {
+                    background-color: $confirm;
+                }
+            }
+        }
+    }
+}

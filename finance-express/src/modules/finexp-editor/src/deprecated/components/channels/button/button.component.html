@@ -1,0 +1,150 @@
+<div [ngClass]="{'blurry-box': isGeneratedCode}">
+  <pe-channel-settings-box (clickedButton)="onClickButton($event)"
+                           [boxTitle]="'channels.settings.name' | translate"
+                           [allowSettingsManualScroll]="allowSettingsManualScroll"
+  >
+    <ng-container settings>
+      <div class="actions-container separated">
+        <div *ngIf="form" class="form-table settings-container" [formGroup]="form">
+
+          <!-- Height -->
+          <div class="settings-box">
+            <span class="name-setting" translate>channels.button.height</span>
+            <checkout-channel-input [formControlRef]="form.controls['height']"
+                                    (inputFocus)="setInputFocus($event)"></checkout-channel-input>
+          </div>
+
+          <!-- Text size -->
+          <div class="text-size settings-box">
+            <span class="name-setting" translate>channels.button.textSize</span>
+            <button class="mat-button-link mat-button-bold mat-button-xs mat-button-width-lg"
+                    mat-button
+                    [matMenuTriggerFor]="menuSizes">
+              {{ form.controls['textSize'].value }}
+            </button>
+            <mat-menu #menuSizes="matMenu" class="mat-menu-dark">
+              <button *ngFor="let type of textSizeType"
+                      mat-menu-item
+                      (click)="setFormValue('textSize', type)"
+              >{{ type }}</button>
+            </mat-menu>
+          </div>
+
+          <!-- Text Color -->
+          <div class="settings-box">
+            <span class="name-setting" translate>channels.button.textColor</span>
+            <pe-color-picker class="rectangular-color-picker"
+                             [formControlRef]="form.controls['textColor']"
+            ></pe-color-picker>
+          </div>
+
+          <!-- Button Color -->
+          <div class="settings-box">
+            <span class="name-setting" translate>channels.button.buttonColor</span>
+            <pe-color-picker class="rectangular-color-picker"
+                             [formControlRef]="form.controls['buttonColor']"
+            ></pe-color-picker>
+          </div>
+
+
+          <!-- Alignment -->
+          <div class="alignment settings-box">
+            <span class="name-setting" translate>channels.button.alignment</span>
+            <button class="mat-button-link mat-button-bold mat-button-xs mat-button-width-lg"
+                    mat-button
+                    [matMenuTriggerFor]="menuAlignment">
+              <svg class="icon icon-12"><use [attr.xlink:href]="'#icon-ep-' + form.controls['alignment'].value + '-16'"></use></svg>
+            </button>
+            <mat-menu #menuAlignment="matMenu" class="mat-menu-dark">
+              <button *ngFor="let type of alignmentType"
+                      mat-menu-item
+                      (click)="setFormValue('alignment', type)"
+              >
+                <svg class="icon icon-12"><use [attr.xlink:href]="'#icon-ep-' + type + '-16'"></use></svg>
+              </button>
+            </mat-menu>
+          </div>
+
+          <!-- Corners -->
+          <div class="alignment settings-box">
+            <span class="name-setting" translate>channels.button.corners</span>
+            <button class="mat-button-link mat-button-bold mat-button-xs mat-button-width-lg"
+                    mat-button
+                    [matMenuTriggerFor]="menuCorner">
+              <svg class="icon icon-32"><use [attr.xlink:href]="'#icon-fe-corner-' + form.controls['corners'].value + '-32'"></use></svg>
+            </button>
+            <mat-menu #menuCorner="matMenu" class="mat-menu-dark">
+              <button *ngFor="let type of cornersType"
+                      mat-menu-item
+                      (click)="setFormValue('corners', type)"
+              >
+                <svg class="icon icon-32"><use [attr.xlink:href]="'#icon-fe-corner-' + type + '-32'"></use></svg>
+              </button>
+            </mat-menu>
+          </div>
+
+          <mat-divider class="settings-divider" [vertical]="true" [class.mat-divider-indented]="true"></mat-divider>
+
+          <!-- Visibility -->
+          <div class="settings-box">
+            <span class="name-setting" translate>channels.button.visibility</span>
+            <mat-slide-toggle formControlName="isVisible"
+                              class="mat-slide-toggle-xs"
+            ></mat-slide-toggle>
+          </div>
+
+          <!-- Adaptive -->
+          <div class="settings-box">
+            <span class="name-setting" translate>channels.button.adaptive</span>
+            <mat-slide-toggle formControlName="adaptiveDesign"
+                              class="mat-slide-toggle-xs"
+            ></mat-slide-toggle>
+          </div>
+
+          <!-- Width -->
+          <div class="settings-box" [class.hidden]=" !!form.controls['adaptiveDesign'].value ">
+            <span class="name-setting" translate>channels.button.width</span>
+            <checkout-channel-input [formControlRef]="form.controls['width']"
+                                    (inputFocus)="setInputFocus($event)"></checkout-channel-input>
+          </div>
+
+          <mat-divider class="settings-divider" [vertical]="true" [class.mat-divider-indented]="true"></mat-divider>
+
+          <!-- Checkout Overlay -->
+          <div class="settings-box">
+            <span class="name-setting" translate>channels.button.checkoutOverlay</span>
+            <mat-slide-toggle [checked]="isCheckoutOverlayControlValue"
+                              class="mat-slide-toggle-xs"
+                              (change)="toggleOverlay('fin_exp', $event.checked)"
+            ></mat-slide-toggle>
+          </div>
+
+          <!-- Calculator + Overlay -->
+          <div class="settings-box">
+            <span class="name-setting" translate>channels.button.calculatorPlusOverlay</span>
+            <mat-slide-toggle [checked]="isCalculatorOverlayControlValue"
+                              class="mat-slide-toggle-xs"
+                              (change)="toggleOverlay('fin_calculator', $event.checked)"
+            ></mat-slide-toggle>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container example>
+      <div [class.hidden]="errorMessage || showSpinner" [class.adaptive]="form?.controls['adaptiveDesign']?.value" #preview></div>
+
+      <div [class.hidden]="!errorMessage" class="mat-error">{{ errorMessage | translate }}</div>
+
+      <div *ngIf="showSpinner" class="spinner-container">
+        <div class="spinner-container-spinner">
+          <mat-spinner [diameter]="spinnerDiameter" [strokeWidth]="spinnerWidth" ></mat-spinner>
+        </div>
+      </div>
+    </ng-container>
+  </pe-channel-settings-box>
+</div>
+<checkout-generate-html [generatedHtml]="generatedHtml"
+                        (clickedGeneratedBox)="onClickGeneratedBox($event)"
+                        *ngIf="isGeneratedCode"
+></checkout-generate-html>

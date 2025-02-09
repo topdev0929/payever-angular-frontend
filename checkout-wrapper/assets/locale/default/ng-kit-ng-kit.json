@@ -1,0 +1,60 @@
+{
+  "ng_kit": {
+    "forms": {
+      "error": {
+        "validator": {
+          "required": "{{fieldName}} is required",
+          "required_full": "This field is required",
+          "expired": "Value expired",
+          "pattern": "{{fieldName}} doesn't match required pattern",
+          "tab_pattern": "{{fieldName}} must not contain spaces",
+          "phone": "{{fieldName}} must be a real phone number",
+          "phone_country": "{{fieldName}} requires Country to be filled",
+          "minlength": "{{fieldName}} is too short",
+          "minlength_with_number": "{{fieldName}} is too short. Minimial length is {{length}}",
+          "maxlength": "{{fieldName}} is too long",
+          "maxlength_with_number": "{{fieldName}} is too long. Maximum length is {{length}}",
+          "datepicker": {
+            "min": "{{fieldName}} should be greater than {{min}}",
+            "max": "{{fieldName}} should be less than {{max}}"
+          },
+          "date_range": "{{fieldName}} value should be between {{min}} and {{max}}",
+          "password":  {
+            "title":"Your password must have:",
+            "min_characters":"{{minCharacters}} or more characters",
+            "case_type": "Upper and lowercase letters",
+            "digit": "At least one number",
+            "special_character": "At least one special character"
+          },
+          "email": "E-mail is not correct",
+          "match": "Please select correct value",
+          "phone_number": {
+            "country_code_required": "Please enter country code (e.g. {{code}})",
+            "country_any_code_required": "Please enter country code",
+            "invalid": "{{fieldName}} must be a real phone number",
+            "invalid_for_country": "Number doesn't match the required format",
+            "only_mobile_allowed": "Must be a mobile number",
+            "only_landline_allowed": "Must be a landline number",
+            "too_short": "{{fieldName}} is too short",
+            "no_zeros": "Invalid format - “0” after country code not allowed"
+          },
+          "name": {
+            "invalid_character": "Numbers and special characters not allowed"
+          }
+        },
+        "image_picker": {
+          "max_size": "Maximum image size is {{size}}",
+          "wrong_type": "Invalid file type"
+        },
+        "unknown_error": "{{fieldName}} is not correct",
+        "unknown_error_full": "This field is not correct"
+      },
+      "labels": {
+        "yes": "Yes",
+        "no": "No",
+        "password_forgot_link": "Forgot your password"
+      },
+      "optional": "(optional)"
+    }
+  }
+}

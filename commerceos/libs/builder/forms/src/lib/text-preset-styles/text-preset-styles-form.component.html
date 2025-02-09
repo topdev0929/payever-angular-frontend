@@ -1,0 +1,16 @@
+<form class="form" [formGroup]="formGroup">
+  <div class="group__row">
+    <label class="group__label">
+      {{ 'builder-app.forms.text.text_style' | translate }}
+    </label>
+  </div>
+
+  <div class="group__row">
+    <peb-select #select formControlName="textStyleName" [options]="predefinedStyles" ></peb-select>
+
+    <button class="sidebar__button sidebar__button--details" type="button" (click)="select.openOptionList()">
+      {{ formGroup.value.name }}
+      <mat-icon class="sidebar__icon sidebar__icon__arrow" svgIcon="arrow"></mat-icon>
+    </button>
+  </div>
+</form>

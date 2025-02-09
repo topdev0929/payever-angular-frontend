@@ -1,0 +1,21 @@
+<div class="navigation">
+  <div>
+    <p class="section-title">Please, select a business</p>
+    <select [(ngModel)]="selectedBusiness">
+      <option *ngFor="let business of (businessesList | async)?.businesses"
+              [value]="business._id"
+      >
+        {{ business.name }}
+      </option>
+    </select>
+
+    <span class="button-wrapper">
+      <a
+        class="button"
+        [routerLink]="['settings/business/', selectedBusiness, 'settings']"
+      >
+        Business settings
+      </a>
+    </span>
+  </div>
+</div>

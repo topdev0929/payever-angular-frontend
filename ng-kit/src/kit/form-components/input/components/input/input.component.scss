@@ -1,0 +1,39 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+:host{
+  >div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .number-controls {
+      cursor: pointer;
+      color: $color-secondary-0;
+      width: 16px;
+      height: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      > span {
+        height: 11px;
+      }
+    }
+    .control-caret-up {
+      > svg {
+        position: absolute;
+        bottom: 8px;
+        &:hover {
+          color: $color-blue
+        }
+      }
+    }
+    .control-caret-down {
+      > svg {
+        position: absolute;
+        top: 8px;
+        &:hover {
+          color: $color-blue
+        }
+      }
+    }
+  }
+
+}

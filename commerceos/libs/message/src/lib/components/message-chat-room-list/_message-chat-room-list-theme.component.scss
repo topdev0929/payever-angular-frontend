@@ -1,0 +1,57 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $text-color: map.get($color-config, 'text-color');
+  $primary: map.get($color-config, 'primary');
+  $gray-button: map.get($color-config, 'gray-button');
+  $label-color: map.get($color-config, 'label-color');
+  $extra-bg-color: map.get($color-config, 'extra-bg-color');
+
+  .pe-message-chat-room-list {
+    &__search {
+      color: $text-color;
+      background-color: $primary;
+
+      .icon-search-18 {
+        path {
+          fill: $gray-button;
+        }
+      }
+
+      .input-content-wrapper {
+        &.input-content-wrapper_search {
+          background-color: $extra-bg-color;
+        }
+
+        .label-container {
+          input {
+            background-color: $extra-bg-color;
+          }
+        }
+      }
+
+      input {
+        background: $extra-bg-color;
+      }
+    }
+
+    &__notification {
+      color: $label-color;
+    }
+
+    &__integration {
+      color: $text-color;
+    }
+
+    &__no-chats {
+      span {
+        color: $text-color;
+      }
+
+      button {
+        background: $gray-button;
+        color: $text-color;
+      }
+    }
+  }
+}

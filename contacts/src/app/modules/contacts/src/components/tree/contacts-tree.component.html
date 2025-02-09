@@ -1,0 +1,53 @@
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="sidebar-tree">
+  <mat-tree-node *matTreeNodeDef="let node" class="sidebar-mat-tree-node">
+    <div *ngIf="!node.editing" class="sidebar-tree__node" draggable="true"
+      [class.sidebar-tree__node--active]="activeAlbum===node.id" (click)="openFolder($event,node)">
+
+      <button *ngIf="!node?.noToggleButton" mat-icon-button [attr.aria-label]="'Toggle ' + node.name"
+        class="sidebar-tree__toggle-button">
+        <div [style.transform]="treeControl.isExpanded(node) ? '' : 'rotate(270deg)'"
+          (click)="onToggleExpanded($event,node)">
+          <mat-icon svgIcon="tree-arrow-icon" style="height: 7px"></mat-icon>
+        </div>
+      </button>
+      <div *ngIf="node.image || nodeImageTemplate" class="sidebar-tree__node-image">
+        <img *ngIf="node.image" [src]="node.image" class="sidebar-tree__node-img" alt="img-node"/>
+        <ng-container *ngIf="!node.image && nodeImageTemplate" [ngTemplateOutlet]="nodeImageTemplate"
+          [ngTemplateOutletContext]="{node: node}"></ng-container>
+      </div>
+      <span class="sidebar-tree__node-name">{{ node.name }}</span>
+    </div>
+    <form (submit)="nodeEditing.blur()" *ngIf="node.editing">
+      <input #nodeEditing type="text" class="sidebar-tree__input" name="rename" [(ngModel)]="node.name"
+        (blur)="onRenameNode(node)" />
+    </form>
+
+  </mat-tree-node>
+
+  <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+    <div class="sidebar-tree__node" [id]="'drop-list'+node.id"
+      [class.sidebar-tree__node--active]="activeAlbum===node.id" (click)="openFolder($event,node)">
+      <button *ngIf="!node?.noToggleButton" mat-icon-button [attr.aria-label]="'Toggle ' + node.name"
+        class="sidebar-tree__toggle-button">
+        <div [style.transform]="treeControl.isExpanded(node) ? '' : 'rotate(270deg)'"
+          (click)="onToggleExpanded($event,node)">
+          <mat-icon svgIcon="tree-arrow-icon" style="height: 7px"></mat-icon>
+        </div>
+      </button>
+      <div *ngIf="node.image || nodeImageTemplate" class="sidebar-tree__node-image">
+        <img *ngIf="node.image" [src]="node.image" class="sidebar-tree__node-img" />
+        <ng-container *ngIf="!node.image && nodeImageTemplate" [ngTemplateOutlet]="nodeImageTemplate"
+          [ngTemplateOutletContext]="{node: node}">
+        </ng-container>
+      </div>
+      <span class="sidebar-tree__node-name">{{ node.name }}</span>
+    </div>
+    <div [class.sidebar-tree__nested-invisible]="!treeControl.isExpanded(node)" class="sidebar-tree__nested-node">
+      <ng-container [ngTemplateOutlet]="treeNodeOutletTemplate"></ng-container>
+    </div>
+    <ng-template #treeNodeOutletTemplate>
+      <ng-container matTreeNodeOutlet></ng-container>
+    </ng-template>
+    <ng-content select="treeFilterImageTemplate"></ng-content>
+  </mat-nested-tree-node>
+</mat-tree>

@@ -1,0 +1,43 @@
+<h4>Default</h4>
+<mat-list>
+  <mat-list-item *ngFor="let vegetable of vegetableList"> {{vegetable}} </mat-list-item>
+</mat-list>
+
+<h4>Icons list</h4>
+<mat-list class="mat-list-icons demo-icons-list">
+  <mat-list-item *ngFor="let icon of iconsList">
+    <svg class="icon icon-32"><use [attr.xlink:href]="icon"></use></svg>
+  </mat-list-item>
+</mat-list>
+
+<h4>Icons list with titles</h4>
+<mat-list class="mat-list-icons demo-icons-list-with-titles">
+  <mat-list-item *ngFor="let icon of iconsList">
+    <div class="mat-list-item-icon">
+      <svg class="icon icon-32"><use [attr.xlink:href]="icon"></use></svg>
+    </div>
+    <div class="mat-list-item-title">{{icon}}</div>
+  </mat-list-item>
+</mat-list>
+
+<h4>Vertical Icons Navigation List with Titles</h4>
+<mat-nav-list class="mat-list-icons mat-list-icons-vertical">
+  <mat-list-item *ngFor="let icon of iconsList">
+    <div class="mat-list-item-icon">
+      <svg class="icon icon-32"><use [attr.xlink:href]="icon"></use></svg>
+    </div>
+    <div class="mat-list-item-title">{{icon}}</div>
+  </mat-list-item>
+</mat-nav-list>
+
+<h4>Vertical Icons Navigation List with Titles and Hover State</h4>
+<div class="doc-container-black doc-container-padding-vertical">
+  <mat-nav-list class="mat-list-icons mat-list-icons-vertical mat-list-icons-hover">
+    <mat-list-item *ngFor="let icon of iconsList" matBadge="4"  matBadgeColor="accent">
+      <div class="mat-list-item-icon">
+        <svg class="icon icon-32"><use [attr.xlink:href]="icon"></use></svg>
+      </div>
+      <div class="mat-list-item-title">{{icon}}</div>
+    </mat-list-item>
+  </mat-nav-list>
+</div>

@@ -1,0 +1,44 @@
+@import "../../../../../../../shared/styles/assets/ui-kit-styles/pe_variables";
+
+:host {
+  display: block;
+}
+
+.selected-rate-wrap-box {
+  margin-bottom: $padding-base-vertical * 2;
+}
+
+.choose-rate-accordion {
+  .selected-rate-wrap-box {
+    margin-bottom: 0;
+
+    .selected-rate-dropdown {
+      margin: $payment-grid-unit-y $padding-base-horizontal 0;
+    }
+    .selected-rate-info {
+      margin: 0 $padding-base-horizontal + 6px $padding-base-vertical * 2;
+    }
+  }
+}
+
+.selected-rate-dropdown {
+  margin: $padding-base-vertical * 2 0 $padding-base-vertical * 2;
+}
+.selected-rate-info {
+  margin: $padding-base-vertical * 2 6px $padding-base-vertical * 2;
+}
+
+.effective-rate-info-icon {
+  margin-left: 2px;
+  margin-top: -2px;
+}
+
+.no-credit-options-for-product {
+  padding: $payment-grid-unit-y - 3;
+}
+
+.no-products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

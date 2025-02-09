@@ -1,0 +1,24 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $row-background: map.get($color-config, 'row-background');
+  $text-color: map.get($color-config, 'text-color');
+  $label-color: map.get($color-config, 'label-color');
+  $warn: map.get($color-config, 'warn');
+
+  .statistics-field-component {
+    background-color: $row-background;
+    input,
+    .field__body {
+      color: $text-color;
+    }
+    .field__body {
+      &-options {
+        color: $label-color;
+      }
+      .error {
+        color: $warn;
+      }
+    }
+  }
+}

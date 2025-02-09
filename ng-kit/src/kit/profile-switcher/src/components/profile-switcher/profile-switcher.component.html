@@ -1,0 +1,32 @@
+<div class="switcher-wrapper" *ngIf="list"
+     [class.switcher-wrapper-opened]="opened"
+     [class.without-top-switcher]=" !showTopSwitcher ">
+  <div class="switcher-scroll-wrapper" peScrollHide>
+    <div class="switcher-wrapper-inner">
+      <div *ngIf="showTopSwitcher" class="profile-cards">
+        <div class="profile" *ngIf="personalProfileCardConfig">
+          <pe-profile-switcher-card [config]="personalProfileCardConfig"
+                                    [showLoader]="showPersonalCardLoader"
+                                    (cardButtonClicked)="openPersonalProfile.emit()"
+          ></pe-profile-switcher-card>
+        </div>
+        <pe-profile-switcher-card *ngIf="list.length"
+                                  class="profile"
+                                  [config]="profileCardConfig"
+                                  [showLoader]="showBusinessCardLoader"
+                                  (cardButtonClicked)="onProfileCardClick.emit()"
+                                  (footerButtonClicked)="toggleOpen()"
+        ></pe-profile-switcher-card>
+      </div>
+      <pe-profile-switcher-list class="profile-business-list"
+                                [class.without-top-switcher]=" !showTopSwitcher "
+                                [opened]=" !showTopSwitcher || opened "
+                                [title]="listTitle"
+                                [list]="list"
+                                [listItemWithLoader]="listItemWithLoader"
+                                [multiLineItemsTitle]=[multiLineItemsTitle]
+                                (onProfileClick)="onProfileFromListClick.emit($event)">
+      </pe-profile-switcher-list>
+    </div>
+  </div>
+</div>

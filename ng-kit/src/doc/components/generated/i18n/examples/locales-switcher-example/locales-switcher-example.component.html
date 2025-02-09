@@ -1,0 +1,23 @@
+<p><small>* Note: Usually we can't change <strong>useStorageForLocale</strong> on fly because it's configured via environment</small></p>
+<select class="form-control"
+        [(ngModel)]="useStorageForLocale"
+        [ngModelOptions]="{standalone: true}">
+  <option [value]="false">Do not use local storage</option>
+  <option [value]="true">Use local storage</option>
+</select>
+<hr>
+
+<h4>Change locale with page refresh</h4>
+<pe-locales-switcher [reloadPageOnSwitch]="true"></pe-locales-switcher>
+
+<h4>Change locale with no page refresh</h4>
+<pe-locales-switcher [reloadPageOnSwitch]="false"></pe-locales-switcher>
+
+<h4>Translated text for test</h4>
+<p>
+  <span translate>ng_kit.dialog.action_buttons.confirm</span> /
+  <span translate>ng_kit.dialog.action_buttons.cancel</span> /
+  <span translate>ng_kit.dialog.action_buttons.save</span> /
+  <span translate>ng_kit.dialog.action_buttons.close</span> /
+  <span translate>ng_kit.forms.error.unknown_error_full</span>
+</p>

@@ -1,0 +1,66 @@
+$unit: 8px;
+
+%navbar-field {
+  margin-right: 1em;
+
+  &:last-child {
+    margin-right: 0
+  }
+}
+
+
+%navbar-field-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0 12px 0 0;
+  line-height: 17px;
+  font-weight: normal;
+}
+
+%navbar-field-input {
+  font: inherit;
+  background: rgba(17, 17, 17, 0.3);
+  border: none;
+  border-radius: 4px;
+  outline: 0;
+  padding: 0 4px;
+  margin: 0;
+  text-align: inherit;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 11px;
+  vertical-align: middle;
+  line-height: 17px;
+}
+
+%navbar-button {
+  margin: 0;
+  padding: 0 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-size: 13px;
+  border: none;
+  border-radius: 0px;
+  outline: none;
+}
+
+// TODO: Think of proper naming after updating other buttons
+%navbar-button-animated {
+
+  svg { color: rgba(196, 196, 196, .9) }
+
+  &:hover:not(:disabled) {
+    background-color: rgba(255, 255, 255, 0.4);
+
+    svg { color: rgba(196, 196, 196, 1) }
+  }
+
+  &:disabled {
+    svg { color: rgba(196, 196, 196, .6) }
+  }
+}
+
+%navbar-button-with-spinner {
+  span.spinner-container {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}

@@ -1,0 +1,30 @@
+<div class="ui-paragraph-editor">
+  <div class="editor-panel" *ngIf="isEditorActive">
+    <div class="btn-group btn-group-activated dark groups-panel" role="group">
+      <ng-container *ngFor="let group of groupActions">
+        <button type="button" class="btn btn-sm group-icon" [ngClass]="{'active': group.isSelected}" (click)="onSelectGroup(group)">
+          <svg class="icon" [ngClass]="'icon-' + group.iconSize">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" [attr.xlink:href]="group.icon"></use>
+          </svg>
+        </button>
+      </ng-container>
+      <button type="button"
+              class="btn btn-primary btn-link btn-sm finish-button"
+              (click)="onFinishButtonClick()"
+              [innerHtml]="finishButtonName">
+      </button>
+    </div>
+    <div class="btn-group btn-group-activated-icon dark actions-panel">
+      <ng-container *ngFor="let action of selectedGroup.actions">
+        <button type="button" class="btn btn-icon action-icon" (click)="onActionSelected(selectedGroup, action)" [ngClass]="{'active': action.isActive}">
+          <svg class="icon" [ngClass]="'icon-' + action.iconSize">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" [attr.xlink:href]="action.icon"></use>
+          </svg>
+        </button>
+      </ng-container>
+    </div>
+  </div>
+  <div #contentWrapper>
+    <ng-content></ng-content>
+  </div>
+</div>

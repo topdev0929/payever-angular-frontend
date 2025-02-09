@@ -1,0 +1,19 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $primary: map.get($color-config, 'primary');
+  $filter-invert-light: map.get($color-config, 'filter-invert-light');
+
+  .pos-product-list {
+    &.top-bar-wrapper {
+      background-color: $primary;
+      .top-bar-container {
+        .button {
+            img {
+                filter: $filter-invert-light;
+            }
+        }
+      }
+    }
+  }
+}

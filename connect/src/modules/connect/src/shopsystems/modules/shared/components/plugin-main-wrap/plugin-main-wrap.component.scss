@@ -1,0 +1,56 @@
+@import "../../../../../../assets/variables";
+
+.cdk-overlay-backdrop.connect-modal + .cdk-global-overlay-wrapper {
+  .plugin-main-wrap-container {
+    min-width: 100%;
+    padding: 0;
+
+
+    .pe-info-box {
+      width: 100%;
+      padding: 0;
+
+      .info-box {
+        .mat-card {
+          border-radius: 0;
+        }
+      }
+    }
+
+    &__api-keys {
+      .add-button {
+        height: 40px;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        border-radius: 12px;
+        font-family: Roboto, sans-serif;
+        font-size: 16px;
+        text-align: center;
+        color: #0091df;
+        cursor: pointer;
+        background-color: $content-background-color;
+      }
+    }
+  }
+
+  .overlay-light {
+    .plugin-main-wrap-container {
+
+      &__api-keys {
+        background-color: $content-light-button-background-color;
+      }
+    }
+  }
+
+  .overlay-transparent {
+    .plugin-main-wrap-container {
+
+      &__api-keys {
+        background-color: $content-transparent-button-background-color;
+      }
+    }
+  }
+}

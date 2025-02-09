@@ -1,0 +1,17 @@
+<input
+  #input
+  type="text"
+  [placeholder]="placeholder"
+  [formControl]="formControl"
+  [matAutocomplete]="auto"
+>
+<mat-autocomplete class="pe-coupons-list" #auto="matAutocomplete" (optionSelected)="optionSelected($event.option.value)">
+  <ng-scrollbar track="vertical"
+  [style.height.px]="34 * (filteredItems | async).length"
+  [ngClass]="theme">
+    <mat-option
+      *ngFor="let item of filteredItems | async; let i = index; trackBy: trackOption"
+      id="pe-coupons-option-{{ i }}"
+      [value]="item">{{ item.title }}</mat-option>
+  </ng-scrollbar>
+</mat-autocomplete>

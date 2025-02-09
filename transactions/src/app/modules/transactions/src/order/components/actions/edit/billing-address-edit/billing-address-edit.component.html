@@ -1,0 +1,29 @@
+<form class="form-table" novalidate (ngSubmit)="onSubmit()" [formGroup]="form" *ngIf="form">
+  <button #submitTrigger id="submitButton" name="submitButton" type="submit" class="native-submit"></button>
+  <pe-form-fieldset [isSubmitted]="isSubmitted"
+                    [fields]="fieldset"
+                    [formGroup]="form"
+                    [translationScope]="'address.form'"
+                    [errors]="errors$ | async"
+                    [hideDisabled]="true"
+                    [formStyle]="'transparent'"
+                    [class]="'transparent'"
+  ></pe-form-fieldset>
+  <button mat-button
+          type="button"
+          [class.mat-button-dark]="true"
+          class="mat-button-lg btn-block"
+          [disabled]="isLoading"
+          (click)="onSubmit()">
+    <pe-progress-button-content [loading]="isLoading">
+      <span translate>actions.save</span>
+    </pe-progress-button-content>
+  </button>
+  <button mat-button
+          type="button"
+          class="mat-button-lg btn-block"
+          [disabled]="isLoading"
+          (click)="saved.emit(null)">
+    <span translate>actions.cancel</span>
+  </button>
+</form>

@@ -1,0 +1,27 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $active-button: map.get($color-config, 'active-button');
+  $text-color: map.get($color-config, 'text-color');
+  $label-color: map.get($color-config, 'label-color');
+  $transparent-color: map.get($color-config, 'transparent-color');
+  $warn: map.get($color-config, 'warn');
+
+  .textbox-label-container-wrapper,
+  .textbox-container-wrapper {
+    .label-text {
+      color: $label-color;
+      &.is-invalid {
+        color: $warn;
+      }
+    }
+    textarea {
+      color: $text-color;
+      background-color: $transparent-color;
+
+      &::-webkit-scrollbar-thumb {
+        background: $active-button;
+      }
+    }
+  }
+}

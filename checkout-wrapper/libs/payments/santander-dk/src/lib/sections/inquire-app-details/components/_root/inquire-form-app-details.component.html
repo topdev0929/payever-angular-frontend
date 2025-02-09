@@ -1,0 +1,25 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup">
+  <personal-form formControlName="personalForm"> </personal-form>
+  <children-form formControlName="childrenForm"> </children-form>
+  <cars-form formControlName="carsForm"> </cars-form>
+  <bank-details-form formControlName="bankDetailsForm"> </bank-details-form>
+  <cpr-details-form
+    *ngIf='formGroup.get("cprDetailsForm").enabled'
+    formControlName="cprDetailsForm">
+  </cpr-details-form>
+  <exposed-person-form formControlName="exposedPersonForm"> </exposed-person-form>
+  <safe-insurance-form
+    *ngIf='formGroup.get("safeInsuranceForm").enabled'
+    formControlName="safeInsuranceForm">
+  </safe-insurance-form>
+  <finance-details-form formControlName="financeDetailsForm"> </finance-details-form>
+  <confirm-form formControlName="confirmForm"> </confirm-form>
+
+  <checkout-sdk-continue-button
+    [text]="translations.submit"
+    [loading]="loading$ | async"
+    (clicked)="onSubmit()">
+  </checkout-sdk-continue-button>
+</form>

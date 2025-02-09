@@ -1,0 +1,10 @@
+<test-custom-element-container
+  *ngIf="isReady$ | async"
+  [submitForm$]="submitForm$"
+  [payForOrder$]="payForOrder$"
+  [valueBoolean]="valueBoolean"
+  [valueNumber]="valueNumber"
+  [valueString]="valueString"
+  [valueObject]="valueObject"
+  (saved)="saved.emit($event)"
+></test-custom-element-container>

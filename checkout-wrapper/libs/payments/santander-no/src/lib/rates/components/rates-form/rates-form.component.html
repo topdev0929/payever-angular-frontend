@@ -1,0 +1,57 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup"
+  analyticsForm>
+  <ng-container *ngIf="initialRate$ | async as initialRate">
+    <p
+      *ngIf="!initialRate.campaignCode && !hasRatesLoadError"
+      class="small text-danger"
+      i18n="@@santander-no.credit_rates.error.rate_not_selected">
+      santander-no.credit_rates.error.rate_not_selected
+    </p>
+
+    <santander-no-rates-edit-list
+      #ratesListElem
+      [flowId]="flow.id"
+      [paymentMethod]="paymentMethod"
+      [total]="flow.total"
+      [currency]="flow.currency"
+      [extraDuration]="onlyDuration"
+      [creditType]="initialRate?.creditType"
+      [initialData]="initialRate"
+      (selected)="onRateSelected($event)"
+      (fetchingRates)="isRatesLoading = $event; ratesLoading.emit($event);"
+      (hasFetchError)="hasRatesLoadError = $event; ratesLoadingError.emit($event);">
+    </santander-no-rates-edit-list>
+  </ng-container>
+
+  <div class="form-fieldset-new">
+    <mat-form-field class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-no.inquiry.form.social_security_number.label"> Social security number </mat-label>
+      <input
+        matInput
+        formControlName="socialSecurityNumber"
+        type="text" />
+    </mat-form-field>
+
+    <mat-form-field class="col-xs-12 col-sm-6">
+      <mat-label i18n="@@santander-no.inquiry.form.telephone_mobile.label"> Mobile phone </mat-label>
+      <input
+        matInput
+        formControlName="telephoneMobile"
+        type="text" />
+    </mat-form-field>
+  </div>
+
+  <div class="terms-form">
+    <mat-checkbox
+      formControlName="acceptedCreditCheck"
+      analyticFieldName="Accepted credit check"
+      [analyticsConsent]="analyticConsentEventEnum.GENERAL_CONSENT_GIVEN">
+      <span
+        class="checkbox-label text-danger-on-error"
+        [innerHTML]="translations.acceptedCreditCheck">
+      </span>
+    </mat-checkbox>
+  </div>
+</form>

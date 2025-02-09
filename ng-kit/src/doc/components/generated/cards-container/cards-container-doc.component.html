@@ -1,0 +1,52 @@
+<div class="chapter">
+  <h2>CardsContainerComponent</h2>
+  <div class="main-block">
+    <tabset>
+      <tab heading="Overview">
+        <h3>Import CardsContainerModule</h3>
+        <pre><code class="typescript" [innerHTML]="'import { CardsContainerModule } from \'@pe/ng-kit/modules/cards-container\';'"></code></pre>
+        <p>&nbsp;</p>
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          [tsExample]="tsExample"
+          [cssExample]="cssExample"
+          >
+          <div class="cards-container-wrap">
+              <pe-cards-container
+                [containerEl]="cardItems"
+                [cardsLayout]="cardsContainerLayout"
+                [config]="cardConfig"
+              >
+              </pe-cards-container>
+          </div>
+        </example-viewer>
+      </tab>
+      <tab heading="API">
+        <component-api-renderer [path]="'cards-container/src/cards-container.component'"></component-api-renderer>
+      </tab>
+      <tab heading="Examples">
+        <example-viewer
+          title="Basic Example"
+          [htmlExample]="htmlExample"
+          [tsExample]="tsExample"
+          [cssExample]="cssExample"
+          >
+          <div class="cards-container-wrap">
+              <pe-cards-container
+                [containerEl]="cardItems"
+                [cardsLayout]="cardsContainerLayout"
+                [config]="cardConfig"
+              >
+              </pe-cards-container>
+          </div>
+        </example-viewer>
+      </tab>
+      <tab heading="README">
+        <doc-viewer documentUrl="/assets/module-guides/cards-container/cards-container.html"></doc-viewer>
+      </tab>
+    </tabset>
+  </div>
+</div>
+
+

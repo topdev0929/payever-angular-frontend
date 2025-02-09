@@ -1,0 +1,4 @@
+<pe-search
+  placeholder="placeholder text"
+  >
+</pe-search>

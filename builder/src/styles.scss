@@ -1,0 +1,74 @@
+/* TODO temp, make via ng-kit */
+checkout-root .ui-layout-app {
+  background-color: transparent !important;
+}
+
+checkout-root .ui-layout-app .inner-wrap {
+  background-color: #ffffff !important;
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+  top: 0px !important;
+  bottom: 0px !important;
+  right: 0px !important;
+  left: 0px !important;
+}
+checkout-root .loader-container.loader-fixed {
+  position: absolute !important;
+  background-color: transparent !important;
+}
+.pac-container {
+  z-index: 2000 !important;
+}
+body.pe-bootstrap div.dropdown-menu.datepicker-dropdown {
+  z-index: 2000 !important;
+}
+
+.slide-top {
+  overflow: hidden !important;
+}
+
+.slide-top .mat-dialog-container {
+  overflow: hidden !important;
+}
+
+.slide-top .mat-dialog-content {
+  max-height: initial !important;
+  overflow: visible !important;
+}
+
+.pe-bootstrap .mat-menu-fit-content {
+  max-width: 100vw;
+}
+
+.widgets-select-menu .mat-menu-content {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.page-editor-wrapper,
+.page-editor-wrapper pe-widget-settings-root,
+.page-editor-wrapper .builder-area,
+.cdk-live-announcer-element,
+.mat-checkbox-label span,
+.actions-label,
+mat-menu,
+#os-background-wrap {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.top-bar {
+
+  .mat-select-value {
+    width: auto;
+    display: inline-block;
+    overflow: inherit;
+    color: white;
+    max-width: unset;
+  }
+
+  .mat-select-value-text {
+    font-weight: 500;
+  }
+}

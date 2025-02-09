@@ -1,0 +1,165 @@
+.pe-list-section {
+  &__item,
+  &__item-title,
+  &__item-button,
+  &__add-button {
+    font-size: 16px;
+  }
+
+  &__item-description {
+    display: none;
+    font-size: 14px;
+    margin-right: 12px;
+
+    &.show-description {
+      align-items: center;
+      display: flex;
+    }
+  }
+
+  &__item-right-block {
+    display: flex;
+    height: 100%;
+    align-items: center;
+  }
+
+  &__group-header {
+    display: block;
+    font-size: 11px;
+    height: 20px;
+    margin-bottom: 6px;
+  }
+
+  &__item {
+    align-items: center;
+    display: flex;
+    height: 44px;
+    padding-left: 12px;
+    position: relative;
+    justify-content: space-between;
+
+    @media (max-width: 720px) {
+      height: 56px;
+    }
+
+    &.show-navigate-button {
+      .pe-list-section__item-right-block {
+        padding-right: 12px;
+      }
+    }
+
+    &.hover {
+      cursor: pointer;
+    }
+
+    &.hover:hover,
+    &.selected {
+      .pe-list-section__item-description {
+        display: block;
+      }
+    }
+  }
+
+  &__click-area {
+    position: absolute;
+  }
+
+  &__item-label {
+    display: flex;
+    height: 100%;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  &__item-image {
+    align-items: center;
+    display: flex;
+  }
+  &__item-abbreviation,
+  &__item-icon {
+    border-radius: 5px;
+    height: 24px;
+    margin-right: 12px;
+    min-width: 24px;
+    width: 24px;
+  }
+
+  &__item-abbreviation {
+    align-items: center;
+    display: flex;
+    font-size: 14px;
+    justify-content: center;
+  }
+
+  &__item-title {
+    align-items: center;
+    display: flex;
+    width: 100%;
+    flex: 1;
+    overflow: hidden;
+    &-text {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &__item-button,
+  &__add-button {
+    cursor: pointer;
+    align-self: center;
+    font-weight: 500;
+  }
+
+  &__add-button {
+    border: 0;
+    height: 44px;
+    width: 100%;
+    @media (max-width: 720px) {
+      height: 56px;
+    }
+    &.isSmall {
+      height: 40px;
+      @media (max-width: 720px) {
+        height: 44px;
+      }
+    }
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  &.isSmall {
+    .pe-list-section  {
+      &__item {
+        height: 40px;
+        @media (max-width: 720px) {
+          height: 44px;
+        }
+      }
+    }
+  }
+
+  &__item-arrow-right {
+    width: 8px;
+  }
+
+  &__click-area {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.form {
+  font-size: 14px;
+  font-weight: 400;
+
+  @media (max-width: 720px) {
+    font-size: 17px;
+  }
+}
+
+.maxheight {
+  overflow-x: hidden;
+}

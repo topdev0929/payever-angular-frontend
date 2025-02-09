@@ -1,0 +1,56 @@
+<div #dialogPopup class="color-picker" [class.open]="show" [style.display]="!show ? 'none' : 'block'" [style.visibility]="hidden ? 'hidden' : 'visible'" [style.top.px]="top" [style.left.px]="left" [style.position]="position" [style.height.px]="cpHeight" [style.width.px]="cpWidth" (click)="$event.stopPropagation()">
+  <div *ngIf="cpDialogDisplay==='popup'" class="arrow arrow-{{cpUsePosition}}" [style.top.px]="arrowTop"></div>
+
+  <div *ngIf="(cpColorMode || 1) === 1" class="saturation-lightness" [pebSlider] [rgX]="1" [rgY]="1" [style.background-color]="hueSliderColor" (newValue)="onColorChange($event)" (dragStart)="onDragStart('saturation-lightness')" (dragEnd)="onDragEnd('saturation-lightness')">
+    <div class="cursor" [style.top.px]="slider?.v" [style.left.px]="slider?.s"></div>
+  </div>
+
+  <div class="hue-alpha box">
+    <div class="right">
+      <div *ngIf="cpAlphaChannel==='disabled'" style="height: 16px;"></div>
+
+      <div #hueSlider class="hue" [pebSlider] [rgX]="1" [style.display]="(cpColorMode || 1) === 1 ? 'block' : 'none'" (newValue)="onHueChange($event)" (dragStart)="onDragStart('hue')" (dragEnd)="onDragEnd('hue')">
+        <div class="cursor" [style.left.px]="slider?.h" [style.background-color]="hueSliderColor"></div>
+      </div>
+
+      <div #saturationSlider class="saturation" [pebSlider] [rgX]="1" (newValue)="onSaturationChange($event)" (dragStart)="onDragStart('value')" (dragEnd)="onDragEnd('value')" [style.background-image]="saturationSliderColor">
+        <div class="cursor" [style.left.px]="(slider?.s + 8) / (230 / saturationSlider.offsetWidth) - 8" [style.background-color]="alphaSliderColor"></div>
+      </div>
+
+      <!-- <div #valueSlider class="value" [slider] [rgX]="1" [style.display]="(cpColorMode || 1) === 2 ? 'block': 'none'" (newValue)="onValueChange($event)" (dragStart)="onDragStart('value')" (dragEnd)="onDragEnd('value')"> -->
+      <div #valueSlider class="value" [pebSlider] [rgX]="1" (newValue)="onValueChange($event)" (dragStart)="onDragStart('value')" (dragEnd)="onDragEnd('value')">
+        <div
+          class="cursor"
+          [style.background-color]="'hsl(0, 0%, ' + (100 - (100 / (230 / (slider?.v + 8)))) + '%)'"
+          [style.right.px]="(slider?.v + 8) / (230 / valueSlider.offsetWidth) - 8"
+        ></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="opacity">
+    <span>{{ 'builder-app.styles.opacity' | translate }}</span>
+
+    <div class="slider">
+      <div #alphaSlider class="alpha" [pebSlider] [rgX]="1" [style.display]="cpAlphaChannel === 'disabled' ? 'none' : 'block'" (newValue)="onAlphaChange($event)" (dragStart)="onDragStart('alpha')" (dragEnd)="onDragEnd('alpha')">
+        <div class="fill" [style.left.px]="slider?.a + 8"></div>
+        <div class="cursor" [style.left.px]="slider?.a"></div>
+      </div>
+      <div class="input">
+        <input type="number" pattern="[0-9]+([\.,][0-9]{1,2})?" min="0" max="1" step="0.1" [pebText] [rg]="1" [value]="rgbaText?.a * 100" (keyup.enter)="onAcceptColor($event)" (newValue)="onAlphaInput($event)" />
+        <span class="input-unit">%</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <span>{{ 'builder-app.color.hex' | translate }}</span>
+    <input [pebText] [value]="hexText" (blur)="onHexInput(null)" (keyup.enter)="onAcceptColor($event)" (newValue)="onHexInput($event)"/>
+    <div class="rgb">
+      <input type="number" pattern="[0-9]*" min="0" max="255" [pebText] [rg]="255" [value]="rgbaText?.r" (keyup.enter)="onAcceptColor($event)" (newValue)="onRedInput($event)" />
+      <input type="number" pattern="[0-9]*" min="0" max="255" [pebText] [rg]="255" [value]="rgbaText?.g" (keyup.enter)="onAcceptColor($event)" (newValue)="onGreenInput($event)" />
+      <input type="number" pattern="[0-9]*" min="0" max="255" [pebText] [rg]="255" [value]="rgbaText?.b" (keyup.enter)="onAcceptColor($event)" (newValue)="onBlueInput($event)" />
+    </div>
+  </div>
+
+</div>

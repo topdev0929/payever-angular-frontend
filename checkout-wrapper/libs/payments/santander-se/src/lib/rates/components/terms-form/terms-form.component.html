@@ -1,0 +1,11 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup">
+  <mat-checkbox
+    formControlName="acceptConditions"
+    analyticFieldName="Accept conditions"
+    [analyticsConsent]="analyticConsentEventEnum.GENERAL_CONSENT_GIVEN"
+    (click)="onLabelClick($event)">
+    <span [innerHTML]="translations.acceptConditions"></span>
+  </mat-checkbox>
+</form>

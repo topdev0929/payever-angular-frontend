@@ -1,0 +1,18 @@
+<pe-modal
+  [baseViewConfig]="'small'"
+  [viewConfig]="{
+    classes: {modalBody : bodyZeroPadding ? 'zero-padding' : '',
+    modalDialog: 'col-lg-7 col-md-8 col-sm-9 col-xs-12'},
+    styles: {modal: backgroundStyle}
+   }"
+  [doHide]="hider"
+  (onClose)="back()"
+  [showLoading]="loading"
+  [baseButtons]="'close'"
+  [buttons]="buttons">
+
+  <h2>H2 header</h2>
+  <p>One fine body…</p>
+
+</pe-modal>
+<pe-icons-set></pe-icons-set>

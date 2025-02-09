@@ -1,0 +1,12 @@
+@import "../../../../../../../../node_modules/@pe/ui-kit/scss/pe_variables";
+
+.menu-list {
+  .mat-list-item-title-size-md {
+    font-size: $font-size-large-2;
+  }
+
+  .item-padding {
+    height: $margin-adjust * 12.5!important;
+    padding: 0 $margin-adjust * 2 0 $margin-adjust * 3.25;
+  }
+}

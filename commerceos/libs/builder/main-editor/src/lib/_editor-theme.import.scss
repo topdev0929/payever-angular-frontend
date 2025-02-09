@@ -1,0 +1,14 @@
+@use 'pe_theming' as pet;
+@use './dialogs/favicon/favicon-theme.dialog' as favicon;
+@use './dialogs/scripts/script-theme.dialog' as scripts;
+@use './dialogs/scripts/script-form-theme.dialog' as script_form;
+@use './dialogs/integration-connect/integration-connect-theme.dialog' as integration_connect;
+@use './dialogs/integration-import/integration-import-theme.dialog' as integration_import;
+@mixin theme($theme-config) {
+    $color-config: pet.get-color-config-from-theme($theme-config);
+    @include favicon.color($color-config);
+    @include scripts.color($color-config);
+    @include script_form.color($color-config);
+    @include integration_connect.color($color-config);
+    @include integration_import.color($color-config);
+}

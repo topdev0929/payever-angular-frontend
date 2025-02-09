@@ -1,0 +1,52 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+:host {
+  form {
+    flex-wrap: wrap;
+    .seperator {
+      width: 1px;
+      background-color: $color-secondary-5;
+      height: 25px;
+      margin-right: 10px;
+    }
+  }
+  .text-editor-action {
+    color: $color-secondary-0;
+    height: 22px;
+    line-height: 18px;
+    text-align: center;
+    width: 35px;
+    border-radius: 5px;
+    background: none;
+    border: none;
+    outline: none;
+    margin-right: 10px;
+    &.active {
+      background-color: $color-secondary-2;
+    }
+  }
+  .toolbar-color-picker {
+    width: 50px;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    margin-right: 10px;
+    height: 20px;
+  }
+  .right-space {
+    margin-right: 12px;
+  }
+}
+:host::ng-deep {
+  .vertical-padding-0 {
+    pe-checkbox {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+  }
+  .toolbar-font-family {
+    padding-top: 5px;
+    width: 100px;
+  }
+}

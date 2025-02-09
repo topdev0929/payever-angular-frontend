@@ -1,0 +1,22 @@
+<div class="pe-payment-container">
+  <santander-se-rates-form
+    #form
+    (selectRate)="onSelectRate($event)"
+    (ratesLoadingError)="onRatesLoadingError($event)"
+    (submitted)="onSubmitted($event)">
+  </santander-se-rates-form>
+
+  <checkout-sdk-finish-wrapper
+    *ngIf="showFinishWrapper$ | async as showFinish"
+    [isLoading]="false"
+    [embeddedMode]="embeddedMode"
+    [merchantMode]="merchantMode"
+    [buttons]="finishWrapperButtons$ | async">
+    <div class="h5">{{showFinish.title}}</div>
+    <p>{{showFinish.text}}</p>
+    <br /><br />
+    <p>
+      <svg class="icon icon-64"><use xlink:href="#icon-bankid"></use></svg>
+    </p>
+  </checkout-sdk-finish-wrapper>
+</div>

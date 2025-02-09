@@ -1,0 +1,24 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/spec",
+    "baseUrl": "./",
+    "inlineSourceMap": true,
+    "types": [
+      "jasmine",
+      "lodash",
+      "node",
+      "swiper"
+    ]
+  },
+  "files": [
+    "polyfills.ts",
+    "test.ts"
+  ],
+  "include": [
+    "../kit/**/*.ts"
+  ],
+  "exclude": [
+    "**/*.example.ts",
+  ]
+}

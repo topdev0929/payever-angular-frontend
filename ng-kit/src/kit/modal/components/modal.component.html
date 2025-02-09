@@ -1,0 +1,42 @@
+<div class="modal fade {{ mergedViewConfig.classes?.modal }}"
+     bsModal #modal="bs-modal" [config]="{
+        keyboard: mergedViewConfig?.closeOnEsc,
+        backdrop: mergedViewConfig?.closeOnBackdrop ? false : 'static'
+      }"
+     [ngStyle]="mergedViewConfig.styles?.modal" role="dialog"
+     [ngClass]="{'modal-bg-gray': grayBG }" tabindex="-1">
+  <div class="modal-dialog pe-bootstrap {{ mergedViewConfig.classes?.modalDialog }}"
+       [ngStyle]="mergedViewConfig.styles?.modalDialog" role="document">
+    <div *ngIf="mergedViewConfig.showCloseIcon" class="modal-close">
+      <button (click)="hide()" type="button" class="btn btn-default btn-xs btn-link btn-inline" aria-label="Close">
+        <svg class="icon icon-16"><use xlink:href="#icon-x-16"/></svg>
+      </button>
+    </div>
+    <div class="modal-content {{ mergedViewConfig.classes?.modalContent }}" [ngStyle]="mergedViewConfig.styles?.modalContent">
+      <div *ngIf="mergedViewConfig.showHeader" class="modal-header {{ mergedViewConfig.classes?.modalHeader }}"
+           [ngStyle]="mergedViewConfig.styles?.modalHeader">
+        <ng-content select="[header]"></ng-content>
+      </div>
+      <div class="modal-body {{ mergedViewConfig.classes?.modalBody }}" [ngStyle]="mergedViewConfig.styles?.modalBody">
+        <div *ngIf="showLoading" class="loader_48"></div>
+        <div [class.transparent-content]="showLoading">
+          <ng-content></ng-content>
+        </div>
+      </div>
+      <div *ngIf="orderedButtons && orderedButtons.length > 0" class="modal-footer {{ mergedViewConfig.classes?.modalFooter }}"
+           [ngStyle]="mergedViewConfig.styles?.modalFooter">
+        <div class="row">
+          <div class="col-xs-12">
+            <button *ngFor="let button of orderedButtons" (click)="processButtonClick(button)"
+                    [disabled]="isButtonDisabled(button)" class="btn {{ button.classes }}"
+                    [attr.data-dismiss]="button.dismiss" [innerHtml]="button.title" type="button"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="mergedViewConfig.showTitle" class="modal-title {{ mergedViewConfig.classes?.modalTitle }}"
+         [ngStyle]="mergedViewConfig.styles?.modalTitle">
+      <ng-content select="[title]"></ng-content>
+    </div>
+  </div>
+</div>

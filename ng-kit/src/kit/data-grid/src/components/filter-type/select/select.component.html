@@ -1,0 +1,41 @@
+<form class="form-table" novalidate (ngSubmit)="onSubmitForm()" #filterForm="ngForm">
+  <div class="form-fieldset-container transparent round-corners">
+    <div class="form-fieldset form-fieldset-no-margin">
+      <div class="row">
+        <div class="col-xs-12" (click)="$event.stopPropagation()">
+          <div class="pe-input">
+            <mat-form-field>
+              <mat-select [(ngModel)]="filter.condition"
+                          [panelClass]="'mat-select-panel-dark'"
+                          name="condition"
+              >
+                <mat-option *ngFor="let option of conditions"
+                            (click)="$event.stopPropagation()"
+                            [value]="option.value"
+                >{{ option.label }}</mat-option>
+              </mat-select>
+              <mat-label>Condition</mat-label>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-xs-12" (click)="$event.stopPropagation()">
+          <div class="pe-input">
+            <mat-form-field>
+              <mat-select panelClass="mat-select-transparent"
+                          [(ngModel)]="filter.value"
+                          [panelClass]="'mat-select-panel-dark'"
+                          name="value"
+              >
+                <mat-option *ngFor="let option of options"
+                            (click)="$event.stopPropagation()"
+                            [value]="option.value"
+                >{{ option.label }}</mat-option>
+              </mat-select>
+              <mat-label>Options</mat-label>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

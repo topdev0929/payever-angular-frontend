@@ -1,0 +1,30 @@
+<div class="checkout-menu-list" *ngIf="menuList">
+  <peb-form-background>
+    <div *ngIf="menuList.length === 0" class="checkout-menu-list__empty">
+      {{ titleForEmptyField }}
+    </div>
+    <ng-container *ngFor="let item of menuList; let i = index">
+      <div>
+        <div class="checkout-menu-list__item">
+          <div class="checkout-menu-list__item-title">
+            {{ item.name }}
+          </div>
+          <peb-button-toggle
+            *ngIf="item.isToggled"
+            [checked]="item.active"
+            (changed)="changedToggle.emit(item)"
+          ></peb-button-toggle>
+          <button
+            class="checkout-menu-list__item-button"
+            *ngIf="item.isButton"
+            peb-text-button
+            (click)="clickedButton.emit(item.title)"
+            color="confirm"
+          >
+            {{ 'actions.read' | translate }}
+          </button>
+        </div>
+      </div>
+    </ng-container>
+  </peb-form-background>
+</div>

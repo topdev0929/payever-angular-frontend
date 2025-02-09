@@ -1,0 +1,603 @@
+{
+  "payment-santander-de-pos": {
+    "actions": {
+      "apply": "Apply",
+      "continue": "Continue",
+      "tryAgain": "Try again",
+      "sendInquiry": "Send finance inquiry",
+      "pay": "Pay"
+    },
+    "creditRates": {
+      "actions": {
+        "rateChooseSummary": "Choose {{ monthlyPayment }} for {{ duration }}",
+        "rateChooseComfortCard": "{{ monthlyPayment }} select minimum rate"
+      },
+      "error": {
+        "rateNotSelected": "Please select rate",
+        "ratesListEmpty": "No rates available",
+        "ratesLimit": "Installment calculation not possible (under/exceeding the minimum/maximum running time)"
+      },
+      "rateTitle": "{{ subsequentInstalment }}/month for {{ duration }} months",
+      "rateParam": {
+        "duration": "Duration",
+        "subsequentInstalment": "Subsequent instalment",
+        "lastInstalment": "Last instalment",
+        "cpiTotal": "CPI total",
+        "cpiTariff": "CPI tariff",
+        "effectiveRateOfInterest": "Effective rate",
+        "effectiveRateOfInterestBank": "Effective rate of bank",
+        "loanAmount": "Loan amount",
+        "totalLoan": "Total loan",
+        "total": "Total",
+        "loanFee": "Loan fee",
+        "processingFee": "Processing fee",
+        "processingFeePercentage": "Processing fee percentage",
+        "interestPa": "Interest Pa",
+        "firstRateOn": "First rate on"
+      },
+      "month": "month",
+      "months": "months",
+      "durationValueFormatted": "{{duration}} {{label}}",
+      "ccpRate": {
+        "title": "Anfängliche Mindestrate {{rate}}",
+        "description": "Die ersten {{months}} Monate sind zinsfrei"
+      }
+    },
+    "desiredInstalment": {
+      "button": "Desired instalment",
+      "label": "Desired instalment",
+      "warning": "Desired instalment must be applied"
+    },
+    "inquiry": {
+      "finish": {
+        "adoption": {
+          "stepper": {
+            "credit_check": "Kreditprüfung",
+            "identity_check": "Indentitals-Prüfung",
+            "digital_signature": "Digitale Unterschrift"
+          },
+          "self": {
+            "thanks": "Vielen Dank!",
+
+            "note1": "Herzlichen Glückwunsch, Ihre Kreditanfrage wurde genehmigt!",
+            "note2": "Bitte suchen Sie jetzt einen Service-Mitarbeiter auf.",
+            "note3": "Ein Mitarbeiter wird kurz Ihren Ausweis abgleichen, um Ihre Identität zu verifizieren.",
+            "note4": "Bitte schließen Sie dieses Fenster nicht!",
+            "note5": "Nachdem der Mitarbeiter Ihre Identifizierung abgeschlossen hat, klicken Sie bitte auf den untenstehenden Button, um zum nächsten Schritt zu gehen.",
+
+            "note1indecision": "Ihre Kreditanfrage wurde übermittelt!",
+            "note2indecision": "Bitte suchen Sie jetzt einen Service-Mitarbeiter auf.",
+            "note3indecision": "Ein Mitarbeiter wird kurz Ihren Ausweis abgleichen, um Ihre Identität zu verifizieren.",
+            "note4indecision": "Bitte schließen Sie dieses Fenster nicht!",
+            "note5indecision": "Nachdem der Mitarbeiter Ihre Identifizierung abgeschlossen hat, leiten wir Sie zum nächsten Schritt weiter.",
+
+            "note6": "Ihre Identifizierung war erfolgreich.",
+            "note7": "Ihre Kreditanfrage wird derzeit noch geprüft - bitte haben Sie etwas Geduld!",
+            "note8": "Sobald uns eine Genehmigung Ihrer Kreditanfrage seitens der Bank vorliegt, senden wir Ihnen eine Email mit einem Link, der Sie zur digitalen Signatur führt.",
+            "note9": "Mit Klick auf den Link können Sie Ihren Vertrag unterzeichnen (kein Drucker erforderlich) und damit den Prozess abschließen.",
+            "note10": "Unterschreiben Sie nun bitte noch Ihren Vertrag über unseren Partner WebID (Sie erhalten eine TAN per SMS auf Ihr Handy, dieses Verfahren ersetzt hier die traditionelle Unterschrift).",
+            "note11": "Sie haben Ihren Vertrag mit der Antragsnummer <b>{{applicationNo}}</b> rechtsgültig unterschrieben.",
+            "note12": "Wie geht es jetzt weiter?",
+            "note13": "Bitte suchen Sie einen Service-Mitarbeiter auf und zeigen Sie diesen Bildschirm vor. Dieser wird kurz prüfen, ob Ihr Antrag vollständig ist.",
+            "note14": "Ist der Antrag vollständig, können Sie die Ware direkt mitnehmen, sollte noch etwas fehlen, informiert Sie der Mitarbeiter über die weiteren Schritte.",
+            "button1": "Identifizierung erfolgt",
+            "button2": "Jetzt unterschreiben",
+            "form": {
+              "data_transfer": "Ich erkläre mich einverstanden mit der Datenweiterleitung an die WebID Solution GmbH.*",
+              "conditions": "Ich stimme den AGB der WebID Solution GmbH zu.*",
+              "dataProtection": "Ich stimme den Datenschutzbestimmungen der WebID Solution GmbH zu.*"
+            }
+          },
+          "merchant": {
+            "note1": "Herzlichen Glückwunsch, die Kreditenfrage wurde genehmigt!",
+            "note2": "Digitale Signatur",
+            "note3": "Ihr Kunde erhält einen Link zur digitalen Signatur per Email den er auf dem eigenen Smartphone öffnet und dort den Vertrag mittels SMS-TAN Verfahren unterzeichnet.",
+            "note4": "Sie brauchen weder Drucker noch Scanner, jeder unterzeichnende Kunde benötigt jedoch ein eigenes Smartphone mit Zugang zum Internet.",
+            "note5": "Bei mehreren Kunden lassen Sie die Kunden bitte einzeln nacheinander unterzeichnen.",
+
+            "note6": "Sie haben die Vertragsdokumente heruntergeladen.",
+            "note7": "Bitte drucken Sie diese in zweifacher Ausfertigung aus, lassen Sie beide unterzeichnen, reichen Sie postalisch bei Santander ein und geben Sie die andere dem/der Kund/in mit.",
+            "note8": "Bitte achten Sie darauf, das alle gekennzeichneten Felder von dem/den Antragsteller/n unterzeichnet wurden.",
+            "note9": "Anschließend suchen Sie bitte diese Bestellung unter „Transactions” heraus und bestätigen noch die Prüfung des/der Ausweise/s durch Sie (je nach Betrag kann zudem ein Upload weiterer Dokumente notwendig sein).",
+            "note10": "Anschließend können Sie die Ware ausgeben!",
+
+            "note11": "Der Vertrag wurde erfolgreich zur digitalen Unterzeichnung an Ihren Kunden versendet.",
+            "note12": "Nachdem Ihr/e Kunde/n die digitale Unterschrift abgeschlossen hat/haben, suchen Sie bitte diese",
+            "note13": "Bestellung unter „Transactions” heraus und bestätigen noch die Prüfung des/der Ausweise/s durch Sie (je nach Betrag kann zudem ein Upload weiterer Dokumente notwendig sein).",
+            "note14": "Anschließend können Sie die Ware ausgeben!",
+
+            "note15": "<b>Alternativ: Klassische Unterschrift</b> Klicken Sie <a target=\"_blank\" href=\"{{contractLink}}\">hier</a>, um den Vertrag herunterzuladen. Drucken Sie den Vertrag aus, lassen Sie ihn unterschreiben, und reichen Sie ihn postalisch bei der Santander ein (Original, keine Kopien/Scans).",
+            "button1": "Link versenden",
+            "button2": "Link versenden",
+            "borrower":"(Darlehensnehmer {{personNumber}})",
+            "sended_link": "Link sent. Waiting for signature."
+          }
+        },
+        "processing": {
+          "title": "Request can take a few minutes. Please do not click away",
+          "text": "We are processing your payment"
+        },
+        "pending": {
+          "title": "Your application has been sent to Santander",
+          "text": "When your application has been processed you will get a response via SMS",
+          "terminalLinkTitle": "Return to the terminal"
+        },
+        "success": {
+          "title": "Success",
+          "text": "Thank you! Your order has been placed"
+        },
+        "merchant-pending": {
+          "title": "Ihre Kreditanfrage wird derzeit noch geprüft - bitte haben Sie etwas Geduld!",
+          "text1": "Sobald uns eine Genehmigung oder vorläufige Genehmigung unter Auflagen Ihrer Kreditanfrage seitens der Bank vorliegt, senden wir Ihrem/n Kunden eine Email mit einem Link, der zur digitalen Signatur führt. Mit Klick auf den Link können Kunden Ihren Kreditvertrag unterzeichnen (kein Drucker erforderlich) und damit den Prozess abschließen.",
+          "text2": "Ob die Prüfung durch die Bank schon stattgefunden hat, erkennen Sie an der Kreditantwort oder am PSP Status. In der Regel erfolgt die Prüfung noch taggleich, sofern Sie sich innerhalb der Geschäftszeiten der Bank bewegen. Andernfalls erfolgt die Prüfung am nächsten Werktag"
+        },
+        "fail": {
+          "title": "Unfortunately, we can not provide you with a loan at this time."
+        }
+      },
+      "filePicker": {
+        "id_card": "Personalausweis",
+        "passport": "Reisepass",
+        "residencePermit": "Residence permit",
+        "registrationCertificate": "Registration certificate",
+        "drugFilesHere": "Or drug files here",
+        "uploaded": "Hochgeladen",
+        "actions": {
+          "takePhoto": "Take Photo",
+          "chooseFile": "Choose file",
+          "pickPhoto": "Pick photo",
+          "makeNew": "Make a new one"
+        },
+        "labels": {
+          "documentFront": "Vorderseite",
+          "documentBack": "Rückseite"
+        },
+        "errors": {
+          "noCameraAccess": "Camera access was not allowed by user!",
+          "tooBigFile": "File \"{{fileName}}\" is too big. Limit is {{fileSize}}mb."
+        },
+        "pleaseProvideAdditionalDocs": "Please note that when uploading a passport, we additonally require a proof of the customer's current address/residence. For EU citizens, please upload a registration certificate, for non-EU citizens, please upload picures of the residence permit card (front and back side)."
+      },
+      "identify": {
+        "title": "Bitte weisen Sie sich aus",
+        "pleaseProvideDocs": "Um mit Ihnen einen Kreditvertrag abschließen zu können, sind wir gesetzlich dazu verpflichtet, Sie anhand Ihres Ausweisdokumentes zu legitimieren. Bitte stellen Sie uns daher ein Foto Ihres Personalausweises oder Reisepasses zur Verfügung (bei Personalausweisen bitte beide Seiten).",
+        "pleaseProvideDocsMerchant": "Um mit Ihnen einen Kreditvertrag abschließen zu können, sind wir gesetzlich dazu verpflichtet, Sie anhand Ihres Ausweisdokumentes zu legitimieren. Bitte stellen Sie uns daher ein Foto Ihres Personalausweises oder Reisepasses zur Verfügung (bei Personalausweisen bitte beide Seiten).",
+        "safetyNote": "Ihre Daten sind sicher",
+        "agreementDetails": "Wir übermitteln Ihre Ausweisdaten ausschließlich an die WebID Solutions GmbH, Friedrichstraße 88, 10117 Berlin, zur Identitäts-Prüfung, sowie an den Kreditgeber, die Santander Consumer Bank AG, Santander-Platz 1, 41061 Mönchengladbach. Mit Klick auf „Daten absenden“ erklären Sie sich damit einverstanden.",
+        "textDanger": "Please upload passport",
+        "dataSaved": "Saved!",
+        "actions": {
+          "submitData": "Daten absenden",
+          "continue": "Continue"
+        }
+      },
+      "sections": {
+        "bank": {
+          "title": "Bankverbindung"
+        },
+        "employment": {
+          "title": "Beschäftigungsverhältnis"
+        },
+        "study": {
+          "title": "Studium"
+        },
+        "prev_address": {
+          "title": "Frühere Adresse"
+        },
+        "protection": {
+          "title": "Ratenschutzversicherung",
+          "unemployment": "Arbeitslosigkeit*",
+          "temporary_unemployment": "Vorübergehende Arbeitslosigkeit",
+          "temporary_incapacity": "Vorübergehende Arbeitsunfähigkeit*",
+          "death": "Todesfall",
+          "yes": "Ja, Sorgenfrei-Paket buchen!",
+          "no": "Nein, danke",
+          "subhead": "Möchten Sie sich für mit unserem <b><a target=\"_blank\" href=\"https://www.santander.de/content/pdf/informationen/informationsblatt-und-versicherungsbedingungen-zur-rsv.pdf\">Sorgenfrei-Paket</a></b> absichern für nur {{customString}}?",
+          "options_title": "Durch Wahl dieser Option ergeben sich folgende Änderung für Ihre zuvor gewählte Ratenzahlung:",
+          "options": {
+            "monthly_installments": "Monatliche Ratenzahlung: {{newValue}} statt {{oldValue}}",
+            "total_loan": "Kreditbetrag insgesamt: {{newValue}} statt {{oldValue}}",
+            "duration": "Laufzeit: {{newValue}} statt {{oldValue}}",
+            "last_installment": "Letzte Rate: {{newValue}} statt {{oldValue}}"
+          },
+          "values": {
+            "interest_rate": "{{value}}/Monat auf den Restsaldo"
+          },
+          "note2": "Durch Wahl dieser Option erhöht sich Ihre monatliche Ratenzahlung von {{subsequentInstalment1}} auf {{subsequentInstalment2}} (neuer Kreditbetrag {{totalLoan2PlusDownPayment}} statt {{totalLoan1PlusDownPayment}}). Sie stimmen mit Klick auf „Ja, Sorgenfrei-Paket buchen!” zudem der für das Sorgenfrei-Paket erforderlichen <a target=\"_blank\" href=\"https://www.santander.de/content/pdf/informationen/informationsblatt-datenverarbeitung-und-weitergabe-fuer-rsv.pdf\">Datenverarbeitung und Weitergabe</a> zu.",
+          "merchant": {
+            "dataForwardingRsv": "Der Kunde willigt ein, dass für die Bearbeitung seines Versicherungsvertrags mit der CNP Santander Insurance Life DAC und/oder der CNP Santander Insurance Europe DAC seine personenbezogenen Daten an Dritte weitergeleitet werden können und entbindet den/die Versicherer von seinen/ihren Pflichten im Hinblick auf die nach § 203 StGB geschützten Daten. Einzelheiten finden Sie <a target=\"_blank\" href=\"https://www.santander.de/content/pdf/informationen/informationsblatt-datenverarbeitung-und-weitergabe-fuer-rsv.pdf\">hier</a>",
+            "comfort_dataForwardingRsv": "Der Kunde willigt ein, dass für die Bearbeitung seines Versicherungsvertrags mit der CNP Santander Insurance Life DAC und/oder der CNP Santander Insurance Europe DAC seine personenbezogenen Daten an Dritte weitergeleitet werden können und entbindet den/die Versicherer von seinen/ihren Pflichten im Hinblick auf die nach § 203 StGB geschützten Daten. Einzelheiten finden Sie <a target=\"_blank\" href=\"https://www.santander.de/content/pdf/informationen/informationsblatt-datenverarbeitung-und-weitergabe-fuer-rsv.pdf\">hier</a>"
+          },
+          "self_service": {
+            "dataForwardingRsv": "Ich willige ein, dass für die Bearbeitung meines Versicherungsvertrags mit der CNP Santander Insurance Life DAC und/oder der CNP Santander Insurance Europe DAC meine personenbezogenen Daten an Dritte weitergeleitet werden können und entbinde den/die Versicherer von seinen/ihren Pflichten im Hinblick auf die nach § 203 StGB geschützten Daten. Einzelheiten finden Sie <a target=\"_blank\" href=\"https://www.santander.de/content/pdf/informationen/informationsblatt-datenverarbeitung-und-weitergabe-fuer-rsv.pdf\">hier</a>",
+            "comfort_dataForwardingRsv": "Ich willige ein, dass für die Bearbeitung meines Versicherungsvertrags mit der CNP Santander Insurance Life DAC und/oder der CNP Santander Insurance Europe DAC meine personenbezogenen Daten an Dritte weitergeleitet werden können und entbinde den/die Versicherer von seinen/ihren Pflichten im Hinblick auf die nach § 203 StGB geschützten Daten. Einzelheiten finden Sie <a target=\"_blank\" href=\"https://www.santander.de/content/pdf/informationen/informationsblatt-datenverarbeitung-und-weitergabe-fuer-rsv.pdf\">hier</a>"
+          },
+          "information_package": {
+            "title": "Informationen Sorgenfrei-paket",
+            "self_service": {
+              "insurance_conditions": "<a href='https://www.santander.de/content/pdf/informationen/allgemeine-versicherungsbedingungen-rsv-girokonten-karten.pdf' target='_blank'>Versicherungsbedingungen</a>",
+              "product_information_sheet": "<a href='{{fileUrl}}' target='_blank'>Produktinformationsblatt</a>",
+              "comfort_insurance_conditions": "<a href='https://www.santander.de/content/pdf/informationen/allgemeine-versicherungsbedingungen-rsv-girokonten-karten.pdf' target='_blank'>Versicherungsbedingungen</a>",
+              "comfort_product_information_sheet": "<a href='{{fileUrl}}' target='_blank'>Produktinformationsblatt</a>"
+            },
+            "merchant": {
+              "insurance_conditions": "<a href='https://www.santander.de/content/pdf/informationen/allgemeine-versicherungsbedingungen-rsv-durables.pdf' target='_blank'>Versicherungsbedingungen</a>",
+              "product_information_sheet": "<a href='{{fileUrl}}' target='_blank'>Produktinformationsblatt</a>",
+              "comfort_insurance_conditions": "<a href='https://www.santander.de/content/pdf/informationen/allgemeine-versicherungsbedingungen-rsv-girokonten-karten.pdf' target='_blank'>Versicherungsbedingungen</a>",
+              "comfort_product_information_sheet": "<a href='{{fileUrl}}' target='_blank'>Produktinformationsblatt</a>"
+            }
+          }
+        }
+      },
+      "steps": {
+        "borrower": "Darlehensnehmer {{personNumber}}",
+        "borrowerShort": "DN {{personNumber}}",
+        "ratesAndPrimary": {
+          "title": "Zahlart auswählen"
+        },
+        "customerIdentify": {
+          "title": "Ausweisprüfung"
+        },
+        "customerAddress": {
+          "title": "Persönliche Angaben"
+        },
+        "customerPersonalAndBank": {
+          "title": "Weitere Angaben"
+        },
+        "customerIncomeAndEmploymentOrStudy": {
+          "title": "Einnahmen & Ausgaben"
+        },
+        "guarantorIdentify": {
+          "title": "Guarantor Ausweisprüfung"
+        },
+        "guarantorAddress": {
+          "title": "Guarantor Address"
+        }
+      },
+      "form": {
+        "_borrowerActsOnItsOwnAccount": {
+          "label": "Der/die Darlehensnehmer handelt/handeln auf eigene Rechnung"
+        },
+        "_borrowerAgreeToBeAdvised": {
+          "label": "Der (die) Kreditnehmer willigen ein, zukünftig von Santander <a target=\"_blank\" href=\"https://www.santander.de/static/datenschutzhinweise/rechnungskauf/werbehinweise.html\">beraten und informiert</a> zu werden."
+        },
+        "_borrowerWasGivenRelevantPrivacyPolicy": {
+          "label": "Ich bestätige hiermit, dem/den Darlehensnehmer (n) die entsprechenden <a target=\"_blank\" href=\"#\">Datenschutzhinweise</a> ausgehändigt zu haben (die Kreditanfrage löst eine Datenübermittlung und Datenerfassung zum Zwecke der Bonitätsprüfung aus)."
+        },
+        "webIdConditionsAccepted": {
+          "label": "I confirm that the customers agree with the webID terms & conditions for digital signing"
+        },
+
+        "_agreeToBeAdvised": {
+          "label": "Darf Santander Sie <a target=\"_blank\" href=\"https://www.santander.de/static/datenschutzhinweise/rechnungskauf/werbehinweise.html\">beraten und informieren</a>?"
+        },
+
+        "commodityGroup": {
+          "label": "Commodity group"
+        },
+        "_condition_view": {
+          "label": "Program"
+        },
+        "condition": {
+          "label": "Condition"
+        },
+        "_program_view": {
+          "label": "Rate",
+          "valuePattern": "Programm {{program}}"
+        },
+        "customer.personalDateOfBirth": {
+          "label": "Date of birth"
+        },
+        "customer.profession": {
+          "label": "Profession"
+        },
+        "downPayment": {
+          "label": "Down payment"
+        },
+        "typeOfGuarantorRelation": {
+          "label": "Second borrower"
+        },
+        "_customWeekOfDelivery_view": {
+          "label": "Woche auswählen"
+        },
+        "_weekOfDelivery_view": {
+          "label": "Lieferwoche",
+          "value": {
+            "this_week": "Diese Woche",
+            "next_week": "Nächste Woche",
+            "other_week": "Andere Woche"
+          }
+        },
+        "dayOfFirstInstalment": {
+          "label": "Fälligkeitsdatum",
+          "value": {
+            "1": "1. des Monats",
+            "15": "15. Tag des Monats"
+          }
+        },
+        "creditProtectionInsurance": {
+          "label": "Credit Protection Insurance"
+        },
+        "applyForOwnAccount": {
+          "label": "Apply For Own Account"
+        },
+        "acceptDataPrivacy": {
+          "label": "Accept Data Privacy"
+        },
+        "acceptSchufaInformation": {
+          "label": "Accept Schufa Information"
+        },
+        "acceptDataForwardingRsv": {
+          "label": "Accept Data Forwarding Rsv"
+        },
+        "acceptDataForwardingRsvCcp": {
+          "label": "Accept Data Forwarding Rsv CCP"
+        },
+        "customer._isTemporayUntil": {
+          "label": "Employment limited"
+        },
+        "guarantor._isTemporayUntil": {
+          "label": "Employment limited"
+        },
+
+        "customer.addressResidentSince": {
+          "label": "Address Resident Since"
+        },
+        "customer.addressPhoneNumber": {
+          "label": "Address Landline Number"
+        },
+        "customer.addressMobilePhoneNumber": {
+          "label": "Address Phone Number"
+        },
+        "customer.identificationNumber": {
+          "label": "Identification Number",
+          "error": "Special characters not allowed (!\"§$%&=?,;*+#)"
+        },
+        "customer.identificationPlaceOfIssue": {
+          "label": "Identification Place Of Issue"
+        },
+        "customer.identificationDateOfIssue": {
+          "label": "Identification Date Of Issue"
+        },
+        "customer.identificationDateOfExpiry": {
+          "label": "Identification Date Of Expiry"
+        },
+        "customer.identificationIssuingAuthority": {
+          "label": "Identification Issuing Authority"
+        },
+        "customer.numberOfChildren": {
+          "label": "Anzahl Kinder im Haushalt"
+        },
+        "customer.typeOfIdentification": {
+          "label": "Type Of Identification",
+          "value": {
+            "PASSPORT": "Reisepass",
+            "IDCARD": "Personalausweis"
+          }
+        },
+        "customer.typeOfResident": {
+          "label": "Type Of Resident"
+        },
+        "customer.incomeFromRent": {
+          "label": "Rental income (optional)"
+        },
+        "customer.incomeInfo": {
+          "label": "Description of other income",
+          "error": {
+            "only_letters": "Please only letters and spaces, no numbers or special characters"
+          }
+        },
+        "customer.personalMaritalStatus": {
+          "label": "Personal Marital Status"
+        },
+        "customer.personalNationality": {
+          "label": "Personal Nationality"
+        },
+        "customer.personalPlaceOfBirth": {
+          "label": "Personal Place Of Birth"
+        },
+        "customer.personalBirthName": {
+          "label": "Name at birth"
+        },
+
+        "customer.bankIBAN": {
+          "label": "IBAN"
+        },
+        "customer.bankBIC": {
+          "label": "BIC"
+        },
+        "customer.prevAddressResidentSince": {
+          "label": "Aktueller Wohnsitz seit"
+        },
+        "customer.prevAddressStreet": {
+          "label": "Straße"
+        },
+        "customer.prevAddressStreetNumber": {
+          "label": "Hausnummer"
+        },
+        "customer.addressFirstName": {
+          "label": "First name"
+        },
+        "customer.addressLastName": {
+          "label": "Last name"
+        },
+        "customer.addressSalutation": {
+          "label": "Salutation"
+        },
+        "customer.contactEmail": {
+          "label": "Email"
+        },
+        "customer.addressStreet": {
+          "label": "Straße"
+        },
+        "customer.addressStreetNumber": {
+          "label": "Hausnummer"
+        },
+        "guarantor.addressFirstName": {
+          "label": "First name"
+        },
+        "guarantor.addressLastName": {
+          "label": "Last name"
+        },
+        "guarantor.addressSalutation": {
+          "label": "Salutation"
+        },
+        "guarantor.contactEmail": {
+          "label": "Email"
+        },
+        "guarantor.personalDateOfBirth": {
+          "label": "Date of birth"
+        },
+        "guarantor.profession": {
+          "label": "Profession"
+        },
+        "guarantor.addressResidentSince": {
+          "label": "Address Resident Since"
+        },
+        "guarantor.addressPhoneNumber": {
+          "label": "Phone"
+        },
+        "guarantor.addressMobilePhoneNumber": {
+          "label": "Address Phone Number"
+        },
+        "guarantor.identificationNumber": {
+          "label": "Identification Number"
+        },
+        "guarantor.identificationPlaceOfIssue": {
+          "label": "Identification Place Of Issue"
+        },
+        "guarantor.identificationDateOfIssue": {
+          "label": "Identification Date Of Issue"
+        },
+        "guarantor.identificationDateOfExpiry": {
+          "label": "Identification Date Of Expiry"
+        },
+        "guarantor.addressStreet": {
+          "label": "Straße"
+        },
+        "guarantor.addressStreetNumber": {
+          "label": "Hausnummer"
+        },
+        "guarantor.identificationIssuingAuthority": {
+          "label": "Identification Issuing Authority"
+        },
+        "guarantor.numberOfChildren": {
+          "label": "Anzahl Kinder im Haushalt"
+        },
+        "guarantor.typeOfIdentification": {
+          "label": "Type Of Identification",
+          "value": {
+            "PASSPORT": "The Reisepass",
+            "IDCARD": "Personalausweis"
+          }
+        },
+        "guarantor.typeOfResident": {
+          "label": "Type Of Resident"
+        },
+        "guarantor.incomeFromRent": {
+          "label": "Rental income (optional)"
+        },
+        "guarantor.incomeInfo": {
+          "label": "Description of other income",
+          "error": {
+            "only_letters": "Please only letters and spaces, no numbers or special characters"
+          }
+        },
+        "guarantor.personalMaritalStatus": {
+          "label": "Personal Marital Status"
+        },
+        "guarantor.personalNationality": {
+          "label": "Personal Nationality"
+        },
+        "guarantor.personalPlaceOfBirth": {
+          "label": "Personal Place Of Birth"
+        },
+        "guarantor.personalBirthName": {
+          "label": "Name at birth"
+        },
+
+        "guarantor.bankIBAN": {
+          "label": "IBAN"
+        },
+        "guarantor.prevAddressResidentSince": {
+          "label": "Aktueller Wohnsitz seit"
+        },
+        "guarantor.prevAddressStreet": {
+          "label": "Straße"
+        },
+        "guarantor.prevAddressStreetNumber": {
+          "label": "Hausnummer"
+        },
+
+        "customer.netIncome": {
+          "label": "Net Income"
+        },
+        "customer.partnerIncomeNet": {
+          "label": "Partner income (Optional)"
+        },
+        "customer.otherIncomeFromHousehold": {
+          "label": "Other income (Optional)"
+        },
+        "customer.housingCosts": {
+          "mortgage": "Monthly mortgage",
+          "rent": "Monthly rent",
+          "additional": "Monthly additional costs"
+        },
+        "customer.supportPayment": {
+          "label": "Monthly maintenance payment (Optional)"
+        },
+        "customer.employedSince": {
+          "label": "Employed Since"
+        },
+        "customer.employer": {
+          "label": "Employer"
+        },
+        "customer.temporaryEmployedUntil": {
+          "label": "Employed Until"
+        },
+
+        "guarantor.netIncome": {
+          "label": "Net Income"
+        },
+        "guarantor.partnerIncomeNet": {
+          "label": "Partner income (Optional)"
+        },
+        "guarantor.otherIncomeFromHousehold": {
+          "label": "Other income (Optional)"
+        },
+        "guarantor.housingCosts": {
+          "mortgage": "Monthly mortgage",
+          "rent": "Monthly rent",
+          "additional": "Monthly additional costs"
+        },
+        "guarantor.supportPayment": {
+          "label": "Monthly maintenance payment (Optional)"
+        },
+        "guarantor.employedSince": {
+          "label": "Employed Since"
+        },
+        "guarantor.employer": {
+          "label": "Employer"
+        },
+        "guarantor.temporaryEmployedUntil": {
+          "label": "Employed Until"
+        },
+
+        "customer.schoolOrUniversity": {
+          "label": "School Or University"
+        },
+
+        "customer.studySince": {
+          "label": "Study Since"
+        },
+
+        "term": {
+          "self_note": "Obiges Beispiel bildet zugleich das 2/3-Beispiel nach § 6a Abs. 4 PAngV. Darlehensgeber ist die Santander Consumer Bank AG, Santander-Platz 1, 41061 Mönchengladbach, Letzte Rate kann jeweils abweichen Bonität vorausgesetzt.",
+          "self_note_below": "Das Fortfahren der Kreditanfrage über diesen Punkt hinaus löst eine <a target=\"_blank\" href=\"{{url}}\">Datenübermittlung und Datenerfassung</a> zum Zwecke der Bonitätsprüfung (z.B. Schufa) aus.",
+          "merchant_note": "Letzte Rate kann jeweils abweichen. Bonität vorausgesetzt. Darlehensgeber ist die Santander Consumer Bank AG, Santander Platz 1, 41061 Mönchengladbach. Die vorstehenden Angaben bilden zugleich das 2/3-Beispiel nach § 6a Abs. 4 PAngV.",
+          "merchant_note_below": "Hinweis: Ein zweiter Darlehensnehmer erhöht oft die Chancen auf eine Genehmigung und empfiehlt sich z.B. bei Studenten/Auszubildenden, Hausfrau/Hausmann, befristet oder geringfügig/ in Teilzeit Beschäftigten."
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,81 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $content: map.get($color-config, 'content');
+  $input-button-background: map.get($color-config, 'input-button-background');
+  $border: map.get($color-config, 'border');
+  $background: map.get($color-config, 'background');
+  $text-color: map.get($color-config, 'text-color');
+  $label-color: map.get($color-config, 'label-color');
+  $warn: map.get($color-config, 'warn');
+  $confirm: map.get($color-config, 'confirm');
+  $active-text: map.get($color-config, 'active-text');
+  $transparent-color: map.get($color-config, 'transparent-color');
+
+  .picker-container {
+    &__controls {
+      .input-with-label {
+        border-bottom-color: $confirm;
+        .label-text {
+          color: $label-color;
+        }
+        input {
+          color: $text-color;
+          &:-webkit-autofill,
+          &:-webkit-autofill:hover,
+          &:-webkit-autofill:focus,
+          &:-webkit-autofill:active {
+            box-shadow: 0 0 0 30px $transparent-color inset;
+            -webkit-text-fill-color: $text-color;
+          }
+        }
+
+        &__button {
+          background-color: $input-button-background;
+          border-left: solid 1px $background;
+        }
+        &.is-invalid {
+          &::after {
+            transition: none;
+            background-color: $warn;
+          }
+          .label-text{
+            color: $warn;
+          }
+        }
+      }
+
+      .button-container {
+        background-color: $input-button-background;
+      }
+    }
+
+    &.focused {
+      .picker-container__controls {
+          .input-with-label {
+            &.is-invalid {
+              &::after {
+                background-color: $transparent-color;
+              }
+              .label-text{
+                color: $label-color;
+              }
+            }
+          }
+      }
+    }
+
+    .picker-item-container {
+      &__item {
+        &:first-child {
+          border-top: solid 1px $background;
+        }
+        &:not(:last-child) {
+          border-bottom: 1px solid $background;
+        }
+        background-color: $input-button-background;
+        color: $text-color;
+      }
+    }
+  }
+}

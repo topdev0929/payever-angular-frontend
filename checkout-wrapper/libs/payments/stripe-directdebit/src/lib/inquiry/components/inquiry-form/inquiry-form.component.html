@@ -1,0 +1,21 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup"
+  analyticsForm>
+  <div class="form-fieldset-new">
+    <mat-form-field class="col-xs-12">
+      <mat-label i18n="@@payment-stripeDirectDebit.inquiry.form.iban.label"> IBAN </mat-label>
+      <input
+        matInput
+        peInputMask
+        [mask]="ibanMask"
+        [unmask]="ibanUnmask"
+        formControlName="iban"
+        type="text" />
+    </mat-form-field>
+  </div>
+
+  <pe-payment-text type="text">
+    <span [innerHTML]="(translations$ | async).acceptMandate"> </span>
+  </pe-payment-text>
+</form>

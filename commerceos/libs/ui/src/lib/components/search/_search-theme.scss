@@ -1,0 +1,25 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $border: map.get($color-config, 'border');
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $warn: map.get($color-config, 'warn');
+  $content: map.get($color-config, 'content');
+  $text-color: map.get($color-config, 'text-color');
+
+  .pe-search-list {
+    &__item {
+      border-top: 1px solid $overlay-background;
+      background-color: $content;
+    }
+
+    &__item-icon,
+    &__item-content span {
+      color: $text-color;
+    }
+
+    &__item-remove {
+      color: $warn;
+    }
+  }
+}

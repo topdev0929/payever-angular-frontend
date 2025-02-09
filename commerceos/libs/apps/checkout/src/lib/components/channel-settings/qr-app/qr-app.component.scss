@@ -1,0 +1,59 @@
+.connect-qr-modal .overlay-widget .overlay-widget__content {
+  pe-third-party-root-form.third-party-root-form-container {
+    display: flex;
+    width: 100% !important;
+    margin-left: 0 !important;
+  
+    .tpm-outer-container.pe-info-box-container-fixed {
+      width: 100%;
+      min-height: fit-content;
+      margin-left: 0 !important;
+  
+      .pe-info-box {
+        padding: 0;
+        width: 100%;
+        min-width: fit-content;
+  
+        mat-card.mat-card {
+          margin: 0;
+          width: 100%;
+          max-width: 100%;
+  
+          .mat-card-content {
+            .content-wrapper {
+  
+              .mat-accordion .mat-expansion-panel {
+                .mat-expansion-panel-header {
+                  border: none;
+  
+                  .mat-content mat-panel-title {
+                    font-family: Roboto, sans-serif;
+                    font-size: 14px;
+                    font-weight: 500;
+                    padding-left: 0;
+                    text-transform: none;
+                  }
+                }
+  
+                .mat-expansion-panel-body {
+                  padding: 0;
+                }
+  
+                mat-list.mat-list.mat-list-base mat-list-item.mat-list-item{ 
+                    height: auto !important;
+                    .mat-list-item-content {
+                    height: fit-content !important;
+  
+                    .mat-list-item-flex {
+                      padding: 0;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+} 

@@ -1,0 +1,22 @@
+<form
+  class="form-table"
+  [formGroup]="formGroup"
+  analyticsForm>
+  <santander-de-fact-rates-edit-list
+    [params]="ratesParams$ | async"
+    [flowId]="flow.id"
+    [paymentMethod]="paymentMethod"
+    [currency]="flow.currency"
+    [initialRate]="formGroup.get('ratesForm').value"
+    (selectRate)="onSelectRate($event)">
+    <pe-payment-text
+      *ngIf="merchantAddress"
+      type="text"
+      [fixMarginTop]="true">
+      <span [innerHTML]="inquiryExtraText"></span>
+    </pe-payment-text>
+  </santander-de-fact-rates-edit-list>
+  <br />
+  <personal-form formControlName="personalForm"> </personal-form>
+  <terms-form formControlName="termsForm"> </terms-form>
+</form>

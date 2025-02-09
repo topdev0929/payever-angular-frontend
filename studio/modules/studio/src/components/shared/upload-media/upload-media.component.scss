@@ -1,0 +1,108 @@
+.upload-card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100% - 90px);
+  .upload-card {
+    width: 310px;
+    height: 380px;
+    background: #24272e;
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.57);
+    padding: 22px 16px 16px;
+    border-radius: 16px;
+    &__title {
+      margin-top: 15%;
+      font-size: 21px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: #ffffff;
+    }
+    &__desc {
+      margin-top: 15px;
+      font-size: 12px;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    &__btn {
+      display: flex;
+      align-items: center;
+      margin: auto;
+      width: 80%;
+      border: none;
+      padding: 15px 14px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      span {
+        font-size: 12px;
+        margin: 0 auto;
+      }
+      &.upload-card__device {
+        background-image: linear-gradient(to bottom, #ededf4, #aeb0b7 99%);
+        span {
+          color: #000;
+        }
+      }
+      &.upload-card__dropbox {
+        background-image: linear-gradient(to bottom, #31a1ef, #0078d0);
+        span {
+          color: #fff;
+        }
+      }
+      &.upload-card__google {
+        background-color: rgba(0, 0, 0, 0.3);
+        span {
+          color: #fff;
+        }
+      }
+      &.cancel {
+        background-color: rgba(0, 0, 0, 0.15);
+        span {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+.top-header {
+  width: 100vw;
+  background: #111;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 21px;
+  height: 35px;
+
+  &__title {
+    font-size: 21px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: rgba(36, 39, 46, 0.85);
+  }
+  &__close-btn {
+    background: #ffffff45;
+    border: none;
+    font-weight: 500;
+    border-radius: 5px;
+    font-size: 13px;
+    line-height: 20px;
+    padding: 2px 9px;
+  }
+}
+
+:host {
+  position: absolute;
+  left: 45%;
+  top: 20%;
+  *:focus {
+    outline: 0;
+  }
+}

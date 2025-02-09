@@ -1,0 +1,17 @@
+@use 'pe_theming' as pet;
+@use './color-and-style-theme.component' as color_and_style;
+@use './components/global-styles/global-style-theme.component' as global_style_theme;
+@use './components/style-modal-item/style-modal-item-theme.component' as style_modal_item;
+@use './components/style-item/alignment/alignment-theme.component' as alignment;
+@use './components/style-item/corner-select/corner-select-theme.component' as corner_select;
+@use './components/screen-type/_screen-type-theme.component' as screen_type;
+
+@mixin theme($theme-config) {
+    $color-config: pet.get-color-config-from-theme($theme-config);
+    @include color_and_style.color($color-config);
+    @include global_style_theme.color($color-config);
+    @include style_modal_item.color($color-config);
+    @include alignment.color($color-config);
+    @include corner_select.color($color-config);
+    @include screen_type.color($color-config);
+}

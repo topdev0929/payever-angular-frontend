@@ -1,0 +1,22 @@
+:host {
+  display: grid;
+  width: 100%;
+}
+
+.button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  width: 100%;
+  justify-self: var(--alignment);
+
+  .mat-spinner {
+    position: absolute;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    right: auto;
+  }
+}

@@ -1,0 +1,33 @@
+@import 'pe_colors_variables.scss';
+
+
+
+.studio-root {
+  height: 100%;
+}
+
+
+os-commerce .root-container {
+  padding: 0 !important;
+}
+
+cos-next-studio-root {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  top: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.studio-container {
+  height: calc(100% - 56px);
+}
+
+pe-navbar-controls {
+  display: inline-flex !important;
+}
+
+.pe-context-menu ul li span {
+  font-weight: 400;
+}

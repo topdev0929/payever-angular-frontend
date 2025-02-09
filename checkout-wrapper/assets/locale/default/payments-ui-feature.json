@@ -1,0 +1,24 @@
+{
+  "ui": {
+    "date_settings":{
+      "separator": "/",
+      "dayChar": "D",
+      "monthChar": "M",
+      "yearChar": "Y"
+    },
+    "otp_container": {
+      "title": "Enter the code",
+      "subtitle": "Enter {{count}}-digit security code from your message",
+      "info_text": "A message with a verification code has been sent to {{text}}. Enter the code to continue.",
+      "retry_send": "Didn't get the verification code?",
+      "error": {
+        "incorrect_code": "The entered OTP code is incorrect.<br>Please try again or <a>request a new code<a>.",
+        "incorrect_code_one_line": "The entered OTP code is incorrect. Please try again or <a>request a new code<a>.",
+        "default": "Something went wrong, please try again."
+      },
+      "consent": "By ticking this box, you consent to Zinia (Open Bank S.A.), as data controller, sending you customized marketing (by SMS, instant messaging applications, email, push notifications, pop-ups or any other electronic or telematic means) relating to its external source consultations. You can exercise your personal data rights, including withdrawal of your consent, by sending an email to datenschutz.de@zinia.com. For further information, see Zinia's Privacy Policy.",
+      "resend": "Resend code",
+      "cancel": "Cancel"
+    }
+  }
+}

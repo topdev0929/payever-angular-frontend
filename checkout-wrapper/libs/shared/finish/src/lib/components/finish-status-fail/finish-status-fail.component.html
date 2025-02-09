@@ -1,0 +1,51 @@
+<checkout-sdk-finish-status-icon [status]="'fail'"> </checkout-sdk-finish-status-icon>
+<br />
+
+<p
+  class="large-1"
+  *ngIf="title === true"
+  i18n="@@checkout_sdk.finish_status_fail.title">
+  checkout_sdk.finish_status_fail.title
+</p>
+<p
+  class="large-1"
+  *ngIf="title && title !== true"
+  [innerHtml]="title"></p>
+
+<p
+  class="caption-1"
+  *ngIf="text === true"
+  i18n="@@checkout_sdk.finish_status_fail.text">
+  checkout_sdk.finish_status_fail.text
+</p>
+<p
+  class="caption-1"
+  *ngIf="text && text !== true"
+  [innerHtml]="text"></p>
+
+<p
+  class="text-secondary"
+  *ngIf="canChangePaymentMethod"
+  i18n="@@checkout_sdk.finish_status_fail.change_payment_method">
+  checkout_sdk.finish_status_fail.change_payment_method
+</p>
+
+<p
+  class="text-secondary"
+  *ngIf="applicationNumber">
+  {{ translations?.applicationNumber }}
+</p>
+
+<p
+  class="text-secondary"
+  *ngIf="transactionLink">
+  {{ translations?.transactionDetails }}
+</p>
+
+<p
+  class="text-secondary"
+  *ngIf="transactionNumber">
+  <span [innerHTML]="translations?.transactionNumber"></span>
+</p>
+
+<ng-content></ng-content>

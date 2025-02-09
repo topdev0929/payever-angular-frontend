@@ -1,0 +1,12 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+.mat-menu-pe-colorpicker {
+  overflow: hidden !important;
+  border-radius: 0 !important; // TODO Use mixin?
+  box-shadow: 0 2px 11px 4px rgba(17,17,17,.12) !important; // TODO Use mixin?
+  -webkit-mask-image: none !important;
+  .color-picker {
+    border: none;
+  }
+}

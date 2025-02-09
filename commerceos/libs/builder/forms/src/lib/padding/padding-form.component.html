@@ -1,0 +1,15 @@
+<form class="form" [formGroup]="form">
+  <span class="label">
+    {{ 'builder-app.toolbar.padding' | translate }}
+  </span>
+
+  <div class="group__row padding-form">
+    <peb-size-input formControlName="left" prefix="L" [precision]="2" title="Left" [units]="['px']"></peb-size-input>
+    <peb-size-input formControlName="right" prefix="R" [precision]="2" title="Right" [units]="['px']"></peb-size-input>
+    <peb-size-input formControlName="top" prefix="T" [precision]="2" title="Top" [units]="['px']"></peb-size-input>
+    <peb-size-input formControlName="bottom" prefix="B" [precision]="2" title="Bottom"
+      [units]="['px']"></peb-size-input>
+  </div>
+
+  <div [class.readonly]="syncEnabled$ | async" title="auto sync size/position is enabled"></div>
+</form>

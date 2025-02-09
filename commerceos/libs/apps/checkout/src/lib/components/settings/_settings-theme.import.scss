@@ -1,0 +1,17 @@
+@use 'pe_theming' as pet;
+@use './color-and-style/colors-and-style-theme.import' as color_and_style;
+@use './csp/csp-theme.component' as csp;
+@use './language/_language-theme.component' as language;
+@use './policies/_policies-theme.component.scss' as policies;
+@use './notifications/notifications-theme.component' as notification;
+@use './notifications/cron-interval-settings/cron-interval-settings-theme.component' as cron_interval_settings;
+
+@mixin theme($theme-config) {
+    @include color_and_style.theme($theme-config);
+    $color-config: pet.get-color-config-from-theme($theme-config);
+    @include csp.color($color-config);
+    @include language.color($color-config);
+    @include policies.color($color-config);
+    @include notification.color($color-config);
+    @include cron_interval_settings.color($color-config);
+}

@@ -1,0 +1,32 @@
+@use 'SASS:map';
+
+@mixin color($color-config) {
+  $overlay-background: map.get($color-config, 'overlay-background');
+  $card: map.get($color-config, 'card');
+  $confirm: map.get($color-config, 'confirm');
+  $primary: map.get($color-config, 'primary');
+  $label-color: map.get($color-config, 'label-color');
+  $text-color: map.get($color-config, 'text-color');
+  $row-background: map.get($color-config, 'row-background');
+
+  .note {
+    color: $text-color;
+  }
+
+  shipping-goods {
+    .shipping-action {
+      background-color: $primary;
+      color: $confirm;
+    }
+  }
+
+  .product-toggle-wrapper{
+    border-bottom: 1px solid $overlay-background;
+  }
+
+  .shipping-options-wrapper, .shipping-return-options-wrapper {
+    .label-container {
+      justify-content: center!important;
+    }
+  }
+}
